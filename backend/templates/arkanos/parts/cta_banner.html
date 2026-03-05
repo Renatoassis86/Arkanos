@@ -1,0 +1,27 @@
+﻿
+{% load static %}
+<section class="section" style="padding: 52px 0;">
+  <div class="container card hover-rise" style="display:grid; grid-template-columns: 1.1fr .9fr; gap:20px; align-items:center; background:#fff; overflow:hidden;">
+    <div style="padding:22px 22px 22px 26px;">
+      <span class="badge">Pronto para comeÃ§ar?</span>
+      <h2 class="title" style="font-size:clamp(22px,2.6vw,34px); margin:10px 0 14px;">
+        Traga o <span class="text-brand">Trivium vivo</span> para sua escola
+      </h2>
+      <ul class="list-check" style="margin:0 0 16px 0;">
+        <li>CosmovisÃ£o cristÃ£ integrada a jogos e leituras.</li>
+        <li>Trilhas por idade com acompanhamento claro.</li>
+        <li>RelatÃ³rios simples para professores e gestores.</li>
+        <li>ImplantaÃ§Ã£o assistida e suporte prÃ³ximo.</li>
+      </ul>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="{% url 'arkanos:demo' %}" class="btn btn-primary">Pedir demonstraÃ§Ã£o</a>
+        <a href="{% url 'arkanos:home' %}#programas" class="btn btn-outline">Ver Programas</a>
+      </div>
+    </div>
+
+    <div style="height:100%; min-height:240px;">
+      <img src="{% static 'banners/programa_escolas.jpg' %}" alt="Arkanos nas escolas" style="width:100%; height:100%; object-fit:cover; display:block;">
+    </div>
+  </div>
+</section>

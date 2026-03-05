@@ -1,0 +1,45 @@
+/* style.css */
+
+.hidden {
+  display: none;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.pulse-green {
+  animation: pulse 0.5s ease-in-out;
+  color: green;
+}
+
+.pulse-red {
+  animation: pulse 0.5s ease-in-out;
+  color: red;
+}
+
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 10s ease infinite;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}

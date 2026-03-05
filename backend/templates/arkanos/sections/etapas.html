@@ -1,0 +1,124 @@
+﻿{% load static %}
+
+<section id="etapas" class="section section-flow">
+  <div class="container flow-wrap">
+    <header class="flow-head">
+      <span class="badge">Adoção</span>
+      <h2 class="title">Arkanos na sua escola e na sua família em <span class="text-gold">5 passos</span></h2>
+      <p class="muted">Fluxo contínuo, com acompanhamento próximo e melhorias constantes.</p>
+    </header>
+
+    <!-- Definição do “recorte” em U (bandeirola) para os vídeos -->
+    <svg class="flow-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <!-- U com bordas suaves; preserveAspectRatio para se adaptar ao card -->
+        <clipPath id="maskU" clipPathUnits="objectBoundingBox">
+          <!-- Path normalizado (0..1). Topo levemente reto e base bem arredondada -->
+          <path d="
+            M 0.08,0.00
+            H 0.92
+            C 0.96,0.00 1.00,0.04 1.00,0.08
+            V 0.62
+            C 1.00,0.85 0.78,1.00 0.50,1.00
+            C 0.22,1.00 0.00,0.85 0.00,0.62
+            V 0.08
+            C 0.00,0.04 0.04,0.00 0.08,0.00 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <!-- Anel pontilhado (trilha) -->
+    <svg class="flow-ring" viewBox="0 0 600 600" aria-hidden="true">
+      <circle cx="300" cy="300" r="220" class="ring" />
+    </svg>
+
+    <!-- Nós posicionados ao redor do círculo usando rotate/translate -->
+    <div class="flow-nodes">
+
+      <!-- 1. Consultoria Educacional -->
+      <article class="node" style="--angle: -86deg">
+        <figure class="media u-mask inview">
+          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima1.png' %}">
+            <source src="{% static 'img/outros/vid1.mp4' %}" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="node-text inview">
+          <span class="chip">1</span>
+          <h3>Consultoria Educacional</h3>
+          <p class="muted">Mapeamento de necessidades e plano.</p>
+        </div>
+      </article>
+
+      <!-- 2. Implantação & Formação -->
+      <article class="node" style="--angle: -18deg">
+        <figure class="media u-mask inview">
+          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima2.png' %}">
+            <source src="{% static 'img/outros/vid2.mp4' %}" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="node-text inview">
+          <span class="chip">2</span>
+          <h3>Implantação &amp; Formação</h3>
+          <p class="muted">Setup e capacitação do time.</p>
+        </div>
+      </article>
+
+      <!-- 3. Aplicação em Sala -->
+      <article class="node" style="--angle: 50deg">
+        <figure class="media u-mask inview">
+          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima3.png' %}">
+            <source src="{% static 'img/outros/vid3.mp4' %}" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="node-text inview">
+          <span class="chip">3</span>
+          <h3>Aplicação em Sala</h3>
+          <p class="muted">Trilhas, jogos e leituras no dia a dia.</p>
+        </div>
+      </article>
+
+      <!-- 4. Indicadores & Performance -->
+      <article class="node" style="--angle: 118deg">
+        <figure class="media u-mask inview">
+          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima4.png' %}">
+            <source src="{% static 'img/outros/vid4.mp4' %}" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="node-text inview">
+          <span class="chip">4</span>
+          <h3>Indicadores &amp; Performance</h3>
+          <p class="muted">Relatórios e evidências para decisões pedagógicas.</p>
+        </div>
+      </article>
+
+      <!-- 5. Suporte & Acompanhamento -->
+      <article class="node" style="--angle: 186deg">
+        <figure class="media u-mask inview">
+          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima5.png' %}">
+            <source src="{% static 'img/outros/vid5.mp4' %}" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="node-text inview">
+          <span class="chip">5</span>
+          <h3>Suporte &amp; Acompanhamento</h3>
+          <p class="muted">Melhoria contínua, com proximidade.</p>
+        </div>
+      </article>
+
+      <!-- (Opcional) 6. Comunidade & Boas Práticas -->
+      <article class="node" style="--angle: 254deg">
+        <figure class="media u-mask inview">
+          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima6.png' %}">
+            <source src="{% static 'img/outros/vid6.mp4' %}" type="video/mp4" />
+          </video>
+        </figure>
+        <div class="node-text inview">
+          <span class="chip">6</span>
+          <h3>Comunidade &amp; Boas Práticas</h3>
+          <p class="muted">Compartilhar, aprender e evoluir juntos.</p>
+        </div>
+      </article>
+
+    </div> <!-- /flow-nodes -->
+  </div>
+</section>

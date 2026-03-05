@@ -1,0 +1,25 @@
+{% extends "jogos/base.html" %}
+
+{% block title %}Jogos Disponíveis{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Jogos Educativos</h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for jogo in jogos %}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">{{ jogo.nome }}</h5>
+                <p class="card-text">{{ jogo.descricao|linebreaks }}</p>
+                <p><strong>Tipo:</strong> {{ jogo.get_tipo_display }}<br>
+                   <strong>Dificuldade:</strong> {{ jogo.get_dificuldade_display }}<br>
+                   <strong>Fase:</strong> {{ jogo.fase.nome }}</p>
+
+                <a href="{% url 'jogo_detail' slug=jogo.slug %}" class="btn btn-primary">👉 Iniciar o jogo</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

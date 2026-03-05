@@ -1,0 +1,88 @@
+{% extends 'arkanos/base.html' %}
+{% load static %}
+
+{% block title %}Moderação de Questões — Arkanos Admin{% endblock %}
+
+{% block content %}
+<div class="container py-8 space-y-12">
+    <!-- GENERATED QUESTIONS (FOR APPROVAL) -->
+    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-black text-slate-800 uppercase tracking-tighter">AGUARDANDO MODERAÇÃO (IA)</h1>
+                <p class="text-slate-500">Perguntas geradas que precisam de aprovação pedagógica.</p>
+            </div>
+            <a href="{% url 'desafio_dos_sabios:index' %}" class="text-logos-blue font-bold">Voltar ao Jogo</a>
+        </div>
+
+        <div class="space-y-6">
+            {% for q in generated %}
+            <div id="q-generated-{{ q.id }}" class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <div class="flex justify-between items-start">
+                    <div class="space-y-2">
+                        <div class="flex gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">{{
+                                q.subject }}</span>
+                            <span class="px-3 py-1 bg-slate-200 text-slate-700 text-xs font-bold rounded-full">{{
+                                q.topic }}</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-slate-800">{{ q.question }}</h2>
+                        <p class="text-sm font-bold text-green-600">Resposta: {{ q.answer }}</p>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <button onclick="moderate('approve', '{{ q.id }}')" class="btn-rpg-big py-2 primary">Aprovar
+                            ✓</button>
+                        <a href="{% url 'desafio_dos_sabios:edit_question' 'generated' q.id %}"
+                            class="btn-rpg-big py-2 text-center">Editar ✏️</a>
+                        <button onclick="moderate('delete', '{{ q.id }}')"
+                            class="text-red-500 font-bold hover:underline text-sm mt-2">Excluir 🗑️</button>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center text-slate-400 py-4">Tudo limpo! Nenhuma pergunta para moderar.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- VERIFIED & MANUAL QUESTIONS -->
+    <div class="bg-white rounded-3xl shadow-xl p-8 border border-slate-200">
+        <h2 class="text-2xl font-black text-slate-800 mb-6 uppercase">BANCO ATIVO (VERIFICADAS & MANUAIS)</h2>
+        <div class="space-y-4">
+            {% for q in verified %}
+            <div class="flex items-center justify-between p-4 bg-green-50/30 border border-green-100 rounded-xl">
+                <div>
+                    <span
+                        class="text-xs font-bold text-green-600 bg-green-100 px-2 py-0.5 rounded uppercase">Verificada</span>
+                    <p class="font-bold text-slate-700 mt-1">{{ q.question }}</p>
+                </div>
+                <a href="{% url 'desafio_dos_sabios:edit_question' 'verified' q.id %}"
+                    class="text-logos-blue font-bold px-4">EDITAR</a>
+            </div>
+            {% endfor %}
+            {% for q in manual %}
+            <div class="flex items-center justify-between p-4 bg-blue-50/30 border border-blue-100 rounded-xl">
+                <div>
+                    <span
+                        class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded uppercase">Manual</span>
+                    <p class="font-bold text-slate-700 mt-1">{{ q.question }}</p>
+                </div>
+                <a href="{% url 'desafio_dos_sabios:edit_question' 'manual' q.id %}"
+                    class="text-logos-blue font-bold px-4">EDITAR</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    async function moderate(action, id) {
+        if (!confirm('Deseja prosseguir com ' + action + '?')) return;
+        const url = `/desafio_dos_sabios/admin/perguntas/${action}/${id}/`;
+        const response = await fetch(url, { method: 'POST', headers: { 'X-CSRFToken': '{{ csrf_token }}' } });
+        if (response.ok) document.getElementById(`q-generated-${id}`).remove();
+        else alert('Erro na operação');
+    }
+</script>
+{% endblock %}

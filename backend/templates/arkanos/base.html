@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Arkanos{% endblock %}</title>
+
+  <!-- Fonts (EducaCross style) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS do site -->
+  <link rel="stylesheet" href="{% static 'css/arkanos.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+  <style>
+    :root{
+      /* Paleta “educa-like” (azuis e ciano) + dourado para destaques */
+      --brand-700: #0b5fa5;
+      --brand-600: #0d6ec4;
+      --brand-500: #1283d8;  /* destaques */
+      --teal-500:  #0aa5a5;  /* alternativa para chips / links */
+      --gold-500:  #f4c34a;  /* destaques secundários */
+      --ink:       #0f172a;  /* texto principal */
+      --muted:     #475569;  /* texto secundário */
+      --header-bg: #ffffff;  /* barra do menu */
+      --hero-bg:   #f5f7ff;  /* fundo claro da dobra hero */
+      --radius-lg: 18px;
+      --shadow-hero: 0 18px 46px rgba(2,6,23,.14);
+    }
+
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      color: var(--ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Barra do menu (diferente da dobra Hero) */
+    .site-header{
+      position: sticky; top:0; z-index:50;
+      background: var(--header-bg);
+      border-bottom: 1px solid rgba(2,6,23,.06);
+      backdrop-filter: saturate(140%) blur(8px);
+    }
+    .site-header .header-inner{
+      height: 64px; display:flex; align-items:center; justify-content:space-between; gap:24px;
+      width: min(1140px, 92vw); margin: 0 auto;
+      padding: 0 4px;
+    }
+    .site-header .main-nav{ display:flex; gap:26px; }
+    .site-header .main-nav a{
+      color:var(--ink); text-decoration:none; font-weight:600;
+      transition: color .2s ease;
+    }
+    .site-header .main-nav a:hover{ color: var(--brand-700); }
+
+    /* Botões de Login/Cadastro à direita */
+    .site-header .auth{ display:flex; gap:10px; }
+    .btn{ display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:10px; text-decoration:none; font-weight:700; }
+    .btn-ghost{ background:#fff; color:var(--brand-700); border:1px solid rgba(2,6,23,.08); }
+    .btn-ghost:hover{ background:#f8fafc; }
+    .btn-brand{ background:var(--brand-700); color:#fff; box-shadow:0 8px 24px rgba(11,95,165,.25); }
+    .btn-brand:hover{ filter: brightness(1.06); }
+  </style>
+
+  {% block head_extra %}{% endblock %}
+</head>
+<body class="site">
+
+  {% include 'arkanos/parts/header.html' %}
+
+  <main id="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'arkanos/parts/footer.html' %}
+
+  <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/home.js' %}"></script>
+  <script src="{% static 'js/arkanos.js' %}"></script>
+
+  {% block body_extra %}{% endblock %}
+</body>
+</html>

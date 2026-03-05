@@ -1,0 +1,48 @@
+{# D:/.../backend/templates/arkanos/sobre.html #}
+{% extends 'arkanos/base.html' %}
+{% block title %}Sobre — Arkanos{% endblock %}
+
+{% block content %}
+<section class="pt-20 pb-12 u-bg-page">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <h1 class="section-title text-arkanos-blue">Sobre o Arkanos</h1>
+    <p class="mt-4 text-slate-700">
+      **Arkanos** nasceu em 2025 como resposta à necessidade de um ecossistema de
+      <strong>gamificação para aprendizagem</strong> enraizado na <strong>educação clássica cristã</strong>.
+      Unimos o <em>Trivium</em> (Gramática, Lógica e Retórica) à cultura digital contemporânea,
+      com personagens originais — Aion (sabedoria), Kael (coragem) e Lyra (imaginação).
+    </p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <article class="card p-6">
+        <h2 class="font-extrabold text-arkanos-blue">Missão</h2>
+        <p class="mt-2 text-slate-700">Fomentar sabedoria e virtude por meio de experiências de aprendizagem
+          ativas, alegres e intencionais, fortalecendo a família e a escola cristã.</p>
+      </article>
+      <article class="card p-6">
+        <h2 class="font-extrabold text-arkanos-blue">Visão</h2>
+        <p class="mt-2 text-slate-700">Ser referência em cultura digital com cosmovisão cristã, formando
+          guardiões capazes de conhecer a verdade, praticar o bem e apreciar o belo.</p>
+      </article>
+      <article class="card p-6">
+        <h2 class="font-extrabold text-arkanos-blue">Objetivos</h2>
+        <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+          <li>Aprendizagem ativa e lúdica ancorada no Trivium.</li>
+          <li>Gamificação com propósito e métricas claras.</li>
+          <li>Desenvolvimento integral (cabeça, coração e mãos).</li>
+          <li>Suporte humanizado a escolas e famílias.</li>
+        </ul>
+      </article>
+      <article class="card p-6">
+        <h2 class="font-extrabold text-arkanos-blue">Produtos</h2>
+        <ul class="mt-2 list-disc pl-5 text-slate-700 space-y-1">
+          <li><strong>Spelling Bee</strong> (Inglês)</li>
+          <li><strong>Radix</strong> (Português)</li>
+          <li><strong>Jogos do Trivium</strong> (Gramática, Lógica, Retórica)</li>
+          <li><strong>Rankings</strong>, <strong>Jornada</strong> e <strong>Ateliê do Avatar</strong></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

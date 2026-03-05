@@ -1,0 +1,70 @@
+﻿{% load static %}
+<section class="section bg-step-2" id="guardioes">
+  <div class="container">
+    <span class="badge">Quem guia a jornada</span>
+    <h2 class="title" style="margin:8px 0 16px;">Guardiões do Trivium</h2>
+
+    <!-- Grid igual ao de Programas/Jogos -->
+    <div class="grid-3 guard-cards">
+      <!-- 1) Lyra — Gramática -->
+      <article class="card hover-rise">
+        <div class="thumb-flag">
+          <video
+            class="thumb-video"
+            playsinline
+            muted
+            loop
+            preload="metadata"
+            poster="{% static 'videos/posters/lyra.jpg' %}">
+            <source src="{% static 'videos/lyra-1080p.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="txt">
+          <span class="chip">Gramática</span>
+          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Lyra</h3>
+          <p class="muted">Palavras, sons e memórias que constroem linguagem. Missões de vocabulário e leitura.</p>
+        </div>
+      </article>
+
+      <!-- 2) Kael — Retórica -->
+      <article class="card hover-rise">
+        <div class="thumb-flag">
+          <video
+            class="thumb-video"
+            playsinline
+            muted
+            loop
+            preload="metadata"
+            poster="{% static 'videos/posters/kael.jpg' %}">
+            <source src="{% static 'videos/kael-1080p.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="txt">
+          <span class="chip chip-amber">Retórica</span>
+          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Kael</h3>
+          <p class="muted">Expressão com verdade e caridade. Pesquisa, escrita e fala com coragem mansa.</p>
+        </div>
+      </article>
+
+      <!-- 3) Aion — Lógica -->
+      <article class="card hover-rise">
+        <div class="thumb-flag">
+          <video
+            class="thumb-video"
+            playsinline
+            muted
+            loop
+            preload="metadata"
+            poster="{% static 'videos/posters/aion.jpg' %}">
+            <source src="{% static 'videos/aion-1080p.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="txt">
+          <span class="chip chip-blue">Lógica</span>
+          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Aion</h3>
+          <p class="muted">Raciocínio, relações e prudência. Desafios e enigmas para ordenar o pensamento.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

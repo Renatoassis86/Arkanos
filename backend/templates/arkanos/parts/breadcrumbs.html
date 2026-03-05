@@ -1,0 +1,19 @@
+<!-- =========================================================
+File: D:/repositorio_geral/repositorio_arkanos/backend/templates/arkanos/parts/breadcrumbs.html
+Purpose: Breadcrumb simples e reutilizável
+Uso:
+{% url 'arkanos:jogos' as jogos_url %}
+{% include 'arkanos/parts/breadcrumbs.html' with parent_name='Jogos' parent_url=jogos_url current='Gramática' %}
+========================================================= -->
+<nav class="mb-6 text-sm text-slate-600" aria-label="Breadcrumb">
+<ol class="flex items-center gap-2">
+<li><a href="{% url 'arkanos:home' %}" class="hover:underline">Início</a></li>
+{% if parent_name and parent_url %}
+<li class="text-slate-400">/</li>
+<li><a href="{{ parent_url }}" class="hover:underline">{{ parent_name }}</a></li>
+{% endif %}
+<li class="text-slate-400">/</li>
+<li class="font-semibold text-slate-800">{{ current }}</li>
+</ol>
+</nav>
+

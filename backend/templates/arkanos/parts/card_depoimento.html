@@ -1,0 +1,26 @@
+﻿
+<!-- =========================================================
+File: D:/repositorio_geral/repositorio_arkanos/backend/templates/arkanos/parts/card_depoimento.html
+Purpose: Card de depoimento reutilizÃ¡vel
+Uso:
+{% include 'arkanos/parts/card_depoimento.html' with
+avatar='arkanos/avatars/escola_1.jpg'
+school='ColÃ©gio EsperanÃ§a'
+location='JoÃ£o Pessoa - PB'
+quote='Os jogos conectam a turma e os relatÃ³rios nos ajudam a intervir no momento certo.'
+name='Coord. PedagÃ³gica' %}
+========================================================= -->
+{% load static %}
+<article class="card w-[320px] md:w-[420px] p-6">
+<div class="flex items-center gap-3">
+<img src="{% static avatar %}" alt="{{ school|default:name }}" class="w-12 h-12 rounded-full object-cover"/>
+<div>
+<h4 class="font-semibold">{{ school|default:name }}</h4>
+{% if location %}<p class="text-xs text-slate-500">{{ location }}</p>{% endif %}
+</div>
+</div>
+<blockquote class="mt-4 text-slate-700">â€œ{{ quote }}â€</blockquote>
+{% if name %}
+<cite class="mt-3 block text-xs text-slate-500">â€” {{ name }}</cite>
+{% endif %}
+</article>

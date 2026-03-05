@@ -1,0 +1,161 @@
+﻿{% extends 'arkanos/base.html' %}
+{% load static %}
+
+{% block title %}Radix — Arkanos Quest{% endblock %}
+
+{% block head_extra %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@600&family=EB+Garamond:wght@400;700&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
+<style>
+    .hidden {
+        display: none !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-16">
+    <div id="game-container" class="rpg-game-container theme-aion">
+
+        <!-- TOP HUD -->
+        <div class="hud-top">
+            <div class="player-card">
+                <div class="avatar-shield" id="player-avatar">🛡️</div>
+                <div class="player-info">
+                    <h1 id="txt-username">VIAJANTE</h1>
+                    <span id="txt-serie">EXPLORADOR RADIX</span>
+                </div>
+            </div>
+
+            <div class="stats-group">
+                <div class="stat-item">
+                    <div class="stat-label">SEQUÊNCIA</div>
+                    <div class="stat-value" id="count-streak">00</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">PONTOS TOTAIS</div>
+                    <div class="stat-value" id="count-score">0000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDE HUD (GUARDIAN) -->
+        <div class="hud-side">
+            <div class="bubble-wrap">
+                <div id="speech-bubble" class="bubble-content">
+                    Saudações! Eu sou Aion. Pronto para desvendar as raízes das palavras?
+                </div>
+            </div>
+            <div id="character-guide" class="guardian-char aion-char"></div>
+
+            <div class="w-full mt-6 space-y-4">
+                <div class="flex justify-between items-end">
+                    <span class="stat-label">PROGRESSO</span>
+                    <span class="text-xs font-bold text-slate-400" id="txt-progress">QUEST 1/15</span>
+                </div>
+                <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                    <div id="bar-progress" class="h-full bg-arkanos-blue transition-all duration-500" style="width: 7%">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN ARENA -->
+        <div id="screen-game" class="game-arena animate-fadeIn">
+
+            <!-- Arkanos Authentication Gate -->
+            <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
+                <div class="gate-seal">
+                    <span class="seal-icon">💠</span>
+                </div>
+
+                <div class="gate-content">
+                    <h2 class="gate-title">PORTAL RADIX</h2>
+                    <p class="gate-subtitle">
+                        Bem-vindo ao reino da Gramática! Entre na <b>Academia Arkanos</b> para selar seu progresso,
+                        conquistar insígnias lendárias e dominar as artes da linguagem.
+                    </p>
+                </div>
+
+                <div class="gate-actions">
+                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
+                        class="btn-rpg-big primary w-full justify-center py-5">
+                        INICIAR JORNADA (CADASTRO) ✨
+                    </a>
+
+                    <div class="gate-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">OU</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
+                        class="btn-rpg-big w-full justify-center bg-white border-2 border-slate-200 text-slate-700 hover:border-arkanos-blue transition-all">
+                        ENTRAR NO PORTAL (LOGIN) ⚔️
+                    </a>
+                </div>
+
+                <div class="gate-footer">
+                    <p>Seu progresso é místico. Proteja-o com uma conta.</p>
+                </div>
+            </div>
+
+            <!-- Radix Play Area -->
+            <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
+                <div class="word-box" id="box-word">
+                    <div class="word-mystery" id="txt-mystery">...</div>
+                </div>
+
+                <div class="hint-orbs">
+                    <button class="orb-button" onclick="showMeaning()">
+                        <span>📖</span> SIGNIFICADO
+                    </button>
+                    <button class="orb-button" onclick="showExample()">
+                        <span>💡</span> EXEMPLO
+                    </button>
+                    <button class="orb-button" onclick="giveLetter()">
+                        <span>🧪</span> REVELAR LETRA
+                    </button>
+                </div>
+
+                <div class="action-zone">
+                    <div class="relative w-full max-w-lg">
+                        <input type="text" id="input-answer"
+                            class="w-full bg-slate-100 border-b-4 border-slate-200 px-8 py-6 text-4xl font-bold text-center uppercase tracking-widest focus:outline-none focus:border-arkanos-blue transition-all"
+                            placeholder="SOLETRE AQUI..." autocomplete="off">
+                    </div>
+                </div>
+
+                <p class="mt-8 text-slate-400 font-bold tracking-widest text-sm animate-pulse">
+                    PRESSIONE [ENTER] PARA VALIDAR
+                </p>
+            </div>
+
+            <!-- Feedback Overlay -->
+            <div id="feedback-overlay"
+                class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-white/80 backdrop-blur-sm animate-fadeIn">
+                <div class="text-center">
+                    <div id="feedback-icon" class="text-9xl mb-4">✨</div>
+                    <h2 id="feedback-title" class="font-black text-6xl tracking-tighter">CORRETO!</h2>
+                    <p id="feedback-msg" class="text-xl text-slate-600 mt-2">Você dominou esta palavra.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PROGRESS FOOTER -->
+        <div class="xp-system">
+            <div id="bar-xp" class="xp-fill" style="width: 25%"></div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const WORDS = JSON.parse('{{ words_json|safe }}');
+    const USER = JSON.parse('{{ user_json|safe }}');
+</script>
+<script src="{% static 'jogos/js/radix.js' %}"></script>
+{% endblock %}

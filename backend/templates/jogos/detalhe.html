@@ -1,0 +1,20 @@
+﻿{% extends "jogos/base.html" %}
+{% load static %}
+
+{% block title %}{{ jogo.nome }}{% endblock %}
+
+{% block content %}
+<h1>{{ jogo.nome }}</h1>
+
+<p class="text-muted">{{ jogo.descricao|linebreaks }}</p>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Tipo:</strong> {{ jogo.get_tipo_display }}</li>
+    <li class="list-group-item"><strong>Dificuldade:</strong> {{ jogo.get_dificuldade_display }}</li>
+    <li class="list-group-item"><strong>Fase:</strong> {{ jogo.fase.nome }}</li>
+    <li class="list-group-item"><strong>Pontua para ranking?</strong> {{ jogo.pontua_para_ranking|yesno:"Sim,NÃ£o" }}</li>
+</ul>
+
+<a href="{% static 'jogos/{{ jogo.slug }}.html' %}" class="btn btn-success">ðŸš€ Jogar agora</a>
+<a href="{% url 'jogo_list' %}" class="btn btn-secondary">â† Voltar</a>
+{% endblock %}

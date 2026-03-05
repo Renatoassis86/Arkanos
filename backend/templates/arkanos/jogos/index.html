@@ -1,0 +1,19 @@
+﻿{% extends 'arkanos/base.html' %}
+{% load static %}
+
+{% block title %}Arkanos — Início{% endblock %}
+
+{% block content %}
+
+  {% include 'arkanos/sections/hero.html' %}
+  {% include 'arkanos/sections/diferenciais.html' %}
+  {% include 'arkanos/sections/programas.html' %}
+  {% include 'arkanos/sections/guardioes.html' %}
+  {# Você optou por manter conteudos.html #}
+  {% include 'arkanos/sections/conteudos.html' %}
+  {% include 'arkanos/sections/etapas.html' %}
+  {% include 'arkanos/sections/jogos.html' %}
+  {% include 'arkanos/sections/metodologia.html' %}
+
+
+{% endblock %}

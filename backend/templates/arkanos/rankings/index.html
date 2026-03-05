@@ -1,0 +1,19 @@
+<!-- =========================================================
+File: D:/repositorio_geral/repositorio_arkanos/backend/templates/arkanos/rankings/index.html
+Purpose: Salão dos Rankings
+========================================================= -->
+{% extends 'arkanos/base.html' %}
+{% block title %}Rankings — Arkanos{% endblock %}
+{% block content %}
+<section class="py-16">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<h1 class="text-3xl font-extrabold text-arkanos-blue">Salão dos Rankings</h1>
+<p class="mt-2 text-slate-600">Compare guardiões por turma, escola e rede.</p>
+<div class="mt-8 grid md:grid-cols-3 gap-6">
+<div class="rounded-2xl bg-white p-6 shadow"><h3 class="font-bold">Turma</h3><p class="text-sm text-slate-600">Top 10 (placeholder)</p></div>
+<div class="rounded-2xl bg-white p-6 shadow"><h3 class="font-bold">Escola</h3><p class="text-sm text-slate-600">Top 10 (placeholder)</p></div>
+<div class="rounded-2xl bg-white p-6 shadow"><h3 class="font-bold">Rede</h3><p class="text-sm text-slate-600">Top 10 (placeholder)</p></div>
+</div>
+</div>
+</section>
+{% endblock %}

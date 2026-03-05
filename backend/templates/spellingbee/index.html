@@ -1,0 +1,38 @@
+﻿{% extends 'arkanos/base.html' %}
+{% load static %}
+
+{% block title %}Arkanos — Início{% endblock %}
+
+{% block content %}
+
+  {% include 'arkanos/sections/hero.html' %}
+
+  <!-- Programas -->
+  <section id="programas" class="section bg-soft">
+    <!-- (mantenha exatamente seu conteúdo aqui; está ok) -->
+  </section>
+
+  {% include 'arkanos/sections/metodologia.html' %}
+  {% include 'arkanos/sections/programas.html' %}
+  {% include 'arkanos/sections/jogos.html' %}
+
+  {% include 'arkanos/sections/guardioes.html' %}
+  {% include 'arkanos/sections/diferenciais.html' %}
+
+  <!-- Ecossistema (sua seção com gradiente escuro) -->
+  <section id="ecossistema" class="section" style="background: linear-gradient(180deg,#161e2e 0,#0f172a 100%); color:#dbeafe;">
+    <!-- (mantenha seu conteúdo) -->
+  </section>
+
+  <section id="leituras" class="section">
+    <!-- (mantenha) -->
+  </section>
+
+  <section id="avaliacoes" class="section">
+    <!-- (mantenha) -->
+  </section>
+
+  {% include 'arkanos/sections/etapas.html' %}
+  {% include 'arkanos/parts/cta_banner.html' %}
+
+{% endblock %}

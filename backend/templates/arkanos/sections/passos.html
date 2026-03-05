@@ -1,0 +1,79 @@
+{% load static %}
+<section id="passos" class="section steps-section">
+  <!-- Definição do clipPath (formato bandeirola) -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <!-- Bandeirola: topo arredondado, laterais suaves e base em U -->
+      <clipPath id="u-flag" clipPathUnits="objectBoundingBox">
+        <!-- Path normalizado (0..1). Largura 1, altura 1 -->
+        <path d="
+          M 0.08,0
+          H 0.92
+          C 0.97,0 1,0.03 1,0.08
+          V 0.62
+          C 1,0.85 0.84,1 0.5,1
+          C 0.16,1 0,0.85 0,0.62
+          V 0.08
+          C 0,0.03 0.03,0 0.08,0 Z" />
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="container">
+    <div class="steps-header">
+      <span class="badge">Adoção</span>
+      <h3 class="title">Arkanos na sua escola e na sua família em <span class="hl">5 passos</span></h3>
+      <p class="muted">Fluxo contínuo: consultoria, implantação, prática em sala, indicadores e suporte.</p>
+    </div>
+
+    <!-- Linha de passos (responsiva; não sobrepõe texto) -->
+    <ul class="steps-row">
+      <!-- Passo 1 -->
+      <li class="step-card reveal">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid1.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">1. Consultoria Educacional</h4>
+        <p class="step-text">Mapeamento de necessidades e plano pedagógico personalizado.</p>
+      </li>
+
+      <!-- Passo 2 -->
+      <li class="step-card reveal">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid2.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">2. Implantação &amp; Formação</h4>
+        <p class="step-text">Setup, capacitação e tutoria para professores e gestores.</p>
+      </li>
+
+      <!-- Passo 3 -->
+      <li class="step-card reveal">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid3.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">3. Aplicação em Sala</h4>
+        <p class="step-text">Trilhas, jogos e leituras guiadas pela IA no dia a dia.</p>
+      </li>
+
+      <!-- Passo 4 -->
+      <li class="step-card reveal">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid4.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">4. Indicadores &amp; Performance</h4>
+        <p class="step-text">Relatórios e evidências para decisões pedagógicas, famílias e gestão.</p>
+      </li>
+
+      <!-- Passo 5 -->
+      <li class="step-card reveal">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid5.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">5. Suporte &amp; Acompanhamento</h4>
+        <p class="step-text">Melhoria contínua com proximidade e metas para o próximo ciclo.</p>
+      </li>
+    </ul>
+
+    <p class="steps-foot muted">Ciclo contínuo — ao concluir o passo 5, alimentamos novas metas para o passo 1.</p>
+  </div>
+</section>

@@ -1,0 +1,290 @@
+{% extends 'arkanos/base.html' %}
+{% load static %}
+
+{% block title %}Spelling Bee — Arkanos Quest{% endblock %}
+
+{% block head_extra %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
+<style>
+    /* Letras bem visíveis e interface clara */
+    .rpg-text-primary {
+        color: var(--rpg-text);
+    }
+
+    .hidden {
+        display: none !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-8">
+    <div id="game-container" class="rpg-game-container theme-lyra">
+
+        <!-- TOP HUD -->
+        <div class="hud-top">
+            <div class="player-card">
+                <div class="avatar-shield" id="player-avatar">🛡️</div>
+                <div class="player-info">
+                    <h1 id="txt-username">TRAVELER</h1>
+                    <span id="txt-serie">QUEST EXPLORER</span>
+                </div>
+            </div>
+
+            <div class="stats-group">
+                <div class="stat-item">
+                    <div class="stat-label">STREAK</div>
+                    <div class="stat-value" id="count-streak">00</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">TOTAL SCORE</div>
+                    <div class="stat-value" id="count-score">0000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDE HUD (GUARDIAN) -->
+        <div class="hud-side">
+            <div class="bubble-wrap">
+                <div id="speech-bubble" class="bubble-content">
+                    Greetings! I am Lyra. Are you ready to spell some words today?
+                </div>
+            </div>
+            <div id="character-guide" class="guardian-char lyra-char"></div>
+
+            <div class="w-full mt-6 space-y-4">
+                <div class="flex justify-between items-end">
+                    <span class="stat-label">PROGRESS</span>
+                    <span class="font-bold text-lg" id="progress-text">Quest 1/15</span>
+                </div>
+                <div class="flex justify-between items-end">
+                    <span class="stat-label">LEVEL</span>
+                    <span class="font-bold text-lg text-gold" id="txt-level">1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN ARENA -->
+        <div id="screen-game" class="game-arena animate-fadeIn">
+
+            <!-- Arkanos Authentication Gate -->
+            <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
+                <div class="gate-seal">
+                    <span class="seal-icon">🏛️</span>
+                </div>
+
+                <div class="gate-content">
+                    <h2 class="gate-title">ACADEMIA DE SOLETRAÇÃO</h2>
+                    <p class="gate-subtitle">
+                        Bem-vindo, iniciado! Entre na <b>Academia Arkanos</b> para selar seu progresso,
+                        conquistar insígnias lendárias e ascender no ranking dos sábios.
+                    </p>
+                </div>
+
+                <div class="gate-actions">
+                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
+                        class="btn-rpg-big primary w-full justify-center py-5">
+                        INICIAR JORNADA (CADASTRO) ✨
+                    </a>
+
+                    <div class="gate-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">OU</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
+                        class="btn-rpg-big w-full justify-center bg-white border-2 border-slate-200 text-slate-700 hover:border-arkanos-blue transition-all">
+                        ENTRAR NO PORTAL (LOGIN) ⚔️
+                    </a>
+                </div>
+
+                <div class="gate-footer">
+                    <p>Seu progresso é místico. Proteja-o com uma conta.</p>
+                </div>
+            </div>
+
+            <!-- Spelling Play Area -->
+            <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
+                <div class="word-box" id="word-mystery-box">
+                    <div class="word-mystery" id="word-mystery">_ _ _ _ _</div>
+                </div>
+
+                <div class="hint-orbs">
+                    <button id="btn-ipa" class="orb-button"><span>🎓</span> Phonetics (IPA)</button>
+                    <button id="btn-definition" class="orb-button"><span>📚</span> Definition</button>
+                    <button id="btn-example" class="orb-button"><span>💬</span> Example</button>
+                </div>
+
+                <div id="aid-text"
+                    class="h-12 italic text-gray-500 text-lg flex items-center justify-center transition-all mb-10">
+                    Listen carefully to the guardian...
+                </div>
+
+                <div class="action-zone">
+                    <button id="btn-listen" class="btn-rpg-big">
+                        <span>🔈</span> LISTEN
+                    </button>
+                    <button id="btn-speak" class="btn-rpg-big primary">
+                        <span>🎤</span> SPELL WORD
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- XP BAR -->
+        <div class="xp-system">
+            <div id="xp-bar-fill" class="xp-fill" style="width: 0%"></div>
+        </div>
+    </div>
+</div>
+
+<!-- RANKING OVERLAY -->
+<div id="ranking-overlay" class="ranking-overlay">
+    <div class="ranking-header">Caminho da Soletração</div>
+    <div class="flex-grow w-full flex flex-col items-center py-10" id="ranking-list">
+        <!-- Ranking items go here -->
+    </div>
+    <div class="pb-20">
+        <button class="rpg-button px-10 py-4 text-xl" onclick="location.reload()">Jogar Novamente</button>
+    </div>
+</div>
+
+<!-- VICTORY OVERLAY -->
+<div id="victory-overlay" class="ranking-overlay flex flex-col items-center justify-center hidden">
+    <div class="ranking-header">MISSION ACCOMPLISHED!</div>
+    <div class="py-10 text-center space-y-4">
+        <p class="text-2xl font-bold">You've mastered all the words today!</p>
+        <div class="stat-value text-6xl text-gold" id="final-score">0000</div>
+        <p class="text-gray-500">Total XP Gained</p>
+    </div>
+    <div class="pb-20">
+        <button id="btn-replay" class="rpg-button px-10 py-4 text-xl">Play Again ⚔️</button>
+    </div>
+</div>
+
+{% csrf_token %}
+{% endblock %}
+
+{% block body_extra %}
+<script src="{% static 'arkanos/js/spellingbee.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const config = { words: JSON.parse('{{ words_json|safe|escapejs }}') };
+        const userData = JSON.parse('{{ user_json|safe|escapejs }}');
+        const game = new SpellingBeeGame(config);
+
+        const container = document.getElementById('game-container');
+        const screenLogin = document.getElementById('screen-login');
+        const playArea = document.getElementById('play-area');
+        const victoryOverlay = document.getElementById('victory-overlay');
+        const aidText = document.getElementById('aid-text');
+        const guideBubble = document.getElementById('speech-bubble');
+        const charImg = document.getElementById('character-guide');
+        let currentWord = null;
+
+        const guardians = {
+            '2ano': { name: 'Lyra', char: 'lyra', class: 'lyra-char', theme: 'theme-lyra', intro: "Greetings! I am Lyra. Ready for our Spelling Quest?" },
+            '4ano': { name: 'Aion', char: 'aion', class: 'aion-char', theme: 'theme-aion', intro: "Salutations. I am Aion. Let us test your precision." }
+        };
+
+        const setupUI = (user) => {
+            const guardian = guardians[user.serie] || guardians['2ano'];
+            document.getElementById('txt-username').innerText = (user.username || "HERO").toUpperCase();
+            document.getElementById('txt-serie').innerText = `GRADE ${user.serie_display || 'EXPLORER'}`;
+            container.className = `rpg-game-container ${guardian.theme}`;
+            charImg.className = `guardian-char ${guardian.class}`;
+            return guardian;
+        };
+
+        let activeGuardian = setupUI(userData);
+
+        const startGame = () => {
+            if (screenLogin) screenLogin.classList.add('hidden');
+            playArea.classList.remove('hidden');
+            victoryOverlay.classList.add('hidden');
+            game.playSound('start');
+            guideBubble.innerText = activeGuardian.intro;
+            game.speak(activeGuardian.intro, 0.9, activeGuardian.char);
+            setTimeout(startRound, 3000);
+        };
+
+        if (userData.is_authenticated) {
+            startGame();
+        }
+
+        function startRound() {
+            currentWord = game.nextWord();
+            if (!currentWord) { showVictory(); return; }
+            document.getElementById('word-mystery').innerText = currentWord.palavra.replace(/[a-zA-Z]/g, '_ ').toUpperCase();
+            document.getElementById('word-mystery').style.color = "var(--rpg-text)";
+            aidText.innerText = "Listen closely...";
+            document.getElementById('progress-text').innerText = `Quest ${game.currentIndex + 1}/${game.words.length}`;
+            updateStats();
+            game.promptWord(currentWord.palavra);
+        }
+
+        function showVictory() {
+            document.getElementById('final-score').innerText = game.score.toString().padStart(4, '0');
+            victoryOverlay.classList.remove('hidden');
+            game.playSound('gameover');
+            if (userData.is_authenticated) {
+                fetch('{% url "jogos:save_progress" %}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    },
+                    body: JSON.stringify({ pontos: game.score })
+                });
+            }
+        }
+
+        document.getElementById('btn-replay').addEventListener('click', () => {
+            game.currentIndex = -1;
+            game.score = 0;
+            game.streak = 0;
+            startGame();
+        });
+
+        function updateStats() {
+            document.getElementById('count-score').innerText = game.score.toString().padStart(4, '0');
+            document.getElementById('count-streak').innerText = game.streak.toString().padStart(2, '0');
+            document.getElementById('txt-level').innerText = game.level;
+            document.getElementById('xp-bar-fill').style.width = `${game.xp % 100}%`;
+        }
+
+        document.getElementById('btn-listen').addEventListener('click', () => game.promptWord(currentWord.palavra));
+        document.getElementById('btn-ipa').addEventListener('click', () => {
+            aidText.innerText = `IPA: ${currentWord.ipa || '...'}`;
+            game.speak(`Phonetics: ${currentWord.ipa || currentWord.palavra}`, 0.7, activeGuardian.char);
+        });
+        document.getElementById('btn-definition').addEventListener('click', () => {
+            aidText.innerText = `Definition: ${currentWord.significado}`;
+            game.speak(`The definition is: ${currentWord.significado}`, 0.85, activeGuardian.char);
+        });
+        document.getElementById('btn-example').addEventListener('click', () => {
+            aidText.innerText = `Example: ${currentWord.exemplo}`;
+            game.speak(`Example: ${currentWord.exemplo}`, 0.85, activeGuardian.char);
+        });
+
+        document.getElementById('btn-speak').addEventListener('click', async () => {
+            aidText.innerText = "Listening...";
+            try {
+                const transcript = await game.startListening();
+                const result = await game.processAnswer(transcript);
+                if (result.success) {
+                    document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
+                    document.getElementById('word-mystery').style.color = "#10B981";
+                    guideBubble.innerText = "Brilliant!";
+                    updateStats();
+                    setTimeout(startRound, 2500);
+                } else { guideBubble.innerText = "Try again!"; }
+            } catch (err) { aidText.innerText = "Try again!"; }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,31 @@
+﻿{% load static %}
+
+<h2 class="title" style="text-align:center; margin-bottom:40px;">Jogos Interativos Arkanos</h2>
+<div class="grid-3" style="gap: 30px;">
+  <a href="{% url 'jogos:spellingbee' %}" class="card hover-rise"
+    style="padding:24px; display:flex; gap:16px; align-items:center; text-decoration: none; color: inherit; border-radius: 20px;">
+    <img src="{% static 'games/spellingbee_icon.svg' %}" width="48" height="48" alt="">
+    <div>
+      <h3 class="title" style="font-size:1.2rem; margin:0;">Spelling Bee</h3>
+      <p class="muted">Inglês com desafios graduais e rankings saudáveis.</p>
+    </div>
+  </a>
+
+  <a href="{% url 'jogos:radix' %}" class="card hover-rise"
+    style="padding:24px; display:flex; gap:16px; align-items:center; text-decoration: none; color: inherit; border-radius: 20px;">
+    <img src="{% static 'games/radix_icon.svg' %}" width="48" height="48" alt="">
+    <div>
+      <h3 class="title" style="font-size:1.2rem; margin:0;">Radix</h3>
+      <p class="muted">Soletração e consciência fonológica em português.</p>
+    </div>
+  </a>
+
+  <a href="{% url 'desafio_dos_sabios:index' %}" class="card hover-rise"
+    style="padding:24px; display:flex; gap:16px; align-items:center; text-decoration: none; color: inherit; border-radius: 20px;">
+    <img src="{% static 'games/desafios_trivium_icon.svg' %}" width="48" height="48" alt="">
+    <div>
+      <h3 class="title" style="font-size:1.2rem; margin:0;">Desafio dos Sábios</h3>
+      <p class="muted">Teste seus conhecimentos e suba no ranking de Logos.</p>
+    </div>
+  </a>
+</div>

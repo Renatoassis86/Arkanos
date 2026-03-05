@@ -1,0 +1,30 @@
+<!-- =========================================================
+File: D:/repositorio_geral/repositorio_arkanos/backend/templates/arkanos/jornada/index.html
+Purpose: Página "Jornada" (fases), com vibe feliz/encantada
+========================================================= -->
+{% extends 'arkanos/base.html' %}
+{% block title %}Jornada do Guardião — Arkanos{% endblock %}
+{% block content %}
+<section class="relative py-20 bg-gradient-to-b from-arkanos-beige via-white to-arkanos-beige/60">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto">
+<h1 class="text-3xl sm:text-5xl font-extrabold text-arkanos-blue">Jornada do Guardião</h1>
+<p class="mt-3 text-slate-600">Avance por fases temáticas, conquiste virtudes e desbloqueie novos jogos.</p>
+</div>
+<div class="mt-10 grid md:grid-cols-3 gap-6">
+<a href="{% url 'arkanos:jogos_gramatica' %}" class="rounded-2xl bg-white p-6 shadow hover:shadow-xl transition">
+<h3 class="font-bold">Fase 1 — Gramática</h3>
+<p class="text-sm text-slate-600">Fundamentos da linguagem: ortografia, vocabulário e estrutura.</p>
+</a>
+<a href="{% url 'arkanos:jogos_logica' %}" class="rounded-2xl bg-white p-6 shadow hover:shadow-xl transition">
+<h3 class="font-bold">Fase 2 — Lógica</h3>
+<p class="text-sm text-slate-600">Raciocínio, padrões, argumentos e consistência.</p>
+</a>
+<a href="{% url 'arkanos:jogos_retorica' %}" class="rounded-2xl bg-white p-6 shadow hover:shadow-xl transition">
+<h3 class="font-bold">Fase 3 — Retórica</h3>
+<p class="text-sm text-slate-600">Comunicação, expressão oral e escrita, estilo e oratória.</p>
+</a>
+</div>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+﻿
+<!-- =========================================================
+File: D:/repositorio_geral/repositorio_arkanos/backend/templates/arkanos/parts/card_fase.html
+Purpose: Card para linkar para uma FASE (GramÃ¡tica/LÃ³gica/RetÃ³rica)
+Uso:
+{% url 'arkanos:jogos_gramatica' as url_gram %}
+{% include 'arkanos/parts/card_fase.html' with
+title='GramÃ¡tica' description='Fundamentos da linguagem.'
+icon='arkanos/games/radix_icon.svg' url=url_gram phase='gramatica' %}
+========================================================= -->
+{% load static %}
+<article class="group card p-6 hover:-translate-y-1 hover:shadow-xl transition">
+<a href="{{ url|default:'#' }}" class="block">
+<img src="{% static icon %}" alt="{{ title }}" class="h-14"/>
+<h3 class="mt-4 font-bold {% if phase == 'gramatica' %}text-arkanos-blue{% elif phase == 'logica' %}text-arkanos-red{% else %}text-arkanos-pink{% endif %}">{{ title }}</h3>
+<p class="text-sm text-slate-600">{{ description }}</p>
+<span class="mt-4 inline-flex items-center text-arkanos-pink font-semibold">Explorar
+<svg class="ml-1 w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 5.5 20 12l-6.5 6.5-1.42-1.41L16.17 13H4v-2h12.17l-4.09-4.09z"/></svg>
+</span>
+</a>
+</article>

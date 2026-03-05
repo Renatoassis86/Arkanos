@@ -1,0 +1,617 @@
+{% extends 'arkanos/base.html' %}
+{% load static %}
+
+{% block title %}Desafio dos Sábios — Arkanos Quest{% endblock %}
+
+{% block head_extra %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
+<style>
+    :root {
+        --logos-blue: #1E3A8A;
+        --logos-gold: #D97706;
+        --current-theme: var(--logos-blue);
+    }
+
+    .quiz-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 900px;
+        gap: 2rem;
+        /* Increased gap */
+    }
+
+    .option-btn {
+        width: 100%;
+        padding: 1.5rem 2rem;
+        margin-bottom: 1.5rem;
+        /* Increased spacing between options */
+        background: white;
+        border: 2px solid #E2E8F0;
+        border-radius: 1.25rem;
+        text-align: left;
+        font-size: 1.2rem;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        display: block;
+        /* Ensure full width block */
+        word-wrap: break-word;
+        /* Avoid text overflow */
+    }
+
+    .option-btn:hover {
+        border-color: var(--current-theme);
+        background: #F8FAFC;
+        transform: translateY(-2px);
+    }
+
+    .option-btn.correct {
+        background: #DCFCE7;
+        border-color: #22C55E;
+        color: #166534;
+    }
+
+    .option-btn.wrong {
+        background: #FEE2E2;
+        border-color: #EF4444;
+        color: #991B1B;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    /* PREMIUM QUESTION CARD */
+    .parchment-card {
+        background: #fbf6e9;
+        border: 4px solid #8B4513;
+        border-radius: 4px;
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.1),
+            inset 0 0 100px rgba(139, 69, 19, 0.1);
+        position: relative;
+        min-height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .parchment-texture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .parchment-card::before,
+    .parchment-card::after {
+        content: '';
+        position: absolute;
+        height: 110%;
+        width: 18px;
+        top: -5%;
+        background: #8B4513;
+        border-radius: 12px;
+        z-index: 5;
+    }
+
+    .parchment-card::before {
+        left: -15px;
+        /* Adjusted to be closer but not overlapping */
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .parchment-card::after {
+        right: -15px;
+        /* Adjusted to be closer but not overlapping */
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .font-cinzel {
+        font-family: 'Cinzel', serif;
+    }
+
+    /* ANIMATIONS */
+    .animate-slideDown {
+        animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .animate-fadeInDelayed {
+        opacity: 0;
+        animation: fadeIn 0.8s ease 0.4s forwards;
+    }
+
+    @keyframes slideDown {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes shake {
+
+        0%,
+        100% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-10px);
+        }
+
+        75% {
+            transform: translateX(10px);
+        }
+    }
+
+    .shake {
+        animation: shake 0.4s ease-in-out;
+    }
+
+    /* Screen specific styles */
+    #screen-selection {
+        width: 100%;
+    }
+
+    #screen-question {
+        width: 100%;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-16">
+    <div id="game-container" class="rpg-game-container theme-logos">
+
+        <!-- HUD TOP -->
+        <div class="hud-top">
+            <div class="player-card">
+                <div class="avatar-shield">🎓</div>
+                <div class="player-info">
+                    <h1 id="txt-username">{{ request.user.username|upper }}</h1>
+                    <span>SÁBIO EXPLORADOR</span>
+                </div>
+            </div>
+            <div class="stats-group">
+                <div class="stat-item">
+                    <div class="stat-label">SCORE</div>
+                    <div class="stat-value" id="current-score">0000</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUD SIDE -->
+        <div class="hud-side">
+            <div class="bubble-wrap">
+                <div id="guardian-msg" class="bubble-content">
+                    Bem-vindo ao Desafio dos Sábios! Escolha sua disciplina para começar a jornada.
+                </div>
+            </div>
+            <div class="guardian-char aion-char"></div>
+
+            <div class="w-full mt-6 space-y-4">
+                <div id="stats-area" class="hidden">
+                    <div class="flex justify-between items-end">
+                        <span class="stat-label">QUEST</span>
+                        <span class="font-bold text-lg" id="quest-progress">0/10</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAIN ARENA -->
+        <div class="game-arena">
+
+            <!-- 1. INITIAL SCREEN -->
+            <div id="screen-welcome" class="text-center space-y-12 animate-fadeIn max-w-2xl mx-auto">
+                <h2 class="font-black text-5xl text-logos-blue tracking-tight">DESAFIO DOS SÁBIOS</h2>
+                <p class="text-gray-500 text-xl max-w-md mx-auto">
+                    A jornada de Logos exige sabedoria. Teste seus conhecimentos e conquiste medalhas lendárias.
+                </p>
+
+                {% if not request.user.is_authenticated %}
+                <!-- GATED WELCOME -->
+                <div class="rpg-auth-gate animate-bounce-subtle mt-10">
+                    <div class="gate-seal"><span class="seal-icon">🏛️</span></div>
+                    <div class="gate-content">
+                        <h3 class="gate-title text-2xl!">PORTAL DO CONHECIMENTO</h3>
+                        <p class="text-slate-500 text-sm italic mb-6">Entre na Academia para iniciar jornadas e selar
+                            seu progresso na jornada Logos.</p>
+                        <div class="flex flex-col gap-4">
+                            <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
+                                class="btn-rpg-big primary justify-center shadow-lg py-6">CRIAR PERFIL DE SÁBIO ✨</a>
+                            <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
+                                class="text-logos-blue font-bold hover:underline">Já possuo acesso ao Portal</a>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <!-- AUTHENTICATED WELCOME -->
+                <div class="flex flex-col gap-8 mt-16 items-center">
+                    <button id="btn-start"
+                        class="btn-rpg-big primary min-w-[340px] justify-center shadow-xl py-8">INICIAR DESAFIO
+                        ⚔️</button>
+                    <div class="flex gap-4 w-full">
+                        <button id="btn-ranking"
+                            class="btn-rpg-big flex-1 justify-center hover:bg-slate-50 shadow-md py-6">RANKING
+                            🏆</button>
+                        <button id="btn-history"
+                            class="btn-rpg-big flex-1 justify-center hover:bg-slate-50 shadow-md py-6">MEU PROGRESSO
+                            📜</button>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- 2. SELECTION SCREEN -->
+            <div id="screen-selection" class="hidden space-y-12 animate-fadeIn w-full">
+                <h3 class="font-bold text-3xl text-center">ESCOLHA A DISCIPLINA</h3>
+                <div class="grid grid-cols-2 gap-6" id="subject-list">
+                    <!-- Dinamicamente preenchido -->
+                </div>
+            </div>
+
+            <!-- 3. TOPIC SELECTION -->
+            <div id="screen-topics" class="hidden space-y-8 animate-fadeIn w-full">
+                <h3 class="font-bold text-3xl text-center">ESCOLHA O TEMA</h3>
+                <div class="grid grid-cols-1 gap-4" id="topic-list">
+                    <!-- Dinamicamente preenchido -->
+                </div>
+            </div>
+
+            <!-- 4. QUESTION SCREEN -->
+            <div id="screen-question" class="hidden flex flex-col items-center w-full animate-fadeIn overflow-x-hidden">
+                <div class="parchment-card animate-slideDown p-10 px-12 relative mb-12 w-full max-w-4xl mx-auto">
+                    <div class="parchment-texture"></div>
+                    <div class="relative z-10 text-center w-full px-4">
+                        <span class="text-logos-gold font-bold tracking-[0.1em] text-xs uppercase opacity-80"
+                            id="txt-topic">CARREGANDO...</span>
+                        <h2 class="font-cinzel text-2xl md:text-3xl mt-6 leading-snug text-slate-800" id="txt-question">
+                            Pergunta carregando...
+                        </h2>
+                    </div>
+                </div>
+
+                <div id="options-container" class="flex flex-col gap-6 w-full max-w-2xl mx-auto">
+                    <!-- Dinamicamente preenchido -->
+                </div>
+
+                <div id="short-answer-container" class="hidden w-full max-w-2xl mx-auto animate-fadeInDelayed mt-20">
+                    <div class="relative group">
+                        <input type="text" id="input-answer"
+                            class="w-full p-10 bg-white border-4 border-slate-200 rounded-3xl text-3xl font-bold text-center focus:border-logos-blue focus:ring-4 focus:ring-logos-blue/10 outline-none transition-all placeholder:text-slate-300 pr-28 shadow-inner"
+                            placeholder="SUA RESPOSTA...">
+                        <button id="btn-submit-answer-icon"
+                            class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20 bg-logos-blue text-white rounded-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg">
+                            <span class="text-2xl">⚡</span>
+                        </button>
+                    </div>
+                    <p class="text-center mt-8 text-slate-400 font-bold uppercase tracking-widest text-sm">Pressione
+                        ENTER ou clique no raio para enviar</p>
+                </div>
+            </div>
+
+            <!-- 5. FEEDBACK / EXPLANATION -->
+            <div id="screen-feedback" class="hidden space-y-8 animate-fadeIn text-center">
+                <h2 id="feedback-title" class="text-4xl font-black">CORRETO!</h2>
+                <div class="p-8 bg-blue-50 border-2 border-blue-100 rounded-3xl">
+                    <p id="feedback-explanation" class="text-lg italic text-blue-900"></p>
+                </div>
+                <button id="btn-next" class="btn-rpg-big primary mx-auto">PRÓXIMA PERGUNTA ➡️</button>
+            </div>
+
+            <!-- 6. FINAL RESULTS -->
+            <div id="screen-results" class="hidden space-y-8 animate-fadeIn text-center">
+                <h2 class="text-5xl font-black text-logos-blue">MISSAO CUMPRIDA!</h2>
+                <div class="py-10">
+                    <div class="text-7xl font-black text-logos-gold" id="final-score">0000</div>
+                    <p class="text-xl text-gray-500 mt-2">PONTOS CONQUISTADOS</p>
+                </div>
+                <div id="unlocked-achievements" class="flex justify-center gap-4"></div>
+                <div class="flex flex-col gap-4 mt-8">
+                    <button onclick="location.reload()" class="btn-rpg-big primary justify-center shadow-lg">JOGAR
+                        NOVAMENTE ⚔️</button>
+                    <a href="{% url 'jogos:jogo_list' %}" class="font-bold text-gray-400 hover:text-gray-600">VOLTAR AO
+                        MENU</a>
+                </div>
+            </div>
+
+            <!-- 7. RANKING SCREEN -->
+            <div id="screen-ranking" class="hidden space-y-8 animate-fadeIn w-full">
+                <h3 class="font-bold text-3xl text-center">RANKING GERAL</h3>
+                <div id="ranking-list-items" class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200">
+                    <!-- Dinamicamente preenchido -->
+                </div>
+                <button onclick="showScreen('welcome')" class="btn-rpg-big w-full justify-center">VOLTAR</button>
+            </div>
+
+            <!-- 8. HISTORY / PROGRESS SCREEN -->
+            <div id="screen-history" class="hidden space-y-8 animate-fadeIn w-full">
+                <h3 class="font-bold text-3xl text-center">MEU PROGRESSO</h3>
+                <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200 space-y-6">
+                    <div>
+                        <span class="stat-label">MINHAS CONQUISTAS</span>
+                        <div id="history-achievements" class="grid grid-cols-2 gap-3 mt-4">
+                            <!-- Dinamicamente preenchido -->
+                        </div>
+                    </div>
+                </div>
+                <button onclick="showScreen('welcome')" class="btn-rpg-big w-full justify-center">VOLTAR</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% csrf_token %}
+{% endblock %}
+
+{% block body_extra %}
+<script type="module">
+    import { GameEngine } from '{% static "game_engine/index.js" %}';
+    import { QuizService } from '{% static "desafio_dos_sabios/services/QuizService.js" %}';
+
+    const engine = new GameEngine();
+    const quiz = new QuizService();
+
+    let currentQuestions = [];
+    let currentIndex = 0;
+    let score = 0;
+
+    // DOM Elements
+    const screens = {
+        welcome: document.getElementById('screen-welcome'),
+        selection: document.getElementById('screen-selection'),
+        topics: document.getElementById('screen-topics'),
+        question: document.getElementById('screen-question'),
+        feedback: document.getElementById('screen-feedback'),
+        results: document.getElementById('screen-results'),
+        ranking: document.getElementById('screen-ranking'),
+        history: document.getElementById('screen-history')
+    };
+
+    const showScreen = (key) => {
+        Object.keys(screens).forEach(k => screens[k].classList.add('hidden'));
+        screens[key].classList.remove('hidden');
+    };
+
+    // 1. Welcome -> Selection
+    document.getElementById('btn-start').onclick = () => {
+        showScreen('selection');
+        renderSubjects();
+    };
+
+    document.getElementById('btn-ranking').onclick = async () => {
+        showScreen('ranking');
+        const data = await engine.getLeaderboard();
+        const list = document.getElementById('ranking-list-items');
+        list.innerHTML = data.map((entry, idx) => `
+            <div class="flex items-center justify-between p-4 bg-white border-b border-slate-100">
+                <div class="flex items-center gap-4">
+                    <span class="font-black text-logos-gold text-xl">#${idx + 1}</span>
+                    <span class="font-bold text-slate-700">${entry.username.toUpperCase()}</span>
+                </div>
+                <div class="flex gap-4">
+                    <span class="bg-blue-50 text-blue-700 font-bold px-3 py-1 rounded-lg">LVL ${entry.level}</span>
+                    <span class="text-logos-blue font-black">${entry.xp} XP</span>
+                </div>
+            </div>
+        `).join('');
+    };
+
+    document.getElementById('btn-history').onclick = async () => {
+        // We can fetch from engine views or a new endpoint
+        showScreen('history');
+        const progress = await engine.getProgress();
+        const achList = document.getElementById('history-achievements');
+        achList.innerHTML = progress.achievements.map(a => `
+            <div class="p-3 bg-white border border-slate-100 rounded-xl flex items-center gap-3">
+                <span class="text-2xl">🏅</span>
+                <span class="font-bold text-sm">${a.achievement__key.replace('_', ' ').toUpperCase()}</span>
+            </div>
+        `).join('');
+    };
+
+    const renderSubjects = async () => {
+        const container = document.getElementById('subject-list');
+        container.innerHTML = '<p class="text-center col-span-2">Carregando pergaminhos...</p>';
+
+        const subjects = await quiz.getSubjects();
+
+        if (subjects.length === 0) {
+            container.innerHTML = '<p class="text-center col-span-2 text-gray-400">Nenhum tema disponível ainda.</p>';
+            return;
+        }
+
+        container.innerHTML = subjects.map(s => `
+            <button class="btn-rpg-big py-6 justify-center text-xl subject-btn" data-subject="${s}">${s}</button>
+        `).join('');
+
+        document.querySelectorAll('.subject-btn').forEach(btn => {
+            btn.onclick = () => selectSubject(btn.dataset.subject);
+        });
+    };
+
+    const selectSubject = async (subject) => {
+        const container = document.getElementById('topic-list');
+        container.innerHTML = '<p class="text-center">Consultando biblioteca...</p>';
+        showScreen('topics');
+
+        const topics = await quiz.getTopics(subject);
+
+        container.innerHTML = topics.map(t => `
+            <button class="option-btn topic-btn" data-topic="${t}">${t}</button>
+        `).join('');
+
+        document.querySelectorAll('.topic-btn').forEach(btn => {
+            btn.onclick = () => startChallenge(subject, btn.dataset.topic);
+        });
+    };
+
+    const startChallenge = async (subject, topic) => {
+        try {
+            const sessionId = await engine.startSession('desafio_dos_sabios', 'aprendiz', { subject, topic });
+            currentQuestions = await quiz.getQuestions({ subject, topic, limit: 10 });
+
+            if (!currentQuestions || currentQuestions.length === 0) {
+                document.getElementById('guardian-msg').innerText = "Desculpe, sábio. Não temos pergaminhos sobre este tema específico hoje. Tente outro!";
+                return;
+            }
+
+            currentIndex = 0;
+            score = 0;
+            window.streak = 0;
+
+            document.getElementById('stats-area').classList.remove('hidden');
+            loadQuestion();
+        } catch (error) {
+            console.error("Challenge Error:", error);
+            document.getElementById('guardian-msg').innerText = "Você precisa estar logado para iniciar uma jornada oficial. Entre no portal primeiro!";
+            setTimeout(() => {
+                location.href = "{% url 'arkanos:login' %}?next=" + encodeURIComponent(location.pathname);
+            }, 2000);
+        }
+    };
+
+    const loadQuestion = () => {
+        const q = currentQuestions[currentIndex];
+        if (!q) { finishChallenge(); return; }
+
+        showScreen('question');
+        document.getElementById('txt-topic').innerText = q.topic.toUpperCase();
+        document.getElementById('txt-question').innerText = q.question;
+        document.getElementById('quest-progress').innerText = `${currentIndex + 1}/${currentQuestions.length}`;
+
+        const optionsDiv = document.getElementById('options-container');
+        const saContainer = document.getElementById('short-answer-container');
+
+        optionsDiv.innerHTML = '';
+        saContainer.classList.add('hidden');
+
+        if (q.type === 'multiple_choice' || q.type === 'true_false') {
+            const opts = q.type === 'true_false' ? ['Verdadeiro', 'Falso'] : q.options;
+            optionsDiv.innerHTML = opts.map(opt => `
+                <button class="option-btn ans-btn" data-answer="${opt}">${opt}</button>
+            `).join('');
+
+            document.querySelectorAll('.ans-btn').forEach(btn => {
+                btn.onclick = () => {
+                    let ansValue = btn.dataset.answer;
+                    // Map Portuguese labels for T/F back to boolean if needed, 
+                    // or handle string comparison in backend
+                    checkAnswer(q, ansValue);
+                };
+            });
+        } else if (q.type === 'short_answer') {
+            saContainer.classList.remove('hidden');
+            const input = document.getElementById('input-answer');
+            input.value = '';
+            input.focus();
+
+            const submit = () => {
+                const ans = input.value.trim();
+                if (ans) checkAnswer(q, ans);
+            };
+
+            input.onkeypress = (e) => { if (e.key === 'Enter') submit(); };
+            document.getElementById('btn-submit-answer-icon').onclick = submit;
+        }
+    };
+
+    const checkAnswer = async (q, ans) => {
+        const result = await quiz.validateAnswer(q.id, ans);
+
+        engine.registerEvent('QUESTION_ANSWERED', {
+            questionId: q.id,
+            answer: ans,
+            correct: result.correct
+        });
+
+        const btns = document.querySelectorAll('.ans-btn');
+        btns.forEach(b => {
+            const isCorrectAnswer = (b.dataset.answer === result.correct_answer);
+            const isUserChoice = (b.dataset.answer === ans);
+
+            if (isCorrectAnswer) {
+                b.classList.add('correct'); // Sempre verde na correta
+            } else if (isUserChoice && !result.correct) {
+                b.classList.add('wrong'); // Vermelho se o usuário errou
+            }
+            b.disabled = true;
+        });
+
+        if (result.correct) {
+            window.streak = (window.streak || 0) + 1;
+
+            // Scoring by difficulty
+            const basePoints = { 'easy': 10, 'medium': 20, 'hard': 30 }[q.difficulty] || 10;
+            let currentPoints = basePoints;
+
+            // Streak Bonus
+            if (window.streak === 3) currentPoints += 10;
+            else if (window.streak === 5) currentPoints += 25;
+            else if (window.streak >= 10) currentPoints += 60;
+
+            score += currentPoints;
+            document.getElementById('current-score').innerText = score.toString().padStart(4, '0');
+        } else {
+            window.streak = 0;
+        }
+
+        setTimeout(() => {
+            showScreen('feedback');
+            document.getElementById('feedback-title').innerText = result.correct ? 'CORRETO!' : 'QUASE LÁ...';
+            document.getElementById('feedback-title').style.color = result.correct ? '#22C55E' : '#EF4444';
+            document.getElementById('feedback-explanation').innerText = result.explanation;
+        }, 1000);
+    };
+
+    document.getElementById('btn-next').onclick = () => {
+        currentIndex++;
+        loadQuestion();
+    };
+
+    const finishChallenge = async () => {
+        const results = await engine.finishSession(score);
+        showScreen('results');
+        document.getElementById('final-score').innerText = results.score;
+
+        const achDiv = document.getElementById('unlocked-achievements');
+        achDiv.innerHTML = results.achievementsUnlocked.map(a => `
+            <div class="p-4 bg-gold/10 rounded-2xl border-2 border-gold/20 animate-bounce">
+                <span class="text-4xl">🏅</span>
+                <p class="font-bold text-gold text-sm mt-2">${a.replace('_', ' ').toUpperCase()}</p>
+            </div>
+        `).join('');
+    };
+
+</script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "arkanos/base.html" %}
+{% load static %}
+{% block title %}Arkanos — Lógica{% endblock %}
+{% block content %}
+<section class="max-w-5xl mx-auto px-4 py-10">
+  <h1 class="text-3xl font-extrabold mb-2">Lógica</h1>
+  <p class="text-slate-600 mb-6">Raciocínio, sequências, padrões e argumentação.</p>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+    <a href="{% url 'desafio_dos_sabios:index' %}"
+      class="block p-6 bg-white border border-slate-200 rounded-3xl hover:border-logos-blue transition-all group">
+      <div class="flex items-center gap-4">
+        <div
+          class="w-12 h-12 bg-logos-blue/10 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+          ⚔️</div>
+        <div>
+          <h2 class="text-xl font-bold">Desafio dos Sábios</h2>
+          <p class="text-slate-500">O grande quiz da sabedoria acadêmica.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <a href="{% url 'arkanos:jogos' %}" class="text-[#0B5FA5] underline">← Voltar aos jogos</a>
+</section>
+{% endblock %}

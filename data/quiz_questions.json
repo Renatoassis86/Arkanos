@@ -1,0 +1,343 @@
+[
+    {
+        "id": "Q001",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Onde surgiu a primeira civilização europeia mencionada no texto?",
+        "answer": "Na ilha de Creta"
+    },
+    {
+        "id": "Q002",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "De onde vem o nome 'minoicos'?",
+        "answer": "Do rei Minos"
+    },
+    {
+        "id": "Q003",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Onde os minoicos construíram muitas de suas cidades?",
+        "options": [
+            "No deserto",
+            "Na costa",
+            "No topo das montanhas",
+            "Em cavernas"
+        ],
+        "answer": "Na costa"
+    },
+    {
+        "id": "Q004",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Com quais regiões os minoicos comercializavam?",
+        "options": [
+            "Egito e Síria",
+            "China e Índia",
+            "Brasil e África",
+            "Roma e França"
+        ],
+        "answer": "Egito e Síria"
+    },
+    {
+        "id": "Q005",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Qual tipo de produto os minoicos comercializavam muito?",
+        "answer": "Cerâmicas"
+    },
+    {
+        "id": "Q006",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "O que os minoicos colocavam nas tumbas dos mortos?",
+        "answer": "Bens para levar ao além"
+    },
+    {
+        "id": "Q007",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "true_false",
+        "difficulty": "easy",
+        "question": "Os minoicos acreditavam na vida após a morte.",
+        "answer": true
+    },
+    {
+        "id": "Q008",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Qual atividade esportiva famosa aparece nas pinturas minoicas?",
+        "answer": "Taurocatapsia"
+    },
+    {
+        "id": "Q009",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "multiple_choice",
+        "difficulty": "medium",
+        "question": "Qual escrita era usada pelos minoicos?",
+        "options": [
+            "Linear A",
+            "Latim",
+            "Cuneiforme",
+            "Hieróglifos"
+        ],
+        "answer": "Linear A"
+    },
+    {
+        "id": "Q010",
+        "subject": "História",
+        "topic": "Civilização Micênica",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "De qual cidade vem o nome dos micênicos?",
+        "answer": "Micenas"
+    },
+    {
+        "id": "Q011",
+        "subject": "História",
+        "topic": "Civilização Micênica",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Por volta de que ano os micênicos conquistaram Creta?",
+        "answer": "1450 a.C."
+    },
+    {
+        "id": "Q012",
+        "subject": "História",
+        "topic": "Civilização Micênica",
+        "type": "true_false",
+        "difficulty": "easy",
+        "question": "Os micênicos eram militaristas.",
+        "answer": true
+    },
+    {
+        "id": "Q013",
+        "subject": "História",
+        "topic": "Civilização Micênica",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Qual estrutura era usada para defender a cidade de Micenas?",
+        "answer": "Cidadela"
+    },
+    {
+        "id": "Q014",
+        "subject": "História",
+        "topic": "Civilização Micênica",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Qual o nome do portão famoso da cidade de Micenas?",
+        "answer": "Portão dos Leões"
+    },
+    {
+        "id": "Q015",
+        "subject": "História",
+        "topic": "Civilização Micênica",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Cite um objeto encontrado nas tumbas micênicas.",
+        "answer": "Armas"
+    },
+    {
+        "id": "Q016",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Quem escreveu o poema Ilíada?",
+        "options": [
+            "Homero",
+            "Sócrates",
+            "Platão",
+            "Aristóteles"
+        ],
+        "answer": "Homero"
+    },
+    {
+        "id": "Q017",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Qual conflito é narrado no poema Ilíada?",
+        "answer": "Guerra de Troia"
+    },
+    {
+        "id": "Q018",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Quem raptou Helena, iniciando a guerra?",
+        "answer": "Páris"
+    },
+    {
+        "id": "Q019",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Quem criou o plano do Cavalo de Troia?",
+        "answer": "Odisseu"
+    },
+    {
+        "id": "Q020",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Como os gregos entraram na cidade de Troia?",
+        "answer": "Escondidos dentro do cavalo de madeira"
+    },
+    {
+        "id": "Q021",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "true_false",
+        "difficulty": "easy",
+        "question": "A Guerra de Troia durou dez anos.",
+        "answer": true
+    },
+    {
+        "id": "Q022",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Quem era o marido de Helena?",
+        "answer": "Menelau"
+    },
+    {
+        "id": "Q023",
+        "subject": "História",
+        "topic": "Guerra de Troia",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Quem era o rei de Argos que participou da guerra?",
+        "answer": "Agamenon"
+    },
+    {
+        "id": "Q024",
+        "subject": "História",
+        "topic": "Fenícios",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Em que região viviam os fenícios?",
+        "answer": "Canaã"
+    },
+    {
+        "id": "Q025",
+        "subject": "História",
+        "topic": "Fenícios",
+        "type": "true_false",
+        "difficulty": "easy",
+        "question": "Os fenícios eram navegadores e comerciantes.",
+        "answer": true
+    },
+    {
+        "id": "Q026",
+        "subject": "História",
+        "topic": "Fenícios",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Qual corante famoso era comercializado pelos fenícios?",
+        "answer": "Corante púrpura"
+    },
+    {
+        "id": "Q027",
+        "subject": "História",
+        "topic": "Fenícios",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Qual foi a principal contribuição dos fenícios para a escrita?",
+        "answer": "O alfabeto"
+    },
+    {
+        "id": "Q028",
+        "subject": "História",
+        "topic": "Fenícios",
+        "type": "true_false",
+        "difficulty": "easy",
+        "question": "O alfabeto fenício influenciou o nosso alfabeto.",
+        "answer": true
+    },
+    {
+        "id": "Q029",
+        "subject": "História",
+        "topic": "Fenícios",
+        "type": "true_false",
+        "difficulty": "medium",
+        "question": "O alfabeto fenício possuía muitas vogais.",
+        "answer": false
+    },
+    {
+        "id": "Q030",
+        "subject": "História",
+        "topic": "Linha do Tempo",
+        "type": "ordering",
+        "difficulty": "medium",
+        "question": "Coloque na ordem cronológica: Minoicos, Micênicos, Guerra de Troia, Fenícios.",
+        "answer": [
+            "Minoicos",
+            "Micênicos",
+            "Guerra de Troia",
+            "Fenícios"
+        ]
+    },
+    {
+        "id": "Q031",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "easy",
+        "question": "Qual era o animal considerado sagrado pelos minoicos e muito presente em sua arte?",
+        "answer": "Touro"
+    },
+    {
+        "id": "Q032",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "short_answer",
+        "difficulty": "medium",
+        "question": "Como era chamada a forma de governo minoica, baseada no domínio dos mares?",
+        "answer": "Talassocracia"
+    },
+    {
+        "id": "Q033",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "multiple_choice",
+        "difficulty": "easy",
+        "question": "Qual era a principal divindade adorada pelos minoicos?",
+        "options": [
+            "Deusa Mãe (divindade feminina)",
+            "Zeus (deus do trovão)",
+            "Ares (deus da guerra)",
+            "Poseidon (deus do mar)"
+        ],
+        "answer": "Deusa Mãe (divindade feminina)"
+    },
+    {
+        "id": "Q034",
+        "subject": "História",
+        "topic": "Civilização Minoica",
+        "type": "true_false",
+        "difficulty": "medium",
+        "question": "As cidades minoicas eram famosas por suas gigantescas muralhas de pedra para defesa.",
+        "answer": false
+    }
+]

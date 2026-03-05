@@ -1,0 +1,13 @@
+{
+  "name": "arkanos-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./backend/assets/tailwind/input.css -o ./backend/static/arkanos/css/app.css --watch",
+    "build": "tailwindcss -i ./backend/assets/tailwind/input.css -o ./backend/static/arkanos/css/app.css --minify"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10"
+  }
+}

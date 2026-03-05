@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Componentes utilitários (aplicam o visual feliz/alegre) */
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition transform active:scale-95; }
+.btn-primary { @apply bg-arkanos-pink text-white shadow-lg hover:shadow-glow hover:-translate-y-0.5; }
+.btn-outline { @apply border-2 border-white/70 text-white hover:bg-white hover:text-arkanos-blue; }
+.badge { @apply rounded-full px-3 py-1 text-xs font-semibold; }
+.card { @apply rounded-2xl shadow-lg bg-white; }
+.glass { @apply bg-white/80 backdrop-blur-xl border border-white/40; }
+.glass-dark { @apply bg-slate-900/60 backdrop-blur-xl border border-white/10; }
+.section-title { @apply text-2xl md:text-4xl font-extrabold tracking-tight; }

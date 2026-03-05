@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>{{ jogo.nome }}</h1>
+<p>Dificuldade: {{ jogo.get_dificuldade_display }}</p>
+<p>{{ jogo.descricao }}</p>
+
+<div id="game-container">
+    <p id="palavra"></p>
+    <input type="text" id="entrada" placeholder="Soletre a palavra">
+    <button onclick="verificar()">Verificar</button>
+    <p id="mensagem"></p>
+</div>
+
+<script src="{% static 'jogos/js/radix.js' %}"></script>
+{% endblock %}

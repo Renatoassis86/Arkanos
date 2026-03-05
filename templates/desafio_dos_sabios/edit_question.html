@@ -1,0 +1,76 @@
+{% extends 'arkanos/base.html' %}
+
+{% block title %}Editar Questão — Arkanos Admin{% endblock %}
+
+{% block content %}
+<div class="container py-12">
+    <div class="max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl p-8 border border-slate-100">
+        <h1 class="text-3xl font-black text-slate-800 mb-8 uppercase">Editar Questão</h1>
+
+        <form id="form-edit" class="space-y-6">
+            <div>
+                <label class="stat-label">Pergunta</label>
+                <textarea id="field-question"
+                    class="w-full p-4 border border-slate-200 rounded-xl mt-2 h-32">{{ q.question }}</textarea>
+            </div>
+
+            {% if q.options %}
+            <div>
+                <label class="stat-label">Opções (Separadas por vírgula)</label>
+                <input type="text" id="field-options" value="{{ q.options|join:', ' }}"
+                    class="w-full p-4 border border-slate-200 rounded-xl mt-2">
+            </div>
+            {% endif %}
+
+            <div>
+                <label class="stat-label">Resposta Correta</label>
+                <input type="text" id="field-answer" value="{{ q.answer }}"
+                    class="w-full p-4 border border-slate-200 rounded-xl mt-2">
+            </div>
+
+            <div>
+                <label class="stat-label">Explicação</label>
+                <textarea id="field-explanation"
+                    class="w-full p-4 border border-slate-200 rounded-xl mt-2 h-24">{{ q.explanation }}</textarea>
+            </div>
+
+            <div class="flex gap-4 pt-4">
+                <button type="submit" class="btn-rpg-big primary flex-1 justify-center">SALVAR ALTERAÇÕES</button>
+                <a href="{% url 'desafio_dos_sabios:admin_questions' %}"
+                    class="btn-rpg-big flex-1 justify-center text-center">CANCELAR</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('form-edit').onsubmit = async (e) => {
+        e.preventDefault();
+        const data = {
+            question: document.getElementById('field-question').value,
+            answer: document.getElementById('field-answer').value,
+            explanation: document.getElementById('field-explanation').value
+        };
+
+        const optionsField = document.getElementById('field-options');
+        if (optionsField) {
+            data.options = optionsField.value.split(',').map(s => s.trim());
+        }
+
+        const response = await fetch(window.location.href, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            window.location.href = "{% url 'desafio_dos_sabios:admin_questions' %}";
+        } else {
+            alert("Erro ao salvar");
+        }
+    }
+</script>
+{% endblock %}

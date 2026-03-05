@@ -1,0 +1,57 @@
+{# login.html #}
+{% extends 'arkanos/base.html' %}
+{% load static %}
+{% block title %}Enter the Gate — Arkanos Academy{% endblock %}
+
+{% block head_extra %}
+<link rel="stylesheet" href="{% static 'css/auth-rpg.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="text-5xl mb-4 floating-icon text-center">📜</div>
+      <h1>Welcome Back!</h1>
+      <p>Your quest is waiting for you.</p>
+    </div>
+
+    {% if messages %}
+    <div class="space-y-4 mb-6">
+      {% for message in messages %}
+      <div class="alert {% if message.tags == 'error' %}alert-error{% else %}alert-success{% endif %}">
+        {% if message.tags == 'error' %}<span>⚠️</span>{% else %}<span>✅</span>{% endif %}
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="POST" class="space-y-6">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{{ next }}">
+
+      <div class="form-group">
+        <label class="form-label" for="email">E-mail Address</label>
+        <input type="email" name="email" id="email" class="form-input" placeholder="hero@arkanos.com" required
+          autofocus>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" name="password" id="password" class="form-input" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="btn-rpg-auth">
+        CONTINUE MY QUEST ⚔️
+      </button>
+
+      <div class="auth-footer">
+        <p>New traveler?
+          <a href="{% url 'arkanos:cadastro' %}?next={{ next }}">Join the Academy</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
