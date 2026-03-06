@@ -16,7 +16,7 @@ DEBUG = os.getenv("DJANGO_DEBUG", "True").strip().lower() in ("1", "true", "yes"
 
 # Em DEV: libera localhost/127.0.0.1
 # Em PROD: use DJANGO_ALLOWED_HOSTS="seu-dominio.com, www.seu-dominio.com, 10.0.0.5"
-_default_hosts = "127.0.0.1,localhost"
+_default_hosts = "127.0.0.1,localhost,.vercel.app"
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("DJANGO_ALLOWED_HOSTS", _default_hosts).split(",") if h.strip()]
 
 # Configuração do Banco de Dados (Supabase/PostgreSQL)
