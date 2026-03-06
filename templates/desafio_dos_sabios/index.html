@@ -868,9 +868,9 @@
     const ALL_GRADES = [
         { id: '1ano', name: '1º Ano', section: 'FUNDAMENTAL I', active: false },
         { id: '2ano', name: '2º Ano', section: 'FUNDAMENTAL I', active: false },
-        { id: '3ano', name: '3º Ano', section: 'FUNDAMENTAL I', active: true },
+        { id: '3ano', name: '3º Ano', section: 'FUNDAMENTAL I', active: true, db_id: 3 },
         { id: '4ano', name: '4º Ano', section: 'FUNDAMENTAL I', active: false },
-        { id: '5ano', name: '5º Ano', section: 'FUNDAMENTAL I', active: true },
+        { id: '5ano', name: '5º Ano', section: 'FUNDAMENTAL I', active: true, db_id: 1 },
         { id: '6ano', name: '6º Ano', section: 'FUNDAMENTAL II', active: false },
         { id: '7ano', name: '7º Ano', section: 'FUNDAMENTAL II', active: false },
         { id: '8ano', name: '8º Ano', section: 'FUNDAMENTAL II', active: false },
@@ -882,29 +882,16 @@
 
     const renderGrades = async () => {
         const container = document.getElementById('grade-list');
-        const dbGrades = await quiz.getGrades(); // Get real DB IDs
-
+        // Usamos IDs fixos mapeados baseados no banco de dados Supabase
         container.innerHTML = ALL_GRADES.map(g => {
-            // Tenta encontrar a série de forma robusta ignorando espaços, capturando numero e EM/Fundamental
-            const isEM = g.id.includes('em');
-            const gradeNum = g.id.match(/\d+/)[0];
-            const dbMatch = dbGrades.find(dbG => {
-                const dbName = dbG.name.toLowerCase();
-                const hasEM = dbName.includes('médio') || dbName.includes('e.m') || dbName.includes('em');
-                return dbName.includes(gradeNum) && (isEM === hasEM);
-            });
-
-            // Garantir que 3º e 5º ano fiquem disponíveis
             const isAvailable = g.active;
             const statusLabel = isAvailable ? '' : '<span class="text-sm opacity-60 block">(EM BREVE)</span>';
             const lockedClass = isAvailable ? '' : 'locked opacity-50 cursor-not-allowed grayscale';
-
-            // Usar o ID do DB (inteiro) ou um fallback para não quebrar no clique
-            const realId = dbMatch ? dbMatch.id : g.id;
+            const finalId = isAvailable ? g.db_id : '';
 
             return `
                 <button class="btn-rpg-big py-6 flex-col justify-center text-xl grade-btn ${lockedClass}" 
-                        data-id="${isAvailable ? realId : ''}">
+                        data-id="${finalId}">
                     ${g.name} ${statusLabel}
                 </button>
             `;
