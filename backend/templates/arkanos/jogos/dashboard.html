@@ -11,131 +11,199 @@
     .dashboard-container {
         min-height: 80vh;
         padding: 4rem 2rem;
-        background: radial-gradient(circle at center, #f8fafc 0%, #e2e8f0 100%);
+        background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        color: white;
     }
 
-    .game-grid {
+    .trivium-pilar {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2.5rem;
-        max-width: 1200px;
-        margin: 3rem auto;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+        max-width: 1300px;
+        margin: 4rem auto;
     }
 
-    .game-card {
-        background: white;
-        border: 4px solid var(--logos-blue);
-        border-radius: 32px;
-        padding: 2.5rem;
+    .pilar-card {
+        background: rgba(30, 41, 59, 0.4);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 40px;
+        padding: 3rem 2rem;
         text-align: center;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
-        box-shadow: 0 10px 0 -2px var(--logos-blue);
     }
 
-    .game-card:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 20px 0 -2px var(--logos-blue);
+    .pilar-card:hover {
+        transform: translateY(-20px);
+        background: rgba(30, 41, 59, 0.6);
+        border-color: var(--pilar-color);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--pilar-color-glow);
     }
 
-    .game-icon {
-        font-size: 5rem;
-        margin-bottom: 1.5rem;
-        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-        animation: float 3s ease-in-out infinite;
+    .pilar-card.gramatica {
+        --pilar-color: #e74fd2;
+        --pilar-color-glow: rgba(231, 79, 210, 0.2);
     }
 
-    .game-card.spelling {
-        border-color: #D97706;
-        box-shadow: 0 10px 0 -2px #D97706;
+    .pilar-card.logica {
+        --pilar-color: #2d7cff;
+        --pilar-color-glow: rgba(45, 124, 255, 0.2);
     }
 
-    .game-card.spelling:hover {
-        box-shadow: 0 20px 0 -2px #D97706;
+    .pilar-card.retorica {
+        --pilar-color: #ff5a3d;
+        --pilar-color-glow: rgba(255, 90, 61, 0.2);
     }
 
-    .game-card.logic {
-        border-color: #1E40AF;
-        box-shadow: 0 10px 0 -2px #1E40AF;
+    .pilar-card.is-recommended {
+        border-color: var(--pilar-color) !important;
+        background: rgba(30, 41, 59, 0.7);
+        box-shadow: 0 0 30px var(--pilar-color-glow);
+        transform: scale(1.05);
+        z-index: 2;
     }
 
-    .game-card.logic:hover {
-        box-shadow: 0 20px 0 -2px #1E40AF;
-    }
-
-    .game-card h3 {
-        font-family: 'Cinzel', serif;
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        color: #1e293b;
-    }
-
-    .game-card p {
-        font-family: 'Baloo 2', cursive;
-        color: #64748b;
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        line-height: 1.4;
-    }
-
-    .btn-play {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: #1e293b;
-        color: white;
-        border-radius: 16px;
-        text-decoration: none;
+    .recommendation-badge {
+        position: absolute;
+        top: -15px;
+        background: #fbbf24;
+        color: #0f172a;
+        padding: 5px 15px;
+        border-radius: 20px;
         font-weight: 800;
         font-family: 'Cinzel', serif;
-        transition: all 0.3s;
-        width: 100%;
+        font-size: 0.8rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        animation: pulseBadge 2s infinite;
     }
 
-    .game-card.spelling .btn-play {
-        background: #D97706;
-    }
-
-    .game-card.logic .btn-play {
-        background: #1E40AF;
-    }
-
-    .btn-play:hover {
-        filter: brightness(1.2);
-        letter-spacing: 1px;
-    }
-
-    @keyframes float {
+    @keyframes pulseBadge {
 
         0%,
         100% {
-            transform: translateY(0);
+            transform: scale(1);
         }
 
         50% {
-            transform: translateY(-15px);
+            transform: scale(1.1);
         }
     }
 
-    .section-title {
+    .character-float {
+        height: 200px;
+        margin-bottom: 2rem;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        animation: floatImg 4s ease-in-out infinite;
+    }
+
+    @keyframes floatImg {
+
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-15px) rotate(2deg);
+        }
+    }
+
+    .pilar-title {
         font-family: 'Cinzel', serif;
+        font-size: 2.2rem;
+        color: var(--pilar-color);
+        margin-bottom: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .pilar-desc {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #cbd5e1;
+        margin-bottom: 2.5rem;
+        min-height: 80px;
+    }
+
+    .btn-action {
+        width: 100%;
+        padding: 1.2rem;
+        border-radius: 20px;
+        font-family: 'Cinzel', serif;
+        font-size: 1.1rem;
+        font-weight: 900;
+        text-decoration: none;
+        color: white;
+        background: var(--pilar-color);
+        box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+        transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+        filter: brightness(1.2);
+        transform: translateY(2px);
+        box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .section-header {
         text-align: center;
-        font-size: 3rem;
-        color: var(--logos-blue);
+        margin-bottom: 5rem;
+    }
+
+    .section-header h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 3.5rem;
+        color: #fbbf24;
         margin-bottom: 1rem;
     }
 
-    .section-subtitle {
-        text-align: center;
-        color: #64748b;
-        font-size: 1.25rem;
-        font-weight: 600;
-        max-width: 600px;
+    .section-header p {
+        font-size: 1.3rem;
+        color: #94a3b8;
+        max-width: 700px;
         margin: 0 auto;
+    }
+
+    .pilar-games-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+
+    .btn-sub-action {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 16px;
+        font-family: 'Cinzel', serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        color: white;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .btn-sub-action:hover {
+        background: var(--pilar-color);
+        border-color: var(--pilar-color);
+        transform: scale(1.02);
+    }
+
+    .btn-sub-action.locked {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(1);
     }
 </style>
 {% endblock %}
@@ -143,40 +211,107 @@
 {% block content %}
 <div class="dashboard-container">
     <div class="container">
-        <h1 class="section-title">Central de Questões</h1>
-        <p class="section-subtitle">Escolha seu treinamento e suba na hierarquia dos Sábios de Arkanos.</p>
+        <header class="section-header">
+            <h1>JORNADA TRIVIUM</h1>
+            <p>Sua jornada de conhecimento clássico começa aqui. Escolha um dos pilares e treine suas virtudes.</p>
+        </header>
 
-        <div class="game-grid">
-            <!-- DESAFIO DOS SÁBIOS -->
-            <div class="game-card logic">
-                <div class="game-icon">🏛️</div>
-                <div>
-                    <h3>Desafio dos Sábios</h3>
-                    <p>Teste seus conhecimentos em História, Ciências e Bíblia. A jornada de Logos começa aqui.</p>
+        <div class="trivium-pilar">
+            <!-- GRAMÁTICA (LYRA) -->
+            <div class="pilar-card gramatica {% if recommended_path == 'gramatica' %}is-recommended{% endif %}">
+                {% if recommended_path == 'gramatica' %}
+                <div class="recommendation-badge">MISSÃO RECOMENDADA</div>
+                {% endif %}
+                <img src="{% static 'img/personas/lyra.png' %}" alt="Lyra" class="character-float"
+                    style="animation-delay: 0s;">
+                <h2 class="pilar-title">Gramática</h2>
+                <p class="pilar-desc">
+                    A arte de ler, escrever e compreender. Domine as palavras e descubra o poder da linguagem.
+                </p>
+                <div class="pilar-games-list flex flex-col gap-3 w-full">
+                    <div
+                        class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-pink-500/50 transition-all text-left group">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl group-hover:scale-125 transition-transform">📜</span>
+                            <h3 class="font-bold text-lg text-white">SPELLING BEE</h3>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4">Inglês com desafios graduais e rankings saudáveis.</p>
+                        <a href="{% url 'jogos:spellingbee' %}"
+                            class="btn-sub-action bg-pink-600/20 text-pink-300 border-pink-500/30 hover:bg-pink-600 hover:text-white">JOGAR
+                            AGORA</a>
+                    </div>
+
+                    <div
+                        class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-pink-500/50 transition-all text-left group">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl group-hover:scale-125 transition-transform">🏛️</span>
+                            <h3 class="font-bold text-lg text-white">RADIX</h3>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4">Soletração e consciência fonológica em português.</p>
+                        <a href="{% url 'jogos:radix' %}"
+                            class="btn-sub-action bg-pink-600/20 text-pink-300 border-pink-500/30 hover:bg-pink-600 hover:text-white">JOGAR
+                            AGORA</a>
+                    </div>
                 </div>
-                <a href="{% url 'desafio_dos_sabios:index' %}" class="btn-play">INICIAR MISSÃO ⚔️</a>
             </div>
 
-            <!-- SPELLING BEE -->
-            <div class="game-card spelling">
-                <div class="game-icon">🐝</div>
-                <div>
-                    <h3>Spelling Bee</h3>
-                    <p>Domine o vocabulário de Grammatica. Soletre rumo ao topo do ranking.</p>
+
+            <!-- LÓGICA (AION) -->
+            <div class="pilar-card logica {% if recommended_path == 'logica' %}is-recommended{% endif %}">
+                {% if recommended_path == 'logica' %}
+                <div class="recommendation-badge">MISSÃO RECOMENDADA</div>
+                {% endif %}
+                <img src="{% static 'img/personas/aion.png' %}" alt="Aion" class="character-float"
+                    style="animation-delay: 1.5s;">
+                <h2 class="pilar-title">Lógica</h2>
+                <p class="pilar-desc">
+                    A arte do pensamento correto. Desafie seu conhecimento em testes rápidos e avaliações.
+                </p>
+                <div class="pilar-games-list flex flex-col gap-3 w-full">
+                    <div
+                        class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-blue-500/50 transition-all text-left group h-full flex flex-col">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl group-hover:scale-125 transition-transform">🧠</span>
+                            <h3 class="font-bold text-lg text-white">DESAFIO DOS SÁBIOS</h3>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4 flex-1">Teste seus conhecimentos e suba no ranking das
+                            disciplinas e bimestres.</p>
+                        <a href="{% url 'desafio_dos_sabios:index' %}"
+                            class="btn-sub-action bg-blue-600/20 text-blue-300 border-blue-500/30 hover:bg-blue-600 hover:text-white mt-auto">INICIAR
+                            JORNADA</a>
+                    </div>
                 </div>
-                <a href="{% url 'jogos:spellingbee' %}" class="btn-play">INICIAR MISSÃO ⚔️</a>
             </div>
 
-            <!-- ARENA DE PROBLEMAS (SOON) -->
-            <div class="game-card opacity-60 grayscale border-dashed border-gray-400">
-                <div class="game-icon">🛡️</div>
-                <div>
-                    <h3>Arena de Problemas</h3>
-                    <p>Em breve: Desafios matemáticos e lógica pura para os mais fortes.</p>
+
+            <!-- RETÓRICA (KAEL) -->
+            <div class="pilar-card retorica {% if recommended_path == 'retorica' %}is-recommended{% endif %}">
+                {% if recommended_path == 'retorica' %}
+                <div class="recommendation-badge">MISSÃO RECOMENDADA</div>
+                {% endif %}
+                <img src="{% static 'img/personas/kael.png' %}" alt="Kael" class="character-float"
+                    style="animation-delay: 0.7s;">
+                <h2 class="pilar-title">Retórica</h2>
+                <p class="pilar-desc">
+                    A arte da comunicação persuasiva. Desenvolva sua oratória e escrita virtuosa com sabedoria.
+                </p>
+                <div class="pilar-games-list flex flex-col gap-3 w-full">
+                    <div
+                        class="bg-white/5 rounded-2xl p-4 border border-white/10 text-left group h-full flex flex-col opacity-60 grayscale filter">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl">🗣️</span>
+                            <h3 class="font-bold text-lg text-white">TORNEIO DO DISCURSO</h3>
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4 flex-1">Em breve, grandes batalhas de argumentação
+                            baseadas em valores clássicos.</p>
+                        <a href="#"
+                            class="btn-sub-action bg-slate-600/20 text-slate-400 border-slate-500/30 mt-auto cursor-not-allowed pointer-events-none">SELADO</a>
+                    </div>
                 </div>
-                <button disabled class="btn-play bg-gray-400">EM BREVE</button>
             </div>
+
         </div>
+
     </div>
 </div>
 {% endblock %}

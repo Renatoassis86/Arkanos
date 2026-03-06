@@ -1,0 +1,22 @@
+{% extends "arkanos/base.html" %}
+
+{% block title %}Ark - Nova História{% endblock %}
+
+{% block content %}
+<div class="container py-12 text-center text-white">
+    <h1 class="text-4xl font-black text-amber-500 mb-6">Comece sua Jornada</h1>
+    <p class="mb-10 text-slate-300">Responda a algumas perguntas antes de começarmos a escrever nossa história.</p>
+
+    <div class="max-w-xl mx-auto bg-slate-800 p-8 rounded-2xl border-2 border-slate-700">
+        <form method="POST" action="{% url 'ark:api_interact' 0 %}">
+            {% csrf_token %}
+            <!-- This will be replaced by an interactive form soon -->
+            <button type="button"
+                class="px-8 py-4 bg-amber-600 rounded-lg font-bold uppercase tracking-wider text-white shadow-[0_0_15px_rgba(217,119,6,0.4)]"
+                onclick="alert('Funcionalidade em desenvolvimento! Estou construindo a lógica no backend.');">
+                Continuar a Criação ✨
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

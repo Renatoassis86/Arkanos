@@ -1,25 +1,82 @@
 ﻿{% load static %}
-<section class="section bg-level-0 hero" id="inicio">
+<section class="sec hero bg-dark" id="inicio">
   <div class="container hero-grid">
-    <div>
-      <p class="hero__crumbs">Cosmovisão Cristã • Trivium • Jogos com Propósito</p>
-      <h1 class="hero__title">Aprender com <span class="tone-primary">sabedoria</span>,<br> jogar com <span class="tone-accent">propósito</span>.</h1>
-      <p class="hero__lead">
-        A Arkanos é um ecossistema de aprendizagem cristã clássica em que o <strong>Trivium</strong> vira jornadas e jogos guiados por IA.
-        Nossos personagens — <strong>Lyra</strong>, <strong>Aion</strong> e <strong>Kael</strong> — conduzem as crianças em trilhas que cultivam virtudes, pensamento claro e expressão responsável.
+    <div class="hero-copy">
+      <p class="hero__crumbs">
+        Cosmovisão Cristã • Trivium • Jogos com Propósito
       </p>
-      <div style="display:flex; gap:10px; margin-top:10px;">
-        <a href="{% url 'arkanos:demo' %}" class="btn btn-brand">Pedir demonstração</a>
-        <a href="#programas" class="btn btn-ghost">Conhecer programas</a>
+      <h1 class="hero__title">
+        Aprender com <span class="tone-accent">sabedoria</span>,<br>
+        jogar com <span class="tone-gold">propósito</span>.
+      </h1>
+      <p class="hero__lead">
+        A Arkanos é um ecossistema de aprendizagem cristã clássica em que o <strong>Trivium</strong> vira jornadas e
+        jogos guiados por IA.
+        Nossos personagens conduzem as crianças em trilhas que cultivam virtudes e pensamento claro.
+      </p>
+      <div class="cta-row">
+        <a href="{% url 'arkanos:demo' %}" class="btn btn-signup">Pedir demonstração</a>
+        <a href="#programas" class="btn btn-login">Conhecer programas</a>
       </div>
-
     </div>
 
-    <figure class="card">
-      <video class="video-cover" playsinline muted autoplay loop preload="auto" poster="{% static 'img/logo-arkanos.png' %}">
+    <figure class="panel glow video-panel">
+      <video class="video-cover" playsinline muted autoplay loop>
         <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
-        Seu navegador não suporta vídeo HTML5.
       </video>
     </figure>
   </div>
 </section>
+
+<style>
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero__crumbs {
+    color: var(--brand-gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .hero__title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+  }
+
+  .tone-accent {
+    color: var(--brand-accent);
+  }
+
+  .tone-gold {
+    color: var(--brand-gold);
+  }
+
+  .hero__lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 90%;
+    margin-bottom: 35px;
+  }
+
+  .video-panel {
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .hero__title {
+      font-size: 2.5rem;
+    }
+
+    .hero {
+      padding: 40px 0;
+    }
+  }
+</style>

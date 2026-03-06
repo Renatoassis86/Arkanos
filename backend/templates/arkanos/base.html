@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,75 +9,256 @@
 
   <!-- Fonts (EducaCross style) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800&display=swap"
+    rel="stylesheet">
 
   <!-- CSS do site -->
   <link rel="stylesheet" href="{% static 'css/arkanos.css' %}">
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
   <style>
-    :root{
-      /* Paleta “educa-like” (azuis e ciano) + dourado para destaques */
-      --brand-700: #0b5fa5;
-      --brand-600: #0d6ec4;
-      --brand-500: #1283d8;  /* destaques */
-      --teal-500:  #0aa5a5;  /* alternativa para chips / links */
-      --gold-500:  #f4c34a;  /* destaques secundários */
-      --ink:       #0f172a;  /* texto principal */
-      --muted:     #475569;  /* texto secundário */
-      --header-bg: #ffffff;  /* barra do menu */
-      --hero-bg:   #f5f7ff;  /* fundo claro da dobra hero */
-      --radius-lg: 18px;
-      --shadow-hero: 0 18px 46px rgba(2,6,23,.14);
+    :root {
+      /* Paleta Arkanos Premium - Dark Fantasy & Gold */
+      --brand-blue: #0f172a;
+      --brand-accent: #3b82f6;
+      --brand-gold: #fbbf24;
+      --text-on-dark: #ffffff;
+      --text-on-light: #0f172a;
+      --text-muted: #94a3b8;
+      --glass-bg: rgba(15, 23, 42, 0.9);
     }
 
-    body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
-      color: var(--ink);
-      background: #fff;
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-on-dark);
+      background: #0f172a;
+      margin: 0;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Barra do menu (diferente da dobra Hero) */
-    .site-header{
-      position: sticky; top:0; z-index:50;
-      background: var(--header-bg);
-      border-bottom: 1px solid rgba(2,6,23,.06);
-      backdrop-filter: saturate(140%) blur(8px);
+    /* Utilitários de Seção e Níveis de Fundo */
+    .bg-dark {
+      background: #0f172a !important;
+      color: #ffffff !important;
     }
-    .site-header .header-inner{
-      height: 64px; display:flex; align-items:center; justify-content:space-between; gap:24px;
-      width: min(1140px, 92vw); margin: 0 auto;
-      padding: 0 4px;
-    }
-    .site-header .main-nav{ display:flex; gap:26px; }
-    .site-header .main-nav a{
-      color:var(--ink); text-decoration:none; font-weight:600;
-      transition: color .2s ease;
-    }
-    .site-header .main-nav a:hover{ color: var(--brand-700); }
 
-    /* Botões de Login/Cadastro à direita */
-    .site-header .auth{ display:flex; gap:10px; }
-    .btn{ display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:10px; text-decoration:none; font-weight:700; }
-    .btn-ghost{ background:#fff; color:var(--brand-700); border:1px solid rgba(2,6,23,.08); }
-    .btn-ghost:hover{ background:#f8fafc; }
-    .btn-brand{ background:var(--brand-700); color:#fff; box-shadow:0 8px 24px rgba(11,95,165,.25); }
-    .btn-brand:hover{ filter: brightness(1.06); }
+    .bg-dark h1,
+    .bg-dark h2,
+    .bg-dark h3,
+    .bg-dark p,
+    .bg-dark .title {
+      color: #ffffff !important;
+    }
+
+    .bg-dark .badge {
+      background: rgba(251, 191, 36, 0.1);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.2);
+    }
+
+    .bg-light,
+    .bg-level-1 {
+      background: #f1f5f9 !important;
+      /* Slightly darker light bg for better depth */
+      color: #0f172a !important;
+    }
+
+    .bg-level-1 h1,
+    .bg-level-1 h2,
+    .bg-level-1 h3,
+    .bg-level-1 h4,
+    .bg-level-1 .title,
+    .bg-level-1 strong {
+      color: #0f172a !important;
+    }
+
+    .bg-level-1 p,
+    .bg-level-1 .muted,
+    .bg-level-1 li,
+    .bg-level-1 span:not([class*="tone-"]):not([class*="accent-"]) {
+      color: #334155 !important;
+    }
+
+    .bg-level-1 .badge {
+      background: #e0f2fe;
+      color: #0369a1;
+      border: 1px solid #bae6fd;
+      font-weight: 800;
+    }
+
+    .bg-level-1 .hl,
+    .bg-level-1 .tone-primary {
+      color: #2563eb !important;
+      /* Brighter blue for contrast on light */
+      font-weight: 800;
+    }
+
+    .bg-level-1 .tone-accent {
+      color: #db2777 !important;
+      /* Pinker for contrast on light */
+      font-weight: 800;
+    }
+
+    .bg-level-1 .accent-3 {
+      color: #059669 !important;
+      /* Greener for contrast on light */
+      font-weight: 800;
+    }
+
+    .bg-level-2 {
+      background: #eff6ff !important;
+      color: #1e3a8a !important;
+    }
+
+    .bg-level-2 h1,
+    .bg-level-2 h2,
+    .bg-level-2 h3,
+    .bg-level-2 .title,
+    .bg-level-2 strong {
+      color: #1e3a8a !important;
+    }
+
+    .bg-level-2 p,
+    .bg-level-2 .muted,
+    .bg-level-2 li {
+      color: #1d4ed8 !important;
+      /* High contrast blue for readability */
+    }
+
+    .bg-level-2 .badge {
+      background: #dbeafe;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+    }
+
+    .bg-level-3 {
+      background: #1e293b !important;
+      color: #f8fafc !important;
+    }
+
+    .bg-level-3 h1,
+    .bg-level-3 h2,
+    .bg-level-3 h3,
+    .bg-level-3 .title {
+      color: #f8fafc !important;
+    }
+
+    .bg-level-3 p,
+    .bg-level-3 .muted {
+      color: #94a3b8 !important;
+    }
+
+    /* Tratamento de Vídeo Granulado */
+    .video-cover {
+      filter: brightness(0.9) contrast(1.1) saturate(1.1);
+      mix-blend-mode: lighten;
+      opacity: 0.95;
+    }
+
+    .panel.glow {
+      position: relative;
+      background: #000;
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+    }
+
+    .panel.glow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.4));
+      pointer-events: none;
+    }
+
+    /* Header Glassmorphism */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 2rem;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .main-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .main-nav a:hover {
+      color: var(--brand-gold);
+      transform: translateY(-1px);
+    }
+
+    /* Botões Premium */
+    .btn {
+      padding: 0.75rem 1.75rem;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .btn-login {
+      color: var(--brand-gold);
+      border: 1px solid var(--brand-gold);
+    }
+
+    .btn-login:hover {
+      background: rgba(251, 191, 36, 0.1);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+    }
+
+    .btn-signup {
+      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+      color: #0f172a !important;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-signup:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+    }
   </style>
 
   {% block head_extra %}{% endblock %}
 </head>
+
 <body class="site">
 
+  {% block header %}
   {% include 'arkanos/parts/header.html' %}
+  {% endblock %}
 
   <main id="content">
     {% block content %}{% endblock %}
   </main>
 
+  {% block footer %}
   {% include 'arkanos/parts/footer.html' %}
+  {% endblock %}
 
   <script src="{% static 'js/app.js' %}"></script>
   <script src="{% static 'js/home.js' %}"></script>
@@ -84,4 +266,5 @@
 
   {% block body_extra %}{% endblock %}
 </body>
+
 </html>

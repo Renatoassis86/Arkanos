@@ -1,34 +1,145 @@
 ﻿{% load static %}
-<header class="navbar" style="background:#fff; position:sticky; top:0; z-index:50; box-shadow:0 1px 0 #e9eef7;">
-  <div class="container" style="display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:14px;">
+{# parts/header.html #}
+<header class="site-header">
+  <div class="header-inner">
 
-    <!-- LOGO (caminho certo e classes para não distorcer) -->
-    <a href="{% url 'arkanos:home' %}" class="brand" aria-label="Arkanos"
-      style="display:flex; align-items:center; min-height:56px;">
-      <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo" decoding="async"
-        fetchpriority="high" width="240" height="64">
+    <!-- LOGO -->
+    <a href="{% url 'arkanos:home' %}" class="brand" aria-label="Arkanos">
+      <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo"
+        style="height: 64px; width: auto; filter: brightness(0) invert(1);">
     </a>
 
-    <nav class="nav-center" style="justify-self:center; display:flex; gap:22px;">
-      <a href="#programas">Programas</a>
-      <a href="#conteudos">Conteúdos</a>
-      <a href="#guardioes">Guardiões</a>
-      <a href="{% url 'arkanos:jogos' %}">Jogos</a>
-      <a href="#metodologia">Metodologia</a>
+    <nav class="main-nav">
+      <a href="/#programas">Programas</a>
+      <a href="/#conteudos">Conteúdos</a>
+
+      <!-- DESAFIOS DROPDOWN -->
+      <div class="nav-item-dropdown">
+        <a href="{% url 'arkanos:jogos' %}" class="dropdown-trigger">Desafios ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-section">
+            <span class="dropdown-label">📜 Gramática</span>
+            <a href="{% url 'jogos:spellingbee' %}">Spelling Bee</a>
+            <a href="#" class="locked">Radix (Em breve)</a>
+          </div>
+          <div class="dropdown-section">
+            <span class="dropdown-label">🏛️ Lógica</span>
+            <a href="{% url 'desafio_dos_sabios:index' %}">Desafio dos Sábios</a>
+          </div>
+          <div class="dropdown-section">
+            <span class="dropdown-label">🛡️ Retórica</span>
+            <a href="#" class="locked">Em breve</a>
+          </div>
+        </div>
+      </div>
+
+
+      <a href="/#guardioes">Guardiões</a>
+      <a href="{% url 'ark:home' %}">Ark</a>
     </nav>
 
-    <div class="nav-right" style="justify-self:end; display:flex; gap:10px; align-items: center;">
+    <div class="auth">
       {% if user.is_authenticated %}
-      <span class="text-slate-600 font-semibold mr-2">Hello, {{ user.first_name|default:user.username }}!</span>
-      <a class="btn btn-login" style="background:#f8fafc; color:#475569; border:1px solid #e2e8f0; font-weight:700;"
-        href="{% url 'arkanos:logout' %}">Logout</a>
+      <span style="color: var(--text-muted); font-weight: 600;">Olá, {{ user.first_name|default:user.username }}!</span>
+      <a class="btn btn-login" href="{% url 'arkanos:logout' %}">Sair</a>
       {% else %}
-      <a class="btn btn-login" style="color:var(--brand-700); font-weight:700;"
-        href="{% url 'arkanos:login' %}">Login</a>
-      <a class="btn btn-signup"
-        style="background:var(--brand-700); color:#fff; font-weight:700; padding:8px 18px; border-radius:12px; box-shadow:0 4px 12px rgba(11,95,165,0.2);"
-        href="{% url 'arkanos:cadastro' %}">Cadastro</a>
+      <a class="btn btn-login" href="{% url 'arkanos:login' %}">Entrar</a>
+      <a class="btn btn-signup" href="{% url 'arkanos:cadastro' %}">Cadastrar</a>
       {% endif %}
     </div>
   </div>
+
+  <style>
+    /* Ensure Header sits above any game elements */
+    .site-header {
+      position: relative;
+      z-index: 9999 !important;
+    }
+
+    /* Dropdown Styles */
+    .nav-item-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      min-width: 240px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      z-index: 1000;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 10px;
+      padding: 12px 0;
+      overflow: hidden;
+      animation: dropdownFade 0.3s ease;
+    }
+
+    .dropdown-content a {
+      color: var(--text-muted) !important;
+      padding: 14px 24px;
+      text-decoration: none;
+      display: block;
+      text-transform: none !important;
+      letter-spacing: 0.5px !important;
+      font-size: 0.95rem !important;
+      font-weight: 500 !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(251, 191, 36, 0.1);
+      color: var(--brand-gold) !important;
+      padding-left: 30px;
+    }
+
+    .dropdown-section {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-section:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-label {
+      display: block;
+      padding: 8px 24px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--brand-gold);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+
+    .dropdown-content a.locked {
+      opacity: 0.4;
+      pointer-events: none;
+      font-style: italic;
+    }
+
+
+    .nav-item-dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  </style>
 </header>

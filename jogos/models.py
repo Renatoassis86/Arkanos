@@ -58,6 +58,7 @@ class Conquista(models.Model):
 class PerfilEstudante(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     serie = models.CharField(max_length=10, choices=PalavraSpellingBee.SERIE_CHOICES)
+    data_nascimento = models.DateField(null=True, blank=True)
     xp = models.IntegerField(default=0)
     nivel = models.IntegerField(default=1)
     medalhas = models.ManyToManyField(Conquista, blank=True)

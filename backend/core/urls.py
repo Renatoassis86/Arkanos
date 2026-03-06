@@ -8,7 +8,8 @@ urlpatterns = [
     path("", include(("arkanos.urls", "arkanos"), namespace="arkanos")),
     path("jogos/", include(("jogos.urls", "jogos"), namespace="jogos")),  # OK
     path("api/game-engine/", include("core.game_engine.urls")),
-    path("desafio-dos-sabios/", include("modules.desafio_dos_sabios.urls")),
+    path("desafio-dos-sabios/", include("desafio_dos_sabios.urls")),
+    path("ark/", include("ark.urls")),
 ]
 
 if settings.DEBUG and getattr(settings, "MEDIA_ROOT", None):

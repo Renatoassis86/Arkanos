@@ -33,9 +33,11 @@ def login_view(request):
 def cadastro_view(request):
     next_url = request.GET.get('next') or request.POST.get('next') or 'arkanos:jogos'
     if request.method == 'POST':
-        nome = request.POST.get('nome')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
         email = request.POST.get('email')
         password = request.POST.get('password')
+        data_nascimento = request.POST.get('data_nascimento')
         serie = request.POST.get('serie', '2ano')
         
         if User.objects.filter(email=email).exists():
@@ -49,11 +51,21 @@ def cadastro_view(request):
             username = f"{original_username}{count}"
             count += 1
             
-        user = User.objects.create_user(username=username, email=email, password=password, first_name=nome)
-        PerfilEstudante.objects.create(user=user, serie=serie)
+        user = User.objects.create_user(
+            username=username, 
+            email=email, 
+            password=password, 
+            first_name=first_name,
+            last_name=last_name
+        )
+        PerfilEstudante.objects.create(
+            user=user, 
+            serie=serie,
+            data_nascimento=data_nascimento
+        )
         
         login(request, user)
-        messages.success(request, f"Bem-vindo(a), {nome}! Sua aventura começa agora.")
+        messages.success(request, f"Bem-vindo(a), {first_name}! Sua aventura começa agora.")
         return redirect(next_url)
         
     return render(request, "arkanos/auth/cadastro.html", {'next': next_url})
@@ -62,7 +74,32 @@ def logout_view(request):
     logout(request)
     return redirect('arkanos:home')
 
-def jogos_index(request): return render(request, "arkanos/jogos/dashboard.html")
+from datetime import date
+
+def jogos_index(request):
+    recommended_path = 'gramatica' # Default
+    age = None
+    
+    if request.user.is_authenticated:
+        try:
+            perfil = request.user.perfilestudante
+            if perfil.data_nascimento:
+                today = date.today()
+                age = today.year - perfil.data_nascimento.year - ((today.month, today.day) < (perfil.data_nascimento.month, perfil.data_nascimento.day))
+                
+                if age <= 9:
+                    recommended_path = 'gramatica'
+                elif age <= 12:
+                    recommended_path = 'logica'
+                else:
+                    recommended_path = 'retorica'
+        except PerfilEstudante.DoesNotExist:
+            pass
+            
+    return render(request, "arkanos/jogos/dashboard.html", {
+        'recommended_path': recommended_path,
+        'age': age
+    })
 def jogos_gramatica(request): return render(request, "arkanos/jogos/gramatica.html")
 def jogos_logica(request): return render(request, "arkanos/jogos/logica.html")
 def jogos_retorica(request): return render(request, "arkanos/jogos/retorica.html")

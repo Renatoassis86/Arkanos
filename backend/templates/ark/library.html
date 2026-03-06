@@ -1,0 +1,18 @@
+{% extends "arkanos/base.html" %}
+
+{% block title %}Ark - Minha Biblioteca{% endblock %}
+
+{% block content %}
+<div class="container py-12 text-center text-white min-h-[60vh]">
+    <h1 class="text-4xl font-black text-cyan-500 mb-6">Minhas Histórias Mágicas</h1>
+    <p class="mb-10 text-slate-300">Aqui ficam guardados todos os seus pergaminhos e aventuras.</p>
+
+    <div
+        class="max-w-4xl mx-auto flex flex-col items-center justify-center p-12 border-2 border-dashed border-slate-700 rounded-3xl opacity-50">
+        <span class="text-6xl mb-4">📖</span>
+        <p class="text-lg">Você ainda não tem histórias escritas.</p>
+        <a href="{% url 'ark:new_story' %}" class="mt-6 text-amber-500 font-bold hover:text-amber-400">Comece uma
+            agora!</a>
+    </div>
+</div>
+{% endblock %}

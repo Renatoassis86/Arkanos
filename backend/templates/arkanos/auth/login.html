@@ -1,7 +1,8 @@
-{# login.html #}
 {% extends 'arkanos/base.html' %}
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
 {% load static %}
-{% block title %}Enter the Gate — Arkanos Academy{% endblock %}
+{% block title %}Entre pelo Portal — Academia Arkanos{% endblock %}
 
 {% block head_extra %}
 <link rel="stylesheet" href="{% static 'css/auth-rpg.css' %}">
@@ -12,8 +13,8 @@
   <div class="auth-card">
     <div class="auth-header">
       <div class="text-5xl mb-4 floating-icon text-center">📜</div>
-      <h1>Welcome Back!</h1>
-      <p>Your quest is waiting for you.</p>
+      <h1>Bem-vindo de volta!</h1>
+      <p>Sua jornada o aguarda.</p>
     </div>
 
     {% if messages %}
@@ -32,24 +33,29 @@
       <input type="hidden" name="next" value="{{ next }}">
 
       <div class="form-group">
-        <label class="form-label" for="email">E-mail Address</label>
-        <input type="email" name="email" id="email" class="form-input" placeholder="hero@arkanos.com" required
+        <label class="form-label" for="email">E-mail</label>
+        <input type="email" name="email" id="email" class="form-input" placeholder="heroi@arkanos.com" required
           autofocus>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="password">Password</label>
+        <label class="form-label" for="password">Senha</label>
         <input type="password" name="password" id="password" class="form-input" placeholder="••••••••" required>
       </div>
 
       <button type="submit" class="btn-rpg-auth">
-        CONTINUE MY QUEST ⚔️
+        CONTINUAR JORNADA ⚔️
       </button>
 
       <div class="auth-footer">
-        <p>New traveler?
-          <a href="{% url 'arkanos:cadastro' %}?next={{ next }}">Join the Academy</a>
+        <p>Novo viajante?
+          <a href="{% url 'arkanos:cadastro' %}?next={{ next }}">Junte-se à Academia</a>
         </p>
+        <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
+          <a href="{% url 'arkanos:home' %}" class="btn-back-home">
+            <span>⬅️</span> Voltar ao Início
+          </a>
+        </div>
       </div>
     </form>
   </div>

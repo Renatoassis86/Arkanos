@@ -5,7 +5,7 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.core.settings')
 django.setup()
 
-from modules.desafio_dos_sabios.models import QuizQuestion
+from desafio_dos_sabios.models import QuizQuestion
 
 def seed_desafio():
     print("Seeding Desafio dos Sábios with Multiple Choice questions...")

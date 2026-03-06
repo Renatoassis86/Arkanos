@@ -17,7 +17,7 @@
 
 {% block content %}
 <div class="container py-16">
-    <div id="game-container" class="rpg-game-container theme-aion">
+    <div id="game-container" class="rpg-game-container theme-lyra">
 
         <!-- TOP HUD -->
         <div class="hud-top">
@@ -45,10 +45,10 @@
         <div class="hud-side">
             <div class="bubble-wrap">
                 <div id="speech-bubble" class="bubble-content">
-                    Saudações! Eu sou Aion. Pronto para desvendar as raízes das palavras?
+                    Saudações! Eu sou Lyra. Pronta para desvendar as raízes das palavras em português?
                 </div>
             </div>
-            <div id="character-guide" class="guardian-char aion-char"></div>
+            <div id="character-guide" class="guardian-char lyra-char"></div>
 
             <div class="w-full mt-6 space-y-4">
                 <div class="flex justify-between items-end">
@@ -150,6 +150,42 @@
             <div id="bar-xp" class="xp-fill" style="width: 25%"></div>
         </div>
 
+    </div>
+</div>
+
+<!-- VICTORY / GAME OVER OVERLAY -->
+<div id="victory-overlay" class="ranking-overlay hidden flex flex-col items-center justify-start pt-12 pb-20">
+    <div class="ranking-header text-5xl font-black text-center" id="victory-title">MISSÃO CUMPRIDA!</div>
+
+    <div class="text-center space-y-2 mt-4 rounded-3xl bg-black/50 p-8 border-2 border-amber-500/30">
+        <div class="text-[5rem] text-amber-500 font-black leading-none drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
+            id="final-score">0000</div>
+        <p class="text-gray-400 tracking-widest uppercase text-sm mt-4">Arkanos XP Score</p>
+    </div>
+
+    <!-- ARCADE RANKING -->
+    <div class="arcade-ranking mt-8 max-w-xl">
+        <div class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
+            <div class="flex gap-12">
+                <span class="w-12">RANK</span>
+                <span>SÁBIO</span>
+            </div>
+            <span>XP SCORE</span>
+        </div>
+        <div id="ranking-list-items" class="space-y-3">
+            <!-- Rising items go here -->
+        </div>
+    </div>
+
+    <div class="py-12 flex flex-col gap-4 w-full max-w-xs">
+        <button id="btn-replay-final" onclick="location.reload()"
+            class="btn-rpg-big primary w-full justify-center py-6 text-xl">
+            JOGAR NOVAMENTE ⚔️
+        </button>
+        <a href="{% url 'arkanos:jogos' %}"
+            class="btn-rpg-big w-full justify-center py-6 bg-slate-800 text-white hover:bg-slate-700">
+            MUDAR DE JOGO 🏛️
+        </a>
     </div>
 </div>
 

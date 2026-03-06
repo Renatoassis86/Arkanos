@@ -1,0 +1,194 @@
+{% extends "arkanos/base.html" %}
+{% load static %}
+
+{% block title %}Ark - Guia de Histórias do Arkanos{% endblock %}
+
+{% block head_extra %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
+<style>
+    /* Estilo Livro Mágico Encantada */
+    .storybook-container {
+        perspective: 1500px;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+
+    .story-card {
+        background-color: #f7eed8;
+        /* Cor de pergaminho clássica */
+        background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0.05) 100%);
+        border: 3px solid #b8860b;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(184, 134, 11, 0.15);
+        color: #3b2f2f;
+        transform-origin: left center;
+        /* Para dar efeito de abrir a página como um livro */
+        opacity: 0;
+        animation: pageTurnIn 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    /* Borda interior do cartão como margem de livro */
+    .story-card::before {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border: 1px dashed #c19a6b;
+        pointer-events: none;
+        border-radius: 8px;
+    }
+
+    /* Delegação de animação para efeito de páginas caindo/abrindo consecutivamente */
+    .page-1 {
+        animation-delay: 0.1s;
+    }
+
+    .page-2 {
+        animation-delay: 0.3s;
+    }
+
+    .page-3 {
+        animation-delay: 0.4s;
+    }
+
+    .page-4 {
+        animation-delay: 0.5s;
+    }
+
+    @keyframes pageTurnIn {
+        0% {
+            opacity: 0;
+            transform: perspective(1000px) rotateY(-60deg) scale(0.9);
+        }
+
+        100% {
+            opacity: 1;
+            transform: perspective(1000px) rotateY(0deg) scale(1);
+        }
+    }
+
+    .story-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 45px rgba(217, 119, 6, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.8);
+        border-color: #ffd700;
+    }
+
+    .ark-title {
+        font-family: 'Cinzel', serif;
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .ark-body {
+        font-family: 'EB Garamond', serif;
+    }
+
+    .magical-dust {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background: radial-gradient(circle at 50% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+        animation: pulseLight 4s infinite alternate;
+        z-index: 0;
+    }
+
+    @keyframes pulseLight {
+        from {
+            opacity: 0.5;
+            transform: scale(1);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div
+    class="relative min-h-[85vh] flex flex-col items-center justify-start py-16 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-black">
+    <!-- Efeito Mágico de Fundo -->
+    <div class="magical-dust"></div>
+
+    <div class="container z-10">
+        <!-- Header Section -->
+        <div class="text-center mb-16 px-4 animate-fadeIn">
+            <h1
+                class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-amber-400 to-yellow-600 mb-2 ark-title drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">
+                ARK
+            </h1>
+            <p class="text-xl md:text-2xl text-amber-500 tracking-[0.3em] uppercase font-bold text-shadow-sm">
+                Guia de Histórias do Arkanos
+            </p>
+            <div
+                class="mt-8 max-w-3xl mx-auto p-6 rounded-2xl bg-black/40 border-t border-b border-amber-500/30 backdrop-blur-sm">
+                <p class="text-slate-200 text-xl leading-relaxed ark-body italic text-shadow-sm">
+                    <span class="text-3xl text-amber-400 font-bold pr-1">"</span>
+                    Era uma vez... a sua história. Bem-vindo! Eu sou Ark, seu mentor literário. Juntos vamos criar
+                    mundos literários vibrantes, heróis virtuosos e lendas eternas, sempre guiados pela Verdade.
+                    <span class="text-3xl text-amber-400 font-bold pl-1">"</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Book Navigation Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto storybook-container px-6 pb-20">
+
+            <!-- Nova História -->
+            <a href="{% url 'ark:new_story' %}"
+                class="story-card page-1 rounded-xl p-10 flex flex-col items-center justify-center text-center cursor-pointer min-h-[280px] transition-all relative overflow-hidden group">
+                <div class="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span
+                    class="text-7xl mb-6 filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] group-hover:scale-110 group-hover:rotate-6 transition-transform origin-bottom duration-500">✨</span>
+                <h2 class="text-4xl font-bold text-[#4a3b32] mb-3 ark-title border-b-2 border-[#b8860b]/30 pb-2 w-full">
+                    Novo Livro</h2>
+                <p class="text-[#5c4a3d] font-semibold text-xl ark-body">Inicie a criação de uma aventura inédita e
+                    imersiva.</p>
+            </a>
+
+            <!-- Biblioteca -->
+            <a href="{% url 'ark:library' %}"
+                class="story-card page-2 rounded-xl p-10 flex flex-col items-center justify-center text-center cursor-pointer min-h-[280px] transition-all relative overflow-hidden group">
+                <div class="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span
+                    class="text-7xl mb-6 filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] group-hover:scale-110 group-hover:-rotate-6 transition-transform origin-bottom duration-500">📚</span>
+                <h2 class="text-4xl font-bold text-[#4a3b32] mb-3 ark-title border-b-2 border-[#b8860b]/30 pb-2 w-full">
+                    Biblioteca</h2>
+                <p class="text-[#5c4a3d] font-semibold text-xl ark-body">Folheie suas obras literárias e encerre
+                    projetos abertos.</p>
+            </a>
+
+            <!-- Ilustrações -->
+            <a href="{% url 'ark:library' %}?view=assets"
+                class="story-card page-3 rounded-xl p-10 flex flex-col items-center justify-center text-center cursor-pointer min-h-[280px] transition-all relative overflow-hidden group">
+                <div class="absolute inset-0 bg-white/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <span
+                    class="text-7xl mb-6 filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] group-hover:scale-110 group-hover:rotate-6 transition-transform origin-bottom duration-500">🎨</span>
+                <h2 class="text-4xl font-bold text-[#4a3b32] mb-3 ark-title border-b-2 border-[#b8860b]/30 pb-2 w-full">
+                    Ilustrações</h2>
+                <p class="text-[#5c4a3d] font-semibold text-xl ark-body">Galeria mágica de artes e capas desenhadas por
+                    você.</p>
+            </a>
+
+            <!-- Dashboard / Editora -->
+            <div
+                class="story-card page-4 rounded-xl p-10 flex flex-col items-center justify-center text-center opacity-70 cursor-not-allowed min-h-[280px] bg-slate-200">
+                <span class="text-7xl mb-6 filter drop-shadow-[0_4px_10px_rgba(0,0,0,0.3)] opacity-60">📜</span>
+                <h2 class="text-4xl font-bold text-[#6a5e56] mb-3 ark-title border-b-2 border-[#8c7f76]/30 pb-2 w-full">
+                    Editora</h2>
+                <p class="text-[#7c6f66] font-semibold text-xl ark-body italic">O Grande Salão das Publicações em breve
+                    será aberto.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

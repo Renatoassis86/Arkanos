@@ -12,7 +12,45 @@
                 <h1 class="text-3xl font-black text-slate-800 uppercase tracking-tighter">AGUARDANDO MODERAÇÃO (IA)</h1>
                 <p class="text-slate-500">Perguntas geradas que precisam de aprovação pedagógica.</p>
             </div>
-            <a href="{% url 'desafio_dos_sabios:index' %}" class="text-logos-blue font-bold">Voltar ao Jogo</a>
+            <div class="flex gap-4">
+                <button onclick="toggleGenerator()" class="btn-rpg-big py-2 bg-logos-gold text-white">Criar com IA
+                    ✨</button>
+                <a href="{% url 'desafio_dos_sabios:index' %}"
+                    class="text-logos-blue font-bold flex items-center">Voltar ao Jogo</a>
+            </div>
+        </div>
+
+        <!-- MULTIMODAL GENERATOR FORM -->
+        <div id="ai-generator-panel"
+            class="hidden mb-12 p-8 bg-blue-50 border-4 border-dashed border-blue-200 rounded-3xl animate-fadeIn">
+            <h2 class="text-2xl font-black text-blue-900 mb-4">CRIADOR DE QUESTÕES ANCESTRAL</h2>
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-blue-800 mb-2 uppercase">Conteúdo ou Contexto
+                        (Texto)</label>
+                    <textarea id="ai-context-text" rows="5"
+                        class="w-full p-4 rounded-xl border-2 border-blue-100 focus:border-blue-500 outline-none"
+                        placeholder="Cole aqui o texto do seu livro, caderno ou resumo..."></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-blue-800 mb-2 uppercase">Anexar Fotos ou Documentos
+                        (Imagens)</label>
+                    <input type="file" id="ai-context-files" multiple accept="image/*"
+                        class="w-full p-4 bg-white rounded-xl border-2 border-blue-100">
+                    <p class="text-xs text-blue-600 mt-2 italic">* Você pode selecionar várias fotos de uma vez.</p>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="flex-1">
+                        <label class="block text-sm font-bold text-blue-800 mb-2 uppercase">Quantidade de
+                            Desafios</label>
+                        <input type="number" id="ai-quantity" value="5" min="1" max="15"
+                            class="w-full p-3 rounded-xl border-2 border-blue-100">
+                    </div>
+                    <button id="btn-ai-generate" onclick="generateWithContext()"
+                        class="btn-rpg-big flex-[2] py-4 bg-logos-blue text-white shadow-xl hover:scale-[1.02]">FORJAR
+                        DESAFIOS AGORA ⚡</button>
+                </div>
+            </div>
         </div>
 
         <div class="space-y-6">
@@ -77,9 +115,69 @@
 </div>
 
 <script>
+    function toggleGenerator() {
+        const panel = document.getElementById('ai-generator-panel');
+        panel.classList.toggle('hidden');
+    }
+
+    async function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result.split(',')[1]);
+            reader.onerror = error => reject(error);
+        });
+    }
+
+    async function generateWithContext() {
+        const text = document.getElementById('ai-context-text').value;
+        const fileInput = document.getElementById('ai-context-files');
+        const quantity = document.getElementById('ai-quantity').value;
+        const btn = document.getElementById('btn-ai-generate');
+
+        if (!text && fileInput.files.length === 0) {
+            alert('Por favor, forneça algum texto ou anexe pelo menos uma imagem.');
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerText = 'FORJANDO... 🏺';
+
+        try {
+            const images = [];
+            for (const file of fileInput.files) {
+                const b64 = await fileToBase64(file);
+                images.push(b64);
+            }
+
+            const response = await fetch('/desafio-dos-sabios/api/generate/context/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ text, images, quantity })
+            });
+
+            const result = await response.json();
+            if (result.status === 'success') {
+                alert(`Sucesso! ${result.count} novos desafios foram forjados e aguardam sua moderação.`);
+                location.reload();
+            } else {
+                alert('Erro ao gerar questões: ' + (result.message || 'Erro desconhecido'));
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Erro crítico de comunicação com o Alquimista AI.');
+        } finally {
+            btn.disabled = false;
+            btn.innerText = 'FORJAR DESAFIOS AGORA ⚡';
+        }
+    }
+
     async function moderate(action, id) {
         if (!confirm('Deseja prosseguir com ' + action + '?')) return;
-        const url = `/desafio_dos_sabios/admin/perguntas/${action}/${id}/`;
+        const url = `/desafio-dos-sabios/admin/perguntas/${action}/${id}/`;
         const response = await fetch(url, { method: 'POST', headers: { 'X-CSRFToken': '{{ csrf_token }}' } });
         if (response.ok) document.getElementById(`q-generated-${id}`).remove();
         else alert('Erro na operação');

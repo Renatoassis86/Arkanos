@@ -6,7 +6,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.core.settings')
 django.setup()
 
 from core.game_engine.models import GameDefinition, Achievement
-from modules.desafio_dos_sabios.models import QuizQuestion
+from desafio_dos_sabios.models import QuizQuestion
 
 def seed_game_definitions():
     print("Seeding Game Definitions...")

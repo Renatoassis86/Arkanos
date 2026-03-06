@@ -17,6 +17,28 @@
     .hidden {
         display: none !important;
     }
+
+    /* O ranking padrão agora vem do game-rpg.css */
+    .ranking-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 17, 26, 0.98);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+        padding: 40px 20px;
+    }
+
+    .ranking-header {
+        font-family: 'Cinzel', serif;
+        font-size: 3rem;
+        color: #D97706;
+        text-shadow: 0 0 20px rgba(217, 119, 6, 0.3);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
 </style>
 {% endblock %}
 
@@ -143,7 +165,7 @@
 </div>
 
 <!-- RANKING OVERLAY -->
-<div id="ranking-overlay" class="ranking-overlay">
+<div id="ranking-overlay" class="ranking-overlay hidden">
     <div class="ranking-header">Caminho da Soletração</div>
     <div class="flex-grow w-full flex flex-col items-center py-10" id="ranking-list">
         <!-- Ranking items go here -->
@@ -153,16 +175,38 @@
     </div>
 </div>
 
-<!-- VICTORY OVERLAY -->
-<div id="victory-overlay" class="ranking-overlay flex flex-col items-center justify-center hidden">
-    <div class="ranking-header">MISSION ACCOMPLISHED!</div>
-    <div class="py-10 text-center space-y-4">
-        <p class="text-2xl font-bold">You've mastered all the words today!</p>
-        <div class="stat-value text-6xl text-gold" id="final-score">0000</div>
-        <p class="text-gray-500">Total XP Gained</p>
+<!-- VICTORY / GAME OVER OVERLAY -->
+<div id="victory-overlay" class="ranking-overlay hidden flex flex-col items-center justify-start pt-12 pb-20">
+    <div class="ranking-header text-5xl font-black text-center" id="victory-title">MISSION ACCOMPLISHED!</div>
+
+    <div class="text-center space-y-2 mt-4 rounded-3xl bg-black/50 p-8 border-2 border-amber-500/30">
+        <div class="text-[5rem] text-amber-500 font-black leading-none drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
+            id="final-score">0000</div>
+        <p class="text-gray-400 tracking-widest uppercase text-sm mt-4">Arkanos XP Score</p>
     </div>
-    <div class="pb-20">
-        <button id="btn-replay" class="rpg-button px-10 py-4 text-xl">Play Again ⚔️</button>
+
+    <!-- ARCADE RANKING -->
+    <div class="arcade-ranking mt-8 max-w-xl">
+        <div class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
+            <div class="flex gap-12">
+                <span class="w-12">RANK</span>
+                <span>SÁBIO</span>
+            </div>
+            <span>XP SCORE</span>
+        </div>
+        <div id="ranking-list-items" class="space-y-3">
+            <!-- Rising items go here -->
+        </div>
+    </div>
+
+    <div class="py-12 flex flex-col gap-4 w-full max-w-xs">
+        <button id="btn-replay-final" class="btn-rpg-big primary w-full justify-center py-6 text-xl">
+            JOGAR NOVAMENTE ⚔️
+        </button>
+        <a href="{% url 'arkanos:jogos' %}"
+            class="btn-rpg-big w-full justify-center py-6 bg-slate-800 text-white hover:bg-slate-700">
+            MUDAR DE JOGO 🏛️
+        </a>
     </div>
 </div>
 
@@ -170,10 +214,115 @@
 {% endblock %}
 
 {% block body_extra %}
-<script src="{% static 'arkanos/js/spellingbee.js' %}"></script>
-<script>
+<script type="module">
+    import { GameEngine } from '{% static "game_engine/index.js" %}';
+
+    class SpellingBeeGame {
+        constructor(config) {
+            this.words = config.words || [];
+            this.engine = config.engine;
+            this.currentIndex = -1;
+            this.score = 0;
+            this.streak = 0;
+            this.xp = 0;
+            this.level = 1;
+            this.sounds = {
+                start: new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3'),
+                correct: new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3'),
+                wrong: new Audio('https://assets.mixkit.co/active_storage/sfx/2959/2959-preview.mp3'),
+                gameover: new Audio('https://assets.mixkit.co/active_storage/sfx/2015/2015-preview.mp3')
+            };
+        }
+
+        nextWord() {
+            this.currentIndex++;
+            if (this.currentIndex >= this.words.length) return null;
+            return this.words[this.currentIndex];
+        }
+
+        playSound(name) {
+            if (this.sounds[name]) {
+                this.sounds[name].currentTime = 0;
+                this.sounds[name].play().catch(e => console.warn("Audio play blocked:", e));
+            }
+        }
+
+        speak(text, rate = 0.8) {
+            window.speechSynthesis.cancel(); // Stop any pending speech
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.lang = 'en-US';
+            msg.rate = rate;
+            window.speechSynthesis.speak(msg);
+        }
+
+        promptWord(word) {
+            this.speak(`Spell the word: ${word}`, 0.85);
+        }
+
+        spellWord(word) {
+            const letters = word.toUpperCase().split('').join(', ');
+            this.speak(`The correct spelling is: ${letters}`, 0.75);
+        }
+
+
+        startListening() {
+            return new Promise((resolve, reject) => {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                if (!SpeechRecognition) {
+                    alert("Seu navegador não suporta reconhecimento de voz em inglês.");
+                    reject("Unsupported");
+                    return;
+                }
+                const recognition = new SpeechRecognition();
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
+
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    resolve(transcript);
+                };
+                recognition.onerror = (e) => reject(e);
+                recognition.start();
+            });
+        }
+
+        async processAnswer(transcript) {
+            const word = this.words[this.currentIndex].palavra.toLowerCase();
+            const cleanTranscript = transcript.toLowerCase().replace(/[^a-z]/g, '');
+            const cleanWord = word.replace(/[^a-z]/g, '');
+
+            const success = cleanTranscript === cleanWord;
+
+            // Register event in engine
+            if (this.engine) {
+                await this.engine.registerEvent('SPELLING_ATTEMPT', {
+                    word: word,
+                    transcript: transcript,
+                    success: success
+                });
+            }
+
+            if (success) {
+                this.score += 100;
+                this.streak++;
+                this.xp += 20;
+                this.playSound('correct');
+                return { success: true };
+            } else {
+                this.playSound('wrong');
+                return { success: false, gameOver: true };
+            }
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        const config = { words: JSON.parse('{{ words_json|safe|escapejs }}') };
+        const config = {
+            words: JSON.parse('{{ words_json|safe|escapejs }}'),
+            engine: new GameEngine(),
+            elements: {
+                rankingList: document.getElementById('ranking-list')
+            }
+        };
         const userData = JSON.parse('{{ user_json|safe|escapejs }}');
         const game = new SpellingBeeGame(config);
 
@@ -184,15 +333,18 @@
         const aidText = document.getElementById('aid-text');
         const guideBubble = document.getElementById('speech-bubble');
         const charImg = document.getElementById('character-guide');
+        const rankingOverlay = document.getElementById('ranking-overlay');
         let currentWord = null;
 
         const guardians = {
-            '2ano': { name: 'Lyra', char: 'lyra', class: 'lyra-char', theme: 'theme-lyra', intro: "Greetings! I am Lyra. Ready for our Spelling Quest?" },
-            '4ano': { name: 'Aion', char: 'aion', class: 'aion-char', theme: 'theme-aion', intro: "Salutations. I am Aion. Let us test your precision." }
+            '2ano': { name: 'Aion', char: 'aion', class: 'aion-char', theme: 'theme-aion', intro: "Salutations! I am Aion. Let us begin your training." },
+            '3ano': { name: 'Lyra', char: 'lyra', class: 'lyra-char', theme: 'theme-lyra', intro: "Greetings! I am Lyra. Let us explore the magic of words!" },
+            '4ano': { name: 'Aion', char: 'aion', class: 'aion-char', theme: 'theme-aion', intro: "Greetings, traveler. I am Aion. Let us test your precision." }
         };
 
         const setupUI = (user) => {
-            const guardian = guardians[user.serie] || guardians['2ano'];
+            // Gramática é SEMPRE Lira (O pilar magenta)
+            const guardian = guardians['3ano']; // Representante do Pilar Gramática
             document.getElementById('txt-username').innerText = (user.username || "HERO").toUpperCase();
             document.getElementById('txt-serie').innerText = `GRADE ${user.serie_display || 'EXPLORER'}`;
             container.className = `rpg-game-container ${guardian.theme}`;
@@ -202,21 +354,7 @@
 
         let activeGuardian = setupUI(userData);
 
-        const startGame = () => {
-            if (screenLogin) screenLogin.classList.add('hidden');
-            playArea.classList.remove('hidden');
-            victoryOverlay.classList.add('hidden');
-            game.playSound('start');
-            guideBubble.innerText = activeGuardian.intro;
-            game.speak(activeGuardian.intro, 0.9, activeGuardian.char);
-            setTimeout(startRound, 3000);
-        };
-
-        if (userData.is_authenticated) {
-            startGame();
-        }
-
-        function startRound() {
+        const startRound = () => {
             currentWord = game.nextWord();
             if (!currentWord) { showVictory(); return; }
             document.getElementById('word-mystery').innerText = currentWord.palavra.replace(/[a-zA-Z]/g, '_ ').toUpperCase();
@@ -225,30 +363,101 @@
             document.getElementById('progress-text').innerText = `Quest ${game.currentIndex + 1}/${game.words.length}`;
             updateStats();
             game.promptWord(currentWord.palavra);
-        }
+        };
 
-        function showVictory() {
-            document.getElementById('final-score').innerText = game.score.toString().padStart(4, '0');
-            victoryOverlay.classList.remove('hidden');
-            game.playSound('gameover');
-            if (userData.is_authenticated) {
-                fetch('{% url "jogos:save_progress" %}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
-                    },
-                    body: JSON.stringify({ pontos: game.score })
-                });
+        const startGame = async () => {
+            if (screenLogin) screenLogin.classList.add('hidden');
+            playArea.classList.remove('hidden');
+            victoryOverlay.classList.add('hidden');
+            if (rankingOverlay) rankingOverlay.classList.remove('visible');
+
+            // Start engine session
+            try {
+                await game.engine.startSession('spellingbee', 'aprendiz');
+            } catch (err) {
+                console.warn("Could not start game session tracking:", err);
             }
+
+            game.playSound('start');
+            guideBubble.innerText = activeGuardian.intro;
+            game.speak(activeGuardian.intro, 0.9);
+            setTimeout(startRound, 3000);
+        };
+
+        // GATED START: Ensure sound works by requiring a click
+        if (userData.is_authenticated) {
+            // Re-purpose the login gate as a "START" button for authenticated users
+            screenLogin.querySelector('.gate-title').innerText = "JORNADA PRONTA";
+            screenLogin.querySelector('.gate-subtitle').innerText = "O Caminho do Sábio o aguarda. Clique abaixo para iniciar a vocalização.";
+            const btnStart = screenLogin.querySelector('.gate-actions');
+            btnStart.innerHTML = `<button id="btn-actual-start" class="btn-rpg-big primary w-full justify-center py-5">INICIAR MISSÃO ⚔️</button>`;
+            document.getElementById('btn-actual-start').onclick = startGame;
         }
 
-        document.getElementById('btn-replay').addEventListener('click', () => {
-            game.currentIndex = -1;
-            game.score = 0;
-            game.streak = 0;
-            startGame();
-        });
+        const showVictory = async (isGameOver = false) => {
+            const finalScore = game.score;
+            document.getElementById('final-score').innerText = finalScore.toString().padStart(4, '0');
+
+            // Show overlay first
+            victoryOverlay.classList.remove('hidden');
+            if (rankingOverlay) rankingOverlay.classList.add('hidden');
+
+            const title = document.getElementById('victory-title');
+            if (isGameOver) {
+                title.innerText = "GAME OVER";
+                title.style.color = "#FF4B2B";
+                game.playSound('gameover');
+            } else {
+                title.innerText = "MISSION ACCOMPLISHED!";
+                title.style.color = "#FFD700";
+                game.playSound('gameover');
+            }
+
+            // ARCHIVE RESULTS
+            try {
+                if (game.engine.sessionId) {
+                    await game.engine.finishSession(finalScore);
+                }
+                const leaderboard = await game.engine.getLeaderboard('global');
+                renderRanking(leaderboard);
+            } catch (err) {
+                console.error("Failed to archive results:", err);
+            }
+
+            document.getElementById('btn-replay-final').onclick = () => location.reload();
+        };
+
+        const renderRanking = (data) => {
+            const list = document.getElementById('ranking-list-items');
+            if (!list) return;
+
+            if (!data || data.length === 0) {
+                list.innerHTML = '<p class="text-white opacity-50 p-4">Nenhum guerreiro no ranking ainda.</p>';
+                return;
+            }
+
+            list.innerHTML = '';
+            const top10 = data.slice(0, 10);
+
+            top10.forEach((entry, idx) => {
+                const row = document.createElement('div');
+                row.className = `ranking-row ${idx === 0 ? 'top-1' : ''}`; // Add top-1 class for styling if needed
+                row.style.animationDelay = `${idx * 0.1}s`;
+
+                row.innerHTML = `
+                    <div class="flex items-center flex-1">
+                        <span class="rank-number">${(idx + 1).toString().padStart(2, '0')}</span>
+                        <span class="rank-name">${(entry.username || 'Sábio').toUpperCase()}</span>
+                    </div>
+                    <div class="rank-score">${entry.xp || 0} XP</div>
+                `;
+
+                list.appendChild(row);
+
+                // Trigger animation
+                setTimeout(() => row.classList.add('rise-up'), 50);
+            });
+        };
 
         function updateStats() {
             document.getElementById('count-score').innerText = game.score.toString().padStart(4, '0');
@@ -259,16 +468,16 @@
 
         document.getElementById('btn-listen').addEventListener('click', () => game.promptWord(currentWord.palavra));
         document.getElementById('btn-ipa').addEventListener('click', () => {
-            aidText.innerText = `IPA: ${currentWord.ipa || '...'}`;
-            game.speak(`Phonetics: ${currentWord.ipa || currentWord.palavra}`, 0.7, activeGuardian.char);
+            aidText.innerText = "Phonetics hint playing...";
+            game.speak(`Phonetics: ${currentWord.ipa || currentWord.palavra}`, 0.7);
         });
         document.getElementById('btn-definition').addEventListener('click', () => {
-            aidText.innerText = `Definition: ${currentWord.significado}`;
-            game.speak(`The definition is: ${currentWord.significado}`, 0.85, activeGuardian.char);
+            aidText.innerText = "Definition hint playing...";
+            game.speak(`The definition is: ${currentWord.significado}`, 0.85);
         });
         document.getElementById('btn-example').addEventListener('click', () => {
-            aidText.innerText = `Example: ${currentWord.exemplo}`;
-            game.speak(`Example: ${currentWord.exemplo}`, 0.85, activeGuardian.char);
+            aidText.innerText = "Example hint playing...";
+            game.speak(`Example: ${currentWord.exemplo}`, 0.85);
         });
 
         document.getElementById('btn-speak').addEventListener('click', async () => {
@@ -282,8 +491,29 @@
                     guideBubble.innerText = "Brilliant!";
                     updateStats();
                     setTimeout(startRound, 2500);
-                } else { guideBubble.innerText = "Try again!"; }
+                } else if (result.gameOver) {
+                    document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
+                    document.getElementById('word-mystery').style.color = "#EF4444";
+
+                    const msg = "That is incorrect. Listen closely to the correct spelling.";
+                    guideBubble.innerText = msg;
+                    game.speak(msg, 0.85);
+
+                    // Spell the correct word
+                    setTimeout(() => {
+                        game.spellWord(currentWord.palavra);
+
+                        // Wait for spelling to finish then reload/restart
+                        setTimeout(() => {
+                            showVictory(true); // Archive and show leaderboard
+                        }, 5000);
+                    }, 2000);
+                }
             } catch (err) { aidText.innerText = "Try again!"; }
+        });
+
+        document.getElementById('btn-replay').addEventListener('click', () => {
+            location.reload();
         });
     });
 </script>

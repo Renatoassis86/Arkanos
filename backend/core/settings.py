@@ -1,6 +1,11 @@
 # backend/core/settings.py
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+import dj_database_url
+
+# Carrega variáveis de ambiente do arquivo .env
+load_dotenv()
 
 # settings.py -> core (0) -> backend (1) -> repositorio_arkanos (2)
 BASE_DIR = Path(__file__).resolve().parents[2]
@@ -14,13 +19,30 @@ DEBUG = os.getenv("DJANGO_DEBUG", "True").strip().lower() in ("1", "true", "yes"
 _default_hosts = "127.0.0.1,localhost"
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("DJANGO_ALLOWED_HOSTS", _default_hosts).split(",") if h.strip()]
 
-# Banco padrão (dev). Em prod, troque por Postgres e use variáveis de ambiente.
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+# Configuração do Banco de Dados (Supabase/PostgreSQL)
+_db_from_env = dj_database_url.config(
+    default=os.getenv("DATABASE_URL"),
+    conn_max_age=600,
+    conn_health_checks=True,
+)
+
+if _db_from_env and _db_from_env.get('ENGINE'):
+    # Garantir que o nome do banco seja 'postgres' se não vier na URL
+    if not _db_from_env.get('NAME'):
+        _db_from_env['NAME'] = 'postgres'
+    DATABASES = {"default": _db_from_env}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
+
+# Configurações extras do Supabase
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_ANON_KEY")
+SUPABASE_SERVICE_ROLE = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 
 # (opcional, mas útil quando acessar por IP da máquina na rede local)
 # Ex.: set DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost,192.168.0.23
@@ -49,7 +71,8 @@ INSTALLED_APPS = [
     "arkanos",
     "jogos",            # <-- use o app da raiz
     "core.game_engine",
-    "modules.desafio_dos_sabios",
+    "desafio_dos_sabios",
+    "ark",
 ]
 
 

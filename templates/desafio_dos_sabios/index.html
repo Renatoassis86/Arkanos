@@ -15,15 +15,28 @@
         --current-theme: var(--logos-blue);
     }
 
+    .btn-rpg-big,
+    .no-underline {
+        text-decoration: none !important;
+    }
+
     .quiz-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
         max-width: 900px;
-        gap: 2rem;
-        /* Increased gap */
+        gap: 3rem;
+        /* Increased for better separation */
     }
+
+    .btn-rpg-big {
+        margin-bottom: 0.5rem !important;
+        /* Force separation */
+        transform: translateZ(0);
+        /* Fix some rendering overlap issues */
+    }
+
 
     .option-btn {
         width: 100%;
@@ -108,24 +121,60 @@
     }
 
     .parchment-card::before {
-        left: -15px;
-        /* Adjusted to be closer but not overlapping */
-        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+        left: -18px;
+        /* Afastado um pouco mais da borda */
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
     }
 
     .parchment-card::after {
-        right: -15px;
-        /* Adjusted to be closer but not overlapping */
-        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+        right: -18px;
+        /* Afastado um pouco mais da borda */
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
     }
+
+    .parchment-content-wrapper {
+        padding: 0 40px;
+        /* Padding extra para garantir que o texto NUNCA encoste nas hastes */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
 
     .font-cinzel {
         font-family: 'Cinzel', serif;
     }
 
     /* ANIMATIONS */
-    .animate-slideDown {
-        animation: slideDown 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    #txt-topic {
+        background: var(--logos-gold);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    @keyframes parchmentRoll {
+        0% {
+            transform: scaleX(0);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scaleX(1);
+            opacity: 1;
+        }
+    }
+
+    .animate-parchment {
+        animation: parchmentRoll 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        transform-origin: center;
     }
 
     .animate-fadeInDelayed {
@@ -133,17 +182,6 @@
         animation: fadeIn 0.8s ease 0.4s forwards;
     }
 
-    @keyframes slideDown {
-        from {
-            transform: translateY(-50px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
 
     @keyframes fadeIn {
         from {
@@ -173,6 +211,272 @@
 
     .shake {
         animation: shake 0.4s ease-in-out;
+    }
+
+    .correct-pulse {
+        animation: correct-pulse 0.6s ease-in-out infinite alternate;
+    }
+
+    @keyframes correct-pulse {
+        from {
+            transform: scale(1);
+            box-shadow: 0 0 5px #22C55E;
+        }
+
+        to {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px #22C55E;
+        }
+    }
+
+    .wrong-flash {
+        animation: wrong-flash 0.5s ease;
+    }
+
+    @keyframes wrong-flash {
+        0% {
+            background: white;
+        }
+
+        50% {
+            background: #FEE2E2;
+        }
+
+        100% {
+            background: white;
+        }
+    }
+
+    @keyframes glow-gold {
+        0% {
+            box-shadow: 0 0 5px var(--logos-gold);
+        }
+
+        50% {
+            box-shadow: 0 0 25px var(--logos-gold);
+        }
+
+        100% {
+            box-shadow: 0 0 5px var(--logos-gold);
+        }
+    }
+
+    .glow-gold {
+        animation: glow-gold 1s ease-in-out;
+    }
+
+    .pulse {
+        animation: pulse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .btn-rpg-big:active {
+        transform: scale(0.95);
+    }
+
+    /* Better selection screen buttons */
+    .selection-grid-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background: white;
+        border: 2px solid #E2E8F0;
+        border-radius: 1.5rem;
+        transition: all 0.3s;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .selection-grid-btn:hover {
+        border-color: var(--logos-blue);
+        background: #F0F4FF;
+        transform: translateY(-5px);
+    }
+
+    /* DISCOVERY BOX (Curiosidades) */
+    .discovery-box {
+        background: #fff;
+        border-right: 12px solid var(--logos-gold);
+        border-left: 2px solid #f1f5f9;
+        border-top: 2px solid #f1f5f9;
+        border-bottom: 2px solid #f1f5f9;
+        border-radius: 1.5rem;
+        padding: 3rem;
+        position: relative;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        margin-top: 3rem;
+        text-align: left;
+    }
+
+    .discovery-tag {
+        position: absolute;
+        top: -18px;
+        right: 40px;
+        background: var(--logos-gold);
+        color: white;
+        padding: 8px 24px;
+        border-radius: 30px;
+        font-family: 'Cinzel', serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+    }
+
+    .discovery-content {
+        font-family: 'EB Garamond', serif;
+        font-size: 1.6rem;
+        line-height: 1.5;
+        color: #1e293b;
+        font-style: italic;
+    }
+
+    /* TRIMESTER GROUPING */
+    .trimester-group {
+        background: #f8fafc;
+        border: 2px solid #e2e8f0;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .trimester-title {
+        color: var(--logos-gold);
+        font-family: 'Cinzel', serif;
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .grade-btn.locked {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(1);
+    }
+
+    .grade-btn.locked span {
+        font-size: 0.7rem;
+        display: block;
+        opacity: 0.7;
+    }
+
+    /* ARCADE RANKING STYLES (Street Fighter Style) - UPDATED */
+    .arcade-ranking {
+        background: linear-gradient(180deg, #0a111a 0%, #000 100%);
+        padding: 2.5rem;
+        border: 4px solid #D97706;
+        /* Borda Dourada Arkanos */
+        font-family: 'Orbitron', sans-serif;
+        color: #fff;
+        text-transform: uppercase;
+        box-shadow:
+            0 0 30px rgba(0, 0, 0, 1),
+            inset 0 0 100px rgba(217, 119, 6, 0.1),
+            0 0 15px rgba(217, 119, 6, 0.3);
+        overflow: hidden;
+        border-radius: 2rem;
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 2rem auto;
+    }
+
+    .arcade-ranking::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+        opacity: 0.5;
+    }
+
+    .ranking-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        margin-bottom: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        opacity: 0;
+        transform: translateY(30px);
+        border-radius: 10px;
+        align-items: center;
+    }
+
+
+    .ranking-row.rise-up {
+        animation: rankingRiseUp 0.5s ease forwards;
+    }
+
+    @keyframes rankingRiseUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .ranking-row.top-1 {
+        border-left-color: #FFD700;
+        background: rgba(255, 215, 0, 0.1);
+    }
+
+    .ranking-row.top-2 {
+        border-left-color: #C0C0C0;
+        background: rgba(192, 192, 192, 0.1);
+    }
+
+    .ranking-row.top-3 {
+        border-left-color: #CD7F32;
+        background: rgba(205, 127, 50, 0.1);
+    }
+
+    .rank-number {
+        color: #FFD700;
+        font-weight: 900;
+        width: 40px;
+    }
+
+    .rank-name {
+        color: #00D2FF;
+        font-weight: 700;
+        flex: 1;
+        padding-left: 1rem;
+    }
+
+    .rank-score {
+        color: #FF4B2B;
+        font-weight: 900;
+    }
+
+    .rank-time {
+        color: #FFD700;
+        font-size: 0.8rem;
+        margin-left: 1rem;
+        opacity: 0.8;
     }
 
     /* Screen specific styles */
@@ -246,37 +550,71 @@
                             seu progresso na jornada Logos.</p>
                         <div class="flex flex-col gap-4">
                             <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
-                                class="btn-rpg-big primary justify-center shadow-lg py-6">CRIAR PERFIL DE SÁBIO ✨</a>
+                                class="btn-rpg-big primary justify-center shadow-lg py-6 no-underline">CRIAR PERFIL DE
+                                SÁBIO ✨</a>
                             <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
-                                class="text-logos-blue font-bold hover:underline">Já possuo acesso ao Portal</a>
+                                class="text-logos-blue font-bold hover:underline no-underline">Já possuo acesso ao
+                                Portal</a>
                         </div>
                     </div>
                 </div>
                 {% else %}
                 <!-- AUTHENTICATED WELCOME -->
-                <div class="flex flex-col gap-8 mt-16 items-center">
+                <!-- AUTHENTICATED WELCOME -->
+                <div class="flex flex-col gap-6 mt-12 items-center w-full max-w-md mx-auto">
                     <button id="btn-start"
-                        class="btn-rpg-big primary min-w-[340px] justify-center shadow-xl py-8">INICIAR DESAFIO
-                        ⚔️</button>
-                    <div class="flex gap-4 w-full">
+                        class="btn-rpg-big primary w-full py-8 justify-center shadow-xl transition-all hover:scale-105 active:scale-95">
+                        <span class="text-xl font-bold">INICIAR DESAFIO ⚔️</span>
+                    </button>
+
+                    <div class="flex flex-col gap-4 w-full">
                         <button id="btn-ranking"
-                            class="btn-rpg-big flex-1 justify-center hover:bg-slate-50 shadow-md py-6">RANKING
-                            🏆</button>
+                            class="btn-rpg-big w-full py-6 justify-center bg-white border-2 border-slate-200 hover:border-logos-gold hover:text-logos-gold transition-all shadow-md">
+                            RANKING 🏆
+                        </button>
                         <button id="btn-history"
-                            class="btn-rpg-big flex-1 justify-center hover:bg-slate-50 shadow-md py-6">MEU PROGRESSO
-                            📜</button>
+                            class="btn-rpg-big w-full py-6 justify-center bg-white border-2 border-slate-200 hover:border-logos-gold hover:text-logos-gold transition-all shadow-md">
+                            MEU PROGRESSO 📜
+                        </button>
                     </div>
                 </div>
                 {% endif %}
             </div>
 
-            <!-- 2. SELECTION SCREEN -->
-            <div id="screen-selection" class="hidden space-y-12 animate-fadeIn w-full">
-                <h3 class="font-bold text-3xl text-center">ESCOLHA A DISCIPLINA</h3>
+            <!-- 2. GRADE SELECTION SCREEN -->
+            <div id="screen-grades" class="hidden space-y-12 animate-fadeIn w-full">
+                <div class="flex items-center justify-between mb-8">
+                    <button onclick="showScreen('welcome')" class="btn-rpg-big px-6! py-2! text-sm!">⬅ VOLTAR</button>
+                    <h3 class="font-bold text-3xl flex-1 text-center">ESCOLHA A SUA SÉRIE</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-6" id="grade-list">
+                    <!-- Dinamicamente preenchido -->
+                </div>
+            </div>
+
+            <!-- 2.5 SUBJECT SELECTION SCREEN -->
+            <div id="screen-subjects" class="hidden space-y-12 animate-fadeIn w-full">
+                <div class="flex items-center justify-between mb-8">
+                    <button onclick="showScreen('grades')" class="btn-rpg-big px-6! py-2! text-sm!">⬅ VOLTAR</button>
+                    <h3 class="font-bold text-3xl flex-1 text-center">ESCOLHA A DISCIPLINA</h3>
+                </div>
                 <div class="grid grid-cols-2 gap-6" id="subject-list">
                     <!-- Dinamicamente preenchido -->
                 </div>
             </div>
+
+            <!-- 2.7 ASSESSMENT SELECTION SCREEN -->
+            <div id="screen-assessments" class="hidden space-y-12 animate-fadeIn w-full">
+                <div class="flex items-center justify-between mb-8">
+                    <button onclick="showScreen('subjects')" class="btn-rpg-big px-6! py-2! text-sm!">⬅ VOLTAR</button>
+                    <h3 class="font-bold text-3xl flex-1 text-center">ESCOLHA A AVALIAÇÃO</h3>
+                </div>
+                <div class="grid grid-cols-1 gap-4" id="assessment-list">
+                    <!-- Dinamicamente preenchido -->
+                </div>
+            </div>
+
+
 
             <!-- 3. TOPIC SELECTION -->
             <div id="screen-topics" class="hidden space-y-8 animate-fadeIn w-full">
@@ -288,16 +626,19 @@
 
             <!-- 4. QUESTION SCREEN -->
             <div id="screen-question" class="hidden flex flex-col items-center w-full animate-fadeIn overflow-x-hidden">
-                <div class="parchment-card animate-slideDown p-10 px-12 relative mb-12 w-full max-w-4xl mx-auto">
+                <div
+                    class="parchment-card p-12 relative mb-12 w-full max-w-4xl mx-auto flex items-center justify-center">
                     <div class="parchment-texture"></div>
-                    <div class="relative z-10 text-center w-full px-4">
-                        <span class="text-logos-gold font-bold tracking-[0.1em] text-xs uppercase opacity-80"
+                    <div class="parchment-content-wrapper relative z-10 text-center">
+                        <span class="text-logos-gold font-bold tracking-[0.1em] text-xs uppercase opacity-80 mb-4"
                             id="txt-topic">CARREGANDO...</span>
-                        <h2 class="font-cinzel text-2xl md:text-3xl mt-6 leading-snug text-slate-800" id="txt-question">
+                        <h2 class="font-cinzel text-xl md:text-3xl leading-snug text-slate-800 text-center w-full"
+                            id="txt-question">
                             Pergunta carregando...
                         </h2>
                     </div>
                 </div>
+
 
                 <div id="options-container" class="flex flex-col gap-6 w-full max-w-2xl mx-auto">
                     <!-- Dinamicamente preenchido -->
@@ -319,12 +660,19 @@
             </div>
 
             <!-- 5. FEEDBACK / EXPLANATION -->
-            <div id="screen-feedback" class="hidden space-y-8 animate-fadeIn text-center">
-                <h2 id="feedback-title" class="text-4xl font-black">CORRETO!</h2>
-                <div class="p-8 bg-blue-50 border-2 border-blue-100 rounded-3xl">
-                    <p id="feedback-explanation" class="text-lg italic text-blue-900"></p>
+            <div id="screen-feedback" class="hidden space-y-8 animate-fadeIn text-center w-full max-w-3xl mx-auto">
+                <h2 id="feedback-title" class="text-5xl font-black italic tracking-tighter">CORRETO!</h2>
+
+                <div class="discovery-box">
+                    <div id="discovery-tag" class="discovery-tag">APRENDA MAIS</div>
+                    <div id="feedback-explanation" class="discovery-content">
+                        <!-- Conteúdo dinâmico -->
+                    </div>
                 </div>
-                <button id="btn-next" class="btn-rpg-big primary mx-auto">PRÓXIMA PERGUNTA ➡️</button>
+
+                <div class="pt-8">
+                    <button id="btn-next" class="btn-rpg-big primary mx-auto px-12 py-6">PRÓXIMA PERGUNTA ➡️</button>
+                </div>
             </div>
 
             <!-- 6. FINAL RESULTS -->
@@ -338,18 +686,46 @@
                 <div class="flex flex-col gap-4 mt-8">
                     <button onclick="location.reload()" class="btn-rpg-big primary justify-center shadow-lg">JOGAR
                         NOVAMENTE ⚔️</button>
-                    <a href="{% url 'jogos:jogo_list' %}" class="font-bold text-gray-400 hover:text-gray-600">VOLTAR AO
-                        MENU</a>
+                    <a href="{% url 'arkanos:jogos' %}"
+                        class="btn-rpg-big justify-center bg-slate-800 text-white hover:bg-slate-700">MUDAR DE JOGO
+                        🏛️</a>
+                    <a href="{% url 'arkanos:home' %}" class="font-bold text-gray-400 hover:text-gray-600">VOLTAR AO
+                        INÍCIO</a>
                 </div>
             </div>
 
             <!-- 7. RANKING SCREEN -->
             <div id="screen-ranking" class="hidden space-y-8 animate-fadeIn w-full">
-                <h3 class="font-bold text-3xl text-center">RANKING GERAL</h3>
-                <div id="ranking-list-items" class="bg-slate-50 rounded-3xl overflow-hidden border border-slate-200">
-                    <!-- Dinamicamente preenchido -->
+                <div class="text-center">
+                    <h3 class="font-black text-4xl text-logos-blue tracking-tighter italic">CHALLENGERS RANKING</h3>
+                    <div class="h-2 w-24 bg-logos-gold mx-auto mt-2"></div>
                 </div>
-                <button onclick="showScreen('welcome')" class="btn-rpg-big w-full justify-center">VOLTAR</button>
+
+                <div class="arcade-ranking rounded-3xl">
+                    <div
+                        class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
+                        <div class="flex gap-12">
+                            <span class="w-12">RANK</span>
+                            <span>SÁBIO</span>
+                        </div>
+                        <div class="flex gap-12">
+                            <span>SESSÃO</span>
+                            <span>SCORE</span>
+                        </div>
+                    </div>
+                    <div id="ranking-list-items" class="space-y-3">
+                        <!-- Rising items go here -->
+                    </div>
+                </div>
+
+
+                <div class="flex flex-col gap-4">
+                    <button onclick="location.reload()" class="btn-rpg-big primary justify-center">JOGAR NOVAMENTE
+                        ⚔️</button>
+                    <button onclick="showScreen('welcome')"
+                        class="btn-rpg-big w-full justify-center bg-transparent border-2 border-slate-200">MENU
+                        INICIAL</button>
+                </div>
             </div>
 
             <!-- 8. HISTORY / PROGRESS SCREEN -->
@@ -379,17 +755,40 @@
     import { GameEngine } from '{% static "game_engine/index.js" %}';
     import { QuizService } from '{% static "desafio_dos_sabios/services/QuizService.js" %}';
 
+    console.log("Quiz Module Initialized");
     const engine = new GameEngine();
     const quiz = new QuizService();
 
     let currentQuestions = [];
     let currentIndex = 0;
     let score = 0;
+    let correctAnswers = 0;
+    let startTime = null;
+
+    // Audio Manager
+    const sounds = {
+        start: new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3'),
+        correct: new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3'),
+        wrong: new Audio('https://assets.mixkit.co/active_storage/sfx/2959/2959-preview.mp3'),
+        next: new Audio('https://assets.mixkit.co/active_storage/sfx/2017/2017-preview.mp3'),
+        gameover: new Audio('https://assets.mixkit.co/active_storage/sfx/2015/2015-preview.mp3'),
+        parchment: new Audio('https://assets.mixkit.co/active_storage/sfx/1110/1110-preview.mp3') // Paper/Scroll sound
+    };
+
+
+    const playSound = (name) => {
+        if (sounds[name]) {
+            sounds[name].currentTime = 0;
+            sounds[name].play().catch(e => console.warn("Audio play blocked:", e));
+        }
+    };
 
     // DOM Elements
     const screens = {
         welcome: document.getElementById('screen-welcome'),
-        selection: document.getElementById('screen-selection'),
+        grades: document.getElementById('screen-grades'),
+        subjects: document.getElementById('screen-subjects'),
+        assessments: document.getElementById('screen-assessments'),
         topics: document.getElementById('screen-topics'),
         question: document.getElementById('screen-question'),
         feedback: document.getElementById('screen-feedback'),
@@ -399,33 +798,59 @@
     };
 
     const showScreen = (key) => {
-        Object.keys(screens).forEach(k => screens[k].classList.add('hidden'));
-        screens[key].classList.remove('hidden');
+        Object.keys(screens).forEach(k => {
+            if (screens[k]) {
+                screens[k].classList.add('hidden');
+            }
+        });
+        if (screens[key]) {
+            screens[key].classList.remove('hidden');
+            // Ensure child animations re-trigger if needed
+            screens[key].style.animation = 'none';
+            screens[key].offsetHeight; // trigger reflow
+            screens[key].style.animation = null;
+        }
     };
+    window.showScreen = showScreen; // Expose to global for inline onclick
 
-    // 1. Welcome -> Selection
-    document.getElementById('btn-start').onclick = () => {
-        showScreen('selection');
-        renderSubjects();
-    };
+    const btnStart = document.getElementById('btn-start');
+    if (btnStart) {
+        btnStart.onclick = () => {
+            console.log("Starting Quiz flow...");
+            playSound('start');
+            showScreen('grades');
+            renderGrades();
+        };
+    }
 
-    document.getElementById('btn-ranking').onclick = async () => {
-        showScreen('ranking');
-        const data = await engine.getLeaderboard();
-        const list = document.getElementById('ranking-list-items');
-        list.innerHTML = data.map((entry, idx) => `
-            <div class="flex items-center justify-between p-4 bg-white border-b border-slate-100">
-                <div class="flex items-center gap-4">
-                    <span class="font-black text-logos-gold text-xl">#${idx + 1}</span>
-                    <span class="font-bold text-slate-700">${entry.username.toUpperCase()}</span>
-                </div>
-                <div class="flex gap-4">
-                    <span class="bg-blue-50 text-blue-700 font-bold px-3 py-1 rounded-lg">LVL ${entry.level}</span>
-                    <span class="text-logos-blue font-black">${entry.xp} XP</span>
-                </div>
-            </div>
-        `).join('');
-    };
+    const btnRanking = document.getElementById('btn-ranking');
+    if (btnRanking) {
+        btnRanking.onclick = async () => {
+            try {
+                showScreen('ranking');
+                const data = await engine.getLeaderboard();
+                const list = document.getElementById('ranking-list-items');
+                if (!data || data.length === 0) {
+                    list.innerHTML = '<p class="p-8 text-center text-gray-400">Nenhum guerreiro no ranking ainda.</p>';
+                    return;
+                }
+                list.innerHTML = data.map((entry, idx) => `
+                    <div class="flex items-center justify-between p-4 bg-white border-b border-slate-100">
+                        <div class="flex items-center gap-4">
+                            <span class="font-black text-logos-gold text-xl">#${idx + 1}</span>
+                            <span class="font-bold text-slate-700">${(entry.username || 'Sábio').toUpperCase()}</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="bg-blue-50 text-blue-700 font-bold px-3 py-1 rounded-lg">LVL ${entry.level || 1}</span>
+                            <span class="text-logos-blue font-black">${entry.xp || 0} XP</span>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                console.error("Ranking Error:", e);
+            }
+        };
+    }
 
     document.getElementById('btn-history').onclick = async () => {
         // We can fetch from engine views or a new endpoint
@@ -440,6 +865,67 @@
         `).join('');
     };
 
+    const ALL_GRADES = [
+        { id: '1ano', name: '1º Ano', section: 'FUNDAMENTAL I', active: false },
+        { id: '2ano', name: '2º Ano', section: 'FUNDAMENTAL I', active: false },
+        { id: '3ano', name: '3º Ano', section: 'FUNDAMENTAL I', active: true },
+        { id: '4ano', name: '4º Ano', section: 'FUNDAMENTAL I', active: false },
+        { id: '5ano', name: '5º Ano', section: 'FUNDAMENTAL I', active: true },
+        { id: '6ano', name: '6º Ano', section: 'FUNDAMENTAL II', active: false },
+        { id: '7ano', name: '7º Ano', section: 'FUNDAMENTAL II', active: false },
+        { id: '8ano', name: '8º Ano', section: 'FUNDAMENTAL II', active: false },
+        { id: '9ano', name: '9º Ano', section: 'FUNDAMENTAL II', active: false },
+        { id: '1em', name: '1º Ano E.M.', section: 'ENSINO MÉDIO', active: false },
+        { id: '2em', name: '2º Ano E.M.', section: 'ENSINO MÉDIO', active: false },
+        { id: '3em', name: '3º Ano E.M.', section: 'ENSINO MÉDIO', active: false }
+    ];
+
+    const renderGrades = async () => {
+        const container = document.getElementById('grade-list');
+        const dbGrades = await quiz.getGrades(); // Get real DB IDs
+
+        container.innerHTML = ALL_GRADES.map(g => {
+            // Tenta encontrar a série de forma robusta ignorando espaços, capturando numero e EM/Fundamental
+            const isEM = g.id.includes('em');
+            const gradeNum = g.id.match(/\d+/)[0];
+            const dbMatch = dbGrades.find(dbG => {
+                const dbName = dbG.name.toLowerCase();
+                const hasEM = dbName.includes('médio') || dbName.includes('e.m') || dbName.includes('em');
+                return dbName.includes(gradeNum) && (isEM === hasEM);
+            });
+
+            // Garantir que 3º e 5º ano fiquem disponíveis
+            const isAvailable = g.active;
+            const statusLabel = isAvailable ? '' : '<span class="text-sm opacity-60 block">(EM BREVE)</span>';
+            const lockedClass = isAvailable ? '' : 'locked opacity-50 cursor-not-allowed grayscale';
+
+            // Usar o ID do DB (inteiro) ou um fallback para não quebrar no clique
+            const realId = dbMatch ? dbMatch.id : g.id;
+
+            return `
+                <button class="btn-rpg-big py-6 flex-col justify-center text-xl grade-btn ${lockedClass}" 
+                        data-id="${isAvailable ? realId : ''}">
+                    ${g.name} ${statusLabel}
+                </button>
+            `;
+        }).join('');
+
+        document.querySelectorAll('.grade-btn').forEach(btn => {
+            if (btn.dataset.id) {
+                btn.onclick = () => {
+                    playSound('next');
+                    selectGrade(btn.dataset.id);
+                };
+            }
+        });
+    };
+
+    const selectGrade = (gradeId) => {
+        window.selectedGrade = gradeId;
+        showScreen('subjects');
+        renderSubjects();
+    };
+
     const renderSubjects = async () => {
         const container = document.getElementById('subject-list');
         container.innerHTML = '<p class="text-center col-span-2">Carregando pergaminhos...</p>';
@@ -452,34 +938,124 @@
         }
 
         container.innerHTML = subjects.map(s => `
-            <button class="btn-rpg-big py-6 justify-center text-xl subject-btn" data-subject="${s}">${s}</button>
+            <button class="btn-rpg-big py-6 justify-center text-xl subject-btn" data-id="${s.id}">${s.name}</button>
         `).join('');
 
         document.querySelectorAll('.subject-btn').forEach(btn => {
-            btn.onclick = () => selectSubject(btn.dataset.subject);
+            btn.onclick = () => {
+                playSound('next');
+                selectSubject(btn.dataset.id);
+            };
         });
     };
 
-    const selectSubject = async (subject) => {
-        const container = document.getElementById('topic-list');
-        container.innerHTML = '<p class="text-center">Consultando biblioteca...</p>';
-        showScreen('topics');
+    const selectSubject = async (subjectId) => {
+        window.selectedSubject = subjectId;
+        showScreen('assessments');
+        renderAssessments();
+    };
 
-        const topics = await quiz.getTopics(subject);
+    const renderAssessments = async () => {
+        const container = document.getElementById('assessment-list');
+        container.innerHTML = '<p class="text-center">Consultando avaliações...</p>';
+
+        const dbAssessments = await quiz.getAssessments(window.selectedGrade, window.selectedSubject);
+
+        const trimesters = [
+            { id: 1, name: '1º TRIMESTRE' },
+            { id: 2, name: '2º TRIMESTRE' },
+            { id: 3, name: '3º TRIMESTRE' }
+        ];
+
+        container.innerHTML = trimesters.map(tri => {
+            const avs = ['AV1', 'AV2'];
+            return `
+                <div class="trimester-group">
+                    <h4 class="trimester-title">${tri.name}</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        ${avs.map(av => {
+                const match = dbAssessments.find(a =>
+                    a.name.toUpperCase().includes(`${tri.id}º`) &&
+                    a.name.toUpperCase().includes(av)
+                );
+
+                if (match) {
+                    return `
+                                    <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="${match.id}">
+                                        ${av} ⚔️
+                                    </button>
+                                `;
+                } else if (av === 'AV1') {
+                    // Force AV1 to be available, loading all available topics for the given Subject
+                    return `
+                                    <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="">
+                                        ${av} ⚔️
+                                    </button>
+                                `;
+                } else {
+                    return `
+                                    <button class="btn-rpg-big py-4 justify-center text-sm opacity-40 cursor-not-allowed">
+                                        ${av} (SOON)
+                                    </button>
+                                `;
+                }
+            }).join('')}
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        document.querySelectorAll('.assessment-btn').forEach(btn => {
+            btn.onclick = () => {
+                playSound('next');
+                selectAssessment(btn.dataset.id);
+            };
+        });
+    };
+
+    const selectAssessment = async (assessmentId) => {
+        window.selectedAssessment = assessmentId;
+        // Skip topics screen, start challenge directly for the whole assessment
+        startChallenge({ assessment_id: assessmentId });
+    };
+
+    const renderTopics = async () => {
+        const container = document.getElementById('topic-list');
+        container.innerHTML = '<p class="text-center">Consultando pergaminhos de temas...</p>';
+
+        const topics = await quiz.getTopics(window.selectedSubject, window.selectedAssessment);
+
+        if (topics.length === 0) {
+            container.innerHTML = '<p class="text-center text-gray-400">Nenhum tema específico nesta avaliação.</p>';
+            return;
+        }
 
         container.innerHTML = topics.map(t => `
-            <button class="option-btn topic-btn" data-topic="${t}">${t}</button>
+            <button class="btn-rpg-big py-6 justify-center text-xl topic-btn mb-4" data-id="${t.id}">${t.name}</button>
         `).join('');
 
         document.querySelectorAll('.topic-btn').forEach(btn => {
-            btn.onclick = () => startChallenge(subject, btn.dataset.topic);
+            btn.onclick = () => startChallenge({ assessment_id: window.selectedAssessment, topic_id: btn.dataset.id });
         });
     };
 
-    const startChallenge = async (subject, topic) => {
+    const startChallenge = async ({ assessment_id, topic_id }) => {
         try {
-            const sessionId = await engine.startSession('desafio_dos_sabios', 'aprendiz', { subject, topic });
-            currentQuestions = await quiz.getQuestions({ subject, topic, limit: 10 });
+            document.getElementById('guardian-msg').innerText = "Invocando a sabedoria divina... Aguarde.";
+            const queryParams = { assessment_id };
+            if (topic_id) queryParams.topic_id = topic_id;
+
+            startTime = Date.now();
+            const [sessionId, questions] = await Promise.all([
+                engine.startSession('desafio_dos_sabios', 'aprendiz', {
+                    subjectId: window.selectedSubject,
+                    assessment_id,
+                    topicId: topic_id
+                }),
+                quiz.getQuestions(queryParams)
+            ]);
+
+            currentQuestions = questions;
 
             if (!currentQuestions || currentQuestions.length === 0) {
                 document.getElementById('guardian-msg').innerText = "Desculpe, sábio. Não temos pergaminhos sobre este tema específico hoje. Tente outro!";
@@ -488,16 +1064,15 @@
 
             currentIndex = 0;
             score = 0;
+            correctAnswers = 0;
             window.streak = 0;
+            document.getElementById('current-score').innerText = '0000';
 
             document.getElementById('stats-area').classList.remove('hidden');
             loadQuestion();
         } catch (error) {
             console.error("Challenge Error:", error);
-            document.getElementById('guardian-msg').innerText = "Você precisa estar logado para iniciar uma jornada oficial. Entre no portal primeiro!";
-            setTimeout(() => {
-                location.href = "{% url 'arkanos:login' %}?next=" + encodeURIComponent(location.pathname);
-            }, 2000);
+            document.getElementById('guardian-msg').innerText = "Você precisa estar logado para iniciar uma jornada oficial.";
         }
     };
 
@@ -505,8 +1080,20 @@
         const q = currentQuestions[currentIndex];
         if (!q) { finishChallenge(); return; }
 
+        console.log("Loading question:", q);
         showScreen('question');
-        document.getElementById('txt-topic').innerText = q.topic.toUpperCase();
+
+        // Reset scroll/parchment animation
+        const card = document.querySelector('.parchment-card');
+        card.classList.remove('animate-parchment');
+        void card.offsetWidth; // trigger reflow
+        card.classList.add('animate-parchment');
+        playSound('parchment');
+
+        const topicLabel = document.getElementById('txt-topic');
+        topicLabel.innerText = (q.topic || 'Conhecimento Geral').toUpperCase();
+        topicLabel.style.display = 'inline-block'; // Ensure visibility
+
         document.getElementById('txt-question').innerText = q.question;
         document.getElementById('quest-progress').innerText = `${currentIndex + 1}/${currentQuestions.length}`;
 
@@ -524,25 +1111,13 @@
 
             document.querySelectorAll('.ans-btn').forEach(btn => {
                 btn.onclick = () => {
-                    let ansValue = btn.dataset.answer;
-                    // Map Portuguese labels for T/F back to boolean if needed, 
-                    // or handle string comparison in backend
-                    checkAnswer(q, ansValue);
+                    playSound('next'); // Marking sound
+                    // Prevent double click
+                    const allBtns = document.querySelectorAll('.ans-btn');
+                    allBtns.forEach(b => b.onclick = null);
+                    checkAnswer(q, btn.dataset.answer);
                 };
             });
-        } else if (q.type === 'short_answer') {
-            saContainer.classList.remove('hidden');
-            const input = document.getElementById('input-answer');
-            input.value = '';
-            input.focus();
-
-            const submit = () => {
-                const ans = input.value.trim();
-                if (ans) checkAnswer(q, ans);
-            };
-
-            input.onkeypress = (e) => { if (e.key === 'Enter') submit(); };
-            document.getElementById('btn-submit-answer-icon').onclick = submit;
         }
     };
 
@@ -561,56 +1136,132 @@
             const isUserChoice = (b.dataset.answer === ans);
 
             if (isCorrectAnswer) {
-                b.classList.add('correct'); // Sempre verde na correta
+                b.classList.add('correct', 'correct-pulse');
             } else if (isUserChoice && !result.correct) {
-                b.classList.add('wrong'); // Vermelho se o usuário errou
+                b.classList.add('wrong', 'shake');
             }
             b.disabled = true;
         });
 
         if (result.correct) {
+            playSound('correct');
+            addJuice('correct');
             window.streak = (window.streak || 0) + 1;
-
-            // Scoring by difficulty
             const basePoints = { 'easy': 10, 'medium': 20, 'hard': 30 }[q.difficulty] || 10;
-            let currentPoints = basePoints;
-
-            // Streak Bonus
-            if (window.streak === 3) currentPoints += 10;
-            else if (window.streak === 5) currentPoints += 25;
-            else if (window.streak >= 10) currentPoints += 60;
-
-            score += currentPoints;
+            correctAnswers++;
+            score += basePoints;
             document.getElementById('current-score').innerText = score.toString().padStart(4, '0');
-        } else {
-            window.streak = 0;
-        }
 
-        setTimeout(() => {
-            showScreen('feedback');
-            document.getElementById('feedback-title').innerText = result.correct ? 'CORRETO!' : 'QUASE LÁ...';
-            document.getElementById('feedback-title').style.color = result.correct ? '#22C55E' : '#EF4444';
-            document.getElementById('feedback-explanation').innerText = result.explanation;
-        }, 1000);
+            setTimeout(() => {
+                showScreen('feedback');
+                document.getElementById('feedback-title').innerText = 'EXCELENTE!';
+                document.getElementById('feedback-title').style.color = '#22C55E';
+
+                // Dynamic Wisdom Title based on subject/content
+                const tag = document.getElementById('discovery-tag');
+                const subject = q.subject || 'Conhecimento';
+                tag.innerText = `SABEDORIA: ${subject.toUpperCase()}`;
+
+                document.getElementById('feedback-explanation').innerText = result.explanation;
+                document.getElementById('btn-next').innerText = 'PRÓXIMA PERGUNTA ➡️';
+                document.getElementById('btn-next').onclick = () => {
+                    playSound('next');
+                    currentIndex++;
+                    loadQuestion();
+                };
+            }, 1000);
+        } else {
+            playSound('gameover');
+            addJuice('wrong');
+            // GAME OVER LOGIC
+            setTimeout(async () => {
+                showScreen('feedback');
+                document.getElementById('feedback-title').innerText = 'APRENDA COM O ERRO';
+                document.getElementById('feedback-title').style.color = '#EF4444';
+
+                const tag = document.getElementById('discovery-tag');
+                tag.innerText = "REFLEXÃO DO SÁBIO";
+
+                document.getElementById('feedback-explanation').innerHTML = `
+                    <div class="text-slate-500 mb-4 text-sm font-bold uppercase tracking-widest">A resposta correta era: <span class="text-logos-gold">${result.correct_answer}</span></div>
+                    <div class="text-slate-800">${result.explanation}</div>
+                `;
+                document.getElementById('btn-next').innerText = 'RECOMEÇAR JORNADA ⚔️';
+                document.getElementById('btn-next').onclick = () => location.reload();
+
+                // Show ranking immediately on Game Over
+                updateRankingDisplay();
+            }, 1000);
+        }
     };
 
+    const addJuice = (type) => {
+        const questionCard = document.querySelector('.parchment-card');
+        const scoreVal = document.getElementById('current-score');
+
+        if (type === 'correct') {
+            scoreVal.classList.add('glow-gold');
+            setTimeout(() => scoreVal.classList.remove('glow-gold'), 1000);
+        } else if (type === 'wrong') {
+            questionCard.classList.add('shake');
+            setTimeout(() => questionCard.classList.remove('shake'), 500);
+        }
+    };
+
+    const updateRankingDisplay = async (currentTime = null) => {
+        const data = await engine.getLeaderboard();
+        const list = document.getElementById('ranking-list-items');
+        showScreen('ranking');
+        list.innerHTML = '';
+
+        data.forEach((entry, idx) => {
+            const row = document.createElement('div');
+            row.className = `ranking-row ${idx < 3 ? 'top-' + (idx + 1) : ''}`;
+            row.style.animationDelay = `${idx * 0.1}s`;
+
+            // Score logic: if we have currentTime, it's the result of the finished session
+            const isCurrentPlayer = (idx === 0 && currentTime);
+            const timeVal = isCurrentPlayer ? currentTime : (entry.time || '01:45');
+            const xpVal = isCurrentPlayer ? score : (entry.xp || 0);
+
+            row.innerHTML = `
+                <div class="flex items-center gap-6 flex-1">
+                    <span class="rank-number text-2xl font-black w-8">#${idx + 1}</span>
+                    <span class="rank-name text-lg font-bold tracking-tight">${(entry.username || 'ANÔNIMO').toUpperCase()}</span>
+                </div>
+                <div class="flex items-center gap-12 text-right">
+                    <span class="rank-time font-mono text-amber-400 font-bold">${timeVal}</span>
+                    <span class="rank-score text-2xl font-black text-white w-24">${xpVal.toString().padStart(4, '0')}</span>
+                </div>
+            `;
+
+            list.appendChild(row);
+            setTimeout(() => row.classList.add('rise-up'), 50);
+        });
+    };
+
+
     document.getElementById('btn-next').onclick = () => {
+        playSound('next');
         currentIndex++;
         loadQuestion();
     };
 
     const finishChallenge = async () => {
-        const results = await engine.finishSession(score);
+        const endTime = Date.now();
+        const durationSeconds = Math.floor((endTime - startTime) / 1000);
+        const minutes = Math.floor(durationSeconds / 60);
+        const seconds = durationSeconds % 60;
+        const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        const results = await engine.finishSession(score, {
+            correctAnswers: correctAnswers,
+            totalQuestions: currentQuestions.length,
+            duration: durationSeconds
+        });
         showScreen('results');
         document.getElementById('final-score').innerText = results.score;
-
-        const achDiv = document.getElementById('unlocked-achievements');
-        achDiv.innerHTML = results.achievementsUnlocked.map(a => `
-            <div class="p-4 bg-gold/10 rounded-2xl border-2 border-gold/20 animate-bounce">
-                <span class="text-4xl">🏅</span>
-                <p class="font-bold text-gold text-sm mt-2">${a.replace('_', ' ').toUpperCase()}</p>
-            </div>
-        `).join('');
+        updateRankingDisplay(timeStr); // Pass current time to display
     };
 
 </script>
