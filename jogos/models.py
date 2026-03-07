@@ -24,7 +24,9 @@ class Jogo(models.Model):
 class PalavraSpellingBee(models.Model):
     SERIE_CHOICES = [
         ('2ano', '2º Ano'),
+        ('3ano', '3º Ano'),
         ('4ano', '4º Ano'),
+        ('5ano', '5º Ano'),
     ]
 
     palavra = models.CharField(max_length=100)

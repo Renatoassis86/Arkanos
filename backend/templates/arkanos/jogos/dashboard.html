@@ -8,19 +8,28 @@
     rel="stylesheet">
 <link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     .dashboard-container {
         min-height: 80vh;
-        padding: 4rem 2rem;
+        padding: 4rem 1rem;
+        /* Reduzido padding lateral para mobile */
         background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         color: white;
+        overflow-x: hidden;
+        /* Previne vazar horizontalmente */
+        width: 100%;
     }
 
     .trivium-pilar {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 3rem;
-        max-width: 1300px;
+        max-width: 1200px;
         margin: 4rem auto;
+        padding: 0 1rem;
     }
 
     .pilar-card {
@@ -28,13 +37,16 @@
         backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 40px;
-        padding: 3rem 2rem;
+        padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 6vw, 3.5rem);
+        /* Padding responsivo */
         text-align: center;
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        /* Garante que não vaze */
     }
 
     .pilar-card:hover {

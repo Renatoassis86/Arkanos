@@ -12,6 +12,7 @@ urlpatterns = [
     # institucionais / navegação
     path("sobre/", views.sobre, name="sobre"),
     path("programas/", views.programas, name="programas"),
+    path("fale-conosco/", views.fale_conosco, name="fale_conosco"),
     path("jornada/", views.jornada, name="jornada"),
     path("rankings/", views.rankings, name="rankings"),
     path("familia/", views.familia, name="familia"),

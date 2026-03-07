@@ -12,8 +12,11 @@ def avatar(request): return render(request, "arkanos/avatar/index.html")
 def familia(request): return render(request, "arkanos/familia.html")
 def programas(request): return render(request, "arkanos/programas.html")
 def demo(request): return render(request, "arkanos/demo.html")
+def fale_conosco(request): return render(request, "arkanos/fale_conosco.html")
 
 def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('arkanos:jogos')
     next_url = request.GET.get('next') or request.POST.get('next') or 'arkanos:jogos'
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -31,6 +34,8 @@ def login_view(request):
     return render(request, "arkanos/auth/login.html", {'next': next_url})
 
 def cadastro_view(request):
+    if request.user.is_authenticated:
+        return redirect('arkanos:jogos')
     next_url = request.GET.get('next') or request.POST.get('next') or 'arkanos:jogos'
     if request.method == 'POST':
         first_name = request.POST.get('first_name')

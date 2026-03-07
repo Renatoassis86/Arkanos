@@ -9,6 +9,10 @@
     rel="stylesheet">
 <link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     :root {
         --logos-blue: #1E3A8A;
         --logos-gold: #D97706;
@@ -133,13 +137,15 @@
     }
 
     .parchment-content-wrapper {
-        padding: 0 40px;
-        /* Padding extra para garantir que o texto NUNCA encoste nas hastes */
+        padding: 0 5%;
+        /* Usando porcentagem para maior flexibilidade */
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        box-sizing: border-box;
+        /* Garantia extra */
     }
 
 
@@ -317,11 +323,14 @@
         border-top: 2px solid #f1f5f9;
         border-bottom: 2px solid #f1f5f9;
         border-radius: 1.5rem;
-        padding: 3rem;
+        padding: clamp(1.5rem, 5vw, 3rem);
+        /* Responsivo */
         position: relative;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         margin-top: 3rem;
         text-align: left;
+        width: 100%;
+        /* Garante que não vaze */
     }
 
     .discovery-tag {
@@ -352,10 +361,29 @@
     .trimester-group {
         background: #f8fafc;
         border: 2px solid #e2e8f0;
-        border-radius: 1.5rem;
-        padding: 1.5rem;
-        margin-bottom: 2rem;
+        border-radius: 2rem;
+        padding: clamp(1rem, 4vw, 2.5rem);
+        /* Responsivo */
+        margin-top: 2rem;
+        margin-bottom: 3rem;
         width: 100%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+
+    @media (max-width: 640px) {
+        .trimester-group {
+            padding: 1.2rem;
+        }
+
+        .parchment-card {
+            padding: 2rem 1rem !important;
+        }
+
+        .parchment-card::before,
+        .parchment-card::after {
+            display: none;
+            /* Remove hastes no mobile para evitar leak */
+        }
     }
 
     .trimester-title {
@@ -631,7 +659,7 @@
                     <div class="parchment-texture"></div>
                     <div class="parchment-content-wrapper relative z-10 text-center">
                         <span class="text-logos-gold font-bold tracking-[0.1em] text-xs uppercase opacity-80 mb-4"
-                            id="txt-topic">CARREGANDO...</span>
+                            id="txt-topic">TRAZENDO À MEMÓRIA...</span>
                         <h2 class="font-cinzel text-xl md:text-3xl leading-snug text-slate-800 text-center w-full"
                             id="txt-question">
                             Pergunta carregando...
@@ -954,56 +982,77 @@
             { id: 3, name: '3º TRIMESTRE' }
         ];
 
+        const findMatch = (triId, avType) => {
+            // Normalização e matching flexível
+            return dbAssessments.find(a => {
+                const name = a.name.toUpperCase();
+                const hasTrimester = name.includes(`${triId}º`) || name.includes(`${triId} TRIM`);
+                const hasAV = name.includes(avType) || name.includes(avType.replace(/(\d+)/, ' $1'));
+                return hasTrimester && hasAV;
+            }) || dbAssessments.find(a => a.name.toUpperCase().includes(avType)); // Fallback para qualquer AV daquela disciplina
+        };
+
         container.innerHTML = trimesters.map(tri => {
             const avs = ['AV1', 'AV2'];
+            const buttonsHtml = avs.map(av => {
+                const match = findMatch(tri.id, av);
+                if (match) {
+                    return `
+                        <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="${match.id}">
+                            ${av} ⚔️
+                        </button>`;
+                }
+                return `
+                    <button class="btn-rpg-big py-4 justify-center text-sm opacity-30 cursor-not-allowed grayscale" disabled>
+                        ${av} 🔒
+                    </button>`;
+            }).join('');
+
             return `
                 <div class="trimester-group">
                     <h4 class="trimester-title">${tri.name}</h4>
                     <div class="grid grid-cols-2 gap-4">
-                        ${avs.map(av => {
-                const match = dbAssessments.find(a =>
-                    a.name.toUpperCase().includes(`${tri.id}º`) &&
-                    a.name.toUpperCase().includes(av)
-                );
-
-                if (match) {
-                    return `
-                                    <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="${match.id}">
-                                        ${av} ⚔️
-                                    </button>
-                                `;
-                } else if (av === 'AV1') {
-                    // Force AV1 to be available, loading all available topics for the given Subject
-                    return `
-                                    <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="">
-                                        ${av} ⚔️
-                                    </button>
-                                `;
-                } else {
-                    return `
-                                    <button class="btn-rpg-big py-4 justify-center text-sm opacity-40 cursor-not-allowed">
-                                        ${av} (SOON)
-                                    </button>
-                                `;
-                }
-            }).join('')}
+                        ${buttonsHtml}
                     </div>
-                </div>
-            `;
+                </div>`;
         }).join('');
 
-        document.querySelectorAll('.assessment-btn').forEach(btn => {
-            btn.onclick = () => {
+        // Delegação de evento para o container
+        container.onclick = (e) => {
+            const btn = e.target.closest('.assessment-btn');
+            if (btn && btn.dataset.id) {
                 playSound('next');
                 selectAssessment(btn.dataset.id);
-            };
-        });
+            }
+        };
     };
 
     const selectAssessment = async (assessmentId) => {
+        // Validação e Fallback reforçado
+        console.log("Iniciando jornada para Avaliação ID:", assessmentId);
+
+        if (!assessmentId || assessmentId === "undefined" || assessmentId === "null" || assessmentId === "") {
+            document.getElementById('guardian-msg').innerText = "Vozes do além... ID de avaliação inválido. Tente novamente.";
+            playSound('wrong');
+            return;
+        }
+
         window.selectedAssessment = assessmentId;
-        // Skip topics screen, start challenge directly for the whole assessment
-        startChallenge({ assessment_id: assessmentId });
+
+        // Transição imediata de tela
+        showScreen('question');
+        document.getElementById('txt-question').innerText = "Conectando com a sabedoria dos pergaminhos...";
+        document.getElementById('options-container').innerHTML = '<div class="text-center p-8 opacity-50">Os guardiões estão buscando seu desafio...</div>';
+
+        // Tenta iniciar o desafio
+        try {
+            await startChallenge({ assessment_id: assessmentId });
+        } catch (e) {
+            console.error("SelectAssessment Error:", e);
+            showScreen('assessments');
+            document.getElementById('guardian-msg').innerText = "Erro ao carregar perguntas. Tente outra avaliação.";
+            playSound('wrong');
+        }
     };
 
     const renderTopics = async () => {
@@ -1028,24 +1077,36 @@
 
     const startChallenge = async ({ assessment_id, topic_id }) => {
         try {
-            document.getElementById('guardian-msg').innerText = "Invocando a sabedoria divina... Aguarde.";
+            if (!assessment_id) {
+                console.error("Erro: Assessment ID não fornecido.");
+                return;
+            }
+
             const queryParams = { assessment_id };
             if (topic_id) queryParams.topic_id = topic_id;
 
             startTime = Date.now();
-            const [sessionId, questions] = await Promise.all([
-                engine.startSession('desafio_dos_sabios', 'aprendiz', {
-                    subjectId: window.selectedSubject,
-                    assessment_id,
-                    topicId: topic_id
-                }),
-                quiz.getQuestions(queryParams)
-            ]);
+
+            // Fazer as chamadas em paralelo
+            const fetchedQuestionsPromise = quiz.getQuestions(queryParams);
+            const sessionStartedPromise = engine.startSession('desafio_dos_sabios', 'aprendiz', {
+                subjectId: window.selectedSubject,
+                assessment_id,
+                topicId: topic_id
+            }).catch(err => {
+                console.warn("Engine session start failed, but proceeding:", err);
+                return { id: 'local_' + Date.now() };
+            });
+
+            const [questions, session] = await Promise.all([fetchedQuestionsPromise, sessionStartedPromise]);
 
             currentQuestions = questions;
 
-            if (!currentQuestions || currentQuestions.length === 0) {
-                document.getElementById('guardian-msg').innerText = "Desculpe, sábio. Não temos pergaminhos sobre este tema específico hoje. Tente outro!";
+            if (!currentQuestions || !Array.isArray(currentQuestions) || currentQuestions.length === 0) {
+                console.warn("Sem questões para esta jornada.");
+                showScreen('assessments');
+                document.getElementById('guardian-msg').innerText = "Desculpe, sábio. Não temos pergaminhos sobre este tema hoje. Tente outro!";
+                playSound('wrong');
                 return;
             }
 
@@ -1056,10 +1117,15 @@
             document.getElementById('current-score').innerText = '0000';
 
             document.getElementById('stats-area').classList.remove('hidden');
+            document.getElementById('guardian-msg').innerText = "Pergaminhos carregados! Que a sabedoria te guie.";
+
+            // Inicia o carregador de questões
             loadQuestion();
         } catch (error) {
-            console.error("Challenge Error:", error);
-            document.getElementById('guardian-msg').innerText = "Você precisa estar logado para iniciar uma jornada oficial.";
+            console.error("Challenge Critical Error:", error);
+            showScreen('assessments');
+            document.getElementById('guardian-msg').innerText = "Houve um erro ao invocar a sabedoria. Verifique sua conexão.";
+            playSound('wrong');
         }
     };
 
@@ -1082,6 +1148,20 @@
         topicLabel.style.display = 'inline-block'; // Ensure visibility
 
         document.getElementById('txt-question').innerText = q.question;
+
+        // Render optional support image (maps, diagrams, etc)
+        const qTextBase = document.getElementById('txt-question');
+        const existingImg = document.getElementById('q-support-img');
+        if (existingImg) existingImg.remove();
+
+        if (q.image) {
+            const imgEl = document.createElement('img');
+            imgEl.id = 'q-support-img';
+            imgEl.src = q.image;
+            imgEl.style.cssText = 'max-width: 100%; height: auto; border-radius: 12px; margin-top: 1.5rem; border: 4px solid var(--logos-gold); shadow: 0 4px 12px rgba(0,0,0,0.2);';
+            qTextBase.after(imgEl);
+        }
+
         document.getElementById('quest-progress').innerText = `${currentIndex + 1}/${currentQuestions.length}`;
 
         const optionsDiv = document.getElementById('options-container');

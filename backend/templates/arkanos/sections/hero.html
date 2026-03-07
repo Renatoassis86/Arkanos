@@ -20,7 +20,7 @@
       </div>
     </div>
 
-    <figure class="panel glow video-panel">
+    <figure class="panel video-panel">
       <video class="video-cover" playsinline muted autoplay loop>
         <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
       </video>
@@ -65,9 +65,15 @@
   }
 
   .video-panel {
-    border-radius: 32px;
+    border-radius: 80px 20px 80px 20px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .video-panel:hover {
+    transform: scale(1.02);
   }
 
   @media (max-width: 768px) {

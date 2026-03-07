@@ -81,6 +81,8 @@ class BaseQuizQuestion(models.Model):
     tags = models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    image = models.TextField(blank=True, null=True, help_text="URL ou base64 da imagem de suporte")
+    
     class Meta:
         abstract = True
 

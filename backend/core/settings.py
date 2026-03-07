@@ -16,8 +16,16 @@ DEBUG = os.getenv("DJANGO_DEBUG", "True").strip().lower() in ("1", "true", "yes"
 
 # Em DEV: libera localhost/127.0.0.1
 # Em PROD: use DJANGO_ALLOWED_HOSTS="seu-dominio.com, www.seu-dominio.com, 10.0.0.5"
-_default_hosts = "127.0.0.1,localhost,.vercel.app"
+_default_hosts = "127.0.0.1,localhost,.vercel.app,.arkanos.quest"
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("DJANGO_ALLOWED_HOSTS", _default_hosts).split(",") if h.strip()]
+
+# Segurança CSRF para produção (Vercel/Domínios Customizados)
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+    "https://*.arkanos.quest",
+    "http://127.0.0.1",
+    "http://localhost",
+]
 
 # Configuração do Banco de Dados (Supabase/PostgreSQL)
 _db_from_env = dj_database_url.config(

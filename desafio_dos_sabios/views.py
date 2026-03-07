@@ -16,13 +16,27 @@ def question_list(request):
     limit = int(request.GET.get('limit', 1000))
 
     def get_query(model):
-        q = model.objects.filter(type='multiple_choice')
+        q = model.objects.filter(type='multiple_choice').select_related('topic__subject')
+        
+        # 1. Tentativa Ultra-Específica (Avaliação)
         if assessment_id:
-            q = q.filter(topic__assessment_id=assessment_id)
+            q_specific = q.filter(topic__assessment_id=assessment_id)
+            if q_specific.exists():
+                return q_specific
+            
+            # 2. Se falhar, tenta pegar a série (grade) desta avaliação para não deixar o usuário no vácuo
+            try:
+                assessment = QuizAssessment.objects.get(id=assessment_id)
+                q_grade = q.filter(topic__grade=assessment.grade, topic__subject=assessment.subject)
+                if q_grade.exists():
+                    return q_grade
+            except:
+                pass
+
+        # 3. Fallback Final (Tópico ou Qualquer coisa coerente)
         if topic_id:
             q = q.filter(topic_id=topic_id)
-        if difficulty:
-            q = q.filter(difficulty=difficulty)
+        
         return q
 
     all_qs = []
@@ -50,7 +64,8 @@ def question_list(request):
             'difficulty': q.difficulty,
             'subject': q.topic.subject.name,
             'topic': q.topic.name,
-            'source': source_name
+            'source': source_name,
+            'image': getattr(q, 'image', None)
         })
     
     return JsonResponse(results[:limit], safe=False)

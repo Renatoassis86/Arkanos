@@ -1,31 +1,81 @@
 ﻿{% load static %}
 
-<h2 class="title" style="text-align:center; margin-bottom:40px;">Jogos Interativos Arkanos</h2>
-<div class="grid-3" style="gap: 30px;">
-  <a href="{% url 'jogos:spellingbee' %}" class="card hover-rise"
-    style="padding:24px; display:flex; gap:16px; align-items:center; text-decoration: none; color: inherit; border-radius: 20px;">
-    <img src="{% static 'games/spellingbee_icon.svg' %}" width="48" height="48" alt="">
-    <div>
-      <h3 class="title" style="font-size:1.2rem; margin:0;">Spelling Bee</h3>
-      <p class="muted">Inglês com desafios graduais e rankings saudáveis.</p>
-    </div>
-  </a>
+<section id="jogos-section" style="padding: 60px 0;">
+  <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
+    <h2 class="title" style="text-align:center; margin-bottom:50px; font-family: 'Cinzel', serif; font-size: 2.5rem;">
+      Jogos Interativos <span class="tone-gold">Arkanos</span>
+    </h2>
 
-  <a href="{% url 'jogos:radix' %}" class="card hover-rise"
-    style="padding:24px; display:flex; gap:16px; align-items:center; text-decoration: none; color: inherit; border-radius: 20px;">
-    <img src="{% static 'games/radix_icon.svg' %}" width="48" height="48" alt="">
-    <div>
-      <h3 class="title" style="font-size:1.2rem; margin:0;">Radix</h3>
-      <p class="muted">Soletração e consciência fonológica em português.</p>
-    </div>
-  </a>
+    <div class="game-grid"
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; justify-content: center;">
 
-  <a href="{% url 'desafio_dos_sabios:index' %}" class="card hover-rise"
-    style="padding:24px; display:flex; gap:16px; align-items:center; text-decoration: none; color: inherit; border-radius: 20px;">
-    <img src="{% static 'games/desafios_trivium_icon.svg' %}" width="48" height="48" alt="">
-    <div>
-      <h3 class="title" style="font-size:1.2rem; margin:0;">Desafio dos Sábios</h3>
-      <p class="muted">Teste seus conhecimentos e suba no ranking de Logos.</p>
+      <!-- Spelling Bee -->
+      <a href="{% url 'jogos:spellingbee' %}" class="game-card hover-rise"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/spelling_bee_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+            alt="Spelling Bee">
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+          </div>
+        </div>
+        <div style="padding: 30px; text-align: center;">
+          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Spelling Bee</h3>
+          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Inglês com desafios graduais
+            e rankings saudáveis.</p>
+        </div>
+      </a>
+
+      <!-- Radix -->
+      <a href="{% url 'jogos:radix' %}" class="game-card hover-rise"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/radix_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+            alt="Radix">
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+          </div>
+        </div>
+        <div style="padding: 30px; text-align: center;">
+          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Radix</h3>
+          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Soletração e consciência
+            fonológica em português.</p>
+        </div>
+      </a>
+
+      <!-- Desafio dos Sábios -->
+      <a href="{% url 'desafio_dos_sabios:index' %}" class="game-card hover-rise"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/desafio_sabios_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+            alt="Desafio dos Sábios">
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+          </div>
+        </div>
+        <div style="padding: 30px; text-align: center;">
+          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Desafio dos Sábios</h3>
+          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Teste seus conhecimentos e
+            suba no ranking de Logos.</p>
+        </div>
+      </a>
+
     </div>
-  </a>
-</div>
+  </div>
+</section>
+
+<style>
+  .game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--brand-gold) !important;
+  }
+
+  .game-thumb img {
+    transition: transform 0.5s ease;
+  }
+
+  .game-card:hover .game-thumb img {
+    transform: scale(1.1);
+  }
+</style>
