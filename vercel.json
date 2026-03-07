@@ -14,9 +14,5 @@
             "src": "/(.*)",
             "dest": "backend/core/wsgi.py"
         }
-    ],
-    "env": {
-        "DJANGO_DEBUG": "False",
-        "PYTHON_VERSION": "3.12"
-    }
+    ]
 }
