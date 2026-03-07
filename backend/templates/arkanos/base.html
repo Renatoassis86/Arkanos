@@ -9,7 +9,8 @@
 
   <!-- Fonts (EducaCross style) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Nunito:wght@700;800&family=Cinzel:wght@600;800&display=swap"
     rel="stylesheet">
 
   <!-- CSS do site -->
@@ -26,6 +27,12 @@
       --text-on-light: #0f172a;
       --text-muted: #94a3b8;
       --glass-bg: rgba(15, 23, 42, 0.9);
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+      width: 100%;
     }
 
     body {
@@ -169,44 +176,7 @@
       pointer-events: none;
     }
 
-    /* Header Glassmorphism */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--glass-bg);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .header-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 2rem;
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .main-nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .main-nav a:hover {
-      color: var(--brand-gold);
-      transform: translateY(-1px);
-    }
+    /* Header styles moved to header.html to avoid conflicts */
 
     /* Botões Premium */
     .btn {

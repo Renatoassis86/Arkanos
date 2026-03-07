@@ -13,10 +13,16 @@ def question_list(request):
     assessment_id = request.GET.get('assessment_id')
     topic_id = request.GET.get('topic_id')
     difficulty = request.GET.get('difficulty')
-    limit = int(request.GET.get('limit', 1000))
+    limit = int(request.GET.get('limit', 10000))
 
     def get_query(model):
-        q = model.objects.filter(type='multiple_choice').select_related('topic__subject')
+        # Permitimos todos os tipos relevantes de questões
+        allowed_types = [
+            'multiple_choice', 'image_multiple_choice', 'true_false', 
+            'short_answer', 'map_analysis', 'diagram_analysis', 
+            'visual_interpretation'
+        ]
+        q = model.objects.filter(type__in=allowed_types).select_related('topic__subject')
         
         # 1. Tentativa Ultra-Específica (Avaliação)
         if assessment_id:
@@ -65,7 +71,13 @@ def question_list(request):
             'subject': q.topic.subject.name,
             'topic': q.topic.name,
             'source': source_name,
-            'image': getattr(q, 'image', None)
+            # Visual fields
+            'has_image':    getattr(q, 'has_image', False),
+            'image_mode':   getattr(q, 'image_mode', 'none'),
+            'image_url':    q.get_image_url() if hasattr(q, 'get_image_url') else getattr(q, 'image', None),
+            'image_alt':    getattr(q, 'image_alt', None),
+            'image_prompt': getattr(q, 'image_prompt', None),
+            'metadata':     getattr(q, 'metadata_json', {}),
         })
     
     return JsonResponse(results[:limit], safe=False)
@@ -94,7 +106,8 @@ def validate_answer(request):
         return JsonResponse({
             'correct': is_correct,
             'correct_answer': question.answer,
-            'explanation': question.explanation
+            'explanation': question.explanation,
+            'cronica_do_guardiao': getattr(question, 'cronica_do_guardiao', '') or '',
         })
     return JsonResponse({'status': 'error'}, status=400)
 
@@ -225,3 +238,147 @@ def generate_from_context(request):
             'count': len(generated)
         })
     return JsonResponse({'status': 'error'}, status=400)
+
+
+@csrf_exempt
+@user_passes_test(lambda u: u.is_staff)
+def import_questions(request):
+    """
+    Import quiz questions from a JSON array.
+
+    Accepted payload (array or object with 'questions' key):
+    [
+      {
+        "id": "GEO3_AV1_001",
+        "ano": 3,
+        "disciplina": "Geografia",
+        "avaliacao": "AV1",
+        "tema": "Continentes",
+        "tipo": "map_analysis",
+        "pergunta": "...",
+        "alternativas": ["A", "B", "C", "D"],
+        "resposta_correta": 0,
+        "explicacao": "...",
+        "cronica_do_guardiao": "...",
+        "imagem": {
+          "modo": "gerar_no_antigravity",
+          "prompt": "Mapa-múndi com Ásia destacada...",
+          "alt": "Mapa com a Ásia destacada"
+        }
+      }
+    ]
+    """
+    if request.method != 'POST':
+        return JsonResponse({'status': 'error'}, status=400)
+
+    try:
+        payload = json.loads(request.body)
+    except json.JSONDecodeError:
+        return JsonResponse({'status': 'error', 'message': 'JSON inválido'}, status=400)
+
+    if isinstance(payload, dict):
+        questions_data = payload.get('questions', [payload])
+    else:
+        questions_data = payload
+
+    IMAGE_MODE_MAP = {
+        'gerar_no_antigravity': 'generated_asset',
+        'uploaded_asset':       'uploaded_asset',
+        'external_reference':   'external_reference',
+        'none':                 'none',
+    }
+
+    TYPE_MAP = {
+        'multiple_choice':       'multiple_choice',
+        'image_multiple_choice': 'image_multiple_choice',
+        'map_analysis':          'map_analysis',
+        'diagram_analysis':      'diagram_analysis',
+        'visual_interpretation': 'visual_interpretation',
+        'true_false':            'true_false',
+        'short_answer':          'short_answer',
+        'ordering':              'ordering',
+    }
+
+    created, skipped, errors = 0, 0, []
+
+    for item in questions_data:
+        try:
+            # Resolve or create hierarchy: Grade → Subject → Assessment → Topic
+            grade_name   = f"{item.get('ano', '?')}º ano"
+            subject_name = item.get('disciplina', 'Geral')
+            assess_name  = item.get('avaliacao', 'AV1')
+            topic_name   = item.get('tema', 'Geral')
+
+            grade, _   = QuizGrade.objects.get_or_create(name=grade_name)
+            subject, _ = QuizSubject.objects.get_or_create(name=subject_name)
+            assessment, _ = QuizAssessment.objects.get_or_create(
+                name=assess_name, grade=grade, subject=subject
+            )
+            topic, _ = QuizTopic.objects.get_or_create(
+                name=topic_name, subject=subject, grade=grade, assessment=assessment
+            )
+
+            # Image fields
+            img_data      = item.get('imagem') or {}
+            raw_mode      = img_data.get('modo', 'none')
+            image_mode    = IMAGE_MODE_MAP.get(raw_mode, 'none')
+            image_prompt  = img_data.get('prompt') or None
+            image_alt     = img_data.get('alt') or None
+            image_url     = img_data.get('url') or None
+            has_image     = bool(img_data and raw_mode != 'none')
+
+            q_type = TYPE_MAP.get(item.get('tipo', 'multiple_choice'), 'multiple_choice')
+            orig_id = item.get('id')
+
+            # --- Check for Duplicates ---
+            exists = False
+            for model in [QuizQuestion, QuizQuestionVerified, QuizQuestionGenerated]:
+                if model.objects.filter(metadata_json__id_original=orig_id).exists():
+                    exists = True
+                    break
+            
+            if exists:
+                skipped += 1
+                continue
+            # ---------------------------
+
+            # Build options list
+            alternativas = item.get('alternativas', [])
+            resposta_idx = item.get('resposta_correta', 0)
+            if isinstance(alternativas, list) and alternativas:
+                answer = alternativas[resposta_idx] if isinstance(resposta_idx, int) else str(resposta_idx)
+            else:
+                answer = str(resposta_idx)
+
+            QuizQuestion.objects.create(
+                topic               = topic,
+                question            = item.get('pergunta', ''),
+                options             = alternativas,
+                answer              = answer,
+                type                = q_type,
+                difficulty          = item.get('dificuldade', 'medium'),
+                explanation         = item.get('explicacao', ''),
+                cronica_do_guardiao = item.get('cronica_do_guardiao', ''),
+                has_image           = has_image,
+                image_mode          = image_mode,
+                image_url           = image_url,
+                image_prompt        = image_prompt,
+                image_alt           = image_alt,
+                source              = 'manual',
+                metadata_json       = {
+                    'id_original': item.get('id'),
+                    'avaliacao':   assess_name,
+                    'raw_tipo':    item.get('tipo'),
+                },
+            )
+            created += 1
+
+        except Exception as e:
+            errors.append({'item': item.get('id', '?'), 'error': str(e)})
+
+    return JsonResponse({
+        'status': 'success',
+        'created': created,
+        'skipped': skipped,
+        'errors':  errors,
+    })

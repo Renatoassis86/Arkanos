@@ -1,4 +1,4 @@
-﻿{% load static %}
+﻿{% load static remote_assets %}
 <section class="section bg-level-1" id="guardioes">
   <div class="container">
     <span class="badge">Quem guia a jornada</span>
@@ -7,47 +7,45 @@
     <!-- Grid igual ao de Programas/Jogos -->
     <div class="grid-3 guard-cards">
       <!-- 1) Lyra — Gramática -->
-      <article class="card hover-rise">
-        <div class="thumb-flag">
-          <video class="thumb-video" playsinline muted loop preload="metadata"
-            poster="{% static 'videos/posters/lyra.jpg' %}">
-            <source src="{% static 'videos/lyra-1080p.mp4' %}" type="video/mp4">
-          </video>
+      <!-- 1) Lyra — Gramática -->
+      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="thumb-flag" style="box-shadow: 0 15px 35px rgba(11, 30, 60, 0.15); border-color: #cbd5e1;">
+          <img src="{% static 'img/personas/lyra_baners.png' %}"
+            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Lyra">
         </div>
-        <div class="txt">
+        <div class="txt px-2" style="text-align: left;">
           <span class="chip">Gramática</span>
-          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Lyra</h3>
-          <p class="muted">Palavras, sons e memórias que constroem linguagem. Missões de vocabulário e leitura.</p>
+          <h3 class="title text-xl" style="font-size:1.3rem; margin:8px 0 4px;">Lyra</h3>
+          <p class="muted" style="font-size:1rem; line-height:1.5;">Palavras, sons e memórias que constroem linguagem.
+            Missões de vocabulário e leitura.</p>
         </div>
       </article>
 
       <!-- 2) Kael — Retórica -->
-      <article class="card hover-rise">
-        <div class="thumb-flag">
-          <video class="thumb-video" playsinline muted loop preload="metadata"
-            poster="{% static 'videos/posters/kael.jpg' %}">
-            <source src="{% static 'videos/kael-1080p.mp4' %}" type="video/mp4">
-          </video>
+      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="thumb-flag" style="box-shadow: 0 15px 35px rgba(11, 30, 60, 0.15); border-color: #cbd5e1;">
+          <img src="{% static 'img/personas/kael_banners.png' %}"
+            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Kael">
         </div>
-        <div class="txt">
+        <div class="txt px-2" style="text-align: left;">
           <span class="chip chip-amber">Retórica</span>
-          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Kael</h3>
-          <p class="muted">Expressão com verdade e caridade. Pesquisa, escrita e fala com coragem mansa.</p>
+          <h3 class="title text-xl" style="font-size:1.3rem; margin:8px 0 4px;">Kael</h3>
+          <p class="muted" style="font-size:1rem; line-height:1.5;">Expressão com verdade e caridade. Pesquisa, escrita
+            e fala com coragem mansa.</p>
         </div>
       </article>
 
       <!-- 3) Aion — Lógica -->
-      <article class="card hover-rise">
-        <div class="thumb-flag">
-          <video class="thumb-video" playsinline muted loop preload="metadata"
-            poster="{% static 'videos/posters/aion.jpg' %}">
-            <source src="{% static 'videos/aion-1080p.mp4' %}" type="video/mp4">
-          </video>
+      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="thumb-flag" style="box-shadow: 0 15px 35px rgba(11, 30, 60, 0.15); border-color: #cbd5e1;">
+          <img src="{% static 'img/personas/aion_banners.png' %}"
+            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Aion">
         </div>
-        <div class="txt">
+        <div class="txt px-2" style="text-align: left;">
           <span class="chip chip-blue">Lógica</span>
-          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Aion</h3>
-          <p class="muted">Raciocínio, relações e prudência. Desafios e enigmas para ordenar o pensamento.</p>
+          <h3 class="title text-xl" style="font-size:1.3rem; margin:8px 0 4px;">Aion</h3>
+          <p class="muted" style="font-size:1rem; line-height:1.5;">Raciocínio, relações e prudência. Desafios e enigmas
+            para ordenar o pensamento.</p>
         </div>
       </article>
     </div>

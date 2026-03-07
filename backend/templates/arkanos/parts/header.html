@@ -1,46 +1,64 @@
 ﻿{% load static %}
 {# parts/header.html #}
-<header class="site-header">
-  <div class="header-inner">
+<header class="site-header site-header--transparent">
+  <div class="header-inner container">
 
     <!-- LOGO -->
     <a href="{% url 'arkanos:home' %}" class="brand" aria-label="Arkanos">
-      <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo"
-        style="height: 64px; width: auto; filter: brightness(0) invert(1);">
+      <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo">
     </a>
 
-    <nav class="main-nav">
-      <a href="/#programas">Programas</a>
-      <a href="/#conteudos">Conteúdos</a>
+    <!-- BOTÃO MOBILE (Hambúrguer) -->
+    <button class="mobile-toggle" aria-label="Abrir menu" id="mobile-menu-btn">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
 
-      <!-- DESAFIOS DROPDOWN -->
-      <div class="nav-item-dropdown">
-        <a href="{% url 'arkanos:jogos' %}" class="dropdown-trigger">Desafios ▾</a>
-        <div class="dropdown-content">
-          <div class="dropdown-section">
-            <span class="dropdown-label">📜 Gramática</span>
-            <a href="{% url 'jogos:spellingbee' %}">Spelling Bee</a>
-            <a href="#" class="locked">Radix (Em breve)</a>
-          </div>
-          <div class="dropdown-section">
-            <span class="dropdown-label">🏛️ Lógica</span>
-            <a href="{% url 'desafio_dos_sabios:index' %}">Desafio dos Sábios</a>
-          </div>
-          <div class="dropdown-section">
-            <span class="dropdown-label">🛡️ Retórica</span>
-            <a href="#" class="locked">Em breve</a>
+    <nav class="main-nav" id="main-navigation">
+      <div class="nav-links">
+        <a href="/#programas" class="nav-link">Programas</a>
+        <a href="/#conteudos" class="nav-link">Conteúdos</a>
+
+        <!-- DESAFIOS DROPDOWN -->
+        <div class="nav-item-dropdown">
+          <a href="{% url 'arkanos:jogos' %}" class="dropdown-trigger">Desafios ▾</a>
+          <div class="dropdown-content">
+            <div class="dropdown-section">
+              <span class="dropdown-label">📜 Gramática</span>
+              <a href="{% url 'jogos:spellingbee' %}" class="nav-link">Spelling Bee</a>
+              <a href="#" class="locked">Radix (Em breve)</a>
+            </div>
+            <div class="dropdown-section">
+              <span class="dropdown-label">🏛️ Lógica</span>
+              <a href="{% url 'desafio_dos_sabios:index' %}" class="nav-link">Desafio dos Sábios</a>
+            </div>
+            <div class="dropdown-section">
+              <span class="dropdown-label">🛡️ Retórica</span>
+              <a href="#" class="locked">Em breve</a>
+            </div>
           </div>
         </div>
+
+        <a href="/#guardioes" class="nav-link">Guardiões</a>
+        <a href="{% url 'ark:home' %}" class="nav-link">Ark</a>
+        <a href="{% url 'arkanos:fale_conosco' %}" class="nav-link">Fale Conosco</a>
       </div>
 
-      <a href="/#guardioes">Guardiões</a>
-      <a href="{% url 'ark:home' %}">Ark</a>
-      <a href="{% url 'arkanos:fale_conosco' %}">Fale Conosco</a>
+      <div class="auth-mobile">
+        {% if user.is_authenticated %}
+        <span class="user-greeting">Olá, {{ user.first_name|default:user.username }}!</span>
+        <a class="btn btn-login" href="{% url 'arkanos:logout' %}">Sair</a>
+        {% else %}
+        <a class="btn btn-login" href="{% url 'arkanos:login' %}">Entrar</a>
+        <a class="btn btn-signup" href="{% url 'arkanos:cadastro' %}">Cadastrar</a>
+        {% endif %}
+      </div>
     </nav>
 
-    <div class="auth">
+    <div class="auth auth-desktop">
       {% if user.is_authenticated %}
-      <span style="color: var(--text-muted); font-weight: 600;">Olá, {{ user.first_name|default:user.username }}!</span>
+      <span class="user-greeting">Olá, {{ user.first_name|default:user.username }}!</span>
       <a class="btn btn-login" href="{% url 'arkanos:logout' %}">Sair</a>
       {% else %}
       <a class="btn btn-login" href="{% url 'arkanos:login' %}">Entrar</a>
@@ -50,57 +68,131 @@
   </div>
 
   <style>
-    /* Ensure Header sits above any game elements */
+    /* ----- HEADER OVERLAY & TRANSPARENCY ----- */
     .site-header {
-      position: relative;
-      z-index: 9999 !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Dropdown Styles */
+    .site-header--transparent {
+      background: transparent;
+      padding-top: 15px;
+    }
+
+    .site-header--scrolled {
+      position: fixed;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(15px);
+      padding-top: 5px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .site-logo {
+      height: 60px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .site-logo {
+      transform: scale(1.05);
+    }
+
+    /* ----- NAVIGATION ----- */
+    .main-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-link,
+    .dropdown-trigger {
+      color: #ffffff !important;
+      opacity: 0.85;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      position: relative;
+      padding: 10px 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .dropdown-trigger:hover {
+      opacity: 1;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* ----- DROPDOWN ----- */
     .nav-item-dropdown {
       position: relative;
-      display: inline-block;
     }
 
     .dropdown-content {
       display: none;
       position: absolute;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      min-width: 240px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      z-index: 1000;
       top: 100%;
       left: 50%;
-      transform: translateX(-50%);
-      margin-top: 10px;
-      padding: 12px 0;
-      overflow: hidden;
-      animation: dropdownFade 0.3s ease;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      min-width: 260px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      padding: 15px 0;
+      z-index: 1100;
+      animation: dropdownFadeIn 0.3s ease forwards;
     }
 
-    .dropdown-content a {
-      color: var(--text-muted) !important;
-      padding: 14px 24px;
-      text-decoration: none;
+    @keyframes dropdownFadeIn {
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    .nav-item-dropdown:hover .dropdown-content {
       display: block;
-      text-transform: none !important;
-      letter-spacing: 0.5px !important;
-      font-size: 0.95rem !important;
-      font-weight: 500 !important;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(251, 191, 36, 0.1);
-      color: var(--brand-gold) !important;
-      padding-left: 30px;
     }
 
     .dropdown-section {
-      padding: 8px 0;
+      padding: 10px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
@@ -109,37 +201,137 @@
     }
 
     .dropdown-label {
-      display: block;
-      padding: 8px 24px;
+      padding: 0 25px 8px;
       font-size: 0.7rem;
-      font-weight: 800;
       color: var(--brand-gold);
-      text-transform: uppercase;
-      letter-spacing: 2px;
       opacity: 0.7;
     }
 
-    .dropdown-content a.locked {
-      opacity: 0.4;
-      pointer-events: none;
-      font-style: italic;
-    }
-
-
-    .nav-item-dropdown:hover .dropdown-content {
+    .dropdown-content a {
       display: block;
+      padding: 10px 25px;
+      color: rgba(255, 255, 255, 0.7) !important;
+      font-size: 0.9rem;
+      transition: all 0.2s;
     }
 
-    @keyframes dropdownFade {
-      from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(10px);
+    .dropdown-content a:hover {
+      background: rgba(251, 191, 36, 0.1);
+      color: #fff !important;
+      padding-left: 30px;
+    }
+
+    /* ----- AUTH ----- */
+    .auth-desktop {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .user-greeting {
+      color: #fff;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .auth-mobile {
+      display: none;
+    }
+
+    /* ----- MOBILE TOGGLE ----- */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .bar {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 1024px) {
+      .mobile-toggle {
+        display: block;
       }
 
-      to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
+      .auth-desktop {
+        display: none;
+      }
+
+      .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: #0f172a;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 100px 40px;
+        transition: 0.5s;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .main-nav.active {
+        right: 0;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .auth-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+      }
+
+      .dropdown-content {
+        position: static;
+        transform: none;
+        background: rgba(255, 255, 255, 0.05);
+        margin: 10px 0;
+        box-shadow: none;
       }
     }
   </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.site-header');
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mainNav = document.getElementById('main-navigation');
+
+      // Scroll Background
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('site-header--scrolled');
+          header.classList.remove('site-header--transparent');
+        } else {
+          header.classList.remove('site-header--scrolled');
+          header.classList.add('site-header--transparent');
+        }
+      });
+
+      // Mobile Menu Toggle
+      mobileBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        // Transform hamburger
+        mobileBtn.classList.toggle('active');
+      });
+    });
+  </script>
 </header>

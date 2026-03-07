@@ -1,88 +1,221 @@
-﻿{% load static %}
-<section class="sec hero bg-dark" id="inicio">
-  <div class="container hero-grid">
-    <div class="hero-copy">
-      <p class="hero__crumbs">
+﻿{% load static remote_assets %}
+<section class="sec hero-galaxy" id="inicio">
+  <!-- Vídeo como Plano de Fundo Geral -->
+  <div class="hero-bg-media">
+    <video playsinline muted autoplay loop class="hero-video-full">
+      <source src="{% remote_video 'videos/hero.mp4' %}" type="video/mp4">
+    </video>
+    <!-- Overlay mais escuro para máximo contraste -->
+    <div class="hero-glass-overlay"></div>
+  </div>
+
+  <div class="container hero-content-overlay">
+    <div class="hero-text-block">
+      <p class="hero__crumbs-v3">
         Cosmovisão Cristã • Trivium • Jogos com Propósito
       </p>
-      <h1 class="hero__title">
-        Aprender com <span class="tone-accent">sabedoria</span>,<br>
-        jogar com <span class="tone-gold">propósito</span>.
+      <h1 class="hero__title-v3">
+        Aprender com <span class="text-accent">sabedoria</span>,<br>
+        jogar com <span class="text-gold">propósito</span>.
       </h1>
-      <p class="hero__lead">
+      <p class="hero__lead-v3">
         A Arkanos é um ecossistema de aprendizagem cristã clássica em que o <strong>Trivium</strong> vira jornadas e
-        jogos guiados por IA.
-        Nossos personagens conduzem as crianças em trilhas que cultivam virtudes e pensamento claro.
+        jogos guiados por IA. Personagens que cultivam virtudes e pensamento claro.
       </p>
-      <div class="cta-row">
-        <a href="{% url 'arkanos:demo' %}" class="btn btn-signup">Pedir demonstração</a>
-        <a href="#programas" class="btn btn-login">Conhecer programas</a>
+      <div class="cta-row-v3">
+        <a href="{% url 'arkanos:demo' %}" class="btn btn-signup-glam">Pedir demonstração</a>
+        <a href="#programas" class="btn btn-outline-gold">Conhecer programas</a>
       </div>
     </div>
-
-    <figure class="panel video-panel">
-      <video class="video-cover" playsinline muted autoplay loop>
-        <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
-      </video>
-    </figure>
   </div>
 </section>
 
 <style>
-  .hero {
+  .hero-galaxy {
+    position: relative;
+    min-height: 85vh;
+    /* Reduzido de 95vh para não ocupar quase a tela toda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #020617;
     padding: 80px 0;
   }
 
-  .hero__crumbs {
+  /* Fundo de Mídia */
+  .hero-bg-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-video-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) saturate(1.1);
+    /* Um pouco mais escuro na fonte */
+  }
+
+  /* Overlay Gradiente Profundo para legibilidade */
+  .hero-glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente mais fechado para focar no centro e escurecer bordas */
+    background: radial-gradient(circle at center, rgba(5, 11, 24, 0.45) 0%, rgba(2, 6, 23, 0.92) 100%);
+    z-index: 2;
+  }
+
+  .hero-content-overlay {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+  }
+
+  .hero-text-block {
+    max-width: 800px;
+    /* Reduzido de 850px */
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .hero__crumbs-v3 {
     color: var(--brand-gold);
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    /* Menos agressivo */
     margin-bottom: 20px;
+    font-size: 0.7rem;
+    /* Reduzido */
+    background: rgba(251, 191, 36, 0.08);
+    /* Mais sutil */
+    display: inline-block;
+    padding: 6px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(251, 191, 36, 0.15);
   }
 
-  .hero__title {
+  .hero__title-v3 {
     font-family: 'Cinzel', serif;
-    font-size: 3.5rem;
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    /* Responsivo e menos gigante */
+    line-height: 1.15;
     margin-bottom: 25px;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   }
 
-  .tone-accent {
-    color: var(--brand-accent);
+  .text-accent {
+    color: #60a5fa;
+    /* Azul mais brilhante para contraste no escuro */
   }
 
-  .tone-gold {
-    color: var(--brand-gold);
+  .text-gold {
+    color: #fbbf24;
   }
 
-  .hero__lead {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    max-width: 90%;
-    margin-bottom: 35px;
+  .hero__lead-v3 {
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin-bottom: 30px;
+    font-weight: 400;
+    max-width: 600px;
+    margin-inline: auto;
   }
 
-  .video-panel {
-    border-radius: 80px 20px 80px 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
-    transition: transform 0.3s ease;
+  .cta-row-v3 {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
   }
 
-  .video-panel:hover {
-    transform: scale(1.02);
+  /* Botões Especiais Planos (Clean) */
+  .btn-signup-glam {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    color: #000 !important;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-signup-glam:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.5);
+  }
+
+  .btn-outline-gold {
+    background: transparent;
+    color: #fbbf24 !important;
+    border: 1px solid rgba(251, 191, 36, 0.5);
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-gold:hover {
+    background: rgba(251, 191, 36, 0.05);
+    border-color: #fbbf24;
+    transform: translateY(-2px);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: 768px) {
-    .hero__title {
-      font-size: 2.5rem;
+    .hero-galaxy {
+      min-height: 80vh;
+      padding: 40px 20px;
     }
 
-    .hero {
-      padding: 40px 0;
+    .hero__crumbs-v3 {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      padding: 4px 12px;
+    }
+
+    .hero__title-v3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero__lead-v3 {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .cta-row-v3 {
+      flex-direction: column;
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      gap: 12px;
+    }
+
+    .btn-signup-glam,
+    .btn-outline-gold {
+      padding: 12px 20px;
+      font-size: 0.9rem;
     }
   }
 </style>

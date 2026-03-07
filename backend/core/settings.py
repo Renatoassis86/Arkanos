@@ -10,9 +10,14 @@ load_dotenv()
 # settings.py -> core (0) -> backend (1) -> repositorio_arkanos (2)
 BASE_DIR = Path(__file__).resolve().parents[2]
 
-# --- Modo DEV por padrão ---
-# Para forçar produção, defina a variável de ambiente DJANGO_DEBUG=False
-DEBUG = os.getenv("DJANGO_DEBUG", "True").strip().lower() in ("1", "true", "yes")
+# --- Detecção de Ambiente ---
+IS_VERCEL = "VERCEL" in os.environ
+
+# Se estiver na Vercel, DEBUG é False por padrão (a menos que DJANGO_DEBUG=True seja explícito)
+if IS_VERCEL:
+    DEBUG = os.getenv("DJANGO_DEBUG", "False").strip().lower() in ("1", "true", "yes")
+else:
+    DEBUG = os.getenv("DJANGO_DEBUG", "True").strip().lower() in ("1", "true", "yes")
 
 # Em DEV: libera localhost/127.0.0.1
 # Em PROD: use DJANGO_ALLOWED_HOSTS="seu-dominio.com, www.seu-dominio.com, 10.0.0.5"
@@ -57,7 +62,7 @@ SUPABASE_SERVICE_ROLE = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 ROOT_URLCONF = "backend.core.urls"
 WSGI_APPLICATION = "backend.core.wsgi.application"
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "backend" / "static",  # se existir
@@ -73,7 +78,7 @@ STORAGES = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 

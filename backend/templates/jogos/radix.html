@@ -19,189 +19,192 @@
 <div class="container py-16">
     <div id="game-container" class="rpg-game-container theme-lyra">
 
-        <!-- TOP HUD -->
+        <!-- HUD TOP - CLEAN & SYMMETRICAL -->
         <div class="hud-top">
-            <div class="flex items-center gap-4">
-                <a href="{% url 'arkanos:jogos' %}" class="back-link" title="Mudar de Jogo">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <div class="flex items-center gap-6">
+                <a href="{% url 'arkanos:jogos' %}"
+                    class="back-link !bg-slate-100 !text-slate-400 hover:!bg-white hover:!text-logos-blue transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                 </a>
                 <div class="player-card">
-                    <div class="avatar-shield" id="player-avatar">🛡️</div>
+                    <div class="avatar-shield">🎓</div>
                     <div class="player-info">
-                        <h1 id="txt-username">VIAJANTE</h1>
-                        <span id="txt-serie">EXPLORADOR RADIX</span>
-                    </div>
-                </div>
-
-                <div class="stats-group">
-                    <div class="stat-item">
-                        <div class="stat-label">SEQUÊNCIA</div>
-                        <div class="stat-value" id="count-streak">00</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">PONTOS TOTAIS</div>
-                        <div class="stat-value" id="count-score">0000</div>
+                        <h1 id="txt-username">{{ request.user.username|upper }}</h1>
+                        <span>EXPLORADOR RADIX</span>
                     </div>
                 </div>
             </div>
 
-            <!-- SIDE HUD (GUARDIAN) -->
-            <div class="hud-side">
-                <div class="bubble-wrap">
-                    <div id="speech-bubble" class="bubble-content">
-                        Saudações! Eu sou Lyra. Pronta para desvendar as raízes das palavras em português?
-                    </div>
+            <div class="flex items-center gap-8">
+                <div class="hud-stats-pill">
+                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">SEQ.</span>
+                    <span id="count-streak" class="font-bold text-logos-blue text-lg">00</span>
                 </div>
-                <div id="character-guide" class="guardian-char lyra-char"></div>
-
-                <div class="w-full mt-6 space-y-4">
-                    <div class="flex justify-between items-end">
-                        <span class="stat-label">PROGRESSO</span>
-                        <span class="text-xs font-bold text-slate-400" id="txt-progress">QUEST 1/15</span>
-                    </div>
-                    <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                        <div id="bar-progress" class="h-full bg-arkanos-blue transition-all duration-500"
-                            style="width: 7%">
-                        </div>
-                    </div>
+                <div class="hud-stats-pill">
+                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">PONTOS</span>
+                    <span id="count-score" class="font-black text-logos-gold text-lg">0000</span>
                 </div>
+                <a href="{% url 'portal_arkanos' %}"
+                    class="btn-rpg-small !bg-red-50 !text-red-500 hover:!bg-red-500 hover:!text-white border-2 border-transparent">
+                    SAIR 🚪
+                </a>
             </div>
+        </div>
 
-            <!-- MAIN ARENA -->
-            <div id="screen-game" class="game-arena animate-fadeIn">
+        <!-- MAIN ARENA -->
+        <div id="screen-game" class="game-arena animate-fadeIn">
 
-                <!-- Arkanos Authentication Gate -->
-                <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
-                    <div class="gate-seal">
-                        <span class="seal-icon">💠</span>
-                    </div>
-
-                    <div class="gate-content">
-                        <h2 class="gate-title">PORTAL RADIX</h2>
-                        <p class="gate-subtitle">
-                            Bem-vindo ao reino da Gramática! Entre na <b>Academia Arkanos</b> para selar seu progresso,
-                            conquistar insígnias lendárias e dominar as artes da linguagem.
-                        </p>
-                    </div>
-
-                    <div class="gate-actions">
-                        <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
-                            class="btn-rpg-big primary w-full justify-center py-5">
-                            INICIAR JORNADA (CADASTRO) ✨
-                        </a>
-
-                        <div class="gate-divider">
-                            <span class="divider-line"></span>
-                            <span class="divider-text">OU</span>
-                            <span class="divider-line"></span>
-                        </div>
-
-                        <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
-                            class="btn-rpg-big w-full justify-center bg-white border-2 border-slate-200 text-slate-700 hover:border-arkanos-blue transition-all">
-                            ENTRAR NO PORTAL (LOGIN) ⚔️
-                        </a>
-                    </div>
-
-                    <div class="gate-footer">
-                        <p>Seu progresso é valioso. Proteja-o com uma conta.</p>
-                    </div>
+            <!-- Arkanos Authentication Gate -->
+            <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
+                <div class="gate-seal">
+                    <span class="seal-icon">💠</span>
                 </div>
 
-                <!-- Radix Play Area -->
-                <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
-                    <div class="word-box" id="box-word">
-                        <div class="word-mystery" id="txt-mystery">...</div>
-                    </div>
-
-                    <div class="hint-orbs">
-                        <button class="orb-button" onclick="showMeaning()">
-                            <span>📖</span> SIGNIFICADO
-                        </button>
-                        <button class="orb-button" onclick="showExample()">
-                            <span>💡</span> EXEMPLO
-                        </button>
-                        <button class="orb-button" onclick="giveLetter()">
-                            <span>🧪</span> REVELAR LETRA
-                        </button>
-                    </div>
-
-                    <div class="action-zone">
-                        <div class="relative w-full max-w-lg">
-                            <input type="text" id="input-answer"
-                                class="w-full bg-slate-100 border-b-4 border-slate-200 px-8 py-6 text-4xl font-bold text-center uppercase tracking-widest focus:outline-none focus:border-arkanos-blue transition-all"
-                                placeholder="SOLETRE AQUI..." autocomplete="off">
-                        </div>
-                    </div>
-
-                    <p class="mt-8 text-slate-400 font-bold tracking-widest text-sm animate-pulse">
-                        PRESSIONE [ENTER] PARA VALIDAR
+                <div class="gate-content">
+                    <h2 class="gate-title">PORTAL RADIX</h2>
+                    <p class="gate-subtitle">
+                        Bem-vindo ao reino da Gramática! Entre na <b>Academia Arkanos</b> para selar seu progresso,
+                        conquistar insígnias lendárias e dominar as artes da linguagem.
                     </p>
                 </div>
 
-                <!-- Feedback Overlay -->
-                <div id="feedback-overlay"
-                    class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-white/80 backdrop-blur-sm animate-fadeIn">
-                    <div class="text-center">
-                        <div id="feedback-icon" class="text-9xl mb-4">✨</div>
-                        <h2 id="feedback-title" class="font-black text-6xl tracking-tighter">CORRETO!</h2>
-                        <p id="feedback-msg" class="text-xl text-slate-600 mt-2">Você dominou esta palavra.</p>
+                <div class="gate-actions">
+                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
+                        class="btn-rpg-big primary w-full justify-center py-5">
+                        INICIAR JORNADA (CADASTRO) ✨
+                    </a>
+
+                    <div class="gate-divider">
+                        <span class="divider-line"></span>
+                        <span class="divider-text">OU</span>
+                        <span class="divider-line"></span>
+                    </div>
+
+                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
+                        class="btn-rpg-big w-full justify-center bg-white border-2 border-slate-200 text-slate-700 hover:border-arkanos-blue transition-all">
+                        ENTRAR NO PORTAL (LOGIN) ⚔️
+                    </a>
+                </div>
+
+                <div class="gate-footer">
+                    <p>Seu progresso é valioso. Proteja-o com uma conta.</p>
+                </div>
+            </div>
+
+            <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
+
+                <!-- GUARDIAN BUBBLE - CENTERED -->
+                <div class="w-full flex flex-col items-center mb-10">
+                    <div id="character-guide-main" class="avatar-shield !w-20 !h-20 !text-4xl mb-6 animate-floating">
+                        🧚‍♀️</div>
+                    <div class="bubble-wrap max-w-lg">
+                        <div id="speech-bubble" class="bubble-content animate-reveal">
+                            Saudações! Eu sou Lyra. Pronta para desvendar as raízes das palavras?
+                        </div>
+                    </div>
+                    <div class="w-full max-w-sm mt-8 px-4">
+                        <div class="flex justify-between items-end mb-2">
+                            <span
+                                class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Progresso</span>
+                            <span class="font-bold text-logos-blue text-xs" id="txt-progress">QUEST 1/15</span>
+                        </div>
+                        <div id="bar-progress-container" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="bar-progress" class="h-full bg-logos-blue transition-all duration-500"
+                                style="width: 7%"></div>
+                        </div>
                     </div>
                 </div>
 
-            </div>
-
-            <!-- PROGRESS FOOTER -->
-            <div class="xp-system">
-                <div id="bar-xp" class="xp-fill" style="width: 25%"></div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- VICTORY / GAME OVER OVERLAY -->
-    <div id="victory-overlay" class="ranking-overlay hidden flex flex-col items-center justify-start pt-12 pb-20">
-        <div class="ranking-header text-5xl font-black text-center" id="victory-title">MISSÃO CUMPRIDA!</div>
-
-        <div class="text-center space-y-2 mt-4 rounded-3xl bg-black/50 p-8 border-2 border-amber-500/30">
-            <div class="text-[5rem] text-amber-500 font-black leading-none drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
-                id="final-score">0000</div>
-            <p class="text-gray-400 tracking-widest uppercase text-sm mt-4">Arkanos XP Score</p>
-        </div>
-
-        <!-- ARCADE RANKING -->
-        <div class="arcade-ranking mt-8 max-w-xl">
-            <div
-                class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
-                <div class="flex gap-12">
-                    <span class="w-12">RANK</span>
-                    <span>SÁBIO</span>
+                <div class="parchment-card !py-12 !px-8 !mb-12 !max-w-2xl" id="box-word">
+                    <div class="word-mystery !text-logos-blue" id="txt-mystery">...</div>
                 </div>
-                <span>XP SCORE</span>
+
+                <div class="hint-orbs gap-6 mb-12">
+                    <button class="orb-button !bg-white/80" onclick="showMeaning()">
+                        <span>📖</span> SIGNIFICADO
+                    </button>
+                    <button class="orb-button !bg-white/80" onclick="showExample()">
+                        <span>💡</span> EXEMPLO
+                    </button>
+                    <button class="orb-button !bg-white/80" onclick="giveLetter()">
+                        <span>🧪</span> REVELAR LETRA
+                    </button>
+                </div>
+
+                <div class="action-zone flex flex-col items-center w-full">
+                    <div class="relative w-full max-w-xl">
+                        <input type="text" id="input-answer"
+                            class="w-full bg-white border-4 border-slate-200 rounded-3xl px-8 py-8 text-4xl font-black text-center uppercase tracking-[0.2em] focus:outline-none focus:border-logos-blue focus:ring-8 focus:ring-logos-blue/5 transition-all shadow-inner"
+                            placeholder="SOLETRE AQUI..." autocomplete="off">
+                    </div>
+                    <p class="mt-8 text-slate-400 font-extrabold tracking-[3px] text-xs animate-pulse uppercase">
+                        PRESSIONE [ENTER] PARA VALIDAR
+                    </p>
+                </div>
             </div>
-            <div id="ranking-list-items" class="space-y-3">
-                <!-- Rising items go here -->
+
+            <!-- Feedback Overlay -->
+            <div id="feedback-overlay"
+                class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-white/80 backdrop-blur-sm animate-fadeIn">
+                <div class="text-center">
+                    <div id="feedback-icon" class="text-9xl mb-4">✨</div>
+                    <h2 id="feedback-title" class="font-black text-6xl tracking-tighter">CORRETO!</h2>
+                    <p id="feedback-msg" class="text-xl text-slate-600 mt-2">Você dominou esta palavra.</p>
+                </div>
             </div>
+
         </div>
 
-        <div class="py-12 flex flex-col gap-6 w-full max-w-xs relative z-[100]" style="margin-top: 40px;">
-            <button id="btn-replay-final" onclick="location.reload()"
-                class="btn-rpg-big primary w-full justify-center py-6 text-xl shadow-2xl">
-                JOGAR NOVAMENTE ⚔️
-            </button>
-            <a href="{% url 'arkanos:jogos' %}"
-                class="btn-rpg-big w-full justify-center py-6 bg-slate-800 text-white hover:bg-slate-700 shadow-xl no-underline">
-                MUDAR DE JOGO 🏛️
-            </a>
+        <!-- PROGRESS FOOTER -->
+        <div class="xp-system">
+            <div id="bar-xp" class="xp-fill" style="width: 25%"></div>
+        </div>
+
+    </div>
+</div>
+
+<!-- VICTORY / GAME OVER OVERLAY -->
+<div id="victory-overlay" class="ranking-overlay hidden flex flex-col items-center justify-start pt-12 pb-20">
+    <div class="ranking-header text-5xl font-black text-center" id="victory-title">MISSÃO CUMPRIDA!</div>
+
+    <div class="text-center space-y-2 mt-4 rounded-3xl bg-black/50 p-8 border-2 border-amber-500/30">
+        <div class="text-[5rem] text-amber-500 font-black leading-none drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
+            id="final-score">0000</div>
+        <p class="text-gray-400 tracking-widest uppercase text-sm mt-4">Arkanos XP Score</p>
+    </div>
+
+    <!-- ARCADE RANKING -->
+    <div class="arcade-ranking mt-8 max-w-xl">
+        <div class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
+            <div class="flex gap-12">
+                <span class="w-12">RANK</span>
+                <span>SÁBIO</span>
+            </div>
+            <span>XP SCORE</span>
+        </div>
+        <div id="ranking-list-items" class="space-y-3">
+            <!-- Rising items go here -->
         </div>
     </div>
 
-    <script>
-        const WORDS = JSON.parse('{{ words_json|safe }}');
-        const USER = JSON.parse('{{ user_json|safe }}');
-    </script>
-    <script src="{% static 'jogos/js/radix.js' %}"></script>
-    {% endblock %}
+    <div class="py-12 flex flex-col gap-6 w-full max-w-xs relative z-[100]" style="margin-top: 40px;">
+        <button id="btn-replay-final" onclick="location.reload()"
+            class="btn-rpg-big primary w-full justify-center py-6 text-xl shadow-2xl">
+            JOGAR NOVAMENTE ⚔️
+        </button>
+        <a href="{% url 'arkanos:jogos' %}"
+            class="btn-rpg-big w-full justify-center py-6 bg-slate-800 text-white hover:bg-slate-700 shadow-xl no-underline">
+            MUDAR DE JOGO 🏛️
+        </a>
+    </div>
+</div>
+
+<script>
+    const WORDS = JSON.parse('{{ words_json|safe }}');
+    const USER = JSON.parse('{{ user_json|safe }}');
+</script>
+<script src="{% static 'jogos/js/radix.js' %}"></script>
+{% endblock %}

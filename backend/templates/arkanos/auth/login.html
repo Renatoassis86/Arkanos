@@ -12,15 +12,8 @@
 <section class="auth-section">
   <div class="auth-card">
     <div class="auth-header">
-      <div class="flex justify-between items-start mb-4">
-        <a href="{% if next %}{{ next }}{% else %}{% url 'arkanos:home' %}{% endif %}"
-          class="text-slate-400 hover:text-white transition-colors" title="Voltar">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-        </a>
+      <div class="header-decoration">
         <div class="text-5xl floating-icon">📜</div>
-        <div class="w-8"></div>
       </div>
       <h1>Bem-vindo de volta!</h1>
       <p>Sua jornada o aguarda.</p>
@@ -62,7 +55,7 @@
         </p>
         <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
           <a href="{% url 'arkanos:home' %}" class="btn-back-home">
-            <span>⬅️</span> Voltar ao Início
+            Voltar ao Início
           </a>
         </div>
       </div>

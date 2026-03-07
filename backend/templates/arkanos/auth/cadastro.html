@@ -3,7 +3,7 @@
 {% block header %}{% endblock %}
 {% block footer %}{% endblock %}
 {% load static %}
-{% block title %}Join the Academy — Arkanos{% endblock %}
+{% block title %}Junte-se à Academia — Arkanos{% endblock %}
 
 {% block head_extra %}
 <link rel="stylesheet" href="{% static 'css/auth-rpg.css' %}">
@@ -13,18 +13,11 @@
 <section class="auth-section">
   <div class="auth-card">
     <div class="auth-header">
-      <div class="flex justify-between items-start mb-4">
-        <a href="{% if next %}{{ next }}{% else %}{% url 'arkanos:home' %}{% endif %}"
-          class="text-slate-400 hover:text-white transition-colors" title="Voltar">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-        </a>
+      <div class="header-decoration">
         <div class="text-5xl floating-icon">⚔️</div>
-        <div class="w-8"></div>
       </div>
-      <h1>Join the Academy</h1>
-      <p>Start your legendary journey today.</p>
+      <h1>Junte-se à Academia</h1>
+      <p>Comece sua jornada lendária hoje.</p>
     </div>
 
     {% if messages %}
@@ -41,51 +34,52 @@
       {% csrf_token %}
       <input type="hidden" name="next" value="{{ next }}">
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="form-group">
-          <label class="form-label" for="first_name">First Name</label>
+          <label class="form-label" for="first_name">Nome</label>
           <input type="text" name="first_name" id="first_name" class="form-input" placeholder="Aion" required>
         </div>
         <div class="form-group">
-          <label class="form-label" for="last_name">Last Name</label>
-          <input type="text" name="last_name" id="last_name" class="form-input" placeholder="the Wise" required>
+          <label class="form-label" for="last_name">Sobrenome</label>
+          <input type="text" name="last_name" id="last_name" class="form-input" placeholder="o Sábio" required>
         </div>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="email">E-mail Address</label>
-        <input type="email" name="email" id="email" class="form-input" placeholder="hero@arkanos.com" required>
+        <label class="form-label" for="email">E-mail</label>
+        <input type="email" name="email" id="email" class="form-input" placeholder="heroi@arkanos.com" required>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="data_nascimento">Date of Birth</label>
+        <label class="form-label" for="data_nascimento">Data de Nascimento</label>
         <input type="date" name="data_nascimento" id="data_nascimento" class="form-input" required>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="serie">School Grade</label>
+        <label class="form-label" for="serie">Série Escolar</label>
         <select name="serie" id="serie" class="form-input form-select">
-          <option value="2ano">2nd Grade Fundamental (Lyra's Quest)</option>
-          <option value="3ano">3rd Grade Fundamental (Guardian's Journey)</option>
-          <option value="4ano">4th Grade Fundamental (Aion's Trial)</option>
-          <option value="5ano">5th Grade Fundamental (Master's Challenge)</option>
+          <option value="2ano">2º ano Fundamental (Missão da Lyra)</option>
+          <option value="3ano">3º ano Fundamental (Jornada do Guardião)</option>
+          <option value="4ano">4º ano Fundamental (Prova do Aion)</option>
+          <option value="5ano">5º ano Fundamental (Desafio do Mestre)</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label class="form-label" for="password">Password</label>
-        <input type="password" name="password" id="password" class="form-input" placeholder="Choose wisely..." required>
+        <label class="form-label" for="password">Senha</label>
+        <input type="password" name="password" id="password" class="form-input" placeholder="Escolha com sabedoria..."
+          required>
       </div>
 
       <div class="pt-4">
         <button type="submit" class="btn-rpg-auth">
-          CREATE MY AVATAR 🛡️
+          CRIAR MEU AVATAR 🛡️
         </button>
       </div>
 
       <div class="auth-footer">
-        <p>Already a member?
-          <a href="{% url 'arkanos:login' %}?next={{ next }}">Sign In</a>
+        <p>Já é um membro?
+          <a href="{% url 'arkanos:login' %}?next={{ next }}">Entrar</a>
         </p>
       </div>
     </form>

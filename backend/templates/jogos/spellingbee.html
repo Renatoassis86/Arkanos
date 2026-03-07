@@ -46,58 +46,64 @@
 <div class="container py-8">
     <div id="game-container" class="rpg-game-container theme-lyra">
 
-        <!-- TOP HUD -->
+        <!-- HUD TOP - CLEAN & SYMMETRICAL -->
         <div class="hud-top">
-            <div class="flex items-center gap-4">
-                <a href="{% url 'arkanos:jogos' %}" class="back-link" title="Mudar de Jogo">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <div class="flex items-center gap-6">
+                <a href="{% url 'arkanos:jogos' %}"
+                    class="back-link !bg-slate-100 !text-slate-400 hover:!bg-white hover:!text-logos-blue transition-all">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                 </a>
                 <div class="player-card">
-                    <div class="avatar-shield" id="player-avatar">🛡️</div>
+                    <div class="avatar-shield">🎓</div>
                     <div class="player-info">
-                        <h1 id="txt-username">TRAVELER</h1>
-                        <span id="txt-serie">QUEST EXPLORER</span>
-                    </div>
-                </div>
-
-                <div class="stats-group">
-                    <div class="stat-item">
-                        <div class="stat-label">STREAK</div>
-                        <div class="stat-value" id="count-streak">00</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-label">TOTAL SCORE</div>
-                        <div class="stat-value" id="count-score">0000</div>
+                        <h1 id="txt-username">{{ request.user.username|upper }}</h1>
+                        <span>QUEST EXPLORER</span>
                     </div>
                 </div>
             </div>
 
-            <!-- SIDE HUD (GUARDIAN) -->
-            <div class="hud-side">
-                <div class="bubble-wrap">
-                    <div id="speech-bubble" class="bubble-content">
-                        Greetings! I am Lyra. Are you ready to spell some words today?
+            <div class="flex items-center gap-8">
+                <div class="hud-stats-pill">
+                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">STREAK</span>
+                    <span id="count-streak" class="font-bold text-logos-blue text-lg">00</span>
+                </div>
+                <div class="hud-stats-pill">
+                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">SCORE</span>
+                    <span id="count-score" class="font-black text-logos-gold text-lg">0000</span>
+                </div>
+                <a href="{% url 'portal_arkanos' %}"
+                    class="btn-rpg-small !bg-red-50 !text-red-500 hover:!bg-red-500 hover:!text-white border-2 border-transparent">
+                    LEAVE 🚪
+                </a>
+            </div>
+        </div>
+
+        <div class="game-arena">
+
+            <!-- GUARDIAN BUBBLE - CENTERED -->
+            <div class="w-full flex flex-col items-center mb-10">
+                <div id="character-guide-main" class="avatar-shield !w-20 !h-20 !text-4xl mb-6 animate-floating">🧚‍♀️
+                </div>
+                <div class="bubble-wrap max-w-lg">
+                    <div id="speech-bubble" class="bubble-content animate-reveal">
+                        Greetings! I am Lyra. Are you ready to spell some words?
                     </div>
                 </div>
-                <div id="character-guide" class="guardian-char lyra-char"></div>
-
-                <div class="w-full mt-6 space-y-4">
-                    <div class="flex justify-between items-end">
-                        <span class="stat-label">PROGRESS</span>
-                        <span class="font-bold text-lg" id="progress-text">Quest 1/15</span>
+                <div class="w-full max-w-sm mt-8 px-4">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Mission
+                            Progress</span>
+                        <span class="font-bold text-logos-blue text-xs" id="progress-text">QUEST 1/15</span>
                     </div>
-                    <div class="flex justify-between items-end">
-                        <span class="stat-label">LEVEL</span>
-                        <span class="font-bold text-lg text-gold" id="txt-level">1</span>
+                    <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                        <div id="bar-progress" class="h-full bg-logos-blue transition-all duration-500"
+                            style="width: 7%"></div>
                     </div>
                 </div>
             </div>
-
-            <!-- MAIN ARENA -->
             <div id="screen-game" class="game-arena animate-fadeIn">
 
                 <!-- Arkanos Authentication Gate -->
@@ -162,6 +168,11 @@
                             <span>🎤</span> SPELL WORD
                         </button>
                     </div>
+                    <p
+                        style="text-align:center; font-size:0.82rem; color:#94a3b8; margin-top:12px; letter-spacing:0.3px;">
+                        🗣️ Say each <b>letter</b>, then say the <b>whole word</b> at the end.<br>
+                        Example: &ldquo;A — P — P — L — E &mdash; apple&rdquo;
+                    </p>
                 </div>
             </div>
 
@@ -265,7 +276,7 @@
             }
 
             promptWord(word) {
-                this.speak(`Spell the word: ${word}`, 0.85);
+                this.speak(`Spell the word: ${word}. Say each letter, then say the word.`, 0.85);
             }
 
             spellWord(word) {
@@ -297,10 +308,31 @@
 
             async processAnswer(transcript) {
                 const word = this.words[this.currentIndex].palavra.toLowerCase();
-                const cleanTranscript = transcript.toLowerCase().replace(/[^a-z]/g, '');
                 const cleanWord = word.replace(/[^a-z]/g, '');
+                const cleanTranscript = transcript.toLowerCase().replace(/[^a-z]/g, '');
+                const tokens = transcript.toLowerCase().replace(/[^a-z ]/g, '').trim().split(/\s+/).filter(t => t.length > 0);
 
-                const success = cleanTranscript === cleanWord;
+                let success = false;
+
+                // Regra principal: O jogador DEVE soletrar e ao final dizer a palavra inteira.
+                // Ex: "a p p l e apple" -> cleanTranscript será "appleapple"
+                if (cleanTranscript === cleanWord + cleanWord) {
+                    success = true;
+                } else if (tokens.length > 1) {
+                    // Fallback para pequenas imprecisões do Speech Recognition
+                    // Ex: o jogador fala a palavra no final, e o começo parece ser a soletração
+                    const lastWord = tokens[tokens.length - 1];
+                    if (lastWord === cleanWord) {
+                        const spelledPart = tokens.slice(0, -1).join('');
+                        // Exigimos que a parte soletrada tenha feito esforço em dizer as letras
+                        // Isso impede que alguém diga "eu quero apple" e acerte.
+                        if (spelledPart.length === cleanWord.length ||
+                            spelledPart === cleanWord ||
+                            spelledPart.replace(/double/g, '').length <= cleanWord.length + 1) {
+                            success = true;
+                        }
+                    }
+                }
 
                 // Register event in engine
                 if (this.engine) {

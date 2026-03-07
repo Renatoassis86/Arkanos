@@ -8,12 +8,13 @@ urlpatterns = [
     path('api/questions/', views.question_list, name='question_list'),
     path('api/validate/', views.validate_answer, name='validate_answer'),
     path('api/generate/', views.generate_quiz, name='generate_quiz'),
+    path('api/import/', views.import_questions, name='import_questions'),
     path('api/subjects/', views.get_subjects, name='get_subjects'),
     path('api/grades/', views.get_grades, name='get_grades'),
     path('api/assessments/', views.get_assessments, name='get_assessments'),
     path('api/topics/', views.get_topics, name='get_topics'),
     path('api/generate/context/', views.generate_from_context, name='generate_from_context'),
-    
+
     # Admin Moderation
     path('admin/perguntas/', views.admin_questions, name='admin_questions'),
     path('admin/perguntas/approve/<int:q_id>/', views.approve_question, name='approve_question'),

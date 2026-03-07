@@ -33,3 +33,5 @@ desktop.ini
 
 # Project specific
 backend/static/arkanos/css/app.css
+.vercel
+.env*.local
