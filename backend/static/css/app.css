@@ -1,0 +1,31 @@
+/* Paleta & temas */
+:root {
+  --aion:#0B5FA5; --kael:#D62828; --lyra:#E91E63;
+  --gold:#F2C94C; --parchment:#F7F2E7;
+  --rounded: 1rem;
+  --shadow: 0 10px 30px rgb(2 8 23 / 0.12);
+}
+
+[data-theme="royal"] .text-aion{color:var(--aion)}
+[data-theme="royal"] .text-kael{color:var(--kael)}
+[data-theme="royal"] .text-lyra{color:var(--lyra)}
+.bg-aion{background-color:var(--aion)}
+.bg-kael{background-color:var(--kael)}
+.bg-lyra{background-color:var(--lyra)}
+.bg-gold{background-color:var(--gold)}
+.bg-parchment{background-color:var(--parchment)}
+.text-gold{color:var(--gold)}
+.text-parchment{color:var(--parchment)}
+.border-aion{border-color:var(--aion)}
+.border-kael{border-color:var(--kael)}
+.border-lyra{border-color:var(--lyra)}
+
+/* Botões & cartões rápidos (com Tailwind ficam ainda melhores) */
+.btn-theme{padding:.75rem 1.1rem;border-radius:1rem;box-shadow:var(--shadow);font-weight:900}
+.btn-outline-theme{padding:.7rem 1rem;border-radius:1rem;border:2px solid currentColor;font-weight:800}
+.card{border-radius:1rem;box-shadow:var(--shadow);background:#fff}
+.section-title{font-family:"Viga",system-ui,Segoe UI,Roboto,Arial,sans-serif}
+
+/* Tipografia base */
+body{font-family:"Nunito","Segoe UI",Roboto,Arial,sans-serif}
+h1,h2,h3{letter-spacing:.2px}

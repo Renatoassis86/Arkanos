@@ -1,0 +1,31 @@
+# Ambientes e Logs
+venv/
+.venv/
+anaconda3/
+node_modules/
+*.log
+.DS_Store
+
+# Cache e Build
+__pycache__/
+*.pyc
+.vercel/
+.vercel_cache/
+
+# Mídia Pesada (Fisicamente no repositório)
+**/*.mp4
+**/*.mov
+**/*.rar
+**/*.zip
+**/*.7z
+**/*.exe
+
+# Ignorar o db local
+db.sqlite3
+
+# --- ESTRATÉGIA DE ESTÁTICOS DEFINITIVA ---
+# Subimos APENAS a pasta processada (staticfiles) para economizar espaço e garantir 100% dos arquivos.
+# Ignoramos as pastas fonte para não duplicar no limite de 250MB da Vercel.
+static/
+backend/static/
+backend/assets/

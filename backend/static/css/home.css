@@ -1,0 +1,215 @@
+/* Arkanos Core Design System 2026 */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Educational RPG Palette */
+    --ark-blue: #2D7CFF;
+    --ark-blue-dark: #1E5BCC;
+    --ark-blue-light: #E7F0FF;
+
+    --ark-pink: #E74FD2;
+    --ark-pink-dark: #C23BAF;
+    --ark-pink-light: #FDEBFB;
+
+    --ark-orange: #FF5A3D;
+    --ark-orange-dark: #E04026;
+
+    --ark-gold: #F1C40F;
+    --ark-ink: #0F172A;
+    --ark-slate: #64748B;
+    --ark-bg: #F8FAFC;
+
+    /* Typography */
+    --font-ui: 'Outfit', sans-serif;
+    --font-game: 'Fredoka', sans-serif;
+}
+
+/* Global Styles */
+body {
+    font-family: var(--font-ui);
+    color: var(--ark-ink);
+    background-color: var(--ark-bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-game {
+    font-family: var(--font-game);
+}
+
+/* Auth Pages Clean Design */
+.auth-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: radial-gradient(circle at top right, var(--ark-blue-light) 0%, transparent 40%),
+        radial-gradient(circle at bottom left, var(--ark-pink-light) 0%, transparent 40%);
+}
+
+.auth-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2.5rem;
+    padding: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 480px;
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ark-blue);
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: var(--ark-slate);
+    font-size: 1.125rem;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ark-ink);
+    margin-bottom: 0.625rem;
+    margin-left: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    background: #F1F5F9;
+    border: 2px solid transparent;
+    border-radius: 1.25rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+    font-family: var(--font-ui);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--ark-ink);
+}
+
+.form-input:focus {
+    background: #fff;
+    border-color: var(--ark-blue);
+    box-shadow: 0 0 0 4px var(--ark-blue-light);
+    outline: none;
+}
+
+.form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.25rem center;
+    background-size: 1.5em;
+    padding-right: 3rem;
+}
+
+/* Arkanos Specific Buttons */
+.btn-ark {
+    width: 100%;
+    padding: 1.125rem 2rem;
+    border-radius: 1.25rem;
+    font-family: var(--font-game);
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.btn-ark-primary {
+    background: linear-gradient(135deg, var(--ark-blue) 0%, var(--ark-blue-dark) 100%);
+    color: white;
+    box-shadow: 0 10px 20px -5px rgba(45, 124, 255, 0.3);
+}
+
+.btn-ark-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(45, 124, 255, 0.4);
+}
+
+.btn-ark-pink {
+    background: linear-gradient(135deg, var(--ark-pink) 0%, var(--ark-pink-dark) 100%);
+    color: white;
+    box-shadow: 0 10px 20px -5px rgba(231, 79, 210, 0.3);
+}
+
+.btn-ark-pink:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px -5px rgba(231, 79, 210, 0.4);
+}
+
+.btn-ark:active {
+    transform: scale(0.98);
+}
+
+/* Success/Error Messages */
+.alert {
+    padding: 1rem 1.5rem;
+    border-radius: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.alert-error {
+    background: #FEF2F2;
+    color: #991B1B;
+    border: 1px solid #FEE2E2;
+}
+
+.alert-success {
+    background: #F0FDF4;
+    color: #166534;
+    border: 1px solid #DCFCE7;
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.arkanos-pink {
+    color: var(--ark-pink);
+}
+
+.arkanos-blue {
+    color: var(--ark-blue);
+}

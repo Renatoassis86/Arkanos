@@ -1,0 +1,47 @@
+DIÁRIO DE BORDO - PROJETO ARKANOS (DEPLOY & CONFIGURAÇÃO)
+
+Este documento registra os desafios técnicos enfrentados e as soluções definitivas aplicadas para estabilizar o ambiente local e de produção (Vercel).
+
+---
+HISTÓRICO DE PROBLEMAS E SOLUÇÕES:
+
+1. PROBLEMA: Versão de Python Incompatível na Vercel
+   - Sintoma: Vercel usando Python 3.14 (experimental) por padrão, causando falha no driver de banco de dados.
+   - Solução Definitiva: Criação do arquivo '.python-version' e 'runtime.txt' forçando explicitamente a versão '3.12'.
+
+2. PROBLEMA: Erro de Compilação do Psycopg2 (pg_config not found)
+   - Sintoma: A Vercel tentava compilar o driver de PostgreSQL do zero e falhava por falta de ferramentas de sistema.
+   - Solução Definitiva: Migração para 'psycopg2-binary==2.9.9', que vem com binários pré-compilados.
+
+3. PROBLEMA: Erro de Codificação (BOM) no Windows
+   - Sintoma: Erro "Line 1, col 1: expected end of input" na Vercel ao ler o requirements.txt.
+   - Solução Definitiva: Garantia de que todos os arquivos de configuração (.python-version, runtime.txt, requirements.txt) sejam salvos em UTF-8 sem BOM.
+
+4. PROBLEMA: Ambiente Local Corrompido (Anaconda)
+   - Sintoma: Erros de 'ModuleNotFoundError: No module named encodings'.
+   - Solução Definitiva: Criação de um ambiente virtual (venv) limpo usando 'py -m venv'.
+
+5. PROBLEMA: Limite de Tamanho do Deploy Lambda (250MB/500MB) na Vercel
+   - Sintoma: Erro "Bundle size exceeds Lambda limit". O projeto estava com mais de 600MB devido a vídeos, arquivos .rar e ambientes virtuais duplicados.
+   - Solução Definitiva: Criação do arquivo '.vercelignore' ignorando agressivamente:
+     - Ambientes virtuais (venv, anaconda3)
+     - Vídeos pesados (**/*.mp4)
+     - Arquivos compactados (**/*.rar)
+     - Pastas de arquivos estáticos duplicadas (backend/staticfiles)
+
+---
+STATUS ATUAL:
+- Ambiente Local: OK (Rodando em http://127.0.0.1:8000)
+- Deploy Vercel: SUCESSO! Site Online.
+- URL de Produção: https://arkanos-one.vercel.app
+7. PROBLEMA: TemplateSyntaxError (remote_assets not registered)
+   - Data/Hora: 07/03/2026 09:01
+   - Sintoma: O Django não encontrava a tag customizada 'remote_video' na Vercel.
+   - Causa: A pasta 'templatetags' estava fora de um app registrado ou em local não-padrão.
+   - Solução Definitiva: Movido 'remote_assets.py' para 'arkanos/templatetags/', garantindo que o Django localize a biblioteca automaticamente, já que 'arkanos' está no INSTALLED_APPS.
+
+8. PROBLEMA: Limite de Armazenamento Vercel (Arquivos Pesados)
+   - Data/Hora: 07/03/2026 09:14
+   - Sintoma: Deploy falhava por exceder 250MB (vídeos mp4).
+   - Solução Definitiva: Upload automático de todos os vídeos para o Supabase Storage via script Python.
+   - Integração: Criada tag '{% remote_video %}' que alterna entre local (DEV) e Supabase (PROD) sem mudar o código HTML. Todos os vídeos foram migrados com sucesso.

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Paleta: Rosa #E91E63 | Vermelho #D62828 | Azul #0B5FA5 -->
+  <!-- Design simples, simétrico, flat, sem gradiente -->
+
+  <!-- Semicírculo externo -->
+  <path d="M24 80a40 40 0 0 1 80 0" fill="none" stroke="#ccc" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Faixa rosa (esquerda) -->
+  <path d="M32 80a32 32 0 0 1 21-30" fill="none" stroke="#E91E63" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Faixa vermelha (meio) -->
+  <path d="M53 50a32 32 0 0 1 22 0" fill="none" stroke="#D62828" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Faixa azul (direita) -->
+  <path d="M74 50a32 32 0 0 1 22 30" fill="none" stroke="#0B5FA5" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Ponteiro -->
+  <line x1="64" y1="80" x2="64" y2="44" stroke="#0B5FA5" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="64" cy="80" r="6" fill="#0B5FA5"/>
+
+</svg>

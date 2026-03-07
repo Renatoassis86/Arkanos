@@ -1,0 +1,106 @@
+/* ========= Arkanos Design Tokens ========= */
+:root{
+  /* Paleta dos personagens */
+  --aion-blue-600:#0B5FA5;   /* Aion (primário) */
+  --aion-blue-700:#084C84;
+  --gold-400:#F2C94C;        /* Dourado */
+  --kael-red-500:#E6482E;    /* Kael */
+  --lyra-pink-500:#E65A83;   /* Lyra */
+  --slate-900:#0f172a;       /* fundos escuros */
+  --slate-800:#1e293b;
+  --slate-700:#334155;
+  --slate-100:#f1f5f9;
+  --white:#ffffff;
+
+  /* Estado / feedback */
+  --success:#22c55e;
+  --warning:#f59e0b;
+  --danger:#ef4444;
+
+  /* Tipografia */
+  --font-title:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  --font-body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+
+  /* Shadows e borders */
+  --radius-lg: 18px;
+  --shadow-soft: 0 10px 30px rgba(11,95,165,.10);
+  --shadow-card: 0 14px 40px rgba(8,76,132,.14);
+
+  /* Gradientes “Game Flow” */
+  --grad-hero: radial-gradient(1200px 600px at 85% 20%, rgba(11,95,165,.18), transparent 60%),
+               linear-gradient(180deg, #0b5fa50d 0%, #0b5fa503 100%);
+  --grad-cta: linear-gradient(135deg, var(--gold-400), #ffd666);
+}
+
+/* Tipografia global */
+html,body{
+  font-family: var(--font-body);
+  color: var(--slate-900);
+  background: #ffffff;
+}
+
+h1,h2,h3,.title{
+  font-family: var(--font-title);
+  line-height: 1.15;
+  letter-spacing: .2px;
+}
+
+/* Utilitárias de cor */
+.text-brand       { color: var(--aion-blue-600); }
+.text-brand-dark  { color: var(--aion-blue-700); }
+.text-lyra        { color: var(--lyra-pink-500); }
+.text-kael        { color: var(--kael-red-500); }
+.text-gold        { color: var(--gold-400); }
+
+.bg-brand         { background: var(--aion-blue-600); }
+.bg-ink           { background: var(--slate-900); }
+.bg-soft          { background: var(--slate-100); }
+
+/* Badges */
+.badge{
+  display:inline-flex; align-items:center; gap:.5rem;
+  background:#ffffff; color: var(--aion-blue-700);
+  border:1px solid rgba(8,76,132,.15);
+  padding:.375rem .625rem; border-radius: 999px;
+  font-size:.85rem; font-weight:600;
+}
+
+/* Botões */
+.btn{
+  appearance:none; border:0; border-radius: 999px;
+  padding:.9rem 1.25rem; font-weight:700;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.btn-primary{
+  color:#0b1b2b; background: var(--grad-cta);
+  box-shadow: 0 10px 24px rgba(242,201,76,.3);
+}
+.btn-primary:hover{ transform: translateY(-1px); }
+.btn-outline{
+  background:#fff; color:var(--aion-blue-700);
+  border:2px solid rgba(11,95,165,.25);
+}
+
+/* Cards */
+.card{
+  background:#fff; border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card); border:1px solid rgba(2,6,23,.05);
+}
+
+/* Containers e seções */
+.container{ width:min(1120px, 92vw); margin-inline:auto; }
+.section{ padding: 64px 0; }
+.section-sm{ padding: 40px 0; }
+
+/* Links */
+a{ color: var(--aion-blue-600); text-decoration: none; }
+a:hover{ color: var(--aion-blue-700); text-decoration: underline; }
+
+/* Listas com ícone */
+.list-check{
+  list-style:none; padding:0; margin:0; display:grid; gap:.5rem;
+}
+.list-check li{ display:flex; align-items:flex-start; gap:.5rem; }
+.list-check li::before{
+  content:'✓'; font-weight:900; color:var(--aion-blue-600); margin-top:1px;
+}
