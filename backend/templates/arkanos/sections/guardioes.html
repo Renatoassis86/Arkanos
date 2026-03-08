@@ -1,53 +1,82 @@
 ﻿{% load static remote_assets %}
-<section class="section bg-level-1" id="guardioes">
+
+<section class="section bg-level-1" id="guardioes" style="background: #f8fafc !important;">
   <div class="container">
-    <span class="badge">Quem guia a jornada</span>
-    <h2 class="title" style="margin:8px 0 16px;">Guardiões do Trivium</h2>
+    <span class="badge" style="background: #e0f2fe; color: #0369a1;">Quem guia a jornada</span>
+    <h2 class="title" style="margin:8px 0 32px; color: #0f172a !important;">Guardiões do Trivium</h2>
 
-    <!-- Grid igual ao de Programas/Jogos -->
+    <!-- SVG ClipPath Definition -->
+    <svg width="0" height="0" style="position:absolute">
+      <defs>
+        <clipPath id="u-flag-v4" clipPathUnits="objectBoundingBox">
+          <path d="M 0,0 H 1 V 0.7 C 1,0.9 0.8,1 0.5,1 C 0.2,1 0,0.9 0,0.7 V 0 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+
     <div class="grid-3 guard-cards">
-      <!-- 1) Lyra — Gramática -->
-      <!-- 1) Lyra — Gramática -->
-      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 16px;">
-        <div class="thumb-flag" style="box-shadow: 0 15px 35px rgba(11, 30, 60, 0.15); border-color: #cbd5e1;">
-          <img src="{% static 'img/personas/lyra_baners.png' %}"
-            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Lyra">
+      <!-- 1) Lyra — Gramática (Transição Humano) -->
+      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="thumb-flag-v4"
+          style="width: 100%; aspect-ratio: 16/22; filter: drop-shadow(0 15px 30px rgba(11, 30, 60, 0.15));">
+          <video class="w-full h-full object-cover" playsinline muted loop autoplay preload="metadata"
+            style="clip-path: url(#u-flag-v4); width: 100%; height: 100%;">
+            <source src="{% remote_video 'videos/Geração_de_Vídeo_de_Apresentação_da_Lyra.mp4' %}" type="video/mp4">
+          </video>
         </div>
-        <div class="txt px-2" style="text-align: left;">
-          <span class="chip">Gramática</span>
-          <h3 class="title text-xl" style="font-size:1.3rem; margin:8px 0 4px;">Lyra</h3>
-          <p class="muted" style="font-size:1rem; line-height:1.5;">Palavras, sons e memórias que constroem linguagem.
-            Missões de vocabulário e leitura.</p>
-        </div>
-      </article>
-
-      <!-- 2) Kael — Retórica -->
-      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 16px;">
-        <div class="thumb-flag" style="box-shadow: 0 15px 35px rgba(11, 30, 60, 0.15); border-color: #cbd5e1;">
-          <img src="{% static 'img/personas/kael_banners.png' %}"
-            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Kael">
-        </div>
-        <div class="txt px-2" style="text-align: left;">
-          <span class="chip chip-amber">Retórica</span>
-          <h3 class="title text-xl" style="font-size:1.3rem; margin:8px 0 4px;">Kael</h3>
-          <p class="muted" style="font-size:1rem; line-height:1.5;">Expressão com verdade e caridade. Pesquisa, escrita
-            e fala com coragem mansa.</p>
+        <div class="txt px-2" style="text-align: center;">
+          <span class="chip" style="background: #fdf2f8; color: #be185d;">Gramática</span>
+          <h3 class="title" style="font-size:1.4rem; margin:12px 0 6px; color: #0f172a !important;">Lyra</h3>
+          <p class="muted" style="font-size:1rem; line-height:1.5; color: #475569 !important;">Palavras, sons e memórias
+            que constroem linguagem. Missões de vocabulário e leitura.</p>
         </div>
       </article>
 
-      <!-- 3) Aion — Lógica -->
-      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 16px;">
-        <div class="thumb-flag" style="box-shadow: 0 15px 35px rgba(11, 30, 60, 0.15); border-color: #cbd5e1;">
-          <img src="{% static 'img/personas/aion_banners.png' %}"
-            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Aion">
+      <!-- 2) Kael — Retórica (Transição Humano) -->
+      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="thumb-flag-v4"
+          style="width: 100%; aspect-ratio: 16/22; filter: drop-shadow(0 15px 30px rgba(11, 30, 60, 0.15));">
+          <video class="w-full h-full object-cover" playsinline muted loop autoplay preload="metadata"
+            style="clip-path: url(#u-flag-v4); width: 100%; height: 100%;">
+            <source src="{% remote_video 'videos/Geração_de_Vídeo_Kael_Criança.mp4' %}" type="video/mp4">
+          </video>
         </div>
-        <div class="txt px-2" style="text-align: left;">
-          <span class="chip chip-blue">Lógica</span>
-          <h3 class="title text-xl" style="font-size:1.3rem; margin:8px 0 4px;">Aion</h3>
-          <p class="muted" style="font-size:1rem; line-height:1.5;">Raciocínio, relações e prudência. Desafios e enigmas
-            para ordenar o pensamento.</p>
+        <div class="txt px-2" style="text-align: center;">
+          <span class="chip chip-amber" style="background: #fffbeb; color: #b45309;">Retórica</span>
+          <h3 class="title" style="font-size:1.4rem; margin:12px 0 6px; color: #0f172a !important;">Kael</h3>
+          <p class="muted" style="font-size:1rem; line-height:1.5; color: #475569 !important;">Expressão com verdade e
+            caridade. Pesquisa, escrita e fala com coragem mansa.</p>
+        </div>
+      </article>
+
+      <!-- 3) Aion — Lógica (Transição Humano) -->
+      <article class="hover-rise" style="display: flex; flex-direction: column; gap: 20px;">
+        <div class="thumb-flag-v4"
+          style="width: 100%; aspect-ratio: 16/22; filter: drop-shadow(0 15px 30px rgba(11, 30, 60, 0.15));">
+          <video class="w-full h-full object-cover" playsinline muted loop autoplay preload="metadata"
+            style="clip-path: url(#u-flag-v4); width: 100%; height: 100%;">
+            <source src="{% remote_video 'videos/Geração_de_Vídeo_Aion_Criança.mp4' %}" type="video/mp4">
+          </video>
+        </div>
+        <div class="txt px-2" style="text-align: center;">
+          <span class="chip chip-blue" style="background: #eff6ff; color: #1d4ed8;">Lógica</span>
+          <h3 class="title" style="font-size:1.4rem; margin:12px 0 6px; color: #0f172a !important;">Aion</h3>
+          <p class="muted" style="font-size:1rem; line-height:1.5; color: #475569 !important;">Raciocínio, relações e
+            prudência. Desafios e enigmas para ordenar o pensamento.</p>
         </div>
       </article>
     </div>
   </div>
 </section>
+
+<style>
+  .thumb-flag-v4 {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .guard-cards .hover-rise:hover {
+    transform: translateY(-8px);
+    transition: transform 0.3s ease;
+  }
+</style>

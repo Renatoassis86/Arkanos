@@ -1,50 +1,73 @@
 ﻿{% load static %}
 
-<section id="jogos-section" class="section jogos-section">
-  <div class="container">
-    <div class="jogos-header">
-      <span class="badge">Jogos Interativos</span>
-      <h2 class="title jogos-title">
-        Aprenda brincando com os <span class="text-gold">Jogos Arkanos</span>
-      </h2>
-      <p class="muted">Missões gamificadas com propósito: vocabulário, soletração e conhecimento.</p>
+<section id="jogos-section" style="padding: 100px 0; background: #f8fafc;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+    <div style="text-align: center; margin-bottom: 60px;">
+      <span class="badge"
+        style="background: #e0f2fe; color: #0369a1; padding: 6px 16px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">Aprenda
+        Brincando</span>
+      <h2 class="title" style="font-family: 'Cinzel', serif; font-size: 3rem; color: #0f172a; margin: 20px 0 10px;">
+        Jogos <span style="color: #f59e0b;">Arkanos</span></h2>
+      <p class="muted" style="color: #64748b; font-size: 1.2rem;">Missões gamificadas com propósito: vocabulário,
+        soletração e conhecimento.</p>
     </div>
 
-    <div class="jogos-grid">
+    <div class="game-grid"
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; justify-content: center;">
 
       <!-- Spelling Bee -->
-      <a href="{% url 'jogos:spellingbee' %}" class="jogo-card hover-rise">
-        <div class="jogo-thumb">
-          <img src="{% static 'games/spelling_bee_v2.png' %}" alt="Spelling Bee" style="object-fit: cover;">
+      <a href="{% url 'jogos:spellingbee' %}" class="game-card hover-rise"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 240px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/spelling_bee_cinematic.png' %}"
+            style="width: 100%; height: 100%; object-fit: cover;" alt="Spelling Bee">
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.3));">
+          </div>
         </div>
-        <div class="jogo-info">
-          <span class="chip chip-blue">Inglês</span>
-          <h3 class="jogo-title">Spelling Bee</h3>
-          <p class="jogo-desc">Inglês com desafios graduais e rankings saudáveis.</p>
+        <div style="padding: 32px; text-align: center;">
+          <h3 class="title"
+            style="font-size: 1.6rem; margin-bottom: 12px; color: #0f172a; font-family: 'Cinzel', serif;">Spelling Bee
+          </h3>
+          <p class="muted" style="font-size: 1rem; line-height: 1.5; color: #475569;">Inglês com desafios graduais,
+            guiados pela magia das palavras da Lyra.</p>
         </div>
       </a>
 
       <!-- Radix -->
-      <a href="{% url 'jogos:radix' %}" class="jogo-card hover-rise">
-        <div class="jogo-thumb">
-          <img src="{% static 'games/radix_v2.png' %}" alt="Radix" style="object-fit: cover;">
+      <a href="{% url 'jogos:radix' %}" class="game-card hover-rise"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 240px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/radix_cinematic.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+            alt="Radix">
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.3));">
+          </div>
         </div>
-        <div class="jogo-info">
-          <span class="chip">Português</span>
-          <h3 class="jogo-title">Radix</h3>
-          <p class="jogo-desc">Soletração e consciência fonológica em português.</p>
+        <div style="padding: 32px; text-align: center;">
+          <h3 class="title"
+            style="font-size: 1.6rem; margin-bottom: 12px; color: #0f172a; font-family: 'Cinzel', serif;">Radix</h3>
+          <p class="muted" style="font-size: 1rem; line-height: 1.5; color: #475569;">Explore a força das raízes latinas
+            e gregas em uma jornada lógica com Aion.</p>
         </div>
       </a>
 
       <!-- Desafio dos Sábios -->
-      <a href="{% url 'desafio_dos_sabios:index' %}" class="jogo-card hover-rise">
-        <div class="jogo-thumb">
-          <img src="{% static 'games/desafio_sabios_v2.png' %}" alt="Desafio dos Sábios" style="object-fit: cover;">
+      <a href="{% url 'desafio_dos_sabios:index' %}" class="game-card hover-rise"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 240px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/desafio_sabios_cinematic.png' %}"
+            style="width: 100%; height: 100%; object-fit: cover;" alt="Desafio dos Sábios">
+          <div
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.3));">
+          </div>
         </div>
-        <div class="jogo-info">
-          <span class="chip chip-amber">Conhecimento</span>
-          <h3 class="jogo-title">Desafio dos Sábios</h3>
-          <p class="jogo-desc">Teste seus conhecimentos e suba no ranking de Logos.</p>
+        <div style="padding: 32px; text-align: center;">
+          <h3 class="title"
+            style="font-size: 1.6rem; margin-bottom: 12px; color: #0f172a; font-family: 'Cinzel', serif;">Desafio dos
+            Sábios</h3>
+          <p class="muted" style="font-size: 1rem; line-height: 1.5; color: #475569;">O teste final de sabedoria e
+            retórica. Prove seu valor sob o olhar de Kael.</p>
         </div>
       </a>
 
@@ -53,81 +76,16 @@
 </section>
 
 <style>
-  .jogos-section {
-    background: #f8fafd;
+  .game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
   }
 
-  .jogos-header {
-    text-align: center;
-    margin-bottom: 3rem;
+  .game-thumb img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  .jogos-title {
-    margin: 10px 0 8px;
-    font-size: clamp(26px, 3.5vw, 40px);
-  }
-
-  .jogos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  @media (max-width: 980px) {
-    .jogos-grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-  }
-
-  .jogo-card {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-  }
-
-  .jogo-thumb {
-    width: 100%;
-    aspect-ratio: 16 / 11;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(11, 30, 60, 0.16);
-    border: 1px solid #d1ddf0;
-    background: #0b1222;
-  }
-
-  .jogo-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .jogo-card:hover .jogo-thumb img {
-    transform: scale(1.06);
-  }
-
-  .jogo-info {
-    padding: 0 4px;
-  }
-
-  .jogo-title {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: #0b1222;
-    margin: 6px 0 4px;
-    font-family: 'Nunito', system-ui, sans-serif;
-  }
-
-  .jogo-desc {
-    font-size: 0.96rem;
-    color: #475569;
-    margin: 0;
-    line-height: 1.5;
+  .game-card:hover .game-thumb img {
+    transform: scale(1.08);
   }
 </style>
