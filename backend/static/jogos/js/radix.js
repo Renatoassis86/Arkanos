@@ -65,7 +65,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             inputAnswer.focus();
         }
 
-        speechBubble.innerText = `Ouça com atenção. A palavra tem ${currentWord.palavra.length} letras.`;
+        // Apenas fala, não mostra no balão para não facilitar a leitura se o objetivo é ouvir
+        // speechBubble.innerText = `Ouça com atenção. A palavra tem ${currentWord.palavra.length} letras.`;
+        speechBubble.innerText = "Prepare sua percepção...";
 
         const pct = ((currentIndex) / words.length) * 100;
         if (barProgress) barProgress.style.width = `${pct}%`;
@@ -162,7 +164,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const transcript = await startListening();
                 processResultFromVoice(transcript);
             } catch (e) {
-                speechBubble.innerText = "Não consegui ouvir. Tente novamente.";
+                speechBubble.innerText = "Não consegui ouvir. Tente falar novamente?";
+                speakWord("Não entendi. Pode repetir?");
             }
         };
     }
@@ -225,8 +228,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     function handleFailure() {
         txtMystery.innerText = currentWord.palavra.toUpperCase();
         txtMystery.style.color = "#EF4444";
-        const errText = `Incorreto. A forma certa é: ${currentWord.palavra.toUpperCase()}`;
-        speechBubble.innerText = errText;
+        // No modo soletração, não mostramos o texto do erro para não dar a resposta visual
+        if (gameMode === 'soletracao') {
+            speechBubble.innerText = "Quase lá! Ouça a forma correta...";
+        } else {
+            speechBubble.innerText = `Incorreto. A forma certa é: ${currentWord.palavra.toUpperCase()}`;
+        }
+
         speakWord(`Incorreto. A forma certa é: ${currentWord.palavra.split('').join(', ')}.`);
 
         setTimeout(() => {
