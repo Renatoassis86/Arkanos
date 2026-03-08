@@ -152,3 +152,6 @@ MIDDLEWARE = [
 ]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Redirecionar usuários para /login/ em vez de /accounts/login/
+LOGIN_URL = "/login/"
