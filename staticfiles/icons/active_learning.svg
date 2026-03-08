@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Paleta: Azul #0B5FA5 | Dourado #F2C94C -->
+  <defs>
+    <style>
+      .azul{stroke:#0B5FA5;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+      .dourado{stroke:#F2C94C;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    </style>
+  </defs>
+
+  <!-- Livro aberto (somente linhas, legível em 32px) -->
+  <!-- Capa esquerda -->
+  <path class="azul"
+        d="M40 44
+           c0-4 3-6 6-5l18 6v24l-18-6
+           c-3-1-6-3-6-7v-12z"/>
+  <!-- Capa direita -->
+  <path class="azul"
+        d="M88 44
+           c0-4-3-6-6-5l-18 6v24l18-6
+           c3-1 6-3 6-7v-12z"/>
+  <!-- Dobra central (miolo) -->
+  <path class="azul" d="M64 51c2 3 4 4 6 4"/>
+
+  <!-- Feixe de luz (dourado) -->
+  <path class="dourado" d="M64 30v-10"/>
+  <path class="dourado" d="M52 34l-7-7"/>
+  <path class="dourado" d="M76 34l7-7"/>
+  <path class="dourado" d="M46 44h-10"/>
+  <path class="dourado" d="M82 44h10"/>
+</svg>

@@ -1,0 +1,1358 @@
+/* ===================== static/css/home.css ===================== */
+/* ===== Paleta & tipografia base ===== */
+:root {
+  --brand-1: #0ea5e9;
+  /* ciano (destaques) */
+  --brand-2: #2563eb;
+  /* azul (tom sobre tom) */
+  --gold: #f59e0b;
+  /* dourado (propósito) */
+  --ink: #0f172a;
+  /* texto principal */
+  --muted: #475569;
+  /* texto secundário */
+  --white: #ffffff;
+
+  --radius-lg: 18px;
+  --shadow-hero: 0 18px 48px rgba(2, 6, 23, .18);
+}
+
+.container {
+  width: min(1140px, 92vw);
+  margin: 0 auto;
+}
+
+/* ===== HEADER (barra do topo diferente do Hero) ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #ffffff;
+  /* diferente do fundo do hero */
+  border-bottom: 1px solid rgba(15, 23, 42, .06);
+  box-shadow: 0 2px 10px rgba(2, 6, 23, 0.04);
+  backdrop-filter: saturate(140%) blur(8px);
+}
+
+/* ================================================================
+   HERO (Sessão 1)
+   — Novo padrão: .hero.hero--arkanos
+   — Aliases mantêm compatibilidade com suas classes atuais (.hero-ark*)
+   ================================================================ */
+
+/* Fundo do hero com tom diferente da barra */
+.hero.hero--arkanos,
+.hero-ark {
+  padding: 56px 0 48px;
+  background:
+    radial-gradient(800px 380px at 85% -10%, rgba(11, 95, 165, .12), transparent 60%),
+    linear-gradient(180deg, #f5f8ff 0%, #eaf0ff 100%);
+}
+
+/* Grid: vídeo à esquerda, texto à direita */
+.hero-grid,
+.hero-ark__grid {
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  /* vídeo primeiro */
+  gap: clamp(24px, 4vw, 40px);
+  align-items: center;
+}
+
+/* ===== Card do vídeo ===== */
+.video-frame {
+  background: #0b1222;
+  /* moldura escura discreta */
+  border: 1px solid rgba(148, 163, 184, .22);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-hero);
+  aspect-ratio: 16 / 9;
+  max-height: clamp(320px, 44vw, 520px);
+}
+
+.hero-video,
+.video-frame__media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* ocupa sem letterbox */
+  object-position: center;
+  filter: saturate(1.06) contrast(1.03);
+}
+
+/* ===== Texto do hero ===== */
+.hero-copy .badge,
+.hero-crumbs {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font: 700 .78rem/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #0b5fa5;
+  background: #0b5fa515;
+  border: 1px solid #0ea5e933;
+  letter-spacing: .2px;
+}
+
+.hero-title,
+.hero-ark__title {
+  margin: .6rem 0 1rem;
+  line-height: 1.08;
+  font-family: 'Nunito', Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4.2vw, 52px);
+  /* mesma pegada da Educacross */
+  color: var(--ink);
+}
+
+/* Destaques tom-sobre-tom */
+.hl-blue {
+  color: var(--brand-2);
+}
+
+.hl-gold {
+  color: var(--gold);
+}
+
+.hero-lead,
+.hero-ark__lead {
+  color: var(--muted);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(15px, 1.2vw, 18px);
+  max-width: 62ch;
+}
+
+.hero-actions,
+.hero-ark__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* ===== Botões ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 10px 16px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: filter .2s ease, transform .2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.btn-primary,
+.btn--brand {
+  background: var(--brand-2);
+  color: #fff;
+  box-shadow: 0 10px 26px rgba(37, 99, 235, .28);
+}
+
+.btn-primary:hover,
+.btn--brand:hover {
+  filter: brightness(1.06);
+}
+
+.btn-ghost,
+.btn--ghost {
+  background: #fff;
+  color: var(--brand-2);
+  border: 1px solid rgba(2, 6, 23, .08);
+}
+
+.btn-ghost:hover,
+.btn--ghost:hover {
+  background: #f8fafc;
+  border-color: rgba(2, 6, 23, .14);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 980px) {
+
+  .hero-grid,
+  .hero-ark__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-frame {
+    order: -1;
+    max-height: 56vw;
+  }
+
+  /* vídeo primeiro no mobile */
+}
+
+
+
+/* ===== Container util ===== */
+.container {
+  width: min(1140px, 92vw);
+  margin: 0 auto;
+}
+
+/* ===== HERO ===== */
+.hero {
+  padding: 56px 0 48px;
+  background:
+    radial-gradient(640px 320px at 78% -10%, rgba(11, 95, 165, .14), transparent 60%),
+    var(--hero-bg);
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  /* texto | vídeo */
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__crumbs {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--brand-700);
+  background: #0b5fa515;
+  border: 1px solid #0ea5e933;
+  padding: 6px 10px;
+  border-radius: 999px;
+  letter-spacing: .2px;
+}
+
+.hero__title {
+  margin: .65rem 0 1rem;
+  line-height: 1.1;
+  font-family: Nunito, Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 52px);
+  color: var(--ink);
+}
+
+/* Destaques tom-sobre-tom */
+.tone-primary {
+  color: var(--brand-700);
+}
+
+.tone-accent {
+  color: var(--gold-500);
+}
+
+.hero__lead {
+  color: var(--muted);
+  max-width: 62ch;
+  font-size: 1.02rem;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0 6px;
+}
+
+/* Vídeo/Card */
+.hero__media {
+  background: #0b1222;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hero);
+  border: 1px solid rgba(148, 163, 184, .18);
+  overflow: hidden;
+  margin: 0;
+  /* remove gap extra do figure */
+}
+
+.hero__video {
+  display: block;
+  width: 100%;
+  height: clamp(320px, 44vw, 520px);
+  /* remove barras pretas nas laterais */
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.06) contrast(1.03);
+  border-radius: calc(var(--radius-lg) - 1px);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 980px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+
+/* Intervalos e micro-ajustes */
+.hero .hero__crumbs {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.hero .hero__title {
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.1;
+  margin: 10px 0 8px;
+}
+
+.hero .hero__lead {
+  max-width: 62ch;
+  color: #334155;
+}
+
+.section-title-center {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.hover-rise {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.hover-rise:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+}
+
+
+.dif-section .dif-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #eaf3ff, #d7e7ff);
+  /* “chip” claro */
+  box-shadow: 0 6px 24px rgba(11, 95, 165, .18), inset 0 0 0 1px rgba(11, 95, 165, .20);
+}
+
+.dif-section .dif-item {
+  background: rgba(9, 25, 43, .55);
+  /* mantém o card escuro já validado */
+  border: 1px solid rgba(168, 200, 255, .15);
+}
+
+/* ===== PASSOS EM CICLO ===== */
+.passos-ciclo .kicker {
+  display: inline-block;
+  margin: 0 auto 8px;
+  padding: 4px 10px;
+  border: 1px solid #cfe0f9;
+  border-radius: 999px;
+  color: #0b5fa5;
+  background: #e8f1fb;
+  font-weight: 600;
+  font-size: .8rem;
+}
+
+.passos-ciclo {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ciclo-lona {
+  position: relative;
+  width: min(900px, 100% - 32px);
+  aspect-ratio: 1/1;
+  margin: 22px auto 0;
+  /* evita vazamentos de vídeos para fora da seção */
+  overflow: hidden;
+}
+
+/* Anel + ligações */
+.ciclo-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ciclo-anel {
+  fill: none;
+  stroke: #c7d7ee;
+  stroke-width: 2;
+  opacity: .45;
+}
+
+.ciclo-linha {
+  fill: none;
+  stroke: #aac3e9;
+  stroke-width: 2;
+  stroke-dasharray: 4 8;
+  opacity: .7;
+}
+
+/* Posições (pontos em volta do círculo) */
+.ponto {
+  position: absolute;
+  width: 220px;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  text-align: center;
+}
+
+.p1 {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 4%;
+}
+
+.p2 {
+  right: 2%;
+  top: 28%;
+}
+
+.p3 {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2%;
+}
+
+.p4 {
+  left: 2%;
+  top: 60%;
+}
+
+.p5 {
+  left: 6%;
+  top: 20%;
+}
+
+/* Bandeirola com base mais arredondada (menos pontuda) */
+.pennant {
+  width: 180px;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #d6e3f7;
+  box-shadow: 0 10px 30px rgba(11, 95, 165, .15);
+  /* shape: um escudo com base em U (SVG como máscara) */
+  -webkit-mask: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>\
+    <path d='M50,2 \
+             C75,2 95,12 95,35 \
+             L95,62 \
+             C95,78 78,98 62,108 \
+             C58,111 54,113 50,113 \
+             C46,113 42,111 38,108 \
+             C22,98 5,78 5,62 \
+             L5,35 \
+             C5,12 25,2 50,2 Z'/>\
+  </svg>") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml;utf8,\
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 120'>\
+    <path d='M50,2 \
+             C75,2 95,12 95,35 \
+             L95,62 \
+             C95,78 78,98 62,108 \
+             C58,111 54,113 50,113 \
+             C46,113 42,111 38,108 \
+             C22,98 5,78 5,62 \
+             L5,35 \
+             C5,12 25,2 50,2 Z'/>\
+  </svg>") center / 100% 100% no-repeat;
+  background: #0b1222;
+  border-radius: 18px;
+  /* borda sutil para soft-corner */
+}
+
+/* Texto colado ao vídeo, com "bolinha" de passo */
+.bolinha {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #0b5fa5;
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  box-shadow: 0 6px 16px rgba(11, 95, 165, .25);
+  margin-bottom: 2px;
+}
+
+.tt {
+  font-size: 1rem;
+  margin: .25rem 0 0;
+}
+
+.tx {
+  color: #475569;
+  font-size: .9rem;
+  margin: 0;
+  max-width: 20ch;
+}
+
+/* Acessibilidade/hover */
+.ponto:hover .pennant {
+  transform: translateY(-2px);
+  transition: transform .25s ease;
+}
+
+.ponto:focus-within .pennant {
+  outline: 2px solid #0b5fa5;
+  outline-offset: 2px;
+}
+
+/* Responsivo */
+@media (max-width: 960px) {
+  .ponto {
+    width: 200px;
+  }
+
+  .pennant {
+    width: 165px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 780px) {
+  .ciclo-lona {
+    aspect-ratio: auto;
+    padding: 32px 0 8px;
+  }
+
+  .ciclo-svg {
+    display: none;
+  }
+
+  /* somamos mais “limpo” no mobile */
+  /* empilha em duas colunas no mobile */
+  .ponto {
+    position: relative;
+    inset: auto;
+    margin: 18px auto;
+  }
+
+  .passos-ciclo .title {
+    margin-bottom: 8px;
+  }
+}
+
+/* ===== Sessão: 5 Passos (Fluxo em Ciclo) ===== */
+
+.section-steps {
+  background: #eaf2ff;
+  /* tom claro (contraste com as anteriores) */
+  padding-top: clamp(48px, 7vw, 84px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.section-steps .container {
+  position: relative;
+}
+
+.steps-head {
+  text-align: center;
+  margin-bottom: clamp(24px, 4vw, 36px);
+}
+
+.section-steps .badge {
+  background: #0b5fa515;
+  border: 1px solid #93c5fd40;
+  color: #0B5FA5;
+}
+
+.section-steps .text-brand {
+  color: #0B5FA5;
+}
+
+.steps-stage {
+  position: relative;
+  max-width: 980px;
+  margin-inline: auto;
+  aspect-ratio: 1 / 1;
+  /* mantém área quadrada */
+  overflow: hidden;
+  /* evita vídeos saírem da sessão */
+}
+
+.steps-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Bandeirola em U (menos pontuda, base arredondada) --- */
+/* Usamos clip-path com path() (browsers modernos). Fallback com border-radius. */
+.u-flag {
+  width: clamp(150px, 22vw, 220px);
+  height: clamp(170px, 25vw, 250px);
+  background: #0b1222;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(11, 95, 165, .15);
+  transform: translateZ(0);
+  /* acelera vídeo em alguns browsers */
+  border-radius: 22px;
+  /* fallback */
+  clip-path: path("M 15 20 Q 110 -10 205 20 L 205 150 Q 205 210 110 245 Q 15 210 15 150 Z");
+}
+
+.u-flag video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Rótulos próximos aos vídeos --- */
+.step-label {
+  margin-top: 10px;
+  width: min(240px, 46vw);
+}
+
+.step-label h3 {
+  font: 700 16px/1.25 Nunito, system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+  margin: 0 0 6px;
+  color: #0b1b32;
+}
+
+.step-label p {
+  margin: 0;
+  color: #334155;
+  font: 400 14px/1.4 Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+/* --- Cada passo posicionado ao redor do círculo --- */
+.step {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Posições (desktop) – ajustadas para dar leitura e conexão visual */
+.step-1 {
+  top: 4%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.step-2 {
+  top: 24%;
+  right: 4%;
+}
+
+.step-3 {
+  bottom: 8%;
+  right: 18%;
+}
+
+.step-4 {
+  bottom: 8%;
+  left: 18%;
+}
+
+.step-5 {
+  top: 24%;
+  left: 4%;
+}
+
+/* Responsivo: tablets/phones empilham em elipse suave */
+@media (max-width: 860px) {
+  .step-1 {
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .step-2 {
+    top: 28%;
+    right: 0%;
+  }
+
+  .step-3 {
+    bottom: 0%;
+    right: 8%;
+  }
+
+  .step-4 {
+    bottom: 0%;
+    left: 8%;
+  }
+
+  .step-5 {
+    top: 28%;
+    left: 0%;
+  }
+}
+
+/* --- Animação de entrada (on-scroll) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px) scale(.98);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* linha conectora sutil (opcional) – entre label e anel */
+.step::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 18px;
+  background: #a3cef9;
+  top: calc(clamp(170px, 25vw, 250px) + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: .7;
+}
+
+.steps-foot {
+  text-align: center;
+  margin-top: clamp(18px, 3vw, 28px);
+}
+
+/* ===== Passos (ciclo) ===== */
+.section-steps {
+  background: #eaf1fd;
+  /* tom claro para manter a progressão de cores */
+  position: relative;
+  overflow: hidden;
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+
+.section-steps .steps-head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-steps .steps-head .badge {
+  background: #0b5fa515;
+  color: #0b5fa5;
+  border: 1px solid #0b5fa533;
+}
+
+.section-steps .steps-flow {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section-steps .steps-flow path {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.section-steps .steps-flow .dashed {
+  stroke: #0b5fa53a;
+  stroke-width: 3;
+  stroke-dasharray: 6 10;
+}
+
+/* grid sem sobreposição */
+.steps-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: auto;
+  gap: clamp(16px, 2vw, 28px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+/* layout “desconstruído” em telas ≥ 1024px */
+@media (min-width: 1024px) {
+  .steps-grid .step:nth-child(1) {
+    grid-column: 2 / span 3;
+    grid-row: 1;
+  }
+
+  .steps-grid .step:nth-child(2) {
+    grid-column: 6 / span 3;
+    grid-row: 1;
+  }
+
+  .steps-grid .step:nth-child(3) {
+    grid-column: 9 / span 3;
+    grid-row: 2;
+  }
+
+  .steps-grid .step:nth-child(4) {
+    grid-column: 6 / span 3;
+    grid-row: 3;
+  }
+
+  .steps-grid .step:nth-child(5) {
+    grid-column: 2 / span 3;
+    grid-row: 3;
+  }
+}
+
+/* mobile/tablet: empilhado sem colisão */
+@media (max-width: 1023px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 680px;
+  }
+
+  .step {
+    margin-inline: auto;
+  }
+}
+
+/* card do passo */
+.step {
+  width: min(280px, 86vw);
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+  align-items: start;
+}
+
+/* bandeirola com base arredondada */
+.flag {
+  --flag-h: 160px;
+  border-radius: 20px 20px 42px 42px / 20px 20px 48px 48px;
+  background: linear-gradient(180deg, #0b122215, #0b122233);
+  box-shadow: 0 6px 16px rgba(11, 18, 34, .12), 0 1px 0 rgba(255, 255, 255, .25) inset;
+  position: relative;
+  overflow: hidden;
+  height: var(--flag-h);
+}
+
+/* cantinho “régua” sutil para sugerir a haste */
+.flag::after {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 18px;
+  width: 2px;
+  height: 38px;
+  background: linear-gradient(180deg, #0b5fa555, transparent);
+  border-radius: 2px;
+}
+
+/* vídeo dentro da bandeirola */
+.flag-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* textos do passo */
+.step-title {
+  font: 700 1rem/1.2 Nunito, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: #0b1222;
+  margin: 0;
+}
+
+.step-text {
+  margin: 0;
+  color: #2b3a52;
+  font: 400 .95rem/1.35 Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans";
+}
+
+/* animação suave na entrada */
+.step {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: .6s ease;
+}
+
+.step.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* margem do rodapé da seção */
+.section-steps .footnote {
+  text-align: center;
+  margin-top: 22px;
+}
+
+/* evita qualquer “transbordo” visual */
+.section-steps .flag,
+.section-steps .step,
+.section-steps .steps-grid {
+  contain: layout paint size;
+}
+
+
+/* === Steps / Passos === */
+.steps-section {
+  --card-w: clamp(180px, 20vw, 220px);
+  /* largura das bandeirolas (ajustes fáceis) */
+  --gap: clamp(16px, 2.5vw, 28px);
+  /* espaçamento entre cards */
+  --radius: 16px;
+  background: #eaf2ff;
+  /* tom claro coerente com seu gradiente de sessões */
+  padding: clamp(36px, 5vw, 64px) 0;
+}
+
+.steps-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.steps-header {
+  text-align: center;
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.steps-header .badge {
+  background: #0b5fa515;
+  color: #0b5fa5;
+  border: 1px solid #0ea5e9;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .85rem;
+}
+
+.steps-header .title {
+  margin: 8px 0 6px;
+  font-size: clamp(20px, 3.2vw, 28px);
+}
+
+.steps-header .hl {
+  color: #ea9d00;
+}
+
+.steps-header .muted {
+  color: #475569;
+  opacity: .9;
+}
+
+.steps-row {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(var(--card-w), 1fr));
+  gap: var(--gap);
+  align-items: start;
+  justify-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Em telas menores, em vez de apertar/empilhar, vira carrossel horizontal sem quebra de linha */
+@media (max-width: 980px) {
+  .steps-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(var(--card-w), 1fr);
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .step-card {
+    scroll-snap-align: start;
+  }
+}
+
+.step-card {
+  width: 100%;
+  max-width: var(--card-w);
+  text-align: center;
+  background: transparent;
+}
+
+.flag-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  /* garante altura consistente e evita sobreposição */
+  margin: 0 auto clamp(10px, 1.6vw, 14px);
+  clip-path: url(#u-flag);
+  /* aplica o formato bandeirola */
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(2, 8, 23, .15);
+  overflow: hidden;
+  /* impede qualquer “vazar” de vídeo */
+  background: #0b1222;
+  /* fallback */
+}
+
+.flag-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* vídeo sempre cobre sem distorção */
+  display: block;
+}
+
+.step-title {
+  font-size: clamp(14px, 1.8vw, 18px);
+  margin: 0 0 4px;
+  color: #0f172a;
+}
+
+.step-text {
+  font-size: clamp(12px, 1.5vw, 15px);
+  margin: 0;
+  color: #334155;
+}
+
+.steps-foot {
+  text-align: center;
+  margin-top: clamp(16px, 2.5vw, 24px);
+}
+
+/* Animação de entrada sutil */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== Header / logo ===== */
+.site-logo {
+  /* altura “visualmente maior” sem distorcer — responsiva por largura */
+  max-height: 42px;
+  /* desktop confortável */
+  height: auto;
+}
+
+/* Escala um pouco no mobile para ocupar melhor o topo */
+@media (max-width: 768px) {
+  .site-logo {
+    max-height: 48px;
+  }
+}
+
+/* Mantém alinhamento do header sem “pular” */
+header .brand {
+  min-height: 56px;
+}
+
+/* ===== Seções sem vãos brancos ===== */
+
+/* Todas as seções terão espaçamento por padding, não por margin. */
+.section {
+  margin: 0;
+  /* elimina vãos entre seções */
+  padding-block: 56px;
+  /* usa padding para respiro vertical */
+}
+
+/* Quando uma seção vier após a outra, não deixe nunca “fenda” branca */
+.section+.section {
+  margin-top: 0;
+}
+
+/* Remove margens iniciais/finais de títulos, parágrafos e listas
+   quando são o 1º ou o último filho da seção (evita “colar” nos limites) */
+.section> :first-child {
+  margin-top: 0 !important;
+}
+
+.section> :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Normaliza títulos e parágrafos para não “empurrarem” a seção pra fora */
+:where(h1, h2, h3, h4, h5, p, ul, ol) {
+  margin-block: .6rem .6rem;
+}
+
+/* Em casos onde o body tinha um fundo claro, iguale ao fundo da 1ª seção
+   ou ao gradiente que você usa no herói para evitar linhas claras ao rolar. */
+body {
+  background: #0f172a;
+}
+
+/* ajuste para a sua paleta base */
+
+
+/* ===== Header / logo ===== */
+.site-logo {
+  /* mais presença visual sem distorcer */
+  max-height: 54px;
+  /* antes 42px — fica proporcional ao topo */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    max-height: 58px;
+  }
+
+  /* um pouco maior no mobile */
+}
+
+header .brand {
+  min-height: 64px;
+}
+
+/* mantém altura confortável do topo */
+
+/* ===== Seções encostadas (sem vãos brancos) ===== */
+
+/* Use padding para respiro e zere margins externas */
+.section {
+  margin: 0;
+  padding-block: clamp(48px, 7vw, 84px);
+}
+
+/* Se uma vier na sequência da outra, não crie fenda */
+.section+.section {
+  margin-top: 0;
+}
+
+/* Normaliza margens dos primeiros/últimos filhos para não “escapar” */
+.section> :first-child {
+  margin-top: 0 !important;
+}
+
+.section> :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* O body não precisa ser branco — alinhe ao tom da primeira/segunda seção */
+body {
+  background: #eef2f7;
+}
+
+/* claro e contínuo; ajuste se preferir outro tom */
+
+
+/* === Logomarcas (não distorcer) === */
+.site-logo,
+.footer-logo {
+  height: clamp(34px, 5.2vw, 56px);
+  /* proporcional, responsivo */
+  width: auto;
+  /* mantém aspect-ratio */
+  display: block;
+  object-fit: contain;
+  /* nunca “aperta”/“estica” */
+  image-rendering: auto;
+  /* nítido em telas retina */
+}
+
+/* === Eliminar “tarjas” brancas entre seções ===
+   - todo respiro deve vir de padding (não margin)
+   - evita gaps vindos de imagens inline */
+.section {
+  margin: 0 !important;
+}
+
+.section+.section {
+  margin-top: 0 !important;
+}
+
+img,
+video {
+  display: block;
+}
+
+/* remove a linha de baseline de mídias inline */
+html,
+body {
+  background: #0f172a;
+}
+
+/* casa com suas seções escuras */
+
+/* === Hero/containers não criam fendas === */
+.container {
+  margin-inline: auto;
+}
+
+.hero,
+.section {
+  padding-block: clamp(48px, 6vw, 84px);
+}
+
+/* === Nitidez de vídeos/imagens quando 3 cards aparecem lado a lado === */
+.guard-list-vid video,
+.guard-row video,
+.flag-media,
+/* bandeirolas dos passos */
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateZ(0);
+  /* força composição em GPU e evita “blur” */
+  backface-visibility: hidden;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  /* suaviza composição */
+}
+
+/* Quando três guardiões estiverem na grade, evite downscale agressivo */
+.guard-list-vid {
+  /* mantém cada thumb em área coerente para não “estourar” o reflow */
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 2vw, 18px);
+}
+
+.guard-list-vid .thumb {
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0b1222;
+  border: 1px solid rgba(148, 163, 184, .18);
+}
+
+/* (Opcional) aumenta o máximo do vídeo do herói em telas grandes sem ficar soft */
+.hero__video {
+  height: clamp(320px, 38vw, 580px);
+}
+
+
+/* ---------- Progressão suave de fundos & sem "tarjas" ---------- */
+body {
+  background: #f7faff;
+}
+
+/* barra/topo branco-azulado */
+.section {
+  margin: 0;
+  padding: clamp(40px, 6vw, 72px) 0;
+}
+
+.section+.section {
+  margin-top: 0;
+}
+
+/* degraus (ordem crescente) */
+.bg-step-0 {
+  background: #f7faff;
+}
+
+/* topo/menu */
+.bg-step-1 {
+  background: linear-gradient(180deg, #eef2f7, #eaf2ff);
+}
+
+.bg-step-2 {
+  background: linear-gradient(180deg, #eaf2ff, #dfeafc);
+}
+
+/* Guardiões aqui */
+.bg-step-3 {
+  background: linear-gradient(180deg, #dfeafc, #cfe0ff);
+}
+
+.bg-step-4 {
+  background: linear-gradient(180deg, #161e2e, #0f172a);
+  color: #dbeafe;
+}
+
+/* seções escuras */
+
+/* ---------- Grid/cards (mesmo visual de Programas/Jogos) ---------- */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media(max-width:980px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e6eef9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(2, 8, 23, .08);
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.card .txt {
+  padding: 14px 16px 16px;
+}
+
+.hover-rise {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.hover-rise:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(2, 8, 23, .12);
+}
+
+/* ---------- Bandeirola/flag com base arredondada (sem pontas) ---------- */
+.thumb-flag {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 22px 22px 42px 42px / 22px 22px 46px 46px;
+  background: #0b1222;
+  border: 1px solid #dce7fb;
+}
+
+.thumb-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Removed filters and will-change to prevent browser pixelation glitches */
+}
+
+/* Chips (disciplina) */
+.chip {
+  display: inline-grid;
+  place-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font: 600 12px/1 Inter, system-ui, sans-serif;
+  background: #eaf2ff;
+  color: #0b1b32;
+  border: 1px solid #cfe1ff;
+}
+
+.chip-amber {
+  background: #fff7e6;
+  border-color: #ffe1a6;
+  color: #8a5800;
+}
+
+.chip-blue {
+  background: #e6f0ff;
+  border-color: #bad4ff;
+  color: #0b4da0;
+}
+
+/* --------- Ajustes tipográficos já coerentes com seus estilos --------- */
+.badge {
+  background: #0b5fa515;
+  border: 1px solid #93c5fd66;
+  color: #0B5FA5;
+}
+
+/* (opcional) evita “pulos” entre seções por margem de primeiro/último filho */
+.section> :first-child {
+  margin-top: 0 !important;
+}
+
+.section> :last-child {
+  margin-bottom: 0 !important;
+}
