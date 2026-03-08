@@ -28,6 +28,6 @@ static/
 **/*.mp4
 **/*.mov
 
-# Staticfiles processado (gerado pelo Vercel se houver build step)
-staticfiles/
-backend/staticfiles/
+# Staticfiles processado - DEVE ser enviado
+!staticfiles/
+!backend/staticfiles/
