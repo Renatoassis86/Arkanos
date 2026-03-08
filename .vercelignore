@@ -21,13 +21,25 @@ node_modules/
 # Database
 db.sqlite3
 
-# Consolidado: Ignoramos a pasta 'static' raiz (180MB) pois migramos o necessário para 'backend/static'
+# Consolidado: Ignoramos as pastas estáticas redundantes
 /static/
+/staticfiles/
 
-# Vídeos (Sempre no Supabase - 0MB no bundle)
-**/*.mp4
-**/*.mov
-
-# Staticfiles processado - DEVE ser enviado
-!staticfiles/
+# Staticfiles processado - Mantemos apenas o do backend
+!backend/static/
 !backend/staticfiles/
+
+# CRITICAL OVERRIDE: Ignore these heavy files regardless of folder inclusion
+**/*.mp4
+**/*.mp3
+**/*.wav
+**/*.mov
+**/*.MOV
+**/*.avi
+**/*.wmv
+**/*.zip
+**/*.rar
+**/videos/
+**/video/
+**/staticfiles/videos/
+**/staticfiles/video/
