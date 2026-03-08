@@ -27,7 +27,8 @@
             <div class="dropdown-section">
               <span class="dropdown-label">📜 Gramática</span>
               <a href="{% url 'jogos:spellingbee' %}" class="nav-link">Spelling Bee</a>
-              <a href="#" class="locked">Radix (Em breve)</a>
+              <a href="{% url 'jogos:radix' %}?mode=digitacao" class="nav-link">Radix Digitação</a>
+              <a href="{% url 'jogos:radix' %}?mode=soletracao" class="nav-link">Radix Soletração</a>
             </div>
             <div class="dropdown-section">
               <span class="dropdown-label">🏛️ Lógica</span>

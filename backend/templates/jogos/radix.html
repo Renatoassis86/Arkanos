@@ -1,7 +1,8 @@
 ﻿{% extends 'arkanos/base.html' %}
 {% load static %}
 
-{% block title %}Radix — Arkanos Quest{% endblock %}
+{% block title %}Radix {% if mode == 'soletracao' %}Soletração{% else %}Digitação{% endif %} — Arkanos Quest{% endblock
+%}
 
 {% block head_extra %}
 <link
@@ -64,7 +65,8 @@
                 </div>
 
                 <div class="gate-content">
-                    <h2 class="gate-title">PORTAL RADIX</h2>
+                    <h2 class="gate-title">RADIX {% if mode == 'soletracao' %}SOLETRAÇÃO{% else %}DIGITAÇÃO{% endif %}
+                    </h2>
                     <p class="gate-subtitle">
                         Bem-vindo ao reino da Gramática! Entre na <b>Academia Arkanos</b> para selar seu progresso,
                         conquistar insígnias lendárias e dominar as artes da linguagem.
@@ -95,116 +97,141 @@
             </div>
 
             <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
+                <div class="flex flex-col lg:flex-row w-full max-w-6xl mx-auto px-4 gap-8 my-8">
 
-                <!-- GUARDIAN BUBBLE - CENTERED -->
-                <div class="w-full flex flex-col items-center mb-10">
-                    <div id="character-guide-main" class="avatar-shield !w-20 !h-20 !text-4xl mb-6 animate-floating">
-                        🧚‍♀️</div>
-                    <div class="bubble-wrap max-w-lg">
-                        <div id="speech-bubble" class="bubble-content animate-reveal">
-                            Saudações! Eu sou Lyra. Pronta para desvendar as raízes das palavras?
+                    <!-- GUARDIAN BUBBLE (LEFT) -->
+                    <div class="w-full lg:w-1/3 flex flex-col items-center mb-10 lg:mb-0 lg:sticky lg:top-24 h-fit">
+                        <div class="bubble-wrap max-w-sm mb-6">
+                            <div id="speech-bubble" class="bubble-content animate-reveal text-sm">
+                                Saudações! Eu sou Lyra. Pronta para desvendar as raízes das palavras?
+                            </div>
+                        </div>
+                        <div id="character-guide" class="animate-floating w-full flex justify-center">
+                            <img src="{% static 'img/personas/lyra.png' %}" alt="Lyra"
+                                class="h-48 md:h-64 object-contain drop-shadow-2xl">
+                        </div>
+                        <div class="w-full max-w-xs mt-6 px-4">
+                            <div class="flex justify-between items-end mb-2">
+                                <span
+                                    class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Progresso</span>
+                                <span class="font-bold text-logos-blue text-xs" id="txt-progress">QUEST 1/15</span>
+                            </div>
+                            <div id="bar-progress-container"
+                                class="w-full h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
+                                <div id="bar-progress" class="h-full bg-logos-blue transition-all duration-500"
+                                    style="width: 7%"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-full max-w-sm mt-8 px-4">
-                        <div class="flex justify-between items-end mb-2">
-                            <span
-                                class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Progresso</span>
-                            <span class="font-bold text-logos-blue text-xs" id="txt-progress">QUEST 1/15</span>
+
+                    <!-- MAIN ARENA (RIGHT) -->
+                    <div class="w-full lg:w-2/3 flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
+
+                        <div class="parchment-card !py-12 !px-8 !mb-8 !max-w-2xl w-full" id="box-word">
+                            <div class="word-mystery !text-logos-blue" id="txt-mystery">...</div>
                         </div>
-                        <div id="bar-progress-container" class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                            <div id="bar-progress" class="h-full bg-logos-blue transition-all duration-500"
-                                style="width: 7%"></div>
+
+                        <div class="hint-orbs gap-6 mb-8 flex flex-wrap justify-center">
+                            <button class="orb-button !bg-white/80" onclick="showMeaning()">
+                                <span>📖</span> SIGNIFICADO
+                            </button>
+                            <button class="orb-button !bg-white/80" onclick="showExample()">
+                                <span>💡</span> EXEMPLO
+                            </button>
+                            <button class="orb-button !bg-white/80" onclick="giveLetter()">
+                                <span>🧪</span> REVELAR LETRA
+                            </button>
+                        </div>
+
+                        <div class="action-zone flex flex-col items-center w-full">
+                            {% if mode == 'soletracao' %}
+                            <div class="flex flex-col items-center gap-6">
+                                <button id="btn-listen" class="btn-rpg-big"
+                                    style="background: linear-gradient(135deg, #64748b 0%, #334155 100%) !important; color: white !important;">
+                                    <span>🔈</span> OUVIR PALAVRA
+                                </button>
+                                <button id="btn-speak" class="btn-rpg-big primary"
+                                    style="background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%) !important; color: white !important;">
+                                    <span>🎤</span> SOLETRAR AGORA
+                                </button>
+                            </div>
+                            {% else %}
+                            <div class="relative w-full max-w-xl">
+                                <input type="text" id="input-answer"
+                                    class="w-full bg-white border-4 border-slate-200 rounded-3xl px-8 py-8 text-4xl font-black text-center uppercase tracking-[0.2em] focus:outline-none focus:border-logos-blue focus:ring-8 focus:ring-logos-blue/5 transition-all shadow-inner"
+                                    placeholder="DIGITE AQUI..." autocomplete="off">
+                            </div>
+                            {% endif %}
+                            <p
+                                class="mt-8 text-slate-400 font-extrabold tracking-[3px] text-xs animate-pulse uppercase">
+                                {% if mode == 'soletracao' %}CLIQUE NO MICROFONE E SOLETRE{% else %}PRESSIONE [ENTER]
+                                PARA VALIDAR{% endif %}
+                            </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="parchment-card !py-12 !px-8 !mb-12 !max-w-2xl" id="box-word">
-                    <div class="word-mystery !text-logos-blue" id="txt-mystery">...</div>
-                </div>
-
-                <div class="hint-orbs gap-6 mb-12">
-                    <button class="orb-button !bg-white/80" onclick="showMeaning()">
-                        <span>📖</span> SIGNIFICADO
-                    </button>
-                    <button class="orb-button !bg-white/80" onclick="showExample()">
-                        <span>💡</span> EXEMPLO
-                    </button>
-                    <button class="orb-button !bg-white/80" onclick="giveLetter()">
-                        <span>🧪</span> REVELAR LETRA
-                    </button>
-                </div>
-
-                <div class="action-zone flex flex-col items-center w-full">
-                    <div class="relative w-full max-w-xl">
-                        <input type="text" id="input-answer"
-                            class="w-full bg-white border-4 border-slate-200 rounded-3xl px-8 py-8 text-4xl font-black text-center uppercase tracking-[0.2em] focus:outline-none focus:border-logos-blue focus:ring-8 focus:ring-logos-blue/5 transition-all shadow-inner"
-                            placeholder="SOLETRE AQUI..." autocomplete="off">
+                <!-- Feedback Overlay -->
+                <div id="feedback-overlay"
+                    class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-white/80 backdrop-blur-sm animate-fadeIn">
+                    <div class="text-center">
+                        <div id="feedback-icon" class="text-9xl mb-4">✨</div>
+                        <h2 id="feedback-title" class="font-black text-6xl tracking-tighter">CORRETO!</h2>
+                        <p id="feedback-msg" class="text-xl text-slate-600 mt-2">Você dominou esta palavra.</p>
                     </div>
-                    <p class="mt-8 text-slate-400 font-extrabold tracking-[3px] text-xs animate-pulse uppercase">
-                        PRESSIONE [ENTER] PARA VALIDAR
-                    </p>
                 </div>
+
             </div>
 
-            <!-- Feedback Overlay -->
-            <div id="feedback-overlay"
-                class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-white/80 backdrop-blur-sm animate-fadeIn">
-                <div class="text-center">
-                    <div id="feedback-icon" class="text-9xl mb-4">✨</div>
-                    <h2 id="feedback-title" class="font-black text-6xl tracking-tighter">CORRETO!</h2>
-                    <p id="feedback-msg" class="text-xl text-slate-600 mt-2">Você dominou esta palavra.</p>
+            <!-- PROGRESS FOOTER -->
+            <div class="xp-system">
+                <div id="bar-xp" class="xp-fill" style="width: 25%"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- VICTORY / GAME OVER OVERLAY -->
+    <div id="victory-overlay" class="ranking-overlay hidden flex flex-col items-center justify-start pt-12 pb-20">
+        <div class="ranking-header text-5xl font-black text-center" id="victory-title">MISSÃO CUMPRIDA!</div>
+
+        <div class="text-center space-y-2 mt-4 rounded-3xl bg-black/50 p-8 border-2 border-amber-500/30">
+            <div class="text-[5rem] text-amber-500 font-black leading-none drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
+                id="final-score">0000</div>
+            <p class="text-gray-400 tracking-widest uppercase text-sm mt-4">Arkanos XP Score</p>
+        </div>
+
+        <!-- ARCADE RANKING -->
+        <div class="arcade-ranking mt-8 max-w-xl">
+            <div
+                class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
+                <div class="flex gap-12">
+                    <span class="w-12">RANK</span>
+                    <span>SÁBIO</span>
                 </div>
+                <span>XP SCORE</span>
             </div>
-
-        </div>
-
-        <!-- PROGRESS FOOTER -->
-        <div class="xp-system">
-            <div id="bar-xp" class="xp-fill" style="width: 25%"></div>
-        </div>
-
-    </div>
-</div>
-
-<!-- VICTORY / GAME OVER OVERLAY -->
-<div id="victory-overlay" class="ranking-overlay hidden flex flex-col items-center justify-start pt-12 pb-20">
-    <div class="ranking-header text-5xl font-black text-center" id="victory-title">MISSÃO CUMPRIDA!</div>
-
-    <div class="text-center space-y-2 mt-4 rounded-3xl bg-black/50 p-8 border-2 border-amber-500/30">
-        <div class="text-[5rem] text-amber-500 font-black leading-none drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]"
-            id="final-score">0000</div>
-        <p class="text-gray-400 tracking-widest uppercase text-sm mt-4">Arkanos XP Score</p>
-    </div>
-
-    <!-- ARCADE RANKING -->
-    <div class="arcade-ranking mt-8 max-w-xl">
-        <div class="flex justify-between px-6 mb-4 text-[10px] font-black text-amber-500/60 tracking-[0.2em] uppercase">
-            <div class="flex gap-12">
-                <span class="w-12">RANK</span>
-                <span>SÁBIO</span>
+            <div id="ranking-list-items" class="space-y-3">
+                <!-- Rising items go here -->
             </div>
-            <span>XP SCORE</span>
         </div>
-        <div id="ranking-list-items" class="space-y-3">
-            <!-- Rising items go here -->
+
+        <div class="py-12 flex flex-col gap-6 w-full max-w-xs relative z-[100]" style="margin-top: 40px;">
+            <button id="btn-replay-final" onclick="location.reload()"
+                class="btn-rpg-big primary w-full justify-center py-6 text-xl shadow-2xl">
+                JOGAR NOVAMENTE ⚔️
+            </button>
+            <a href="{% url 'arkanos:jogos' %}"
+                class="btn-rpg-big w-full justify-center py-6 bg-slate-800 text-white hover:bg-slate-700 shadow-xl no-underline">
+                MUDAR DE JOGO 🏛️
+            </a>
         </div>
     </div>
 
-    <div class="py-12 flex flex-col gap-6 w-full max-w-xs relative z-[100]" style="margin-top: 40px;">
-        <button id="btn-replay-final" onclick="location.reload()"
-            class="btn-rpg-big primary w-full justify-center py-6 text-xl shadow-2xl">
-            JOGAR NOVAMENTE ⚔️
-        </button>
-        <a href="{% url 'arkanos:jogos' %}"
-            class="btn-rpg-big w-full justify-center py-6 bg-slate-800 text-white hover:bg-slate-700 shadow-xl no-underline">
-            MUDAR DE JOGO 🏛️
-        </a>
-    </div>
-</div>
-
-<script>
-    const WORDS = JSON.parse('{{ words_json|safe }}');
-    const USER = JSON.parse('{{ user_json|safe }}');
-</script>
-<script src="{% static 'jogos/js/radix.js' %}"></script>
-{% endblock %}
+    <script>
+        const WORDS = JSON.parse('{{ words_json|safe }}');
+        const USER = JSON.parse('{{ user_json|safe }}');
+        const MODE = '{{ mode }}';
+    </script>
+    <script src="{% static 'jogos/js/radix.js' %}"></script>
+    {% endblock %}

@@ -997,22 +997,22 @@
             <div class="w-full lg:w-2/3 flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
 
                 <!-- 1. INITIAL SCREEN -->
-                <div id="screen-welcome" class="text-center space-y-12 animate-fadeIn max-w-2xl mx-auto">
+                <div id="screen-welcome" class="text-center space-y-16 animate-fadeIn max-w-2xl mx-auto py-12">
                     <h2 class="font-black text-5xl text-logos-blue tracking-tight">DESAFIO DOS SÁBIOS</h2>
-                    <p class="text-gray-500 text-xl max-w-md mx-auto">
+                    <p class="text-gray-500 text-xl max-w-md mx-auto mb-10">
                         A jornada de Logos exige sabedoria. Teste seus conhecimentos e conquiste medalhas lendárias.
                     </p>
 
                     {% if not request.user.is_authenticated %}
                     <!-- GATED WELCOME -->
-                    <div class="rpg-auth-gate animate-bounce-subtle mt-10">
+                    <div class="rpg-auth-gate animate-bounce-subtle mt-16">
                         <div class="gate-seal"><span class="seal-icon">🏛️</span></div>
                         <div class="gate-content">
                             <h3 class="gate-title text-2xl!">PORTAL DO CONHECIMENTO</h3>
-                            <p class="text-slate-500 text-sm italic mb-6">Entre na Academia para iniciar jornadas e
+                            <p class="text-slate-500 text-sm italic mb-10">Entre na Academia para iniciar jornadas e
                                 selar
                                 seu progresso na jornada Logos.</p>
-                            <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-6">
                                 <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
                                     class="btn-rpg-big primary justify-center shadow-lg py-6 no-underline">CRIAR PERFIL
                                     DE
@@ -1025,8 +1025,7 @@
                     </div>
                     {% else %}
                     <!-- AUTHENTICATED WELCOME -->
-                    <!-- AUTHENTICATED WELCOME -->
-                    <div class="flex flex-col gap-6 mt-12 items-center w-full max-w-md mx-auto">
+                    <div class="flex flex-col gap-8 mt-16 items-center w-full max-w-md mx-auto">
                         <button id="btn-start"
                             class="btn-rpg-big primary w-full py-8 justify-center shadow-xl transition-all hover:scale-105 active:scale-95 !text-white"
                             style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important; border: 2px solid #60a5fa !important;">

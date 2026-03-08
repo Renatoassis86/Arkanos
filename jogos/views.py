@@ -36,10 +36,12 @@ def spellingbee_view(request):
     return render(request, "jogos/spellingbee.html", context)
 
 def radix_view(request):
+    mode = request.GET.get('mode', 'digitacao')
     palavras_query = PalavraRadix.objects.all().order_by('?')
     palavras_list = list(palavras_query.values('palavra', 'significado', 'exemplo', 'dificuldade'))
     
     context = {
+        'mode': mode,
         'words_json': json.dumps(palavras_list, cls=DjangoJSONEncoder),
         'user_json': json.dumps({
             'username': request.user.username if request.user.is_authenticated else 'Guest',
