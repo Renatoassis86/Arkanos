@@ -1,4 +1,4 @@
-﻿{% load static %}
+﻿{% load static remote_assets %}
 
 <section id="etapas" class="section section-flow">
   <div class="container flow-wrap">
@@ -38,8 +38,8 @@
       <!-- 1. Consultoria Educacional -->
       <article class="node" style="--angle: -86deg">
         <figure class="media u-mask inview">
-          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima1.png' %}">
-            <source src="{% static 'img/outros/vid1.mp4' %}" type="video/mp4" />
+          <video muted playsinline loop autoplay preload="metadata" poster="{% static 'img/icones/ima1.png' %}">
+            <source src="{% remote_video 'img/outros/vid1.mp4' %}" type="video/mp4" />
           </video>
         </figure>
         <div class="node-text inview">
@@ -52,8 +52,8 @@
       <!-- 2. Implantação & Formação -->
       <article class="node" style="--angle: -18deg">
         <figure class="media u-mask inview">
-          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima2.png' %}">
-            <source src="{% static 'img/outros/vid2.mp4' %}" type="video/mp4" />
+          <video muted playsinline loop autoplay preload="metadata" poster="{% static 'img/icones/ima2.png' %}">
+            <source src="{% remote_video 'img/outros/vid2.mp4' %}" type="video/mp4" />
           </video>
         </figure>
         <div class="node-text inview">
@@ -66,8 +66,8 @@
       <!-- 3. Aplicação em Sala -->
       <article class="node" style="--angle: 50deg">
         <figure class="media u-mask inview">
-          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima3.png' %}">
-            <source src="{% static 'img/outros/vid3.mp4' %}" type="video/mp4" />
+          <video muted playsinline loop autoplay preload="metadata" poster="{% static 'img/icones/ima3.png' %}">
+            <source src="{% remote_video 'img/outros/vid3.mp4' %}" type="video/mp4" />
           </video>
         </figure>
         <div class="node-text inview">
@@ -80,8 +80,8 @@
       <!-- 4. Indicadores & Performance -->
       <article class="node" style="--angle: 118deg">
         <figure class="media u-mask inview">
-          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima4.png' %}">
-            <source src="{% static 'img/outros/vid4.mp4' %}" type="video/mp4" />
+          <video muted playsinline loop autoplay preload="metadata" poster="{% static 'img/icones/ima4.png' %}">
+            <source src="{% remote_video 'img/outros/vid4.mp4' %}" type="video/mp4" />
           </video>
         </figure>
         <div class="node-text inview">
@@ -94,8 +94,8 @@
       <!-- 5. Suporte & Acompanhamento -->
       <article class="node" style="--angle: 186deg">
         <figure class="media u-mask inview">
-          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima5.png' %}">
-            <source src="{% static 'img/outros/vid5.mp4' %}" type="video/mp4" />
+          <video muted playsinline loop autoplay preload="metadata" poster="{% static 'img/icones/ima5.png' %}">
+            <source src="{% remote_video 'img/outros/vid5.mp4' %}" type="video/mp4" />
           </video>
         </figure>
         <div class="node-text inview">
@@ -108,8 +108,8 @@
       <!-- (Opcional) 6. Comunidade & Boas Práticas -->
       <article class="node" style="--angle: 254deg">
         <figure class="media u-mask inview">
-          <video muted playsinline loop preload="metadata" poster="{% static 'img/icones/ima6.png' %}">
-            <source src="{% static 'img/outros/vid6.mp4' %}" type="video/mp4" />
+          <video muted playsinline loop autoplay preload="metadata" poster="{% static 'img/icones/ima6.png' %}">
+            <source src="{% remote_video 'img/outros/vid6.mp4' %}" type="video/mp4" />
           </video>
         </figure>
         <div class="node-text inview">
