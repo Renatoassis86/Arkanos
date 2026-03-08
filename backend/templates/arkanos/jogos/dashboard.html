@@ -14,7 +14,7 @@
 
     .dashboard-container {
         min-height: 80vh;
-        padding: 8rem 1rem 4rem 1rem;
+        padding: 4rem 1rem;
         /* Reduzido padding lateral para mobile */
         background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
         color: white;
@@ -248,7 +248,7 @@
                             <h3 class="font-bold text-lg text-white">SPELLING BEE</h3>
                         </div>
                         <p class="text-sm text-slate-300 mb-4">Inglês com desafios graduais e rankings saudáveis.</p>
-                        <a href="{% if user.is_authenticated %}{% url 'jogos:spellingbee' %}{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:spellingbee' %}{% endif %}"
+                        <a href="{% url 'jogos:spellingbee' %}"
                             class="btn-sub-action bg-pink-600/20 text-pink-300 border-pink-500/30 hover:bg-pink-600 hover:text-white">JOGAR
                             AGORA</a>
                     </div>
@@ -257,23 +257,10 @@
                         class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-pink-500/50 transition-all text-left group">
                         <div class="flex items-center gap-3 mb-2">
                             <span class="text-2xl group-hover:scale-125 transition-transform">🏛️</span>
-                            <h3 class="font-bold text-lg text-white">RADIX DIGITAÇÃO</h3>
+                            <h3 class="font-bold text-lg text-white">RADIX</h3>
                         </div>
-                        <p class="text-sm text-slate-300 mb-4">Treine a escrita e ortografia com desafios de digitação.
-                        </p>
-                        <a href="{% if user.is_authenticated %}{% url 'jogos:radix' %}?mode=digitacao{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:radix' %}%3Fmode=digitacao{% endif %}"
-                            class="btn-sub-action bg-pink-600/20 text-pink-300 border-pink-500/30 hover:bg-pink-600 hover:text-white">JOGAR
-                            AGORA</a>
-                    </div>
-
-                    <div
-                        class="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-pink-500/50 transition-all text-left group">
-                        <div class="flex items-center gap-3 mb-2">
-                            <span class="text-2xl group-hover:scale-125 transition-transform">🗣️</span>
-                            <h3 class="font-bold text-lg text-white">RADIX SOLETRAÇÃO</h3>
-                        </div>
-                        <p class="text-sm text-slate-300 mb-4">Treine a fala e soletração com reconhecimento de voz.</p>
-                        <a href="{% if user.is_authenticated %}{% url 'jogos:radix' %}?mode=soletracao{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:radix' %}%3Fmode=soletracao{% endif %}"
+                        <p class="text-sm text-slate-300 mb-4">Soletração e consciência fonológica em português.</p>
+                        <a href="{% url 'jogos:radix' %}"
                             class="btn-sub-action bg-pink-600/20 text-pink-300 border-pink-500/30 hover:bg-pink-600 hover:text-white">JOGAR
                             AGORA</a>
                     </div>
@@ -301,7 +288,7 @@
                         </div>
                         <p class="text-sm text-slate-300 mb-4 flex-1">Teste seus conhecimentos e suba no ranking das
                             disciplinas e bimestres.</p>
-                        <a href="{% if user.is_authenticated %}{% url 'desafio_dos_sabios:index' %}{% else %}{% url 'arkanos:login' %}?next={% url 'desafio_dos_sabios:index' %}{% endif %}"
+                        <a href="{% url 'desafio_dos_sabios:index' %}"
                             class="btn-sub-action bg-blue-600/20 text-blue-300 border-blue-500/30 hover:bg-blue-600 hover:text-white mt-auto">INICIAR
                             JORNADA</a>
                     </div>
