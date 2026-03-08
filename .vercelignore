@@ -1,27 +1,33 @@
-# Ambientes e Logs
+# Vercel Ignore - Optimized for Arkanos RPG
+# Main Goal: Keep bundle < 250MB while including all high-quality PNGs
+
+# Python/System
 venv/
 .venv/
+__pycache__/
+*.pyc
 node_modules/
 *.log
 .DS_Store
-
-# Cache e Build
-__pycache__/
-*.pyc
 .vercel/
 .vercel_cache/
 
-# Mídia Pesada (Apenas arquivos brutos gigantes)
-static/static.rar
+# Heavy Archives
+**/*.rar
 **/*.zip
 **/*.7z
 **/*.exe
 
-# Ignorar o db local
+# Database
 db.sqlite3
 
-# --- ESTRATÉGIA DE ESTÁTICOS ---
-# Removemos o ignore total das pastas static para garantir que o Vercel os inclua na função.
-# Vercel limit is 250MB for total deployment size.
-# Current static folder is around 180MB.
+# Consolidado: Ignoramos a pasta 'static' raiz (180MB) pois migramos o necessário para 'backend/static'
+static/
+
+# Vídeos (Sempre no Supabase - 0MB no bundle)
+**/*.mp4
+**/*.mov
+
+# Staticfiles processado (gerado pelo Vercel se houver build step)
 staticfiles/
+backend/staticfiles/
