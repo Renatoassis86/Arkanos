@@ -1,79 +1,98 @@
 ﻿{% load static %}
 
-<section id="jogos-section" style="padding: 60px 0;">
-  <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
-    <h2 class="title" style="text-align:center; margin-bottom:50px; font-family: 'Cinzel', serif; font-size: 2.5rem;">
-      Jogos Interativos <span class="tone-gold">Arkanos</span>
-    </h2>
+<section id="jogos-section" class="py-20 overflow-hidden relative">
+  <!-- Subtle Background Decor -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-5 overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-gold rounded-full blur-[100px]"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-aion rounded-full blur-[100px]"></div>
+  </div>
 
-    <div class="game-grid"
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; justify-content: center;">
+  <div class="container relative z-10">
+    <div class="text-center mb-16 animate-fadeIn">
+      <h2 class="font-cinzel text-4xl md:text-5xl mb-4">
+        JOGOS INTERATIVOS <span class="text-amber-500">ARKANOS</span>
+      </h2>
+      <p class="text-slate-400 max-w-2xl mx-auto text-lg italic">
+        "Onde a diversão encontra a virtude e o conhecimento se torna aventura."
+      </p>
+    </div>
+
+    <div class="game-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
       <!-- Spelling Bee -->
-      <a href="{% url 'jogos:spellingbee' %}" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/spelling_bee_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
-            alt="Spelling Bee">
-          <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+      <a href="{% if user.is_authenticated %}{% url 'jogos:spellingbee' %}{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:spellingbee' %}{% endif %}"
+        class="arkanos-game-card group" data-theme="lyra">
+        <div class="card-inner">
+          <div class="card-image-wrap">
+            <img src="{% static 'games/spelling_bee_v2.png' %}" alt="Spelling Bee" class="card-img">
+            <div class="card-overlay"></div>
           </div>
-        </div>
-        <div style="padding: 30px; text-align: center;">
-          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Spelling Bee</h3>
-          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Inglês com desafios graduais
-            e rankings saudáveis.</p>
+          <div class="card-content">
+            <div class="pilar-tag">GRAMÁTICA</div>
+            <h3 class="card-title">Spelling Bee</h3>
+            <p class="card-desc">Inglês com desafios graduais e conquistas lendárias.</p>
+            <div class="card-footer">
+              <span class="btn-play">INICIAR MISSÃO ⚔️</span>
+            </div>
+          </div>
         </div>
       </a>
 
       <!-- Radix Digitação -->
-      <a href="{% url 'jogos:radix' %}?mode=digitacao" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/radix_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
-            alt="Radix Digitação">
-          <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+      <a href="{% if user.is_authenticated %}{% url 'jogos:radix' %}?mode=digitacao{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:radix' %}%3Fmode=digitacao{% endif %}"
+        class="arkanos-game-card group" data-theme="lyra">
+        <div class="card-inner">
+          <div class="card-image-wrap">
+            <img src="{% static 'games/radix_v2.png' %}" alt="Radix Digitação" class="card-img">
+            <div class="card-overlay"></div>
           </div>
-        </div>
-        <div style="padding: 30px; text-align: center;">
-          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Radix Digitação</h3>
-          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Treine a escrita e a
-            ortografia com desafios de digitação.</p>
+          <div class="card-content">
+            <div class="pilar-tag">ORTOGRAFIA</div>
+            <h3 class="card-title">Radix Digitação</h3>
+            <p class="card-desc">Treine a escrita e a precisão com desafios rítmicos.</p>
+            <div class="card-footer">
+              <span class="btn-play">INICIAR MISSÃO ⚔️</span>
+            </div>
+          </div>
         </div>
       </a>
 
       <!-- Radix Soletração -->
-      <a href="{% url 'jogos:radix' %}?mode=soletracao" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/radix_v2.png' %}"
-            style="width: 100%; height: 100%; object-fit: cover; filter: hue-rotate(45deg);" alt="Radix Soletração">
-          <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+      <a href="{% if user.is_authenticated %}{% url 'jogos:radix' %}?mode=soletracao{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:radix' %}%3Fmode=soletracao{% endif %}"
+        class="arkanos-game-card group" data-theme="lyra">
+        <div class="card-inner">
+          <div class="card-image-wrap">
+            <img src="{% static 'games/radix_v2.png' %}" alt="Radix Soletração"
+              class="card-img h-full object-cover filter-hue-45">
+            <div class="card-overlay"></div>
           </div>
-        </div>
-        <div style="padding: 30px; text-align: center;">
-          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Radix Soletração</h3>
-          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Treine a fala e soletração
-            com reconhecimento de voz.</p>
+          <div class="card-content">
+            <div class="pilar-tag">SOLETRAÇÃO</div>
+            <h3 class="card-title">Radix Soletração</h3>
+            <p class="card-desc">Domine a fala e a memória com reconhecimento de voz.</p>
+            <div class="card-footer">
+              <span class="btn-play">INICIAR MISSÃO ⚔️</span>
+            </div>
+          </div>
         </div>
       </a>
 
       <!-- Desafio dos Sábios -->
-      <a href="{% url 'desafio_dos_sabios:index' %}" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/desafio_sabios_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
-            alt="Desafio dos Sábios">
-          <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
+      <a href="{% if user.is_authenticated %}{% url 'desafio_dos_sabios:index' %}{% else %}{% url 'arkanos:login' %}?next={% url 'desafio_dos_sabios:index' %}{% endif %}"
+        class="arkanos-game-card group" data-theme="aion">
+        <div class="card-inner">
+          <div class="card-image-wrap">
+            <img src="{% static 'games/desafio_sabios_v2.png' %}" alt="Desafio dos Sábios" class="card-img">
+            <div class="card-overlay"></div>
           </div>
-        </div>
-        <div style="padding: 30px; text-align: center;">
-          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Desafio dos Sábios</h3>
-          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Teste seus conhecimentos e
-            suba no ranking de Logos.</p>
+          <div class="card-content">
+            <div class="pilar-tag" style="background: var(--aion);">LÓGICA</div>
+            <h3 class="card-title">Desafio dos Sábios</h3>
+            <p class="card-desc">Teste sua sabedoria e vença as provas de Logos.</p>
+            <div class="card-footer">
+              <span class="btn-play">INICIAR MISSÃO ⚔️</span>
+            </div>
+          </div>
         </div>
       </a>
 
@@ -82,17 +101,194 @@
 </section>
 
 <style>
-  .game-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
-    border-color: var(--brand-gold) !important;
+  :root {
+    --card-bg-light: rgba(255, 255, 255, 0.4);
+    --card-border: rgba(255, 255, 255, 0.2);
+    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   }
 
-  .game-thumb img {
-    transition: transform 0.5s ease;
+  /* Base Section Styling */
+  #jogos-section {
+    background: radial-gradient(circle at center, #f8fafc 0%, #f1f5f9 100%);
   }
 
-  .game-card:hover .game-thumb img {
-    transform: scale(1.1);
+  .font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+
+  /* Premium Arkanos Card */
+  .arkanos-game-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    perspective: 1000px;
+    height: 100%;
+  }
+
+  .card-inner {
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-image-wrap {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    background: #0f172a;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: brightness(0.9);
+  }
+
+  .filter-hue-45 {
+    filter: hue-rotate(45deg) brightness(0.9);
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(15, 23, 42, 0.8));
+    opacity: 0.6;
+    transition: opacity 0.5s;
+  }
+
+  .card-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    z-index: 2;
+  }
+
+  .pilar-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #e74fd2;
+    /* Lyra Default */
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    width: fit-content;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(231, 79, 210, 0.2);
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .card-desc {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .btn-play {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+    transition: all 0.3s;
+  }
+
+  /* Hover Effects */
+  .arkanos-game-card:hover .card-inner {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .arkanos-game-card:hover .card-img {
+    transform: scale(1.15) rotate(2deg);
+    filter: brightness(1.1);
+  }
+
+  .arkanos-game-card:hover .card-overlay {
+    opacity: 0.3;
+  }
+
+  .arkanos-game-card:hover .btn-play {
+    opacity: 1;
+    transform: translateX(5px);
+    color: #e74fd2;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s forwards;
+  }
+
+  /* Shine effect */
+  .card-inner::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%);
+    transform: rotate(45deg);
+    transition: 0.7s;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .arkanos-game-card:hover .card-inner::after {
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .card-title {
+      font-size: 1.3rem;
+    }
+
+    .card-image-wrap {
+      height: 180px;
+    }
   }
 </style>

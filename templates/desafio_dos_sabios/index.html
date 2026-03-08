@@ -9,13 +9,21 @@
     rel="stylesheet">
 <link rel="stylesheet" href="{% static 'arkanos/css/game-rpg.css' %}">
 <style>
-    /* Fixed Typo & Centered Layout Enhancements */
+    :root {
+        --logos-blue: #1e3a8a;
+        --logos-gold: #d97706;
+        --logos-pink: #ec4899;
+        --logos-green: #10b981;
+        --logos-amber: #f59e0b;
+    }
+
     .game-arena {
         flex: 1;
         width: 100%;
         max-width: 900px;
         margin: 0 auto;
-        padding: 4rem 2rem;
+        padding: 6rem 2rem 4rem;
+        /* Increased top padding */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -23,7 +31,6 @@
         min-height: 0;
         position: relative;
         overflow: visible !important;
-        /* Fixed typo from overflow-visible */
     }
 
     .hud-stats-pill {
@@ -66,13 +73,76 @@
     .game-arena {
         flex: 1;
         width: 100%;
-        max-width: 900px;
-        /* Standardize width for symmetry */
+        max-width: 800px;
+        /* Reduzido de 900px */
         margin: 0 auto;
         padding: 3rem 1.5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    /* GUARDIAN MINI LAYOUT */
+    .guardian-mini-box {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+
+    .guardian-mini-char {
+        width: 100px !important;
+        height: 100px !important;
+        background-size: contain !important;
+        background-position: center !important;
+        background-repeat: no-repeat;
+        flex-shrink: 0;
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1));
+        animation: floating 4s ease-in-out infinite;
+    }
+
+    .bubble-mini {
+        flex: 1;
+        background: white;
+        padding: 1rem 1.5rem !important;
+        border-radius: 20px !important;
+        border: 2px solid var(--current-theme, var(--logos-blue)) !important;
+        font-size: 0.9rem !important;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        text-align: left !important;
+        color: #1e293b;
+        font-weight: 700;
+    }
+
+    /* Arrow pointing left */
+    .bubble-mini::before {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 8px 12px 8px 0;
+        border-style: solid;
+        border-color: transparent var(--current-theme, var(--logos-blue)) transparent transparent;
+    }
+
+    .bubble-mini::after {
+        content: '';
+        position: absolute;
+        left: -9px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 6px 9px 6px 0;
+        border-style: solid;
+        border-color: transparent #fff transparent transparent;
+    }
+
+    .bubble-wrap {
+        width: 100% !important;
+        margin-bottom: 0 !important;
     }
 
     /* Professional Glass-Morphism (Maximum Visibility) */
@@ -157,42 +227,81 @@
         border-radius: 99px;
     }
 
-    /* Force separation */
     /* MYTHIC GLASS BUTTONS */
     .btn-rpg-big {
-        margin-bottom: 0px !important;
+        margin-bottom: 1.25rem !important;
+        /* Consistent gap */
         transform: translateZ(0);
         justify-content: center;
-        min-height: 54px;
-        font-size: 1.1rem !important;
-        padding: 0.75rem 2rem !important;
-        border-radius: 16px !important;
+        min-height: 64px;
+        font-size: 1.2rem !important;
+        padding: 1rem 2.5rem !important;
+        border-radius: 20px !important;
         width: 100%;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        background: rgba(255, 255, 255, 0.7) !important;
-        backdrop-filter: blur(12px) !important;
-        border: 2px solid rgba(255, 255, 255, 0.8) !important;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05), inset 0 0 10px rgba(255, 255, 255, 0.4) !important;
+        background: #ffffff !important;
+        border: 2px solid var(--logos-blue) !important;
+        box-shadow: 0 6px 15px rgba(30, 58, 138, 0.1) !important;
         color: var(--logos-blue) !important;
         font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-rpg-big::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+        pointer-events: none;
     }
 
     .btn-rpg-big:hover {
-        background: rgba(255, 255, 255, 0.9) !important;
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
-        cursor: pointer;
+        background: var(--logos-blue) !important;
+        color: #ffffff !important;
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(30, 58, 138, 0.2) !important;
+    }
+
+    .btn-rpg-big:active {
+        transform: scale(0.98);
+    }
+
+    .btn-rpg-big.locked {
+        background: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+        color: #64748b !important;
+        opacity: 0.9 !important;
+        /* High opacity for readability */
+        cursor: not-allowed;
+        filter: grayscale(1);
+    }
+
+    .btn-rpg-big.locked span {
+        font-size: 0.8rem !important;
+        color: #64748b !important;
+        font-weight: 700 !important;
+        margin-top: 8px;
+        display: block;
+        opacity: 1 !important;
+        /* Ensure visibility */
     }
 
     .btn-rpg-big.primary {
-        background: var(--logos-gold) !important;
-        border-color: rgba(255, 255, 255, 0.3) !important;
+        background: var(--logos-blue) !important;
+        border-color: var(--logos-blue) !important;
         color: white !important;
-        box-shadow: 0 8px 20px rgba(217, 119, 6, 0.3) !important;
+        box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3) !important;
+    }
+
+    .btn-rpg-big.primary:hover {
+        background: #1e40af !important;
     }
 
     .btn-rpg-small {
@@ -217,44 +326,27 @@
     }
 
 
+    /* OPTION BUTTONS */
     .option-btn {
         width: 100%;
-        padding: 1.25rem 1.50rem;
-        background: white;
-        border: 2px solid #E2E8F0;
-        border-radius: 1rem;
+        padding: 1.5rem !important;
+        background: white !important;
+        border: 2px solid #E2E8F0 !important;
+        border-radius: 1.25rem !important;
         text-align: left;
-        font-size: 1.1rem;
-        font-weight: 600;
-        transition: all 0.2s ease;
+        font-size: 1.15rem !important;
+        font-weight: 700 !important;
+        color: var(--logos-blue) !important;
+        transition: all 0.2s ease !important;
         cursor: pointer;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 1.25rem;
         word-wrap: break-word;
         position: relative;
-        min-height: 80px;
-    }
-
-    .option-btn::before {
-        content: attr(data-index);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: 32px;
-        background: #F1F5F9;
-        border-radius: 8px;
-        font-size: 0.9rem;
-        color: #64748B;
-        flex-shrink: 0;
-    }
-
-    .option-btn:hover {
-        border-color: var(--current-theme);
-        background: #F8FAFC;
-        transform: translateY(-2px);
+        min-height: 72px;
+        margin-bottom: 0.75rem;
     }
 
     .option-btn.correct {
@@ -301,22 +393,7 @@
         pointer-events: none;
     }
 
-    .btn-rpg-big {
-        background: var(--logos-gold) !important;
-        color: white !important;
-        border-radius: 20px !important;
-        padding: 1.25rem 3rem !important;
-        font-weight: 900 !important;
-        text-transform: uppercase;
-        border: none !important;
-        box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3) !important;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    }
-
-    .btn-rpg-big:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(217, 119, 6, 0.4) !important;
-    }
+    /* Removed duplicate .btn-rpg-big declarations for cleaner CSS */
 
     .parchment-content-wrapper {
         padding: 0 5%;
@@ -579,17 +656,7 @@
         letter-spacing: 2px;
     }
 
-    .grade-btn.locked {
-        opacity: 0.5;
-        cursor: not-allowed;
-        filter: grayscale(1);
-    }
-
-    .grade-btn.locked span {
-        font-size: 0.7rem;
-        display: block;
-        opacity: 0.7;
-    }
+    /* Grade Locked State Handled in .btn-rpg-big.locked */
 
     /* MYTHIC RANKING (Arkanos Style) */
     .arcade-ranking {
@@ -822,25 +889,7 @@
         border-bottom: 2px solid rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* Fixing White Transparency per User Request */
-    .glass-btn,
-    .option-btn {
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(12px) !important;
-        border: 2px solid rgba(255, 255, 255, 0.9) !important;
-        box-shadow:
-            0 4px 15px rgba(0, 0, 0, 0.05),
-            inset 0 0 12px rgba(255, 255, 255, 0.6) !important;
-        color: var(--logos-blue) !important;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    }
-
-    .option-btn:hover {
-        background: rgba(255, 255, 255, 0.95) !important;
-        transform: translateY(-5px) scale(1.02) !important;
-        border-color: var(--logos-gold) !important;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1) !important;
-    }
+    /* Consistently applied styles above */
 
     /* Timer Style */
     .timer-container {
@@ -963,38 +1012,35 @@
             </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row w-full max-w-6xl mx-auto px-4 gap-8 my-8">
+        <div class="flex flex-col w-full max-w-5xl mx-auto px-4 my-8">
             <!-- Screen sections go here and are centered by .game-arena -->
 
-            <!-- HUD SIDE (LEFT) -->
-            <div
-                class="w-full lg:w-1/3 flex flex-col items-center mb-10 lg:mb-0 lg:sticky lg:top-24 h-fit hud-side !bg-transparent !border-none !shadow-none !backdrop-blur-none p-0">
-                <div class="bubble-wrap max-w-sm mb-6">
-                    <div id="guardian-msg" class="bubble-content text-sm">
-                        Bem-vindo ao Desafio dos Sábios! Escolha sua disciplina para começar a jornada.
+            <!-- HUD GUARDIAN (HORIZONTAL MINI) -->
+            <div class="w-full mb-8">
+                <div class="guardian-mini-box">
+                    <div class="guardian-mini-char guardian-char aion-char"></div>
+                    <div class="bubble-mini">
+                        <div id="guardian-msg">
+                            Bem-vindo ao Desafio dos Sábios! Escolha sua disciplina para começar a jornada.
+                        </div>
                     </div>
                 </div>
-                <!-- Note: The class aion-char sets a background image. Give it standard height/width classes -->
-                <div class="guardian-char aion-char w-full h-48 md:h-64 object-contain drop-shadow-2xl rounded-3xl"
-                    style="background-position: center bottom;"></div>
 
-                <div class="w-full mt-6 space-y-4 max-w-xs">
-                    <div id="stats-area" class="hidden w-full">
-                        <div class="flex justify-between items-end mb-2">
-                            <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Missão
-                                atual</span>
-                            <span class="font-bold text-logos-blue text-xs" id="quest-progress-small">0/10</span>
-                        </div>
-                        <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
-                            <div id="quest-bar" class="h-full bg-logos-blue transition-all duration-500"
-                                style="width: 0%"></div>
+                <div id="stats-area" class="hidden w-full max-w-sm mx-auto">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Missão
+                            atual</span>
+                        <span class="font-bold text-logos-blue text-xs" id="quest-progress-small">0/10</span>
+                    </div>
+                    <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
+                        <div id="quest-bar" class="h-full bg-logos-blue transition-all duration-500" style="width: 0%">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- MAIN ARENA (RIGHT) -->
-            <div class="w-full lg:w-2/3 flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
+            <!-- MAIN ARENA -->
+            <div class="w-full flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
 
                 <!-- 1. INITIAL SCREEN -->
                 <div id="screen-welcome" class="text-center space-y-16 animate-fadeIn max-w-2xl mx-auto py-12">
@@ -1438,6 +1484,11 @@
         };
         window.showScreen = showScreen; // Expose to global for inline onclick
 
+        const btnStart = document.getElementById('btn-start');
+        const btnRanking = document.getElementById('btn-ranking');
+        const btnHistory = document.getElementById('btn-history');
+        const btnImport = document.getElementById('btn-import-questions');
+
         if (btnStart) {
             btnStart.onclick = () => {
                 console.log("Starting Quiz flow...");
@@ -1449,7 +1500,6 @@
             };
         }
 
-        const btnRanking = document.getElementById('btn-ranking');
         if (btnRanking) {
             btnRanking.onclick = async () => {
                 try {
@@ -1491,7 +1541,6 @@
         `).join('');
         };
 
-        const btnImport = document.getElementById('btn-import-questions');
         if (btnImport) {
             btnImport.onclick = () => {
                 showScreen('import');
@@ -1592,8 +1641,8 @@
             // Usamos IDs fixos mapeados baseados no banco de dados Supabase
             container.innerHTML = ALL_GRADES.map(g => {
                 const isAvailable = g.active;
-                const statusLabel = isAvailable ? '' : '<span class="text-sm opacity-60 block">(EM BREVE)</span>';
-                const lockedClass = isAvailable ? '' : 'locked opacity-50 cursor-not-allowed grayscale';
+                const statusLabel = isAvailable ? '' : '<span class="text-sm block">(BLOQUEADO 🔒)</span>';
+                const lockedClass = isAvailable ? '' : 'locked';
                 const finalId = isAvailable ? g.db_id : '';
 
                 return `
@@ -1679,13 +1728,14 @@
                     const match = findMatch(tri.id, av);
                     if (match) {
                         return `
-                        <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="${match.id}">
+                        <button class="btn-rpg-big py-4 justify-center text-base assessment-btn primary" data-id="${match.id}">
                             ${av} ⚔️
                         </button>`;
                     }
                     return `
-                    <button class="btn-rpg-big py-4 justify-center text-sm opacity-30 cursor-not-allowed grayscale" disabled>
-                        ${av} 🔒
+                    <button class="btn-rpg-big py-4 flex-col justify-center text-base locked" disabled>
+                        ${av}
+                        <span>(BLOQUEADO 🔒)</span>
                     </button>`;
                 }).join('');
 
@@ -1937,13 +1987,14 @@
                     document.getElementById('feedback-title').innerText = 'EXCELENTE!';
                     document.getElementById('feedback-title').style.color = '#22C55E';
 
-                    const msgCorrect = ["Magnífico!", "Sabedoria pura!", "Você acertou!", "Excelente raciocínio!"];
+                    const msgCorrect = ["Magnífico!", "Momento Crescer!", "Você acertou!", "Excelente raciocínio!"];
                     const randomMsg = msgCorrect[Math.floor(Math.random() * msgCorrect.length)];
-                    voiceService.speak(randomMsg + " " + result.explanation);
+                    const cronicaFull = result.cronica_do_guardiao || '';
+                    voiceService.speak(randomMsg + " " + result.explanation + " " + cronicaFull);
 
                     const tag = document.getElementById('discovery-tag');
                     const subject = q.subject || 'Conhecimento';
-                    tag.innerText = `SABEDORIA: ${subject.toUpperCase()}`;
+                    tag.innerText = `MOMENTO CRESCER: ${subject.toUpperCase()}`;
 
                     // Explanation + Crônica do Guardião
                     const cronica = result.cronica_do_guardiao || '';
@@ -1974,7 +2025,10 @@
                     showScreen('feedback');
                     document.getElementById('feedback-title').innerHTML = '<span class="text-red-600">JORNADA INTERROMPIDA</span>';
 
-                    voiceService.speak("Não desanime. O erro é o primeiro passo para a sabedoria. Volte quando estiver mais preparado.");
+                    const msgWrong = "Não desanime. O erro é o primeiro passo para a sabedoria. " +
+                        "A resposta correta era " + result.correct_answer + ". " +
+                        result.explanation + " " + (result.cronica_do_guardiao || "");
+                    voiceService.speak(msgWrong);
 
                     const tag = document.getElementById('discovery-tag');
                     tag.innerText = "REFLEXÃO DO GUARDIÃO";

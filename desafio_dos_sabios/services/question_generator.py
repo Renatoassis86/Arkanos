@@ -35,6 +35,7 @@ class QuestionGenerator:
                 options=q_data.get('options'),
                 answer=str(q_data.get('answer')),
                 explanation=q_data.get('explanation', ''),
+                cronica_do_guardiao=q_data.get('cronica_do_guardiao', ''),
                 ai_model='gpt-4o'
             )
             generated_objects.append(q)

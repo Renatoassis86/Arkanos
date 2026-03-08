@@ -26,13 +26,17 @@
           <div class="dropdown-content">
             <div class="dropdown-section">
               <span class="dropdown-label">📜 Gramática</span>
-              <a href="{% url 'jogos:spellingbee' %}" class="nav-link">Spelling Bee</a>
-              <a href="{% url 'jogos:radix' %}?mode=digitacao" class="nav-link">Radix Digitação</a>
-              <a href="{% url 'jogos:radix' %}?mode=soletracao" class="nav-link">Radix Soletração</a>
+              <a href="{% if user.is_authenticated %}{% url 'jogos:spellingbee' %}{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:spellingbee' %}{% endif %}"
+                class="nav-link">Spelling Bee</a>
+              <a href="{% if user.is_authenticated %}{% url 'jogos:radix' %}?mode=digitacao{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:radix' %}%3Fmode=digitacao{% endif %}"
+                class="nav-link">Radix Digitação</a>
+              <a href="{% if user.is_authenticated %}{% url 'jogos:radix' %}?mode=soletracao{% else %}{% url 'arkanos:login' %}?next={% url 'jogos:radix' %}%3Fmode=soletracao{% endif %}"
+                class="nav-link">Radix Soletração</a>
             </div>
             <div class="dropdown-section">
               <span class="dropdown-label">🏛️ Lógica</span>
-              <a href="{% url 'desafio_dos_sabios:index' %}" class="nav-link">Desafio dos Sábios</a>
+              <a href="{% if user.is_authenticated %}{% url 'desafio_dos_sabios:index' %}{% else %}{% url 'arkanos:login' %}?next={% url 'desafio_dos_sabios:index' %}{% endif %}"
+                class="nav-link">Desafio dos Sábios</a>
             </div>
             <div class="dropdown-section">
               <span class="dropdown-label">🛡️ Retórica</span>

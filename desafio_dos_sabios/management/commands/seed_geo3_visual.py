@@ -25,7 +25,7 @@ PAYLOAD = {
             "alternativas": ["Ásia", "Europa", "África", "Oceania"],
             "resposta_correta": 0,
             "explicacao": "O continente destacado é a Ásia.",
-            "cronica_do_guardiao": "A Ásia é o maior continente da Terra e abriga algumas das civilizações mais antigas do mundo. Muitos povos, línguas e tradições nasceram ali, tornando esse continente muito importante para a história humana.",
+            "cronica_do_guardiao": "A Ásia é o berço de grandes invenções, como o papel e a bússola! Sabia que ela abriga o ponto mais alto da Terra (Monte Everest) e o mais baixo (Mar Morto)? Conectar História e Geografia nos ajuda a entender como as civilizações se adaptaram a climas e relevos tão diferentes ao longo de milênios.",
             "imagem": {
                 "modo": "gerar_no_antigravity",
                 "prompt": "Mapa-mundi infantil educativo com todos os continentes coloridos e apenas a Asia destacada em amarelo forte, nomes legiveis, estilo escolar, fundo claro",
@@ -41,7 +41,7 @@ PAYLOAD = {
             "alternativas": ["Ásia", "África", "Oceania", "Antártida"],
             "resposta_correta": 1,
             "explicacao": "O continente destacado é a África.",
-            "cronica_do_guardiao": "A África fica ao sul da Europa e foi berço de povos muito antigos. Estudar continentes ajuda a criança a enxergar melhor a ordem do mundo e a posição dos lugares no mapa.",
+            "cronica_do_guardiao": "A África é o segundo maior continente e possui o deserto mais famoso do mundo, o Saara! Historiadores estudam essa região para entender o início da jornada da humanidade. Ao olhar para o mapa, perceba como a proximidade com a Europa influenciou trocas culturais e rotas de exploração desde a Antiguidade.",
             "imagem": {
                 "modo": "gerar_no_antigravity",
                 "prompt": "Mapa-mundi infantil educativo com a Africa destacada em laranja, Europa visivel acima, nomes simples, fundo branco, estilo didatico",
@@ -57,7 +57,7 @@ PAYLOAD = {
             "alternativas": ["Antártida", "Oceania", "Ásia", "África"],
             "resposta_correta": 0,
             "explicacao": "O continente do extremo sul é a Antártida.",
-            "cronica_do_guardiao": "A Antártida é o continente mais frio do planeta. Mesmo sendo um lugar muito distante, ela tem grande valor para pesquisas sobre clima, gelo e mudanças naturais da Terra.",
+            "cronica_do_guardiao": "A Antártida é um laboratório natural gigante! Você sabia que 70% da água doce do planeta está congelada lá? Além da Geologia, cientistas de Biologia estudam como seres vivos incríveis, como os pinguins, sobrevivem ao frio extremo, mostrando como a vida é resiliente em todas as partes da criação.",
             "imagem": {
                 "modo": "gerar_no_antigravity",
                 "prompt": "Mapa-mundi infantil com a Antartida destacada em azul claro, gelo visivel, estilo escolar, continentes simples e coloridos",
