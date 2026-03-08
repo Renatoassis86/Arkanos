@@ -117,32 +117,33 @@
             </div>
         </div>
 
-        <div class="game-arena">
+        <div class="flex flex-col lg:flex-row w-full max-w-6xl mx-auto px-4 gap-8 my-8">
 
             <!-- GUARDIAN BUBBLE - POSICIONADA ACIMA DA CABEÇA -->
-            <div class="w-full flex flex-col items-center mb-10">
-                <div class="bubble-wrap max-w-lg mb-8">
-                    <div id="speech-bubble" class="bubble-content animate-reveal">
+            <div class="w-full lg:w-1/3 flex flex-col items-center mb-10 lg:mb-0 lg:sticky lg:top-24 h-fit">
+                <div class="bubble-wrap max-w-sm mb-6">
+                    <div id="speech-bubble" class="bubble-content animate-reveal text-sm">
                         Greetings! I am Lyra. Are you ready to spell some words?
                     </div>
                 </div>
-                <div id="character-guide" class="animate-floating">
+                <div id="character-guide" class="animate-floating w-full flex justify-center">
                     <img src="{% static 'img/personas/lyra.png' %}" alt="Lyra"
-                        class="h-40 object-contain drop-shadow-2xl">
+                        class="h-48 md:h-64 object-contain drop-shadow-2xl">
                 </div>
-                <div class="w-full max-w-sm mt-8 px-4">
+                <div class="w-full max-w-xs mt-6 px-4">
                     <div class="flex justify-between items-end mb-2">
                         <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Mission
                             Progress</span>
                         <span class="font-bold text-logos-blue text-xs" id="progress-text">QUEST 1/15</span>
                     </div>
-                    <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                    <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
                         <div id="bar-progress" class="h-full bg-logos-blue transition-all duration-500"
                             style="width: 7%"></div>
                     </div>
                 </div>
             </div>
-            <div id="screen-game" class="game-arena animate-fadeIn">
+            <div id="screen-game"
+                class="w-full lg:w-2/3 flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
 
                 <!-- Arkanos Authentication Gate -->
                 <div id="screen-login" class="rpg-auth-gate animate-fadeIn">

@@ -22,7 +22,7 @@ node_modules/
 db.sqlite3
 
 # Consolidado: Ignoramos a pasta 'static' raiz (180MB) pois migramos o necessário para 'backend/static'
-static/
+/static/
 
 # Vídeos (Sempre no Supabase - 0MB no bundle)
 **/*.mp4
