@@ -1,73 +1,62 @@
 ﻿{% load static %}
 
-<section id="jogos-section" style="padding: 100px 0; background: #f8fafc;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
-    <div style="text-align: center; margin-bottom: 60px;">
-      <span class="badge"
-        style="background: #e0f2fe; color: #0369a1; padding: 6px 16px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">Aprenda
-        Brincando</span>
-      <h2 class="title" style="font-family: 'Cinzel', serif; font-size: 3rem; color: #0f172a; margin: 20px 0 10px;">
-        Jogos <span style="color: #f59e0b;">Arkanos</span></h2>
-      <p class="muted" style="color: #64748b; font-size: 1.2rem;">Missões gamificadas com propósito: vocabulário,
-        soletração e conhecimento.</p>
-    </div>
+<section id="jogos-section" style="padding: 60px 0;">
+  <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
+    <h2 class="title" style="text-align:center; margin-bottom:50px; font-family: 'Cinzel', serif; font-size: 2.5rem;">
+      Jogos Interativos <span class="tone-gold">Arkanos</span>
+    </h2>
 
     <div class="game-grid"
-      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; justify-content: center;">
+      style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; justify-content: center;">
 
       <!-- Spelling Bee -->
       <a href="{% url 'jogos:spellingbee' %}" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 240px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/spelling_bee_cinematic.png' %}"
-            style="width: 100%; height: 100%; object-fit: cover;" alt="Spelling Bee">
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/spelling_bee_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+            alt="Spelling Bee">
           <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.3));">
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
           </div>
         </div>
-        <div style="padding: 32px; text-align: center;">
-          <h3 class="title"
-            style="font-size: 1.6rem; margin-bottom: 12px; color: #0f172a; font-family: 'Cinzel', serif;">Spelling Bee
-          </h3>
-          <p class="muted" style="font-size: 1rem; line-height: 1.5; color: #475569;">Inglês com desafios graduais,
-            guiados pela magia das palavras da Lyra.</p>
+        <div style="padding: 30px; text-align: center;">
+          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Spelling Bee</h3>
+          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Inglês com desafios graduais
+            e rankings saudáveis.</p>
         </div>
       </a>
 
       <!-- Radix -->
       <a href="{% url 'jogos:radix' %}" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 240px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/radix_cinematic.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/radix_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
             alt="Radix">
           <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.3));">
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
           </div>
         </div>
-        <div style="padding: 32px; text-align: center;">
-          <h3 class="title"
-            style="font-size: 1.6rem; margin-bottom: 12px; color: #0f172a; font-family: 'Cinzel', serif;">Radix</h3>
-          <p class="muted" style="font-size: 1rem; line-height: 1.5; color: #475569;">Explore a força das raízes latinas
-            e gregas em uma jornada lógica com Aion.</p>
+        <div style="padding: 30px; text-align: center;">
+          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Radix</h3>
+          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Soletração e consciência
+            fonológica em português.</p>
         </div>
       </a>
 
       <!-- Desafio dos Sábios -->
       <a href="{% url 'desafio_dos_sabios:index' %}" class="game-card hover-rise"
-        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
-        <div class="game-thumb" style="height: 240px; overflow: hidden; position: relative;">
-          <img src="{% static 'games/desafio_sabios_cinematic.png' %}"
-            style="width: 100%; height: 100%; object-fit: cover;" alt="Desafio dos Sábios">
+        style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border-radius: 40px 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="game-thumb" style="height: 200px; overflow: hidden; position: relative;">
+          <img src="{% static 'games/desafio_sabios_v2.png' %}" style="width: 100%; height: 100%; object-fit: cover;"
+            alt="Desafio dos Sábios">
           <div
-            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.3));">
+            style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(transparent, rgba(0,0,0,0.4));">
           </div>
         </div>
-        <div style="padding: 32px; text-align: center;">
-          <h3 class="title"
-            style="font-size: 1.6rem; margin-bottom: 12px; color: #0f172a; font-family: 'Cinzel', serif;">Desafio dos
-            Sábios</h3>
-          <p class="muted" style="font-size: 1rem; line-height: 1.5; color: #475569;">O teste final de sabedoria e
-            retórica. Prove seu valor sob o olhar de Kael.</p>
+        <div style="padding: 30px; text-align: center;">
+          <h3 class="title" style="font-size: 1.4rem; margin-bottom: 12px; color: #1e293b;">Desafio dos Sábios</h3>
+          <p class="muted" style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 0;">Teste seus conhecimentos e
+            suba no ranking de Logos.</p>
         </div>
       </a>
 
@@ -77,15 +66,16 @@
 
 <style>
   .game-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    border-color: var(--brand-gold) !important;
   }
 
   .game-thumb img {
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.5s ease;
   }
 
   .game-card:hover .game-thumb img {
-    transform: scale(1.08);
+    transform: scale(1.1);
   }
 </style>
