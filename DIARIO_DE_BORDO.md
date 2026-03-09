@@ -37,7 +37,21 @@ Este documento registra a evolução do projeto Arkanos, as decisões de design,
 
 - **Refatoração de CSS**: Centralizamos os estilos de "RPG Tech" em arquivos específicos (`game-rpg.css`), evitando poluição no `arkanos.css` global.
 - **Consistência de Classnames**: Padronizamos as classes do Header para evitar conflitos entre templates legados e novos.
-- **Recuperação de Desastres**: Implementamos um fluxo de "Rollback & Restore" para garantir que arquivos críticos de infraestrutura (`requirements.txt`, `runtime.txt`) permaneçam íntegros após limpezas.
+- **Recuperação de Desastres**: Reimplementamos o monitoramento de arquivos críticos de infraestrutura (`requirements.txt`, `runtime.txt`) que haviam sido silenciados por regras amplas demais no `.gitignore`.
+
+---
+
+## 🔧 Resolução de Crash (Vercel 500)
+
+### 1. Arquivos de Construção (Build Assets)
+- **O Problema**: A Vercel reportou `500: INTERNAL_SERVER_ERROR` (crash da Função Serverless).
+- **A Solução**: Descobrimos que o `.gitignore` estava ignorando `*.txt`, o que incluía o `requirements.txt`. Sem ele, a Vercel não instalava o Django. Removemos a regra e restauramos os arquivos.
+- **Aprendizado**: Arquivos de infraestrutura na raiz do projeto nunca devem ser ignorados por extensões genéricas.
+
+### 2. Pacotes Python (`__init__.py`)
+- **O Problema**: Pastas como `arkanos` e `core` não possuíam o arquivo `__init__.py`, impedindo o reconhecimento como pacotes.
+- **A Solução**: Criação manual dos arquivos indicadores de pacote para garantir compatibilidade com ambientes de produção.
+
 
 ---
 
