@@ -148,28 +148,29 @@
     }
   </style>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+  <script>document.addEventListener('DOMContentLoaded', () => {
       const header = document.querySelector('.site-header');
       const mobileBtn = document.getElementById('mobile-menu-btn');
       const mainNav = document.getElementById('main-navigation');
 
-      // Scroll Background Logic (Simultaneously kept for potential transitions)
+      // Scroll Background Logic
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
+        if (window.scrollY > 30) {
           header.classList.add('site-header--scrolled');
-          header.style.background = "#0f172a";
-        } else {
-          header.style.background = "rgba(15, 23, 42, 0.98)";
+        }
+
+        else {
+          header.classList.remove('site-header--scrolled');
         }
       });
 
       // Mobile Menu Toggle
-      mobileBtn.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-        // Transform hamburger
-        mobileBtn.classList.toggle('active');
-      });
+      if (mobileBtn && mainNav) {
+        mobileBtn.addEventListener('click', () => {
+          mainNav.classList.toggle('active');
+          mobileBtn.classList.toggle('active');
+        });
+      }
     });
   </script>
 </header>

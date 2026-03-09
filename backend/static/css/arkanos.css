@@ -139,7 +139,7 @@ body.ark-body {
 }
 
 /* ===== Header ===== */
-.ark-header {
+.site-header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -148,7 +148,7 @@ body.ark-body {
   transition: all 0.4s ease;
 }
 
-.ark-header--scrolled {
+.site-header--scrolled {
   background: #0f172a !important;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
 }
