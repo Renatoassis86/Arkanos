@@ -115,16 +115,16 @@ img {
     align-items: center !important;
     width: 100%;
     max-width: 1200px;
-    margin: 160px auto 2rem;
+    margin: 2rem auto;
     box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 900px) {
     .rpg-game-container {
-        margin: 120px 0 0;
+        margin: 0;
         border-radius: 0;
         border-width: 0;
-        min-height: calc(100vh - 120px);
+        min-height: 100vh;
     }
 }
 
@@ -233,23 +233,7 @@ img {
 
 /* Vertical Spacer for symmetry */
 .v-spacer {
-    height: 4rem;
-}
-
-.word-box,
-.parchment-card,
-.rpg-auth-gate,
-.discovery-box {
-    margin-top: 3.5rem !important;
-    margin-bottom: 3rem !important;
-}
-
-.hint-orbs,
-.hint-orbs-sb,
-.action-zone,
-#options-container {
-    margin-top: 2.5rem !important;
-    margin-bottom: 3.5rem !important;
+    height: 2rem;
 }
 
 /* PROFESSIONAL GLASS CARD (Modern Replacement for basic white boxes) */
