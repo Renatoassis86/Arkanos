@@ -1,39 +1,49 @@
 ﻿{% load static %}
-<section id="programas" class="section bg-level-1">
+<section id="programas" class="section bg-level-1" style="padding: 80px 0;">
   <div class="container">
-    <span class="badge">Programas Arkanos</span>
-    <h2 class="title" style="margin:10px 0 8px;">
-      Caminhos para <span class="tone-primary">Escolas</span>, <span class="tone-accent">Famílias</span> e <span
-        class="accent-3">Igrejas</span>
-    </h2>
+    <div style="text-align: center; margin-bottom: 48px;">
+      <span class="badge" style="margin-bottom: 12px;">Programas Arkanos</span>
+      <h2 class="title" style="margin: 0; font-size: clamp(24px, 5vw, 36px);">
+        Caminhos para <span class="tone-primary">Escolas</span>, <span class="tone-accent">Famílias</span> e <span
+          class="accent-3">Igrejas</span>
+      </h2>
+    </div>
 
-    <div class="grid-3" style="margin-top:12px;">
-      <article class="card hover-rise" style="padding:24px 32px; display:grid; gap:10px;">
-        <div class="banner-u"><img src="{% static 'banners/programa_escolas.jpg' %}" alt="Programa para Escolas"></div>
-        <div>
-          <div class="badge">Escolas</div>
-          <h3 class="title" style="font-size:1.1rem; margin:6px 0;">Fundamental I e II</h3>
-          <p class="muted">Trilhas do Trivium, jogos adaptativos e avaliações digitais.</p>
+    <div class="grid-3">
+      <!-- Escolas -->
+      <article class="card hover-rise" style="padding: 40px 24px; text-align: center;">
+        <div class="banner-u"
+          style="width: 160px; height: 160px; margin: 0 auto 24px; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 4px solid #fff;">
+          <img src="{% static 'banners/programa_escolas.jpg' %}" alt="Escolas"
+            style="width: 100%; height: 100%; object-fit: cover;">
         </div>
+        <div class="badge" style="margin-bottom: 12px;">Escolas</div>
+        <h3 class="title" style="font-size: 1.25rem; margin-bottom: 8px;">Fundamental I e II</h3>
+        <p class="muted" style="font-size: 0.95rem;">Trilhas do Trivium, jogos adaptativos e avaliações digitais.</p>
       </article>
 
-      <article class="card hover-rise" style="padding:24px 32px; display:grid; gap:10px;">
-        <div class="banner-u"><img src="{% static 'banners/programa_familias.jpg' %}" alt="Programa para Famílias">
+      <!-- Famílias -->
+      <article class="card hover-rise" style="padding: 40px 24px; text-align: center;">
+        <div class="banner-u"
+          style="width: 160px; height: 160px; margin: 0 auto 24px; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 4px solid #fff;">
+          <img src="{% static 'banners/programa_familias.jpg' %}" alt="Famílias"
+            style="width: 100%; height: 100%; object-fit: cover;">
         </div>
-        <div>
-          <div class="badge">Famílias</div>
-          <h3 class="title" style="font-size:1.1rem; margin:6px 0;">Aprendizagem divertida com a família</h3>
-          <p class="muted">Leituras Fi.Git.AI, rotinas e acompanhamento em casa.</p>
-        </div>
+        <div class="badge" style="margin-bottom: 12px;">Famílias</div>
+        <h3 class="title" style="font-size: 1.25rem; margin-bottom: 8px;">Aprendizagem com a família</h3>
+        <p class="muted" style="font-size: 0.95rem;">Leituras Fi.Git.AI, rotinas e acompanhamento em casa.</p>
       </article>
 
-      <article class="card hover-rise" style="padding:24px 32px; display:grid; gap:10px;">
-        <div class="banner-u"><img src="{% static 'banners/programa_biblos.jpg' %}" alt="Igrejas"></div>
-        <div>
-          <div class="badge">Igrejas</div>
-          <h3 class="title" style="font-size:1.1rem; margin:6px 0;">Aprendizagem divertida na igreja</h3>
-          <p class="muted">Trilhas devocionais e materiais bíblicos integrados.</p>
+      <!-- Igrejas -->
+      <article class="card hover-rise" style="padding: 40px 24px; text-align: center;">
+        <div class="banner-u"
+          style="width: 160px; height: 160px; margin: 0 auto 24px; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 4px solid #fff;">
+          <img src="{% static 'banners/programa_biblos.jpg' %}" alt="Igrejas"
+            style="width: 100%; height: 100%; object-fit: cover;">
         </div>
+        <div class="badge" style="margin-bottom: 12px;">Igrejas</div>
+        <h3 class="title" style="font-size: 1.25rem; margin-bottom: 8px;">Aprendizagem na igreja</h3>
+        <p class="muted" style="font-size: 0.95rem;">Trilhas devocionais e materiais bíblicos integrados.</p>
       </article>
     </div>
   </div>
