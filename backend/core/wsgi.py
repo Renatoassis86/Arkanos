@@ -7,7 +7,7 @@ import sys
 # Append project root to sys.path for Vercel to find apps in root directory
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if project_root not in sys.path:
-    sys.path.append(project_root)
+    sys.path.insert(0, project_root)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.core.settings")
 
