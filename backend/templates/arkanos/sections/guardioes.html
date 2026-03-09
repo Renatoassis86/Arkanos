@@ -1,4 +1,4 @@
-﻿{% load static %}
+﻿{% load static remote_assets %}
 <section class="section bg-level-1" id="guardioes">
   <div class="container">
     <span class="badge">Quem guia a jornada</span>
@@ -11,7 +11,7 @@
         <div class="thumb-flag">
           <video class="thumb-video" playsinline muted loop preload="metadata"
             poster="{% static 'img/personas/lyra_action.png' %}">
-            <source src="{% static 'videos/lyra-1080p.mp4' %}" type="video/mp4">
+            <source src="{% remote_video 'videos/lyra-1080p.mp4' %}" type="video/mp4">
           </video>
         </div>
         <div class="txt">
@@ -26,7 +26,7 @@
         <div class="thumb-flag">
           <video class="thumb-video" playsinline muted loop preload="metadata"
             poster="{% static 'img/personas/kael_action.png' %}">
-            <source src="{% static 'videos/kael-1080p.mp4' %}" type="video/mp4">
+            <source src="{% remote_video 'videos/kael-1080p.mp4' %}" type="video/mp4">
           </video>
         </div>
         <div class="txt">
@@ -41,7 +41,7 @@
         <div class="thumb-flag">
           <video class="thumb-video" playsinline muted loop preload="metadata"
             poster="{% static 'img/personas/aion_action.png' %}">
-            <source src="{% static 'videos/aion-1080p.mp4' %}" type="video/mp4">
+            <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
           </video>
         </div>
         <div class="txt">
