@@ -36,7 +36,6 @@ backend/static/arkanos/css/app.css
 .vercel
 .env*
 *.patch
-*.txt
 *.js
 *.rar
 *.zip
