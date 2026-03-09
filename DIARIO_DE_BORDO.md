@@ -52,8 +52,12 @@ Este documento registra a evolução do projeto Arkanos, as decisões de design,
 - **O Problema**: Pastas como `arkanos` e `core` não possuíam o arquivo `__init__.py`, impedindo o reconhecimento como pacotes.
 - **A Solução**: Criação manual dos arquivos indicadores de pacote para garantir compatibilidade com ambientes de produção.
 
+### 3. Falha de Módulo no Vercel (`sys.path` em `wsgi.py`)
+- **O Problema**: A Vercel executava a aplicação a partir de `backend/core/wsgi.py`, mas os apps (`arkanos`, `jogos`, etc.) estavam na raiz do projeto. Isso gerava um `ModuleNotFoundError` interno (`FUNCTION_INVOCATION_FAILED`).
+- **A Solução**: Modificamos o `wsgi.py` para injetar dinamicamente o diretório raiz absoluto (`project_root`) no `sys.path` antes de carregar as configurações do Django.
+- **Aprendizado**: Ao implantar Django em funções Serverless, sempre garanta que o Caminho de Execução (*Execution Path*) alcance suas pastas e módulos personalizados.
 
----
+-----
 
 ## 🎓 Próximos Passos
 1. Finalizar a integração de IA no "Desafio dos Sábios".
