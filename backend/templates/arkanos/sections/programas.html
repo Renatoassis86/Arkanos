@@ -1,92 +1,40 @@
 ﻿{% load static %}
-<section id="programas" class="section" style="padding: 60px 0 100px; background: #f8fafc;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+<section id="programas" class="section bg-level-1">
+  <div class="container">
+    <span class="badge">Programas Arkanos</span>
+    <h2 class="title" style="margin:10px 0 8px;">
+      Caminhos para <span class="tone-primary">Escolas</span>, <span class="tone-accent">Famílias</span> e <span
+        class="accent-3">Igrejas</span>
+    </h2>
 
-    <!-- Cabeçalho da Seção -->
-    <div style="text-align: left; margin-bottom: 32px; display: flex; flex-direction: column; align-items: flex-start;">
-      <span
-        style="display: inline-block; background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; padding: 4px 12px; border-radius: 9999px; font-weight: 500; font-size: 0.75rem; margin-bottom: 12px; font-family: 'Inter', sans-serif;">
-        Programas Arkanos
-      </span>
-      <h2
-        style="font-size: 1.75rem; color: #0f172a; margin: 0; font-weight: 700; font-family: 'Inter', sans-serif; letter-spacing: -0.02em;">
-        Caminhos para <span style="color: #2563eb;">Escolas</span>, <span style="color: #f43f5e;">Famílias</span> e
-        <span style="color: #059669;">Igrejas</span>
-      </h2>
-    </div>
-
-    <!-- Grid de Cartões -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
-
-      <!-- Escolas -->
-      <article
-        style="background: #ffffff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); padding: 20px; display: flex; flex-direction: column; transition: transform 0.3s ease;">
-        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 20px; aspect-ratio: 16 / 9; width: 100%;">
-          <img src="{% static 'banners/programa_escolas.jpg' %}" alt="Programa para Escolas"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-start; flex-grow: 1;">
-          <span
-            style="display: inline-block; background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; padding: 4px 12px; border-radius: 9999px; font-weight: 500; font-size: 0.7rem; margin-bottom: 12px; font-family: 'Inter', sans-serif;">
-            Escolas
-          </span>
-          <h3
-            style="font-size: 1rem; color: #0f172a; margin: 0 0 8px 0; font-weight: 700; font-family: 'Inter', sans-serif;">
-            Fundamental I e II
-          </h3>
-          <p
-            style="color: #64748b; font-size: 0.875rem; line-height: 1.5; margin: 0; font-family: 'Inter', sans-serif;">
-            Trilhas do Trivium, jogos adaptativos e avaliações digitais.
-          </p>
+    <div class="grid-3" style="margin-top:12px;">
+      <article class="card hover-rise" style="padding:24px 32px; display:grid; gap:10px;">
+        <div class="banner-u"><img src="{% static 'banners/programa_escolas.jpg' %}" alt="Programa para Escolas"></div>
+        <div>
+          <div class="badge">Escolas</div>
+          <h3 class="title" style="font-size:1.1rem; margin:6px 0;">Fundamental I e II</h3>
+          <p class="muted">Trilhas do Trivium, jogos adaptativos e avaliações digitais.</p>
         </div>
       </article>
 
-      <!-- Famílias -->
-      <article
-        style="background: #ffffff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); padding: 20px; display: flex; flex-direction: column; transition: transform 0.3s ease;">
-        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 20px; aspect-ratio: 16 / 9; width: 100%;">
-          <img src="{% static 'banners/programa_familias.jpg' %}" alt="Programa para Famílias"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <article class="card hover-rise" style="padding:24px 32px; display:grid; gap:10px;">
+        <div class="banner-u"><img src="{% static 'banners/programa_familias.jpg' %}" alt="Programa para Famílias">
         </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-start; flex-grow: 1;">
-          <span
-            style="display: inline-block; background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; padding: 4px 12px; border-radius: 9999px; font-weight: 500; font-size: 0.7rem; margin-bottom: 12px; font-family: 'Inter', sans-serif;">
-            Famílias
-          </span>
-          <h3
-            style="font-size: 1rem; color: #0f172a; margin: 0 0 8px 0; font-weight: 700; font-family: 'Inter', sans-serif;">
-            Aprendizagem divertida com a família
-          </h3>
-          <p
-            style="color: #64748b; font-size: 0.875rem; line-height: 1.5; margin: 0; font-family: 'Inter', sans-serif;">
-            Leituras Fi.Git.AI, rotinas e acompanhamento em casa.
-          </p>
+        <div>
+          <div class="badge">Famílias</div>
+          <h3 class="title" style="font-size:1.1rem; margin:6px 0;">Aprendizagem divertida com a família</h3>
+          <p class="muted">Leituras Fi.Git.AI, rotinas e acompanhamento em casa.</p>
         </div>
       </article>
 
-      <!-- Igrejas -->
-      <article
-        style="background: #ffffff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); padding: 20px; display: flex; flex-direction: column; transition: transform 0.3s ease;">
-        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 20px; aspect-ratio: 16 / 9; width: 100%;">
-          <img src="{% static 'banners/programa_biblos.jpg' %}" alt="Programa para Igrejas"
-            style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        </div>
-        <div style="display: flex; flex-direction: column; align-items: flex-start; flex-grow: 1;">
-          <span
-            style="display: inline-block; background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; padding: 4px 12px; border-radius: 9999px; font-weight: 500; font-size: 0.7rem; margin-bottom: 12px; font-family: 'Inter', sans-serif;">
-            Igrejas
-          </span>
-          <h3
-            style="font-size: 1rem; color: #0f172a; margin: 0 0 8px 0; font-weight: 700; font-family: 'Inter', sans-serif;">
-            Aprendizagem divertida na igreja
-          </h3>
-          <p
-            style="color: #64748b; font-size: 0.875rem; line-height: 1.5; margin: 0; font-family: 'Inter', sans-serif;">
-            Trilhas devocionais e materiais bíblicos integrados.
-          </p>
+      <article class="card hover-rise" style="padding:24px 32px; display:grid; gap:10px;">
+        <div class="banner-u"><img src="{% static 'banners/programa_biblos.jpg' %}" alt="Igrejas"></div>
+        <div>
+          <div class="badge">Igrejas</div>
+          <h3 class="title" style="font-size:1.1rem; margin:6px 0;">Aprendizagem divertida na igreja</h3>
+          <p class="muted">Trilhas devocionais e materiais bíblicos integrados.</p>
         </div>
       </article>
-
     </div>
   </div>
 </section>

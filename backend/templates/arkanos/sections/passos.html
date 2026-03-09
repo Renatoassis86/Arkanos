@@ -1,90 +1,79 @@
 {% load static %}
-<section id="passos" class="section" style="padding: 100px 0; background: #fff;">
-  <div class="container text-center">
-    <span class="badge"
-      style="background: #fef3c7; color: #92400e; padding: 6px 16px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem;">Jornada
-      do Conhecimento</span>
-    <h2 class="title" style="font-family: 'Cinzel', serif; font-size: 2.8rem; color: #1e293b; margin: 20px 0 60px;">Como
-      funciona a <span style="color: #f59e0b;">Jornada Arkanos</span></h2>
+<section id="passos" class="section bg-level-1 steps-section">
+  <!-- Definição do clipPath (formato bandeirola) -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <!-- Bandeirola: topo arredondado, laterais suaves e base em U -->
+      <clipPath id="u-flag" clipPathUnits="objectBoundingBox">
+        <!-- Path normalizado (0..1). Largura 1, altura 1 -->
+        <path d="
+          M 0.08,0
+          H 0.92
+          C 0.97,0 1,0.03 1,0.08
+          V 0.62
+          C 1,0.85 0.84,1 0.5,1
+          C 0.16,1 0,0.85 0,0.62
+          V 0.08
+          C 0,0.03 0.03,0 0.08,0 Z" />
+      </clipPath>
+    </defs>
+  </svg>
 
-    <div class="steps-row" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+  <div class="container">
+    <div class="steps-header">
+      <span class="badge">Adoção</span>
+      <h3 class="title">Arkanos na sua escola e na sua família em <span class="hl">5 passos</span></h3>
+      <p class="muted">Fluxo contínuo: consultoria, implantação, prática em sala, indicadores e suporte.</p>
+    </div>
+
+    <!-- Linha de passos original -->
+    <ul class="steps-row">
       <!-- Passo 1 -->
-      <article class="step-card hover-rise"
-        style="flex: 1; min-width: 200px; max-width: 240px; text-align: center; padding: 20px;">
-        <div class="step-icon-circle"
-          style="width: 100px; height: 100px; background: #fff; border: 3px solid #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 15px 30px rgba(241, 196, 15, 0.2); transition: all 0.3s ease;">
-          <img src="{% static 'img/icones/ima1.png' %}" alt="Avaliação" width="55"
-            style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));">
-        </div>
-        <h3 class="title" style="font-size: 1.3rem; color: #1e293b; margin-bottom: 12px; font-family: 'Cinzel', serif;">
-          1. Avaliação</h3>
-        <p class="muted" style="font-size: 0.95rem; color: #64748b; line-height: 1.5;">Mapeamento inteligente para
-          traçar o melhor caminho pedagógico.</p>
-      </article>
+      <li class="step-card">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid1.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">1. Consultoria Educacional</h4>
+        <p class="step-text">Mapeamento de necessidades e plano pedagógico personalizado.</p>
+      </li>
 
       <!-- Passo 2 -->
-      <article class="step-card hover-rise"
-        style="flex: 1; min-width: 200px; max-width: 240px; text-align: center; padding: 20px;">
-        <div class="step-icon-circle"
-          style="width: 100px; height: 100px; background: #fff; border: 3px solid #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 15px 30px rgba(241, 196, 15, 0.2); transition: all 0.3s ease;">
-          <img src="{% static 'img/icones/ima2.png' %}" alt="Trilhas" width="55"
-            style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));">
-        </div>
-        <h3 class="title" style="font-size: 1.3rem; color: #1e293b; margin-bottom: 12px; font-family: 'Cinzel', serif;">
-          2. Trilhas</h3>
-        <p class="muted" style="font-size: 0.95rem; color: #64748b; line-height: 1.5;">Jornadas personalizadas guiadas
-          pela sabedoria dos Guardiões.</p>
-      </article>
+      <li class="step-card">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid2.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">2. Implantação &amp; Formação</h4>
+        <p class="step-text">Setup, capacitação e tutoria para professores e gestores.</p>
+      </li>
 
       <!-- Passo 3 -->
-      <article class="step-card hover-rise"
-        style="flex: 1; min-width: 200px; max-width: 240px; text-align: center; padding: 20px;">
-        <div class="step-icon-circle"
-          style="width: 100px; height: 100px; background: #fff; border: 3px solid #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 15px 30px rgba(241, 196, 15, 0.2); transition: all 0.3s ease;">
-          <img src="{% static 'img/icones/ima3.png' %}" alt="Jogos" width="55"
-            style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));">
-        </div>
-        <h3 class="title" style="font-size: 1.3rem; color: #1e293b; margin-bottom: 12px; font-family: 'Cinzel', serif;">
-          3. Prática</h3>
-        <p class="muted" style="font-size: 0.95rem; color: #64748b; line-height: 1.5;">Consolidação do saber através de
-          desafios lúdicos e envolventes.</p>
-      </article>
+      <li class="step-card">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid3.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">3. Aplicação em Sala</h4>
+        <p class="step-text">Trilhas, jogos e leituras guiadas pela IA no dia a dia.</p>
+      </li>
 
       <!-- Passo 4 -->
-      <article class="step-card hover-rise"
-        style="flex: 1; min-width: 200px; max-width: 240px; text-align: center; padding: 20px;">
-        <div class="step-icon-circle"
-          style="width: 100px; height: 100px; background: #fff; border: 3px solid #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 15px 30px rgba(241, 196, 15, 0.2); transition: all 0.3s ease;">
-          <img src="{% static 'img/icones/ima4.png' %}" alt="Progresso" width="55"
-            style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));">
-        </div>
-        <h3 class="title" style="font-size: 1.3rem; color: #1e293b; margin-bottom: 12px; font-family: 'Cinzel', serif;">
-          4. Indicadores</h3>
-        <p class="muted" style="font-size: 0.95rem; color: #64748b; line-height: 1.5;">Relatórios claros para decisões
-          pedagógicas e acompanhamento familiar.</p>
-      </article>
+      <li class="step-card">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid4.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">4. Indicadores &amp; Performance</h4>
+        <p class="step-text">Relatórios e evidências para decisões pedagógicas, famílias e gestão.</p>
+      </li>
 
       <!-- Passo 5 -->
-      <article class="step-card hover-rise"
-        style="flex: 1; min-width: 200px; max-width: 240px; text-align: center; padding: 20px;">
-        <div class="step-icon-circle"
-          style="width: 100px; height: 100px; background: #fff; border: 3px solid #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 15px 30px rgba(241, 196, 15, 0.2); transition: all 0.3s ease;">
-          <img src="{% static 'img/icones/ima5.png' %}" alt="Maestria" width="55"
-            style="filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));">
-        </div>
-        <h3 class="title" style="font-size: 1.3rem; color: #1e293b; margin-bottom: 12px; font-family: 'Cinzel', serif;">
-          5. Conquistas</h3>
-        <p class="muted" style="font-size: 0.95rem; color: #64748b; line-height: 1.5;">Evolução contínua e
-          reconhecimento do propósito de aprender.</p>
-      </article>
-    </div>
+      <li class="step-card">
+        <figure class="flag-wrap">
+          <video class="flag-media" src="{% static 'img/outros/vid5.mp4' %}" autoplay muted loop playsinline></video>
+        </figure>
+        <h4 class="step-title">5. Suporte &amp; Acompanhamento</h4>
+        <p class="step-text">Melhoria contínua com proximidade e metas para o próximo ciclo.</p>
+      </li>
+    </ul>
+
+    <p class="steps-foot muted">Ciclo contínuo — ao concluir o passo 5, alimentamos novas metas para o passo 1.</p>
   </div>
 </section>
-
-<style>
-  .step-card:hover .step-icon-circle {
-    transform: scale(1.1) rotate(5deg);
-    border-color: #f59e0b;
-    box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
-  }
-</style>
