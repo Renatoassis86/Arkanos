@@ -64,8 +64,7 @@ WSGI_APPLICATION = "backend.core.wsgi.application"
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    BASE_DIR / "backend" / "static",  # se existir
+    BASE_DIR / "backend" / "static",
     BASE_DIR / "core",
     BASE_DIR / "modules",
 ]

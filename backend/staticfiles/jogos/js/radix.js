@@ -136,20 +136,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 scoreUI.innerText = score.toString().padStart(4, '0');
                 streakUI.innerText = streak.toString().padStart(2, '0');
                 speechBubble.innerText = "Brilhante! Preparando a próxima...";
+                speakWord("Correto! Muito bem.");
 
                 setTimeout(() => {
                     currentIndex++;
                     loadWord();
                 }, 1500);
             } else {
-                // Wrong = Game over (como pedido pelo usuário: errar dá recomeço/gameover)
+                // Wrong = Game over
                 txtMystery.innerText = correct.toUpperCase();
                 txtMystery.style.color = "#EF4444";
-                speechBubble.innerText = `Você soletrou incorretamente. A forma certa é: ${correct.toUpperCase()}`;
+                const errText = `Você soletrou incorretamente. A forma certa é: ${correct.toUpperCase()}`;
+                speechBubble.innerText = errText;
+                speakWord(`Errado. A forma certa é: ${correct.split('').join(', ')}.`);
 
                 setTimeout(() => {
                     endGame(true);
-                }, 2000);
+                }, 3000);
             }
         }
     });
