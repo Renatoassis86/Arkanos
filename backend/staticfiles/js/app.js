@@ -6,3 +6,17 @@ document.addEventListener('click', (e) => {
     drawer.classList.toggle('hidden');
   }
 });
+
+// Toggle menu mobile
+(function(){
+  const btn = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('mobile-nav');
+  if(!btn || !nav) return;
+
+  const toggle = () => {
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    nav.hidden = open;
+  };
+  btn.addEventListener('click', toggle);
+})();

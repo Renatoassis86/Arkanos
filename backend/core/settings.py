@@ -72,7 +72,8 @@ STATICFILES_DIRS = [
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+# STATIC_ROOT in backend/staticfiles/ so Vercel includes it (root /staticfiles/ is in .vercelignore)
+STATIC_ROOT = BASE_DIR / "backend" / "staticfiles"
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
