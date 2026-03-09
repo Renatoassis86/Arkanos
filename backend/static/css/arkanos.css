@@ -140,13 +140,24 @@ body.ark-body {
 
 /* ===== Header ===== */
 .ark-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  backdrop-filter: saturate(1.2) blur(8px);
-  background: rgba(255, 255, 255, .7);
-  z-index: 10;
-  border-bottom: 1px solid rgba(0, 0, 0, .05)
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.4s ease;
 }
+
+.ark-header--scrolled {
+  background: #0f172a !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure content doesn't dive under fixed header */
+body {
+  padding-top: 64px;
+}
+
 
 .ark-header .container {
   display: grid;

@@ -17,7 +17,7 @@
 
 {% block content %}
 <div class="container py-16">
-    <div id="game-container" class="rpg-game-container theme-lyra">
+    <div id="game-container" class="rpg-game-container theme-aion">
 
         <!-- HUD TOP - CLEAN & SYMMETRICAL -->
         <div class="hud-top">
@@ -59,38 +59,31 @@
 
             <!-- Arkanos Authentication Gate -->
             <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
-                <div class="gate-seal">
-                    <span class="seal-icon">💠</span>
+                <!-- Aion welcoming the hero -->
+                <div class="gate-character-wrap">
+                    <div class="gate-character aion-char"></div>
+                    <div class="gate-bubble" style="border-color: var(--aion);">
+                        "Raciocínio claro e dedos ágeis. Mostre sua lógica, jovem explorador!"
+                    </div>
                 </div>
 
-                <div class="gate-content">
-                    <h2 class="gate-title">PORTAL RADIX</h2>
-                    <p class="gate-subtitle">
-                        Bem-vindo ao reino da Gramática! Entre na <b>Academia Arkanos</b> para selar seu progresso,
-                        conquistar insígnias lendárias e dominar as artes da linguagem.
-                    </p>
-                </div>
+                <div class="gate-seal">🛡️</div>
+                <h2 class="gate-title">Portal de Aion</h2>
+                <p class="gate-subtitle">
+                    O reino da Gramática e Lógica exige foco. Entre para salvar seu progresso na Academia.
+                </p>
 
                 <div class="gate-actions">
-                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}"
-                        class="btn-rpg-big primary w-full justify-center py-5">
-                        INICIAR JORNADA (CADASTRO) ✨
+                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}" class="btn-rpg-big primary">
+                        ENTRAR <span>🗝️</span>
                     </a>
-
-                    <div class="gate-divider">
-                        <span class="divider-line"></span>
-                        <span class="divider-text">OU</span>
-                        <span class="divider-line"></span>
-                    </div>
-
-                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}"
-                        class="btn-rpg-big w-full justify-center bg-white border-2 border-slate-200 text-slate-700 hover:border-arkanos-blue transition-all">
-                        ENTRAR NO PORTAL (LOGIN) ⚔️
+                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}" class="btn-rpg-big">
+                        CADASTRAR <span>🛡️</span>
                     </a>
                 </div>
 
                 <div class="gate-footer">
-                    <p>Seu progresso é valioso. Proteja-o com uma conta.</p>
+                    Seu progresso é valioso. Use sua conta institucional Arkanos.
                 </div>
             </div>
 

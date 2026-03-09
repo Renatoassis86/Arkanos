@@ -34,4 +34,13 @@ desktop.ini
 # Project specific
 backend/static/arkanos/css/app.css
 .vercel
-.env*.local
+.env*
+*.patch
+*.txt
+*.js
+*.rar
+*.zip
+*.7z
+*.mp4
+!backend/static/**/*.mp4
+!static/**/*.mp4
