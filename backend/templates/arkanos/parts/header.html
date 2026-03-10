@@ -3,24 +3,12 @@
 <div id="ark-header-wrapper">
   <header id="ark-site-header"
     class="{% if request.path == '/' or request.path == '' %}header-home{% else %}header-solid{% endif %}">
-    <!-- MINI TOP BAR -->
-    <div class="top-bar-mini">
-      <div class="container top-bar-inner">
-        <span class="slogan-text">Educação que permanece</span>
-        <nav class="top-nav">
-          <a href="#">Igreja</a>
-          <a href="#">Faculdade</a>
-          <a href="#" class="gold-link">Education</a>
-        </nav>
-      </div>
-    </div>
-
     <!-- MAIN NAV BAR -->
     <div class="main-bar">
       <div class="container main-bar-inner">
 
         <!-- LOGO AREA -->
-        <div class="logo-area">
+        <div class="logo-area" style="padding-left: 40px;">
           <a href="{% url 'arkanos:home' %}" class="logo-link">
             <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="logo-img">
           </a>
@@ -61,11 +49,15 @@
         <!-- AUTH (Desktop View) -->
         <div class="auth-desktop-zone">
           {% if user.is_authenticated %}
-          <span class="welcome-user">Olá, <span>{{ user.username|upper }}</span></span>
-          <a href="{% url 'arkanos:logout' %}" class="btn-mini">SAIR</a>
+          <div class="user-pill">
+            <span class="welcome-user">Olá, <span>{{ user.username|upper }}</span></span>
+            <a href="{% url 'arkanos:logout' %}" class="btn-mini btn-logout">SAIR</a>
+          </div>
           {% else %}
-          <a href="{% url 'arkanos:login' %}" class="btn-mini border">ENTRAR</a>
-          <a href="{% url 'arkanos:cadastro' %}" class="btn-mini color">CADASTRAR</a>
+          <div class="auth-buttons-premium">
+            <a href="{% url 'arkanos:login' %}" class="btn-premium login">ENTRAR</a>
+            <a href="{% url 'arkanos:cadastro' %}" class="btn-premium register">CADASTRAR</a>
+          </div>
           {% endif %}
         </div>
 
@@ -105,48 +97,20 @@
         opacity: 0;
       }
 
-      /* TOP BAR */
-      .top-bar-mini {
-        height: 30px;
-        background: #050811;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        font-size: 10px;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: rgba(255, 255, 255, 0.4);
-        transition: all 0.3s;
-      }
-
-      .top-bar-inner {
-        height: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .top-nav {
-        display: flex;
-        gap: 15px;
-      }
-
-      .top-nav a {
-        color: inherit;
-        text-decoration: none;
-        transition: 0.2s;
-      }
-
-      .top-nav a:hover,
-      .gold-link {
-        color: #f1c40f !important;
-      }
-
       /* MAIN BAR */
       .main-bar {
-        height: 120px;
-        /* Taller for Premium Logo */
+        height: 100px;
         display: flex;
         align-items: center;
+        background: #0a0f1c;
+        /* Solid dark bar */
+        border-bottom: 2px solid rgba(241, 196, 15, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+      }
+
+      #ark-site-header.scrolled .main-bar {
+        height: 70px;
       }
 
       .main-bar-inner {
@@ -170,25 +134,21 @@
       }
 
       .logo-img {
-        height: 140px;
-        width: 140px;
+        height: 120px;
+        width: 120px;
         object-fit: cover;
         object-position: 50% 10%;
-        /* Focus on top half */
         filter: drop-shadow(0 0 15px rgba(241, 196, 15, 0.4));
-        transition: transform 0.3s ease;
+        transition: all 0.3s ease;
+      }
+
+      #ark-site-header.scrolled .logo-img {
+        height: 70px;
+        width: 70px;
       }
 
       .logo-img:hover {
-        transform: scale(1.1);
-      }
-
-      .logo-text {
-        font-family: 'Cinzel', serif;
-        color: #fff;
-        font-weight: 900;
-        font-size: 1.2rem;
-        letter-spacing: 2px;
+        transform: scale(1.08) rotate(-2deg);
       }
 
       /* NAVIGATION */
@@ -198,27 +158,22 @@
         justify-content: center;
       }
 
-      .nav-list {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
-
-      .nav-list a,
-      .drop-trigger {
-        color: rgba(255, 255, 255, 0.85);
+      .nav-list a {
+        color: #f8fafc;
         text-decoration: none;
-        font-weight: 700;
-        font-size: 11px;
+        font-weight: 800;
+        font-size: 13px;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
         cursor: pointer;
-        transition: color 0.2s;
+        transition: all 0.2s;
+        padding: 5px 12px;
+        border-radius: 8px;
       }
 
-      .nav-list a:hover,
-      .drop-trigger:hover {
+      .nav-list a:hover {
         color: #f1c40f;
+        background: rgba(241, 196, 15, 0.05);
       }
 
       /* Dropdown */
@@ -275,45 +230,90 @@
         flex-shrink: 0;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 20px;
+        padding-right: 40px;
       }
 
-      .auth-mobile-zone {
-        display: none;
+      .auth-buttons-premium {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .btn-premium {
+        padding: 14px 34px;
+        border-radius: 16px;
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 140px;
+      }
+
+      .btn-premium.login {
+        background: transparent;
+        border: 2px solid rgba(241, 196, 15, 0.5);
+        color: #f1c40f;
+      }
+
+      .btn-premium.register {
+        background: linear-gradient(135deg, #f1c40f 0%, #d4af37 100%);
+        color: #0c1222;
+        border: none;
+        box-shadow: 0 4px 20px rgba(241, 196, 15, 0.4);
+      }
+
+      .btn-premium:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 30px rgba(241, 196, 15, 0.5);
+      }
+
+      .btn-premium.login:hover {
+        background: rgba(241, 196, 15, 0.1);
+        border-color: #f1c40f;
+      }
+
+      .user-pill {
+        background: rgba(15, 23, 42, 0.8);
+        padding: 10px 24px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border: 1.5px solid rgba(241, 196, 15, 0.3);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       }
 
       .welcome-user {
-        color: rgba(255, 255, 255, 0.5);
-        font-size: 11px;
-        font-weight: 700;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
       }
 
       .welcome-user span {
         color: #f1c40f;
       }
 
-      .btn-mini {
-        padding: 6px 16px;
-        border-radius: 50px;
-        font-size: 10px;
-        font-weight: 800;
+      .btn-mini.btn-logout {
+        color: #ef4444;
+        font-weight: 950;
+        font-size: 11px;
         text-decoration: none;
+        padding: 6px 12px;
+        background: rgba(239, 68, 68, 0.1);
+        border-radius: 8px;
         transition: 0.2s;
       }
 
-      .btn-mini.color {
-        background: #f1c40f;
-        color: #0f172a;
-      }
-
-      .btn-mini.border {
-        border: 1.5px solid rgba(255, 255, 255, 0.2);
-        color: #fff;
-      }
-
-      .btn-mini:hover {
-        transform: translateY(-2px);
-        filter: brightness(1.1);
+      .btn-mini.btn-logout:hover {
+        background: #ef4444;
+        color: #fff !important;
       }
 
       /* MOBILE TOGGLE */

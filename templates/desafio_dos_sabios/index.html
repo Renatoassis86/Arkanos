@@ -427,20 +427,37 @@
     }
 
     .btn-rpg-big {
-        background: var(--logos-gold) !important;
-        color: white !important;
+        background: linear-gradient(135deg, #1e293b 0%, #0a0f1c 100%) !important;
+        color: #f1c40f !important;
         border-radius: 20px !important;
         padding: 1.25rem 3rem !important;
         font-weight: 900 !important;
         text-transform: uppercase;
-        border: none !important;
-        box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3) !important;
+        border: 2px solid rgba(241, 196, 15, 0.3) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 1px;
     }
 
     .btn-rpg-big:hover {
         transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 20px 40px rgba(217, 119, 6, 0.4) !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+        border-color: #f1c40f !important;
+        background: #0a0f1c !important;
+    }
+
+    .btn-rpg-big.active-av {
+        background: linear-gradient(135deg, #f1c40f 0%, #d4af37 100%) !important;
+        color: #0c1222 !important;
+        border: none !important;
+    }
+
+    .btn-rpg-big.locked-av {
+        background: #f1f5f9 !important;
+        color: #94a3b8 !important;
+        border: 1px solid #e2e8f0 !important;
+        box-shadow: none !important;
     }
 
     .parchment-content-wrapper {
@@ -1876,13 +1893,19 @@
         ];
 
         const findMatch = (triId, avType) => {
-            // Normalização e matching flexível
+            if (!dbAssessments) return null;
+
+            // Log for debugging (internal)
+            console.log(`Searching for Tri:${triId}, AV:${avType} in:`, dbAssessments.map(a => a.name));
+
+            const normalizedAv = avType.toUpperCase().replace(/\s/g, '');
+
             return dbAssessments.find(a => {
                 const name = a.name.toUpperCase();
-                const hasTrimester = name.includes(`${triId}º`) || name.includes(`${triId} TRIM`);
-                const hasAV = name.includes(avType) || name.includes(avType.replace(/(\d+)/, ' $1'));
+                const hasTrimester = name.includes(`${triId}º`) || name.includes(`${triId} TRIM`) || name.includes(`UNIDADE ${triId}`) || name.includes(`U${triId}`);
+                const hasAV = name.includes(normalizedAv) || name.includes(avType.replace(/(\d+)/, ' $1'));
                 return hasTrimester && hasAV;
-            }) || dbAssessments.find(a => a.name.toUpperCase().includes(avType)); // Fallback para qualquer AV daquela disciplina
+            }) || dbAssessments.find(a => a.name.toUpperCase().includes(normalizedAv));
         };
 
         container.innerHTML = trimesters.map(tri => {
@@ -1891,23 +1914,26 @@
                 const match = findMatch(tri.id, av);
                 if (match) {
                     return `
-                        <button class="btn-rpg-big py-4 justify-center text-sm assessment-btn" data-id="${match.id}">
-                            ${av} ⚔️
+                        <button class="btn-rpg-big py-5 justify-center text-base assessment-btn active-av" data-id="${match.id}">
+                            ${av} <span class="ml-2">⚔️</span>
                         </button>`;
                 }
                 return `
-                    <button class="btn-rpg-big py-4 justify-center text-sm opacity-30 cursor-not-allowed grayscale" disabled>
-                        ${av} 🔒
+                    <button class="btn-rpg-big py-5 justify-center text-base opacity-40 cursor-not-allowed locked-av" disabled>
+                        ${av} <span class="ml-2">🔒</span>
                     </button>`;
             }).join('');
 
             return `
-                <div class="trimester-group">
-                    <h4 class="trimester-title">${tri.name}</h4>
-                    <div class="grid grid-cols-2 gap-4">
+                <div class="trimester-card p-10 rounded-[40px] shadow-2xl animate-fadeIn mb-10 border-4 border-slate-100 bg-white/90">
+                    <h3 class="text-3xl font-black text-slate-800 mb-8 text-center tracking-tighter" style="font-family: 'Cinzel', serif;">
+                        ${tri.name}
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         ${buttonsHtml}
                     </div>
-                </div>`;
+                </div>
+            `;
         }).join('');
 
         // Delegação de evento para o container
