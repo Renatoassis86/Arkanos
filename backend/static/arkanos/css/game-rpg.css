@@ -499,11 +499,11 @@ img {
 }
 
 .aion-char {
-    background-image: url('/static/arkanos/img/aion.png');
+    background-image: url('/static/img/personas/aion_action.png');
 }
 
 .kael-char {
-    background-image: url('/static/arkanos/img/kael.png');
+    background-image: url('/static/img/personas/kael_action.png');
 }
 
 /* RPG RANKING (Parchment Style) */
