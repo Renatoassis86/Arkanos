@@ -85,27 +85,21 @@ def save_progress(request):
             pontos = data.get('pontos', 0)
             perfil = request.user.perfilestudante
             
-            # Ganho de XP simples: 1 ponto = 1 XP
-            perfil.xp += pontos
-            
-            # Sistema de Nível simples: a cada 500 XP sobe um nível
-            novo_nivel = (perfil.xp // 500) + 1
-            if novo_nivel > perfil.nivel:
-                perfil.nivel = novo_nivel
-            
-            perfil.save()
+            # Usar os novos métodos do modelo para ganhar XP e subir de nível
+            subiu_nivel = perfil.ganha_xp(pontos)
             
             # Registrar sessão
             SessaoJogo.objects.create(
                 estudante=perfil,
-                jogo=Jogo.objects.get(slug='spelling-bee'),
+                jogo=Jogo.objects.filter(slug__icontains='spelling').first() or Jogo.objects.first(),
                 pontuação=pontos
             )
             
             return JsonResponse({
                 'status': 'success', 
                 'nivel': perfil.nivel, 
-                'xp': perfil.xp
+                'xp': perfil.xp,
+                'subiu_nivel': subiu_nivel
             })
         except Exception as e:
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)

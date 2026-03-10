@@ -12,9 +12,12 @@
     --rpg-border: #E2E8F0;
 
     /* Guardian Identity */
-    --lyra: #FF4081;
+    --lyra: #C41E3A;
+    /* Rubi - No Purple Rule */
     --aion: #1976D2;
-    --kael: #D32F2F;
+    /* Azul Meia-noite */
+    --kael: #B8860B;
+    /* Ouro */
     --current-theme: var(--rpg-gold);
 }
 
@@ -462,13 +465,13 @@ img {
 
 /* THEMES & CHARACTERS */
 .theme-lyra {
-    --current-theme: #FF4081;
-    --current-theme-rgb: 255, 64, 129;
+    --current-theme: #C41E3A;
+    --current-theme-rgb: 196, 30, 58;
 }
 
 .theme-aion {
-    --current-theme: #1976D2;
-    --current-theme-rgb: 25, 118, 210;
+    --current-theme: #0F172A;
+    --current-theme-rgb: 15, 23, 42;
 }
 
 .theme-kael {
@@ -487,7 +490,7 @@ img {
 }
 
 .lyra-char {
-    background-image: url('/static/arkanos/img/lyra.png');
+    background-image: url('/static/img/personas/lyra_action.png');
 }
 
 .aion-char {

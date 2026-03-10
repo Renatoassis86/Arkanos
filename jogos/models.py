@@ -67,10 +67,45 @@ class PerfilEstudante(models.Model):
 
     @property
     def total_pontos(self):
-        return self.xp # Simplificação para o ranking
+        return self.xp
+
+    def ganha_xp(self, quantidade):
+        self.xp += quantidade
+        self.atualiza_nivel()
+        self.save()
+
+    def atualiza_nivel(self):
+        """Nova fórmula RPG: Nível = floor(sqrt(XP/100)) + 1"""
+        import math
+        novo_nivel = math.floor(math.sqrt(self.xp / 100)) + 1
+        if novo_nivel > self.nivel:
+            self.nivel = novo_nivel
+            self.save()
+            return True
+        return False
+
+    @property
+    def xp_proximo_nivel(self):
+        """XP necessário para o PRÓXIMO nível"""
+        proximo = self.nivel + 1
+        return (proximo - 1)**2 * 100
+
+    @property
+    def xp_nivel_atual(self):
+        """XP mínimo deste nível"""
+        return (self.nivel - 1)**2 * 100
+
+    @property
+    def progresso_nivel(self):
+        """Percentual de progresso no nível atual (0 a 100)"""
+        piso = self.xp_nivel_atual
+        teto = self.xp_proximo_nivel
+        if teto == piso: return 100
+        progresso = ((self.xp - piso) / (teto - piso)) * 100
+        return min(max(progresso, 0), 100)
 
     def __str__(self):
-        return f"{self.user.username} - Nível {self.nivel}"
+        return f"{self.user.username} - Nível {self.nivel} ({self.xp} XP)"
 
 class SessaoJogo(models.Model):
     estudante = models.ForeignKey(PerfilEstudante, on_delete=models.CASCADE)

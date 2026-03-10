@@ -57,10 +57,16 @@
                     </svg>
                 </a>
                 <div class="player-card">
-                    <div class="avatar-shield">🎓</div>
+                    <div class="avatar-shield">SAGE</div>
                     <div class="player-info">
                         <h1 id="txt-username">{{ request.user.username|upper }}</h1>
-                        <span>QUEST EXPLORER</span>
+                        <div class="flex gap-2">
+                            <span id="txt-serie" class="text-xs uppercase font-bold text-slate-400">QUEST
+                                EXPLORER</span>
+                            <span class="text-slate-300">|</span>
+                            <span class="text-xs uppercase font-bold text-logos-gold">LVL <span
+                                    id="txt-level">1</span></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,8 +91,7 @@
 
             <!-- GUARDIAN BUBBLE - CENTERED -->
             <div class="w-full flex flex-col items-center mb-10">
-                <div id="character-guide-main" class="avatar-shield !w-20 !h-20 !text-4xl mb-6 animate-floating">🧚‍♀️
-                </div>
+                <div id="character-guide" class="guardian-char lyra-char"></div>
                 <div class="bubble-wrap max-w-lg">
                     <div id="speech-bubble" class="bubble-content animate-reveal">
                         Greetings! I am Lyra. Are you ready to spell some words?
@@ -300,34 +305,36 @@
                 }
 
                 async processAnswer(transcript) {
-                    const word = this.words[this.currentIndex].palavra.toLowerCase();
-                    const cleanWord = word.replace(/[^a-z]/g, '');
-                    const cleanTranscript = transcript.toLowerCase().replace(/[^a-z]/g, '');
+                    const wordObj = this.words[this.currentIndex];
+                    const word = wordObj.palavra.toLowerCase();
+
+                    // Normalização inteligente: remove acentos, espaços extras e pontuação
+                    const normalize = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z]/g, '');
+
+                    const cleanWord = normalize(word);
+                    const cleanTranscript = normalize(transcript);
                     const tokens = transcript.toLowerCase().replace(/[^a-z ]/g, '').trim().split(/\s+/).filter(t => t.length > 0);
 
                     let success = false;
 
-                    // Regra principal: O jogador DEVE soletrar e ao final dizer a palavra inteira.
-                    // Ex: "a p p l e apple" -> cleanTranscript será "appleapple"
+                    // Regra: Soletração + Palavra Final
+                    // Ex: "A P P L E apple" -> transcript tokenizado ["a", "p", "p", "l", "e", "apple"]
+                    // CleanTranscript seria "appleapple"
+
                     if (cleanTranscript === cleanWord + cleanWord) {
                         success = true;
-                    } else if (tokens.length > 1) {
-                        // Fallback para pequenas imprecisões do Speech Recognition
-                        // Ex: o jogador fala a palavra no final, e o começo parece ser a soletração
+                    } else {
+                        // Tenta encontrar a palavra no final do transcript
                         const lastWord = tokens[tokens.length - 1];
-                        if (lastWord === cleanWord) {
-                            const spelledPart = tokens.slice(0, -1).join('');
-                            // Exigimos que a parte soletrada tenha feito esforço em dizer as letras
-                            // Isso impede que alguém diga "eu quero apple" e acerte.
-                            if (spelledPart.length === cleanWord.length ||
-                                spelledPart === cleanWord ||
-                                spelledPart.replace(/double/g, '').length <= cleanWord.length + 1) {
+                        if (normalize(lastWord) === cleanWord) {
+                            // Verifica se o que veio antes parece ser a soletração
+                            const spelledPart = normalize(tokens.slice(0, -1).join(''));
+                            if (spelledPart === cleanWord || spelledPart.length >= cleanWord.length - 1) {
                                 success = true;
                             }
                         }
                     }
 
-                    // Register event in engine
                     if (this.engine) {
                         await this.engine.registerEvent('SPELLING_ATTEMPT', {
                             word: word,
@@ -337,15 +344,38 @@
                     }
 
                     if (success) {
-                        this.score += 100;
+                        const points = 100 + (this.streak * 10);
+                        this.score += points;
                         this.streak++;
                         this.xp += 20;
                         this.playSound('correct');
-                        this.speak("Correct! Victory is yours.", 0.9);
-                        return { success: true };
+
+                        const compliments = ["Brilliant!", "Perfect!", "Amazing!", "Correct!", "You're a sage!"];
+                        const cheer = compliments[Math.floor(Math.random() * compliments.length)];
+                        this.speak(cheer, 0.95);
+
+                        return { success: true, cheer: cheer };
                     } else {
+                        this.streak = 0;
                         this.playSound('wrong');
                         return { success: false, gameOver: true };
+                    }
+                }
+
+                async syncProgress() {
+                    try {
+                        const response = await fetch('/jogos/save-progress/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                            },
+                            body: JSON.stringify({ pontos: this.score })
+                        });
+                        return await response.json();
+                    } catch (err) {
+                        console.error("Sync error:", err);
+                        return null;
                     }
                 }
             }
@@ -439,20 +469,24 @@
 
                     const title = document.getElementById('victory-title');
                     if (isGameOver) {
-                        title.innerText = "GAME OVER";
-                        title.style.color = "#FF4B2B";
+                        title.innerText = "JOURNEY INTERRUPTED";
+                        title.style.color = "#C41E3A";
                         game.playSound('gameover');
                     } else {
-                        title.innerText = "MISSION ACCOMPLISHED!";
-                        title.style.color = "#FFD700";
+                        title.innerText = "QUEST COMPLETED!";
+                        title.style.color = "#B8860B";
                         game.playSound('gameover');
                     }
 
-                    // ARCHIVE RESULTS
+                    // SYNC TO BACKEND
+                    const syncData = await game.syncProgress();
+                    if (syncData && syncData.subiu_nivel) {
+                        guideBubble.innerText = "LEVEL UP! You have evolved!";
+                        game.speak("Level up! You have evolved!", 0.9);
+                    }
+
+                    // ARCHIVE RESULTS (Legacy fallback)
                     try {
-                        if (game.engine.sessionId) {
-                            await game.engine.finishSession(finalScore);
-                        }
                         const leaderboard = await game.engine.getLeaderboard('global');
                         renderRanking(leaderboard);
                     } catch (err) {
@@ -522,10 +556,10 @@
                         const result = await game.processAnswer(transcript);
                         if (result.success) {
                             document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
-                            document.getElementById('word-mystery').style.color = "#10B981";
-                            guideBubble.innerText = "Brilliant!";
+                            document.getElementById('word-mystery').style.color = "#B8860B";
+                            guideBubble.innerText = result.cheer;
                             updateStats();
-                            setTimeout(startRound, 2500);
+                            setTimeout(startRound, 2000);
                         } else if (result.gameOver) {
                             document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
                             document.getElementById('word-mystery').style.color = "#EF4444";

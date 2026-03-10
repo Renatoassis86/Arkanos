@@ -103,11 +103,28 @@ def validate_answer(request):
         
         is_correct = user_answer.lower() == str(question.answer).lower()
         
+        # Gamificação: Ganhar XP se estiver logado
+        xp_ganho = 0
+        subiu_nivel = False
+        if is_correct and request.user.is_authenticated:
+            try:
+                from jogos.models import PerfilEstudante, Jogo
+                perfil = request.user.perfilestudante
+                xp_ganho = 20 # Valor base por questão
+                if question.difficulty == 'medium': xp_ganho = 30
+                if question.difficulty == 'hard': xp_ganho = 50
+                
+                subiu_nivel = perfil.ganha_xp(xp_ganho)
+            except Exception as e:
+                print(f"Erro ao salvar XP: {e}")
+        
         return JsonResponse({
             'correct': is_correct,
             'correct_answer': question.answer,
             'explanation': question.explanation,
             'cronica_do_guardiao': getattr(question, 'cronica_do_guardiao', '') or '',
+            'xp_ganho': xp_ganho,
+            'subiu_nivel': subiu_nivel
         })
     return JsonResponse({'status': 'error'}, status=400)
 

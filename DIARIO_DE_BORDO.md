@@ -31,6 +31,15 @@ Este documento registra a evolução do projeto Arkanos, as decisões de design,
 - **Mudança**: Substituímos fotos circulares por **bandeirolas estilo U-Flag** nas seções de Programas e Passos.
 - **Impacto**: O layout horizontal side-by-side aproveita melhor o espaço de tela e evita rolagens verticais excessivas, mantendo o usuário focado no fluxo de adoção.
 
+### 3. Sistema de Gamificação (XP e Níveis)
+- **Evolução**: Implementamos um sistema de progressão real com XP e níveis baseados em uma curva RPG (`Nível = floor(sqrt(XP/100)) + 1`).
+- **Contexto**: O progresso agora é sincronizado entre o backend (Django) e as interfaces de jogo (Spelling Bee e Desafio dos Sábios), com HUDs dinâmicos e overlays de "Level Up" que celebram a evolução do aluno.
+
+### 4. Suporte Visual Didático (Desafio dos Sábios)
+- **Evolução**: Adicionamos suporte para questões visuais (mapas, diagramas e análise de imagens).
+- **Conteúdo**: Criamos assets premium de Geografia (Mapas de Continentes, Camadas da Terra) integrados ao banco de dados via scripts de semente (`seed_geo_visual`).
+
+
 ---
 
 ## 🛠️ Manutenibilidade e Limpeza
@@ -60,8 +69,10 @@ Este documento registra a evolução do projeto Arkanos, as decisões de design,
 -----
 
 ## 🎓 Próximos Passos
-1. Finalizar a integração de IA no "Desafio dos Sábios".
-2. Monitorar a performance de carregamento dos vídeos via Supabase.
-3. Iniciar o módulo de Retórica com o Guardião Kael.
+1. Finalizar a integração de IA no "Desafio dos Sábios" (Geração de imagens sob demanda).
+2. Expandir o banco de questões de História e Ciências com suporte visual.
+3. Implementar o sistema de "Medalhas Lendárias" (Achievements) no frontend.
+4. Iniciar o módulo de Retórica com o Guardião Kael.
 
-> **Status Atual**: 🟢 Deploy Estável | 🛡️ Design Premium | 🚀 Código Limpo
+> **Status Atual**: 🟢 Deploy Estável | 🛡️ Gamificação Ativa | 🌍 Suporte Visual Pronto
+
