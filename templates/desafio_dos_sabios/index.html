@@ -217,6 +217,130 @@
         color: var(--current-theme);
     }
 
+    /* PREMIUN PLAYFUL SELECTION BUTTONS */
+    .selection-btn {
+        background: linear-gradient(145deg, #ffffff, #f8fafc) !important;
+        border: 4px solid #e2e8f0 !important;
+        border-radius: 24px !important;
+        padding: 2rem !important;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        box-shadow: 0 8px 0px #cbd5e1, 0 15px 30px rgba(0, 0, 0, 0.08) !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .selection-btn:hover:not(.locked) {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 0px #94a3b8, 0 25px 50px rgba(59, 130, 246, 0.2) !important;
+        border-color: #3b82f6 !important;
+        background: white !important;
+    }
+
+    .selection-btn:active:not(.locked) {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0px #94a3b8, 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .selection-btn .btn-label {
+        font-family: 'Cinzel', serif;
+        font-weight: 900;
+        font-size: 1.4rem;
+        color: #1e293b;
+        letter-spacing: -0.5px;
+    }
+
+    .selection-btn .btn-badge {
+        font-size: 0.7rem;
+        font-weight: 900;
+        padding: 6px 16px;
+        border-radius: 12px;
+        background: #3b82f6;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .section-divider {
+        grid-column: 1 / -1;
+        padding: 3rem 0 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .section-divider h4 {
+        font-family: 'Cinzel', serif;
+        font-weight: 900;
+        font-size: 0.9rem;
+        color: #94a3b8;
+        letter-spacing: 3px;
+        white-space: nowrap;
+        background: #f8fafc;
+        padding: 4px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 99px;
+    }
+
+    .section-divider .line {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+        flex-grow: 1;
+    }
+
+    /* SPECIFIC THEME COLORS */
+    .selection-btn[data-name*="1º"] .btn-badge {
+        background: #3b82f6;
+    }
+
+    .selection-btn[data-name*="2º"] .btn-badge {
+        background: #10b981;
+    }
+
+    .selection-btn[data-name*="3º"] .btn-badge {
+        background: #f59e0b;
+    }
+
+    .selection-btn[data-name*="4º"] .btn-badge {
+        background: #ef4444;
+    }
+
+    .selection-btn[data-name*="5º"] .btn-badge {
+        background: #8b5cf6;
+    }
+
+    /* CONTEXT BREADCRUMB */
+    .game-context-pill {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 6px 15px;
+        border-radius: 12px;
+        border: 2px solid rgba(59, 130, 246, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .context-tag {
+        font-size: 11px;
+        font-weight: 900;
+        color: #3b82f6;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .game-context-pill.gold {
+        border-color: rgba(241, 196, 15, 0.4);
+    }
+
+    .game-context-pill.gold .context-tag {
+        color: var(--logos-gold);
+    }
 
     .option-btn {
         width: 100%;
@@ -1012,6 +1136,21 @@
             </div>
 
             <div class="flex items-center gap-8">
+                <!-- CONTEXT AREA -->
+                <div id="hud-context" class="hidden lg:flex items-center gap-4 animate-slideIn">
+                    <div class="game-context-pill">
+                        <span class="context-tag" id="val-grade">-</span>
+                    </div>
+                    <span class="text-slate-400 font-black">❯</span>
+                    <div class="game-context-pill gold">
+                        <span class="context-tag" id="val-subject">-</span>
+                    </div>
+                    <span class="text-slate-400 font-black">❯</span>
+                    <div class="game-context-pill">
+                        <span class="context-tag" id="val-av">-</span>
+                    </div>
+                </div>
+
                 <div class="hud-stats-pill">
                     <span class="text-[10px] font-black text-slate-400 tracking-widest">PROGRESSO</span>
                     <span id="quest-progress" class="font-bold" style="color: var(--current-theme);">0/0</span>
@@ -1411,8 +1550,8 @@
         }
 
         setRandomCharacter() {
-            const keys = Object.keys(this.characters);
-            this.currentCharacter = keys[Math.floor(Math.random() * keys.length)];
+            // Aion is the sole guardian for Desafio dos Sábios
+            this.currentCharacter = 'aion';
             this.updateAvatar();
         }
 
@@ -1643,64 +1782,83 @@
 
     const renderGrades = async () => {
         const container = document.getElementById('grade-list');
-        // Usamos IDs fixos mapeados baseados no banco de dados Supabase
-        container.innerHTML = ALL_GRADES.map(g => {
-            const isAvailable = g.active;
-            const statusLabel = isAvailable ? '' : '<span class="text-sm opacity-60 block">(EM BREVE)</span>';
-            const lockedClass = isAvailable ? '' : 'locked opacity-50 cursor-not-allowed grayscale';
-            const finalId = isAvailable ? g.db_id : '';
+        const sections = ['FUNDAMENTAL I', 'FUNDAMENTAL II', 'ENSINO MÉDIO'];
+
+        container.innerHTML = sections.map(sec => {
+            const gradesInSec = ALL_GRADES.filter(g => g.section === sec);
+            const cardsHtml = gradesInSec.map(g => {
+                const isAvailable = g.active;
+                const lockedClass = isAvailable ? '' : 'locked opacity-40 grayscale';
+                const finalId = isAvailable ? g.db_id : '';
+                const badge = isAvailable ? 'Disponível' : 'Em breve';
+
+                return `
+                    <div class="selection-btn ${lockedClass}" data-id="${finalId}" data-name="${g.name}">
+                        <span class="btn-badge">${badge}</span>
+                        <h4 class="btn-label">${g.name}</h4>
+                    </div>
+                `;
+            }).join('');
 
             return `
-                <button class="btn-rpg-big py-6 flex-col justify-center text-xl grade-btn ${lockedClass}" 
-                        data-id="${finalId}">
-                    ${g.name} ${statusLabel}
-                </button>
+                <div class="section-divider">
+                    <h4>${sec}</h4>
+                    <div class="line"></div>
+                </div>
+                ${cardsHtml}
             `;
         }).join('');
 
-        document.querySelectorAll('.grade-btn').forEach(btn => {
-            if (btn.dataset.id) {
+        document.querySelectorAll('.selection-btn').forEach(btn => {
+            if (btn.dataset.id && !btn.classList.contains('locked')) {
                 btn.onclick = () => {
                     playSound('next');
-                    selectGrade(btn.dataset.id);
+                    const name = btn.dataset.name;
+                    selectGrade(btn.dataset.id, name);
                 };
             }
         });
     };
 
-    const selectGrade = (gradeId) => {
+    const selectGrade = (gradeId, gradeName) => {
         window.selectedGrade = gradeId;
-        updateBalloon("Excelente escolha. Agora, qual disciplina vamos explorar?");
+        document.getElementById('val-grade').innerText = gradeName;
+        document.getElementById('hud-context').classList.remove('hidden');
+        updateBalloon(`Portais do ${gradeName} abertos! Agora, explorador, qual disciplina vamos enfrentar?`);
         showScreen('subjects');
         renderSubjects();
     };
 
     const renderSubjects = async () => {
         const container = document.getElementById('subject-list');
-        container.innerHTML = '<p class="text-center col-span-2">Carregando pergaminhos...</p>';
+        container.innerHTML = '<div class="col-span-full py-12 text-center opacity-50">Invocando pergaminhos...</div>';
 
         const subjects = await quiz.getSubjects();
 
         if (subjects.length === 0) {
-            container.innerHTML = '<p class="text-center col-span-2 text-gray-400">Nenhum tema disponível ainda.</p>';
+            container.innerHTML = '<p class="text-center col-span-full text-gray-400">Nenhum tema disponível ainda.</p>';
             return;
         }
 
         container.innerHTML = subjects.map(s => `
-            <button class="btn-rpg-big py-6 justify-center text-xl subject-btn" data-id="${s.id}">${s.name}</button>
+            <div class="selection-btn subject-btn" data-id="${s.id}" data-name="${s.name}">
+                <span class="btn-badge">Conhecimento</span>
+                <h4 class="btn-label">${s.name}</h4>
+            </div>
         `).join('');
 
         document.querySelectorAll('.subject-btn').forEach(btn => {
             btn.onclick = () => {
                 playSound('next');
-                selectSubject(btn.dataset.id);
+                selectSubject(btn.dataset.id, btn.dataset.name);
             };
         });
     };
 
-    const selectSubject = async (subjectId) => {
+    const selectSubject = async (subjectId, subjectName) => {
         window.selectedSubject = subjectId;
-        updateBalloon("Muitos mistérios cercam este tema. Qual avaliação você deseja enfrentar?");
+        document.getElementById('val-subject').innerText = subjectName;
+        updateBalloon(`Sabedoria em ${subjectName}... uma escolha corajosa! Qual avaliação vamos realizar?`);
         showScreen('assessments');
         renderAssessments();
     };
@@ -1757,12 +1915,13 @@
             const btn = e.target.closest('.assessment-btn');
             if (btn && btn.dataset.id) {
                 playSound('next');
-                selectAssessment(btn.dataset.id);
+                const avLabel = btn.innerText.replace('⚔️', '').trim();
+                selectAssessment(btn.dataset.id, avLabel);
             }
         };
     };
 
-    const selectAssessment = async (assessmentId) => {
+    const selectAssessment = async (assessmentId, avLabel) => {
         // Validação e Fallback reforçado
         console.log("Iniciando jornada para Avaliação ID:", assessmentId);
 
@@ -1773,6 +1932,7 @@
         }
 
         window.selectedAssessment = assessmentId;
+        document.getElementById('val-av').innerText = avLabel;
 
         // Transição imediata de tela
         showScreen('question');
@@ -1802,7 +1962,10 @@
         }
 
         container.innerHTML = topics.map(t => `
-            <button class="btn-rpg-big py-6 justify-center text-xl topic-btn mb-4" data-id="${t.id}">${t.name}</button>
+            <div class="selection-btn topic-btn" data-id="${t.id}" data-name="${t.name}">
+                <span class="btn-badge">Exploração</span>
+                <h4 class="btn-label">${t.name}</h4>
+            </div>
         `).join('');
 
         document.querySelectorAll('.topic-btn').forEach(btn => {
@@ -1922,7 +2085,37 @@
             qEl.insertBefore(imgWrap, document.getElementById('txt-question'));
         }
 
-        document.getElementById('txt-question').innerText = q.question;
+        // ── MATH "CONTA ARMADA" LOGIC ──
+        const isMath = q.subject && q.subject.toLowerCase().includes('matemática');
+        const mathMatch = q.question.match(/(\d+)\s*([\+\-\x\*\/])\s*(\d+)/);
+
+        if (isMath && mathMatch) {
+            const n1 = mathMatch[1];
+            const op = mathMatch[2];
+            const n2 = mathMatch[3];
+            const restOfQuestion = q.question.replace(mathMatch[0], '___________');
+
+            const opSymbol = op === '*' ? 'x' : op;
+
+            document.getElementById('txt-question').innerHTML = `
+                <div class="flex flex-col items-center gap-8 py-4">
+                    <div class="text-xl md:text-2xl text-slate-600 font-medium max-w-lg text-center leading-relaxed">${restOfQuestion}</div>
+                    <div class="math-column-container bg-white p-8 rounded-3xl border-4 border-slate-200 shadow-xl relative min-w-[150px]">
+                        <div class="text-5xl font-mono text-right mb-2 tracking-widest text-slate-800">${n1}</div>
+                        <div class="flex items-center justify-end border-b-8 border-slate-800 pb-3 mb-2 relative">
+                            <span class="absolute left-0 text-3xl font-bold text-blue-500">${opSymbol}</span>
+                            <span class="text-5xl font-mono tracking-widest text-slate-800">${n2}</span>
+                        </div>
+                        <div class="h-12 bg-slate-50 rounded-lg border-2 border-dashed border-slate-200 flex items-center justify-center">
+                            <span class="text-slate-300 text-xs font-black tracking-widest uppercase">PENSE E RESPONDA</span>
+                        </div>
+                    </div>
+                </div>
+             `;
+        } else {
+            document.getElementById('txt-question').innerText = q.question;
+        }
+
         voiceService.speak(q.question, null, 800);
 
         document.getElementById('quest-progress').innerText = `${currentIndex + 1}/${currentQuestions.length}`;
@@ -2005,8 +2198,8 @@
                     <div class="text-slate-700 text-base md:text-xl leading-relaxed mb-4">${result.explanation}</div>
                     ${cronica ? `
                     <div class="cronica-guardiao mt-10 p-6 rounded-3xl border-2 border-amber-400 bg-amber-50 shadow-inner">
-                        <div class="text-xs font-black text-amber-700 tracking-widest uppercase mb-3 flex items-center gap-2">
-                             <span class="text-lg">📜</span> Crônica do Guardião
+                         <div class="text-xs font-black text-blue-700 tracking-widest uppercase mb-3 flex items-center gap-2">
+                             <span class="text-lg">🌀</span> Crônica de Aion
                         </div>
                         <p class="text-slate-700 text-lg leading-relaxed italic font-serif">"${cronica}"</p>
                     </div>` : ''}
@@ -2050,7 +2243,8 @@
                     <div class="text-slate-500 mb-6 text-sm font-black uppercase tracking-widest bg-red-50 p-3 rounded-lg inline-block">A resposta correta era: <span class="text-red-700 underline">${result.correct_answer}</span></div>
                     <div class="text-slate-800 text-lg mb-4">${result.explanation}</div>
                     ${cronica ? `
-                    <div class="cronica-guardiao mt-10 p-6 rounded-3xl border-2 border-slate-300 bg-slate-100 italic font-serif text-lg">
+                    <div class="cronica-guardiao mt-10 p-6 rounded-3xl border-2 border-blue-200 bg-blue-50 italic font-serif text-lg">
+                        <div class="text-[10px] font-black text-blue-500 tracking-widest uppercase mb-2">Crônica de Aion</div>
                         "${cronica}"
                     </div>` : ''}
                 `;
@@ -2180,7 +2374,7 @@
 
         overlay.classList.remove('hidden');
         playSound('correct');
-        voiceService.speak("Impressionante! Você subiu de nível!", 'aion', 500);
+        voiceService.speak("Impressionante! A sua lógica se expande. Você subiu de nível!", 'aion', 500);
     };
 
     const hideLevelUpOverlay = () => {
