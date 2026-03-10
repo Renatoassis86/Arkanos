@@ -18,216 +18,33 @@
   <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
   <style>
+    /* Essential Root Variables for Immediate Loading */
     :root {
-      /* Paleta Arkanos Premium - Dark Fantasy & Gold */
       --brand-blue: #0f172a;
       --brand-accent: #3b82f6;
       --brand-gold: #fbbf24;
       --text-on-dark: #ffffff;
       --text-on-light: #0f172a;
       --text-muted: #94a3b8;
-      --glass-bg: rgba(15, 23, 42, 0.9);
-    }
-
-    html,
-    body {
-      overflow-x: hidden;
-      width: 100%;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-on-dark);
-      background: #0f172a;
-      margin: 0;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Utilitários de Seção e Níveis de Fundo */
-    .bg-dark {
-      background: #0f172a !important;
-      color: #ffffff !important;
-    }
-
-    .bg-dark h1,
-    .bg-dark h2,
-    .bg-dark h3,
-    .bg-dark p,
-    .bg-dark .title {
-      color: #ffffff !important;
-    }
-
-    .bg-dark .badge {
-      background: rgba(251, 191, 36, 0.1);
-      color: #fbbf24;
-      border: 1px solid rgba(251, 191, 36, 0.2);
-    }
-
-    .bg-light,
-    .bg-level-1 {
-      background: #f1f5f9 !important;
-      /* Slightly darker light bg for better depth */
-      color: #0f172a !important;
-    }
-
-    .bg-level-1 h1,
-    .bg-level-1 h2,
-    .bg-level-1 h3,
-    .bg-level-1 h4,
-    .bg-level-1 .title,
-    .bg-level-1 strong {
-      color: #0f172a !important;
-    }
-
-    .bg-level-1 p,
-    .bg-level-1 .muted,
-    .bg-level-1 li,
-    .bg-level-1 span:not([class*="tone-"]):not([class*="accent-"]) {
-      color: #334155 !important;
-    }
-
-    .bg-level-1 .badge {
-      background: #e0f2fe;
-      color: #0369a1;
-      border: 1px solid #bae6fd;
-      font-weight: 800;
-    }
-
-    .bg-level-1 .hl,
-    .bg-level-1 .tone-primary {
-      color: #2563eb !important;
-      /* Brighter blue for contrast on light */
-      font-weight: 800;
-    }
-
-    .bg-level-1 .tone-accent {
-      color: #db2777 !important;
-      /* Pinker for contrast on light */
-      font-weight: 800;
-    }
-
-    .bg-level-1 .accent-3 {
-      color: #059669 !important;
-      /* Greener for contrast on light */
-      font-weight: 800;
-    }
-
-    .bg-level-2 {
-      background: #eff6ff !important;
-      color: #1e3a8a !important;
-    }
-
-    .bg-level-2 h1,
-    .bg-level-2 h2,
-    .bg-level-2 h3,
-    .bg-level-2 .title,
-    .bg-level-2 strong {
-      color: #1e3a8a !important;
-    }
-
-    .bg-level-2 p,
-    .bg-level-2 .muted,
-    .bg-level-2 li {
-      color: #1d4ed8 !important;
-      /* High contrast blue for readability */
-    }
-
-    .bg-level-2 .badge {
-      background: #dbeafe;
-      color: #1e40af;
-      border: 1px solid #bfdbfe;
-    }
-
-    .bg-level-3 {
-      background: #1e293b !important;
-      color: #f8fafc !important;
-    }
-
-    .bg-level-3 h1,
-    .bg-level-3 h2,
-    .bg-level-3 h3,
-    .bg-level-3 .title {
-      color: #f8fafc !important;
-    }
-
-    .bg-level-3 p,
-    .bg-level-3 .muted {
-      color: #94a3b8 !important;
-    }
-
-    /* Tratamento de Vídeo Granulado */
-    .video-cover {
-      filter: brightness(0.9) contrast(1.1) saturate(1.1);
-      mix-blend-mode: lighten;
-      opacity: 0.95;
-    }
-
-    .panel.glow {
-      position: relative;
-      background: #000;
-      box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
-    }
-
-    .panel.glow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.4));
-      pointer-events: none;
-    }
-
-    /* Header styles moved to header.html to avoid conflicts */
-
-    /* Botões Premium */
-    .btn {
-      padding: 0.75rem 1.75rem;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .btn-login {
-      color: var(--brand-gold);
-      border: 1px solid var(--brand-gold);
-    }
-
-    .btn-login:hover {
-      background: rgba(251, 191, 36, 0.1);
-      box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
-    }
-
-    .btn-signup {
-      background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-      color: #0f172a !important;
-      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
-    }
-
-    .btn-signup:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
-    }
-
-    /* Ajuste para imagens dos passos */
-    .flag-wrap {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 15px;
-      overflow: hidden;
-      clip-path: url(#u-flag);
-      background: #000;
-    }
-
-    .flag-media {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   </style>
+
+  <!-- Definição do clipPath (formato bandeirola) - Global -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <clipPath id="u-flag" clipPathUnits="objectBoundingBox">
+        <path d="
+          M 0.08,0
+          H 0.92
+          C 0.97,0 1,0.03 1,0.08
+          V 0.62
+          C 1,0.85 0.84,1 0.5,1
+          C 0.16,1 0,0.85 0,0.62
+          V 0.08
+          C 0,0.03 0.03,0 0.08,0 Z" />
+      </clipPath>
+    </defs>
+  </svg>
 
   {% block head_extra %}{% endblock %}
 </head>
