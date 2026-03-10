@@ -12,9 +12,12 @@
     --rpg-border: #E2E8F0;
 
     /* Guardian Identity */
-    --lyra: #FF4081;
+    --lyra: #C41E3A;
+    /* Rubi - No Purple Rule */
     --aion: #1976D2;
-    --kael: #D32F2F;
+    /* Azul Meia-noite */
+    --kael: #B8860B;
+    /* Ouro */
     --current-theme: var(--rpg-gold);
 }
 
@@ -462,13 +465,13 @@ img {
 
 /* THEMES & CHARACTERS */
 .theme-lyra {
-    --current-theme: #FF4081;
-    --current-theme-rgb: 255, 64, 129;
+    --current-theme: #C41E3A;
+    --current-theme-rgb: 196, 30, 58;
 }
 
 .theme-aion {
-    --current-theme: #1976D2;
-    --current-theme-rgb: 25, 118, 210;
+    --current-theme: #0F172A;
+    --current-theme-rgb: 15, 23, 42;
 }
 
 .theme-kael {
@@ -487,7 +490,7 @@ img {
 }
 
 .lyra-char {
-    background-image: url('/static/arkanos/img/lyra.png');
+    background-image: url('/static/img/personas/lyra_action.png');
 }
 
 .aion-char {
@@ -647,9 +650,44 @@ img {
     position: relative;
     border-style: double;
     border-width: 8px;
-    margin: 80px auto;
-    /* Aumentado para não encostar no HUD */
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: center;
 }
+
+/* New: Character on Gate */
+.gate-character-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.gate-character {
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(0 0 15px rgba(var(--current-theme-rgb), 0.3));
+    animation: floating 3s ease-in-out infinite;
+}
+
+.gate-bubble {
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid var(--current-theme);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: -10px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+}
+
 
 .gate-seal {
     width: 100px;
@@ -683,9 +721,18 @@ img {
 
 .gate-actions {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
 }
+
+@media (max-width: 640px) {
+    .gate-actions {
+        flex-direction: column;
+    }
+}
+
 
 .gate-divider {
     display: flex;

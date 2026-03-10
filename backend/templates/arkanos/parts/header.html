@@ -3,85 +3,134 @@
 <header class="site-header site-header--transparent">
   <!-- TOP BAR (Estilo Education) -->
   <div class="header-top">
-    <div class="container flex justify-between items-center h-full">
-      <span class="top-slogan">Educação que permanece</span>
-      <div class="top-links flex gap-4">
+    <div class="container header-top-inner">
+      <div class="top-slogan">Educação que permanece</div>
+      <div class="top-links">
         <a href="#">Igreja</a>
         <a href="#">Faculdade</a>
         <a href="#">Academy</a>
-        <a href="#" class="active">Education</a>
+        <a href="#" class="education-link">Education</a>
         <a href="#">Godstock</a>
       </div>
     </div>
   </div>
 
+  <!-- MAIN NAVIGATION -->
   <div class="header-main">
-    <div class="header-inner container">
-      <!-- LOGO -->
-      <a href="{% url 'arkanos:home' %}" class="brand" aria-label="Arkanos">
-        <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo">
-      </a>
+    <div class="container header-main-inner">
+      <!-- Logo Section -->
+      <div class="header-branding">
+        <a href="{% url 'arkanos:home' %}" class="brand-link">
+          <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo">
+          <span class="site-name">ARKANOS</span>
+        </a>
+      </div>
 
-      <!-- BOTÃO MOBILE -->
-      <button class="mobile-toggle" aria-label="Abrir menu" id="mobile-menu-btn">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-        <span class="bar bar-3"></span>
+      <!-- Hamburger Menu (Mobile Only) -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
-      <nav class="main-nav" id="main-navigation">
+      <!-- Center Menu -->
+      <nav class="main-navigation" id="main-navigation">
         <div class="nav-links">
-          <a href="/#programas" class="nav-link">Programas</a>
+          <a href="{% url 'arkanos:programas' %}" class="nav-link">Programas</a>
           <a href="/#conteudos" class="nav-link">Conteúdos</a>
-          <div class="nav-item-dropdown">
-            <a href="{% url 'arkanos:jogos' %}" class="dropdown-trigger">Desafios ▾</a>
+
+          <!-- Desafios / Jogos Dropdown -->
+          <div class="nav-dropdown">
+            <span class="dropdown-trigger">Desafios ▾</span>
             <div class="dropdown-content">
-              <div class="dropdown-section">
-                <span class="dropdown-label">📜 Gramática</span>
-                <a href="{% url 'jogos:spellingbee' %}" class="nav-link">Spelling Bee</a>
-                <a href="{% url 'jogos:radix' %}?mode=digitacao" class="nav-link">Radix Digitação</a>
+              <div class="dropdown-group">
+                <span class="group-title">Gramática</span>
+                <a href="{% url 'jogos:spellingbee' %}">📜 Spelling Bee</a>
+                <a href="{% url 'jogos:radix' %}?mode=digitacao">⌨️ Radix Digitação</a>
               </div>
-              <div class="dropdown-section">
-                <span class="dropdown-label">🏛️ Lógica</span>
-                <a href="{% url 'desafio_dos_sabios:index' %}" class="nav-link">Desafio dos Sábios</a>
+              <div class="dropdown-group">
+                <span class="group-title">Lógica</span>
+                <a href="{% url 'desafio_dos_sabios:index' %}">🏛️ Desafio dos Sábios</a>
               </div>
             </div>
           </div>
+
           <a href="/#guardioes" class="nav-link">Guardiões</a>
           <a href="{% url 'ark:home' %}" class="nav-link">Ark</a>
           <a href="{% url 'arkanos:fale_conosco' %}" class="nav-link">Fale Conosco</a>
         </div>
+
+        <!-- Auth Section for Mobile -->
+        <div class="auth-mobile">
+          {% if user.is_authenticated %}
+          <div class="user-info-mobile">
+            Olá, <strong>{{ user.username|upper }}</strong>
+          </div>
+          <a href="{% url 'arkanos:logout' %}" class="btn-ark btn-ark-primary">SAIR 🚪</a>
+          {% else %}
+          <a href="{% url 'arkanos:login' %}" class="btn-ark btn-ark-primary">ENTRAR 🗝️</a>
+          <a href="{% url 'arkanos:cadastro' %}" class="btn-ark btn-ark-pink">CADASTRAR 🛡️</a>
+          {% endif %}
+        </div>
       </nav>
 
-      <div class="auth auth-desktop">
+      <!-- Auth Selection (Desktop Only) -->
+      <div class="auth-desktop">
         {% if user.is_authenticated %}
-        <a class="btn btn-login" href="{% url 'arkanos:logout' %}">Sair</a>
+        <div class="user-authenticated">
+          <div class="user-peek">
+            Olá, <span>{{ user.username|upper }}</span>
+          </div>
+          <a class="btn-ark-small btn-ark-primary" href="{% url 'arkanos:logout' %}">SAIR</a>
+        </div>
         {% else %}
-        <a class="btn btn-login" href="{% url 'arkanos:login' %}">Entrar</a>
-        <a class="btn btn-signup" href="{% url 'arkanos:cadastro' %}">Cadastrar</a>
+        <div class="auth-buttons">
+          <a class="btn-ark-small outline" href="{% url 'arkanos:login' %}">ENTRAR</a>
+          <a class="btn-ark-small btn-ark-primary" href="{% url 'arkanos:cadastro' %}">CADASTRAR</a>
+        </div>
         {% endif %}
       </div>
     </div>
   </div>
 
   <style>
-    /* ----- HEADER ESTRUTURA ----- */
+    /* ----- HEADER REWRITE (STABLE & PREMIUM) ----- */
+    :root {
+      --header-bg: #0f172a;
+      --accent-color: #f1c40f;
+      --transition-speed: 0.3s;
+    }
+
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 1000;
-      transition: transform 0.3s ease;
+      z-index: 2000;
+      transition: all var(--transition-speed) ease;
     }
 
     .header-top {
-      background: #0f172a;
-      height: 32px;
+      background: var(--header-bg);
+      height: 34px;
       font-size: 11px;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.6);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-weight: 600;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .header-top-inner {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 15px;
     }
 
     .top-links a {
@@ -90,22 +139,26 @@
       transition: color 0.2s;
     }
 
-    .top-links a.active {
-      color: #fbbf24;
+    .top-links a:hover,
+    .top-links a.active,
+    .education-link {
+      color: var(--accent-color) !important;
     }
 
     .header-main {
       height: 80px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all var(--transition-speed) ease;
       background: transparent;
+      backdrop-filter: blur(0px);
     }
 
-    /* ESTADO SCROLLED: Sólido Escuro (Igual ao Education) */
+    /* Scrolled State */
     .site-header--scrolled .header-main {
-      background: #0f172a !important;
+      background: rgba(15, 23, 42, 0.95);
       height: 70px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(251, 191, 36, 0.2);
     }
 
     .site-header--scrolled .header-top {
@@ -114,62 +167,321 @@
       border: none;
     }
 
-    .header-inner {
+    .header-main-inner {
+      height: 100%;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      /* STABLE GRID */
+      align-items: center;
+      gap: 40px;
+    }
+
+    .header-branding {
+      flex-shrink: 0;
+    }
+
+    .brand-link {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      height: 100%;
+      gap: 12px;
+      text-decoration: none;
     }
 
     .site-logo {
-      height: 50px;
-      filter: brightness(0) invert(1);
+      height: 48px;
+      width: auto;
+      object-fit: contain;
     }
 
-    /* ----- NAV LINKS ----- */
+    .site-name {
+      font-family: 'Cinzel', serif;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+    }
+
+    /* Navigation */
+    .main-navigation {
+      justify-self: center;
+      /* Center the nav in the grid */
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
     .nav-link,
     .dropdown-trigger {
-      color: #ffffff !important;
+      color: rgba(255, 255, 255, 0.8) !important;
       font-weight: 700;
+      font-size: 0.82rem;
       text-transform: uppercase;
-      font-size: 0.8rem;
       letter-spacing: 1px;
       text-decoration: none;
-      opacity: 0.9;
+      transition: color 0.3s, opacity 0.3s;
+      cursor: pointer;
     }
 
-    .nav-link:hover {
-      opacity: 1;
+    .nav-link:hover,
+    .dropdown-trigger:hover {
+      color: var(--accent-color) !important;
     }
 
-    /* Dropdown adjustment */
+    /* Dropdown Logic */
+    .nav-dropdown {
+      position: relative;
+      padding: 10px 0;
+    }
+
     .dropdown-content {
-      background: #0f172a;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: #1e293b;
       border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      min-width: 280px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      /* HIDDEN BY DEFAULT */
+      visibility: hidden;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .group-title {
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .dropdown-content a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--accent-color);
+    }
+
+    /* Auth Buttons */
+    .auth-desktop {
+      flex-shrink: 0;
+    }
+
+    .user-authenticated,
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .user-peek {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .user-peek span {
+      color: var(--accent-color);
+    }
+
+    .btn-ark-small {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50px;
+      padding: 10px 24px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .btn-ark-small.btn-ark-primary {
+      background: linear-gradient(135deg, #f1c40f 0%, #d97706 100%);
+      color: #0f172a;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-ark-small.outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-ark-small:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+
+    /* Mobile Elements */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      margin: 5px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .auth-mobile {
+      display: none;
+      padding: 20px;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    @media (max-width: 1100px) {
+      .header-main-inner {
+        gap: 20px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .site-name {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .mobile-menu-btn {
+        display: block;
+        justify-self: end;
+      }
+
+      .main-navigation {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--header-bg);
+        padding: 90px 40px;
+        transition: right 0.4s ease;
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-self: auto;
+      }
+
+      .main-navigation.active {
+        right: 0;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+      }
+
+      .nav-link,
+      .dropdown-trigger {
+        font-size: 1.2rem;
+      }
+
+      .dropdown-content {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        background: transparent;
+        box-shadow: none;
+        padding: 10px 0 10px 20px;
+        border: none;
+        gap: 10px;
+      }
+
+      .auth-desktop {
+        display: none;
+      }
+
+      .auth-mobile {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
     }
   </style>
 
-  <script>document.addEventListener('DOMContentLoaded', () => {
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
       const header = document.querySelector('.site-header');
       const mobileBtn = document.getElementById('mobile-menu-btn');
       const mainNav = document.getElementById('main-navigation');
 
-      // Scroll Background Logic
+      // Scroll Background logic
       window.addEventListener('scroll', () => {
         if (window.scrollY > 30) {
           header.classList.add('site-header--scrolled');
-        }
-
-        else {
+        } else {
           header.classList.remove('site-header--scrolled');
         }
       });
 
-      // Mobile Menu Toggle
+      // Mobile Menu mechanics
       if (mobileBtn && mainNav) {
         mobileBtn.addEventListener('click', () => {
           mainNav.classList.toggle('active');
           mobileBtn.classList.toggle('active');
+
+          // Hamburger animation styling
+          const spans = mobileBtn.querySelectorAll('span');
+          if (mobileBtn.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+          } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+          }
         });
       }
     });

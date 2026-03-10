@@ -1060,264 +1060,275 @@
             <div class="w-full lg:w-2/3 flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
 
                 <!-- 1. INITIAL SCREEN -->
-                <div id="screen-welcome" class="text-center space-y-16 animate-fadeIn max-w-2xl mx-auto py-12">
+                <div id="screen-welcome" class="text-center space-y-12 animate-fadeIn max-w-2xl mx-auto py-12">
                     <h2 class="font-black text-5xl text-logos-blue tracking-tight">DESAFIO DOS SÁBIOS</h2>
-                    <p class="text-gray-500 text-xl max-w-md mx-auto mb-10">
+                    <p class="text-gray-500 text-xl max-w-md mx-auto mb-4">
                         A jornada de Logos exige sabedoria. Teste seus conhecimentos e conquiste medalhas lendárias.
                     </p>
 
                     {% if not request.user.is_authenticated %}
+                    <!-- GUEST WELCOME -->
+                    <div class="p-8 bg-blue-50/50 rounded-3xl border-2 border-dashed border-blue-200 mt-12">
+                        <h3 class="font-bold text-xl text-logos-blue mb-4">Acesso Bloqueado</h3>
+                        <p class="text-gray-600 mb-8">Você precisa ser um guerreiro Arkanos para salvar seu progresso e
+                            ganhar recompensas nesta jornada.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="{% url 'arkanos:login' %}" class="btn-rpg-big primary px-12">ENTRAR 🗝️</a>
+                            <a href="{% url 'arkanos:cadastro' %}" class="btn-rpg-big px-12 !bg-white">CADASTRAR-SE
+                                🛡️</a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <!-- AUTHENTICATED WELCOME -->
+                    <div class="flex flex-col gap-8 mt-4 items-center w-full max-w-md mx-auto">
+                        <button id="btn-start"
+                            class="btn-rpg-big primary w-full py-8 justify-center shadow-xl transition-all hover:scale-105 active:scale-95 !text-white"
+                            style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important; border: 2px solid #60a5fa !important;">
+                            <span class="text-xl font-bold">INICIAR DESAFIO ⚔️</span>
+                        </button>
+
+                        <div class="flex flex-col gap-4 w-full">
+                            <button id="btn-import-questions"
+                                class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-slate-800"
+                                style="background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%) !important; border: 2px solid #fde68a !important;">
+                                FORMULAR PERGUNTAS 🧪
+                            </button>
+                            <button id="btn-ranking"
+                                class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-white"
+                                style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%) !important; border: 2px solid #f472b6 !important;">
+                                RANKING 🏆
+                            </button>
+                            <button id="btn-history"
+                                class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-white"
+                                style="background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important; border: 2px solid #34d399 !important;">
+                                MEU PROGRESSO 📜
+                            </button>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
-        {% else %}
-        <!-- AUTHENTICATED WELCOME -->
-        <div class="flex flex-col gap-8 mt-16 items-center w-full max-w-md mx-auto">
-            <button id="btn-start"
-                class="btn-rpg-big primary w-full py-8 justify-center shadow-xl transition-all hover:scale-105 active:scale-95 !text-white"
-                style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important; border: 2px solid #60a5fa !important;">
-                <span class="text-xl font-bold">INICIAR DESAFIO ⚔️</span>
-            </button>
 
-            <div class="flex flex-col gap-4 w-full">
-                <button id="btn-import-questions"
-                    class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-slate-800"
-                    style="background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%) !important; border: 2px solid #fde68a !important;">
-                    FORMULAR PERGUNTAS 🧪
-                </button>
-                <button id="btn-ranking"
-                    class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-white"
-                    style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%) !important; border: 2px solid #f472b6 !important;">
-                    RANKING 🏆
-                </button>
-                <button id="btn-history"
-                    class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-white"
-                    style="background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important; border: 2px solid #34d399 !important;">
-                    MEU PROGRESSO 📜
-                </button>
-            </div>
-        </div>
-        {% endif %}
-    </div>
 
-    <!-- 1.1 IMPORT / FORMULATE QUESTIONS SCREEN -->
-    <div id="screen-import" class="hidden space-y-8 animate-fadeIn w-full max-w-3xl mx-auto">
-        <div class="flex items-center justify-between mb-8">
-            <button onclick="showScreen('welcome')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h2 class="font-black text-3xl text-logos-blue tracking-tight text-center flex-1">FORMULAR
-                PERGUNTAS</h2>
-        </div>
-
-        <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 border-2 border-slate-100 shadow-xl space-y-6">
-            <p class="text-slate-500 font-medium">Cole o conteúdo do seu arquivo <span
-                    class="text-logos-blue font-bold">JSON</span> abaixo para importar novas perguntas
-                automaticamente.</p>
-
-            <div class="space-y-2">
-                <label class="text-[10px] font-black text-slate-400 tracking-widest uppercase">CONTEÚDO DO
-                    JSON</label>
-                <textarea id="import-json-data"
-                    class="w-full h-64 p-4 rounded-2xl bg-slate-50 border-2 border-slate-100 font-mono text-sm focus:border-logos-blue focus:ring-4 focus:ring-logos-blue/10 outline-none transition-all"
-                    placeholder='{ "questions": [...] }'></textarea>
+        <!-- 1.1 IMPORT / FORMULATE QUESTIONS SCREEN -->
+        <div id="screen-import" class="hidden space-y-8 animate-fadeIn w-full max-w-3xl mx-auto">
+            <div class="flex items-center justify-between mb-8">
+                <button onclick="showScreen('welcome')" class="btn-rpg-small">⬅ VOLTAR</button>
+                <h2 class="font-black text-3xl text-logos-blue tracking-tight text-center flex-1">FORMULAR
+                    PERGUNTAS</h2>
             </div>
 
-            <div id="import-error"
-                class="hidden p-4 rounded-2xl bg-red-50 border-2 border-red-100 text-red-600 text-sm font-medium">
-                <!-- Erros aqui -->
-            </div>
+            <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 border-2 border-slate-100 shadow-xl space-y-6">
+                <p class="text-slate-500 font-medium">Cole o conteúdo do seu arquivo <span
+                        class="text-logos-blue font-bold">JSON</span> abaixo para importar novas perguntas
+                    automaticamente.</p>
 
-            <div id="import-success"
-                class="hidden p-4 rounded-2xl bg-green-50 border-2 border-green-100 text-green-600 text-sm font-medium">
-                <!-- Sucesso aqui -->
-            </div>
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black text-slate-400 tracking-widest uppercase">CONTEÚDO DO
+                        JSON</label>
+                    <textarea id="import-json-data"
+                        class="w-full h-64 p-4 rounded-2xl bg-slate-50 border-2 border-slate-100 font-mono text-sm focus:border-logos-blue focus:ring-4 focus:ring-logos-blue/10 outline-none transition-all"
+                        placeholder='{ "questions": [...] }'></textarea>
+                </div>
 
-            <button id="btn-execute-import" class="btn-rpg-big primary w-full py-6 justify-center shadow-lg">
-                PROCESSAR E DESBLOQUEAR ⚡
-            </button>
-        </div>
-    </div>
+                <div id="import-error"
+                    class="hidden p-4 rounded-2xl bg-red-50 border-2 border-red-100 text-red-600 text-sm font-medium">
+                    <!-- Erros aqui -->
+                </div>
 
-    <div id="screen-grades" class="hidden space-y-8 animate-fadeIn w-full">
-        <div class="flex items-center justify-between mb-4">
-            <button onclick="showScreen('welcome')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">SÉRIE</h3>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="grade-list">
-            <!-- Dinamicamente preenchido -->
-        </div>
-    </div>
+                <div id="import-success"
+                    class="hidden p-4 rounded-2xl bg-green-50 border-2 border-green-100 text-green-600 text-sm font-medium">
+                    <!-- Sucesso aqui -->
+                </div>
 
-    <div id="screen-subjects" class="hidden space-y-8 animate-fadeIn w-full">
-        <div class="flex items-center justify-between mb-4">
-            <button onclick="showScreen('grades')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">DISCIPLINA</h3>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="subject-list">
-            <!-- Dinamicamente preenchido -->
-        </div>
-    </div>
-
-    <div id="screen-assessments" class="hidden space-y-8 animate-fadeIn w-full">
-        <div class="flex items-center justify-between mb-4">
-            <button onclick="showScreen('subjects')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">AVALIAÇÃO</h3>
-        </div>
-        <div class="grid grid-cols-1 gap-6" id="assessment-list">
-            <!-- Dinamicamente preenchido -->
-        </div>
-    </div>
-
-
-
-    <!-- 3. TOPIC SELECTION -->
-    <div id="screen-topics" class="hidden space-y-8 animate-fadeIn w-full">
-        <h3 class="font-bold text-3xl text-center">ESCOLHA O TEMA</h3>
-        <div class="grid grid-cols-1 gap-4" id="topic-list">
-            <!-- Dinamicamente preenchido -->
-        </div>
-    </div>
-
-    <!-- 4. QUESTION SCREEN -->
-    <div id="screen-question" class="hidden flex flex-col items-center w-full animate-fadeIn overflow-x-hidden">
-        <!-- TIMER BAR -->
-        <div class="w-full max-w-4xl mx-auto">
-            <div class="flex justify-between items-center mb-2 px-4">
-                <span class="text-xs font-black text-slate-400 tracking-widest uppercase">Tempo
-                    Restante</span>
-                <span id="timer-text" class="font-mono font-bold text-logos-blue">01:00</span>
-            </div>
-            <div class="timer-container">
-                <div id="timer-bar"></div>
-            </div>
-        </div>
-
-        <div class="parchment-card p-12 relative mb-12 w-full max-w-4xl mx-auto flex items-center justify-center">
-            <div class="parchment-texture"></div>
-            <div class="parchment-content-wrapper relative z-10 text-center">
-                <span class="text-logos-gold font-bold tracking-[0.1em] text-xs uppercase opacity-80 mb-4"
-                    id="txt-topic">TRAZENDO À MEMÓRIA...</span>
-                <h2 class="font-cinzel text-xl md:text-3xl leading-snug text-slate-800 text-center w-full"
-                    id="txt-question">
-                    Pergunta carregando...
-                </h2>
-            </div>
-        </div>
-
-
-        <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl mx-auto">
-            <!-- Dinamicamente preenchido -->
-        </div>
-
-        <div id="short-answer-container" class="hidden w-full max-w-2xl mx-auto animate-fadeInDelayed mt-20">
-            <div class="relative group">
-                <input type="text" id="input-answer"
-                    class="w-full p-10 bg-white border-4 border-slate-200 rounded-3xl text-3xl font-bold text-center focus:border-logos-blue focus:ring-4 focus:ring-logos-blue/10 outline-none transition-all placeholder:text-slate-300 pr-28 shadow-inner"
-                    placeholder="SUA RESPOSTA...">
-                <button id="btn-submit-answer-icon"
-                    class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20 bg-logos-blue text-white rounded-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg">
-                    <span class="text-2xl">⚡</span>
+                <button id="btn-execute-import" class="btn-rpg-big primary w-full py-6 justify-center shadow-lg">
+                    PROCESSAR E DESBLOQUEAR ⚡
                 </button>
             </div>
-            <p class="text-center mt-8 text-slate-400 font-bold uppercase tracking-widest text-sm">Pressione
-                ENTER ou clique no raio para enviar</p>
         </div>
-    </div>
 
-    <!-- 5. FEEDBACK / EXPLANATION -->
-    <div id="screen-feedback" class="hidden space-y-8 animate-fadeIn text-center w-full max-w-3xl mx-auto">
-        <h2 id="feedback-title" class="text-5xl font-black italic tracking-tighter">CORRETO!</h2>
-
-        <div class="discovery-box">
-            <div id="discovery-tag" class="discovery-tag">APRENDA MAIS</div>
-            <div id="feedback-explanation" class="discovery-content">
-                <!-- Conteúdo dinâmico -->
+        <div id="screen-grades" class="hidden space-y-8 animate-fadeIn w-full">
+            <div class="flex items-center justify-between mb-4">
+                <button onclick="showScreen('welcome')" class="btn-rpg-small">⬅ VOLTAR</button>
+                <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">SÉRIE</h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="grade-list">
+                <!-- Dinamicamente preenchido -->
             </div>
         </div>
 
-        <div id="feedback-image-container" class="mt-4 hidden animate-fadeIn">
-            <!-- Imagem de reforço se necessário -->
-        </div>
-
-        <div class="pt-8">
-            <button id="btn-next" class="btn-rpg-big primary mx-auto px-12 py-6">PRÓXIMA PERGUNTA
-                ➡️</button>
-        </div>
-    </div>
-
-    <!-- 6. FINAL RESULTS (VICTORY) -->
-    <div id="screen-results" class="hidden space-y-8 animate-fadeIn text-center">
-        <div class="trophy-victory animate-bounce-subtle mt-10">
-            <span class="text-9xl">🏆</span>
-        </div>
-        <h2 class="text-5xl font-black text-logos-gold tracking-tight">MISSÃO CUMPRIDA!</h2>
-        <p class="text-2xl text-slate-600 font-bold">Você é um verdadeiro Sábio Arkanos.</p>
-
-        <div
-            class="py-10 bg-white/40 backdrop-blur-sm rounded-3xl border-4 border-logos-gold/20 shadow-xl max-w-sm mx-auto">
-            <div class="text-7xl font-black text-logos-gold" id="final-score">0000</div>
-            <p class="text-xs font-black text-slate-400 tracking-widest uppercase mt-2">PONTOS CONQUISTADOS
-            </p>
-        </div>
-
-        <div id="unlocked-achievements" class="flex justify-center gap-4"></div>
-
-        <div class="flex flex-col gap-4 mt-8 max-w-md mx-auto">
-            <button onclick="location.reload()" class="btn-rpg-big primary justify-center shadow-lg py-8">JOGAR
-                NOVAMENTE ⚔️</button>
-            <a href="{% url 'arkanos:jogos' %}"
-                class="btn-rpg-big justify-center bg-slate-800 text-white hover:bg-slate-700">OUTROS
-                DESAFIOS
-                🏛️</a>
-            <a href="{% url 'arkanos:home' %}"
-                class="font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest text-xs">Retornar
-                ao Início</a>
-        </div>
-    </div>
-
-    <!-- 7. RANKING SCREEN -->
-    <div id="screen-ranking" class="hidden space-y-8 animate-fadeIn w-full">
-        <div class="text-center">
-            <h3 class="font-black text-4xl text-logos-blue tracking-tighter italic">CHALLENGERS RANKING</h3>
-            <div class="h-2 w-24 bg-logos-gold mx-auto mt-2"></div>
-        </div>
-
-        <div class="arcade-ranking">
-            <div class="ranking-header">
-                <span>RANK</span>
-                <span>SÁBIO</span>
-                <span class="text-right">TEMPO</span>
-                <span class="text-right">SCORE</span>
+        <div id="screen-subjects" class="hidden space-y-8 animate-fadeIn w-full">
+            <div class="flex items-center justify-between mb-4">
+                <button onclick="showScreen('grades')" class="btn-rpg-small">⬅ VOLTAR</button>
+                <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">DISCIPLINA</h3>
             </div>
-            <div id="ranking-list-items" class="space-y-4">
-                <!-- Items go here -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="subject-list">
+                <!-- Dinamicamente preenchido -->
+            </div>
+        </div>
+
+        <div id="screen-assessments" class="hidden space-y-8 animate-fadeIn w-full">
+            <div class="flex items-center justify-between mb-4">
+                <button onclick="showScreen('subjects')" class="btn-rpg-small">⬅ VOLTAR</button>
+                <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">AVALIAÇÃO</h3>
+            </div>
+            <div class="grid grid-cols-1 gap-6" id="assessment-list">
+                <!-- Dinamicamente preenchido -->
             </div>
         </div>
 
 
-        <div class="flex flex-col gap-4">
-            <button onclick="location.reload()" class="btn-rpg-big primary justify-center">JOGAR NOVAMENTE
-                ⚔️</button>
-            <button onclick="showScreen('welcome')"
-                class="btn-rpg-big w-full justify-center bg-transparent border-2 border-slate-200">MENU
-                INICIAL</button>
-        </div>
-    </div>
 
-    <!-- 8. HISTORY / PROGRESS SCREEN -->
-    <div id="screen-history" class="hidden space-y-8 animate-fadeIn w-full">
-        <h3 class="font-bold text-3xl text-center">MEU PROGRESSO</h3>
-        <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200 space-y-6">
-            <div>
-                <span class="stat-label">MINHAS CONQUISTAS</span>
-                <div id="history-achievements" class="grid grid-cols-2 gap-3 mt-4">
-                    <!-- Dinamicamente preenchido -->
+        <!-- 3. TOPIC SELECTION -->
+        <div id="screen-topics" class="hidden space-y-8 animate-fadeIn w-full">
+            <h3 class="font-bold text-3xl text-center">ESCOLHA O TEMA</h3>
+            <div class="grid grid-cols-1 gap-4" id="topic-list">
+                <!-- Dinamicamente preenchido -->
+            </div>
+        </div>
+
+        <!-- 4. QUESTION SCREEN -->
+        <div id="screen-question" class="hidden flex flex-col items-center w-full animate-fadeIn overflow-x-hidden">
+            <!-- TIMER BAR -->
+            <div class="w-full max-w-4xl mx-auto">
+                <div class="flex justify-between items-center mb-2 px-4">
+                    <span class="text-xs font-black text-slate-400 tracking-widest uppercase">Tempo
+                        Restante</span>
+                    <span id="timer-text" class="font-mono font-bold text-logos-blue">01:00</span>
+                </div>
+                <div class="timer-container">
+                    <div id="timer-bar"></div>
                 </div>
             </div>
-        </div>
-        <button onclick="showScreen('welcome')" class="btn-rpg-big w-full justify-center">VOLTAR</button>
-    </div>
 
-</div>
+            <div class="parchment-card p-12 relative mb-12 w-full max-w-4xl mx-auto flex items-center justify-center">
+                <div class="parchment-texture"></div>
+                <div class="parchment-content-wrapper relative z-10 text-center">
+                    <span class="text-logos-gold font-bold tracking-[0.1em] text-xs uppercase opacity-80 mb-4"
+                        id="txt-topic">TRAZENDO À MEMÓRIA...</span>
+                    <h2 class="font-cinzel text-xl md:text-3xl leading-snug text-slate-800 text-center w-full"
+                        id="txt-question">
+                        Pergunta carregando...
+                    </h2>
+                </div>
+            </div>
+
+
+            <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl mx-auto">
+                <!-- Dinamicamente preenchido -->
+            </div>
+
+            <div id="short-answer-container" class="hidden w-full max-w-2xl mx-auto animate-fadeInDelayed mt-20">
+                <div class="relative group">
+                    <input type="text" id="input-answer"
+                        class="w-full p-10 bg-white border-4 border-slate-200 rounded-3xl text-3xl font-bold text-center focus:border-logos-blue focus:ring-4 focus:ring-logos-blue/10 outline-none transition-all placeholder:text-slate-300 pr-28 shadow-inner"
+                        placeholder="SUA RESPOSTA...">
+                    <button id="btn-submit-answer-icon"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 w-20 h-20 bg-logos-blue text-white rounded-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-lg">
+                        <span class="text-2xl">⚡</span>
+                    </button>
+                </div>
+                <p class="text-center mt-8 text-slate-400 font-bold uppercase tracking-widest text-sm">Pressione
+                    ENTER ou clique no raio para enviar</p>
+            </div>
+        </div>
+
+        <!-- 5. FEEDBACK / EXPLANATION -->
+        <div id="screen-feedback" class="hidden space-y-8 animate-fadeIn text-center w-full max-w-3xl mx-auto">
+            <h2 id="feedback-title" class="text-5xl font-black italic tracking-tighter">CORRETO!</h2>
+
+            <div class="discovery-box">
+                <div id="discovery-tag" class="discovery-tag">APRENDA MAIS</div>
+                <div id="feedback-explanation" class="discovery-content">
+                    <!-- Conteúdo dinâmico -->
+                </div>
+            </div>
+
+            <div id="feedback-image-container" class="mt-4 hidden animate-fadeIn">
+                <!-- Imagem de reforço se necessário -->
+            </div>
+
+            <div class="pt-8">
+                <button id="btn-next" class="btn-rpg-big primary mx-auto px-12 py-6">PRÓXIMA PERGUNTA
+                    ➡️</button>
+            </div>
+        </div>
+
+        <!-- 6. FINAL RESULTS (VICTORY) -->
+        <div id="screen-results" class="hidden space-y-8 animate-fadeIn text-center">
+            <div class="trophy-victory animate-bounce-subtle mt-10">
+                <span class="text-9xl">🏆</span>
+            </div>
+            <h2 class="text-5xl font-black text-logos-gold tracking-tight">MISSÃO CUMPRIDA!</h2>
+            <p class="text-2xl text-slate-600 font-bold">Você é um verdadeiro Sábio Arkanos.</p>
+
+            <div
+                class="py-10 bg-white/40 backdrop-blur-sm rounded-3xl border-4 border-logos-gold/20 shadow-xl max-w-sm mx-auto">
+                <div class="text-7xl font-black text-logos-gold" id="final-score">0000</div>
+                <p class="text-xs font-black text-slate-400 tracking-widest uppercase mt-2">PONTOS CONQUISTADOS
+                </p>
+            </div>
+
+            <div id="unlocked-achievements" class="flex justify-center gap-4"></div>
+
+            <div class="flex flex-col gap-4 mt-8 max-w-md mx-auto">
+                <button onclick="location.reload()" class="btn-rpg-big primary justify-center shadow-lg py-8">JOGAR
+                    NOVAMENTE ⚔️</button>
+                <a href="{% url 'arkanos:jogos' %}"
+                    class="btn-rpg-big justify-center bg-slate-800 text-white hover:bg-slate-700">OUTROS
+                    DESAFIOS
+                    🏛️</a>
+                <a href="{% url 'arkanos:home' %}"
+                    class="font-bold text-slate-400 hover:text-slate-600 uppercase tracking-widest text-xs">Retornar
+                    ao Início</a>
+            </div>
+        </div>
+
+        <!-- 7. RANKING SCREEN -->
+        <div id="screen-ranking" class="hidden space-y-8 animate-fadeIn w-full">
+            <div class="text-center">
+                <h3 class="font-black text-4xl text-logos-blue tracking-tighter italic">CHALLENGERS RANKING</h3>
+                <div class="h-2 w-24 bg-logos-gold mx-auto mt-2"></div>
+            </div>
+
+            <div class="arcade-ranking">
+                <div class="ranking-header">
+                    <span>RANK</span>
+                    <span>SÁBIO</span>
+                    <span class="text-right">TEMPO</span>
+                    <span class="text-right">SCORE</span>
+                </div>
+                <div id="ranking-list-items" class="space-y-4">
+                    <!-- Items go here -->
+                </div>
+            </div>
+
+
+            <div class="flex flex-col gap-4">
+                <button onclick="location.reload()" class="btn-rpg-big primary justify-center">JOGAR NOVAMENTE
+                    ⚔️</button>
+                <button onclick="showScreen('welcome')"
+                    class="btn-rpg-big w-full justify-center bg-transparent border-2 border-slate-200">MENU
+                    INICIAL</button>
+            </div>
+        </div>
+
+        <!-- 8. HISTORY / PROGRESS SCREEN -->
+        <div id="screen-history" class="hidden space-y-8 animate-fadeIn w-full">
+            <h3 class="font-bold text-3xl text-center">MEU PROGRESSO</h3>
+            <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200 space-y-6">
+                <div>
+                    <span class="stat-label">MINHAS CONQUISTAS</span>
+                    <div id="history-achievements" class="grid grid-cols-2 gap-3 mt-4">
+                        <!-- Dinamicamente preenchido -->
+                    </div>
+                </div>
+            </div>
+            <button onclick="showScreen('welcome')" class="btn-rpg-big w-full justify-center">VOLTAR</button>
+        </div>
+
+    </div>
 
 </div>
 </div>
@@ -1449,6 +1460,7 @@
     };
 
     // DOM Elements
+    const btnStart = document.getElementById('btn-start');
     const screens = {
         welcome: document.getElementById('screen-welcome'),
         grades: document.getElementById('screen-grades'),
