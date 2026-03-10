@@ -55,24 +55,37 @@ def api_quick_auth(request):
         data = json.loads(request.body)
         firstname = data.get('firstname', '').strip()
         lastname = data.get('lastname', '').strip()
+        birthdate = data.get('birthdate', '').strip()
         serie = data.get('serie', '2ano')
 
         if not firstname or not lastname:
-            return JsonResponse({'status': 'error', 'message': 'Missing names'}, status=400)
+            return JsonResponse({'status': 'error', 'message': 'Nomes obrigatórios'}, status=400)
 
-        username = f"{firstname.lower()}_{lastname.lower()}"
+        # Create a more robust student username
+        username = f"estudante_{firstname.lower()}_{lastname.lower()}"
         user = User.objects.filter(username=username).first()
 
         if not user:
             # Create student user
             user = User.objects.create_user(username=username, first_name=firstname, last_name=lastname)
-            PerfilEstudante.objects.create(user=user, serie=serie)
+            PerfilEstudante.objects.create(
+                user=user, 
+                serie=serie, 
+                data_nascimento=birthdate if birthdate else None
+            )
+        else:
+            # Update existing profile grade if they logged in with a different one
+            perfil = user.perfilestudante
+            perfil.serie = serie
+            if birthdate:
+                perfil.data_nascimento = birthdate
+            perfil.save()
         
         login(request, user)
         
         return JsonResponse({
             'status': 'success',
-            'username': user.username,
+            'username': f"{user.first_name} {user.last_name}",
             'serie': user.perfilestudante.serie
         })
     return JsonResponse({'status': 'error'}, status=400)

@@ -1,25 +1,187 @@
-{% extends "jogos/base.html" %}
+{% extends "arkanos/base.html" %}
+{% load static %}
 
-{% block title %}Jogos Disponíveis{% endblock %}
+{% block title %}Academia Arkanos — Portões do Conhecimento{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Jogos Educativos</h1>
+<div class="sec bg-ark-dark">
+    <div class="container">
+        <div class="game-split-layout">
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for jogo in jogos %}
-    <div class="col">
-        <div class="card h-100">
-            <div class="card-body">
-                <h5 class="card-title">{{ jogo.nome }}</h5>
-                <p class="card-text">{{ jogo.descricao|linebreaks }}</p>
-                <p><strong>Tipo:</strong> {{ jogo.get_tipo_display }}<br>
-                   <strong>Dificuldade:</strong> {{ jogo.get_dificuldade_display }}<br>
-                   <strong>Fase:</strong> {{ jogo.fase.nome }}</p>
+            <!-- Guardião à Esquerda -->
+            <div class="game-sidebar-guardian">
+                <div class="guardian-presentation">
+                    <img src="{% static 'img/icones/aion.png' %}" alt="Aion" class="guardian-full-img">
+                    <div class="guardian-msg-card">
+                        <p id="guardian-text">"Escolha seu desafio, jovem iniciado. Cada jornada moldará seu Trivium
+                            interna e externamente."</p>
+                    </div>
+                </div>
+            </div>
 
-                <a href="{% url 'jogo_detail' slug=jogo.slug %}" class="btn btn-primary">👉 Iniciar o jogo</a>
+            <!-- Opções à Direita -->
+            <div class="game-main-content">
+                <div class="sec-head mb-8">
+                    <span class="badge mb-2">Jornada de Aprendizado</span>
+                    <h1 class="title text-4xl mb-4">Portões do Conhecimento</h1>
+                    <p class="muted">Os jogos da Academia Arkanos foram desenhados para fortalecer sua Gramática, Lógica
+                        e Retórica através de desafios gamificados.</p>
+                </div>
+
+                <div class="game-grid-vertical">
+                    {% for jogo in jogos %}
+                    <article class="game-item-card hover-tilt" data-guardian="{{ forloop.counter }}">
+                        <div class="game-icon-wrap">
+                            {% if jogo.slug == 'spellingbee' %}
+                            <span class="game-emoji">🎤</span>
+                            {% elif jogo.slug == 'radix' %}
+                            <span class="game-emoji">⚡</span>
+                            {% else %}
+                            <span class="game-emoji">🏛️</span>
+                            {% endif %}
+                        </div>
+                        <div class="game-item-info">
+                            <h3 class="title">{{ jogo.nome }}</h3>
+                            <p class="muted text-sm">{{ jogo.descricao }}</p>
+                            <div class="game-tags">
+                                <span class="tag tag-blue">{{ jogo.get_tipo_display }}</span>
+                                <span class="tag tag-gold">{{ jogo.dificuldade }}</span>
+                            </div>
+                        </div>
+                        <a href="{% url 'arkanos:jogo_detail' slug=jogo.slug %}" class="btn btn-primary start-btn">
+                            INICIAR MISSÃO ⚔️
+                        </a>
+                    </article>
+                    {% endfor %}
+
+                    <!-- Desafio dos Sábios manually added if not in DB -->
+                    <article class="game-item-card hover-tilt">
+                        <div class="game-icon-wrap">
+                            <span class="game-emoji">🦉</span>
+                        </div>
+                        <div class="game-item-info">
+                            <h3 class="title">Desafio dos Sábios</h3>
+                            <p class="muted text-sm">Desafios de Geografia, Matemática e mais por série e AV.</p>
+                            <div class="game-tags">
+                                <span class="tag tag-purple">Quiz Adaptativo</span>
+                                <span class="tag tag-gold">Múltiplo</span>
+                            </div>
+                        </div>
+                        <a href="{% url 'desafio_dos_sabios:index' %}" class="btn btn-primary start-btn">
+                            INICIAR MISSÃO ⚔️
+                        </a>
+                    </article>
+                </div>
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
+
+<style>
+    .guardian-full-img {
+        width: 320px;
+        height: auto;
+        filter: drop-shadow(0 0 30px rgba(45, 124, 255, 0.4));
+    }
+
+    .guardian-msg-card {
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid var(--gold);
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: -40px;
+        position: relative;
+        z-index: 10;
+        max-width: 300px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .guardian-msg-card p {
+        font-style: italic;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #E7F0FF;
+    }
+
+    .game-grid-vertical {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .game-item-card {
+        display: grid;
+        grid-template-columns: 80px 1fr 200px;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 24px;
+        border-radius: 20px;
+        gap: 24px;
+        transition: all 0.3s ease;
+    }
+
+    .game-item-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--gold);
+        transform: translateX(10px);
+    }
+
+    .game-icon-wrap {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+    }
+
+    .game-tags {
+        display: flex;
+        gap: 10px;
+        margin-top: 12px;
+    }
+
+    .tag {
+        padding: 4px 12px;
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .tag-blue {
+        background: rgba(45, 124, 255, 0.2);
+        color: #7FB3FF;
+    }
+
+    .tag-gold {
+        background: rgba(241, 196, 15, 0.2);
+        color: #F1C40F;
+    }
+
+    .tag-purple {
+        background: rgba(231, 79, 210, 0.2);
+        color: #FF9CF0;
+    }
+
+    @media (max-width: 900px) {
+        .game-item-card {
+            grid-template-columns: 1fr;
+            text-align: center;
+            justify-items: center;
+        }
+
+        .game-item-info {
+            margin-bottom: 20px;
+        }
+
+        .game-tags {
+            justify-content: center;
+        }
+    }
+</style>
 {% endblock %}

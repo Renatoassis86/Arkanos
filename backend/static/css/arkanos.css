@@ -40,29 +40,51 @@ body.ark-body {
   overflow-x: hidden;
 }
 
-/* Forçar cores em seções claras */
-.bg-level-1,
-.bg-light,
-.guardioes-section {
+/* Forçar cores em seções claras - Definindo Temas de Fundo */
+.bg-ark-dark {
+  background: #0f172a !important;
+  color: #fff !important;
+}
+
+.bg-ark-light {
   background: #f8fafc !important;
   color: #0f172a !important;
 }
 
-.bg-level-1 h1,
-.bg-level-1 h2,
-.bg-level-1 h3,
-.bg-light h1,
-.bg-light h2,
-.bg-light h3,
-.guardioes-section h1,
-.guardioes-section h2,
-.guardioes-section h3 {
+.bg-ark-blue {
+  background: #1e293b !important;
+  color: #fff !important;
+}
+
+.bg-ark-slate {
+  background: #334155 !important;
+  color: #fff !important;
+}
+
+.bg-ark-gray {
+  background: #e2e8f0 !important;
   color: #0f172a !important;
 }
 
-.bg-level-1 p,
-.bg-light p,
-.guardioes-section p {
+.bg-ark-dark h2,
+.bg-ark-blue h2,
+.bg-ark-slate h2 {
+  color: #fff !important;
+}
+
+.bg-ark-light h2,
+.bg-ark-gray h2 {
+  color: #0f172a !important;
+}
+
+.bg-ark-dark p,
+.bg-ark-blue p,
+.bg-ark-slate p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.bg-ark-light p,
+.bg-ark-gray p {
   color: #475569 !important;
 }
 
@@ -534,14 +556,17 @@ body {
 }
 
 .thumb-flag {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 20px;
+  width: 240px;
+  /* Aumentado significativamente para destacar as fotos */
+  height: 240px;
+  margin-bottom: 25px;
   position: relative;
   clip-path: url(#u-flag);
   background: #000;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  border: 4px solid var(--gold);
+  transition: all 0.4s ease;
 }
 
 .thumb-img,

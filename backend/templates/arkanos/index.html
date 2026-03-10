@@ -3,13 +3,12 @@
 {% block title %}Arkanos — Início{% endblock %}
 
 {% block content %}
-{% include 'arkanos/sections/hero.html' %}
-{% include 'arkanos/sections/programas.html' %}
-{% include 'arkanos/sections/jogos.html' %}
-{% include 'arkanos/sections/diferenciais.html' %}
-{% include 'arkanos/sections/conteudos.html' %}
-{% include "arkanos/sections/passos.html" %}
-{% include 'arkanos/sections/guardioes.html' %}
-{% include 'arkanos/sections/metodologia.html' %}
-
+<div class="bg-ark-dark">{% include 'arkanos/sections/hero.html' %}</div>
+<div class="bg-ark-light">{% include 'arkanos/sections/programas.html' %}</div>
+<div class="bg-ark-blue">{% include 'arkanos/sections/jogos.html' %}</div>
+<div class="bg-ark-gray">{% include 'arkanos/sections/diferenciais.html' %}</div>
+<div class="bg-ark-dark">{% include 'arkanos/sections/conteudos.html' %}</div>
+<div class="bg-ark-blue">{% include "arkanos/sections/passos.html" %}</div>
+<div class="bg-ark-light">{% include 'arkanos/sections/guardioes.html' %}</div>
+<div class="bg-ark-dark">{% include 'arkanos/sections/metodologia.html' %}</div>
 {% endblock %}
