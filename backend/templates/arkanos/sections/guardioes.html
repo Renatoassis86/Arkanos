@@ -4,50 +4,47 @@
     <span class="badge">Quem guia a jornada</span>
     <h2 class="title" style="margin:8px 0 16px;">Guardiões do Trivium</h2>
 
-    <!-- Grid igual ao de Programas/Jogos -->
-    <div class="grid-3 guard-cards">
-      <!-- 1) Lyra — Gramática -->
-      <article class="card hover-rise">
+    <!-- Grid 3 -> 1 -->
+    <div class="steps-row" style="margin-top: 40px; margin-bottom: 20px;">
+      <!-- 1) Lyra -->
+      <article class="step-card">
         <div class="thumb-flag">
-          <video class="thumb-video" playsinline muted loop preload="metadata"
+          <video class="thumb-video" playsinline muted autoplay loop preload="metadata"
             poster="{% static 'img/personas/lyra_action.png' %}">
             <source src="{% remote_video 'videos/lyra-1080p.mp4' %}" type="video/mp4">
           </video>
         </div>
-        <div class="txt">
-          <span class="chip">Gramática</span>
-          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Lyra</h3>
-          <p class="muted">Palavras, sons e memórias que constroem linguagem. Missões de vocabulário e leitura.</p>
+        <div class="txt" style="text-align: center;">
+          <h3 class="step-title" style="font-family: 'Cinzel', serif; font-size: 1.25rem;">Lyra</h3>
+          <p class="step-text">Palavras, sons e memórias que constroem linguagem. Missões de vocabulário e leitura.</p>
         </div>
       </article>
 
-      <!-- 2) Kael — Retórica -->
-      <article class="card hover-rise">
+      <!-- 2) Kael -->
+      <article class="step-card">
         <div class="thumb-flag">
-          <video class="thumb-video" playsinline muted loop preload="metadata"
+          <video class="thumb-video" playsinline muted autoplay loop preload="metadata"
             poster="{% static 'img/personas/kael_action.png' %}">
             <source src="{% remote_video 'videos/kael-1080p.mp4' %}" type="video/mp4">
           </video>
         </div>
-        <div class="txt">
-          <span class="chip chip-amber">Retórica</span>
-          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Kael</h3>
-          <p class="muted">Expressão com verdade e caridade. Pesquisa, escrita e fala com coragem mansa.</p>
+        <div class="txt" style="text-align: center;">
+          <h3 class="step-title" style="font-family: 'Cinzel', serif; font-size: 1.25rem;">Kael</h3>
+          <p class="step-text">Expressão com verdade e caridade. Pesquisa, escrita e fala com coragem mansa.</p>
         </div>
       </article>
 
-      <!-- 3) Aion — Lógica -->
-      <article class="card hover-rise">
+      <!-- 3) Aion -->
+      <article class="step-card">
         <div class="thumb-flag">
-          <video class="thumb-video" playsinline muted loop preload="metadata"
+          <video class="thumb-video" playsinline muted autoplay loop preload="metadata"
             poster="{% static 'img/personas/aion_action.png' %}">
             <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
           </video>
         </div>
-        <div class="txt">
-          <span class="chip chip-blue">Lógica</span>
-          <h3 class="title" style="font-size:1.1rem; margin:.25rem 0 .35rem;">Aion</h3>
-          <p class="muted">Raciocínio, relações e prudência. Desafios e enigmas para ordenar o pensamento.</p>
+        <div class="txt" style="text-align: center;">
+          <h3 class="step-title" style="font-family: 'Cinzel', serif; font-size: 1.25rem;">Aion</h3>
+          <p class="step-text">Raciocínio, relações e prudência. Desafios e enigmas para ordenar o pensamento.</p>
         </div>
       </article>
     </div>

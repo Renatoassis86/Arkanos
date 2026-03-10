@@ -1,472 +1,457 @@
 ﻿{# parts/header.html #}
 {% load static %}
-<header
-  class="site-header {% if request.path == '/' or request.path == '' %}site-header--home{% else %}site-header--always-dark{% endif %}">
-  <!-- TOP BAR (Estilo Education) -->
-  <div class="header-top">
-    <div class="container header-top-inner">
-      <div class="top-slogan">Educação que permanece</div>
-      <div class="top-links">
-        <a href="#">Igreja</a>
-        <a href="#">Faculdade</a>
-        <a href="#">Academy</a>
-        <a href="#" class="education-link">Education</a>
-        <a href="#">Godstock</a>
+<div id="ark-header-wrapper">
+  <header id="ark-site-header"
+    class="{% if request.path == '/' or request.path == '' %}header-home{% else %}header-solid{% endif %}">
+    <!-- MINI TOP BAR -->
+    <div class="top-bar-mini">
+      <div class="container top-bar-inner">
+        <span class="slogan-text">Educação que permanece</span>
+        <nav class="top-nav">
+          <a href="#">Igreja</a>
+          <a href="#">Faculdade</a>
+          <a href="#" class="gold-link">Education</a>
+        </nav>
       </div>
     </div>
-  </div>
 
-  <!-- MAIN NAVIGATION -->
-  <div class="header-main">
-    <div class="container header-main-inner">
-      <!-- Logo Section -->
-      <div class="header-branding">
-        <a href="{% url 'arkanos:home' %}" class="brand-link">
-          <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="site-logo">
-          <span class="site-name">ARKANOS</span>
-        </a>
-      </div>
+    <!-- MAIN NAV BAR -->
+    <div class="main-bar">
+      <div class="container main-bar-inner">
 
-      <!-- Hamburger Menu (Mobile Only) -->
-      <button class="mobile-menu-btn" id="mobile-menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <!-- LOGO AREA -->
+        <div class="logo-area">
+          <a href="{% url 'arkanos:home' %}" class="logo-link">
+            <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="logo-img">
+            <span class="logo-text">ARKANOS</span>
+          </a>
+        </div>
 
-      <!-- Center Menu (Desktop View) -->
-      <nav class="main-navigation" id="main-navigation">
-        <div class="nav-links">
-          <a href="{% url 'arkanos:programas' %}" class="nav-link">Programas</a>
-          <a href="/#conteudos" class="nav-link">Conteúdos</a>
+        <!-- TOGGLE BTN (Mobile) -->
+        <button id="ark-mobile-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-          <!-- Desafios / Jogos Dropdown -->
-          <div class="nav-dropdown">
-            <span class="dropdown-trigger">Desafios ▾</span>
-            <div class="dropdown-content">
-              <div class="dropdown-group">
-                <span class="group-title">Gramática</span>
-                <a href="{% url 'jogos:spellingbee' %}">📜 Spelling Bee</a>
-                <a href="{% url 'jogos:radix' %}?mode=digitacao">⌨️ Radix Digitação</a>
-              </div>
-              <div class="dropdown-group">
-                <span class="group-title">Lógica</span>
-                <a href="{% url 'desafio_dos_sabios:index' %}">🏛️ Desafio dos Sábios</a>
+        <!-- NAVIGATION LINKS -->
+        <nav id="ark-main-nav">
+          <div class="nav-list">
+            <a href="{% url 'arkanos:programas' %}">Programas</a>
+            <a href="/#conteudos">Conteúdos</a>
+
+            <div class="nav-item-dropdown">
+              <span class="drop-trigger">Desafios ▾</span>
+              <div class="drop-menu">
+                <div class="drop-section">
+                  <h6>Gramática</h6>
+                  <a href="{% url 'jogos:spellingbee' %}">Spelling Bee</a>
+                  <a href="{% url 'jogos:radix' %}?mode=digitacao">Radix</a>
+                </div>
+                <div class="drop-section">
+                  <h6>Lógica</h6>
+                  <a href="{% url 'desafio_dos_sabios:index' %}">Desafio dos Sábios</a>
+                </div>
               </div>
             </div>
+
+            <a href="/#guardioes">Guardiões</a>
+            <a href="{% url 'ark:home' %}">Ark</a>
+            <a href="{% url 'arkanos:fale_conosco' %}">Fale Conosco</a>
           </div>
 
-          <a href="/#guardioes" class="nav-link">Guardiões</a>
-          <a href="{% url 'ark:home' %}" class="nav-link">Ark</a>
-          <a href="{% url 'arkanos:fale_conosco' %}" class="nav-link">Fale Conosco</a>
-        </div>
+          <!-- AUTH (Mobile View) -->
+          <div class="auth-mobile-zone">
+            {% if user.is_authenticated %}
+            <span class="welcome-user">Olá, {{ user.username|upper }}</span>
+            <a href="{% url 'arkanos:logout' %}" class="btn-primary">SAIR</a>
+            {% else %}
+            <a href="{% url 'arkanos:login' %}" class="btn-primary">ENTRAR</a>
+            <a href="{% url 'arkanos:cadastro' %}" class="btn-accent">CADASTRAR</a>
+            {% endif %}
+          </div>
+        </nav>
 
-        <!-- Mobile Side Menu Footer -->
-        <div class="auth-mobile">
+        <!-- AUTH (Desktop View) -->
+        <div class="auth-desktop-zone">
           {% if user.is_authenticated %}
-          <div class="user-info-mobile">
-            Olá, <strong>{{ user.username|upper }}</strong>
-          </div>
-          <a href="{% url 'arkanos:logout' %}" class="btn-ark btn-ark-primary">SAIR 🚪</a>
+          <span class="welcome-user">Olá, <span>{{ user.username|upper }}</span></span>
+          <a href="{% url 'arkanos:logout' %}" class="btn-mini">SAIR</a>
           {% else %}
-          <a href="{% url 'arkanos:login' %}" class="btn-ark btn-ark-primary">ENTRAR 🗝️</a>
-          <a href="{% url 'arkanos:cadastro' %}" class="btn-ark btn-ark-pink">CADASTRAR 🛡️</a>
+          <a href="{% url 'arkanos:login' %}" class="btn-mini border">ENTRAR</a>
+          <a href="{% url 'arkanos:cadastro' %}" class="btn-mini color">CADASTRAR</a>
           {% endif %}
         </div>
-      </nav>
 
-      <!-- Auth Section (Desktop Only) -->
-      <div class="auth-desktop">
-        {% if user.is_authenticated %}
-        <div class="user-authenticated">
-          <div class="user-peek">
-            Olá, <span>{{ user.username|upper }}</span>
-          </div>
-          <a class="btn-ark-small btn-ark-primary" href="{% url 'arkanos:logout' %}">SAIR</a>
-        </div>
-        {% else %}
-        <div class="auth-buttons">
-          <a class="btn-ark-small outline" href="{% url 'arkanos:login' %}">ENTRAR</a>
-          <a class="btn-ark-small btn-ark-primary" href="{% url 'arkanos:cadastro' %}">CADASTRAR</a>
-        </div>
-        {% endif %}
       </div>
     </div>
-  </div>
 
-  <style>
-    :root {
-      --header-bg: #0f172a;
-      --accent-color: #f1c40f;
-      --transition-speed: 0.3s;
-    }
-
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 2000;
-      transition: all var(--transition-speed) ease;
-    }
-
-    .header-top {
-      background: var(--header-bg);
-      height: 34px;
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.6);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .header-top-inner {
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .top-slogan {
-      white-space: nowrap;
-    }
-
-    .top-links {
-      display: flex;
-      gap: 15px;
-    }
-
-    .top-links a {
-      color: inherit;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .top-links a:hover,
-    .education-link {
-      color: var(--accent-color) !important;
-    }
-
-    .header-main {
-      height: 80px;
-      transition: all var(--transition-speed) ease;
-      background: transparent;
-    }
-
-    /* States */
-    .site-header--always-dark .header-main {
-      background: var(--header-bg);
-    }
-
-    .site-header--scrolled .header-main {
-      background: rgba(15, 23, 42, 0.98);
-      height: 70px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    .site-header--scrolled .header-top {
-      height: 0;
-      overflow: hidden;
-      border: none;
-    }
-
-    .header-main-inner {
-      height: 100%;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .header-branding {
-      flex-shrink: 0;
-    }
-
-    .brand-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .site-logo {
-      height: 44px;
-      width: auto;
-    }
-
-    .site-name {
-      font-family: 'Cinzel', serif;
-      color: #fff;
-      font-weight: 800;
-      font-size: 1.3rem;
-      letter-spacing: 2px;
-      display: block;
-    }
-
-    .main-navigation {
-      justify-self: center;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-link,
-    .dropdown-trigger {
-      color: rgba(255, 255, 255, 0.85) !important;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    .nav-link:hover,
-    .dropdown-trigger:hover {
-      color: var(--accent-color) !important;
-    }
-
-    /* Dropdown Logic - Desktop Only Styling */
-    .nav-dropdown {
-      position: relative;
-      padding: 10px 0;
-    }
-
-    .dropdown-content {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%) translateY(15px);
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      min-width: 260px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .nav-dropdown:hover .dropdown-content {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: translateX(-50%) translateY(5px);
-    }
-
-    .dropdown-group {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .group-title {
-      font-size: 0.6rem;
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.3);
-      text-transform: uppercase;
-      margin-bottom: 2px;
-    }
-
-    .dropdown-content a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.85rem;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-
-    .dropdown-content a:hover {
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--accent-color);
-    }
-
-    .auth-desktop {
-      flex-shrink: 0;
-    }
-
-    .user-authenticated,
-    .auth-buttons {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .user-peek {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-
-    .user-peek span {
-      color: var(--accent-color);
-    }
-
-    .btn-ark-small {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50px;
-      padding: 8px 20px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      text-decoration: none;
-      transition: all var(--transition-speed);
-      white-space: nowrap;
-      border: none;
-    }
-
-    .btn-ark-small.btn-ark-primary {
-      background: var(--accent-color);
-      color: #0f172a;
-    }
-
-    .btn-ark-small.outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-ark-small:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-    }
-
-    .mobile-menu-btn span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #fff;
-      margin: 4px 0;
-      transition: 0.3s;
-      border-radius: 2px;
-    }
-
-    .auth-mobile {
-      display: none;
-      padding: 20px;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    @media (max-width: 1200px) {
-
-      /* EARLY HAMBURGER TO AVOID CLUTTER */
-      .header-main-inner {
-        grid-template-columns: auto auto;
-        justify-content: space-between;
-      }
-
-      .main-navigation {
+    <style>
+      /* 
+       ARKANOS PREMIUM HEADER 
+       Specificity managed with IDs to prevent leakage 
+    */
+      #ark-header-wrapper {
         position: fixed;
         top: 0;
-        right: -100%;
-        width: 85%;
-        max-width: 320px;
-        height: 100vh;
-        background: var(--header-bg);
-        padding: 80px 30px;
-        transition: right 0.4s ease;
+        left: 0;
+        width: 100%;
+        z-index: 9999 !important;
+      }
+
+      #ark-site-header {
+        width: 100%;
+        transition: all 0.3s ease;
+        background: rgba(15, 23, 42, 0.5);
+        backdrop-filter: blur(0px);
+      }
+
+      #ark-site-header.header-solid,
+      #ark-site-header.scrolled {
+        background: rgba(15, 23, 42, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      #ark-site-header.scrolled .top-bar-mini {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+
+      /* TOP BAR */
+      .top-bar-mini {
+        height: 30px;
+        background: #0f172a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.4);
+        transition: all 0.3s;
+      }
+
+      .top-bar-inner {
+        height: 100%;
         display: flex;
-        flex-direction: column;
-        justify-self: auto;
-        z-index: 3000;
-        box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+        justify-content: space-between;
+        align-items: center;
       }
 
-      .main-navigation.active {
-        right: 0;
+      .top-nav {
+        display: flex;
+        gap: 15px;
       }
 
-      .nav-links {
-        flex-direction: column;
-        align-items: flex-start;
+      .top-nav a {
+        color: inherit;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .top-nav a:hover,
+      .gold-link {
+        color: #f1c40f !important;
+      }
+
+      /* MAIN BAR */
+      .main-bar {
+        height: 70px;
+        display: flex;
+        align-items: center;
+      }
+
+      .main-bar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
         gap: 20px;
       }
 
-      .nav-link,
-      .dropdown-trigger {
-        font-size: 1.1rem;
+      /* LOGO */
+      .logo-area {
+        flex-shrink: 0;
       }
 
-      .dropdown-content {
-        position: static;
-        transform: none;
+      .logo-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      .logo-text {
+        font-family: 'Cinzel', serif;
+        color: #fff;
+        font-weight: 900;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+      }
+
+      /* NAVIGATION */
+      #ark-main-nav {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav-list a,
+      .drop-trigger {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .nav-list a:hover,
+      .drop-trigger:hover {
+        color: #f1c40f;
+      }
+
+      /* Dropdown */
+      .nav-item-dropdown {
+        position: relative;
+        padding: 10px 0;
+      }
+
+      .drop-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        background: #1e293b;
+        border-radius: 12px;
+        padding: 16px;
+        min-width: 220px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: 0.3s;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-item-dropdown:hover .drop-menu {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        padding-left: 15px;
-        box-shadow: none;
-        border: none;
-        background: transparent;
+        transform: translateX(-50%) translateY(0);
       }
 
-      .mobile-menu-btn {
+      .drop-section h6 {
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.3);
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .drop-section a {
         display: block;
+        padding: 5px 0;
+        font-size: 12px !important;
+        text-transform: none !important;
+        color: #fff !important;
       }
 
-      .auth-desktop {
-        display: none;
-      }
-
-      .auth-mobile {
-        margin-top: auto;
+      /* AUTH ZONE */
+      .auth-desktop-zone {
+        flex-shrink: 0;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        align-items: center;
+        gap: 12px;
       }
 
-      .site-name {
+      .auth-mobile-zone {
         display: none;
       }
-    }
-  </style>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.site-header');
-      const mobileBtn = document.getElementById('mobile-menu-btn');
-      const mainNav = document.getElementById('main-navigation');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 30) { header.classList.add('site-header--scrolled'); }
-        else { header.classList.remove('site-header--scrolled'); }
-      });
-
-      if (mobileBtn && mainNav) {
-        mobileBtn.addEventListener('click', () => {
-          mainNav.classList.toggle('active');
-          mobileBtn.classList.toggle('active');
-          const spans = mobileBtn.querySelectorAll('span');
-          if (mobileBtn.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(-45deg) translate(-4px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(45deg) translate(-4px, -5px)';
-          } else {
-            spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
-          }
-        });
+      .welcome-user {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 11px;
+        font-weight: 700;
       }
-    });
-  </script>
-</header>
+
+      .welcome-user span {
+        color: #f1c40f;
+      }
+
+      .btn-mini {
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 10px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn-mini.color {
+        background: #f1c40f;
+        color: #0f172a;
+      }
+
+      .btn-mini.border {
+        border: 1.5px solid rgba(255, 255, 255, 0.2);
+        color: #fff;
+      }
+
+      .btn-mini:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+      }
+
+      /* MOBILE TOGGLE */
+      #ark-mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      #ark-mobile-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #fff;
+        margin: 4px 0;
+        transition: 0.3s;
+      }
+
+      /* RESPONSIVE RULES */
+      @media (max-width: 1200px) {
+        .logo-text {
+          display: none;
+        }
+
+        .nav-list {
+          gap: 15px;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .main-bar {
+          height: 60px;
+        }
+
+        #ark-mobile-toggle {
+          display: block;
+        }
+
+        .auth-desktop-zone {
+          display: none;
+        }
+
+        #ark-main-nav {
+          position: fixed;
+          top: 0;
+          right: -110%;
+          width: 85%;
+          max-width: 320px;
+          height: 100vh;
+          background: #0f172a;
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 100px 40px;
+          transition: 0.4s;
+          box-shadow: -10px 0 50px rgba(0, 0, 0, 0.5);
+          z-index: 8888;
+        }
+
+        #ark-main-nav.active {
+          right: 0;
+        }
+
+        .nav-list {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+          gap: 20px;
+        }
+
+        .nav-list a,
+        .drop-trigger {
+          font-size: 1.2rem !important;
+        }
+
+        .drop-menu {
+          position: static;
+          transform: none !important;
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          background: none;
+          border: none;
+          box-shadow: none;
+          padding-left: 20px;
+          padding-top: 10px;
+        }
+
+        .auth-mobile-zone {
+          display: flex;
+          flex-direction: column;
+          margin-top: auto;
+          gap: 10px;
+        }
+
+        .btn-primary {
+          background: #f1c40f;
+          color: #0f172a;
+          padding: 12px;
+          text-align: center;
+          font-weight: 800;
+          border-radius: 8px;
+          text-decoration: none;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        const header = document.getElementById('ark-site-header');
+        const toggle = document.getElementById('ark-mobile-toggle');
+        const nav = document.getElementById('ark-main-nav');
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 40) { header.classList.add('scrolled'); }
+          else { header.classList.remove('scrolled'); }
+        });
+
+        if (toggle && nav) {
+          toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            toggle.classList.toggle('active');
+            const spans = toggle.querySelectorAll('span');
+            if (toggle.classList.contains('active')) {
+              spans[0].style.transform = 'rotate(-45deg) translate(-4px, 5px)';
+              spans[1].style.opacity = '0';
+              spans[2].style.transform = 'rotate(45deg) translate(-4px, -5px)';
+            } else {
+              spans[0].style.transform = 'none'; spans[1].style.opacity = '1'; spans[2].style.transform = 'none';
+            }
+          });
+        }
+      })();
+    </script>
+  </header>
+</div>

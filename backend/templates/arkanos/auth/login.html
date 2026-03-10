@@ -1,65 +1,132 @@
 {% extends 'arkanos/base.html' %}
-{% block header %}{% endblock %}
-{% block footer %}{% endblock %}
 {% load static %}
+{% block header %}{% include 'arkanos/parts/header.html' %}{% endblock %}
+{% block footer %}{% endblock %}
 {% block title %}Entre pelo Portal — Academia Arkanos{% endblock %}
 
 {% block head_extra %}
 <link rel="stylesheet" href="{% static 'css/auth-rpg.css' %}">
+<style>
+  /* Extra style for the 2-column layout */
+  .auth-container {
+    display: flex;
+    min-height: calc(100vh - 100px);
+    margin-top: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .auth-split {
+    display: flex;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  }
+
+  .auth-visual {
+    flex: 1;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    position: relative;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .auth-visual .guardian-img {
+    max-width: 320px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .auth-visual h2 {
+    font-family: 'Cinzel', serif;
+    color: #f1c40f;
+    margin-top: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .auth-form-side {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .auth-visual {
+      display: none;
+    }
+
+    .auth-split {
+      max-width: 450px;
+    }
+  }
+</style>
 {% endblock %}
 
 {% block content %}
-<section class="auth-section">
-  <div class="auth-card">
-    <div class="auth-header">
-      <div class="header-decoration">
-        <div class="text-5xl floating-icon">📜</div>
-      </div>
-      <h1>Bem-vindo de volta!</h1>
-      <p>Sua jornada o aguarda.</p>
+<div class="auth-container">
+  <div class="auth-split">
+    <!-- Visual Side -->
+    <div class="auth-visual">
+      <img src="{% static 'img/personas/aion.png' %}" alt="Aion" class="guardian-img">
+      <h2>Proteja seu Legado</h2>
+      <p class="muted" style="color: rgba(255,255,255,0.5); text-align: center; margin-top: 10px;">A inteligência de
+        Aion protege cada passo da sua jornada.</p>
     </div>
 
-    {% if messages %}
-    <div class="space-y-4 mb-6">
-      {% for message in messages %}
-      <div class="alert {% if message.tags == 'error' %}alert-error{% else %}alert-success{% endif %}">
-        {% if message.tags == 'error' %}<span>⚠️</span>{% else %}<span>✅</span>{% endif %}
-        {{ message }}
-      </div>
-      {% endfor %}
-    </div>
-    {% endif %}
-
-    <form method="POST" class="space-y-6">
-      {% csrf_token %}
-      <input type="hidden" name="next" value="{{ next }}">
-
-      <div class="form-group">
-        <label class="form-label" for="email">E-mail</label>
-        <input type="email" name="email" id="email" class="form-input" placeholder="heroi@arkanos.com" required
-          autofocus>
+    <!-- Form Side -->
+    <div class="auth-form-side">
+      <div class="auth-header" style="text-align: left; margin-bottom: 40px;">
+        <h1 style="font-family: 'Cinzel', serif; color: #fff; font-size: 2.2rem; margin-bottom: 10px;">Login</h1>
+        <p style="color: #64748b;">Bem-vindo à Academia Arkanos.</p>
       </div>
 
-      <div class="form-group">
-        <label class="form-label" for="password">Senha</label>
-        <input type="password" name="password" id="password" class="form-input" placeholder="••••••••" required>
-      </div>
-
-      <button type="submit" class="btn-rpg-auth">
-        CONTINUAR JORNADA ⚔️
-      </button>
-
-      <div class="auth-footer">
-        <p>Novo viajante?
-          <a href="{% url 'arkanos:cadastro' %}?next={{ next }}">Junte-se à Academia</a>
-        </p>
-        <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-glass); padding-top: 1rem;">
-          <a href="{% url 'arkanos:home' %}" class="btn-back-home">
-            Voltar ao Início
-          </a>
+      {% if messages %}
+      <div class="space-y-4 mb-6">
+        {% for message in messages %}
+        <div class="alert {% if message.tags == 'error' %}alert-error{% else %}alert-success{% endif %}">
+          {{ message }}
         </div>
+        {% endfor %}
       </div>
-    </form>
+      {% endif %}
+
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input type="email" name="email" class="form-input" placeholder="seu@email.com" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Senha</label>
+          <input type="password" name="password" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-rpg-auth">
+          ENTRAR NO PORTAL
+        </button>
+
+        <div class="auth-footer" style="margin-top: 30px; text-align: left;">
+          <p>Não tem conta? <a href="{% url 'arkanos:cadastro' %}" style="color: #f1c40f;">Cadastre-se</a></p>
+          <p style="margin-top: 15px;"><a href="{% url 'arkanos:home' %}"
+              style="font-size: 0.8rem; opacity: 0.6;">Voltar ao Início</a></p>
+        </div>
+      </form>
+    </div>
   </div>
-</section>
+</div>
 {% endblock %}
