@@ -101,11 +101,12 @@
                     <div class="flex justify-between items-end mb-2">
                         <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Mission
                             Progress</span>
-                        <span class="font-bold text-logos-blue text-xs" id="progress-text">QUEST 1/15</span>
+                        <span class="font-bold text-xs" style="color: var(--current-theme);" id="progress-text">QUEST
+                            1/15</span>
                     </div>
                     <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                        <div id="bar-progress" class="h-full bg-logos-blue transition-all duration-500"
-                            style="width: 7%"></div>
+                        <div id="bar-progress" class="h-full transition-all duration-500"
+                            style="width: 7%; background: var(--current-theme);"></div>
                     </div>
                 </div>
             </div>
@@ -201,10 +202,10 @@
                     }
 
                     .gate-form-panel {
-                        background: rgba(15, 23, 42, 0.95);
+                        background: #0a111f;
                         padding: 40px;
                         border-radius: 30px;
-                        border: 1px solid var(--gold);
+                        border: 2px solid var(--current-theme);
                         box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
                     }
                 </style>
@@ -480,9 +481,9 @@
             let currentWord = null;
 
             const guardians = {
-                '2ano': { name: 'Aion', char: 'aion', class: 'aion-char', theme: 'theme-aion', intro: "Salutations! I am Aion. Let us begin your training." },
-                '3ano': { name: 'Lyra', char: 'lyra', class: 'lyra-char', theme: 'theme-lyra', intro: "Greetings! I am Lyra. Let us explore the magic of words!" },
-                '4ano': { name: 'Aion', char: 'aion', class: 'aion-char', theme: 'theme-aion', intro: "Greetings, traveler. I am Aion. Let us test your precision." }
+                '2ano': { name: 'Lyra', char: 'lyra', class: 'guardian-char lyra-char', theme: 'theme-lyra', intro: "Salutations! I am Lyra. Let us begin your training." },
+                '3ano': { name: 'Lyra', char: 'lyra', class: 'guardian-char lyra-char', theme: 'theme-lyra', intro: "Greetings! I am Lyra. Let us explore the magic of words!" },
+                '4ano': { name: 'Lyra', char: 'lyra', class: 'guardian-char lyra-char', theme: 'theme-lyra', intro: "Greetings, traveler. I am Lyra. Let us test your precision." }
             };
 
             const setupUI = (user) => {

@@ -11,14 +11,15 @@
     --rpg-bg: #F8FAFC;
     --rpg-border: #E2E8F0;
 
-    /* Guardian Identity */
-    --lyra: #C41E3A;
-    /* Rubi - No Purple Rule */
-    --aion: #1976D2;
-    /* Azul Meia-noite */
-    --kael: #B8860B;
-    /* Ouro */
-    --current-theme: var(--rpg-gold);
+    /* Guardian Identities - Premium Palette */
+    --lyra: #FF4081;
+    /* Gramática - Magenta Vibrante */
+    --aion: #2D7CFF;
+    /* Lógica - Azul Arkanos */
+    --kael: #10B981;
+    /* Retórica - Esmeralda */
+
+    --current-theme: var(--aion);
 }
 
 /* VICTORY & GAME FLOW IMPROVEMENTS */
@@ -133,13 +134,14 @@ img {
 
 .hud-top {
     width: 100%;
-    padding: 1.5rem 3rem;
+    padding: 1rem 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(12px);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    background: #0a0f1c !important;
+    /* Dark Tone from Site */
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
     z-index: 100;
 }
 
@@ -407,23 +409,26 @@ img {
 
 /* GUARDIAN POSSESSION */
 .guardian-char {
-    width: 280px;
-    height: 320px;
+    width: 320px;
+    height: 400px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
-    animation: floating 4s ease-in-out infinite;
+    animation: floating-breathing 5s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(var(--current-theme-rgb), 0.4));
 }
 
-@keyframes floating {
+@keyframes floating-breathing {
 
     0%,
     100% {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+        filter: drop-shadow(0 0 30px rgba(var(--current-theme-rgb), 0.4)) brightness(1);
     }
 
     50% {
-        transform: translateY(-15px);
+        transform: translateY(-20px) scale(1.02);
+        filter: drop-shadow(0 0 50px rgba(var(--current-theme-rgb), 0.6)) brightness(1.1);
     }
 }
 
@@ -465,27 +470,27 @@ img {
 
 /* THEMES & CHARACTERS */
 .theme-lyra {
-    --current-theme: #C41E3A;
-    --current-theme-rgb: 196, 30, 58;
+    --current-theme: var(--lyra);
+    --current-theme-rgb: 255, 64, 129;
 }
 
 .theme-aion {
-    --current-theme: #0F172A;
-    --current-theme-rgb: 15, 23, 42;
+    --current-theme: var(--aion);
+    --current-theme-rgb: 45, 124, 255;
 }
 
 .theme-kael {
-    --current-theme: #D32F2F;
-    --current-theme-rgb: 211, 47, 47;
+    --current-theme: var(--kael);
+    --current-theme-rgb: 16, 185, 129;
 }
 
 .theme-logos {
-    --current-theme: #1E3A8A;
-    --current-theme-rgb: 30, 58, 138;
+    --current-theme: var(--aion);
+    --current-theme-rgb: 45, 124, 255;
 }
 
 .theme-grammatica {
-    --current-theme: #FF4081;
+    --current-theme: var(--lyra);
     --current-theme-rgb: 255, 64, 129;
 }
 
