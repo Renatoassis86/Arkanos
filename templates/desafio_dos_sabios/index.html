@@ -76,8 +76,8 @@
         top: 0;
     }
 
-    /* Lyra Background Video */
-    .lyra-video-bg {
+    /* Aion Background Video */
+    .aion-video-bg {
         position: fixed;
         top: 0;
         left: 0;
@@ -86,14 +86,14 @@
         z-index: -1;
         pointer-events: none;
         overflow: hidden;
-        opacity: 0.15; /* Bem transparente como solicitado */
-        background: #020617; /* Slate escuro de fundo */
+        opacity: 0.25; /* Slightly more visible for aion */
+        background: #020617; 
     }
-    .lyra-video-bg video {
+    .aion-video-bg video {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: saturate(1.2) contrast(1.1) brightness(0.9);
+        filter: saturate(1.1) contrast(1.1) brightness(0.85);
     }
 
     .hud-context-center {
@@ -411,9 +411,10 @@
     .selection-btn .btn-label {
         font-family: 'Cinzel', serif;
         font-weight: 900;
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         color: #1e293b;
-        letter-spacing: -0.5px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
     }
 
     .selection-btn .btn-badge {
@@ -438,14 +439,16 @@
     .section-divider h4 {
         font-family: 'Cinzel', serif;
         font-weight: 900;
-        font-size: 0.9rem;
-        color: #94a3b8;
-        letter-spacing: 3px;
+        font-size: 1rem;
+        color: #1e293b;
+        letter-spacing: 4px;
         white-space: nowrap;
-        background: #f8fafc;
-        padding: 4px 16px;
-        border: 2px solid #e2e8f0;
+        background: white;
+        padding: 8px 24px;
+        border: 2px solid #f1c40f;
         border-radius: 99px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        text-transform: uppercase;
     }
 
     .section-divider .line {
@@ -583,7 +586,7 @@
         width: 100%;
         height: 100%;
         background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
-        opacity: 0.2;
+        opacity: 0.4;
         pointer-events: none;
     }
 
@@ -1285,11 +1288,105 @@
             transform: rotate(360deg);
         }
     }
+
+    /* --- Arkanos 2026 UI Enhancements --- */
+    .premium-header {
+        font-family: 'Cinzel', serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        background: linear-gradient(to bottom, #f1c40f, #b45309);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .premium-header::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #f1c40f, transparent);
+    }
+
+    .box-container-arkanos {
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 32px !important;
+        box-shadow: 
+            0 20px 50px rgba(0, 0, 0, 0.08),
+            0 0 0 1px rgba(255, 255, 255, 1) inset !important;
+        transition: all 0.4s ease;
+    }
+
+    .dark-panel-arkanos {
+        background: rgba(15, 23, 42, 0.85) !important;
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 32px !important;
+        box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    .section-title-wrap {
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .section-title-wrap h3 {
+        font-family: 'Cinzel', serif;
+        font-weight: 900;
+        font-size: 2.25rem !important;
+        color: #1e293b;
+        letter-spacing: -0.02em;
+    }
+
+    .discovery-box {
+        border-radius: 24px !important;
+        background: rgba(255, 255, 255, 0.98) !important;
+        border: 1px solid rgba(241, 196, 15, 0.3) !important;
+        box-shadow: 
+            0 20px 40px rgba(0, 0, 0, 0.05),
+            0 0 0 4px rgba(241, 196, 15, 0.05) !important;
+        position: relative;
+        padding: 3rem !important;
+    }
+
+    .discovery-tag {
+        font-family: 'Cinzel', serif;
+        font-weight: 900 !important;
+        letter-spacing: 2px;
+        background: #f1c40f !important;
+        color: #1e293b !important;
+        padding: 6px 24px !important;
+        border-radius: 99px !important;
+        position: absolute;
+        top: -16px;
+        left: 40px;
+        font-size: 11px !important;
+        box-shadow: 0 4px 12px rgba(241, 196, 15, 0.4);
+        text-transform: uppercase;
+    }
+
+    .discovery-content {
+        font-family: 'EB Garamond', serif !important;
+        font-size: 1.4rem !important;
+        line-height: 1.6 !important;
+        color: #334155 !important;
+    }
 </style>
 <div id="level-up-container" class="hidden level-up-overlay">
     <div class="level-up-card">
         <div class="level-up-shine">✨</div>
-        <h1 class="text-6xl font-black text-logos-gold mb-4">LEVEL UP!</h1>
+        <h1 class="premium-header text-6xl !mb-4">LEVEL UP!</h1>
         <p class="text-2xl text-slate-600 font-bold mb-8">Você evoluiu para o Nível <span id="new-level-val">2</span>!
         </p>
         <div class="px-8 py-4 bg-logos-blue text-white rounded-2xl font-black text-xl">SÁBIO ASCENDENTE</div>
@@ -1303,51 +1400,50 @@
     <div id="game-container" class="rpg-game-container theme-aion">
 
         <!-- HUD TOP - PROFESSIONAL GAME HEADER -->
-        <!-- LYRA ANIMATED BACKGROUND -->
-    <div class="lyra-video-bg">
-        <video autoplay muted loop playsinline poster="{% static 'img/personas/lyra_action.png' %}">
-            <source src="{% remote_video 'videos/lyra-1080p.mp4' %}" type="video/mp4">
+        <!-- AION ANIMATED BACKGROUND -->
+    <div class="aion-video-bg">
+        <video autoplay muted loop playsinline poster="{% static 'img/personas/aion_action.png' %}">
+            <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
         </video>
     </div>
 
     <div class="hud-top">
             <div class="flex items-center gap-6">
                 <a href="/" title="Voltar ao Início"
-                    class="back-link !bg-white/5 !text-slate-300 hover:!bg-white/10 hover:!text-logos-gold transition-all !p-2.5 !rounded-xl border border-white/10 block">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="back-link !bg-white/10 !text-white hover:!bg-white/20 transition-all !p-3 !rounded-2xl border border-white/20 block">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                 </a>
                 
                 <!-- Discrete Score Panel -->
-                <div class="flex flex-col items-start bg-black/30 px-4 py-1.5 rounded-xl border border-white/5 backdrop-blur-md">
-                    <span class="text-[8px] text-slate-500 font-black tracking-[0.2em] uppercase mb-0.5">SÁBIO POINTS</span>
-                    <span id="current-score" class="font-mono text-logos-gold font-black text-xl tracking-[0.1em] leading-none">0000</span>
+                <div class="flex flex-col items-start bg-black/40 px-6 py-2 rounded-2xl border border-white/10 backdrop-blur-xl">
+                    <span class="text-[9px] text-slate-400 font-black tracking-[0.2em] uppercase mb-0.5">SÁBIO POINTS</span>
+                    <span id="current-score" class="font-mono text-logos-gold font-black text-2xl tracking-[0.1em] leading-none">0000</span>
                 </div>
             </div>
 
             <!-- CENTRAL CONTEXT - THE MISSION PATH -->
             <div id="hud-context" class="hidden hud-context-center animate-fadeIn">
-                <div class="mission-title">Missão de Conhecimento</div>
+                <div class="mission-title">Jornada do Conhecimento</div>
                 <div class="mission-path">
                     <span id="val-grade" class="path-step">Grade</span>
-                    <span class="path-separator">|</span>
+                    <span class="path-separator">✨</span>
                     <span id="val-subject" class="path-step">Subject</span>
-                    <span class="path-separator">|</span>
+                    <span class="path-separator">✨</span>
                     <span id="val-av" class="path-step">AV1</span>
                 </div>
             </div>
 
             <!-- PLAYER COMMANDS -->
             <div class="flex items-center gap-6">
-                <div class="player-profile-highlight">
-                    <span class="text-xs uppercase tracking-widest">{{ request.user.username }}</span>
-                    <span class="text-sm">⚔️</span>
+                <div class="user-pill flex items-center bg-black/40 px-5 py-2.5 rounded-2xl border border-logos-gold/30 backdrop-blur-xl">
+                   <span class="welcome-user !text-sm !font-black !tracking-wider">MAGO <span>{{ request.user.username|upper }}</span></span>
                 </div>
 
                 <a href="{% url 'arkanos:jogos' %}" title="Sair do Jogo"
-                    class="exit-btn !px-4 !py-2 !bg-red-600/10 hover:!bg-red-600 !text-red-500 hover:!text-white transition-all rounded-xl text-[10px] font-black uppercase tracking-widest border border-red-500/20 flex items-center gap-2">
+                    class="exit-btn !px-6 !py-3 !bg-red-600/20 hover:!bg-red-600 !text-red-200 hover:!text-white transition-all rounded-2xl text-[11px] font-black uppercase tracking-widest border border-red-500/30 flex items-center gap-2 shadow-lg">
                     SAIR 🚪
                 </a>
             </div>
@@ -1389,17 +1485,16 @@
 
             <!-- 1. INITIAL SCREEN -->
             <div id="screen-welcome" class="text-center space-y-12 animate-fadeIn max-w-2xl mx-auto py-12">
-                <h2 class="font-black text-5xl text-logos-blue tracking-tight">DESAFIO DOS SÁBIOS</h2>
-                <p class="text-gray-500 text-xl max-w-md mx-auto mb-4">
+                <h2 class="premium-header text-5xl tracking-tight">DESAFIO DOS SÁBIOS</h2>
+                <p class="text-gray-400 text-xl max-w-md mx-auto mb-4 font-medium italic">
                     A jornada de Logos exige sabedoria. Teste seus conhecimentos e conquiste medalhas lendárias.
                 </p>
 
                 {% if not request.user.is_authenticated %}
                 <!-- GUEST WELCOME -->
-                <div class="p-8 bg-blue-50/50 rounded-3xl border-2 border-dashed border-blue-200 mt-12">
-                    <h3 class="font-bold text-xl text-logos-blue mb-4">Acesso Bloqueado</h3>
-                    <p class="text-gray-600 mb-8">Você precisa ser um guerreiro Arkanos para salvar seu progresso e
-                        ganhar recompensas nesta jornada.</p>
+                <div class="p-10 box-container-arkanos mt-12">
+                    <h3 class="premium-header text-2xl !mb-4">ACESSO BLOQUEADO</h3>
+                    <p class="text-slate-500 font-bold mb-8 uppercase text-xs tracking-widest">Você precisa ser um guerreiro Arkanos para salvar seu progresso nesta jornada.</p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="{% url 'arkanos:login' %}" class="btn-rpg-big primary px-12">ENTRAR 🗝️</a>
                         <a href="{% url 'arkanos:cadastro' %}" class="btn-rpg-big px-12 !bg-white">CADASTRAR-SE
@@ -1417,8 +1512,8 @@
 
                     <div class="flex flex-col gap-4 w-full">
                         <button id="btn-import-questions"
-                            class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md !text-white"
-                            style="background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%) !important; border: 2px solid #fde68a !important;">
+                            class="btn-rpg-big w-full py-6 justify-center transition-all shadow-md"
+                            style="background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 100%) !important; border: 2px solid #fde68a !important; color: #0f172a !important;">
                             FORMULAR PERGUNTAS 🧪
                         </button>
                         <button id="btn-ranking"
@@ -1443,8 +1538,7 @@
     <div id="screen-import" class="hidden space-y-8 animate-fadeIn w-full max-w-3xl mx-auto">
         <div class="flex items-center justify-between mb-8">
             <button onclick="showScreen('welcome')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h2 class="font-black text-3xl text-logos-blue tracking-tight text-center flex-1">FORMULAR
-                PERGUNTAS</h2>
+            <h2 class="premium-header text-3xl flex-1 text-center">FORMULAR PERGUNTAS</h2>
         </div>
 
         <div class="bg-white/80 backdrop-blur-md rounded-3xl p-8 border-2 border-slate-100 shadow-xl space-y-6">
@@ -1453,8 +1547,7 @@
                 automaticamente.</p>
 
             <div class="space-y-2">
-                <label class="text-[10px] font-black text-slate-400 tracking-widest uppercase">CONTEÚDO DO
-                    JSON</label>
+                <label class="text-[11px] font-black text-logos-blue/60 tracking-[0.2em] uppercase">CONTEÚDO DO JSON</label>
                 <textarea id="import-json-data"
                     class="w-full h-64 p-4 rounded-2xl bg-slate-50 border-2 border-slate-100 font-mono text-sm focus:border-logos-blue focus:ring-4 focus:ring-logos-blue/10 outline-none transition-all"
                     placeholder='{ "questions": [...] }'></textarea>
@@ -1479,30 +1572,30 @@
     <div id="screen-grades" class="hidden space-y-8 animate-fadeIn w-full">
         <div class="flex items-center justify-between mb-4">
             <button onclick="showScreen('welcome')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">SÉRIE</h3>
+            <h3 class="premium-header text-3xl flex-1 text-center">SÉRIE</h3>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="grade-list">
-            <!-- Dinamicamente preenchido -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4" id="grade-list">
+            <!-- Dinamicamente preenchido - 4 columns for horizontal feel -->
         </div>
     </div>
 
     <div id="screen-subjects" class="hidden space-y-8 animate-fadeIn w-full">
         <div class="flex items-center justify-between mb-4">
             <button onclick="showScreen('grades')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">DISCIPLINA</h3>
+            <h3 class="premium-header text-3xl flex-1 text-center">DISCIPLINA</h3>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="subject-list">
-            <!-- Dinamicamente preenchido -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4" id="subject-list">
+            <!-- Dinamicamente preenchido - 4 columns for horizontal feel -->
         </div>
     </div>
 
     <div id="screen-assessments" class="hidden space-y-8 animate-fadeIn w-full">
         <div class="flex items-center justify-between mb-4">
             <button onclick="showScreen('subjects')" class="btn-rpg-small">⬅ VOLTAR</button>
-            <h3 class="font-bold text-2xl flex-1 text-center font-cinzel">AVALIAÇÃO</h3>
+            <h3 class="premium-header text-3xl flex-1 text-center">AVALIAÇÃO</h3>
         </div>
-        <div class="grid grid-cols-1 gap-6" id="assessment-list">
-            <!-- Dinamicamente preenchido -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-6" id="assessment-list">
+            <!-- Dinamicamente preenchido - 3 unit cards in a row -->
         </div>
     </div>
 
@@ -1510,7 +1603,7 @@
 
     <!-- 3. TOPIC SELECTION -->
     <div id="screen-topics" class="hidden space-y-8 animate-fadeIn w-full">
-        <h3 class="font-bold text-3xl text-center">ESCOLHA O TEMA</h3>
+        <h3 class="premium-header text-3xl text-center">ESCOLHA O TEMA</h3>
         <div class="grid grid-cols-1 gap-4" id="topic-list">
             <!-- Dinamicamente preenchido -->
         </div>
@@ -1521,9 +1614,8 @@
         <!-- TIMER BAR -->
         <div class="w-full max-w-4xl mx-auto">
             <div class="flex justify-between items-center mb-2 px-4">
-                <span class="text-xs font-black text-slate-400 tracking-widest uppercase">Tempo
-                    Restante</span>
-                <span id="timer-text" class="font-mono font-bold text-logos-blue">01:00</span>
+                <span class="text-[10px] font-black text-slate-400 tracking-[0.2em] uppercase">TEMPO RESTANTE</span>
+                <span id="timer-text" class="font-mono font-bold text-logos-blue text-sm">01:00</span>
             </div>
             <div class="timer-container">
                 <div id="timer-bar"></div>
@@ -1563,7 +1655,7 @@
 
     <!-- 5. FEEDBACK / EXPLANATION -->
     <div id="screen-feedback" class="hidden space-y-4 animate-fadeIn text-center w-full max-w-3xl mx-auto">
-        <h2 id="feedback-title" class="text-4xl font-black italic tracking-tighter">CORRETO!</h2>
+        <h2 id="feedback-title" class="premium-header text-4xl italic tracking-tighter !mb-6">CORRETO!</h2>
 
         <div class="discovery-box glass-panel !border-logos-gold !p-6">
             <div id="discovery-tag" class="discovery-tag">SABEDORIA</div>
@@ -1586,7 +1678,7 @@
         <div class="trophy-victory animate-bounce-subtle mt-10">
             <span class="text-9xl">🏆</span>
         </div>
-        <h2 class="text-5xl font-black text-slate-800 tracking-tight">MISSÃO CUMPRIDA!</h2>
+        <h2 class="premium-header text-5xl tracking-tight !mb-4">MISSÃO CUMPRIDA!</h2>
         <p class="text-2xl text-slate-600 font-bold">Você é um verdadeiro Sábio Arkanos.</p>
 
         <div
@@ -1614,7 +1706,7 @@
     <!-- 7. RANKING SCREEN -->
     <div id="screen-ranking" class="hidden space-y-8 animate-fadeIn w-full">
         <div class="text-center">
-            <h3 class="font-black text-4xl text-logos-blue tracking-tighter italic">CHALLENGERS RANKING</h3>
+            <h3 class="premium-header text-4xl tracking-tighter italic">CHALLENGERS RANKING</h3>
             <div class="h-2 w-24 bg-logos-gold mx-auto mt-2"></div>
         </div>
 
@@ -1640,7 +1732,7 @@
 
     <!-- 8. HISTORY / PROGRESS SCREEN -->
     <div id="screen-history" class="hidden space-y-8 animate-fadeIn w-full">
-        <h3 class="font-bold text-3xl text-center">MEU PROGRESSO</h3>
+        <h3 class="premium-header text-3xl text-center">MEU PROGRESSO</h3>
         <div class="p-6 bg-slate-50 rounded-3xl border border-slate-200 space-y-6">
             <div>
                 <span class="stat-label">MINHAS CONQUISTAS</span>
@@ -1689,9 +1781,9 @@
         constructor() {
             this.synth = window.speechSynthesis;
             this.characters = {
-                lyra: { name: 'Lyra', pitch: 1.35, rate: 1.1 },  // Teenage girl
-                kael: { name: 'Kael', pitch: 1.15, rate: 1.1 },   // Teenage boy
-                aion: { name: 'Aion', pitch: 1.25, rate: 1.15 }  // Teenager guardian
+                lyra: { name: 'Lyra', pitch: 1.4, rate: 1.05 },  // Energetic girl
+                kael: { name: 'Kael', pitch: 1.1, rate: 1.0 },   // Calm boy
+                aion: { name: 'Aion', pitch: 1.3, rate: 1.1 }   // High-spirited adolescent guardian
             };
             this.currentCharacter = 'aion';
             this.voices = [];
@@ -1980,8 +2072,8 @@
 
                 return `
                     <div class="selection-btn ${lockedClass}" data-id="${finalId}" data-name="${g.name}">
-                        <span class="btn-badge">${badge}</span>
-                        <h4 class="btn-label">${g.name}</h4>
+                        <span class="btn-badge !bg-slate-800/10 !text-slate-500 !text-[9px] tracking-widest">${badge}</span>
+                        <h4 class="btn-label !font-black !text-2xl">${g.name}</h4>
                     </div>
                 `;
             }).join('');
@@ -2036,8 +2128,8 @@
 
         container.innerHTML = subjects.map(s => `
             <div class="selection-btn subject-btn" data-id="${s.id}" data-name="${s.name}">
-                <span class="btn-badge">Conhecimento</span>
-                <h4 class="btn-label">${s.name}</h4>
+                <span class="btn-badge !bg-slate-800/10 !text-slate-500 !text-[9px] tracking-widest uppercase">CONHECIMENTO</span>
+                <h4 class="btn-label !font-black !text-xl">${s.name}</h4>
             </div>
         `).join('');
 
@@ -2096,11 +2188,11 @@
             }).join('');
 
             return `
-                <div class="trimester-card p-10 rounded-[40px] shadow-2xl animate-fadeIn mb-10 border-4 border-slate-100 bg-white/90">
-                    <h3 class="text-3xl font-black text-slate-800 mb-8 text-center tracking-tighter" style="font-family: 'Cinzel', serif;">
+                <div class="trimester-card p-10 box-container-arkanos hover:scale-[1.02] transition-all flex flex-col justify-between min-h-[260px] cursor-default">
+                    <h3 class="premium-header text-2xl !mb-8">
                         ${tri.name}
                     </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-4">
                         ${buttonsHtml}
                     </div>
                 </div>
@@ -2165,9 +2257,9 @@
         }
 
         container.innerHTML = topics.map(t => `
-            <div class="selection-btn topic-btn" data-id="${t.id}" data-name="${t.name}">
-                <span class="btn-badge">Exploração</span>
-                <h4 class="btn-label">${t.name}</h4>
+            <div class="selection-btn topic-btn w-full" data-id="${t.id}" data-name="${t.name}">
+                <span class="btn-badge !bg-slate-800/10 !text-slate-500 !text-[9px] tracking-widest uppercase">EXPLORAÇÃO</span>
+                <h4 class="btn-label !font-black !text-xl">${t.name}</h4>
             </div>
         `).join('');
 
@@ -2327,7 +2419,10 @@
 
         // voiceService.speak(`Questão ${currentIndex + 1}. Prepare-se!`);
 
-        document.getElementById('quest-progress').innerText = `${currentIndex + 1}/${currentQuestions.length}`;
+        const progEl = document.getElementById('quest-progress-small') || document.getElementById('quest-progress');
+        if (progEl) {
+            progEl.innerText = `${currentIndex + 1}/${currentQuestions.length}`;
+        }
 
         startQuestionTimer();
 

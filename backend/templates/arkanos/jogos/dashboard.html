@@ -224,7 +224,7 @@
 <div class="dashboard-container">
     <div class="container">
         <header class="section-header">
-            {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated and request.user.perfilestudante %}
             <div
                 class="user-status-bar flex flex-wrap items-center justify-center gap-6 mb-12 bg-white/5 backdrop-blur-xl p-6 rounded-[2rem] border border-white/10 max-w-4xl mx-auto">
                 <div class="flex items-center gap-4">
@@ -259,6 +259,10 @@
                             style="width: {{ request.user.perfilestudante.progresso_nivel }}%"></div>
                     </div>
                 </div>
+            </div>
+            {% elif request.user.is_authenticated %}
+            <div class="text-center mb-12">
+                 <p class="text-slate-400">Bem-vindo, {{ request.user.username }}! Complete seu cadastro para ver seu progresso.</p>
             </div>
             {% endif %}
 
