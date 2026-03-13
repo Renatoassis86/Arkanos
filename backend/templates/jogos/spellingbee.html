@@ -73,53 +73,54 @@
 
             <div class="flex items-center gap-8">
                 <div class="hud-stats-pill">
-                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">STREAK</span>
-                    <span id="count-streak" class="font-bold text-logos-blue text-lg">00</span>
+                    <span>STREAK</span>
+                    <span id="count-streak">00</span>
                 </div>
                 <div class="hud-stats-pill">
-                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">SCORE</span>
-                    <span id="count-score" class="font-black text-logos-gold text-lg">0000</span>
+                    <span>SCORE</span>
+                    <span id="count-score">0000</span>
                 </div>
-                <a href="{% url 'arkanos:jogos' %}"
-                    class="btn-rpg-small !bg-red-50 !text-red-500 hover:!bg-red-500 hover:!text-white border-2 border-transparent">
+                <a href="{% url 'arkanos:jogos' %}" class="btn-leave-game">
                     LEAVE 🚪
                 </a>
             </div>
         </div>
-
-        <div class="game-arena">
-
-            <!-- GUARDIAN BUBBLE - CENTERED -->
-            <div class="w-full flex flex-col items-center mb-10">
-                <div id="character-guide" class="guardian-char lyra-char"></div>
-                <div class="bubble-wrap max-w-lg">
+        <div class="flex flex-col lg:grid lg:grid-cols-[400px_1fr] gap-8 items-start w-full max-w-7xl mx-auto px-4 mt-8">
+            
+            <!-- LEFT PANEL: GUARDIAN & PROGRESS -->
+            <div class="guardian-panel sticky top-24 flex flex-col items-center">
+                <div class="guardian-premium-box">
+                    <div id="character-guide" class="guardian-char lyra-char"></div>
+                    <div class="guardian-frame-shine"></div>
+                </div>
+                
+                <div class="bubble-wrap mt-6">
                     <div id="speech-bubble" class="bubble-content animate-reveal">
                         Greetings! I am Lyra. Are you ready to spell some words?
                     </div>
                 </div>
-                <div class="w-full max-w-sm mt-8 px-4">
+
+                <div class="w-full max-w-sm mt-4">
                     <div class="flex justify-between items-end mb-2">
-                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Mission
-                            Progress</span>
-                        <span class="font-bold text-xs" style="color: var(--current-theme);" id="progress-text">QUEST
-                            1/15</span>
+                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Mission Progress</span>
+                        <span class="font-bold text-xs" style="color: var(--current-theme);" id="progress-text">QUEST 1/15</span>
                     </div>
-                    <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-                        <div id="bar-progress" class="h-full transition-all duration-500"
+                    <div class="xp-system !bg-slate-200/50 rounded-full h-3 border border-white/20">
+                        <div id="bar-progress" class="xp-fill rounded-full h-full transition-all duration-700"
                             style="width: 7%; background: var(--current-theme);"></div>
                     </div>
                 </div>
             </div>
+
+            <!-- RIGHT PANEL: GAME CONTENT -->
+            <div class="game-main-panel w-full">
             <div id="screen-game" class="game-arena animate-fadeIn">
 
                 <!-- Arkanos Authentication Gate - STUDENT VERSION -->
                 <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
                     <div class="gate-seal-wrap">
-                        <div class="gate-character-wrap">
-                            <div class="gate-character lyra-char"></div>
-                            <div class="gate-bubble">
-                                "Saudações, Pequeno Herói! Diga-me quem é você para iniciarmos!"
-                            </div>
+                        <div class="gate-character-wrap hidden md:hidden">
+                            <!-- Removed duplicate Lyra to avoid redundancy -->
                         </div>
 
                         <div class="gate-form-panel">
@@ -243,12 +244,9 @@
                 </div>
             </div>
 
-            <!-- XP BAR -->
-            <div class="xp-system">
-                <div id="xp-bar-fill" class="xp-fill" style="width: 0%"></div>
-            </div>
-        </div>
-    </div>
+                </div>
+            </div> <!-- End Right Panel -->
+        </div> <!-- End Grid -->
 
     <!-- RANKING OVERLAY -->
     <div id="ranking-overlay" class="ranking-overlay hidden">
@@ -335,12 +333,49 @@
             }
 
             speak(text, rate = 0.85) {
-                window.speechSynthesis.cancel(); // Stop any pending speech
+                window.speechSynthesis.cancel();
                 const msg = new SpeechSynthesisUtterance(text);
                 msg.lang = 'en-US';
                 msg.rate = rate;
-                msg.pitch = 1.3; // ADOLESCENT VOICE PROFILE
+                msg.pitch = 1.35;
                 window.speechSynthesis.speak(msg);
+            }
+
+            promptWord(word) {
+                this.speak(`The word is: ${word}`, 0.8);
+            }
+
+            spellWord(word) {
+                const letters = word.split('').join('... ');
+                this.speak(`${letters}... ${word}`, 0.65);
+            }
+
+            startListening() {
+                return new Promise((resolve, reject) => {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    if (!SpeechRecognition) {
+                        alert("Your browser does not support speech recognition. Try Chrome.");
+                        return reject("Not supported");
+                    }
+
+                    const recognition = new SpeechRecognition();
+                    recognition.lang = 'en-US';
+                    recognition.interimResults = false;
+                    recognition.maxAlternatives = 1;
+
+                    recognition.onresult = (event) => {
+                        const transcript = event.results[0][0].transcript;
+                        console.log("Transcript received:", transcript);
+                        resolve(transcript);
+                    };
+
+                    recognition.onerror = (event) => {
+                        console.error("Recognition error:", event.error);
+                        reject(event.error);
+                    };
+
+                    recognition.start();
+                });
             }
 
             // New Student Login Logic
@@ -505,7 +540,7 @@
                 aidText.innerText = "Listen closely...";
                 document.getElementById('progress-text').innerText = `Quest ${game.currentIndex + 1}/${game.words.length}`;
                 updateStats();
-                game.promptWord(currentWord.palavra);
+                // game.promptWord(currentWord.palavra);
             };
 
             const startGame = async () => {
@@ -632,35 +667,46 @@
             });
 
             document.getElementById('btn-speak').addEventListener('click', async () => {
-                aidText.innerText = "Listening...";
+                const btn = document.getElementById('btn-speak');
+                const originalText = btn.innerHTML;
+                
+                aidText.innerText = "Listening... Speak now!";
+                btn.innerHTML = '<span>⏳</span> LISTENING...';
+                btn.classList.add('pulse-animation');
+
                 try {
                     const transcript = await game.startListening();
+                    aidText.innerText = "Analyzing...";
                     const result = await game.processAnswer(transcript);
+                    
                     if (result.success) {
                         document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
-                        document.getElementById('word-mystery').style.color = "#B8860B";
+                        document.getElementById('word-mystery').style.color = "#10b981"; // Success Green
                         guideBubble.innerText = result.cheer;
                         updateStats();
                         setTimeout(startRound, 2000);
                     } else if (result.gameOver) {
                         document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
-                        document.getElementById('word-mystery').style.color = "#EF4444";
+                        document.getElementById('word-mystery').style.color = "#ef4444"; // Error Red
 
                         const msg = "That is incorrect. Listen closely to the correct spelling.";
                         guideBubble.innerText = msg;
                         game.speak(msg, 0.85);
 
-                        // Spell the correct word
                         setTimeout(() => {
                             game.spellWord(currentWord.palavra);
-
-                            // Wait for spelling to finish then reload/restart
                             setTimeout(() => {
-                                showVictory(true); // Archive and show leaderboard
+                                showVictory(true);
                             }, 5000);
                         }, 2000);
                     }
-                } catch (err) { aidText.innerText = "Try again!"; }
+                } catch (err) { 
+                    console.error("Speech error:", err);
+                    aidText.innerText = "Microphone error. Try again!"; 
+                } finally {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('pulse-animation');
+                }
             });
 
             document.getElementById('btn-replay').addEventListener('click', () => {

@@ -1,4 +1,4 @@
-﻿{# parts/header.html #}
+{# parts/header.html #}
 {% load static %}
 <div id="ark-header-wrapper">
   <header id="ark-site-header"
@@ -24,7 +24,7 @@
         <!-- NAVIGATION LINKS -->
         <nav id="ark-main-nav">
           <div class="nav-list">
-            <a href="{% url 'arkanos:programas' %}">Programas</a>
+            <a href="/#programas">Programas</a>
             <a href="/#conteudos">Conteúdos</a>
 
             <a href="{% url 'arkanos:jogos' %}">Desafios</a>
@@ -35,7 +35,7 @@
           </div>
 
           <!-- AUTH (Mobile View) -->
-          <div class="auth-mobile-zone">
+          <div class="auth-mobile-zone hidden md:hidden">
             {% if user.is_authenticated %}
             <span class="welcome-user">Olá, {{ user.username|upper }}</span>
             <a href="{% url 'arkanos:logout' %}" class="btn-primary">SAIR</a>
@@ -403,7 +403,11 @@
         }
 
         .auth-mobile-zone {
-          display: flex;
+          display: none !important;
+        }
+
+        #ark-main-nav.active .auth-mobile-zone {
+          display: flex !important;
           flex-direction: column;
           margin-top: auto;
           gap: 10px;

@@ -138,11 +138,70 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #0a0f1c !important;
-    /* Dark Tone from Site */
-    backdrop-filter: blur(20px);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-    z-index: 100;
+    background: #020617 !important; /* Deep Navy Obsidian */
+    backdrop-filter: blur(24px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    z-index: 1000;
+}
+
+.player-info h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    color: #ffffff !important;
+    margin: 0;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.player-info .flex span {
+    color: #cbd5e1 !important; /* Lighter slate for sub-info */
+    font-size: 0.75rem;
+}
+
+.hud-stats-pill {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1.2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+.hud-stats-pill span:first-child {
+    color: #94a3b8 !important; /* Label color - visible slate */
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.hud-stats-pill span[id^="count-"] {
+    color: #ffffff !important; /* Dynamic value - pure white */
+    font-weight: 900;
+    font-size: 1.25rem;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.hud-stats-pill #count-score {
+    color: #fbbf24 !important; /* Golden for score */
+}
+
+.btn-leave-game {
+    background: #ef4444 !important;
+    color: white !important;
+    font-weight: 800;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    text-decoration: none !important;
+    transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-leave-game:hover {
+    background: #dc2626 !important;
+    transform: scale(1.05);
 }
 
 .player-card {
@@ -439,19 +498,53 @@ img {
 
 .bubble-content {
     background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-    border: 2px solid var(--current-theme);
-    font-size: 1.2rem;
+    padding: 1.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border: 3px solid var(--current-theme);
+    font-size: 1.15rem;
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.4;
     position: relative;
     text-align: center;
     width: 100%;
-    max-width: 500px;
-    /* Center-balanced bubble */
+    max-width: 450px;
     margin: 0 auto;
+    color: #1e293b;
+}
+
+.bubble-content::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid var(--current-theme);
+}
+
+/* PREMIUM GUARDIAN BOX */
+.guardian-premium-box {
+    position: relative;
+    width: 320px;
+    height: 380px;
+    background: radial-gradient(circle at 50% 50%, rgba(var(--current-theme-rgb), 0.15) 0%, transparent 70%);
+    border-radius: 40px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 20px;
+    border: 1px solid rgba(var(--current-theme-rgb), 0.2);
+    box-shadow: inset 0 0 60px rgba(var(--current-theme-rgb), 0.05);
+}
+
+.guardian-frame-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 40%, rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
 }
 
 /* LEVEL PROGRESS BAR (Bottom Stick) */
@@ -532,16 +625,26 @@ img {
 }
 
 .ranking-row {
-    display: flex;
-    justify-content: space-between;
+    display: grid !important;
+    grid-template-columns: 60px 1fr 100px 100px;
     padding: 0.8rem 1.2rem;
     margin-bottom: 0.6rem;
     background: white;
     border: 1px solid #FDE68A;
-    /* Amarelo ouro suave */
     border-radius: 12px;
     align-items: center;
     transition: transform 0.2s;
+    color: #1e293b;
+}
+
+.ranking-row .rank-name {
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.ranking-row .rank-score {
+    color: #b45309;
+    font-weight: 900;
 }
 
 .ranking-row.rise-up {
