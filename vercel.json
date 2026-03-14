@@ -26,6 +26,6 @@
   ],
   "env": {
     "DJANGO_SETTINGS_MODULE": "backend.core.settings",
-    "PYTHONPATH": "."
+    "PYTHONPATH": ".:backend"
   }
 }
