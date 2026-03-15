@@ -1450,12 +1450,13 @@
 <div class="container py-16">
     <div id="game-container" class="rpg-game-container theme-aion">
 
-        <!-- KAEL ANIMATED BACKGROUND -->
+        <!-- AION ANIMATED BACKGROUND -->
         <div class="absolute inset-0 pointer-events-none z-0">
             <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25">
-                <source src="{% remote_video 'videos/kael-1080p.mp4' %}" type="video/mp4">
+                <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
             </video>
         </div>
+
 
         <div class="hud-top">
             <div class="flex items-center gap-6">
@@ -1500,53 +1501,52 @@
         </div>
 
         <!-- ADDED: Intro Screen BEFORE game starts -->
-        <div id="screen-intro" class="hidden absolute inset-0 flex flex-col items-center justify-center animate-fadeIn z-[999] bg-slate-100/30 backdrop-blur-md">
-            <div class="guardian-premium-box mb-6 scale-125 bg-white border border-amber-500 shadow-2xl">
-                <div id="intro-character" class="guardian-char kael-char scale-110"></div>
+        <div id="screen-intro" class="hidden absolute inset-0 flex flex-col items-center justify-center animate-fadeIn z-[999] bg-white/5 dark:bg-black/20 backdrop-blur-md">
+            <div class="guardian-premium-box mb-2 scale-110" style="background: transparent !important; border: none !important; box-shadow: none !important;">
+                <div id="intro-character" class="guardian-char aion-char scale-100" style="background-image: url({% static 'arkanos/games/desafio_sabios_v2.png' %}); background-size: contain; background-repeat: no-repeat; background-position: center bottom; width: 260px; height: 300px; animation: floating-breathing 4s ease-in-out infinite;"></div>
+
             </div>
+            
             <div class="bubble-wrap max-w-lg mb-8">
-                <div id="intro-speech-bubble" class="bubble-content text-lg text-center font-black !p-6 shadow-2xl bg-white text-slate-800 borderborder-slate-200">
+                <div id="intro-speech-bubble" class="bubble-content text-lg text-center font-black !p-6 shadow-2xl bg-white/90 text-slate-800 border-2 border-slate-200/50 rounded-2xl">
                     Bem-vindo ao Desafio dos Sábios! A jornada de Logos exige sabedoria. Aperte Começar para iniciar os testes.
                 </div>
             </div>
-            <button id="btn-comencar-intro" class="btn-rpg-big px-16 py-6 text-2xl font-black rounded-2xl shadow-[0_10px_40px_rgba(245,158,11,0.5)] hover:scale-105 bg-gradient-to-r from-amber-500 to-amber-600 text-white flex items-center justify-center">
+            
+            <button id="btn-comencar-intro" class="btn-rpg-big px-16 py-6 text-2xl font-black rounded-2xl shadow-[0_10px_40px_rgba(59,130,246,0.3)] hover:scale-105 bg-gradient-to-r from-blue-500 to-blue-600 text-white flex items-center justify-center border-2 border-blue-400">
                 COMEÇAR ⚔️
             </button>
         </div>
 
+
         <div class="flex flex-col lg:flex-row w-full max-w-6xl mx-auto px-4 gap-8 my-8 gaming-arena-wrapper relative z-10">
         <!-- Screen sections go here and are centered by .game-arena -->
 
-        <!-- HUD SIDE (LEFT) -->
-        <div
-            class="w-full lg:w-1/3 flex flex-col items-center mb-10 lg:mb-0 lg:sticky lg:top-24 h-fit hud-side !bg-transparent !border-none !shadow-none !backdrop-blur-none p-0">
-            <div class="bubble-wrap max-w-sm mb-6">
-                <div id="guardian-msg" class="bubble-content text-sm">
+        <!-- LEFT PANEL: GUARDIAN (AION) -->
+        <div class="guardian-panel sticky top-24 flex flex-col items-center w-full lg:w-1/3">
+            <div class="bubble-wrap mt-6">
+                <div id="guardian-msg" class="bubble-content animate-reveal text-sm font-black p-4 text-center">
                     Bem-vindo ao Desafio dos Sábios! A jornada de Logos exige sabedoria. Clique em Iniciar Desafio para começar.
                 </div>
             </div>
             
-            <div class="guardian-premium-box scale-90 border-amber-500 shadow-[0_10px_30px_rgba(245,158,11,0.2)]">
-                <!-- Static character re-enabled as requested -->
-                <div class="guardian-char aion-char scale-110" style="background-image: url('{% static 'games/desafio_sabios_v2.png' %}'); background-size: cover; width:200px; height:200px;"></div>
-                <div class="guardian-frame-shine"></div>
+            <div class="guardian-premium-box mt-4 scale-90" style="background: transparent !important; border: none !important; box-shadow: none !important;">
+                <div class="guardian-char aion-char scale-100" style="background-image: url({% static 'arkanos/games/desafio_sabios_v2.png' %}); background-size: contain; background-repeat: no-repeat; background-position: center bottom; width: 220px; height: 240px; animation: floating-breathing 4s ease-in-out infinite;"></div>
             </div>
 
-            <div class="w-full mt-6 space-y-4 max-w-xs">
+            <div class="w-full max-w-sm mt-4 px-4">
                 <div id="stats-area" class="hidden w-full">
-                    <div class="flex justify-between items-end mb-2">
-                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Missão
-                            atual</span>
-                        <span class="font-bold text-xs" style="color: var(--current-theme);"
-                            id="quest-progress-small">0/10</span>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Progresso</span>
+                        <span class="font-bold text-xs text-blue-400" id="quest-progress-small">0/10</span>
                     </div>
-                    <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner">
-                        <div id="quest-bar" class="h-full transition-all duration-500"
-                            style="width: 0%; background: var(--current-theme);"></div>
+                    <div class="xp-system !bg-slate-800/60 rounded-full h-3 border border-white/5">
+                        <div id="quest-bar" class="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-blue-500 to-indigo-500" style="width: 0%;"></div>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- MAIN ARENA (RIGHT) -->
         <div class="w-full lg:w-2/3 flex flex-col items-center justify-center animate-fadeIn min-h-[400px]">
@@ -2237,38 +2237,58 @@
 
         const findMatch = (triId, avType) => {
             if (!dbAssessments) return null;
-
-            // Log for debugging (internal)
-            console.log(`Searching for Tri:${triId}, AV:${avType} in:`, dbAssessments.map(a => a.name));
-
             const normalizedAv = avType.toUpperCase().replace(/\s/g, '');
-
             return dbAssessments.find(a => {
                 const name = a.name.toUpperCase();
-                const hasTrimester = name.includes(`${triId}º`) || name.includes(`${triId} TRIM`) || name.includes(`UNIDADE ${triId}`) || name.includes(`U${triId}`);
-                const hasAV = name.includes(normalizedAv) || name.includes(avType.replace(/(\d+)/, ' $1'));
+                const hasTrimester = name.includes(`${triId}º`) || name.includes(`${triId} TRIM`) || name.includes(`UNIDADE ${triId}`);
+                const hasAV = name.includes(normalizedAv);
                 return hasTrimester && hasAV;
-            }) || dbAssessments.find(a => a.name.toUpperCase().includes(normalizedAv));
+            }) || dbAssessments.find(a => a.name.toUpperCase().includes(normalizedAv) && triId === 1); // fallback
+        };
+
+        const checkPass = (subject, avId) => {
+             return localStorage.getItem(`pass_${subject}_${avId}`) === 'true';
         };
 
         container.innerHTML = trimesters.map(tri => {
-            const avs = ['AV1', 'AV2'];
+            const avs = ['AV1', 'AV2', 'PROVA GLOBAL'];
+            
+            // Find Matches
+            const mAv1 = findMatch(tri.id, 'AV1');
+            const mAv2 = findMatch(tri.id, 'AV2');
+            const mGlobal = findMatch(tri.id, 'PROVA GLOBAL') || findMatch(tri.id, 'GLOBAL');
+
+            const passedAv1 = mAv1 ? checkPass(window.selectedSubject, mAv1.id) : false;
+            const passedAv2 = mAv2 ? checkPass(window.selectedSubject, mAv2.id) : false;
+
             const buttonsHtml = avs.map(av => {
-                const match = findMatch(tri.id, av);
-                if (match) {
-                    return `
-                        <button class="btn-rpg-big py-5 justify-center text-base assessment-btn active-av" data-id="${match.id}">
-                            ${av} <span class="ml-2">⚔️</span>
-                        </button>`;
+                let match = null;
+                let isLocked = false;
+                let scoreReason = "";
+
+                if (av === 'AV1') {
+                    match = mAv1;
+                } else if (av === 'AV2') {
+                    match = mAv2;
+                    if (!passedAv1) { isLocked = true; scoreReason = "Aproveitamento AV1 < 50%"; }
+                } else {
+                    match = mGlobal;
+                    if (!passedAv1 || !passedAv2) { isLocked = true; scoreReason = "Requer AV1 e AV2 aprovados"; }
                 }
-                return `
-                    <button class="btn-rpg-big py-5 justify-center text-base opacity-40 cursor-not-allowed locked-av" disabled>
-                        ${av} <span class="ml-2">🔒</span>
-                    </button>`;
+
+                if (!match) {
+                     return `<button class="btn-rpg-big py-5 justify-center text-xs opacity-30 cursor-not-allowed locked-av" disabled>${av} <span class="ml-1">🔒</span><br><span class="text-[8px] opacity-70">Sem Perguntas</span></button>`;
+                }
+
+                if (isLocked) {
+                     return `<button class="btn-rpg-big py-5 justify-center text-xs opacity-50 cursor-not-allowed locked-av" disabled>${av} <span class="ml-1">🔒</span><br><span class="text-[8px] opacity-70">${scoreReason}</span></button>`;
+                }
+
+                return `<button class="btn-rpg-big py-5 justify-center text-sm assessment-btn active-av" data-id="${match.id}">${av} <span class="ml-2">⚔️</span></button>`;
             }).join('');
 
             return `
-                <div class="trimester-card p-10 box-container-arkanos hover:scale-[1.02] transition-all flex flex-col justify-between min-h-[260px] cursor-default">
+                <div class="trimester-card p-10 box-container-arkanos hover:scale-[1.02] transition-all flex flex-col justify-between min-h-[260px] cursor-default bg-slate-900/40 border border-slate-800">
                     <h3 class="premium-header text-2xl !mb-8">
                         ${tri.name}
                     </h3>
@@ -2279,16 +2299,16 @@
             `;
         }).join('');
 
-        // Delegação de evento para o container
         container.onclick = (e) => {
             const btn = e.target.closest('.assessment-btn');
             if (btn && btn.dataset.id) {
                 playSound('next');
-                const avLabel = btn.innerText.replace('⚔️', '').trim();
+                const avLabel = btn.innerText.split('⚔️')[0].trim();
                 selectAssessment(btn.dataset.id, avLabel);
             }
         };
     };
+
 
     const selectAssessment = async (assessmentId, avLabel) => {
         // Validação e Fallback reforçado
@@ -2784,6 +2804,11 @@
         const seconds = durationSeconds % 60;
         const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
+        const scoreRatio = correctAnswers / currentQuestions.length;
+        if (scoreRatio >= 0.5) {
+            localStorage.setItem(`pass_${window.selectedSubject}_${window.selectedAssessment}`, 'true');
+        }
+
         const results = await engine.finishSession(score, {
             correctAnswers: correctAnswers,
             totalQuestions: currentQuestions.length,
@@ -2793,6 +2818,7 @@
         document.getElementById('final-score').innerText = results.score;
         updateRankingDisplay(timeStr); // Pass current time to display
     };
+
 
     const showLevelUpOverlay = () => {
         const overlay = document.getElementById('level-up-container');
