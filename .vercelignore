@@ -32,8 +32,10 @@ db.sqlite3
 
 
 # CRITICAL OVERRIDE: Ignore these heavy files regardless of folder inclusion
+/backend/static/img/quiz_linked/
 **/*.mp4
 **/*.mp3
+
 **/*.wav
 **/*.mov
 **/*.MOV
