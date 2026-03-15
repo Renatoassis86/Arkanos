@@ -112,6 +112,71 @@
     .back-link {
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
+    /* circular frame with mask for Lyra */
+    .guardian-premium-box {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        aspect-ratio: 1/1;
+        width: 220px !important;
+        height: 220px !important;
+        border: 4px solid var(--lyra) !important;
+        background: #0d1522 !important; 
+        box-shadow: 0 0 30px rgba(244, 114, 182, 0.2);
+    }
+    
+    .guardian-char {
+        background-color: transparent !important;
+        border-radius: 50%;
+    }
+
+    /* animated intuitiva progress bar */
+    .xp-fill {
+        background: linear-gradient(90deg, var(--current-theme), #f472b6, #60a5fa) !important;
+        box-shadow: 0 0 12px var(--current-theme);
+        position: relative;
+        overflow: hidden;
+    }
+    .xp-fill::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        animation: shine-bar 2.5s infinite;
+    }
+    @keyframes shine-bar {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+
+    /* Horizonal login gate layout */
+    .gate-seal-wrap {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 3rem !important;
+        width: 100% !important;
+        max-width: 900px !important;
+    }
+
+    @media (max-width: 768px) {
+        .gate-seal-wrap {
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+        }
+    }
+
+    .gate-character-wrap {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+    }
+
+    /* Hide redundant left panel when login is visible */
+    .rpg-game-container:has(#screen-login:not(.hidden)) .guardian-panel {
+        display: none !important;
+    }
 </style>
 {% endblock %}
 
@@ -137,7 +202,7 @@
                     </svg>
                 </a>
                 <div class="player-card">
-                    <div class="avatar-shield">SAGE</div>
+                    <div class="avatar-shield">🎮</div>
                     <div class="player-info">
                         <h1 id="txt-username">{{ request.user.username|upper }}</h1>
                         <div class="flex gap-2 items-center">
@@ -211,8 +276,16 @@
                 <!-- Arkanos Authentication Gate - STUDENT VERSION -->
                 <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
                     <div class="gate-seal-wrap">
-                        <div class="gate-character-wrap hidden md:hidden">
-                            <!-- Removed duplicate Lyra to avoid redundancy -->
+                        <div class="gate-character-wrap">
+                            <div class="guardian-premium-box !w-60 !h-60 mx-auto">
+                                <div class="guardian-char lyra-char"></div>
+                                <div class="guardian-frame-shine"></div>
+                            </div>
+                            <div class="bubble-wrap mt-6 !max-w-xs">
+                                <div class="bubble-content">
+                                    Greetings! Make your entrance into the Arkanos Academy.
+                                </div>
+                            </div>
                         </div>
 
                         <div class="gate-form-panel">
