@@ -1,4 +1,4 @@
-﻿{% extends 'arkanos/base.html' %}
+{% extends 'arkanos/base.html' %}
 {% load static %}
 
 {% block title %}Radix — Arkanos Quest{% endblock %}
@@ -12,45 +12,69 @@
     .hidden {
         display: none !important;
     }
+    .hud-top {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        border-radius: 20px !important;
+        padding: 10px 24px !important;
+        margin: 15px auto 40px auto !important;
+        max-width: 95% !important;
+        width: 100% !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+        z-index: 50 !important;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="container py-16">
-    <div id="game-container" class="rpg-game-container theme-aion">
+    <div id="game-container" class="rpg-game-container theme-aion relative overflow-hidden">
+        
+        <!-- AION ANIMATED BACKGROUND -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
+                <source src="{% static 'img/personas/videoabertura.mp4' %}" type="video/mp4">
+            </video>
+        </div>
 
         <!-- HUD TOP - CLEAN & SYMMETRICAL -->
-        <div class="hud-top">
-            <div class="flex items-center gap-6">
-                <a href="{% url 'arkanos:jogos' %}"
-                    class="back-link !bg-slate-100 !text-slate-400 hover:!bg-white hover:!text-logos-blue transition-all">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                </a>
-                <div class="player-card">
-                    <div class="avatar-shield">🎓</div>
-                    <div class="player-info">
-                        <h1 id="txt-username">{{ request.user.username|upper }}</h1>
-                        <span>EXPLORADOR RADIX</span>
+        <div class="hud-top flex items-center justify-between !bg-white/95 backdrop-blur-xl p-4 px-6 rounded-2xl border border-slate-200/50 shadow-md relative overflow-hidden">
+            
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-2xl shadow-[0_4px_15px_rgba(59,130,246,0.3)] border-2 border-white/10">
+                        🛡️
+                    </div>
+                </div>
+                <div class="text-left">
+                    <h3 id="txt-username" class="font-black text-base text-slate-800 leading-none mb-1 font-['Cinzel'] tracking-wide">{{ request.user.first_name|default:request.user.username|upper }}</h3>
+                    <div class="flex items-center gap-1">
+                        <span id="txt-serie" class="text-[9px] font-bold text-slate-500 uppercase tracking-widest">EXPLORADOR RADIX</span>
+                        <span class="text-slate-200">•</span>
+                        <span class="text-[9px] font-black text-blue-500">LVL <span id="txt-level">1</span></span>
                     </div>
                 </div>
             </div>
 
-            <div class="flex items-center gap-8">
-                <div class="hud-stats-pill">
-                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">SEQ.</span>
-                    <span id="count-streak" class="font-bold text-logos-blue text-lg">00</span>
+            <!-- Stats Central Block -->
+            <div class="flex items-center gap-4 bg-slate-100 px-5 py-2 rounded-xl border border-slate-200/60">
+                <div class="flex flex-col items-center">
+                    <span class="text-[8px] font-black text-slate-500 tracking-wider uppercase">Combo</span>
+                    <span id="count-streak" class="font-black text-amber-500 text-sm">00</span>
                 </div>
-                <div class="hud-stats-pill">
-                    <span class="text-[10px] font-black text-slate-400 tracking-widest text-center">PONTOS</span>
-                    <span id="count-score" class="font-black text-logos-gold text-lg">0000</span>
+                <div class="h-6 w-px bg-slate-200"></div>
+                <div class="flex flex-col items-center">
+                    <span class="text-[8px] font-black text-slate-500 tracking-wider uppercase">PONTOS</span>
+                    <span id="count-score" class="font-black text-blue-600 text-sm">0000</span>
                 </div>
-                <a href="{% url 'arkanos:jogos' %}"
-                    class="btn-rpg-small !bg-red-50 !text-red-500 hover:!bg-red-500 hover:!text-white border-2 border-transparent">
-                    SAIR 🚪
-                </a>
+                 <div class="h-6 w-px bg-slate-200"></div>
+                 <div class="flex flex-col items-center">
+                     <a href="{% url 'arkanos:jogos' %}" class="btn-rpg-small !py-1.5 !px-3.5 !bg-red-50 !text-red-500 hover:!bg-red-500 hover:!text-white border border-transparent !text-xs font-bold rounded-lg transition-all">SAIR 🚪</a>
+                 </div>
             </div>
         </div>
 
