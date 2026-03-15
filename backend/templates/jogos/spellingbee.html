@@ -936,26 +936,25 @@
                 document.getElementById('btn-comencar-intro').onclick = (e) => {
                     if (screenIntro) screenIntro.classList.add('hidden');
                     if (playArea) playArea.classList.remove('hidden');
-                    startRound();
+                    
+                    if (hasSerieParam) {
+                        startRound(); // Já tem série na URL, começa a rodada
+                    } else {
+                        // Não tem série, abre seleção
+                        const serieScreen = document.getElementById('screen-serie-selection');
+                        if (serieScreen) serieScreen.classList.remove('hidden');
+                    }
                 };
             };
+
 
             // GATED START: Handle Series Selection Flow
             const urlParams = new URLSearchParams(window.location.search);
             const hasSerieParam = urlParams.has('serie');
 
+            // Chamada direta para abrir o Overlay de Introdução com Lyra
             if (userData.is_authenticated) {
-                if (hasSerieParam) {
-                    // Se já escolheu a série na URL, inicia direto
-                    if (screenLogin) screenLogin.classList.add('hidden');
-                    startGame();
-                } else {
-                    // Autenticado, mas sem série: abre seleção de série
-                    if (screenLogin) screenLogin.classList.add('hidden');
-                    const serieScreen = document.getElementById('screen-serie-selection');
-                    if (serieScreen) ariaHide(screenLogin); // Fallback hidden
-                    serieScreen.classList.remove('hidden');
-                }
+                startGame();
             }
 
             const ariaHide = (el) => { if (el) el.classList.add('hidden'); };
@@ -973,19 +972,16 @@
                 };
             });
 
-            // GESTIÓN DE FLUJO INICIAL
+            // GESTIÓN DE FLUJO INICIAL (Removed duplicated flow)
             const serieParam = urlParams.get('serie');
 
             if (serieParam) {
                 userData.serie = serieParam;
                 if (setupUI) activeGuardian = setupUI(userData);
-                if (startGame) startGame();
-            } else {
-                if (document.getElementById('screen-serie-selection')) {
-                    if (document.getElementById('screen-login')) document.getElementById('screen-login').classList.add('hidden');
-                    document.getElementById('screen-serie-selection').classList.remove('hidden');
-                }
+                // Já inicia o round se já tiver série na URL
+                // Este Listener de AV1 fará o redirecionamento com a serie param na URL para recarregar
             }
+
 
             // Listener para escolha AV1 (Livre)
             document.querySelectorAll('.eval-card[data-eval="av1"]').forEach(card => {
