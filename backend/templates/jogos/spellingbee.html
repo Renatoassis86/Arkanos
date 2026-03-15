@@ -112,21 +112,25 @@
     .back-link {
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
     }
-    /* circular frame with mask for Lyra */
+    /* Lyra Transparent Blend & Free Float */
     .guardian-premium-box {
-        border-radius: 50% !important;
-        overflow: hidden !important;
-        aspect-ratio: 1/1;
-        width: 220px !important;
-        height: 220px !important;
-        border: 4px solid var(--lyra) !important;
-        background: #0d1522 !important; 
-        box-shadow: 0 0 30px rgba(244, 114, 182, 0.2);
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0px !important;
+        width: auto !important;
+        height: auto !important;
     }
     
-    .guardian-char {
-        background-color: transparent !important;
-        border-radius: 50%;
+    .lyra-char {
+        mix-blend-mode: multiply !important;
+        width: 280px !important;
+        height: 320px !important;
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center bottom !important;
+        filter: none !important;
+        animation: floating-breathing 4s ease-in-out infinite !important;
     }
 
     /* animated intuitiva progress bar */
@@ -146,6 +150,63 @@
     @keyframes shine-bar {
         0% { transform: translateX(-100%); }
         100% { transform: translateX(100%); }
+    }
+
+    /* REDESIGN: Roblox / Minecraft Style floating header */
+    .hud-top {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        background: rgba(10, 14, 23, 0.82) !important;
+        backdrop-filter: blur(12px) !important;
+        border-bottom: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        border-radius: 20px !important;
+        padding: 10px 24px !important;
+        margin: 15px auto !important;
+        max-width: 95% !important;
+        width: 100% !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+        z-index: 50 !important;
+    }
+
+    .player-card {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        background: rgba(255, 255, 255, 0.04) !important;
+        padding: 6px 14px !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .hud-stats-pill {
+        background: transparent !important;
+        border: none !important;
+        padding: 3px 10px !important;
+        border-radius: 0px !important;
+        display: flex !important;
+        flex-direction: row !important; 
+        align-items: center !important;
+        gap: 8px !important;
+        min-width: unset !important;
+    }
+
+    .hud-stats-pill span:first-child {
+        font-size: 0.65rem !important;
+        margin-bottom: 0px !important;
+        color: #94a3b8 !important;
+    }
+
+    .hud-stats-pill span:last-child {
+        font-size: 1.1rem !important;
+    }
+
+    /* Fixed Lyra cuts off */
+    .lyra-char {
+        background-size: contain !important;
+        background-repeat: no-repeat !important;
+        background-position: center bottom !important;
     }
 
     /* Horizonal login gate layout */
@@ -177,6 +238,22 @@
     .rpg-game-container:has(#screen-login:not(.hidden)) .guardian-panel {
         display: none !important;
     }
+    
+    /* Remove Auth Gate overlapping boxes */
+    .rpg-auth-gate {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0px !important;
+        max-width: 1000px !important;
+    }
+    
+    .gate-form-panel {
+        background: #090e18 !important; /* Premium dark card */
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5) !important;
+        border-radius: 24px !important;
+    }
 </style>
 {% endblock %}
 
@@ -193,10 +270,10 @@
 
         <!-- HUD TOP - CLEAN & SYMMETRICAL -->
         <div class="hud-top">
-            <div class="flex items-center gap-6">
+            <div class="flex items-center gap-4">
                 <a href="{% url 'arkanos:jogos' %}"
                     class="back-link !bg-white/5 !text-white/60 hover:!bg-white/10 hover:!text-white transition-all !p-2 !rounded-xl">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
@@ -204,41 +281,38 @@
                 <div class="player-card">
                     <div class="avatar-shield">🎮</div>
                     <div class="player-info">
-                        <h1 id="txt-username">{{ request.user.username|upper }}</h1>
-                        <div class="flex gap-2 items-center">
-                            <span id="txt-serie" class="text-[10px] uppercase font-black text-slate-500 tracking-tighter">QUEST EXPLORER</span>
+                        <h1 id="txt-username" class="text-sm font-bold">{{ request.user.username|upper }}</h1>
+                        <div class="flex gap-1 items-center">
+                            <span id="txt-serie" class="text-[9px] uppercase font-bold text-slate-500">QUEST EXPLORER</span>
                             <span class="text-white/10">•</span>
-                            <span class="text-[10px] uppercase font-black text-logos-gold tracking-widest">LVL <span
-                                    id="txt-level">1</span></span>
+                            <span class="text-[9px] uppercase font-bold text-logos-gold">LVL <span id="txt-level">1</span></span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Context Central -->
-            <div class="hidden md:flex flex-col items-center">
-                <span class="text-[9px] font-black text-lyra tracking-[0.3em] uppercase opacity-60 mb-1">Academy Mission</span>
-                <div class="bg-white/5 px-4 py-1 rounded-full border border-white/10 backdrop-blur-sm">
-                    <span id="txt-mission-label" class="text-xs font-bold text-white tracking-widest">SPELLING BEE</span>
+            <!-- Center Symmetrical stats bubbles -->
+            <div class="hidden md:flex items-center gap-3 bg-black/40 backdrop-blur-md px-4 py-1 rounded-2xl border border-white/5">
+                <div class="hud-stats-pill">
+                    <span>LIVES</span>
+                    <span id="count-lives" class="text-red-400 text-sm">❤️❤️❤️</span>
+                </div>
+                <div class="border-r border-white/10 h-4"></div>
+                <div class="hud-stats-pill">
+                    <span>STREAK</span>
+                    <span id="count-streak" class="font-bold">0</span>
+                </div>
+                <div class="border-r border-white/10 h-4"></div>
+                <div class="hud-stats-pill">
+                    <span>SCORE</span>
+                    <span id="count-score" class="font-bold text-emerald-400">0000</span>
                 </div>
             </div>
 
-            <div class="flex items-center gap-6">
-                <div class="hud-stats-pill">
-                    <span>LIVES</span>
-                    <span id="count-lives" class="text-red-400">❤️❤️❤️</span>
-                </div>
-                <div class="hud-stats-pill">
-                    <span>STREAK</span>
-                    <span id="count-streak" class="text-lyra">00</span>
-                </div>
-                <div class="hud-stats-pill">
-                    <span>SCORE</span>
-                    <span id="count-score">0000</span>
-                </div>
+            <div class="flex items-center">
                 <a href="{% url 'arkanos:jogos' %}" 
                    class="exit-btn !px-4 !py-2 !bg-red-600/10 hover:!bg-red-600 !text-red-500 hover:!text-white transition-all rounded-xl text-[10px] font-black uppercase tracking-widest border border-red-500/20 flex items-center gap-2">
-                    LEAVE 🚪
+                    EXIT 🚪
                 </a>
             </div>
         </div>
@@ -277,11 +351,10 @@
                 <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
                     <div class="gate-seal-wrap">
                         <div class="gate-character-wrap">
-                            <div class="guardian-premium-box !w-60 !h-60 mx-auto">
+                            <div class="guardian-premium-box">
                                 <div class="guardian-char lyra-char"></div>
-                                <div class="guardian-frame-shine"></div>
                             </div>
-                            <div class="bubble-wrap mt-6 !max-w-xs">
+                            <div class="bubble-wrap mt-6">
                                 <div class="bubble-content">
                                     Greetings! Make your entrance into the Arkanos Academy.
                                 </div>
