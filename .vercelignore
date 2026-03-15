@@ -21,11 +21,14 @@ node_modules/
 # Database
 db.sqlite3
 
-# Consolidado: Ignoramos as pastas estáticas redundantes de Lambda
+# Consolidado: Ignoramos as pastas estáticas redundantes
 /static/
 /staticfiles/
-/backend/static/
-/backend/staticfiles/
+
+# Staticfiles processado - Mantemos apenas o do backend
+!backend/static/
+!backend/staticfiles/
+
 
 
 # CRITICAL OVERRIDE: Ignore these heavy files regardless of folder inclusion
