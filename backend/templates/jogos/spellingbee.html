@@ -1127,15 +1127,29 @@
                         document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
                         document.getElementById('word-mystery').style.color = "#ef4444"; 
 
-                        const msg = "A jornada foi interrompida! A resposta certa era " + currentWord.palavra.toUpperCase();
-                        guideBubble.innerText = msg;
-                        game.speak(msg, 0.85);
+                        const errorMsg = "That is incorrect! The correct spelling is...";
+                        guideBubble.innerText = "Incorrect! Listen and learn from the sage.";
+                        
+                        // Fala o erro
+                        game.speak(errorMsg, 0.9);
                         updateStats();
 
+                        // Trilha de soletretração lenta
                         setTimeout(() => {
-                            showVictory(true); // Abre painel final com ranking
-                        }, 2500);
+                            game.spellWord(currentWord.palavra);
+                        }, 3000);
+
+                        // Abre o painel final com ranking somente se esgotar as vidas
+                        setTimeout(() => {
+                            if (result.gameOver) {
+                                showVictory(true); 
+                            } else {
+                                startRound(); // Continua com uma vida a menos
+                            }
+                        }, 8000);
                     }
+
+
                 } catch (err) { 
                     console.error("Speech error:", err);
                     aidText.innerText = "Microphone error. Try again!"; 
