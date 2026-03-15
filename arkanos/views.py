@@ -79,8 +79,10 @@ def logout_view(request):
     logout(request)
     return redirect('arkanos:home')
 
+from django.contrib.auth.decorators import login_required
 from datetime import date
 
+@login_required(login_url='arkanos:login')
 def jogos_index(request):
     recommended_path = 'gramatica' # Default
     age = None

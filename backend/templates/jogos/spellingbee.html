@@ -375,26 +375,29 @@
                                         <label for="stu-birthdate">Nascimento</label>
                                         <input type="date" id="stu-birthdate" required>
                                     </div>
-                                    <div class="input-group">
-                                        <label for="stu-serie">Série</label>
-                                        <select id="stu-serie" required>
-                                            <option value="1ano">1º Ano</option>
-                                            <option value="2ano">2º Ano</option>
-                                            <option value="3ano">3º Ano</option>
-                                            <option value="4ano">4º Ano</option>
-                                            <option value="5ano">5º Ano</option>
-                                            <option value="6ano">6º Ano</option>
-                                            <option value="7ano">7º Ano</option>
-                                            <option value="8ano">8º Ano</option>
-                                            <option value="9ano">9º Ano</option>
-                                        </select>
-                                    </div>
                                 </div>
                                 <button type="submit" class="btn-rpg-big primary w-full">
                                     INICIAR JORNADA ⚔️
                                 </button>
                             </form>
                         </div>
+                    </div>
+                </div>
+
+                <!-- ADDED: Selection Overlay Layout -->
+                <div id="screen-serie-selection" class="hidden w-full flex flex-col items-center justify-center animate-fadeIn py-16">
+                    <h2 class="gate-title text-center text-3xl mb-1">ESCOLHA SUA SÉRIE</h2>
+                    <p class="gate-subtitle text-center mb-10">Selecione o nível das palavras que deseja soletrar</p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-xl w-full">
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="1ano">1º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="2ano">2º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="3ano">3º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="4ano">4º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="5ano">5º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="6ano">6º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="7ano">7º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="8ano">8º ANO</button>
+                        <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-sm py-4 !border-transparent !bg-black/40 hover:!bg-lyra/10 hover:!border-lyra" data-serie="9ano">9º ANO</button>
                     </div>
                 </div>
 
@@ -683,7 +686,11 @@
                                 'Content-Type': 'application/json',
                                 'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
                             },
-                            body: JSON.stringify(data)
+                            body: JSON.stringify({
+                                firstname: data.firstname,
+                                lastname: data.lastname,
+                                birthdate: data.birthdate
+                            })
                         });
 
                         const result = await response.json();
@@ -843,19 +850,34 @@
                 setTimeout(startRound, 3000);
             };
 
-            // GATED START: Ensure sound works by requiring a click
+            // GATED START: Handle Series Selection Flow
+            const urlParams = new URLSearchParams(window.location.search);
+            const hasSerieParam = urlParams.has('serie');
+
             if (userData.is_authenticated) {
-                if (screenLogin) {
-                    const panel = screenLogin.querySelector('.gate-form-panel');
-                    panel.innerHTML = `
-                        <h2 class="gate-title">PRONTO PARA A JORNADA?</h2>
-                        <p class="gate-subtitle">Você está logado como: <strong>${userData.username}</strong></p>
-                        <button id="btn-actual-start" class="btn-rpg-big primary w-full justify-center py-5">INICIAR MISSÃO ⚔️</button>
-                        <p class="mt-4"><a href="/accounts/logout/" style="color: #94a3b8; font-size: 0.8rem;">Entrar com outro nome</a></p>
-                    `;
-                    document.getElementById('btn-actual-start').onclick = startGame;
+                if (hasSerieParam) {
+                    // Se já escolheu a série na URL, inicia direto
+                    if (screenLogin) screenLogin.classList.add('hidden');
+                    startGame();
+                } else {
+                    // Autenticado, mas sem série: abre seleção de série
+                    if (screenLogin) screenLogin.classList.add('hidden');
+                    const serieScreen = document.getElementById('screen-serie-selection');
+                    if (serieScreen) ariaHide(screenLogin); // Fallback hidden
+                    serieScreen.classList.remove('hidden');
                 }
             }
+
+            const ariaHide = (el) => { if (el) el.classList.add('hidden'); };
+
+            // Listeners para botões de série
+            const btnSeries = document.querySelectorAll('.btn-serie-select');
+            btnSeries.forEach(btn => {
+                btn.onclick = (e) => {
+                    const selected = e.currentTarget.dataset.serie;
+                    window.location.href = `?serie=${selected}`;
+                };
+            });
 
             const showVictory = async (isGameOver = false) => {
                 const finalScore = game.score;

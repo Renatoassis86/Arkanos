@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import Jogo, PalavraSpellingBee, PerfilEstudante, SessaoJogo, PalavraRadix
 
+@login_required(login_url='arkanos:login')
 def spellingbee_view(request):
     serie = request.GET.get('serie', '2ano')
     
@@ -35,6 +36,7 @@ def spellingbee_view(request):
     
     return render(request, "jogos/spellingbee.html", context)
 
+@login_required(login_url='arkanos:login')
 def radix_view(request):
     mode = request.GET.get('mode', 'digitacao')
     palavras_query = PalavraRadix.objects.all().order_by('?')
