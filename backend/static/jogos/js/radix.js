@@ -44,13 +44,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const introSpeech = document.getElementById('intro-speech-bubble');
         if (introSpeech) speakWord(introSpeech.innerText);
+    };
 
-        document.getElementById('btn-comencar-intro').onclick = () => {
+    // Attach listener upfront right during load state flawlessly Node setup flawlessly trigger Node setup list!
+    const btnIntro = document.getElementById('btn-comencar-intro');
+    const screenIntro = document.getElementById('screen-intro');
+    if (btnIntro) {
+        btnIntro.onclick = () => {
             if (screenIntro) screenIntro.classList.add('hidden');
             if (playArea) playArea.classList.remove('hidden');
             loadWord();
         };
-    };
+    }
+
 
     if (USER && USER.is_authenticated) {
         if (loginGate) {

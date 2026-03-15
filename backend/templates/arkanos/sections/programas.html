@@ -1,4 +1,4 @@
-﻿{% load static %}
+{% load static %}
 <section id="programas" class="section bg-level-1" style="padding: 80px 0;">
   <div class="container">
     <div style="text-align: center; margin-bottom: 48px;">
@@ -9,8 +9,9 @@
       </h2>
     </div>
 
-    <div class="grid-3">
+    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
       <!-- 1. Paideia (Escolas) -->
+
       <article class="card hover-rise">
         <figure class="thumb-flag">
           <img src="{% static 'img/outros/kids.png' %}" alt="Fundamental I e II" class="thumb-img">
