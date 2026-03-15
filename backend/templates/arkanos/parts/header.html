@@ -34,16 +34,6 @@
             <a href="{% url 'arkanos:fale_conosco' %}">Contato</a>
           </div>
 
-          <!-- AUTH (Mobile View) -->
-          <div class="auth-mobile-zone hidden md:hidden">
-            {% if user.is_authenticated %}
-            <span class="welcome-user">Olá, {{ user.username|upper }}</span>
-            <a href="{% url 'arkanos:logout' %}" class="btn-primary">SAIR</a>
-            {% else %}
-            <a href="{% url 'arkanos:login' %}" class="btn-primary">ENTRAR</a>
-            <a href="{% url 'arkanos:cadastro' %}" class="btn-accent">CADASTRAR</a>
-            {% endif %}
-          </div>
         </nav>
 
         <!-- AUTH (Desktop View) -->
