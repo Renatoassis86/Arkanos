@@ -1378,9 +1378,60 @@
 
     .discovery-content {
         font-family: 'EB Garamond', serif !important;
-        font-size: 1.4rem !important;
-        line-height: 1.6 !important;
-        color: #334155 !important;
+    /* ABSOLUTE OVERLAY FOR INTRO (Like Lyra) */
+    #screen-intro {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 15, 25, 0.92) !important;
+        backdrop-filter: blur(12px) !important;
+        z-index: 9999 !important;
+        padding: 40px;
+    }
+    
+    #screen-intro .guardian-premium-box {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    /* ARKANOS IMAGE FRAME TEMPLATE */
+    .arkanos-img-frame {
+        position: relative;
+        padding: 16px;
+        background: #0d1523; /* Dark RPG Card frame */
+        border-radius: 24px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        max-width: 500px;
+        width: fit-content;
+        margin: 0 auto 2rem auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .arkanos-img-frame::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        z-index: -1;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #f59e0b, #fef08a, #b45309, #fde047, #d97706);
+        padding: 4px;
+        opacity: 0.9;
+    }
+
+    .arkanos-img-frame img {
+        border-radius: 16px;
+        max-height: 280px;
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
     }
 </style>
 <div id="level-up-container" class="hidden level-up-overlay">
@@ -1399,15 +1450,14 @@
 <div class="container py-16">
     <div id="game-container" class="rpg-game-container theme-aion">
 
-        <!-- HUD TOP - PROFESSIONAL GAME HEADER -->
-        <!-- AION ANIMATED BACKGROUND -->
-    <div class="aion-video-bg">
-        <video autoplay muted loop playsinline poster="{% static 'img/personas/aion_action.png' %}">
-            <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
-        </video>
-    </div>
+        <!-- KAEL ANIMATED BACKGROUND -->
+        <div class="absolute inset-0 pointer-events-none z-0">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25">
+                <source src="{% remote_video 'videos/kael-1080p.mp4' %}" type="video/mp4">
+            </video>
+        </div>
 
-    <div class="hud-top">
+        <div class="hud-top">
             <div class="flex items-center gap-6">
                 <a href="/" title="Voltar ao Início"
                     class="back-link !bg-white/10 !text-white hover:!bg-white/20 transition-all !p-3 !rounded-2xl border border-white/20 block">
@@ -1449,7 +1499,22 @@
             </div>
         </div>
 
-        <div class="flex flex-col lg:flex-row w-full max-w-6xl mx-auto px-4 gap-8 my-8 gaming-arena-wrapper">
+        <!-- ADDED: Intro Screen BEFORE game starts -->
+        <div id="screen-intro" class="hidden absolute inset-0 flex flex-col items-center justify-center animate-fadeIn z-[999] bg-slate-100/30 backdrop-blur-md">
+            <div class="guardian-premium-box mb-6 scale-125 bg-white border border-amber-500 shadow-2xl">
+                <div id="intro-character" class="guardian-char kael-char scale-110"></div>
+            </div>
+            <div class="bubble-wrap max-w-lg mb-8">
+                <div id="intro-speech-bubble" class="bubble-content text-lg text-center font-black !p-6 shadow-2xl bg-white text-slate-800 borderborder-slate-200">
+                    Bem-vindo ao Desafio dos Sábios! A jornada de Logos exige sabedoria. Aperte Começar para iniciar os testes.
+                </div>
+            </div>
+            <button id="btn-comencar-intro" class="btn-rpg-big px-16 py-6 text-2xl font-black rounded-2xl shadow-[0_10px_40px_rgba(245,158,11,0.5)] hover:scale-105 bg-gradient-to-r from-amber-500 to-amber-600 text-white flex items-center justify-center">
+                COMEÇAR ⚔️
+            </button>
+        </div>
+
+        <div class="flex flex-col lg:flex-row w-full max-w-6xl mx-auto px-4 gap-8 my-8 gaming-arena-wrapper relative z-10">
         <!-- Screen sections go here and are centered by .game-arena -->
 
         <!-- HUD SIDE (LEFT) -->
@@ -1457,12 +1522,15 @@
             class="w-full lg:w-1/3 flex flex-col items-center mb-10 lg:mb-0 lg:sticky lg:top-24 h-fit hud-side !bg-transparent !border-none !shadow-none !backdrop-blur-none p-0">
             <div class="bubble-wrap max-w-sm mb-6">
                 <div id="guardian-msg" class="bubble-content text-sm">
-                    Bem-vindo ao Desafio dos Sábios! Escolha sua disciplina para começar a jornada.
+                    Bem-vindo ao Desafio dos Sábios! A jornada de Logos exige sabedoria. Clique em Iniciar Desafio para começar.
                 </div>
             </div>
-            <!-- Note: The class aion-char sets a background image. Give it standard height/width classes -->
-            <!-- Static character removed as requested, replaced by full-page animated background -->
-            <!-- <div class="guardian-char aion-char" style="background-position: center bottom;"></div> -->
+            
+            <div class="guardian-premium-box scale-90 border-amber-500 shadow-[0_10px_30px_rgba(245,158,11,0.2)]">
+                <!-- Static character re-enabled as requested -->
+                <div class="guardian-char aion-char scale-110" style="background-image: url('{% static 'games/desafio_sabios_v2.png' %}'); background-size: cover; width:200px; height:200px;"></div>
+                <div class="guardian-frame-shine"></div>
+            </div>
 
             <div class="w-full mt-6 space-y-4 max-w-xs">
                 <div id="stats-area" class="hidden w-full">
@@ -1852,11 +1920,23 @@
 
     // Speak initial message
     window.addEventListener('load', () => {
+        const screenIntro = document.getElementById('screen-intro');
+        if (screenIntro) screenIntro.classList.remove('hidden');
+        
         setTimeout(() => {
-            const initialMsg = document.getElementById('guardian-msg').innerText;
+            const initialMsg = document.getElementById('intro-speech-bubble').innerText;
             voiceService.speak(initialMsg);
         }, 1000);
     });
+
+    const btnComencarIntro = document.getElementById('btn-comencar-intro');
+    if (btnComencarIntro) {
+        btnComencarIntro.onclick = () => {
+             const screenIntro = document.getElementById('screen-intro');
+             if (screenIntro) screenIntro.classList.add('hidden');
+             playSound('start');
+        };
+    }
 
     const sounds = {
         start: new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3'),
@@ -2358,25 +2438,23 @@
         if (imgSrc) {
             const imgWrap = document.createElement('div');
             imgWrap.id = 'q-support-img';
-            imgWrap.style.cssText = 'width:100%; margin-bottom:1.25rem; text-align:center; cursor:zoom-in;';
+            imgWrap.className = 'arkanos-img-frame cursor-zoom-in animate-fadeIn';
 
             const imgEl = document.createElement('img');
             imgEl.src = imgSrc;
             imgEl.alt = q.image_alt || 'Imagem de apoio';
-            imgEl.style.cssText = 'max-width:100%; max-height:320px; border-radius:14px; border:3px solid var(--logos-gold); box-shadow:0 6px 24px rgba(0,0,0,0.18); transition:transform 0.25s;';
 
             // Simple zoom on click
             imgEl.addEventListener('click', () => {
-                if (!document.getElementById('img-zoom-overlay')) {
-                    const overlay = document.createElement('div');
-                    overlay.id = 'img-zoom-overlay';
-                    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;';
-                    const bigImg = imgEl.cloneNode();
-                    bigImg.style.cssText = 'max-width:92vw;max-height:88vh;border-radius:12px;';
-                    overlay.appendChild(bigImg);
-                    overlay.addEventListener('click', () => overlay.remove());
-                    document.body.appendChild(overlay);
-                }
+                const overlay = document.createElement('div');
+                overlay.id = 'img-zoom-overlay';
+                overlay.style.cssText = 'position:fixed;inset:0;background:rgba(10,15,25,0.95);z-index:9999;display:flex;align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(10px);';
+                
+                const frameCloned = imgWrap.cloneNode(true);
+                frameCloned.style.cssText = 'transform:scale(1.2); max-width:90vw;';
+                overlay.appendChild(frameCloned);
+                overlay.addEventListener('click', () => overlay.remove());
+                document.body.appendChild(overlay);
             });
 
             imgWrap.appendChild(imgEl);

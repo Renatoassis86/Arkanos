@@ -12,6 +12,19 @@
     .hidden {
         display: none !important;
     }
+    
+    #screen-intro {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 15, 25, 0.92);
+        backdrop-filter: blur(16px);
+        z-index: 9999 !important;
+        padding: 40px;
+    }
     .hud-top {
         display: flex !important;
         justify-content: space-between !important;
@@ -36,12 +49,25 @@
         
         <!-- AION ANIMATED BACKGROUND -->
         <div class="absolute inset-0 pointer-events-none z-0">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-20">
-                <source src="{% static 'img/personas/videoabertura.mp4' %}" type="video/mp4">
+            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25">
+                <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
             </video>
         </div>
 
-        <!-- HUD TOP - CLEAN & SYMMETRICAL -->
+        <!-- ADDED: Intro Screen BEFORE game starts -->
+        <div id="screen-intro" class="hidden absolute inset-0 flex flex-col items-center justify-center animate-fadeIn z-[999] bg-slate-100/30 backdrop-blur-md">
+            <div class="guardian-premium-box mb-6 scale-125 bg-white border border-blue-500 shadow-2xl">
+                <div id="intro-character" class="guardian-char aion-char scale-110"></div>
+            </div>
+            <div class="bubble-wrap max-w-lg mb-8">
+                <div id="intro-speech-bubble" class="bubble-content text-lg text-center font-black !p-6 shadow-2xl bg-white text-slate-800 borderborder-slate-200">
+                    Bem-vindo à Radix, a jornada da sabedoria lógica! Aperte Começar para iniciar os desafios.
+                </div>
+            </div>
+            <button id="btn-comencar-intro" class="btn-rpg-big px-16 py-6 text-2xl font-black rounded-2xl shadow-[0_10px_40px_rgba(59,130,246,0.5)] hover:scale-105 bg-gradient-to-r from-blue-500 to-indigo-600 text-white flex items-center justify-center">
+                COMEÇAR ⚔️
+            </button>
+        </div>
         <div class="hud-top flex items-center justify-between !bg-white/95 backdrop-blur-xl p-4 px-6 rounded-2xl border border-slate-200/50 shadow-md relative overflow-hidden">
             
             <div class="flex items-center gap-4">
@@ -77,41 +103,54 @@
                  </div>
             </div>
         </div>
-
-        <!-- MAIN ARENA -->
-        <div id="screen-game" class="game-arena animate-fadeIn">
-
-            <!-- Arkanos Authentication Gate -->
-            <div id="screen-login" class="rpg-auth-gate animate-fadeIn">
-                <!-- Aion welcoming the hero -->
-                <div class="gate-character-wrap">
-                    <div class="gate-character aion-char"></div>
-                    <div class="gate-bubble" style="border-color: var(--aion);">
-                        "Raciocínio claro e dedos ágeis. Mostre sua lógica, jovem explorador!"
+        <div class="flex flex-col lg:grid lg:grid-cols-[400px_1fr] gap-8 items-start w-full max-w-7xl mx-auto px-4 mt-8 relative z-10">
+            
+            <!-- LEFT PANEL: GUARDIAN & PROGRESS (Like Lyra) -->
+            <div class="guardian-panel sticky top-24 flex flex-col items-center">
+                <div class="guardian-premium-box border-blue-500 shadow-[0_10px_30px_rgba(59,130,246,0.3)]">
+                    <div id="character-guide" class="guardian-char aion-char scale-110"></div>
+                    <div class="guardian-frame-shine"></div>
+                </div>
+                
+                <div class="bubble-wrap mt-6">
+                    <div id="speech-bubble" class="bubble-content animate-reveal text-sm">
+                        Bem-vindo à Radix, a jornada da sabedoria lógica! Mostre seu raciocínio aqui.
                     </div>
                 </div>
 
-                <div class="gate-seal">🛡️</div>
-                <h2 class="gate-title">Portal de Aion</h2>
-                <p class="gate-subtitle">
-                    O reino da Gramática e Lógica exige foco. Entre para salvar seu progresso na Academia.
-                </p>
-
-                <div class="gate-actions">
-                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}" class="btn-rpg-big primary">
-                        ENTRAR <span>🗝️</span>
-                    </a>
-                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}" class="btn-rpg-big">
-                        CADASTRAR <span>🛡️</span>
-                    </a>
-                </div>
-
-                <div class="gate-footer">
-                    Seu progresso é valioso. Use sua conta institucional Arkanos.
+                <div class="w-full max-w-sm mt-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-[10px] font-black text-slate-400 tracking-widest uppercase">Combo</span>
+                        <span class="font-bold text-xs id-streak" style="color:var(--aion);">00</span>
+                    </div>
+                    <div class="xp-system !bg-slate-200/50 rounded-full h-3 border border-white/20">
+                        <div id="bar-progress" class="xp-fill rounded-full h-full transition-all duration-700"
+                            style="width: 15%; background: #3b82f6;"></div>
+                    </div>
                 </div>
             </div>
 
-            <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
+            <!-- RIGHT PANEL: GAME MAIN ARENA (Like Lyra) -->
+            <div class="game-main-panel w-full">
+                <div id="screen-game" class="game-arena animate-fadeIn w-full">
+
+                    <!-- Arkanos Authentication Gate (In-panel) -->
+                    <div id="screen-login" class="rpg-auth-gate animate-fadeIn mb-8">
+                        <div class="gate-seal-wrap">
+                            <div class="gate-form-panel !bg-slate-900 borderborder-white/5 rounded-2xl flex flex-col items-center p-8 text-center max-w-md mx-auto">
+                                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-3xl mb-4">🛡️</div>
+                                <h2 class="gate-title text-2xl font-black text-white mb-2">Portal de Aion</h2>
+                                <p class="gate-subtitle text-slate-400 text-sm mb-6">Entre ou cadastre para salvar sua missão lógica na Academia.</p>
+                                
+                                <div class="flex flex-col gap-3 w-full">
+                                    <a href="{% url 'arkanos:login' %}?next={{ request.path }}" class="btn-rpg-big primary w-full justify-center">ENTRAR 🗝️</a>
+                                    <a href="{% url 'arkanos:cadastro' %}?next={{ request.path }}" class="btn-rpg-big w-full justify-center !bg-slate-800 !text-white !border-slate-700">CADASTRAR 🛡️</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="play-area" class="hidden w-full flex flex-col items-center animate-fadeIn">
 
                 <!-- GUARDIAN BUBBLE - CENTERED -->
                 <div class="w-full flex flex-col items-center mb-10">
@@ -173,7 +212,9 @@
                 </div>
             </div>
 
-        </div>
+                </div> <!-- Close Screen Game Arena right panel inside node -->
+            </div> <!-- Close Game Main Panel Node inside flawlessly -->
+        </div> <!-- Close Flex / Grid Container wrapper Node setup flawlessly -->
 
         <!-- PROGRESS FOOTER -->
         <div class="xp-system">
