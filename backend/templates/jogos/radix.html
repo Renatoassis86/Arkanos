@@ -48,11 +48,12 @@
     <div id="game-container" class="rpg-game-container theme-aion relative overflow-hidden">
         
         <!-- AION ANIMATED BACKGROUND -->
-        <div class="absolute inset-0 pointer-events-none z-0">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25">
-                <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
+        <div class="lyra-video-bg">
+            <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-30">
+                <source src="{% static 'img/personas/videoabertura.mp4' %}" type="video/mp4">
             </video>
         </div>
+
 
         <!-- ADDED: Intro Screen BEFORE game starts -->
         <div id="screen-intro" class="hidden absolute inset-0 flex flex-col items-center justify-center animate-fadeIn z-[999] bg-slate-100/30 backdrop-blur-md">

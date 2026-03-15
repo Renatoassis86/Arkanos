@@ -32,13 +32,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     window.startGame = async () => {
         if (loginGate) loginGate.classList.add('hidden');
-        if (playArea) playArea.classList.remove('hidden');
+        
+        const screenIntro = document.getElementById('screen-intro');
+        if (screenIntro) screenIntro.classList.remove('hidden');
+
+        if (playArea) playArea.classList.add('hidden'); // Forces play-area to stay hidden FIRST!
 
         try {
             await engine.startSession('radix', 'aprendiz');
         } catch (e) { }
 
-        loadWord();
+        const introSpeech = document.getElementById('intro-speech-bubble');
+        if (introSpeech) speakWord(introSpeech.innerText);
+
+        document.getElementById('btn-comencar-intro').onclick = () => {
+            if (screenIntro) screenIntro.classList.add('hidden');
+            if (playArea) playArea.classList.remove('hidden');
+            loadWord();
+        };
     };
 
     if (USER && USER.is_authenticated) {
@@ -70,8 +81,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.speechSynthesis.cancel();
         const msg = new SpeechSynthesisUtterance(text);
         msg.lang = 'pt-BR';
-        msg.rate = 0.9;
-        msg.pitch = 1.35; // Aumenta pitch para parecer mais jovem (menino adolescente)
+        msg.rate = 0.95;
+        msg.pitch = 1.25; // Adjusted for a teen boy voice
+
+        // Enhance voice quality if better engines are available
+        const voices = window.speechSynthesis.getVoices();
+        const ptVoice = voices.find(v => v.lang.includes('pt-BR') && (v.name.includes('Google') || v.name.includes('Microsoft')));
+        if (ptVoice) msg.voice = ptVoice;
+
         window.speechSynthesis.speak(msg);
     }
 

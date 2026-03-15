@@ -8,7 +8,7 @@
       <div class="container main-bar-inner">
 
         <!-- LOGO AREA -->
-        <div class="logo-area" style="padding-left: 40px;">
+        <div class="logo-area">
           <a href="{% url 'arkanos:home' %}" class="logo-link">
             <img src="{% static 'img/icones/logo.png' %}" alt="Arkanos" class="logo-img">
           </a>
@@ -108,6 +108,9 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        max-width: 1280px !important;
+        margin: 0 auto !important;
+        padding: 0 40px !important;
         gap: 20px;
       }
 
@@ -221,7 +224,6 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        padding-right: 40px;
       }
 
       .auth-buttons-premium {
