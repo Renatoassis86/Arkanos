@@ -263,8 +263,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: rgba(10, 15, 25, 0.45) !important; /* Lighter glassmorphism */
-        backdrop-filter: blur(12px) !important;
+        background: rgba(255, 255, 255, 0.08) !important; /* Semi-transparent light */
+        backdrop-filter: blur(8px) !important;
+
         z-index: 9999 !important;
         padding: 40px;
     }
@@ -415,7 +416,9 @@
                 <div id="screen-serie-selection" class="hidden w-full flex flex-col items-center justify-center animate-fadeIn py-16">
                     <h2 class="gate-title text-center text-3xl mb-1">ESCOLHA SUA SÉRIE</h2>
                     <p class="gate-subtitle text-center mb-10">Selecione o nível das palavras que deseja soletrar</p>
-                    <div class="grid grid-cols-3 md:grid-cols-5 gap-3 max-w-4xl w-full px-4">
+                    <div class="flex flex-nowrap overflow-x-auto gap-3 max-w-5xl w-full px-6 py-4 justify-start md:justify-center hide-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                        <style>.hide-scrollbar::-webkit-scrollbar { display: none; }</style>
+
                         <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-xs py-3.5 !border-transparent !bg-black/40 hover:!bg-lyra/20 hover:!border-lyra" data-serie="1ano">1º ANO</button>
                         <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-xs py-3.5 !border-transparent !bg-black/40 hover:!bg-lyra/20 hover:!border-lyra" data-serie="2ano">2º ANO</button>
                         <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-xs py-3.5 !border-transparent !bg-black/40 hover:!bg-lyra/20 hover:!border-lyra" data-serie="3ano">3º ANO</button>
