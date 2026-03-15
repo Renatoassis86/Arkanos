@@ -21,7 +21,7 @@ def spellingbee_view(request):
     if not palavras_query.exists():
         palavras_query = PalavraSpellingBee.objects.all().order_by('?')
         
-    palavras_list = list(palavras_query.values('palavra', 'significado', 'ipa', 'exemplo'))
+    palavras_list = list(palavras_query.values('palavra', 'significado', 'ipa', 'exemplo', 'dificuldade'))
     
     context = {
         'words_json': json.dumps(palavras_list, cls=DjangoJSONEncoder),

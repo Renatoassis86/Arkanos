@@ -23,20 +23,32 @@ class Jogo(models.Model):
 
 class PalavraSpellingBee(models.Model):
     SERIE_CHOICES = [
+        ('1ano', '1º Ano'),
         ('2ano', '2º Ano'),
         ('3ano', '3º Ano'),
         ('4ano', '4º Ano'),
         ('5ano', '5º Ano'),
+        ('6ano', '6º Ano'),
+        ('7ano', '7º Ano'),
+        ('8ano', '8º Ano'),
+        ('9ano', '9º Ano'),
+    ]
+
+    DIFICULDADE_CHOICES = [
+        ('facil', 'Fácil'),
+        ('medio', 'Médio'),
+        ('dificil', 'Difícil'),
     ]
 
     palavra = models.CharField(max_length=100)
     significado = models.TextField()
-    ipa = models.CharField(max_length=100, blank=True)
-    exemplo = models.TextField(blank=True)
+    ipa = models.CharField(max_length=100, blank=True, help_text="Alfabeto Fonético Internacional")
+    exemplo = models.TextField(blank=True, help_text="Frase de exemplo em inglês")
     serie = models.CharField(max_length=10, choices=SERIE_CHOICES, default='2ano')
+    dificuldade = models.CharField(max_length=10, choices=DIFICULDADE_CHOICES, default='facil')
 
     def __str__(self):
-        return f"{self.palavra} - {self.get_serie_display()}"
+        return f"{self.palavra} - {self.get_serie_display()} ({self.get_dificuldade_display()})"
 
 class PalavraRadix(models.Model):
     palavra = models.CharField(max_length=100)
@@ -71,8 +83,9 @@ class PerfilEstudante(models.Model):
 
     def ganha_xp(self, quantidade):
         self.xp += quantidade
-        self.atualiza_nivel()
+        subiu = self.atualiza_nivel()
         self.save()
+        return subiu
 
     def atualiza_nivel(self):
         """Nova fórmula RPG: Nível = floor(sqrt(XP/100)) + 1"""

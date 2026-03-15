@@ -160,6 +160,10 @@
 
             <div class="flex items-center gap-6">
                 <div class="hud-stats-pill">
+                    <span>LIVES</span>
+                    <span id="count-lives" class="text-red-400">❤️❤️❤️</span>
+                </div>
+                <div class="hud-stats-pill">
                     <span>STREAK</span>
                     <span id="count-streak" class="text-lyra">00</span>
                 </div>
@@ -228,10 +232,15 @@
                                     <div class="input-group">
                                         <label for="stu-serie">Série</label>
                                         <select id="stu-serie" required>
+                                            <option value="1ano">1º Ano</option>
                                             <option value="2ano">2º Ano</option>
                                             <option value="3ano">3º Ano</option>
                                             <option value="4ano">4º Ano</option>
                                             <option value="5ano">5º Ano</option>
+                                            <option value="6ano">6º Ano</option>
+                                            <option value="7ano">7º Ano</option>
+                                            <option value="8ano">8º Ano</option>
+                                            <option value="9ano">9º Ano</option>
                                         </select>
                                     </div>
                                 </div>
@@ -393,12 +402,21 @@
         class SpellingBeeGame {
             constructor(config) {
                 this.words = config.words || [];
+                this.wordsGrouped = { facil: [], medio: [], dificil: [] };
+                this.words.forEach(w => {
+                    const d = w.dificuldade || 'facil';
+                    if (this.wordsGrouped[d]) this.wordsGrouped[d].push(w);
+                });
+
                 this.engine = config.engine;
-                this.currentIndex = -1;
+                this.roundsPlayed = 0;
                 this.score = 0;
                 this.streak = 0;
                 this.xp = 0;
                 this.level = 1;
+                this.vidas = 3;
+                this.repeticoesRestantes = 3;
+                this.currentDifficulty = 'facil';
                 this.sounds = {
                     start: new Audio('https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3'),
                     correct: new Audio('https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3'),
@@ -408,9 +426,26 @@
             }
 
             nextWord() {
-                this.currentIndex++;
-                if (this.currentIndex >= this.words.length) return null;
-                return this.words[this.currentIndex];
+                this.roundsPlayed++;
+                // Adjust Difficulty based on Streak
+                if (this.streak >= 5) this.currentDifficulty = 'dificil';
+                else if (this.streak >= 2) this.currentDifficulty = 'medio';
+                else this.currentDifficulty = 'facil';
+
+                const pool = this.wordsGrouped[this.currentDifficulty];
+                if (!pool || pool.length === 0) {
+                    const allPools = [...this.wordsGrouped.facil, ...this.wordsGrouped.medio, ...this.wordsGrouped.dificil];
+                    if (allPools.length === 0) return null;
+                    return allPools[Math.floor(Math.random() * allPools.length)];
+                }
+
+                const randomIndex = Math.floor(Math.random() * pool.length);
+                const chosenWord = pool[randomIndex];
+
+                this.repeticoesRestantes = 3;
+                this.updateRepetitionsUI();
+
+                return chosenWord;
             }
 
             playSound(name) {
@@ -430,7 +465,23 @@
             }
 
             promptWord(word) {
+                if (this.repeticoesRestantes <= 0) return;
                 this.speak(`The word is: ${word}`, 0.8);
+                this.repeticoesRestantes--;
+                this.updateRepetitionsUI();
+            }
+
+            updateRepetitionsUI() {
+                const btn = document.getElementById('btn-listen');
+                if (!btn) return;
+                btn.innerHTML = `<span>🔈</span> LISTEN <span style="font-size: 0.7rem; opacity: 0.7">(${this.repeticoesRestantes}/3)</span>`;
+                if (this.repeticoesRestantes <= 0) {
+                    btn.style.opacity = '0.5';
+                    btn.disabled = true;
+                } else {
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                }
             }
 
             spellWord(word) {
@@ -466,7 +517,6 @@
                 });
             }
 
-            // New Student Login Logic
             setupStudentLogin() {
                 const form = document.getElementById('student-login-form');
                 if (!form) return;
@@ -492,8 +542,6 @@
 
                         const result = await response.json();
                         if (result.status === 'success') {
-                            // Update UI and reload words if necessary
-                            // Actually, for now we will reload to apply the correct filters in the view
                             location.reload();
                         } else {
                             alert("Erro: " + result.message);
@@ -505,9 +553,8 @@
                 });
             }
 
-            async processAnswer(transcript) {
-                const wordObj = this.words[this.currentIndex];
-                const word = wordObj.palavra.toLowerCase();
+            async processAnswer(transcript, correctWordObj) {
+                const word = correctWordObj.palavra.toLowerCase();
 
                 // Normalização inteligente: remove acentos, espaços extras e pontuação
                 const normalize = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z]/g, '');
@@ -518,17 +565,11 @@
 
                 let success = false;
 
-                // Regra: Soletração + Palavra Final
-                // Ex: "A P P L E apple" -> transcript tokenizado ["a", "p", "p", "l", "e", "apple"]
-                // CleanTranscript seria "appleapple"
-
                 if (cleanTranscript === cleanWord + cleanWord) {
                     success = true;
                 } else {
-                    // Tenta encontrar a palavra no final do transcript
                     const lastWord = tokens[tokens.length - 1];
                     if (normalize(lastWord) === cleanWord) {
-                        // Verifica se o que veio antes parece ser a soletração
                         const spelledPart = normalize(tokens.slice(0, -1).join(''));
                         if (spelledPart === cleanWord || spelledPart.length >= cleanWord.length - 1) {
                             success = true;
@@ -558,8 +599,14 @@
                     return { success: true, cheer: cheer };
                 } else {
                     this.streak = 0;
+                    this.vidas--;
                     this.playSound('wrong');
-                    return { success: false, gameOver: true };
+                    
+                    if (this.vidas <= 0) {
+                        return { success: false, gameOver: true };
+                    } else {
+                        return { success: false, gameOver: false };
+                    }
                 }
             }
 
@@ -626,9 +673,9 @@
                 document.getElementById('word-mystery').innerText = currentWord.palavra.replace(/[a-zA-Z]/g, '_ ').toUpperCase();
                 document.getElementById('word-mystery').style.color = "var(--rpg-text)";
                 aidText.innerText = "Listen closely...";
-                document.getElementById('progress-text').innerText = `Quest ${game.currentIndex + 1}/${game.words.length}`;
+                document.getElementById('progress-text').innerText = `Quest ${game.roundsPlayed}`;
                 updateStats();
-                // game.promptWord(currentWord.palavra);
+                game.promptWord(currentWord.palavra);
             };
 
             const startGame = async () => {
@@ -736,8 +783,13 @@
             function updateStats() {
                 document.getElementById('count-score').innerText = game.score.toString().padStart(4, '0');
                 document.getElementById('count-streak').innerText = game.streak.toString().padStart(2, '0');
+                if(document.getElementById('count-lives')) {
+                     document.getElementById('count-lives').innerText = '❤️'.repeat(game.vidas);
+                }
                 document.getElementById('txt-level').innerText = game.level;
-                document.getElementById('xp-bar-fill').style.width = `${game.xp % 100}%`;
+                
+                const bar = document.getElementById('bar-progress');
+                if (bar) bar.style.width = `${Math.min(100, (game.roundsPlayed / 15) * 100)}%`;
             }
 
             document.getElementById('btn-listen').addEventListener('click', () => game.promptWord(currentWord.palavra));
@@ -765,21 +817,22 @@
                 try {
                     const transcript = await game.startListening();
                     aidText.innerText = "Analyzing...";
-                    const result = await game.processAnswer(transcript);
+                    const result = await game.processAnswer(transcript, currentWord);
                     
                     if (result.success) {
                         document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
-                        document.getElementById('word-mystery').style.color = "#10b981"; // Success Green
+                        document.getElementById('word-mystery').style.color = "#10b981"; 
                         guideBubble.innerText = result.cheer;
                         updateStats();
                         setTimeout(startRound, 2000);
                     } else if (result.gameOver) {
                         document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
-                        document.getElementById('word-mystery').style.color = "#ef4444"; // Error Red
+                        document.getElementById('word-mystery').style.color = "#ef4444"; 
 
-                        const msg = "That is incorrect. Listen closely to the correct spelling.";
+                        const msg = "That is incorrect. Game Over. Listen closely to the correct spelling.";
                         guideBubble.innerText = msg;
                         game.speak(msg, 0.85);
+                        updateStats();
 
                         setTimeout(() => {
                             game.spellWord(currentWord.palavra);
@@ -787,6 +840,16 @@
                                 showVictory(true);
                             }, 5000);
                         }, 2000);
+                    } else {
+                        document.getElementById('word-mystery').innerText = currentWord.palavra.toUpperCase();
+                        document.getElementById('word-mystery').style.color = "#f59e0b"; 
+
+                        const msg = "Incorrect! You lost a life. Let's try the next word.";
+                        guideBubble.innerText = msg;
+                        game.speak(msg, 0.85);
+                        updateStats();
+
+                        setTimeout(startRound, 3000);
                     }
                 } catch (err) { 
                     console.error("Speech error:", err);
