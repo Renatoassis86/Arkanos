@@ -123,7 +123,6 @@
     }
     
     .lyra-char {
-        mix-blend-mode: multiply !important;
         width: 280px !important;
         height: 320px !important;
         background-size: contain !important;
@@ -132,6 +131,7 @@
         filter: none !important;
         animation: floating-breathing 4s ease-in-out infinite !important;
     }
+
 
     /* animated intuitiva progress bar */
     .xp-fill {
@@ -416,8 +416,9 @@
                 <div id="screen-serie-selection" class="hidden w-full flex flex-col items-center justify-center animate-fadeIn py-16">
                     <h2 class="gate-title text-center text-3xl mb-1">ESCOLHA SUA SÉRIE</h2>
                     <p class="gate-subtitle text-center mb-10">Selecione o nível das palavras que deseja soletrar</p>
-                    <div class="flex flex-nowrap overflow-x-auto gap-3 max-w-5xl w-full px-6 py-4 justify-start md:justify-center hide-scrollbar" style="-webkit-overflow-scrolling: touch; scrollbar-width: none;">
+                    <div class="flex hide-scrollbar" style="display: flex !important; flex-wrap: nowrap !important; flex-direction: row !important; overflow-x: auto !important; gap: 12px !important; max-width: 100% !important; width: 100% !important; padding: 16px 24px !important; justify-content: flex-start !important; -webkit-overflow-scrolling: touch; scrollbar-width: none;">
                         <style>.hide-scrollbar::-webkit-scrollbar { display: none; }</style>
+
 
                         <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-xs py-3.5 !border-transparent !bg-black/40 hover:!bg-lyra/20 hover:!border-lyra" data-serie="1ano">1º ANO</button>
                         <button class="btn-serie-select btn-rpg-big justify-center hover:scale-105 transition-all text-xs py-3.5 !border-transparent !bg-black/40 hover:!bg-lyra/20 hover:!border-lyra" data-serie="2ano">2º ANO</button>
@@ -652,26 +653,38 @@
 
             nextWord() {
                 this.roundsPlayed++;
-                // Adjust Difficulty based on Streak
-                if (this.streak >= 5) this.currentDifficulty = 'dificil';
-                else if (this.streak >= 2) this.currentDifficulty = 'medio';
-                else this.currentDifficulty = 'facil';
+                
+                let pool = this.wordsGrouped['facil'].filter(w => !w.played);
+                this.currentDifficulty = 'facil';
 
-                const pool = this.wordsGrouped[this.currentDifficulty];
-                if (!pool || pool.length === 0) {
-                    const allPools = [...this.wordsGrouped.facil, ...this.wordsGrouped.medio, ...this.wordsGrouped.dificil];
-                    if (allPools.length === 0) return null;
-                    return allPools[Math.floor(Math.random() * allPools.length)];
+                if (pool.length === 0) {
+                    pool = this.wordsGrouped['medio'].filter(w => !w.played);
+                    this.currentDifficulty = 'medio';
+                }
+                
+                if (pool.length === 0) {
+                    pool = this.wordsGrouped['dificil'].filter(w => !w.played);
+                    this.currentDifficulty = 'dificil';
                 }
 
-                const randomIndex = Math.floor(Math.random() * pool.length);
-                const chosenWord = pool[randomIndex];
+                if (pool.length === 0) {
+                    // Todas as palavras jogadas, recomeça marcas
+                    this.words.forEach(w => delete w.played);
+                    pool = this.wordsGrouped['facil'];
+                    this.currentDifficulty = 'facil';
+                }
+
+                if (!pool || pool.length === 0) return null;
+
+                const chosenWord = pool[Math.floor(Math.random() * pool.length)];
+                chosenWord.played = true; // Marca para não repetir sequencialmente
 
                 this.repeticoesRestantes = 3;
                 this.updateRepetitionsUI();
 
                 return chosenWord;
             }
+
 
             playSound(name) {
                 if (this.sounds[name]) {
