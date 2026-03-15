@@ -70,7 +70,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.speechSynthesis.cancel();
         const msg = new SpeechSynthesisUtterance(text);
         msg.lang = 'pt-BR';
-        msg.rate = 0.85;
+        msg.rate = 0.9;
+        msg.pitch = 1.35; // Aumenta pitch para parecer mais jovem (menino adolescente)
         window.speechSynthesis.speak(msg);
     }
 
