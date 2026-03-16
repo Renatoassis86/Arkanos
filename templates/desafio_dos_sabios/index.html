@@ -1448,7 +1448,8 @@
 
 {% block content %}
 <div class="container py-16">
-    <div id="game-container" class="rpg-game-container the        <!-- MAIN ARENA -->
+    <div id="game-container" class="rpg-game-container">
+        <!-- MAIN ARENA -->
         <div class="w-full flex flex-col items-center justify-center animate-fadeIn min-h-[500px] z-10">
 
             <!-- 1. INITIAL SCREEN (Centered RPG Gate) -->
@@ -1463,17 +1464,13 @@
                     </div>
                 </div>
                 {% else %}
-                <button id="btn-start" class="btn-rpg-big px-16 py-6 text-2xl font-black rounded-2xl shadow-[0_10px_40px_rgba(59,130,246,0.3)] hover:scale-105 bg-gradient-to-r from-blue-500 to-blue-600 text-white flex items-center justify-center border-2 border-blue-400 w-full max-w-xs">
+                <button id="btn-start" class="btn-rpg-big px-16 py-6 text-2xl font-black rounded-2xl shadow-[0_10px_40px_rgba(59,130,246,0.3)] hover:scale-105 bg-gradient-to-r from-blue-500 to-blue-600 text-white flex items-center justify-center border-2 border-blue-400 w-full max-w-sm">
                     COMEÇAR ⚔️
                 </button>
                 {% endif %}
             </div>
         </div>
-           </div>
-        </div>
 
-        </div>
-    </div>
 
 
     <!-- 1.1 IMPORT / FORMULATE QUESTIONS SCREEN -->
