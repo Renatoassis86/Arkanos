@@ -1448,77 +1448,12 @@
 
 {% block content %}
 <div class="container py-16">
-    <div id="game-container" class="rpg-game-container theme-aion">
-
-        <!-- AION ANIMATED BACKGROUND -->
-        <div class="absolute inset-0 pointer-events-none z-0">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-25">
-                <source src="{% remote_video 'videos/aion-1080p.mp4' %}" type="video/mp4">
-            </video>
-        </div>
-
-
-        <div class="hud-top">
-            <div class="flex items-center gap-6">
-                <a href="/" title="Voltar ao Início"
-                    class="back-link !bg-white/10 !text-white hover:!bg-white/20 transition-all !p-3 !rounded-2xl border border-white/20 block">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                </a>
-                
-                <!-- Discrete Score Panel -->
-                <div class="flex flex-col items-start bg-black/40 px-6 py-2 rounded-2xl border border-white/10 backdrop-blur-xl">
-                    <span class="text-[9px] text-slate-400 font-black tracking-[0.2em] uppercase mb-0.5">SÁBIO POINTS</span>
-                    <span id="current-score" class="font-mono text-logos-gold font-black text-2xl tracking-[0.1em] leading-none">0000</span>
-                </div>
-            </div>
-
-            <!-- CENTRAL CONTEXT - THE MISSION PATH -->
-            <div id="hud-context" class="hidden hud-context-center animate-fadeIn">
-                <div class="mission-title">Jornada do Conhecimento</div>
-                <div class="mission-path">
-                    <span id="val-grade" class="path-step">Grade</span>
-                    <span class="path-separator">✨</span>
-                    <span id="val-subject" class="path-step">Subject</span>
-                    <span class="path-separator">✨</span>
-                    <span id="val-av" class="path-step">AV1</span>
-                </div>
-            </div>
-
-            <!-- PLAYER COMMANDS -->
-            <div class="flex items-center gap-6">
-                <div class="user-pill flex items-center bg-black/40 px-5 py-2.5 rounded-2xl border border-logos-gold/30 backdrop-blur-xl">
-                   <span class="welcome-user !text-sm !font-black !tracking-wider">MAGO <span>{{ request.user.username|upper }}</span></span>
-                </div>
-
-                <a href="{% url 'arkanos:jogos' %}" title="Sair do Jogo"
-                    class="exit-btn !px-6 !py-3 !bg-red-600/20 hover:!bg-red-600 !text-red-200 hover:!text-white transition-all rounded-2xl text-[11px] font-black uppercase tracking-widest border border-red-500/30 flex items-center gap-2 shadow-lg">
-                    SAIR 🚪
-                </a>
-            </div>
-        </div>
-
-        <!-- MAIN ARENA -->
+    <div id="game-container" class="rpg-game-container the        <!-- MAIN ARENA -->
         <div class="w-full flex flex-col items-center justify-center animate-fadeIn min-h-[500px] z-10">
 
             <!-- 1. INITIAL SCREEN (Centered RPG Gate) -->
             <div id="screen-welcome" class="w-full flex flex-col items-center justify-center animate-fadeIn py-12 max-w-xl mx-auto">
                 
-                <!-- Character Container Floating -->
-                <div class="guardian-premium-box mb-4 scale-110" style="background: transparent !important; border: none !important; box-shadow: none !important;">
-                    <div class="guardian-char aion-char scale-100" style="background-image: url({% static 'games/desafio_sabios_v2.png' %}); background-size: contain; background-repeat: no-repeat; background-position: center bottom; width: 260px; height: 280px; animation: floating-breathing 4s ease-in-out infinite;"></div>
-                </div>
-
-
-                <!-- Speech Bubble -->
-                <div class="bubble-wrap max-w-md mb-8">
-                    <div class="bubble-content text-lg text-center font-black !p-6 shadow-2xl bg-white/90 text-slate-800 border-2 border-slate-200/50 rounded-2xl">
-                        Bem-vindo ao Desafio dos Sábios! Clique abaixo para iniciar os testes e provar seus conhecimentos!
-                    </div>
-                </div>
-
                 <!-- Action Button -->
                 {% if not request.user.is_authenticated %}
                 <div class="p-8 box-container-arkanos w-full text-center">
@@ -1533,6 +1468,8 @@
                 </button>
                 {% endif %}
             </div>
+        </div>
+           </div>
         </div>
 
         </div>
