@@ -4,10 +4,10 @@ import { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import type { DesafioQuestion } from "@/db/queries/quiz";
-import { awardDesafioXp, type AwardResult } from "@/app/desafio/actions";
+import { awardDesafioArks, type ArksResult } from "@/app/desafio/actions";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 
-const XP_BY_DIFFICULTY: Record<string, number> = { easy: 20, medium: 30, hard: 50 };
+const ARKS_BY_DIFFICULTY: Record<string, number> = { easy: 10, medium: 20, hard: 40 };
 
 // Ilustração temática por disciplina (usada quando a questão não tem imagem).
 const SUBJECT_ART: Record<string, { emoji: string; from: string; to: string }> = {
@@ -65,9 +65,12 @@ export function DesafioQuiz({
   const [revealed, setRevealed] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [xp, setXp] = useState(0);
+  const [bronze, setBronze] = useState(0);
+  const [prata, setPrata] = useState(0);
+  const [ouro, setOuro] = useState(0);
   const [finished, setFinished] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [persisted, setPersisted] = useState<AwardResult | null>(null);
+  const [persisted, setPersisted] = useState<ArksResult | null>(null);
 
   if (deck.length === 0) {
     return (
@@ -85,7 +88,10 @@ export function DesafioQuiz({
     setRevealed(true);
     if (isAnswerCorrect(q, value)) {
       setCorrectCount((c) => c + 1);
-      setXp((x) => x + (XP_BY_DIFFICULTY[q.difficulty] ?? 20));
+      setXp((x) => x + (ARKS_BY_DIFFICULTY[q.difficulty] ?? 10));
+      if (q.difficulty === "hard") setOuro((o) => o + 1);
+      else if (q.difficulty === "medium") setPrata((p) => p + 1);
+      else setBronze((b) => b + 1);
       playCorrect();
     } else {
       playWrong();
@@ -108,7 +114,15 @@ export function DesafioQuiz({
     playFinish();
     if (!authed) return;
     setSaving(true);
-    const res = await awardDesafioXp({ correct: correctCount, total, xp });
+    const diamante = total > 0 && correctCount === total ? 1 : 0; // gabaritou
+    const res = await awardDesafioArks({
+      bronze,
+      prata,
+      ouro,
+      diamante,
+      correct: correctCount,
+      total,
+    });
     setSaving(false);
     setPersisted(res);
   }
@@ -121,6 +135,9 @@ export function DesafioQuiz({
     setRevealed(false);
     setCorrectCount(0);
     setXp(0);
+    setBronze(0);
+    setPrata(0);
+    setOuro(0);
     setFinished(false);
     setSaving(false);
     setPersisted(null);
@@ -130,45 +147,94 @@ export function DesafioQuiz({
 
   if (finished) {
     const pct = Math.round((correctCount / total) * 100);
+    const gabaritou = total > 0 && correctCount === total;
+    const narracao =
+      pct >= 80
+        ? "Parabéns, jovem sábio! Você chegou ao fim desta jornada com honra. Tua dedicação honra o Autor de toda sabedoria — avança!"
+        : pct >= 50
+          ? "Bom trabalho! O saber cresce em você a cada passo. Continue firme na jornada."
+          : "A jornada do saber tem tropeços, e o sábio se levanta — “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="mx-auto max-w-lg rounded-3xl border border-[#f1c40f]/20 bg-white/5 p-10 text-center"
+        className="mx-auto max-w-lg rounded-3xl border border-[#f1c40f]/20 bg-white/5 p-8 text-center sm:p-10"
       >
         <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#f1c40f]">
-          Desafio concluído
+          {pct >= 50 ? "Jornada concluída" : "Quase lá"}
         </p>
-        <p className="font-display mt-4 text-6xl font-black text-white">{pct}%</p>
-        <p className="mt-2 text-slate-300">
-          {correctCount} de {total} corretas ·{" "}
-          <span className="text-[#f1c40f]">+{xp} XP</span>
+        <p className="font-display mt-3 text-6xl font-black text-white">{pct}%</p>
+        <p className="mt-1 text-slate-300">
+          {correctCount} de {total} corretas
         </p>
 
-        {saving && <p className="mt-4 text-sm text-slate-400">Salvando progresso…</p>}
+        <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-slate-200">
+          {narracao}
+        </p>
+
+        {/* Arks ganhos nesta partida */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
+          {bronze > 0 && (
+            <span className="rounded-full bg-[#cd7f32]/15 px-3 py-1 text-[#e0a86b]">
+              🥉 {bronze}
+            </span>
+          )}
+          {prata > 0 && (
+            <span className="rounded-full bg-slate-300/15 px-3 py-1 text-slate-200">
+              🥈 {prata}
+            </span>
+          )}
+          {ouro > 0 && (
+            <span className="rounded-full bg-[#f1c40f]/15 px-3 py-1 text-[#f1c40f]">
+              🥇 {ouro}
+            </span>
+          )}
+          {gabaritou && (
+            <span className="rounded-full bg-cyan-300/15 px-3 py-1 text-cyan-200">
+              💎 1
+            </span>
+          )}
+        </div>
+
+        {saving && (
+          <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>
+        )}
+
         {persisted?.persisted && (
-          <div className="mt-5 rounded-2xl border border-[#f1c40f]/20 bg-[#f1c40f]/5 p-4">
+          <div className="mt-6 space-y-3">
             {persisted.leveledUp && (
-              <p className="font-display text-lg text-[#f1c40f]">⭐ Subiu de nível!</p>
+              <p className="font-display text-xl text-[#f1c40f]">
+                ⭐ Subiu para o nível {persisted.level}!
+              </p>
             )}
-            <p className="text-sm text-slate-200">
-              XP total: <strong className="text-white">{persisted.totalXp}</strong> ·
-              Nível <strong className="text-white">{persisted.level}</strong>
-            </p>
+            <div className="rounded-2xl border border-[#f1c40f]/20 bg-[#f1c40f]/5 p-4">
+              <p className="text-sm text-slate-200">
+                Total: <strong className="text-white">{persisted.totalArks} Arks</strong>{" "}
+                · Nível <strong className="text-white">{persisted.level}</strong>
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[#f1c40f]/40 bg-gradient-to-br from-[#f1c40f]/15 to-transparent p-5">
+              <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+                🏆 Sua posição no ranking
+              </p>
+              <p className="font-display mt-1 text-4xl text-white">#{persisted.rankPos}</p>
+              <p className="text-sm text-slate-300">de {persisted.rankTotal} jogadores</p>
+            </div>
           </div>
         )}
+
         {!authed && (
-          <p className="mt-4 text-sm text-slate-400">
+          <p className="mt-5 text-sm text-slate-400">
             <Link href="/signup" className="font-bold text-[#f1c40f] hover:underline">
               Crie uma conta
             </Link>{" "}
-            para salvar seu XP e subir de nível.
+            para salvar seus Arks e entrar no ranking.
           </p>
         )}
 
         <button
           onClick={restart}
-          className="mt-8 rounded-full bg-[#f1c40f] px-8 py-3 text-sm font-black uppercase tracking-wider text-[#0b1222] transition hover:-translate-y-0.5"
+          className="mt-8 w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
         >
           Jogar novamente
         </button>
@@ -203,7 +269,7 @@ export function DesafioQuiz({
           <span className="font-bold text-slate-300">
             {index + 1} / {total}
           </span>
-          <span className="font-black text-[#f1c40f]">⚡ {xp} XP</span>
+          <span className="font-black text-[#f1c40f]">⚜️ {xp} Arks</span>
         </div>
         <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
           <motion.div

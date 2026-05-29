@@ -2,41 +2,53 @@
 
 import { createClient } from "@/lib/supabase/server";
 
-export type AwardResult =
+export type ArksResult =
   | { persisted: false; error?: string }
-  | { persisted: true; totalXp: number; level: number; leveledUp: boolean };
+  | {
+      persisted: true;
+      totalArks: number;
+      level: number;
+      leveledUp: boolean;
+      rankPos: number;
+      rankTotal: number;
+    };
 
 /**
- * Concede XP da sessão de Desafio ao usuário logado (motor unificado).
- * Chama a função SQL award_xp (event-sourced + atualização atômica do profile).
- * Usuários não logados não persistem — só jogam localmente.
+ * Concede Arks ao FINALIZAR o Desafio (motor unificado). Só persiste se houver
+ * sessão (usuário logado). Devolve total, nível e posição no ranking global.
  */
-export async function awardDesafioXp(input: {
+export async function awardDesafioArks(input: {
+  bronze: number;
+  prata: number;
+  ouro: number;
+  diamante: number;
   correct: number;
   total: number;
-  xp: number;
-}): Promise<AwardResult> {
+}): Promise<ArksResult> {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-
   if (!user) return { persisted: false };
 
-  const { data, error } = await supabase.rpc("award_xp", {
+  const { data, error } = await supabase.rpc("award_arks", {
     p_game: "desafio",
-    p_type: "SESSION_FINISHED",
     p_payload: { correct: input.correct, total: input.total },
-    p_xp: Math.max(0, Math.floor(input.xp)),
+    p_bronze: input.bronze,
+    p_prata: input.prata,
+    p_ouro: input.ouro,
+    p_diamante: input.diamante,
   });
 
   if (error) return { persisted: false, error: error.message };
 
-  const row = Array.isArray(data) ? data[0] : data;
+  const r = Array.isArray(data) ? data[0] : data;
   return {
     persisted: true,
-    totalXp: row.total_xp,
-    level: row.level,
-    leveledUp: row.leveled_up,
+    totalArks: r.total_arks,
+    level: r.lvl,
+    leveledUp: r.leveled_up,
+    rankPos: Number(r.rank_pos),
+    rankTotal: Number(r.rank_total),
   };
 }
