@@ -7,7 +7,11 @@ import type { DesafioQuestion } from "@/db/queries/quiz";
 import { awardDesafioArks, type ArksResult } from "@/app/desafio/actions";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
+import { GuardianAvatar } from "@/components/guardian-avatar";
 import type { Rarity } from "@/lib/collection";
+
+// Desafio dos Sábios é a trilha de Lógica → guardião Aion narra.
+const DESAFIO_GUARDIAN = "aion";
 
 const ARKS_BY_DIFFICULTY: Record<string, number> = { easy: 10, medium: 20, hard: 40 };
 
@@ -187,9 +191,10 @@ export function DesafioQuiz({
           {correctCount} de {total} corretas
         </p>
 
-        <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-slate-200">
-          {narracao}
-        </p>
+        <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left">
+          <GuardianAvatar name={DESAFIO_GUARDIAN} size={56} />
+          <p className="text-sm leading-relaxed text-slate-200">{narracao}</p>
+        </div>
 
         {/* Arks ganhos nesta partida */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
@@ -259,7 +264,11 @@ export function DesafioQuiz({
         </button>
       </motion.div>
       {reveals.length > 0 && (
-        <PremiacaoOverlay items={reveals} onClose={() => setReveals([])} />
+        <PremiacaoOverlay
+          items={reveals}
+          guardian={DESAFIO_GUARDIAN}
+          onClose={() => setReveals([])}
+        />
       )}
       </>
     );

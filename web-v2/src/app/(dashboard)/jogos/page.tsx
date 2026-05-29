@@ -5,7 +5,15 @@ import { logout } from "../../(auth)/actions";
 import { ageFromBirthdate, recommendedTrack, TRACK_LABELS } from "@/lib/trivium";
 import { getHud, getOwnedCollection, getLeaderboard } from "@/lib/collection-data";
 import { GameCard } from "@/components/game-card";
+import { GuardianAvatar } from "@/components/guardian-avatar";
 import { LEVELS, ERAS, ORBS, TITLES, eraForLevel } from "@/lib/collection";
+
+// Guardião-guia de cada trilha do Trivium.
+const TRACK_GUARDIAN: Record<string, string> = {
+  gramatica: "lyra",
+  logica: "aion",
+  retorica: "kael",
+};
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -70,11 +78,14 @@ export default async function DashboardPage() {
             <ArkChip emoji="💎" n={hud.arks.diamante} color="#67e8f9" />
           </div>
 
-          <p className="mt-4 text-sm text-slate-300">
-            Trilha recomendada:{" "}
-            <strong className="text-[#f1c40f]">{TRACK_LABELS[track]}</strong>
-            {age !== null ? ` (${age} anos)` : ""}
-          </p>
+          <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+            <GuardianAvatar name={TRACK_GUARDIAN[track]} size={52} />
+            <p className="text-left text-sm text-slate-300">
+              Seu guia na trilha de{" "}
+              <strong className="text-[#f1c40f]">{TRACK_LABELS[track]}</strong>
+              {age !== null ? ` (${age} anos)` : ""}
+            </p>
+          </div>
         </div>
       </header>
 

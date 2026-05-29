@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { GameCard } from "./game-card";
+import { GuardianAvatar } from "./guardian-avatar";
 import { playFanfare } from "@/lib/feedback";
 import {
   ORBS,
@@ -29,16 +30,18 @@ type View = {
   category: string;
   title: string;
   narration: string;
+  guardian: string;
   card: React.ReactNode;
 };
 
-function resolve(item: RevealItem): View {
+function resolve(item: RevealItem, defaultGuardian: string): View {
   if (item.kind === "level") {
     const def = LEVELS.find((l) => l.n === item.level);
     return {
       category: "Novo Nível",
       title: `Nível ${item.level} — ${def?.nome ?? ""}`,
       narration: "Avança na Escada das Artes Liberais. Tua dedicação honra o Autor de toda sabedoria!",
+      guardian: defaultGuardian,
       card: (
         <GameCard
           type="nivel"
@@ -58,6 +61,7 @@ function resolve(item: RevealItem): View {
       narration: aion
         ? "Aion declara: “A verdade se ilumina para quem persevera.”"
         : "Um novo orbe brilha em tua coleção. Continue firme na jornada!",
+      guardian: aion ? "aion" : defaultGuardian,
       card: <GameCard type="orbe" artSrc={orb?.art} rarity={item.rarity} title={orb?.nome} />,
     };
   }
@@ -66,6 +70,7 @@ function resolve(item: RevealItem): View {
     category: medal ? `Medalha · ${medal.tier}` : "Medalha",
     title: medal?.nome ?? "Medalha",
     narration: "Toda grande jornada começa com um passo firme. Bem-vindo, jovem sábio!",
+    guardian: defaultGuardian,
     card: (
       <GameCard
         type="medalha"
@@ -79,9 +84,12 @@ function resolve(item: RevealItem): View {
 export function PremiacaoOverlay({
   items,
   onClose,
+  guardian = "aion",
 }: {
   items: RevealItem[];
   onClose: () => void;
+  /** Guardião narrador padrão (definido pelo jogo de origem). */
+  guardian?: string;
 }) {
   const [i, setI] = useState(0);
 
@@ -92,7 +100,7 @@ export function PremiacaoOverlay({
   if (items.length === 0) return null;
 
   const item = items[i];
-  const view = resolve(item);
+  const view = resolve(item, guardian);
   const last = i >= items.length - 1;
 
   function advance() {
@@ -164,14 +172,15 @@ export function PremiacaoOverlay({
           >
             {view.title}
           </motion.h2>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="mx-auto mt-3 max-w-xs text-sm leading-relaxed text-slate-200"
+            className="mt-4 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left"
           >
-            {view.narration}
-          </motion.p>
+            <GuardianAvatar name={view.guardian} size={56} />
+            <p className="text-sm leading-relaxed text-slate-200">{view.narration}</p>
+          </motion.div>
 
           {items.length > 1 && (
             <p className="mt-3 text-xs text-slate-500">
