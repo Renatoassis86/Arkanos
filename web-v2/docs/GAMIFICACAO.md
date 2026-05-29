@@ -6,8 +6,10 @@
 > serve à formação da virtude — não ao vício.
 
 Decisões fixadas:
-- **Ranking** mostra **nome + nível + XP** (global e por jogo).
-- Tudo é **interconectado**: cada ação vira evento → XP → nível → ranking → medalhas/orbes/missões.
+- A moeda/pontuação se chama **Arks** (4 tipos: Bronze, Prata, Ouro, Diamante).
+- **Ranking** mostra **nome + nível + Arks** (global e por jogo).
+- Tudo é **interconectado**: cada ação vira evento → Arks → nível → ranking → medalhas/orbes/missões.
+- **Regra de ouro:** Arks só são salvos ao **FINALIZAR a partida**; abandonou antes → perde as moedas daquela partida.
 
 ---
 
@@ -32,19 +34,26 @@ leaderboard (VIEW)  (user_id, display_name, level, total_xp, por jogo)
 ```
 Ranking por jogo = soma de `xp_delta` em `game_events` agrupado por `game`.
 
-## 2. Pontuação (o que pontua)
-| Ação (evento) | XP base |
-|---|---|
-| Questão correta (fácil/média/difícil) | 20 / 30 / 50 |
-| Concluir uma prova/sessão | +bônus por % de acerto |
-| Login diário (ofensiva) | 10 (escala com streak) |
-| Entregar projeto/missão | definido por missão |
-| Coletar orbe / desbloquear medalha | marco (sem XP ou bônus) |
+## 2. Moeda — Arks (a pontuação)
+Os pontos são **Arks** (moedas), em **4 tipos por valor**:
+| Ark | Cor | Ganha em | Valor (pontos) |
+|---|---|---|---|
+| **Ark de Bronze** | bronze | acerto fácil | 10 |
+| **Ark de Prata** | prata | acerto médio | 20 |
+| **Ark de Ouro** | dourado | acerto difícil | 40 |
+| **Ark Diamante** | diamante (azul) | feito especial (gabaritar prova, ofensiva, missão) | 100 |
+
+**Regra de ouro:** as moedas só são **salvas no banco ao FINALIZAR a partida**.
+Abandonou antes do fim → as moedas daquela partida são **perdidas** (incentiva concluir).
+O **valor total em Arks** alimenta o **nível** e o **ranking**. (No banco, o campo
+`total_xp`/`xp_delta` passa a representar Arks — renomeação cosmética no build.)
+
+Outras fontes de Arks: login diário/ofensiva, entregar projeto/missão.
 
 ## 3. Níveis — "A Escada das Artes Liberais"
-(Curva √: nível = ⌊√(XP/100)⌋+1)
+(Curva √: nível = ⌊√(Arks/100)⌋+1 — o "Arks" aqui é o valor TOTAL somado das moedas)
 
-| Nível | Título | XP necessário |
+| Nível | Título | Arks necessários |
 |---|---|---|
 | 1 | Aprendiz | 0 |
 | 2 | Discípulo | 100 |
@@ -112,14 +121,14 @@ Orbes por Arte (interior da carta):
 
 ## 9. UX — Fim de jogo + revelação de ranking (narrado pelo guardião)
 **Sucesso:** *"Bem-feito, jovem sábio! [Guardião] sorri: 'Tua dedicação honra o
-Autor de toda sabedoria. Avança na jornada!'"* + resultado (%, XP, orbe/medalha)
+Autor de toda sabedoria. Avança na jornada!'"* + resultado (%, Arks, orbe/medalha)
 + revelação animada do ranking ("Você subiu para o #7!").
 **Tropeço:** *"A jornada do saber tem tropeços, e o sábio se levanta — 'O justo
 cai sete vezes e se levanta' (Pv 24:16). Tenta de novo!"*
 Estética: navy/dourado, brushes, ícones monocromáticos por elemento, personagem "falando".
 
 ## 10. Dashboard pós-login (o "save game")
-HUD: avatar + nível + barra de XP + título · **ranking geral (posição em evidência)** ·
+HUD: avatar + nível + barra de Arks + título · **ranking geral (posição em evidência)** ·
 missões/projetos por data · coleção de orbes · vitrine de medalhas · notificações ·
 tudo narrado pelos guardiões.
 
