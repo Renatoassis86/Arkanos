@@ -98,17 +98,27 @@ export default async function DashboardPage() {
           >
             <p className="text-2xl">⚔️</p>
             <p className="font-display mt-1 text-lg text-white">Desafio dos Sábios</p>
-            <p className="text-xs text-slate-400">Bancos de questões · ganhe Arks</p>
+            <p className="text-xs text-slate-400">Quiz · Aion · Lógica</p>
+          </Link>
+          <Link
+            href="/spelling-bee"
+            className="rounded-2xl border border-[#fb7185]/40 bg-gradient-to-br from-[#fb7185]/15 to-transparent p-5 transition hover:-translate-y-0.5"
+          >
+            <p className="text-2xl">🐝</p>
+            <p className="font-display mt-1 text-lg text-white">Spelling Bee</p>
+            <p className="text-xs text-slate-400">Soletração · Lyra · Gramática</p>
           </Link>
           <Link
             href="/colecao"
-            className="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:-translate-y-0.5"
+            className="col-span-2 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:-translate-y-0.5"
           >
             <p className="text-2xl">🏆</p>
-            <p className="font-display mt-1 text-lg text-white">Coleção</p>
-            <p className="text-xs text-slate-400">
-              {owned.orbs.size} orbes · {niveis} níveis
-            </p>
+            <div>
+              <p className="font-display text-lg text-white">Coleção</p>
+              <p className="text-xs text-slate-400">
+                {owned.orbs.size} orbes · {niveis} níveis
+              </p>
+            </div>
           </Link>
         </div>
 

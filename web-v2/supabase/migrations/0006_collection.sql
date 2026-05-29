@@ -54,6 +54,8 @@ returns int language sql immutable as $$
 $$;
 
 -- Concede um orbe (idempotente; mantém a MAIOR raridade já obtida). SECURITY DEFINER.
+-- (drop antes: 0007 muda o retorno p/ boolean — re-run idempotente.)
+drop function if exists public.grant_orb(text, text);
 create or replace function public.grant_orb(p_key text, p_rarity text)
 returns void language plpgsql security definer set search_path = public as $$
 declare v_uid uuid := auth.uid();
@@ -68,6 +70,8 @@ end;
 $$;
 
 -- Concede uma medalha/conquista (idempotente). SECURITY DEFINER.
+-- (drop antes: 0007 muda o retorno p/ boolean — re-run idempotente.)
+drop function if exists public.grant_achievement(text);
 create or replace function public.grant_achievement(p_key text)
 returns void language plpgsql security definer set search_path = public as $$
 declare v_uid uuid := auth.uid();
@@ -102,7 +106,9 @@ $$;
 -- ============================================================
 -- Estende award_arks: ao FINALIZAR, concede medalhas/orbes da trilha de Lógica
 -- (Desafio = Logos). Mesma assinatura/retorno de 0005 — efeito colateral só.
+-- (drop antes: 0007 adiciona a coluna `granted` ao retorno — re-run idempotente.)
 -- ============================================================
+drop function if exists public.award_arks(text, jsonb, int, int, int, int);
 create or replace function public.award_arks(
   p_game text,
   p_payload jsonb,
