@@ -12,9 +12,14 @@ export function slug(s: string): string {
     .replace(/[^a-z0-9]/g, ""); // só letras/números
 }
 
-/** E-mail sintético determinístico (nome + sobrenome). */
-export function synthEmail(nome: string, sobrenome: string): string {
-  return `${slug(nome)}.${slug(sobrenome)}@alunos.arkanos.quest`;
+/** E-mail sintético determinístico (nome + sobrenome + nascimento p/ evitar homônimos). */
+export function synthEmail(
+  nome: string,
+  sobrenome: string,
+  nascimento: string,
+): string {
+  const data = (nascimento || "").replace(/\D/g, ""); // ex.: 2016-05-10 -> 20160510
+  return `${slug(nome)}.${slug(sobrenome)}.${data}@alunos.arkanos.quest`;
 }
 
 /** Senha derivada do sobrenome (sufixo garante o mínimo de 6 caracteres do Supabase). */

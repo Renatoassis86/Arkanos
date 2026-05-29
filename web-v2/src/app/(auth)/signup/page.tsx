@@ -60,6 +60,15 @@ export default async function SignupPage({
           className={inputClass}
         />
         <label className="space-y-1.5">
+          <span className={labelClass}>Data de nascimento</span>
+          <input
+            name="data_nascimento"
+            type="date"
+            required
+            className={`${inputClass} [color-scheme:dark]`}
+          />
+        </label>
+        <label className="space-y-1.5">
           <span className={labelClass}>Série</span>
           <select name="serie" defaultValue="3º ano" className={inputClass}>
             {SERIES.map((s) => (

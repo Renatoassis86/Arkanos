@@ -53,6 +53,15 @@ export default async function LoginPage({
             className={inputClass}
           />
         </label>
+        <label className="space-y-1.5">
+          <span className={labelClass}>Data de nascimento</span>
+          <input
+            name="data_nascimento"
+            type="date"
+            required
+            className={`${inputClass} [color-scheme:dark]`}
+          />
+        </label>
 
         <button type="submit" className={submitClass}>
           Entrar

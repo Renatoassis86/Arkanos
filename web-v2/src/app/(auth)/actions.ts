@@ -14,12 +14,15 @@ export async function signup(formData: FormData) {
   const nome = String(formData.get("nome") ?? "").trim();
   const sobrenome = String(formData.get("sobrenome") ?? "").trim();
   const serie = String(formData.get("serie") ?? "").trim();
+  const nascimento = String(formData.get("data_nascimento") ?? "").trim();
 
-  if (!slug(nome) || !slug(sobrenome) || !serie) {
-    redirect(`/signup?error=${encodeURIComponent("Preencha nome, sobrenome e série.")}`);
+  if (!slug(nome) || !slug(sobrenome) || !serie || !nascimento) {
+    redirect(
+      `/signup?error=${encodeURIComponent("Preencha nome, sobrenome, data de nascimento e série.")}`,
+    );
   }
 
-  const email = synthEmail(nome, sobrenome);
+  const email = synthEmail(nome, sobrenome, nascimento);
   const password = synthPassword(sobrenome);
 
   const admin = createAdminClient();
@@ -27,7 +30,11 @@ export async function signup(formData: FormData) {
     email,
     password,
     email_confirm: true,
-    user_metadata: { display_name: `${nome} ${sobrenome}`, serie },
+    user_metadata: {
+      display_name: `${nome} ${sobrenome}`,
+      serie,
+      data_nascimento: nascimento,
+    },
   });
 
   if (error) {
@@ -51,8 +58,9 @@ export async function signup(formData: FormData) {
 export async function login(formData: FormData) {
   const nome = String(formData.get("nome") ?? "").trim();
   const sobrenome = String(formData.get("sobrenome") ?? "").trim();
+  const nascimento = String(formData.get("data_nascimento") ?? "").trim();
 
-  const email = synthEmail(nome, sobrenome);
+  const email = synthEmail(nome, sobrenome, nascimento);
   const password = synthPassword(sobrenome);
 
   const supabase = await createClient();
