@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1e" />
+      <stop offset="50%" stop-color="#0b172a" />
+      <stop offset="100%" stop-color="#05070f" />
+    </linearGradient>
+    
+    <!-- Gold Gradient for lines and highlights -->
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8a6f27" />
+      <stop offset="30%" stop-color="#d4af37" />
+      <stop offset="50%" stop-color="#f9e8a2" />
+      <stop offset="70%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#aa8c32" />
+    </linearGradient>
+
+    <!-- Blue Glow Gradient -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#0d1b3e" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#080e1e" stop-opacity="0" />
+    </radialGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1536" height="864" fill="url(#bgGrad)" />
+  
+  <!-- Center Glow -->
+  <circle cx="768" cy="432" r="600" fill="url(#centerGlow)" />
+  
+  <!-- Elegant Corner Patterns & Borders -->
+  <rect x="40" y="40" width="1456" height="784" rx="16" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.4" />
+  <rect x="52" y="52" width="1432" height="760" rx="10" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.2" />
+  
+  <!-- Corner Ornamental details -->
+  <!-- Top Left -->
+  <path d="M 40,90 L 90,40 M 40,110 L 110,40 M 40,60 L 60,40" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <!-- Top Right -->
+  <path d="M 1496,90 L 1446,40 M 1496,110 L 1426,40 M 1496,60 L 1476,40" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <!-- Bottom Left -->
+  <path d="M 40,774 L 90,824 M 40,754 L 110,824 M 40,804 L 60,824" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <!-- Bottom Right -->
+  <path d="M 1496,774 L 1446,824 M 1496,754 L 1426,824 M 1496,804 L 1476,824" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  
+  <!-- Timeline Line -->
+  <line x1="250" y1="450" x2="1286" y2="450" stroke="url(#goldGrad)" stroke-width="4" stroke-dasharray="8 4" filter="url(#goldGlow)" />
+  
+  <!-- Node 1: Minoica -->
+  <g transform="translate(350, 450)" filter="url(#goldGlow)">
+    <circle cx="0" cy="0" r="16" fill="url(#goldGrad)" />
+    <circle cx="0" cy="0" r="8" fill="#0b172a" />
+    
+    <!-- Mini Dolphin Symbol above -->
+    <g transform="translate(-40, -140) scale(0.25)">
+      <path d="M 40,160 C 20,110 50,50 110,30 C 180,10 230,60 250,110 C 260,130 280,140 290,130 C 270,150 250,170 230,170 Z" fill="url(#goldGrad)" />
+    </g>
+    <!-- Label Indicator -->
+    <line x1="0" y1="-20" x2="0" y2="-80" stroke="url(#goldGrad)" stroke-width="2" />
+  </g>
+
+  <!-- Node 2: Micênica -->
+  <g transform="translate(600, 450)" filter="url(#goldGlow)">
+    <circle cx="0" cy="0" r="16" fill="url(#goldGrad)" />
+    <circle cx="0" cy="0" r="8" fill="#0b172a" />
+    
+    <!-- Mini Lions Gate above -->
+    <g transform="translate(-40, -140) scale(0.25)">
+      <rect x="30" y="240" width="240" height="30" rx="4" fill="url(#goldGrad)" />
+      <path d="M 50,230 L 150,70 L 250,230 Z" fill="none" stroke="url(#goldGrad)" stroke-width="8" />
+    </g>
+    <!-- Label Indicator -->
+    <line x1="0" y1="-20" x2="0" y2="-80" stroke="url(#goldGrad)" stroke-width="2" />
+  </g>
+
+  <!-- Node 3: Troia -->
+  <g transform="translate(850, 450)" filter="url(#goldGlow)">
+    <circle cx="0" cy="0" r="16" fill="url(#goldGrad)" />
+    <circle cx="0" cy="0" r="8" fill="#0b172a" />
+    
+    <!-- Mini Trojan Horse above -->
+    <g transform="translate(-45, -145) scale(0.25)">
+      <rect x="40" y="270" width="260" height="20" rx="5" fill="url(#goldGrad)" />
+      <path d="M 90,210 L 230,210 L 250,150 L 210,130 L 110,130 L 80,160 Z" fill="url(#goldGrad)" />
+    </g>
+    <!-- Label Indicator -->
+    <line x1="0" y1="-20" x2="0" y2="-80" stroke="url(#goldGrad)" stroke-width="2" />
+  </g>
+
+  <!-- Node 4: Fenícios -->
+  <g transform="translate(1100, 450)" filter="url(#goldGlow)">
+    <circle cx="0" cy="0" r="16" fill="url(#goldGrad)" />
+    <circle cx="0" cy="0" r="8" fill="#0b172a" />
+    
+    <!-- Mini Ship above -->
+    <g transform="translate(-40, -140) scale(0.25)">
+      <path d="M 30,170 C 40,230 100,240 270,230 L 290,165 Z" fill="url(#goldGrad)" />
+      <path d="M 160,85 C 210,95 240,120 240,160 Z" fill="url(#goldGrad)" />
+    </g>
+    <!-- Label Indicator -->
+    <line x1="0" y1="-20" x2="0" y2="-80" stroke="url(#goldGrad)" stroke-width="2" />
+  </g>
+</svg>

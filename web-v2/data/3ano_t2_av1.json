@@ -1,0 +1,74 @@
+[
+  {
+    "id": "3A-T2-AV1-001",
+    "ano": "3º ano",
+    "disciplina": "História",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "A Civilização Minoica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual era o nome do rei lendário que, segundo a mitologia, mandou construir o grande labirinto no palácio de Cnossos em Creta?",
+    "alternativas": [
+      "Rei Leônidas",
+      "Rei Minos",
+      "Rei Agamenon",
+      "Rei Alexandre"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "O rei Minos foi o governante mitológico da ilha de Creta. É de seu nome que deriva a palavra 'Minoica', a civilização que construiu o majestoso palácio de Cnossos.",
+    "cronica_do_guardiao": "Dizem que nas profundezas do labirinto de Cnossos vivia o temível Minotauro! A antiga Creta era famosa pelos seus palácios gigantes e belos afrescos de golfinhos no mar azul do Egeu.",
+    "imagem": {
+      "arquivo": "3a-t2-av1-001.png",
+      "prompt": "Ilustração digital pintada à mão, estilo épico-clássico para crianças. Foco no majestoso palácio de Cnossos em Creta.",
+      "alt": "Ilustração do antigo palácio de Cnossos com colunas vermelhas."
+    }
+  },
+  {
+    "id": "3A-T2-AV1-002",
+    "ano": "3º ano",
+    "disciplina": "História",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "A Civilização Micênica",
+    "tipo": "multiple_choice",
+    "dificuldade": "medium",
+    "pergunta": "Como se chamava a entrada principal da cidade fortaleza de Micenas, que possuía duas grandes feras de pedra esculpidas acima da porta?",
+    "alternativas": [
+      "Portão dos Leões",
+      "Portal dos Dragões",
+      "Porta do Touro",
+      "Arco de Bronze"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "O Portão dos Leões é a entrada principal da cidadela de Micenas, famosa por ter dois leões (ou leoas) em alto-relevo de pedra, representando o poder e a força do rei micênico.",
+    "cronica_do_guardiao": "Os guerreiros micênicos eram formidáveis! Eles construíram muralhas de pedras tão grandes que os antigos gregos acreditavam que haviam sido empilhadas por ciclopes gigantes.",
+    "imagem": {
+      "arquivo": "3a-t2-av1-002.png",
+      "prompt": "Ilustração digital pintada à mão. Foco no famoso Portão dos Leões na antiga cidade de Micenas.",
+      "alt": "Ilustração do Portão dos Leões de Micenas."
+    }
+  },
+  {
+    "id": "3A-T2-AV1-003",
+    "ano": "3º ano",
+    "disciplina": "História",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Os Fenícios",
+    "tipo": "multiple_choice",
+    "dificuldade": "hard",
+    "pergunta": "Os fenícios eram grandes navegadores. Eles também criaram algo muito importante que usamos todos os dias para escrever palavras. O que foi?",
+    "alternativas": [
+      "O papiro",
+      "A pena de escrever",
+      "O alfabeto",
+      "A tinta púrpura"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Os fenícios inventaram o primeiro alfabeto fonético, onde cada símbolo representava um som. Isso facilitou muito as anotações comerciais e acabou dando origem aos alfabetos grego e latino.",
+    "cronica_do_guardiao": "Os fenícios velejaram pelo vasto mar Mediterrâneo em barcos de cedro do Líbano. E graças à sua engenhosa invenção do alfabeto, nós podemos ler e escrever hoje!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-003.png",
+      "prompt": "Ilustração digital pintada à mão. Foco em navegadores fenícios no mar.",
+      "alt": "Ilustração de navegadores fenícios no mar em grandes barcos."
+    }
+  }
+]

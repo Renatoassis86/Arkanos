@@ -1,0 +1,45 @@
+{
+  "name": "web-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "db:apply": "node --env-file=.env.local scripts/apply-sql.mjs",
+    "db:seed": "node --env-file=.env.local scripts/seed.mjs",
+    "db:image-prompts": "node --env-file=.env.local scripts/set-image-prompts.mjs",
+    "db:generate-images": "node --env-file=.env.local scripts/generate-images.mjs",
+    "db:generate-images:all": "node --env-file=.env.local scripts/generate-images.mjs --mode questions",
+    "db:link-images": "node --env-file=.env.local scripts/link-quiz-images.mjs",
+    "db:import-assessment": "node --env-file=.env.local scripts/import-assessment.mjs",
+    "db:pull": "drizzle-kit pull",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.106.2",
+    "drizzle-orm": "^0.45.2",
+    "motion": "^12.40.0",
+    "next": "16.2.6",
+    "postgres": "^3.4.9",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "tailwindcss": "^4",
+    "tsx": "^4.22.3",
+    "typescript": "^5"
+  }
+}

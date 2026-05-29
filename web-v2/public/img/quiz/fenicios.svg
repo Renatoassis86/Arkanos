@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 864" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1e" />
+      <stop offset="50%" stop-color="#0b172a" />
+      <stop offset="100%" stop-color="#05070f" />
+    </linearGradient>
+    
+    <!-- Gold Gradient for lines and highlights -->
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8a6f27" />
+      <stop offset="30%" stop-color="#d4af37" />
+      <stop offset="50%" stop-color="#f9e8a2" />
+      <stop offset="70%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#aa8c32" />
+    </linearGradient>
+
+    <!-- Blue Glow Gradient -->
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#0d1b3e" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#080e1e" stop-opacity="0" />
+    </radialGradient>
+    
+    <!-- Shadow Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1536" height="864" fill="url(#bgGrad)" />
+  
+  <!-- Center Glow -->
+  <circle cx="768" cy="432" r="600" fill="url(#centerGlow)" />
+  
+  <!-- Elegant Corner Patterns & Borders -->
+  <rect x="40" y="40" width="1456" height="784" rx="16" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.4" />
+  <rect x="52" y="52" width="1432" height="760" rx="10" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-opacity="0.2" />
+  
+  <!-- Corner Ornamental details -->
+  <!-- Top Left -->
+  <path d="M 40,90 L 90,40 M 40,110 L 110,40 M 40,60 L 60,40" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <!-- Top Right -->
+  <path d="M 1496,90 L 1446,40 M 1496,110 L 1426,40 M 1496,60 L 1476,40" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <!-- Bottom Left -->
+  <path d="M 40,774 L 90,824 M 40,754 L 110,824 M 40,804 L 60,824" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  <!-- Bottom Right -->
+  <path d="M 1496,774 L 1446,824 M 1496,754 L 1426,824 M 1496,804 L 1476,824" stroke="url(#goldGrad)" stroke-width="2" stroke-opacity="0.6" fill="none" />
+  
+  <!-- Concentric Golden Circles -->
+  <circle cx="768" cy="432" r="180" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="10 5" stroke-opacity="0.5" />
+  <circle cx="768" cy="432" r="150" fill="none" stroke="url(#goldGrad)" stroke-width="3" filter="url(#goldGlow)" />
+
+  <!-- Phoenician Ship Silhouette -->
+  <g transform="translate(608, 272)" filter="url(#goldGlow)">
+    <!-- Sea Waves -->
+    <path d="M -20,240 C 40,225 80,255 160,240 C 240,225 280,255 340,240" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Ship Hull -->
+    <path d="M 30,170 C 40,230 100,240 270,230 C 290,210 300,180 290,165 C 290,165 275,195 250,195 C 100,195 65,190 45,170 Z" fill="url(#goldGrad)" />
+    
+    <!-- Mast -->
+    <line x1="160" y1="195" x2="160" y2="70" stroke="url(#goldGrad)" stroke-width="5" />
+    
+    <!-- Large Rounded Sail -->
+    <path d="M 160,85 C 210,95 240,120 240,160 C 200,170 170,170 160,170 Z" fill="url(#goldGrad)" />
+    <path d="M 160,85 C 110,95 80,120 80,160 C 120,170 150,170 160,170 Z" fill="url(#goldGrad)" opacity="0.9" />
+    
+    <!-- Oars -->
+    <line x1="80" y1="210" x2="60" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="100" y1="210" x2="80" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="120" y1="210" x2="100" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="140" y1="210" x2="120" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="180" y1="210" x2="160" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="200" y1="210" x2="180" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="220" y1="210" x2="200" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+    <line x1="240" y1="210" x2="220" y2="250" stroke="url(#goldGrad)" stroke-width="2" />
+  </g>
+</svg>

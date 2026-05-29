@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "3A-T2-AV1-PT-001",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase está escrita corretamente?",
+    "alternativas": [
+      "vamos brincar.",
+      "Vamos brincar.",
+      "Vamos brincar",
+      "vamos brincar"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Vamos brincar..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-001.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion segurando um livro aberto em uma sala de aula mágica. Aion apontando para uma frase correta escrita em um quadro. Personagem: Aion.",
+      "alt": "Ilustração para a questão 1"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-002",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase é interrogativa?",
+    "alternativas": [
+      "Que dia lindo!",
+      "Eu gosto de estudar.",
+      "Você gosta de brincar?",
+      "O menino correu."
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Você gosta de brincar?.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-002.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra fazendo uma pergunta para crianças em uma biblioteca mágica. Lyra apontando para um ponto de interrogação brilhante. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 2"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-003",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase é exclamativa?",
+    "alternativas": [
+      "O cachorro dormiu.",
+      "Como está quente hoje!",
+      "Onde você mora?",
+      "Ela foi à escola."
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Como está quente hoje!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-003.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael no deserto sentindo muito calor. Kael exclamando com expressão surpresa. Personagem: Kael.",
+      "alt": "Ilustração para a questão 3"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-004",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual sinal usamos em perguntas?",
+    "alternativas": [
+      "!",
+      ".",
+      ",",
+      "?"
+    ],
+    "resposta_correta": 3,
+    "explicacao": "Resposta correta: ?.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-004.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra segurando símbolos de pontuação flutuantes. Lyra destacando um grande ponto de interrogação brilhante. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 4"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-005",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra completa corretamente: 'ca__ão'?",
+    "alternativas": [
+      "nh",
+      "lh",
+      "ch",
+      "rr"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: nh.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-005.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion organizando letras mágicas flutuantes. Aion encaixando NH na palavra canhão. Personagem: Aion.",
+      "alt": "Ilustração para a questão 5"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-006",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A separação correta da palavra 'montanha' é:",
+    "alternativas": [
+      "mon-ta-nha",
+      "mon-tan-ha",
+      "mon-ta-nh-a",
+      "mo-nta-nha"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: mon-ta-nha.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-006.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra desenhando sílabas luminosas no ar. Separação silábica da palavra montanha aparecendo magicamente. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 6"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-007",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra possui 'NHO'?",
+    "alternativas": [
+      "caminho",
+      "ninho",
+      "banho",
+      "nenhum"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: banho.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-007.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael em uma missão linguística. Kael destacando a palavra banho em um pergaminho. Personagem: Kael.",
+      "alt": "Ilustração para a questão 7"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-008",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase está pontuada corretamente?",
+    "alternativas": [
+      "Pedro venha aqui.",
+      "Pedro, venha aqui.",
+      "Pedro venha, aqui.",
+      "Pedro venha aqui!"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Pedro, venha aqui..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-008.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Sala de aula ARKANOS. Aion colocando uma vírgula brilhante corretamente em uma frase. Personagem: Aion.",
+      "alt": "Ilustração para a questão 8"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-009",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A frase 'Ai! Machuquei meu pé!' expressa:",
+    "alternativas": [
+      "alegria",
+      "dor",
+      "dúvida",
+      "silêncio"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: dor.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-009.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael tropeçando em uma pedra durante uma aventura. Kael segurando o pé com expressão de dor. Personagem: Kael.",
+      "alt": "Ilustração para a questão 9"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-010",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "'Oba!' é uma:",
+    "alternativas": [
+      "pergunta",
+      "interjeição",
+      "resposta",
+      "vírgula"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: interjeição.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-010.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra comemorando em um festival escolar. Balão mágico escrito OBA! brilhando. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 10"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-011",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra é um substantivo?",
+    "alternativas": [
+      "bonito",
+      "correr",
+      "cadeira",
+      "feliz"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: cadeira.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-011.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion em uma sala cheia de objetos mágicos. Aion apontando para uma cadeira encantada. Personagem: Aion.",
+      "alt": "Ilustração para a questão 11"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-012",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'democracia' começa com:",
+    "alternativas": [
+      "de",
+      "di",
+      "do",
+      "da"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: de.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-012.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra ensinando palavras antigas em um templo do conhecimento. Sílabas brilhantes DE aparecendo no ar. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 12"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-013",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual alternativa apresenta uma frase afirmativa?",
+    "alternativas": [
+      "Como você cresceu!",
+      "Onde está o livro?",
+      "Hoje está calor.",
+      "Pare agora!"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Hoje está calor..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-013.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael caminhando sob um sol forte. Kael falando que está calor. Personagem: Kael.",
+      "alt": "Ilustração para a questão 13"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-014",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'nenhum' possui:",
+    "alternativas": [
+      "nha",
+      "nho",
+      "nhe",
+      "nhu"
+    ],
+    "resposta_correta": 3,
+    "explicacao": "Resposta correta: nhu.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-014.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion organizando sílabas mágicas em um laboratório educacional. Aion destacando a sílaba NHU. Personagem: Aion.",
+      "alt": "Ilustração para a questão 14"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-015",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase termina com ponto final?",
+    "alternativas": [
+      "Vamos estudar.",
+      "Que lindo!",
+      "Onde está Ana?",
+      "Socorro!"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: Vamos estudar..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-015.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra escrevendo em um caderno mágico. Um ponto final brilhante aparecendo no final da frase. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 15"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-016",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Em 'São Paulo, 23 de novembro de 2010.', a vírgula separa:",
+    "alternativas": [
+      "pessoas",
+      "perguntas",
+      "cidade e data",
+      "sentimentos"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: cidade e data.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-016.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Mapa mágico mostrando São Paulo. Aion apontando para uma vírgula entre cidade e data. Personagem: Aion.",
+      "alt": "Ilustração para a questão 16"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-017",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'amanhecer' possui:",
+    "alternativas": [
+      "nha",
+      "nhe",
+      "nho",
+      "nhu"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: nhe.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-017.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Nascer do sol mágico no reino ARKANOS. Lyra escrevendo a sílaba NHE no céu. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 17"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-018",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase está correta?",
+    "alternativas": [
+      "eu gosto de brincar.",
+      "Eu gosto de brincar.",
+      "Eu gosto de brincar",
+      "eu gosto de brincar"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Eu gosto de brincar..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-018.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael estudando gramática em uma mesa medieval. Kael destacando a letra maiúscula no início da frase. Personagem: Kael.",
+      "alt": "Ilustração para a questão 18"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-019",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'silêncio!' expressa:",
+    "alternativas": [
+      "ordem",
+      "alegria",
+      "dúvida",
+      "medo"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: ordem.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-019.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Biblioteca mágica silenciosa. Aion fazendo sinal de silêncio. Personagem: Aion.",
+      "alt": "Ilustração para a questão 19"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-020",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra está escrita corretamente?",
+    "alternativas": [
+      "canhao",
+      "cannhão",
+      "canhão",
+      "canhnhão"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: canhão.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-020.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael treinando escrita mágica. Palavra canhão aparecendo corretamente em letras douradas. Personagem: Kael.",
+      "alt": "Ilustração para a questão 20"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-021",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual alternativa possui uma pergunta?",
+    "alternativas": [
+      "Estou feliz hoje.",
+      "Vá para casa.",
+      "Onde você mora?",
+      "Nossa, que legal!"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Onde você mora?.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-021.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra conversando com crianças. Grande ponto de interrogação mágico. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 21"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-022",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'companhia' possui:",
+    "alternativas": [
+      "nha",
+      "nho",
+      "nhi",
+      "nhe"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: nhi.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-022.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion organizando sílabas luminosas. Destacando NHI. Personagem: Aion.",
+      "alt": "Ilustração para a questão 22"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-023",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase está no singular?",
+    "alternativas": [
+      "Os meninos brincam.",
+      "As flores são lindas.",
+      "O pássaro voou.",
+      "As crianças cantaram."
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: O pássaro voou..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-023.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael observando um cachorro sozinho. Indicando singular. Personagem: Kael.",
+      "alt": "Ilustração para a questão 23"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-024",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase apresenta alegria?",
+    "alternativas": [
+      "Ai, minha perna!",
+      "Que dia maravilhoso!",
+      "Onde está o gato?",
+      "Não fale assim."
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Que dia maravilhoso!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-024.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Festival alegre no reino ARKANOS. Lyra comemorando. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 24"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-025",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual é a separação correta da palavra 'caminho'?",
+    "alternativas": [
+      "ca-mi-nho",
+      "cam-i-nho",
+      "ca-min-ho",
+      "ca-minh-o"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: ca-mi-nho.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-025.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion separando sílabas mágicas. ca-mi-nho brilhando. Personagem: Aion.",
+      "alt": "Ilustração para a questão 25"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-026",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase está pontuada correta no uso da vírgula para vocativo?",
+    "alternativas": [
+      "Ana venha logo.",
+      "Ana venha, logo.",
+      "Ana, venha logo.",
+      "Ana venha logo,"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Ana, venha logo..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-026.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael chamando um amigo. Vírgula brilhando na frase. Personagem: Kael.",
+      "alt": "Ilustração para a questão 26"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-027",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "'Nossa!' expressa:",
+    "alternativas": [
+      "surpresa",
+      "dor",
+      "silêncio",
+      "ordem"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: surpresa.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-027.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra surpresa diante de magia. Expressão surpresa. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 27"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-028",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra possui 'NHÃO'?",
+    "alternativas": [
+      "banho",
+      "caminhão",
+      "sonho",
+      "ninho"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: caminhão.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-028.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Pergaminho mágico com sílabas. NHÃO brilhando. Personagem: Aion.",
+      "alt": "Ilustração para a questão 28"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-029",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual alternativa apresenta uma frase exclamativa?",
+    "alternativas": [
+      "Que bolo gostoso!",
+      "Você vai à festa?",
+      "Eu gosto de ler.",
+      "Feche a porta."
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: Que bolo gostoso!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-029.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael admirado diante de um castelo. Exclamação brilhante. Personagem: Kael.",
+      "alt": "Ilustração para a questão 29"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-030",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra está escrita corretamente?",
+    "alternativas": [
+      "mensajem",
+      "mesagem",
+      "mensagem",
+      "mensagen"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: mensagem.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-030.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra revisando palavras mágicas. Mensagem correta iluminada. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 30"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-031",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Em 'João, venha almoçar!', a vírgula foi usada para:",
+    "alternativas": [
+      "separar datas",
+      "chamar alguém (vocativo)",
+      "fazer uma pergunta",
+      "indicar uma pausa longa"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: chamar alguém (vocativo).",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-031.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Refeitório escolar mágico. Aion chamando João. Personagem: Aion.",
+      "alt": "Ilustração para a questão 31"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-032",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'também' termina com a letra:",
+    "alternativas": [
+      "n",
+      "nh",
+      "m",
+      "l"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: m.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-032.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael montando palavras. Letra M brilhando no final. Personagem: Kael.",
+      "alt": "Ilustração para a questão 32"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-033",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase está escrita corretamente no início?",
+    "alternativas": [
+      "Hoje vamos estudar.",
+      "hoje vamos estudar.",
+      "hOje vamos estudar.",
+      "Hoje vamos estudar"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: Hoje vamos estudar..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-033.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra segurando um livro de perguntas. Frase correta iluminada. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 33"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-034",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra completa corretamente: 'i__fiel'?",
+    "alternativas": [
+      "n",
+      "m",
+      "nh",
+      "lh"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: n.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-034.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Laboratório de letras mágicas. Inserindo letra N. Personagem: Aion.",
+      "alt": "Ilustração para a questão 34"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-035",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A frase 'Que paisagem bonita!' demonstra:",
+    "alternativas": [
+      "pergunta",
+      "admiração",
+      "ordem",
+      "dor"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: admiração.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-035.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Paisagem mágica do reino ARKANOS. Lyra admirada. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 35"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-036",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual alternativa apresenta uma interjeição?",
+    "alternativas": [
+      "Você comeu?",
+      "Eu gosto.",
+      "Uau! Que lindo!",
+      "Amanhã choverá."
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Uau! Que lindo!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-036.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael surpreso durante aventura. Uau brilhando. Personagem: Kael.",
+      "alt": "Ilustração para a questão 36"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-037",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra está escrita corretamente?",
+    "alternativas": [
+      "esperança",
+      "esperansa",
+      "isperança",
+      "hesperança"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: esperança.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-037.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Pergaminho antigo com palavras corretas. Esperança iluminada. Personagem: Aion.",
+      "alt": "Ilustração para a questão 37"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-038",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Em qual alternativa a frase interrogativa está correta?",
+    "alternativas": [
+      "Que horas são.",
+      "Que horas são?",
+      "Que horas são!",
+      "Que horas são,"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Que horas são?.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-038.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Relógio mágico gigante. Lyra fazendo uma pergunta. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 38"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-039",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "A palavra 'tripulante' é escrita com a letra M ou N antes do T?",
+    "alternativas": [
+      "M",
+      "nh",
+      "N",
+      "l"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: N.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-039.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Navio voador do reino ARKANOS. Kael destacando a letra N. Personagem: Kael.",
+      "alt": "Ilustração para a questão 39"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-040",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase apresenta ponto de exclamação corretamente?",
+    "alternativas": [
+      "Onde você vai!",
+      "Eu gosto de maçã!",
+      "Socorro!",
+      "A menina sorriu!"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Socorro!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-040.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra pedindo socorro em tom divertido. Exclamação gigante brilhando. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 40"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-041",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra possui NH?",
+    "alternativas": [
+      "bano",
+      "banho",
+      "balão",
+      "banco"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: banho.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-041.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Aion em um banheiro mágico. Palavra banho iluminada. Personagem: Aion.",
+      "alt": "Ilustração para a questão 41"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-042",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase possui vírgula indicando chamamento?",
+    "alternativas": [
+      "Maria foi ao parque.",
+      "Maria, venha cá.",
+      "Eu vi a Maria.",
+      "A Maria é legal."
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Maria, venha cá..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-042.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael chamando um amigo. Vírgula brilhando. Personagem: Kael.",
+      "alt": "Ilustração para a questão 42"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-043",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase expressa surpresa?",
+    "alternativas": [
+      "Nossa!",
+      "Silêncio.",
+      "Vamos.",
+      "Sim."
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: Nossa!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-043.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Magia inesperada acontecendo. Expressão surpresa. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 43"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-044",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "O que usamos no final das perguntas diretas?",
+    "alternativas": [
+      "ponto final",
+      "ponto de exclamação",
+      "ponto de interrogação",
+      "vírgula"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: ponto de interrogação.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-044.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Quadro mágico de gramática. Grande ponto de interrogação. Personagem: Aion.",
+      "alt": "Ilustração para a questão 44"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-045",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase é afirmativa?",
+    "alternativas": [
+      "Você não estudou?",
+      "Hoje eu estudei.",
+      "Que susto!",
+      "Vá estudar agora."
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Hoje eu estudei..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-045.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Kael estudando feliz. Mostrando caderno completo. Personagem: Kael.",
+      "alt": "Ilustração para a questão 45"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-046",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra termina com M?",
+    "alternativas": [
+      "homem",
+      "menino",
+      "sol",
+      "cantar"
+    ],
+    "resposta_correta": 0,
+    "explicacao": "Resposta correta: homem.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-046.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Letras mágicas no céu. Final da palavra brilhando. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 46"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-047",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra possui NHE?",
+    "alternativas": [
+      "ninho",
+      "banho",
+      "nenhum",
+      "amanhecer"
+    ],
+    "resposta_correta": 3,
+    "explicacao": "Resposta correta: amanhecer.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-047.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Nascer do sol no reino ARKANOS. NHE brilhando. Personagem: Aion.",
+      "alt": "Ilustração para a questão 47"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-048",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase demonstra alegria?",
+    "alternativas": [
+      "Estou com medo.",
+      "Oba! Vamos brincar!",
+      "Não quero ir.",
+      "Que horas são?"
+    ],
+    "resposta_correta": 1,
+    "explicacao": "Resposta correta: Oba! Vamos brincar!.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-048.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Parque mágico do reino ARKANOS. Comemorando juntos. Personagem: Kael.",
+      "alt": "Ilustração para a questão 48"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-049",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual frase possui ponto final corretamente?",
+    "alternativas": [
+      "Eu gosto de ler?",
+      "Eu gosto de ler!",
+      "Eu gosto de ler.",
+      "Eu gosto de ler,"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: Eu gosto de ler..",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-049.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Biblioteca mágica. Livro aberto com ponto final brilhante. Personagem: Aion.",
+      "alt": "Ilustração para a questão 49"
+    }
+  },
+  {
+    "id": "3A-T2-AV1-PT-050",
+    "ano": "3º ano",
+    "disciplina": "Português",
+    "avaliacao": "AV1 - 2º Trimestre",
+    "tema": "Ortografia e Gramática Básica",
+    "tipo": "multiple_choice",
+    "dificuldade": "easy",
+    "pergunta": "Qual palavra possui NHI?",
+    "alternativas": [
+      "companheiro",
+      "caminho",
+      "companhia",
+      "ninho"
+    ],
+    "resposta_correta": 2,
+    "explicacao": "Resposta correta: companhia.",
+    "cronica_do_guardiao": "Muito bem! Aprender português é como desvendar a magia das palavras!",
+    "imagem": {
+      "arquivo": "3a-t2-av1-pt-050.webp",
+      "prompt": "Ilustração infantil em anime 2D, traço limpo, olhos grandes e expressivos, proporções infantis heroicas, cores vibrantes, iluminação suave, acabamento digital premium, contorno fino, aparência amigável e educativa, estilo idêntico aos personagens oficiais Aion, Kael e Lyra Cena: Lyra caminhando com amigos. Palavra companhia brilhando no céu. Personagem: Lyra.",
+      "alt": "Ilustração para a questão 50"
+    }
+  }
+]
