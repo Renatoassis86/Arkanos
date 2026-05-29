@@ -53,20 +53,34 @@ Outras fontes de Arks: login diário/ofensiva, entregar projeto/missão.
 ## 3. Níveis — "A Escada das Artes Liberais"
 (Curva √: nível = ⌊√(Arks/100)⌋+1 — o "Arks" aqui é o valor TOTAL somado das moedas)
 
-| Nível | Título | Arks necessários |
-|---|---|---|
-| 1 | Aprendiz | 0 |
-| 2 | Discípulo | 100 |
-| 3 | Gramático | 400 |
-| 4 | Dialético | 900 |
-| 5 | Retórico | 1.600 |
-| 6 | Aritmético | 2.500 |
-| 7 | Geômetra | 3.600 |
-| 8 | Músico (das esferas) | 4.900 |
-| 9 | Astrônomo | 6.400 |
-| 10 | Bacharel das Artes Liberais | 8.100 |
-| 11+ | Mestre das Sete Artes | 10.000+ |
-| ⭐ Topo | **Sábio Coroado** (Platina) | completar todas as artes |
+**50 níveis**, cada um com seu **card**. Arks necessários = `(nível − 1)² × 100`.
+Agrupados em 5 Eras (cada Era = um tema visual de card).
+
+**Era I — Os Primeiros Passos (1–10)** — tons terrosos/bronze
+1 Aprendiz · 2 Iniciado · 3 Pupilo · 4 Aplicado · 5 Estudante Dedicado · 6 Leitor ·
+7 Memorioso · 8 Discípulo · 9 Aprendiz das Letras · 10 Guardião Iniciante
+
+**Era II — A Arte da Palavra / Trivium (11–20)** — dourado
+11 Gramático · 12 Escriba · 13 Mestre das Letras · 14 Dialético · 15 Lógico ·
+16 Argumentador · 17 Pensador Claro · 18 Retórico · 19 Orador · 20 Voz de Ouro
+
+**Era III — A Arte do Número / Quadrivium (21–30)** — azul/cosmos
+21 Aritmético · 22 Calculista · 23 Mestre dos Números · 24 Geômetra ·
+25 Arquiteto das Formas · 26 Músico das Esferas · 27 Harmonista · 28 Astrônomo ·
+29 Navegante dos Céus · 30 Contemplador do Cosmos
+
+**Era IV — A Sabedoria (31–40)** — violeta
+31 Filósofo Novato · 32 Amante da Sabedoria · 33 Bacharel das Artes · 34 Erudito ·
+35 Sábio · 36 Mestre das Sete Artes · 37 Guardião do Saber · 38 Conselheiro ·
+39 Doutor das Artes · 40 Sábio Ancião
+
+**Era V — A Coroa (41–50)** — branco sagrado/dourado
+41 Iluminado · 42 Portador da Verdade · 43 Servo da Bondade · 44 Mensageiro da Beleza ·
+45 Virtuoso · 46 Mestre Coroado · 47 Guardião Lendário · 48 Sábio Celeste ·
+49 Sábio Imortal · 50 **⭐ Sábio Coroado de Arkanos** (Platina — o topo)
+
+> Curva: os primeiros níveis vêm rápido (engajamento) e o topo (Nv 50 ≈ 240.100 Arks)
+> é a "platina". Cada nível concede um **card de nível**.
 
 ## 4. Orbes (cartas colecionáveis) — raridade celeste
 Template de carta **fixo** (estilo Pokémon, máscara Arkanos); só muda o interior + a faixa de raridade.
@@ -79,10 +93,25 @@ Template de carta **fixo** (estilo Pokémon, máscara Arkanos); só muda o inter
 | Épica | **Orbe Estelar** | azul-violeta |
 | Lendária | **Orbe Celeste** | branco sagrado |
 
-Orbes por Arte (interior da carta):
-- *Orbe da Gramática*, *Orbe de Logos* (Lógica), *Orbe da Eloquência* (Retórica),
-- *Orbe do Número* (Aritmética), *Orbe da Forma* (Geometria), *Orbe da Harmonia* (Música), *Orbe dos Céus* (Astronomia).
-- Especiais: *Orbe da Verdade*, *Orbe da Bondade*, *Orbe da Beleza*.
+**30 orbes**, cada um com seu **card** (template fixo; só muda o interior + a faixa de raridade).
+
+**Trivium — a Palavra (1–9)**
+1 Orbe da Gramática (Lyra) · 2 Orbe do Vocabulário · 3 Orbe da Ortografia ·
+4 Orbe de Logos (Aion) · 5 Orbe da Dedução · 6 Orbe do Argumento ·
+7 Orbe da Eloquência (Kael) · 8 Orbe da Persuasão · 9 Orbe da Narrativa
+
+**Quadrivium — o Número e o Cosmos (10–19)**
+10 Orbe do Número (Numa) · 11 Orbe do Cálculo · 12 Orbe da Proporção ·
+13 Orbe da Forma (Geon) · 14 Orbe da Simetria · 15 Orbe da Harmonia (Melos) ·
+16 Orbe do Ritmo · 17 Orbe dos Céus (Astra) · 18 Orbe das Constelações · 19 Orbe do Calendário
+
+**Virtudes & Cosmovisão (20–30)**
+20 Orbe da Verdade · 21 Orbe da Bondade · 22 Orbe da Beleza · 23 Orbe da Sabedoria ·
+24 Orbe da Prudência · 25 Orbe da Fortaleza (Coragem) · 26 Orbe da Temperança ·
+27 Orbe da Justiça · 28 Orbe da Fé · 29 Orbe da Esperança · 30 Orbe da Caridade
+
+> A **raridade** (Terrestre→Celeste) é a moldura/brilho do card; o mesmo orbe pode
+> existir em raridades diferentes conforme o feito que o concedeu.
 
 ## 5. Medalhas (estilo olímpico) — Bronze / Prata / Ouro / Louro
 | Medalha | Critério | Tier |
@@ -132,6 +161,27 @@ HUD: avatar + nível + barra de Arks + título · **ranking geral (posição em 
 missões/projetos por data · coleção de orbes · vitrine de medalhas · notificações ·
 tudo narrado pelos guardiões.
 
+## 10.5 Tela de Premiação (reveal estilo clássico de games)
+Quando o aluno atinge o critério de um **nível, medalha ou orbe**, sobe um overlay
+premium de premiação (como "Achievement Unlocked" + abertura de carta):
+- Fundo escurecido + **raios de luz** dourados, partículas/confete, leve "punch" de zoom.
+- O **card** do item surge virando/brilhando (flip) com o nome e a categoria.
+- Texto narrado pelo guardião: *"Você conquistou o Orbe de Logos! Aion declara: 'A
+  verdade se ilumina para quem persevera.'"*
+- Som de fanfarra + vibração (já temos o util de feedback).
+- Botões: **Ver na coleção** / **Continuar**.
+- **Persistência:** cada conquista é gravada no banco (`user_*`) ANTES do reveal;
+  se ganhar vários itens de uma vez, mostra em fila (um card após o outro).
+
+## 10.6 Página de Coleção (a "sala de troféus")
+Rota dedicada (ex.: `/colecao`) mostrando TUDO que o aluno já ganhou:
+- **Níveis** (50 cards) — desbloqueados coloridos; futuros em silhueta com o Arks que falta.
+- **Orbes** (30 cards) — grade por bloco (Trivium / Quadrivium / Virtudes); locked = silhueta.
+- **Medalhas** — vitrine olímpica (bronze/prata/ouro/louro).
+- **Títulos** — lista, com opção de "equipar" o título exibido no perfil.
+- Barra de **progresso de coleção** (ex.: "Orbes 12/30 · Níveis 8/50") rumo à **Platina**.
+- Tudo no tema navy/dourado, brushes, ícones monocromáticos, narração dos guardiões.
+
 ---
 
 ## 11. PROMPTS DE IMAGEM
@@ -173,6 +223,19 @@ raridade [COR], janela central vazia para o interior; + estilo-mestre."*
 - **Melos** (Música): personagem com lira, ondas de harmonia.
 - **Astra** (Astronomia): figura com esfera armilar e manto estrelado.
 *(mesmo estilo dos guardiões atuais Lyra/Aion/Kael, corpo inteiro, fundo transparente.)*
+
+### 11.5 Cards de Nível (50) — estratégia eficiente
+Em vez de gerar 50 imagens, gere **5 fundos de card (1 por Era)** e **componha o
+numeral + nome por cima via código** (Canvas/SVG) na hora de exibir. Assim 5 imagens
+cobrem os 50 níveis.
+Prompt por Era: *"Fundo de card colecionável vertical, moldura Arkanos navy+dourado,
+cena de [Era I pedra/terra · II pergaminho · III cosmos · IV biblioteca · V céu glorioso],
+espaço central livre para numeral e nome; + estilo-mestre."*
+
+### 11.6 Cards de Orbe (30) — estratégia eficiente
+Gere **1 template de carta** (§11.3) + **os interiores** de cada orbe (§4). O template e a
+cor de raridade entram por código; só o miolo é arte. (Ideal: 30 interiores; mínimo viável:
+1 interior por bloco/arte e variar o nome.)
 
 ---
 
