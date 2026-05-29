@@ -2,6 +2,12 @@
 
 import { createClient } from "@/lib/supabase/server";
 
+export type GrantedReward = {
+  kind: "orb" | "medal";
+  key: string;
+  rarity?: string;
+};
+
 export type ArksResult =
   | { persisted: false; error?: string }
   | {
@@ -11,6 +17,7 @@ export type ArksResult =
       leveledUp: boolean;
       rankPos: number;
       rankTotal: number;
+      granted: GrantedReward[];
     };
 
 /**
@@ -50,5 +57,6 @@ export async function awardDesafioArks(input: {
     leveledUp: r.leveled_up,
     rankPos: Number(r.rank_pos),
     rankTotal: Number(r.rank_total),
+    granted: (r.granted ?? []) as GrantedReward[],
   };
 }

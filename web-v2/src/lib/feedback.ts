@@ -63,3 +63,14 @@ export function playFinish() {
   beep(1047, 0.36, 0.3);
   vibrate([20, 40, 20, 40, 90]);
 }
+
+// Fanfarra de conquista (reveal de orbe/medalha/nível): arpejo ascendente + brilho.
+export function playFanfare() {
+  beep(392, 0, 0.14, 0.16, "triangle");
+  beep(523, 0.12, 0.14, 0.16, "triangle");
+  beep(659, 0.24, 0.16, 0.18, "triangle");
+  beep(784, 0.38, 0.16, 0.18, "triangle");
+  beep(1047, 0.54, 0.4, 0.2, "triangle");
+  beep(1568, 0.58, 0.4, 0.12, "sine");
+  vibrate([15, 30, 15, 30, 15, 60]);
+}

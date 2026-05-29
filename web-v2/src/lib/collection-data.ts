@@ -1,0 +1,114 @@
+import { createClient } from "@/lib/supabase/server";
+import type { Rarity } from "@/lib/collection";
+import { arksForLevel, MAX_LEVEL } from "@/lib/collection";
+
+type Supa = Awaited<ReturnType<typeof createClient>>;
+
+export type Hud = {
+  userId: string;
+  displayName: string;
+  email: string | null;
+  level: number;
+  totalArks: number;
+  arks: { bronze: number; prata: number; ouro: number; diamante: number };
+  serie: string | null;
+  dataNascimento: string | null;
+  /** Progresso dentro do nível atual rumo ao próximo (0–100). */
+  levelProgress: number;
+  arksIntoLevel: number;
+  arksForNext: number;
+  rankPos: number;
+  rankTotal: number;
+};
+
+/** Perfil + Arks + posição no ranking. Null se não autenticado. */
+export async function getHud(supabase: Supa): Promise<Hud | null> {
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) return null;
+
+  const { data: p } = await supabase
+    .from("profiles")
+    .select(
+      "display_name, serie, data_nascimento, total_xp, level, arks_bronze, arks_prata, arks_ouro, arks_diamante",
+    )
+    .eq("id", user.id)
+    .single();
+
+  const { data: rk } = await supabase.rpc("my_rank");
+  const rank = Array.isArray(rk) ? rk[0] : rk;
+
+  const level = p?.level ?? 1;
+  const totalArks = p?.total_xp ?? 0;
+  const floor = arksForLevel(level);
+  const ceil = level >= MAX_LEVEL ? floor : arksForLevel(level + 1);
+  const span = Math.max(1, ceil - floor);
+  const into = Math.max(0, totalArks - floor);
+
+  return {
+    userId: user.id,
+    displayName: p?.display_name || user.email || "Sábio",
+    email: user.email ?? null,
+    level,
+    totalArks,
+    arks: {
+      bronze: p?.arks_bronze ?? 0,
+      prata: p?.arks_prata ?? 0,
+      ouro: p?.arks_ouro ?? 0,
+      diamante: p?.arks_diamante ?? 0,
+    },
+    serie: p?.serie ?? null,
+    dataNascimento: p?.data_nascimento ?? null,
+    levelProgress: level >= MAX_LEVEL ? 100 : Math.min(100, Math.round((into / span) * 100)),
+    arksIntoLevel: into,
+    arksForNext: level >= MAX_LEVEL ? 0 : ceil - totalArks,
+    rankPos: Number(rank?.rank_pos ?? 0),
+    rankTotal: Number(rank?.rank_total ?? 0),
+  };
+}
+
+export type Owned = {
+  orbs: Map<string, Rarity>;
+  achievements: Set<string>;
+  titles: { key: string; equipped: boolean }[];
+};
+
+/** O que o usuário conquistou (orbes c/ raridade, medalhas, títulos). */
+export async function getOwnedCollection(supabase: Supa, userId: string): Promise<Owned> {
+  const [orbsRes, achRes, titlesRes] = await Promise.all([
+    supabase.from("user_orbs").select("orb_key, rarity").eq("user_id", userId),
+    supabase.from("user_achievements").select("achievement_key").eq("user_id", userId),
+    supabase.from("user_titles").select("title_key, equipped").eq("user_id", userId),
+  ]);
+
+  const orbs = new Map<string, Rarity>();
+  for (const r of orbsRes.data ?? []) orbs.set(r.orb_key, r.rarity as Rarity);
+
+  return {
+    orbs,
+    achievements: new Set((achRes.data ?? []).map((r) => r.achievement_key)),
+    titles: (titlesRes.data ?? []).map((r) => ({ key: r.title_key, equipped: r.equipped })),
+  };
+}
+
+export type LeaderRow = {
+  rank: number;
+  userId: string;
+  displayName: string;
+  level: number;
+  totalArks: number;
+};
+
+export async function getLeaderboard(supabase: Supa, limit = 20): Promise<LeaderRow[]> {
+  const { data } = await supabase.rpc("leaderboard_top", { p_limit: limit });
+  return (data ?? []).map(
+    (r: { rank: number; user_id: string; display_name: string; level: number; total_xp: number }) => ({
+      rank: Number(r.rank),
+      userId: r.user_id,
+      displayName: r.display_name,
+      level: r.level,
+      totalArks: r.total_xp,
+    }),
+  );
+}

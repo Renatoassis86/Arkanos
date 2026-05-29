@@ -6,6 +6,8 @@ import { AnimatePresence, motion } from "motion/react";
 import type { DesafioQuestion } from "@/db/queries/quiz";
 import { awardDesafioArks, type ArksResult } from "@/app/desafio/actions";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
+import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
+import type { Rarity } from "@/lib/collection";
 
 const ARKS_BY_DIFFICULTY: Record<string, number> = { easy: 10, medium: 20, hard: 40 };
 
@@ -71,6 +73,7 @@ export function DesafioQuiz({
   const [finished, setFinished] = useState(false);
   const [saving, setSaving] = useState(false);
   const [persisted, setPersisted] = useState<ArksResult | null>(null);
+  const [reveals, setReveals] = useState<RevealItem[]>([]);
 
   if (deck.length === 0) {
     return (
@@ -125,6 +128,20 @@ export function DesafioQuiz({
     });
     setSaving(false);
     setPersisted(res);
+
+    // Monta a fila de premiação (nível + orbes/medalhas recém-concedidos).
+    if (res.persisted) {
+      const queue: RevealItem[] = [];
+      if (res.leveledUp) queue.push({ kind: "level", level: res.level });
+      for (const g of res.granted) {
+        if (g.kind === "orb") {
+          queue.push({ kind: "orb", key: g.key, rarity: (g.rarity ?? "terrestre") as Rarity });
+        } else {
+          queue.push({ kind: "medal", key: g.key });
+        }
+      }
+      if (queue.length > 0) setReveals(queue);
+    }
   }
 
   function restart() {
@@ -141,6 +158,7 @@ export function DesafioQuiz({
     setFinished(false);
     setSaving(false);
     setPersisted(null);
+    setReveals([]);
   }
 
   const correct = revealed && picked !== null && isAnswerCorrect(q, picked);
@@ -155,6 +173,7 @@ export function DesafioQuiz({
           ? "Bom trabalho! O saber cresce em você a cada passo. Continue firme na jornada."
           : "A jornada do saber tem tropeços, e o sábio se levanta — “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
     return (
+      <>
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -239,6 +258,10 @@ export function DesafioQuiz({
           Jogar novamente
         </button>
       </motion.div>
+      {reveals.length > 0 && (
+        <PremiacaoOverlay items={reveals} onClose={() => setReveals([])} />
+      )}
+      </>
     );
   }
 

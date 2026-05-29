@@ -210,3 +210,28 @@ export const gameEvents = pgTable("game_events", {
   xpDelta: integer("xp_delta").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+// ============================================================
+// COLEÇÃO — o que o aluno conquistou (Fase 3+4, migration 0006)
+// O catálogo (quais orbes/medalhas/níveis existem) vive em src/lib/collection.ts.
+// ============================================================
+
+export const userOrbs = pgTable("user_orbs", {
+  userId: uuid("user_id").notNull(),
+  orbKey: text("orb_key").notNull(),
+  rarity: text("rarity").notNull().default("terrestre"),
+  obtainedAt: timestamp("obtained_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const userAchievements = pgTable("user_achievements", {
+  userId: uuid("user_id").notNull(),
+  achievementKey: text("achievement_key").notNull(),
+  unlockedAt: timestamp("unlocked_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const userTitles = pgTable("user_titles", {
+  userId: uuid("user_id").notNull(),
+  titleKey: text("title_key").notNull(),
+  equipped: boolean("equipped").notNull().default(false),
+  obtainedAt: timestamp("obtained_at", { withTimezone: true }).notNull().defaultNow(),
+});
