@@ -9,16 +9,16 @@ import {
 } from "@/components/auth-shell";
 
 const SERIES = [
-  ["1ano", "1º Ano"],
-  ["2ano", "2º Ano"],
-  ["3ano", "3º Ano"],
-  ["4ano", "4º Ano"],
-  ["5ano", "5º Ano"],
-  ["6ano", "6º Ano"],
-  ["7ano", "7º Ano"],
-  ["8ano", "8º Ano"],
-  ["9ano", "9º Ano"],
-] as const;
+  "1º ano",
+  "2º ano",
+  "3º ano",
+  "4º ano",
+  "5º ano",
+  "6º ano",
+  "7º ano",
+  "8º ano",
+  "9º ano",
+];
 
 export default async function SignupPage({
   searchParams,
@@ -30,7 +30,7 @@ export default async function SignupPage({
   return (
     <AuthShell
       title="Criar conta"
-      subtitle="Comece sua jornada no Trivium"
+      subtitle="É rapidinho — só seu nome e sua série!"
       footer={
         <>
           Já tem conta?{" "}
@@ -44,45 +44,37 @@ export default async function SignupPage({
 
       <form action={signup} className="mt-5 space-y-4">
         <input
-          name="display_name"
+          name="nome"
           type="text"
           required
-          placeholder="Nome"
+          autoComplete="off"
+          placeholder="Seu nome"
           className={inputClass}
         />
         <input
-          name="email"
-          type="email"
+          name="sobrenome"
+          type="text"
           required
-          placeholder="E-mail"
+          autoComplete="off"
+          placeholder="Seu sobrenome"
           className={inputClass}
         />
-        <input
-          name="password"
-          type="password"
-          required
-          minLength={6}
-          placeholder="Senha (mín. 6 caracteres)"
-          className={inputClass}
-        />
-        <label className="space-y-1.5">
-          <span className={labelClass}>Data de nascimento</span>
-          <input
-            name="data_nascimento"
-            type="date"
-            className={`${inputClass} [color-scheme:dark]`}
-          />
-        </label>
         <label className="space-y-1.5">
           <span className={labelClass}>Série</span>
-          <select name="serie" defaultValue="2ano" className={inputClass}>
-            {SERIES.map(([value, label]) => (
-              <option key={value} value={value} className="bg-[#0b1222]">
-                {label}
+          <select name="serie" defaultValue="3º ano" className={inputClass}>
+            {SERIES.map((s) => (
+              <option key={s} value={s} className="bg-[#0b1222]">
+                {s}
               </option>
             ))}
           </select>
         </label>
+
+        <p className="rounded-xl bg-white/5 px-4 py-3 text-xs text-slate-400">
+          📌 Para entrar depois, use o seu <strong className="text-slate-200">nome</strong>{" "}
+          e o seu <strong className="text-slate-200">sobrenome</strong>.
+        </p>
+
         <button type="submit" className={submitClass}>
           Criar conta
         </button>

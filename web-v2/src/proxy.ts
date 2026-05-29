@@ -7,7 +7,7 @@ import { NextResponse, type NextRequest } from "next/server";
  * de auth não estiver configurado ou ocorrer erro, não derruba o site (segue sem
  * sessão). A autorização definitiva é feita dentro de cada página/Server Action.
  */
-const PROTECTED_PREFIXES = ["/jogos"];
+const PROTECTED_PREFIXES = ["/jogos", "/desafio"];
 
 export async function proxy(request: NextRequest) {
   const passthrough = NextResponse.next({ request });

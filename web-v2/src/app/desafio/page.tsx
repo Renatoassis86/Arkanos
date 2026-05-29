@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { listDesafioQuestions } from "@/db/queries/quiz";
+import { redirect } from "next/navigation";
+import { listDesafioQuestions, getGradeIdByName } from "@/db/queries/quiz";
 import { DesafioQuiz } from "@/components/desafio-quiz";
 import { BankNavigator } from "./bank-navigator";
 import { createClient } from "@/lib/supabase/server";
@@ -28,7 +29,6 @@ export default async function DesafioPage({
 }) {
   const params = await searchParams;
   const subjectId = num(params.subject);
-  const gradeId = num(params.grade);
   const trimestre = num(params.trimestre);
   const assessmentId = num(params.assessment);
 
@@ -36,13 +36,23 @@ export default async function DesafioPage({
   const {
     data: { user },
   } = await supabase.auth.getUser();
+  if (!user) redirect("/login");
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("display_name, serie")
+    .eq("id", user.id)
+    .single();
+
+  const serie = profile?.serie ?? null;
+  const gradeId = serie ? await getGradeIdByName(serie) : null;
 
   let body;
   if (assessmentId) {
     const questions = await listDesafioQuestions(50, assessmentId);
     const backHref =
-      subjectId && gradeId && trimestre
-        ? `/desafio?subject=${subjectId}&grade=${gradeId}&trimestre=${trimestre}`
+      subjectId && trimestre
+        ? `/desafio?subject=${subjectId}&trimestre=${trimestre}`
         : "/desafio";
     body = (
       <>
@@ -54,14 +64,27 @@ export default async function DesafioPage({
             ← Trocar prova
           </Link>
         </div>
-        <DesafioQuiz questions={shuffle(questions)} authed={!!user} />
+        <DesafioQuiz questions={shuffle(questions)} authed />
       </>
+    );
+  } else if (!gradeId) {
+    body = (
+      <div className="mx-auto max-w-lg rounded-3xl border border-white/10 bg-white/5 p-8 text-center">
+        <p className="text-5xl">🛠️</p>
+        <h1 className="font-display mt-4 text-2xl text-white">
+          Conteúdo em desenvolvimento
+        </h1>
+        <p className="mt-2 text-slate-300">
+          As provas {serie ? `do ${serie}` : "da sua série"} ainda estão sendo
+          preparadas. Volte em breve!
+        </p>
+      </div>
     );
   } else {
     body = (
       <BankNavigator
-        subjectId={subjectId}
         gradeId={gradeId}
+        subjectId={subjectId}
         trimestre={trimestre}
       />
     );
@@ -70,7 +93,7 @@ export default async function DesafioPage({
   return (
     <div className="min-h-screen bg-[#0b1222]">
       <header className="border-b border-white/10 bg-[#0a0f1c]">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-6 py-4">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/img/logo.png"
@@ -83,12 +106,19 @@ export default async function DesafioPage({
               Desafio dos Sábios
             </span>
           </Link>
-          <Link
-            href="/"
-            className="text-sm font-bold text-slate-300 transition hover:text-[#f1c40f]"
-          >
-            ← Início
-          </Link>
+          <div className="flex items-center gap-3">
+            {serie && (
+              <span className="rounded-full border border-[#f1c40f]/30 bg-[#f1c40f]/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f1c40f]">
+                {serie}
+              </span>
+            )}
+            <Link
+              href="/"
+              className="text-sm font-bold text-slate-300 transition hover:text-[#f1c40f]"
+            >
+              ← Início
+            </Link>
+          </div>
         </div>
       </header>
 
