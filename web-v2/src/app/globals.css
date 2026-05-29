@@ -58,6 +58,24 @@ textarea {
   min-height: 100dvh;
 }
 
+/* Espaço para a barra de navegação inferior (mobile) não cobrir conteúdo */
+@media (max-width: 639px) {
+  body {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Splash screen (fade-out) */
+@keyframes splashOut {
+  0%,
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Fundo animado do hero (aurora "RPG tech") */
 @keyframes aurora-drift {
   0%,

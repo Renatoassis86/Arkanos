@@ -5,6 +5,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import type { DesafioQuestion } from "@/db/queries/quiz";
 import { awardDesafioXp, type AwardResult } from "@/app/desafio/actions";
+import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 
 const XP_BY_DIFFICULTY: Record<string, number> = { easy: 20, medium: 30, hard: 50 };
 
@@ -85,6 +86,9 @@ export function DesafioQuiz({
     if (isAnswerCorrect(q, value)) {
       setCorrectCount((c) => c + 1);
       setXp((x) => x + (XP_BY_DIFFICULTY[q.difficulty] ?? 20));
+      playCorrect();
+    } else {
+      playWrong();
     }
   }
 
@@ -101,6 +105,7 @@ export function DesafioQuiz({
 
   async function finishGame() {
     setFinished(true);
+    playFinish();
     if (!authed) return;
     setSaving(true);
     const res = await awardDesafioXp({ correct: correctCount, total, xp });

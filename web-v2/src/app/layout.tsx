@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
+import { SplashScreen } from "@/components/splash-screen";
+import { BottomNav } from "@/components/bottom-nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +32,10 @@ export const metadata: Metadata = {
     title: "Arkanos",
   },
   icons: {
-    icon: "/img/logo.png",
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/img/logo.png", type: "image/png" },
+    ],
     apple: "/img/logo.png",
   },
 };
@@ -52,7 +57,11 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SplashScreen />
+        {children}
+        <BottomNav />
+      </body>
     </html>
   );
 }
