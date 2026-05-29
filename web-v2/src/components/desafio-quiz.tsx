@@ -192,19 +192,21 @@ export function DesafioQuiz({
 
   return (
     <div className="mx-auto max-w-2xl">
-      {/* HUD */}
-      <div className="mb-6 flex items-center justify-between text-sm">
-        <span className="font-bold text-slate-300">
-          {index + 1} / {total}
-        </span>
-        <span className="font-black text-[#f1c40f]">{xp} XP</span>
-      </div>
-      <div className="mb-8 h-2 overflow-hidden rounded-full bg-white/10">
-        <motion.div
-          className="h-full bg-[#f1c40f]"
-          animate={{ width: `${((index + (revealed ? 1 : 0)) / total) * 100}%` }}
-          transition={{ duration: 0.4 }}
-        />
+      {/* HUD fixo (estilo jogo) */}
+      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-white/10 bg-[#0b1222]/85 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4">
+        <div className="flex items-center justify-between text-sm">
+          <span className="font-bold text-slate-300">
+            {index + 1} / {total}
+          </span>
+          <span className="font-black text-[#f1c40f]">⚡ {xp} XP</span>
+        </div>
+        <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
+          <motion.div
+            className="h-full bg-[#f1c40f]"
+            animate={{ width: `${((index + (revealed ? 1 : 0)) / total) * 100}%` }}
+            transition={{ duration: 0.4 }}
+          />
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
@@ -262,7 +264,7 @@ export function DesafioQuiz({
                         key={opt}
                         disabled={revealed}
                         onClick={() => check(opt)}
-                        className={`flex items-center gap-3 rounded-2xl border px-4 py-4 text-left text-base font-semibold transition ${stateClasses[st]} ${
+                        className={`flex select-none items-center gap-3 rounded-2xl border px-4 py-5 text-left text-base font-semibold transition active:scale-[0.98] ${stateClasses[st]} ${
                           st === "idle" ? "hover:-translate-y-0.5" : ""
                         }`}
                       >
@@ -285,7 +287,7 @@ export function DesafioQuiz({
                         key={opt.value}
                         disabled={revealed}
                         onClick={() => check(opt.value)}
-                        className={`flex flex-col items-center gap-2 rounded-2xl border px-4 py-6 text-base font-bold transition ${stateClasses[st]} ${
+                        className={`flex select-none flex-col items-center gap-2 rounded-2xl border px-4 py-6 text-base font-bold transition active:scale-[0.98] ${stateClasses[st]} ${
                           st === "idle" ? "hover:-translate-y-0.5" : ""
                         }`}
                       >
@@ -360,7 +362,7 @@ export function DesafioQuiz({
                 )}
                 <button
                   onClick={next}
-                  className="mt-6 rounded-full bg-white/10 px-8 py-3 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20"
+                  className="mt-6 w-full rounded-full bg-white/10 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20 active:scale-95 sm:w-auto"
                 >
                   {index + 1 >= total ? "Ver resultado" : "Próxima →"}
                 </button>

@@ -20,10 +20,42 @@
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* App escuro: cobre safe-areas (notch) e overscroll sem flashes claros */
+  background: #0b1222;
+  color: #f8fafc;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Toque responsivo (remove o atraso de 300ms) */
+button,
+a,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+/* Evita o zoom automático do iOS ao focar campos (fonte < 16px dispara o zoom) */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+/* Utilidades de safe-area (notch) para layout tipo app */
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.min-h-dvh {
+  min-height: 100dvh;
 }
 
 /* Fundo animado do hero (aurora "RPG tech") */

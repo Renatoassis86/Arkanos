@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +22,24 @@ export const metadata: Metadata = {
   title: "Arkanos — O Reino do Saber e da Virtude",
   description:
     "Plataforma de jogos educacionais da Educação Cristã Clássica, nas fases do Trivium.",
+  applicationName: "Arkanos",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Arkanos",
+  },
+  icons: {
+    icon: "/img/logo.png",
+    apple: "/img/logo.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b1222",
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

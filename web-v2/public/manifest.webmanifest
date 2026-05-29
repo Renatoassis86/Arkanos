@@ -1,0 +1,16 @@
+{
+  "name": "Arkanos — O Reino do Saber e da Virtude",
+  "short_name": "Arkanos",
+  "description": "Jogos educacionais da Educação Cristã Clássica, nas fases do Trivium.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1222",
+  "theme_color": "#0b1222",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/img/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/img/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}
