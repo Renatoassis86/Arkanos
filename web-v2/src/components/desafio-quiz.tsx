@@ -44,14 +44,18 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function isAnswerCorrect(q: DesafioQuestion, value: string) {
-  if (normalize(value) === normalize(q.answer)) return true;
-  if (
-    q.type === "short_answer" &&
-    normalize(value).length > 2 &&
-    normalize(q.answer).includes(normalize(value))
-  )
-    return true;
-  return false;
+  // Resposta digitada: tolera maiúsculas/acentos e acerto parcial.
+  if (q.type === "short_answer") {
+    if (normalize(value) === normalize(q.answer)) return true;
+    return normalize(value).length > 2 && normalize(q.answer).includes(normalize(value));
+  }
+  // Verdadeiro/Falso: comparação normalizada (true/false/Verdadeiro/Falso).
+  if (q.type === "true_false") {
+    return normalize(value) === normalize(q.answer);
+  }
+  // Múltipla escolha (incl. visuais): a opção correta é a que bate EXATAMENTE com a
+  // resposta — preserva maiúscula, acento e pontuação (essencial em ortografia/pontuação).
+  return value.trim() === q.answer.trim();
 }
 
 export function DesafioQuiz({
@@ -281,7 +285,7 @@ export function DesafioQuiz({
 
   function optionState(matchValue: string, isThisPicked: boolean) {
     if (!revealed) return "idle";
-    if (normalize(matchValue) === normalize(q.answer)) return "correct";
+    if (isAnswerCorrect(q, matchValue)) return "correct";
     if (isThisPicked) return "wrong";
     return "dim";
   }
@@ -324,11 +328,11 @@ export function DesafioQuiz({
           {/* Faixa ilustrada: imagem real OU ilustração temática */}
           {q.imageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <div className="max-h-64 overflow-hidden">
+            <div className="flex justify-center bg-gradient-to-b from-[#101a33] to-[#0b1222] p-3">
               <img
                 src={q.imageUrl}
                 alt={q.imageAlt ?? q.question}
-                className="kenburns max-h-64 w-full object-cover"
+                className="max-h-80 w-auto rounded-xl object-contain"
               />
             </div>
           ) : (
