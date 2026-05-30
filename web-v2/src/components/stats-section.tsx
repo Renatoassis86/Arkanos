@@ -1,10 +1,10 @@
 import { Reveal } from "./reveal";
 
 const STATS = [
-  { value: "3", label: "Fases do Trivium" },
-  { value: "4", label: "Jogos formativos" },
-  { value: "+250", label: "Palavras e desafios" },
-  { value: "3", label: "Guardiões mentores" },
+  { value: "7", label: "Artes Liberais", color: "#f1c40f" },
+  { value: "2", label: "Jogos disponíveis", color: "#ec4899" },
+  { value: "+370", label: "Questões e palavras", color: "#60a5fa" },
+  { value: "7", label: "Guardiões mentores", color: "#34d399" },
 ];
 
 export function StatsSection() {
@@ -13,7 +13,10 @@ export function StatsSection() {
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
         {STATS.map((s, i) => (
           <Reveal key={s.label} delay={i * 0.08} className="text-center">
-            <p className="font-display text-4xl font-black text-[#f1c40f] sm:text-5xl">
+            <p
+              className="font-display text-4xl font-black sm:text-5xl"
+              style={{ color: s.color }}
+            >
               {s.value}
             </p>
             <p className="mt-2 text-xs font-bold uppercase tracking-widest text-slate-400">

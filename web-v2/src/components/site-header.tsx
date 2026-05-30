@@ -12,7 +12,7 @@ const NAV = [
   { label: "Contato", href: "#contato" },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ authed = false }: { authed?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -61,18 +61,29 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
-            href="/login"
-            className="rounded-2xl border-2 border-[#f1c40f]/50 px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#f1c40f] transition hover:bg-[#f1c40f]/10"
-          >
-            Entrar
-          </Link>
-          <Link
-            href="/signup"
-            className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#0c1222] shadow-[0_4px_20px_rgba(241,196,15,0.4)] transition hover:-translate-y-0.5"
-          >
-            Cadastrar
-          </Link>
+          {authed ? (
+            <Link
+              href="/jogos"
+              className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#0c1222] shadow-[0_4px_20px_rgba(241,196,15,0.4)] transition hover:-translate-y-0.5"
+            >
+              Meu Painel →
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="rounded-2xl border-2 border-[#f1c40f]/50 px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#f1c40f] transition hover:bg-[#f1c40f]/10"
+              >
+                Entrar
+              </Link>
+              <Link
+                href="/signup"
+                className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#0c1222] shadow-[0_4px_20px_rgba(241,196,15,0.4)] transition hover:-translate-y-0.5"
+              >
+                Cadastrar
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -100,18 +111,32 @@ export function SiteHeader() {
             </Link>
           ))}
           <div className="mt-2 flex gap-3">
-            <Link
-              href="/login"
-              className="flex-1 rounded-xl border-2 border-[#f1c40f]/50 px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#f1c40f]"
-            >
-              Entrar
-            </Link>
-            <Link
-              href="/signup"
-              className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#0c1222]"
-            >
-              Cadastrar
-            </Link>
+            {authed ? (
+              <Link
+                href="/jogos"
+                onClick={() => setOpen(false)}
+                className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#0c1222]"
+              >
+                Meu Painel →
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  onClick={() => setOpen(false)}
+                  className="flex-1 rounded-xl border-2 border-[#f1c40f]/50 px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#f1c40f]"
+                >
+                  Entrar
+                </Link>
+                <Link
+                  href="/signup"
+                  onClick={() => setOpen(false)}
+                  className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#0c1222]"
+                >
+                  Cadastrar
+                </Link>
+              </>
+            )}
           </div>
         </nav>
       )}
