@@ -23,7 +23,7 @@ export function BottomNav() {
     return null;
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#0a0f1c]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:inset-x-auto sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 sm:rounded-full sm:border sm:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:inset-x-auto sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 sm:rounded-full sm:border sm:shadow-[0_8px_30px_rgba(2,6,23,0.15)]">
       <div className="mx-auto flex max-w-md items-stretch justify-around sm:gap-1 sm:px-2">
         {ITEMS.map((it) => {
           const active =
@@ -33,7 +33,7 @@ export function BottomNav() {
               key={it.href}
               href={it.href}
               className={`flex flex-1 select-none flex-col items-center gap-0.5 py-2.5 text-[11px] font-bold transition active:scale-95 sm:flex-none sm:rounded-full sm:px-4 ${
-                active ? "text-[#f1c40f]" : "text-slate-400 hover:text-slate-200"
+                active ? "text-[#b8860b]" : "text-slate-500 hover:text-slate-800"
               }`}
             >
               <span className="text-xl leading-none">{it.icon}</span>

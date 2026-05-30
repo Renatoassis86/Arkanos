@@ -35,17 +35,17 @@ export default async function ColecaoPage() {
   const blocks: OrbBlock[] = ["trivium", "quadrivium", "virtudes"];
 
   return (
-    <main className="min-h-screen bg-[#0b1222] pb-24 text-white">
+    <main className="min-h-screen bg-[#f6f8fc] pb-28 text-slate-800">
       {/* Cabeçalho + barra de progresso de coleção rumo à Platina */}
-      <header className="border-b border-white/10 bg-gradient-to-b from-[#101a33] to-transparent px-5 pb-8 pt-7">
+      <header className="border-b border-slate-200 bg-white px-5 pb-8 pt-7">
         <div className="mx-auto max-w-5xl">
-          <Link href="/jogos" className="text-sm font-bold text-slate-400 hover:text-[#f1c40f]">
+          <Link href="/jogos" className="text-sm font-bold text-slate-500 hover:text-[#b8860b]">
             ← Perfil
           </Link>
-          <h1 className="font-display mt-2 text-3xl text-white sm:text-4xl">Coleção</h1>
-          <p className="mt-1 text-sm text-slate-300">
+          <h1 className="font-display mt-2 text-3xl text-slate-900 sm:text-4xl">Coleção</h1>
+          <p className="mt-1 text-sm text-slate-600">
             A sala de troféus da sua jornada rumo ao{" "}
-            <strong className="text-[#f1c40f]">Sábio Coroado de Arkanos</strong>.
+            <strong className="text-[#b8860b]">Sábio Coroado de Arkanos</strong>.
           </p>
           <div className="mt-4 flex flex-wrap gap-2 text-xs font-bold">
             <Chip label={`Níveis ${niveisDesbloqueados}/${LEVELS.length}`} />
@@ -83,7 +83,7 @@ export default async function ColecaoPage() {
               const orbs = ORBS.filter((o) => o.block === block);
               return (
                 <div key={block}>
-                  <p className="mb-3 text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+                  <p className="mb-3 text-xs font-black uppercase tracking-widest text-[#b8860b]">
                     {ORB_BLOCK_LABEL[block]}
                   </p>
                   <div className="grid grid-cols-3 gap-3 sm:grid-cols-5 md:grid-cols-6">
@@ -123,10 +123,10 @@ export default async function ColecaoPage() {
                     className="w-full max-w-[120px]"
                   />
                   <div>
-                    <p className={`text-xs font-bold ${locked ? "text-slate-500" : "text-white"}`}>
+                    <p className={`text-xs font-bold ${locked ? "text-slate-400" : "text-slate-900"}`}>
                       {m.nome}
                     </p>
-                    <p className="mt-0.5 text-[10px] leading-tight text-slate-500">{m.criterio}</p>
+                    <p className="mt-0.5 text-[10px] leading-tight text-slate-400">{m.criterio}</p>
                   </div>
                 </div>
               );
@@ -142,9 +142,9 @@ export default async function ColecaoPage() {
         {/* Fluxo: da Coleção segue para o Ranking geral */}
         <Link
           href="/ranking"
-          className="flex w-full items-center justify-center rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition hover:-translate-y-0.5"
+          className="flex w-full items-center justify-center rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] shadow-md transition hover:-translate-y-0.5"
         >
-          🏅 Ver ranking geral →
+          Ver ranking geral →
         </Link>
       </div>
     </main>
@@ -153,7 +153,7 @@ export default async function ColecaoPage() {
 
 function Chip({ label }: { label: string }) {
   return (
-    <span className="rounded-full border border-[#f1c40f]/30 bg-[#f1c40f]/10 px-3 py-1 text-[#f1c40f]">
+    <span className="rounded-full border border-[#f1c40f]/40 bg-[#f1c40f]/10 px-3 py-1 text-[#b8860b]">
       {label}
     </span>
   );
@@ -171,8 +171,8 @@ function Section({
   return (
     <section>
       <div className="mb-4 flex items-end justify-between gap-3">
-        <h2 className="font-display text-xl text-white sm:text-2xl">{title}</h2>
-        {hint && <p className="text-right text-xs text-slate-500">{hint}</p>}
+        <h2 className="font-display text-xl text-slate-900 sm:text-2xl">{title}</h2>
+        {hint && <p className="text-right text-xs text-slate-400">{hint}</p>}
       </div>
       {children}
     </section>

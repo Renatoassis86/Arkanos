@@ -32,9 +32,9 @@ export function TitlesManager({ owned }: { owned: Owned[] }) {
           return (
             <span
               key={t.key}
-              className="rounded-full border border-white/10 px-4 py-2 text-sm font-bold text-slate-600"
+              className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-bold text-slate-400"
             >
-              🔒 {t.nome}
+              {t.nome}
             </span>
           );
         }
@@ -43,13 +43,13 @@ export function TitlesManager({ owned }: { owned: Owned[] }) {
             key={t.key}
             onClick={() => !isEquipped && equip(t.key)}
             disabled={isEquipped || pending}
-            className={`rounded-full border px-4 py-2 text-sm font-bold transition disabled:cursor-default ${
+            className={`rounded-full border-2 px-4 py-2 text-sm font-bold transition disabled:cursor-default ${
               isEquipped
-                ? "border-[#f1c40f] bg-[#f1c40f]/15 text-[#f1c40f]"
-                : "border-[#f1c40f]/30 text-slate-200 hover:border-[#f1c40f]/60 hover:bg-white/5"
+                ? "border-[#f1c40f] bg-[#f1c40f]/15 text-[#b8860b]"
+                : "border-[#f1c40f]/40 bg-white text-slate-700 hover:border-[#f1c40f] hover:bg-[#f1c40f]/5"
             } ${busyKey === t.key ? "opacity-60" : ""}`}
           >
-            {isEquipped ? "⭐ " : ""}
+            {isEquipped ? "★ " : ""}
             {t.nome}
             {!isEquipped && (
               <span className="ml-2 text-xs font-normal text-slate-400">equipar</span>

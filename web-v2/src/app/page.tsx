@@ -3,6 +3,7 @@ import { Hero } from "@/components/hero";
 import { StatsSection } from "@/components/stats-section";
 import { GamesSection } from "@/components/games-section";
 import { TriviumSection } from "@/components/trivium-section";
+import { ProgramacaoSection } from "@/components/programacao-section";
 import { AudienceSection } from "@/components/audience-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { CtaSection } from "@/components/cta-section";
@@ -22,6 +23,7 @@ export default async function Home() {
       <StatsSection />
       <GamesSection />
       <TriviumSection />
+      <ProgramacaoSection />
       <AudienceSection />
       <TestimonialsSection />
       <CtaSection />
