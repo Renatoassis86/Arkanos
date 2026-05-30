@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { GameCard } from "@/components/game-card";
+import { TitlesManager } from "@/components/titles-manager";
 import {
   getHud,
   getOwnedCollection,
@@ -134,28 +135,8 @@ export default async function ColecaoPage() {
         </Section>
 
         {/* ---------------- Títulos ---------------- */}
-        <Section title="Títulos" hint="Exibidos no seu perfil">
-          <div className="flex flex-wrap gap-2.5">
-            {TITLES.map((t) => {
-              const mine = owned.titles.find((x) => x.key === t.key);
-              const locked = !mine;
-              return (
-                <span
-                  key={t.key}
-                  className={`rounded-full border px-4 py-2 text-sm font-bold ${
-                    locked
-                      ? "border-white/10 text-slate-600"
-                      : mine?.equipped
-                        ? "border-[#f1c40f] bg-[#f1c40f]/15 text-[#f1c40f]"
-                        : "border-[#f1c40f]/30 text-slate-200"
-                  }`}
-                >
-                  {locked ? "🔒 " : mine?.equipped ? "⭐ " : ""}
-                  {t.nome}
-                </span>
-              );
-            })}
-          </div>
+        <Section title="Títulos" hint="Toque para equipar o exibido no seu perfil">
+          <TitlesManager owned={owned.titles} />
         </Section>
       </div>
     </main>
