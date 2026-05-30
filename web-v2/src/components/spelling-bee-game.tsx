@@ -59,6 +59,18 @@ function speak(text: string) {
   synth.speak(u);
 }
 
+function ArkPill({ label, n, color }: { label: string; n: number; color: string }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+      style={{ backgroundColor: `${color}1a`, color }}
+    >
+      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
+      {label} {n}
+    </span>
+  );
+}
+
 export function SpellingBeeGame({
   words,
   authed,
@@ -197,46 +209,38 @@ export function SpellingBeeGame({
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="mx-auto max-w-lg rounded-3xl border border-[#f1c40f]/20 bg-white/5 p-8 text-center sm:p-10"
+          className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-8 text-center shadow-lg sm:p-10"
         >
-          <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#f1c40f]">
+          <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
             {pct >= 50 ? "Jornada concluída" : "Quase lá"}
           </p>
-          <p className="font-display mt-3 text-6xl font-black text-white">{pct}%</p>
-          <p className="mt-1 text-slate-300">
+          <p className="font-display mt-3 text-6xl font-black text-slate-900">{pct}%</p>
+          <p className="mt-1 text-slate-600">
             {correctCount} de {total} palavras
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
-            {bronze > 0 && (
-              <span className="rounded-full bg-[#cd7f32]/15 px-3 py-1 text-[#e0a86b]">🥉 {bronze}</span>
-            )}
-            {prata > 0 && (
-              <span className="rounded-full bg-slate-300/15 px-3 py-1 text-slate-200">🥈 {prata}</span>
-            )}
-            {ouro > 0 && (
-              <span className="rounded-full bg-[#f1c40f]/15 px-3 py-1 text-[#f1c40f]">🥇 {ouro}</span>
-            )}
-            {gabaritou && (
-              <span className="rounded-full bg-cyan-300/15 px-3 py-1 text-cyan-200">💎 1</span>
-            )}
+            {bronze > 0 && <ArkPill label="Bronze" n={bronze} color="#b87333" />}
+            {prata > 0 && <ArkPill label="Prata" n={prata} color="#64748b" />}
+            {ouro > 0 && <ArkPill label="Ouro" n={ouro} color="#d4a017" />}
+            {gabaritou && <ArkPill label="Diamante" n={1} color="#0891b2" />}
           </div>
 
           {tri && (
-            <div className="mx-auto mt-5 max-w-md rounded-2xl border border-[#f1c40f]/30 bg-gradient-to-br from-[#f1c40f]/10 to-transparent p-4">
-              <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+            <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
+              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
                 Pontuação (TRI)
               </p>
-              <p className="font-display mt-1 text-4xl text-white">{tri.points}</p>
+              <p className="font-display mt-1 text-4xl text-slate-900">{tri.points}</p>
               <p className="text-xs text-slate-400">
                 palavras difíceis valem mais · habilidade {tri.abilityPct}%
               </p>
             </div>
           )}
 
-          <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left">
-            <GuardianAvatar name={SPELLING_GUARDIAN} size={56} ring="#fb7185" />
-            <p className="text-sm leading-relaxed text-slate-200">{narracao}</p>
+          <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
+            <GuardianAvatar name={SPELLING_GUARDIAN} size={56} ring="#ec4899" />
+            <p className="text-sm leading-relaxed text-slate-700">{narracao}</p>
           </div>
 
           {saving && <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>}
@@ -244,29 +248,29 @@ export function SpellingBeeGame({
           {persisted?.persisted && (
             <div className="mt-6 space-y-3">
               {persisted.leveledUp && (
-                <p className="font-display text-xl text-[#f1c40f]">
-                  ⭐ Subiu para o nível {persisted.level}!
+                <p className="font-display text-xl text-[#b8860b]">
+                  ★ Subiu para o nível {persisted.level}!
                 </p>
               )}
-              <div className="rounded-2xl border border-[#f1c40f]/20 bg-[#f1c40f]/5 p-4">
-                <p className="text-sm text-slate-200">
-                  Total: <strong className="text-white">{persisted.totalArks} Arks</strong> · Nível{" "}
-                  <strong className="text-white">{persisted.level}</strong>
+              <div className="rounded-2xl border-2 border-[#f1c40f]/20 bg-[#f1c40f]/8 p-4">
+                <p className="text-sm text-slate-700">
+                  Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong> · Nível{" "}
+                  <strong className="text-slate-900">{persisted.level}</strong>
                 </p>
               </div>
-              <div className="rounded-2xl border border-[#f1c40f]/40 bg-gradient-to-br from-[#f1c40f]/15 to-transparent p-5">
-                <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
-                  🏆 Sua posição no ranking
+              <div className="rounded-2xl border-2 border-[#f1c40f]/40 bg-[#f1c40f]/8 p-5">
+                <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
+                  Sua posição no ranking
                 </p>
-                <p className="font-display mt-1 text-4xl text-white">#{persisted.rankPos}</p>
-                <p className="text-sm text-slate-300">de {persisted.rankTotal} jogadores</p>
+                <p className="font-display mt-1 text-4xl text-slate-900">#{persisted.rankPos}</p>
+                <p className="text-sm text-slate-600">de {persisted.rankTotal} jogadores</p>
               </div>
             </div>
           )}
 
           {!authed && (
-            <p className="mt-5 text-sm text-slate-400">
-              <Link href="/signup" className="font-bold text-[#f1c40f] hover:underline">
+            <p className="mt-5 text-sm text-slate-500">
+              <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">
                 Crie uma conta
               </Link>{" "}
               para salvar seus Arks e entrar no ranking.
@@ -277,7 +281,7 @@ export function SpellingBeeGame({
             {canContinue ? (
               <button
                 onClick={() => router.push("/colecao")}
-                className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
+                className="w-full rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
               >
                 Continuar para a Coleção →
               </button>
@@ -286,7 +290,7 @@ export function SpellingBeeGame({
             )}
             <button
               onClick={restart}
-              className="text-sm font-bold text-slate-400 underline-offset-2 transition hover:text-[#f1c40f] hover:underline"
+              className="text-sm font-bold text-slate-500 underline-offset-2 transition hover:text-[#b8860b] hover:underline"
             >
               Jogar novamente
             </button>
@@ -307,16 +311,16 @@ export function SpellingBeeGame({
   return (
     <div className="mx-auto max-w-2xl">
       {/* HUD */}
-      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-white/10 bg-[#0b1222]/85 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4">
+      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-slate-200 bg-white/90 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:shadow-sm">
         <div className="flex items-center justify-between text-sm">
-          <span className="font-bold text-slate-300">
+          <span className="font-bold text-slate-500">
             {index + 1} / {total}
           </span>
-          <span className="font-black text-[#f1c40f]">⚜️ {xp} Arks</span>
+          <span className="font-black text-[#b8860b]">{xp} Arks</span>
         </div>
-        <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
+        <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">
           <motion.div
-            className="h-full bg-[#f1c40f]"
+            className="h-full bg-gradient-to-r from-[#f1c40f] to-[#e0a417]"
             animate={{ width: `${((index + (revealed ? 1 : 0)) / total) * 100}%` }}
             transition={{ duration: 0.4 }}
           />
@@ -330,7 +334,7 @@ export function SpellingBeeGame({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -24 }}
           transition={{ duration: 0.3 }}
-          className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8"
+          className="overflow-hidden rounded-3xl border-2 border-slate-200 bg-white p-6 shadow-sm sm:p-8"
         >
           <p className="mb-1 text-xs font-bold uppercase tracking-widest text-slate-400">
             Ouça e soletre · {q.dificuldade}
@@ -339,24 +343,24 @@ export function SpellingBeeGame({
           {/* Botão de ouvir */}
           <button
             onClick={() => speak(q.palavra)}
-            className="mt-2 flex w-full items-center justify-center gap-3 rounded-2xl border border-[#f1c40f]/40 bg-[#f1c40f]/10 px-6 py-6 text-lg font-black text-[#f1c40f] transition active:scale-[0.98] hover:bg-[#f1c40f]/15"
+            className="mt-2 flex w-full items-center justify-center gap-3 rounded-2xl border-2 border-pink-300 bg-pink-50 px-6 py-6 text-lg font-black text-pink-600 transition active:scale-[0.98] hover:bg-pink-100"
           >
-            <span className="text-3xl">🔊</span> Ouvir a palavra
+            ♪ Ouvir a palavra
           </button>
 
           {/* Pistas */}
           <div className="mt-5 space-y-2 text-sm">
-            <p className="text-slate-200">
-              <span className="font-bold text-slate-400">Significado:</span> {q.significado}
+            <p className="text-slate-700">
+              <span className="font-bold text-slate-500">Significado:</span> {q.significado}
             </p>
             {q.exemplo && (
-              <p className="text-slate-200">
-                <span className="font-bold text-slate-400">Exemplo:</span>{" "}
+              <p className="text-slate-700">
+                <span className="font-bold text-slate-500">Exemplo:</span>{" "}
                 <em>{hideWord(q.exemplo, q.palavra)}</em>
               </p>
             )}
             {q.ipa && (
-              <p className="text-slate-400">
+              <p className="text-slate-500">
                 <span className="font-bold">IPA:</span> {q.ipa}
               </p>
             )}
@@ -379,12 +383,12 @@ export function SpellingBeeGame({
               autoCorrect="off"
               spellCheck={false}
               placeholder="Soletre a palavra…"
-              className="flex-1 rounded-2xl border border-white/10 bg-[#0b1222]/60 px-5 py-4 text-center text-lg font-bold tracking-[2px] text-white outline-none transition placeholder:tracking-normal placeholder:text-slate-500 focus:border-[#f1c40f]/60 focus:ring-2 focus:ring-[#f1c40f]/20"
+              className="flex-1 rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-bold tracking-[2px] text-slate-900 outline-none transition placeholder:tracking-normal placeholder:text-slate-400 focus:border-[#f1c40f] focus:ring-2 focus:ring-[#f1c40f]/20"
             />
             {!revealed && (
               <button
                 type="submit"
-                className="rounded-2xl bg-[#f1c40f] px-6 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition hover:-translate-y-0.5"
+                className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-6 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] transition hover:-translate-y-0.5"
               >
                 Conferir
               </button>
@@ -401,18 +405,18 @@ export function SpellingBeeGame({
               {lastCorrect && <FloatingCelebration />}
               <p
                 className={`relative z-10 text-lg font-black ${
-                  lastCorrect ? "text-emerald-300" : "text-rose-300"
+                  lastCorrect ? "text-emerald-600" : "text-rose-600"
                 }`}
               >
                 {lastCorrect ? "Correto!" : "Quase lá!"}
               </p>
-              <p className="mt-1 text-sm text-slate-300">
+              <p className="mt-1 text-sm text-slate-600">
                 Grafia correta:{" "}
-                <strong className="text-white tracking-[2px]">{q.palavra}</strong>
+                <strong className="text-slate-900 tracking-[2px]">{q.palavra}</strong>
               </p>
               <button
                 onClick={next}
-                className="mt-6 w-full rounded-full bg-white/10 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20 active:scale-95 sm:w-auto"
+                className="mt-6 w-full rounded-full bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-slate-700 active:scale-95 sm:w-auto"
               >
                 {index + 1 >= total ? "Ver resultado" : "Próxima →"}
               </button>

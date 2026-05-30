@@ -23,15 +23,15 @@ function Step({
 }) {
   return (
     <div className="mx-auto max-w-3xl">
-      <p className="mb-2 text-center text-xs font-extrabold uppercase tracking-[4px] text-[#f1c40f]">
+      <p className="mb-2 text-center text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
         Banco de Questões
       </p>
-      <h1 className="font-display mb-8 text-center text-3xl text-white sm:text-4xl">
+      <h1 className="font-display mb-8 text-center text-3xl text-slate-900 sm:text-4xl">
         {title}
       </h1>
 
       {items.length === 0 ? (
-        <p className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-slate-300">
+        <p className="rounded-2xl border-2 border-slate-200 bg-white p-6 text-center text-slate-600 shadow-sm">
           {empty ?? "Nada por aqui ainda."}
         </p>
       ) : (
@@ -41,19 +41,19 @@ function Step({
               <Link
                 key={it.label}
                 href={it.href}
-                className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-5 transition active:scale-[0.98] hover:-translate-y-0.5 hover:border-[#f1c40f]/50 hover:bg-white/10"
+                className="flex items-center justify-between rounded-2xl border-2 border-slate-200 bg-white px-6 py-5 shadow-sm transition active:scale-[0.98] hover:-translate-y-0.5 hover:border-[#f1c40f]/60"
               >
-                <span className="text-lg font-bold text-white">{it.label}</span>
-                <span className="text-[#f1c40f]">→</span>
+                <span className="text-lg font-bold text-slate-900">{it.label}</span>
+                <span className="text-[#b8860b]">→</span>
               </Link>
             ) : (
               <div
                 key={it.label}
                 aria-disabled
-                className="flex cursor-not-allowed items-center justify-between rounded-2xl border border-white/5 bg-white/[0.02] px-6 py-5 opacity-60"
+                className="flex cursor-not-allowed items-center justify-between rounded-2xl border-2 border-slate-100 bg-slate-50 px-6 py-5 opacity-70"
               >
                 <span className="text-lg font-bold text-slate-400">{it.label}</span>
-                <span className="rounded-full border border-white/15 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-500">
+                <span className="rounded-full border border-slate-200 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400">
                   Em desenvolvimento
                 </span>
               </div>
@@ -66,7 +66,7 @@ function Step({
         <div className="mt-8 text-center">
           <Link
             href={back}
-            className="text-sm font-bold text-slate-400 transition hover:text-[#f1c40f]"
+            className="text-sm font-bold text-slate-500 transition hover:text-[#b8860b]"
           >
             ← Voltar
           </Link>
@@ -95,7 +95,7 @@ export async function BankNavigator({
     return (
       <Step
         title="Escolha a disciplina"
-        empty="O conteúdo da sua série está em desenvolvimento. Volte em breve! 🛠️"
+        empty="O conteúdo da sua série está em desenvolvimento. Volte em breve!"
         items={subjects.map((s) => ({
           label: s.name,
           href: `/desafio?subject=${s.id}`,

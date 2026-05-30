@@ -17,8 +17,8 @@ export default async function SpellingBeePage() {
   const words = await listSpellingWords(12);
 
   return (
-    <div className="min-h-screen bg-[#0b1222]">
-      <header className="border-b border-white/10 bg-[#0a0f1c]">
+    <div className="min-h-screen bg-[#f6f8fc]">
+      <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-6 py-4">
           <Link href="/jogos" className="flex items-center gap-2">
             <Image
@@ -28,9 +28,9 @@ export default async function SpellingBeePage() {
               height={40}
               className="h-9 w-9 object-contain"
             />
-            <span className="font-display font-bold text-white">Spelling Bee</span>
+            <span className="font-display font-bold text-slate-900">Spelling Bee</span>
           </Link>
-          <span className="rounded-full border border-[#f1c40f]/30 bg-[#f1c40f]/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f1c40f]">
+          <span className="rounded-full border border-pink-300 bg-pink-50 px-3 py-1 text-xs font-black uppercase tracking-wider text-pink-600">
             Lyra · Gramática
           </span>
         </div>

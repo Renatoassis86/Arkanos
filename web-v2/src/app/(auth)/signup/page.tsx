@@ -34,7 +34,7 @@ export default async function SignupPage({
       footer={
         <>
           Já tem conta?{" "}
-          <Link href="/login" className="font-bold text-[#f1c40f] hover:underline">
+          <Link href="/login" className="font-bold text-[#b8860b] hover:underline">
             Entrar
           </Link>
         </>
@@ -72,14 +72,14 @@ export default async function SignupPage({
           <span className={labelClass}>Série</span>
           <select name="serie" defaultValue="3º ano" className={inputClass}>
             {SERIES.map((s) => (
-              <option key={s} value={s} className="bg-[#0b1222]">
+              <option key={s} value={s} className="bg-white text-slate-900">
                 {s}
               </option>
             ))}
           </select>
         </label>
 
-        <p className="rounded-xl bg-white/5 px-4 py-3 text-xs text-slate-400">
+        <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs text-slate-500">
           📌 Para entrar depois, use o seu <strong className="text-slate-200">nome</strong>{" "}
           e o seu <strong className="text-slate-200">sobrenome</strong>.
         </p>

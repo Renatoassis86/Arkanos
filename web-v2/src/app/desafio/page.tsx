@@ -59,7 +59,7 @@ export default async function DesafioPage({
         <div className="mx-auto mb-6 max-w-2xl">
           <Link
             href={backHref}
-            className="text-sm font-bold text-slate-400 transition hover:text-[#f1c40f]"
+            className="text-sm font-bold text-slate-500 transition hover:text-[#b8860b]"
           >
             ← Trocar prova
           </Link>
@@ -69,12 +69,11 @@ export default async function DesafioPage({
     );
   } else if (!gradeId) {
     body = (
-      <div className="mx-auto max-w-lg rounded-3xl border border-white/10 bg-white/5 p-8 text-center">
-        <p className="text-5xl">🛠️</p>
-        <h1 className="font-display mt-4 text-2xl text-white">
+      <div className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-8 text-center shadow-sm">
+        <h1 className="font-display mt-2 text-2xl text-slate-900">
           Conteúdo em desenvolvimento
         </h1>
-        <p className="mt-2 text-slate-300">
+        <p className="mt-2 text-slate-600">
           As provas {serie ? `do ${serie}` : "da sua série"} ainda estão sendo
           preparadas. Volte em breve!
         </p>
@@ -91,10 +90,10 @@ export default async function DesafioPage({
   }
 
   return (
-    <div className="min-h-screen bg-[#0b1222]">
-      <header className="border-b border-white/10 bg-[#0a0f1c]">
+    <div className="min-h-screen bg-[#f6f8fc]">
+      <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-6 py-4">
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/jogos" className="flex items-center gap-2">
             <Image
               src="/img/logo.png"
               alt="Arkanos"
@@ -102,21 +101,21 @@ export default async function DesafioPage({
               height={40}
               className="h-9 w-9 object-contain"
             />
-            <span className="font-display font-bold text-white">
+            <span className="font-display font-bold text-slate-900">
               Desafio dos Sábios
             </span>
           </Link>
           <div className="flex items-center gap-3">
             {serie && (
-              <span className="rounded-full border border-[#f1c40f]/30 bg-[#f1c40f]/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#f1c40f]">
+              <span className="rounded-full border border-[#f1c40f]/40 bg-[#f1c40f]/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-[#b8860b]">
                 {serie}
               </span>
             )}
             <Link
-              href="/"
-              className="text-sm font-bold text-slate-300 transition hover:text-[#f1c40f]"
+              href="/jogos"
+              className="text-sm font-bold text-slate-500 transition hover:text-[#b8860b]"
             >
-              ← Início
+              ← Painel
             </Link>
           </div>
         </div>

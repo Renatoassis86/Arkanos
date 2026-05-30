@@ -61,6 +61,18 @@ function isAnswerCorrect(q: DesafioQuestion, value: string) {
   return value.trim() === q.answer.trim();
 }
 
+function ArkPill({ label, n, color }: { label: string; n: number; color: string }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+      style={{ backgroundColor: `${color}1a`, color }}
+    >
+      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
+      {label} {n}
+    </span>
+  );
+}
+
 export function DesafioQuiz({
   questions,
   authed,
@@ -203,52 +215,36 @@ export function DesafioQuiz({
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="mx-auto max-w-lg rounded-3xl border border-[#f1c40f]/20 bg-white/5 p-8 text-center sm:p-10"
+        className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-8 text-center shadow-lg sm:p-10"
       >
-        <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#f1c40f]">
+        <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
           {pct >= 50 ? "Jornada concluída" : "Quase lá"}
         </p>
-        <p className="font-display mt-3 text-6xl font-black text-white">{pct}%</p>
-        <p className="mt-1 text-slate-300">
+        <p className="font-display mt-3 text-6xl font-black text-slate-900">{pct}%</p>
+        <p className="mt-1 text-slate-600">
           {correctCount} de {total} corretas
         </p>
 
-        <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left">
+        <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
           <GuardianAvatar name={DESAFIO_GUARDIAN} size={56} />
-          <p className="text-sm leading-relaxed text-slate-200">{narracao}</p>
+          <p className="text-sm leading-relaxed text-slate-700">{narracao}</p>
         </div>
 
         {/* Arks ganhos nesta partida */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
-          {bronze > 0 && (
-            <span className="rounded-full bg-[#cd7f32]/15 px-3 py-1 text-[#e0a86b]">
-              🥉 {bronze}
-            </span>
-          )}
-          {prata > 0 && (
-            <span className="rounded-full bg-slate-300/15 px-3 py-1 text-slate-200">
-              🥈 {prata}
-            </span>
-          )}
-          {ouro > 0 && (
-            <span className="rounded-full bg-[#f1c40f]/15 px-3 py-1 text-[#f1c40f]">
-              🥇 {ouro}
-            </span>
-          )}
-          {gabaritou && (
-            <span className="rounded-full bg-cyan-300/15 px-3 py-1 text-cyan-200">
-              💎 1
-            </span>
-          )}
+          {bronze > 0 && <ArkPill label="Bronze" n={bronze} color="#b87333" />}
+          {prata > 0 && <ArkPill label="Prata" n={prata} color="#64748b" />}
+          {ouro > 0 && <ArkPill label="Ouro" n={ouro} color="#d4a017" />}
+          {gabaritou && <ArkPill label="Diamante" n={1} color="#0891b2" />}
         </div>
 
         {/* Pontuação por TRI (Teoria de Resposta ao Item) — sem fator tempo */}
         {tri && (
-          <div className="mx-auto mt-5 max-w-md rounded-2xl border border-[#f1c40f]/30 bg-gradient-to-br from-[#f1c40f]/10 to-transparent p-4">
-            <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+          <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
+            <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
               Pontuação (TRI)
             </p>
-            <p className="font-display mt-1 text-4xl text-white">{tri.points}</p>
+            <p className="font-display mt-1 text-4xl text-slate-900">{tri.points}</p>
             <p className="text-xs text-slate-400">
               acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
             </p>
@@ -262,29 +258,29 @@ export function DesafioQuiz({
         {persisted?.persisted && (
           <div className="mt-6 space-y-3">
             {persisted.leveledUp && (
-              <p className="font-display text-xl text-[#f1c40f]">
-                ⭐ Subiu para o nível {persisted.level}!
+              <p className="font-display text-xl text-[#b8860b]">
+                ★ Subiu para o nível {persisted.level}!
               </p>
             )}
-            <div className="rounded-2xl border border-[#f1c40f]/20 bg-[#f1c40f]/5 p-4">
-              <p className="text-sm text-slate-200">
-                Total: <strong className="text-white">{persisted.totalArks} Arks</strong>{" "}
-                · Nível <strong className="text-white">{persisted.level}</strong>
+            <div className="rounded-2xl border-2 border-[#f1c40f]/20 bg-[#f1c40f]/8 p-4">
+              <p className="text-sm text-slate-700">
+                Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong>{" "}
+                · Nível <strong className="text-slate-900">{persisted.level}</strong>
               </p>
             </div>
-            <div className="rounded-2xl border border-[#f1c40f]/40 bg-gradient-to-br from-[#f1c40f]/15 to-transparent p-5">
-              <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
-                🏆 Sua posição no ranking
+            <div className="rounded-2xl border-2 border-[#f1c40f]/40 bg-[#f1c40f]/8 p-5">
+              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
+                Sua posição no ranking
               </p>
-              <p className="font-display mt-1 text-4xl text-white">#{persisted.rankPos}</p>
-              <p className="text-sm text-slate-300">de {persisted.rankTotal} jogadores</p>
+              <p className="font-display mt-1 text-4xl text-slate-900">#{persisted.rankPos}</p>
+              <p className="text-sm text-slate-600">de {persisted.rankTotal} jogadores</p>
             </div>
           </div>
         )}
 
         {!authed && (
-          <p className="mt-5 text-sm text-slate-400">
-            <Link href="/signup" className="font-bold text-[#f1c40f] hover:underline">
+          <p className="mt-5 text-sm text-slate-500">
+            <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">
               Crie uma conta
             </Link>{" "}
             para salvar seus Arks e entrar no ranking.
@@ -304,7 +300,7 @@ export function DesafioQuiz({
           )}
           <button
             onClick={restart}
-            className="text-sm font-bold text-slate-400 underline-offset-2 transition hover:text-[#f1c40f] hover:underline"
+            className="text-sm font-bold text-slate-500 underline-offset-2 transition hover:text-[#b8860b] hover:underline"
           >
             Jogar novamente
           </button>
@@ -334,25 +330,25 @@ export function DesafioQuiz({
   }
 
   const stateClasses: Record<string, string> = {
-    idle: "border-white/10 bg-white/5 text-slate-100 hover:border-[#f1c40f]/50 hover:bg-white/10",
-    correct: "border-emerald-400/60 bg-emerald-400/15 text-emerald-100",
-    wrong: "border-rose-400/60 bg-rose-400/15 text-rose-100",
-    dim: "border-white/5 bg-white/5 text-slate-500",
+    idle: "border-2 border-slate-200 bg-white text-slate-800 hover:border-[#f1c40f]/60 hover:bg-[#f1c40f]/5",
+    correct: "border-2 border-emerald-400 bg-emerald-50 text-emerald-800",
+    wrong: "border-2 border-rose-400 bg-rose-50 text-rose-700",
+    dim: "border-2 border-slate-100 bg-slate-50 text-slate-400",
   };
 
   return (
     <div className="mx-auto max-w-2xl">
       {/* HUD fixo (estilo jogo) */}
-      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-white/10 bg-[#0b1222]/85 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4">
+      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-slate-200 bg-white/90 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:shadow-sm">
         <div className="flex items-center justify-between text-sm">
-          <span className="font-bold text-slate-300">
+          <span className="font-bold text-slate-500">
             {index + 1} / {total}
           </span>
-          <span className="font-black text-[#f1c40f]">⚜️ {xp} Arks</span>
+          <span className="font-black text-[#b8860b]">{xp} Arks</span>
         </div>
-        <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
+        <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">
           <motion.div
-            className="h-full bg-[#f1c40f]"
+            className="h-full bg-gradient-to-r from-[#f1c40f] to-[#e0a417]"
             animate={{ width: `${((index + (revealed ? 1 : 0)) / total) * 100}%` }}
             transition={{ duration: 0.4 }}
           />
@@ -366,12 +362,12 @@ export function DesafioQuiz({
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -24 }}
           transition={{ duration: 0.3 }}
-          className="overflow-hidden rounded-3xl border border-white/10 bg-white/5"
+          className="overflow-hidden rounded-3xl border-2 border-slate-200 bg-white shadow-sm"
         >
           {/* Faixa ilustrada: imagem real OU ilustração temática */}
           {q.imageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <div className="flex justify-center bg-gradient-to-b from-[#101a33] to-[#0b1222] p-3">
+            <div className="flex justify-center bg-slate-100 p-3">
               <img
                 src={q.imageUrl}
                 alt={q.imageAlt ?? q.question}
@@ -380,22 +376,18 @@ export function DesafioQuiz({
             </div>
           ) : (
             <div
-              className="flex h-28 items-center justify-center"
+              className="h-2.5"
               style={{
-                background: `linear-gradient(135deg, ${art.from}22, ${art.to}0d)`,
+                background: `linear-gradient(135deg, ${art.from}, ${art.to})`,
               }}
-            >
-              <span className="text-5xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.4)]">
-                {art.emoji}
-              </span>
-            </div>
+            />
           )}
 
           <div className="p-6 sm:p-8">
             <p className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
               {q.subject} · {q.topic} · {q.difficulty}
             </p>
-            <h2 className="font-display text-2xl leading-snug text-white sm:text-3xl">
+            <h2 className="font-display text-2xl leading-snug text-slate-900 sm:text-3xl">
               {q.question}
             </h2>
 
@@ -418,7 +410,7 @@ export function DesafioQuiz({
                           st === "idle" ? "hover:-translate-y-0.5" : ""
                         }`}
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-black/20 text-sm font-black">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-sm font-black text-slate-600">
                           {String.fromCharCode(65 + i)}
                         </span>
                         <span>{opt}</span>
@@ -462,12 +454,12 @@ export function DesafioQuiz({
                     onChange={(e) => setTyped(e.target.value)}
                     disabled={revealed}
                     placeholder="Digite sua resposta…"
-                    className="flex-1 rounded-2xl border border-white/10 bg-[#0b1222]/60 px-5 py-4 text-base text-white outline-none transition placeholder:text-slate-500 focus:border-[#f1c40f]/60 focus:ring-2 focus:ring-[#f1c40f]/20"
+                    className="flex-1 rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#f1c40f] focus:ring-2 focus:ring-[#f1c40f]/20"
                   />
                   {!revealed && (
                     <button
                       type="submit"
-                      className="rounded-2xl bg-[#f1c40f] px-6 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition hover:-translate-y-0.5"
+                      className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-6 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] transition hover:-translate-y-0.5"
                     >
                       Responder
                     </button>
@@ -486,34 +478,34 @@ export function DesafioQuiz({
                 {correct && <FloatingCelebration />}
                 <p
                   className={`relative z-10 text-lg font-black ${
-                    correct ? "text-emerald-300" : "text-rose-300"
+                    correct ? "text-emerald-600" : "text-rose-600"
                   }`}
                 >
                   {correct ? "Correto!" : "Quase lá!"}
                 </p>
                 {!correct && (
-                  <p className="mt-1 text-sm text-slate-300">
-                    Resposta certa: <strong className="text-white">{q.answer}</strong>
+                  <p className="mt-1 text-sm text-slate-600">
+                    Resposta certa: <strong className="text-slate-900">{q.answer}</strong>
                   </p>
                 )}
                 {q.explanation && (
-                  <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
                     {q.explanation}
                   </p>
                 )}
                 {q.cronica && (
-                  <div className="mt-4 rounded-2xl border border-[#f1c40f]/20 bg-[#f1c40f]/5 p-5">
-                    <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+                  <div className="mt-4 rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-5">
+                    <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
                       Crônica do Guardião
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-200">
+                    <p className="mt-2 text-sm leading-relaxed text-slate-700">
                       {q.cronica}
                     </p>
                   </div>
                 )}
                 <button
                   onClick={next}
-                  className="mt-6 w-full rounded-full bg-white/10 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/20 active:scale-95 sm:w-auto"
+                  className="mt-6 w-full rounded-full bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-slate-700 active:scale-95 sm:w-auto"
                 >
                   {index + 1 >= total ? "Ver resultado" : "Próxima →"}
                 </button>
