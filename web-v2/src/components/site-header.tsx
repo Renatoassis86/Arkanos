@@ -35,18 +35,17 @@ export function SiteHeader() {
         className="mx-auto flex max-w-[1280px] items-center justify-between gap-5 px-6 transition-all duration-300"
         style={{ height: scrolled ? 70 : 90 }}
       >
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" aria-label="Arkanos — início" className="flex items-center">
           <Image
             src="/img/logo.png"
             alt="Arkanos"
-            width={56}
-            height={56}
+            width={96}
+            height={96}
             priority
-            className="h-12 w-12 object-contain drop-shadow-[0_0_15px_rgba(241,196,15,0.4)]"
+            className={`object-contain drop-shadow-[0_0_18px_rgba(241,196,15,0.45)] transition-all duration-300 ${
+              scrolled ? "h-14 w-14" : "h-[72px] w-[72px]"
+            }`}
           />
-          <span className="font-display text-xl font-bold tracking-wide text-white">
-            ARKANOS
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
