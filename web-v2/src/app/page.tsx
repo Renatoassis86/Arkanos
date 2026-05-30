@@ -16,7 +16,7 @@ export default async function Home() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="min-h-screen bg-[#0b1222]">
+    <div className="min-h-screen bg-white text-slate-800">
       <SiteHeader authed={!!user} />
       <Hero />
       <StatsSection />

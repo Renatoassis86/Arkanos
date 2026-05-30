@@ -40,17 +40,17 @@ const GAMES = [
 
 export function GamesSection() {
   return (
-    <section id="jogos" className="bg-[#0a0f1c] px-6 py-24">
+    <section id="jogos" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#f1c40f]">
+          <p className="mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
             Os Jogos
           </p>
-          <h2 className="font-display text-4xl text-white sm:text-5xl">
+          <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">
             Aprender jogando, com propósito
           </h2>
-          <p className="mt-4 text-lg text-slate-300">
-            Cada jogo reforça uma das <strong className="text-white">7 Artes Liberais</strong>{" "}
+          <p className="mt-4 text-lg text-slate-600">
+            Cada jogo reforça uma das <strong className="text-slate-900">7 Artes Liberais</strong>{" "}
             (Trivium e Quadrivium) e é guiado por um Guardião.
           </p>
         </Reveal>
@@ -59,11 +59,11 @@ export function GamesSection() {
           {GAMES.map((g, i) => (
             <Reveal key={g.name} delay={i * 0.08}>
               <div
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border bg-white/5 p-6 transition hover:-translate-y-1.5"
-                style={{ borderColor: `${g.accent}55` }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border-2 bg-white p-6 shadow-[0_10px_30px_rgba(2,6,23,0.06)] transition hover:-translate-y-1.5"
+                style={{ borderColor: `${g.accent}40` }}
               >
                 <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full opacity-20 blur-3xl transition group-hover:opacity-50"
+                  className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full opacity-25 blur-3xl transition group-hover:opacity-50"
                   style={{ background: g.accent }}
                 />
                 <div className="relative z-10 flex items-center justify-between">
@@ -78,22 +78,22 @@ export function GamesSection() {
                   </span>
                 </div>
 
-                <h3 className="font-display relative z-10 mt-5 text-2xl text-white">{g.name}</h3>
-                <p className="relative z-10 mt-1 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <h3 className="font-display relative z-10 mt-5 text-2xl text-slate-900">{g.name}</h3>
+                <p className="relative z-10 mt-1 text-xs font-bold uppercase tracking-widest text-slate-400">
                   Guardião(ã): {g.guardian}
                 </p>
-                <p className="relative z-10 mt-3 flex-1 text-sm leading-relaxed text-slate-300">
+                <p className="relative z-10 mt-3 flex-1 text-sm leading-relaxed text-slate-600">
                   {g.desc}
                 </p>
 
                 {g.soon ? (
-                  <span className="relative z-10 mt-5 inline-flex w-fit rounded-full border border-white/15 px-4 py-2 text-xs font-black uppercase tracking-wider text-slate-400">
+                  <span className="relative z-10 mt-5 inline-flex w-fit rounded-full border border-slate-200 px-4 py-2 text-xs font-black uppercase tracking-wider text-slate-400">
                     Em breve
                   </span>
                 ) : (
                   <Link
                     href="/signup"
-                    className="relative z-10 mt-5 inline-flex w-fit rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider text-[#0b1222] transition hover:-translate-y-0.5"
+                    className="relative z-10 mt-5 inline-flex w-fit rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-sm transition hover:-translate-y-0.5"
                     style={{ backgroundColor: g.accent }}
                   >
                     Entrar para jogar →

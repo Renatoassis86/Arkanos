@@ -7,7 +7,7 @@ import Image from "next/image";
 const NAV = [
   { label: "Jornada", href: "#programas" },
   { label: "Jogos", href: "#jogos" },
-  { label: "Desafios", href: "/desafio" },
+  { label: "Públicos", href: "#publicos" },
   { label: "Guardiões", href: "#guardioes" },
   { label: "Contato", href: "#contato" },
 ];
@@ -25,10 +25,10 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b border-[#f1c40f]/20 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0f1c] shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-[#0a0f1c]/70 backdrop-blur-md"
+          ? "border-slate-200 bg-white/90 shadow-[0_4px_30px_rgba(2,6,23,0.08)] backdrop-blur"
+          : "border-transparent bg-white/60 backdrop-blur-md"
       }`}
     >
       <div
@@ -42,8 +42,8 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             width={96}
             height={96}
             priority
-            className={`object-contain drop-shadow-[0_0_18px_rgba(241,196,15,0.45)] transition-all duration-300 ${
-              scrolled ? "h-14 w-14" : "h-[72px] w-[72px]"
+            className={`object-contain transition-all duration-300 ${
+              scrolled ? "h-12 w-12" : "h-[64px] w-[64px]"
             }`}
           />
         </Link>
@@ -53,7 +53,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             <Link
               key={item.label}
               href={item.href}
-              className="rounded-lg px-3 py-1.5 text-[13px] font-extrabold uppercase tracking-[1.5px] text-slate-100 transition-colors hover:bg-[#f1c40f]/10 hover:text-[#f1c40f]"
+              className="rounded-lg px-3 py-1.5 text-[13px] font-extrabold uppercase tracking-[1.5px] text-slate-600 transition-colors hover:bg-[#f1c40f]/10 hover:text-[#b8860b]"
             >
               {item.label}
             </Link>
@@ -64,7 +64,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
           {authed ? (
             <Link
               href="/jogos"
-              className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#0c1222] shadow-[0_4px_20px_rgba(241,196,15,0.4)] transition hover:-translate-y-0.5"
+              className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#3b2f00] shadow-[0_6px_20px_rgba(241,196,15,0.45)] transition hover:-translate-y-0.5"
             >
               Meu Painel →
             </Link>
@@ -72,13 +72,13 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             <>
               <Link
                 href="/login"
-                className="rounded-2xl border-2 border-[#f1c40f]/50 px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#f1c40f] transition hover:bg-[#f1c40f]/10"
+                className="rounded-2xl border-2 border-[#f1c40f] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#b8860b] transition hover:bg-[#f1c40f]/10"
               >
                 Entrar
               </Link>
               <Link
                 href="/signup"
-                className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#0c1222] shadow-[0_4px_20px_rgba(241,196,15,0.4)] transition hover:-translate-y-0.5"
+                className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#3b2f00] shadow-[0_6px_20px_rgba(241,196,15,0.45)] transition hover:-translate-y-0.5"
               >
                 Cadastrar
               </Link>
@@ -92,20 +92,20 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
           aria-expanded={open}
           className="flex flex-col gap-[5px] p-2 lg:hidden"
         >
-          <span className="h-0.5 w-6 bg-white" />
-          <span className="h-0.5 w-6 bg-white" />
-          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-slate-700" />
+          <span className="h-0.5 w-6 bg-slate-700" />
+          <span className="h-0.5 w-6 bg-slate-700" />
         </button>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-white/10 bg-[#0a0f1c] px-6 py-4 lg:hidden">
+        <nav className="flex flex-col gap-1 border-t border-slate-200 bg-white px-6 py-4 lg:hidden">
           {NAV.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-3 text-sm font-extrabold uppercase tracking-wide text-slate-100 hover:bg-[#f1c40f]/10 hover:text-[#f1c40f]"
+              className="rounded-lg px-3 py-3 text-sm font-extrabold uppercase tracking-wide text-slate-700 hover:bg-[#f1c40f]/10 hover:text-[#b8860b]"
             >
               {item.label}
             </Link>
@@ -115,7 +115,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
               <Link
                 href="/jogos"
                 onClick={() => setOpen(false)}
-                className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#0c1222]"
+                className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#3b2f00]"
               >
                 Meu Painel →
               </Link>
@@ -124,14 +124,14 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
                 <Link
                   href="/login"
                   onClick={() => setOpen(false)}
-                  className="flex-1 rounded-xl border-2 border-[#f1c40f]/50 px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#f1c40f]"
+                  className="flex-1 rounded-xl border-2 border-[#f1c40f] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#b8860b]"
                 >
                   Entrar
                 </Link>
                 <Link
                   href="/signup"
                   onClick={() => setOpen(false)}
-                  className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#d4af37] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#0c1222]"
+                  className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#3b2f00]"
                 >
                   Cadastrar
                 </Link>

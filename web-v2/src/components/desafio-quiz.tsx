@@ -10,6 +10,7 @@ import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
 import { GuardianAvatar } from "@/components/guardian-avatar";
 import { sessionScore, type ItemResult, type TriScore } from "@/lib/tri";
+import { FloatingCelebration } from "@/components/floating-celebration";
 import type { Rarity } from "@/lib/collection";
 
 // Desafio dos Sábios é a trilha de Lógica → guardião Aion narra.
@@ -480,14 +481,15 @@ export function DesafioQuiz({
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-6"
+                className="relative mt-6"
               >
+                {correct && <FloatingCelebration />}
                 <p
-                  className={`text-lg font-black ${
+                  className={`relative z-10 text-lg font-black ${
                     correct ? "text-emerald-300" : "text-rose-300"
                   }`}
                 >
-                  {correct ? "Correto! 🎉" : "Quase lá!"}
+                  {correct ? "Correto!" : "Quase lá!"}
                 </p>
                 {!correct && (
                   <p className="mt-1 text-sm text-slate-300">

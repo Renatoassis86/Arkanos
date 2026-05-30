@@ -14,8 +14,13 @@ const ITEMS = [
 export function BottomNav() {
   const pathname = usePathname();
 
-  // Esconde nas telas de auth (foco no formulário).
-  if (pathname.startsWith("/login") || pathname.startsWith("/signup")) return null;
+  // Esconde nas telas de auth e na landing informativa (que tem seu próprio header).
+  if (
+    pathname === "/" ||
+    pathname.startsWith("/login") ||
+    pathname.startsWith("/signup")
+  )
+    return null;
 
   return (
     <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-[#0a0f1c]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:inset-x-auto sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 sm:rounded-full sm:border sm:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">

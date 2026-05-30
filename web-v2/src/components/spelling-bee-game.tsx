@@ -10,6 +10,7 @@ import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
 import { GuardianAvatar } from "@/components/guardian-avatar";
 import { sessionScore, type ItemResult, type TriScore } from "@/lib/tri";
+import { FloatingCelebration } from "@/components/floating-celebration";
 import type { Rarity } from "@/lib/collection";
 
 // Spelling Bee é a trilha de Gramática → guardiã Lyra narra.
@@ -395,10 +396,15 @@ export function SpellingBeeGame({
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-6"
+              className="relative mt-6"
             >
-              <p className={`text-lg font-black ${lastCorrect ? "text-emerald-300" : "text-rose-300"}`}>
-                {lastCorrect ? "Correto! 🎉" : "Quase lá!"}
+              {lastCorrect && <FloatingCelebration />}
+              <p
+                className={`relative z-10 text-lg font-black ${
+                  lastCorrect ? "text-emerald-300" : "text-rose-300"
+                }`}
+              >
+                {lastCorrect ? "Correto!" : "Quase lá!"}
               </p>
               <p className="mt-1 text-sm text-slate-300">
                 Grafia correta:{" "}

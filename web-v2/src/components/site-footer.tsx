@@ -5,9 +5,9 @@ const COLS = [
   {
     title: "Plataforma",
     links: [
-      { label: "Jornada do Trivium", href: "#programas" },
+      { label: "As 7 Artes Liberais", href: "#programas" },
       { label: "Jogos", href: "#jogos" },
-      { label: "Desafios", href: "/jogos" },
+      { label: "Públicos", href: "#publicos" },
       { label: "Guardiões", href: "#guardioes" },
     ],
   },
@@ -22,33 +22,31 @@ const COLS = [
 
 export function SiteFooter() {
   return (
-    <footer id="contato" className="border-t border-white/10 bg-[#0a0f1c] px-6 py-16">
+    <footer id="contato" className="border-t border-slate-200 bg-[#f8fafc] px-6 py-16">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
             <Image
               src="/img/logo.png"
               alt="Arkanos"
-              width={44}
-              height={44}
-              className="h-10 w-10 object-contain"
+              width={48}
+              height={48}
+              className="h-11 w-11 object-contain"
             />
-            <span className="font-display text-lg font-bold text-white">
-              ARKANOS
-            </span>
+            <span className="font-display text-lg font-bold text-slate-900">ARKANOS</span>
           </div>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
-            O Reino do Saber e da Virtude — jogos educacionais da Educação Cristã
-            Clássica, nas fases do Trivium.
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
+            O Reino do Saber e da Virtude — jogos da Educação Cristã Clássica, do Trivium ao
+            Quadrivium (as 7 Artes Liberais).
           </p>
-          <p className="mt-5 text-xs font-black uppercase tracking-[3px] text-[#f1c40f]">
+          <p className="mt-5 text-xs font-black uppercase tracking-[3px] text-[#b8860b]">
             Verdade · Bondade · Beleza
           </p>
         </div>
 
         {COLS.map((col) => (
           <div key={col.title}>
-            <h4 className="text-xs font-black uppercase tracking-widest text-slate-500">
+            <h4 className="text-xs font-black uppercase tracking-widest text-slate-400">
               {col.title}
             </h4>
             <ul className="mt-4 space-y-3">
@@ -56,7 +54,7 @@ export function SiteFooter() {
                 <li key={l.label}>
                   <Link
                     href={l.href}
-                    className="text-sm text-slate-300 transition hover:text-[#f1c40f]"
+                    className="text-sm text-slate-600 transition hover:text-[#b8860b]"
                   >
                     {l.label}
                   </Link>
@@ -67,7 +65,7 @@ export function SiteFooter() {
         ))}
       </div>
 
-      <div className="mx-auto mt-12 max-w-6xl border-t border-white/10 pt-6 text-center text-xs text-slate-500">
+      <div className="mx-auto mt-12 max-w-6xl border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
         © {new Date().getFullYear()} Arkanos — O Reino do Saber e da Virtude.
       </div>
     </footer>
