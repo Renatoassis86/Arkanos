@@ -49,7 +49,7 @@ export async function signup(formData: FormData) {
   await supabase.auth.signInWithPassword({ email, password });
 
   revalidatePath("/", "layout");
-  redirect("/desafio");
+  redirect("/jogos");
 }
 
 /**
@@ -73,7 +73,7 @@ export async function login(formData: FormData) {
   }
 
   revalidatePath("/", "layout");
-  redirect("/desafio");
+  redirect("/jogos");
 }
 
 export async function logout() {

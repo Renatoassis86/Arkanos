@@ -129,6 +129,43 @@ export async function getDailyProgress(supabase: Supa, userId: string): Promise<
   return { sessions, correct, games: games.size };
 }
 
+export type RecentSession = {
+  game: string;
+  correct: number;
+  total: number;
+  points: number;
+  at: string;
+};
+
+/** Últimos desafios concluídos do aluno (do event-sourcing game_events). */
+export async function getRecentSessions(
+  supabase: Supa,
+  userId: string,
+  limit = 6,
+): Promise<RecentSession[]> {
+  const { data } = await supabase
+    .from("game_events")
+    .select("game, payload, xp_delta, created_at")
+    .eq("user_id", userId)
+    .eq("type", "SESSION_FINISHED")
+    .order("created_at", { ascending: false })
+    .limit(limit);
+  return (
+    (data ?? []) as {
+      game: string;
+      payload: { correct?: number; total?: number } | null;
+      xp_delta: number;
+      created_at: string;
+    }[]
+  ).map((e) => ({
+    game: e.game,
+    correct: Number(e.payload?.correct ?? 0),
+    total: Number(e.payload?.total ?? 0),
+    points: e.xp_delta,
+    at: e.created_at,
+  }));
+}
+
 export async function getLeaderboard(supabase: Supa, limit = 20): Promise<LeaderRow[]> {
   const { data } = await supabase.rpc("leaderboard_top", { p_limit: limit });
   return (data ?? []).map(

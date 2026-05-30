@@ -8,6 +8,7 @@ import {
   getOwnedCollection,
   getLeaderboard,
   getDailyProgress,
+  getRecentSessions,
 } from "@/lib/collection-data";
 import { GameCard } from "@/components/game-card";
 import { GuardianAvatar } from "@/components/guardian-avatar";
@@ -32,11 +33,21 @@ export default async function DashboardPage() {
   const hud = await getHud(supabase);
   if (!hud) redirect("/login?next=/jogos");
 
-  const [owned, leaders, daily] = await Promise.all([
+  const [owned, leaders, daily, recent] = await Promise.all([
     getOwnedCollection(supabase, hud.userId),
     getLeaderboard(supabase, 5),
     getDailyProgress(supabase, hud.userId),
+    getRecentSessions(supabase, hud.userId, 6),
   ]);
+
+  const GAME_LABEL: Record<string, { nome: string; icon: string }> = {
+    desafio: { nome: "Desafio dos Sábios", icon: "⚔️" },
+    "spelling-bee": { nome: "Spelling Bee", icon: "🐝" },
+  };
+  const relativo = (iso: string) => {
+    const dias = Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+    return dias <= 0 ? "hoje" : dias === 1 ? "ontem" : `há ${dias} dias`;
+  };
 
   const age = ageFromBirthdate(hud.dataNascimento);
   const track = recommendedTrack(age);
@@ -178,6 +189,57 @@ export default async function DashboardPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        {/* ---------------- Últimos desafios ---------------- */}
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h2 className="font-display mb-3 text-lg text-white">🕮 Últimos desafios</h2>
+          {recent.length === 0 ? (
+            <p className="text-sm text-slate-400">
+              Você ainda não concluiu nenhum desafio. Comece agora e seus resultados aparecem aqui!
+            </p>
+          ) : (
+            <ul className="space-y-2">
+              {recent.map((s, i) => {
+                const g = GAME_LABEL[s.game] ?? { nome: s.game, icon: "🎮" };
+                const pct = s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+                return (
+                  <li
+                    key={i}
+                    className="flex items-center justify-between rounded-xl bg-white/5 px-3 py-2 text-sm"
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <span className="text-lg">{g.icon}</span>
+                      <span>
+                        <span className="block font-bold text-white">{g.nome}</span>
+                        <span className="text-xs text-slate-400">
+                          {s.correct}/{s.total} · {relativo(s.at)}
+                        </span>
+                      </span>
+                    </span>
+                    <span className="text-right">
+                      <span className="font-display text-base text-[#f1c40f]">{s.points}</span>
+                      <span className="block text-[10px] text-slate-400">{pct}% · pts</span>
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
+
+        {/* ---------------- Projetos e atividades ---------------- */}
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h2 className="font-display mb-3 text-lg text-white">📌 Projetos e atividades</h2>
+          <div className="rounded-xl border border-dashed border-white/15 bg-white/5 p-5 text-center">
+            <p className="text-2xl">🗓️</p>
+            <p className="mt-1 text-sm text-slate-300">
+              Nenhum projeto ou atividade com prazo no momento.
+            </p>
+            <p className="mt-1 text-xs text-slate-500">
+              Em breve: trabalhos e projetos com data, atribuídos pela escola ou pela família.
+            </p>
           </div>
         </section>
 
