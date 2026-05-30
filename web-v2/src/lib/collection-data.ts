@@ -13,6 +13,8 @@ export type Hud = {
   arks: { bronze: number; prata: number; ouro: number; diamante: number };
   serie: string | null;
   dataNascimento: string | null;
+  streak: number;
+  longestStreak: number;
   /** Progresso dentro do nível atual rumo ao próximo (0–100). */
   levelProgress: number;
   arksIntoLevel: number;
@@ -31,7 +33,7 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
   const { data: p } = await supabase
     .from("profiles")
     .select(
-      "display_name, serie, data_nascimento, total_xp, level, arks_bronze, arks_prata, arks_ouro, arks_diamante",
+      "display_name, serie, data_nascimento, total_xp, level, arks_bronze, arks_prata, arks_ouro, arks_diamante, streak_count, longest_streak",
     )
     .eq("id", user.id)
     .single();
@@ -60,6 +62,8 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
     },
     serie: p?.serie ?? null,
     dataNascimento: p?.data_nascimento ?? null,
+    streak: p?.streak_count ?? 0,
+    longestStreak: p?.longest_streak ?? 0,
     levelProgress: level >= MAX_LEVEL ? 100 : Math.min(100, Math.round((into / span) * 100)),
     arksIntoLevel: into,
     arksForNext: level >= MAX_LEVEL ? 0 : ceil - totalArks,
@@ -99,6 +103,31 @@ export type LeaderRow = {
   level: number;
   totalArks: number;
 };
+
+export type DailyProgress = { sessions: number; correct: number; games: number };
+
+/** Progresso das missões diárias, computado dos SESSION_FINISHED de hoje (UTC). */
+export async function getDailyProgress(supabase: Supa, userId: string): Promise<DailyProgress> {
+  const start = new Date();
+  start.setUTCHours(0, 0, 0, 0);
+
+  const { data } = await supabase
+    .from("game_events")
+    .select("game, payload")
+    .eq("user_id", userId)
+    .eq("type", "SESSION_FINISHED")
+    .gte("created_at", start.toISOString());
+
+  const games = new Set<string>();
+  let sessions = 0;
+  let correct = 0;
+  for (const e of (data ?? []) as { game: string; payload: { correct?: number } | null }[]) {
+    sessions++;
+    games.add(e.game);
+    correct += Number(e.payload?.correct ?? 0);
+  }
+  return { sessions, correct, games: games.size };
+}
 
 export async function getLeaderboard(supabase: Supa, limit = 20): Promise<LeaderRow[]> {
   const { data } = await supabase.rpc("leaderboard_top", { p_limit: limit });

@@ -3,10 +3,22 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { logout } from "../../(auth)/actions";
 import { ageFromBirthdate, recommendedTrack, TRACK_LABELS } from "@/lib/trivium";
-import { getHud, getOwnedCollection, getLeaderboard } from "@/lib/collection-data";
+import {
+  getHud,
+  getOwnedCollection,
+  getLeaderboard,
+  getDailyProgress,
+} from "@/lib/collection-data";
 import { GameCard } from "@/components/game-card";
 import { GuardianAvatar } from "@/components/guardian-avatar";
-import { LEVELS, ERAS, ORBS, TITLES, eraForLevel } from "@/lib/collection";
+import {
+  LEVELS,
+  ERAS,
+  ORBS,
+  TITLES,
+  DAILY_MISSIONS,
+  eraForLevel,
+} from "@/lib/collection";
 
 // Guardião-guia de cada trilha do Trivium.
 const TRACK_GUARDIAN: Record<string, string> = {
@@ -20,9 +32,10 @@ export default async function DashboardPage() {
   const hud = await getHud(supabase);
   if (!hud) redirect("/login?next=/jogos");
 
-  const [owned, leaders] = await Promise.all([
+  const [owned, leaders, daily] = await Promise.all([
     getOwnedCollection(supabase, hud.userId),
     getLeaderboard(supabase, 5),
+    getDailyProgress(supabase, hud.userId),
   ]);
 
   const age = ageFromBirthdate(hud.dataNascimento);
@@ -53,6 +66,11 @@ export default async function DashboardPage() {
             Nível <strong className="text-[#f1c40f]">{hud.level}</strong> · {levelDef.nome}
             {equippedTitle ? ` · ⭐ ${TITLES.find((t) => t.key === equippedTitle.key)?.nome}` : ""}
           </p>
+          {hud.streak > 0 && (
+            <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-orange-400/40 bg-orange-400/10 px-3 py-1 text-sm font-bold text-orange-300">
+              🔥 {hud.streak} {hud.streak === 1 ? "dia" : "dias"} de ofensiva
+            </span>
+          )}
 
           {/* Barra de Arks rumo ao próximo nível */}
           <div className="mt-4 w-full max-w-md">
@@ -121,6 +139,47 @@ export default async function DashboardPage() {
             </div>
           </Link>
         </div>
+
+        {/* ---------------- Missões do dia ---------------- */}
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <div className="mb-3 flex items-center justify-between">
+            <h2 className="font-display text-lg text-white">📜 Missões do dia</h2>
+            {DAILY_MISSIONS.every((m) => daily[m.metric] >= m.target) && (
+              <span className="rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-black text-emerald-300">
+                Tudo completo! ✨
+              </span>
+            )}
+          </div>
+          <div className="space-y-3">
+            {DAILY_MISSIONS.map((m) => {
+              const cur = Math.min(daily[m.metric], m.target);
+              const done = cur >= m.target;
+              return (
+                <div key={m.key} className="flex items-center gap-3">
+                  <span className={`text-xl ${done ? "" : "opacity-60 grayscale"}`}>
+                    {done ? "✅" : m.icon}
+                  </span>
+                  <div className="flex-1">
+                    <div className="flex justify-between text-sm">
+                      <span className={done ? "font-bold text-emerald-300" : "text-slate-200"}>
+                        {m.label}
+                      </span>
+                      <span className="text-xs font-bold text-slate-400">
+                        {cur}/{m.target}
+                      </span>
+                    </div>
+                    <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-white/10">
+                      <div
+                        className={`h-full rounded-full ${done ? "bg-emerald-400" : "bg-[#f1c40f]"}`}
+                        style={{ width: `${(cur / m.target) * 100}%` }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
 
         {/* ---------------- Ranking (posição em evidência + top 5) ---------------- */}
         <section className="rounded-2xl border border-white/10 bg-white/5 p-5">

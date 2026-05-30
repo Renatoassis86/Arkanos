@@ -193,6 +193,9 @@ export const profiles = pgTable("profiles", {
   role: text("role").notNull().default("student"),
   totalXp: integer("total_xp").notNull().default(0),
   level: integer("level").notNull().default(1),
+  streakCount: integer("streak_count").notNull().default(0),
+  longestStreak: integer("longest_streak").notNull().default(0),
+  lastActiveDate: date("last_active_date"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 });

@@ -150,12 +150,34 @@ export type MedalDef = { key: string; nome: string; criterio: string; tier: Meda
 
 export const MEDALS: MedalDef[] = [
   { key: "primeiro-passo", nome: "Primeiro Passo", criterio: "Concluir a 1ª prova", tier: "bronze" },
+  { key: "gabaritou", nome: "Gabaritou", criterio: "Acertar 100% numa partida", tier: "ouro" },
+  { key: "ofensiva", nome: "Ofensiva", criterio: "3 dias seguidos jogando", tier: "prata" },
   { key: "perseveranca", nome: "Perseverança", criterio: "7 dias de ofensiva", tier: "prata" },
   { key: "mente-clara", nome: "Mente Clara", criterio: "90%+ em Lógica", tier: "ouro" },
   { key: "voz-de-ouro", nome: "Voz de Ouro", criterio: "Concluir a trilha de Retórica", tier: "ouro" },
   { key: "coroa-de-louros", nome: "Coroa de Louros", criterio: "\"Platinar\" uma Arte", tier: "louro" },
   { key: "guardiao-trivium", nome: "Guardião do Trivium", criterio: "Completar Gramática + Lógica + Retórica", tier: "louro" },
   { key: "contemplador-ceus", nome: "Contemplador dos Céus", criterio: "Completar o Quadrivium", tier: "louro" },
+];
+
+// ============================================================
+// Missões diárias — progresso computado dos game_events do dia (sem tabela).
+// ============================================================
+
+export type DailyMetric = "sessions" | "correct" | "games";
+
+export type MissionDef = {
+  key: string;
+  label: string;
+  icon: string;
+  target: number;
+  metric: DailyMetric;
+};
+
+export const DAILY_MISSIONS: MissionDef[] = [
+  { key: "play1", label: "Finalize 1 partida", icon: "🎯", target: 1, metric: "sessions" },
+  { key: "correct15", label: "Acerte 15 no total", icon: "✅", target: 15, metric: "correct" },
+  { key: "both-games", label: "Jogue os 2 jogos", icon: "🎮", target: 2, metric: "games" },
 ];
 
 export const MEDAL_TIER_COLOR: Record<MedalTier, string> = {
