@@ -16,6 +16,7 @@ export async function awardSpellingArks(input: {
   diamante: number;
   correct: number;
   total: number;
+  points: number;
 }): Promise<ArksResult> {
   const supabase = await createClient();
   const {
@@ -30,6 +31,7 @@ export async function awardSpellingArks(input: {
     p_prata: input.prata,
     p_ouro: input.ouro,
     p_diamante: input.diamante,
+    p_points: input.points,
   });
 
   if (error) return { persisted: false, error: error.message };

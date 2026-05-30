@@ -56,7 +56,7 @@ try {
         values (
           ${topicId}, ${it.pergunta}, ${sql.json(alts)}, ${answer},
           'multiple_choice', 'medium',
-          ${"Resposta correta: " + answer + "."}, ${it.cronica || ""},
+          '', ${it.cronica || ""},
           false, 'none', null,
           ${it.descricao_imagem || null}, ${arquivo ? "Ilustração para a questão " + it.id : null},
           'manual',

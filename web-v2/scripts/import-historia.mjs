@@ -67,7 +67,7 @@ try {
         values (
           ${topicId}, ${it.pergunta}, ${sql.json(alts)}, ${answer},
           'multiple_choice', 'medium',
-          ${"Resposta correta: " + answer + "."}, ${it.cronica || ""},
+          '', ${it.cronica || ""},
           false, 'none', 'manual',
           ${sql.json({ id_original: idOrig, avaliacao: "AV1 - 2º Trimestre", ano: ANO, guardiao: it.guardiao })}
         )`;

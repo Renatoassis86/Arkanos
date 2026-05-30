@@ -8,6 +8,7 @@ import { awardSpellingArks, type ArksResult } from "@/app/spelling-bee/actions";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
 import { GuardianAvatar } from "@/components/guardian-avatar";
+import { sessionScore, type ItemResult, type TriScore } from "@/lib/tri";
 import type { Rarity } from "@/lib/collection";
 
 // Spelling Bee é a trilha de Gramática → guardiã Lyra narra.
@@ -77,6 +78,8 @@ export function SpellingBeeGame({
   const [saving, setSaving] = useState(false);
   const [persisted, setPersisted] = useState<ArksResult | null>(null);
   const [reveals, setReveals] = useState<RevealItem[]>([]);
+  const [items, setItems] = useState<ItemResult[]>([]);
+  const [tri, setTri] = useState<TriScore | null>(null);
 
   const q = deck[index];
   const total = deck.length;
@@ -96,6 +99,7 @@ export function SpellingBeeGame({
   function check() {
     if (revealed || !typed.trim()) return;
     const ok = norm(typed) === norm(q.palavra);
+    setItems((arr) => [...arr, { difficulty: q.dificuldade, type: "spelling", correct: ok }]);
     setRevealed(true);
     setLastCorrect(ok);
     if (ok) {
@@ -123,6 +127,8 @@ export function SpellingBeeGame({
   async function finishGame() {
     setFinished(true);
     playFinish();
+    const score = sessionScore(items);
+    setTri(score);
     if (!authed) return;
     setSaving(true);
     const diamante = total > 0 && correctCount === total ? 1 : 0;
@@ -133,6 +139,7 @@ export function SpellingBeeGame({
       diamante,
       correct: correctCount,
       total,
+      points: score.points,
     });
     setSaving(false);
     setPersisted(res);
@@ -166,6 +173,8 @@ export function SpellingBeeGame({
     setSaving(false);
     setPersisted(null);
     setReveals([]);
+    setItems([]);
+    setTri(null);
   }
 
   if (finished) {
@@ -206,6 +215,18 @@ export function SpellingBeeGame({
               <span className="rounded-full bg-cyan-300/15 px-3 py-1 text-cyan-200">💎 1</span>
             )}
           </div>
+
+          {tri && (
+            <div className="mx-auto mt-5 max-w-md rounded-2xl border border-[#f1c40f]/30 bg-gradient-to-br from-[#f1c40f]/10 to-transparent p-4">
+              <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+                Pontuação (TRI)
+              </p>
+              <p className="font-display mt-1 text-4xl text-white">{tri.points}</p>
+              <p className="text-xs text-slate-400">
+                palavras difíceis valem mais · habilidade {tri.abilityPct}%
+              </p>
+            </div>
+          )}
 
           <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 text-left">
             <GuardianAvatar name={SPELLING_GUARDIAN} size={56} ring="#fb7185" />

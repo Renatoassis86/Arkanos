@@ -8,6 +8,7 @@ import { awardDesafioArks, type ArksResult } from "@/app/desafio/actions";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
 import { GuardianAvatar } from "@/components/guardian-avatar";
+import { sessionScore, type ItemResult, type TriScore } from "@/lib/tri";
 import type { Rarity } from "@/lib/collection";
 
 // Desafio dos Sábios é a trilha de Lógica → guardião Aion narra.
@@ -82,6 +83,9 @@ export function DesafioQuiz({
   const [saving, setSaving] = useState(false);
   const [persisted, setPersisted] = useState<ArksResult | null>(null);
   const [reveals, setReveals] = useState<RevealItem[]>([]);
+  // TRI: histórico de itens (dificuldade/tipo/acerto) p/ estimar a habilidade.
+  const [items, setItems] = useState<ItemResult[]>([]);
+  const [tri, setTri] = useState<TriScore | null>(null);
 
   if (deck.length === 0) {
     return (
@@ -95,9 +99,11 @@ export function DesafioQuiz({
 
   function check(value: string) {
     if (revealed) return;
+    const ok = isAnswerCorrect(q, value);
+    setItems((arr) => [...arr, { difficulty: q.difficulty, type: q.type, correct: ok }]);
     setPicked(value);
     setRevealed(true);
-    if (isAnswerCorrect(q, value)) {
+    if (ok) {
       setCorrectCount((c) => c + 1);
       setXp((x) => x + (ARKS_BY_DIFFICULTY[q.difficulty] ?? 10));
       if (q.difficulty === "hard") setOuro((o) => o + 1);
@@ -123,6 +129,8 @@ export function DesafioQuiz({
   async function finishGame() {
     setFinished(true);
     playFinish();
+    const score = sessionScore(items);
+    setTri(score);
     if (!authed) return;
     setSaving(true);
     const diamante = total > 0 && correctCount === total ? 1 : 0; // gabaritou
@@ -133,6 +141,7 @@ export function DesafioQuiz({
       diamante,
       correct: correctCount,
       total,
+      points: score.points,
     });
     setSaving(false);
     setPersisted(res);
@@ -167,6 +176,8 @@ export function DesafioQuiz({
     setSaving(false);
     setPersisted(null);
     setReveals([]);
+    setItems([]);
+    setTri(null);
   }
 
   const correct = revealed && picked !== null && isAnswerCorrect(q, picked);
@@ -223,6 +234,19 @@ export function DesafioQuiz({
             </span>
           )}
         </div>
+
+        {/* Pontuação por TRI (Teoria de Resposta ao Item) — sem fator tempo */}
+        {tri && (
+          <div className="mx-auto mt-5 max-w-md rounded-2xl border border-[#f1c40f]/30 bg-gradient-to-br from-[#f1c40f]/10 to-transparent p-4">
+            <p className="text-xs font-black uppercase tracking-widest text-[#f1c40f]">
+              Pontuação (TRI)
+            </p>
+            <p className="font-display mt-1 text-4xl text-white">{tri.points}</p>
+            <p className="text-xs text-slate-400">
+              acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
+            </p>
+          </div>
+        )}
 
         {saving && (
           <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>
