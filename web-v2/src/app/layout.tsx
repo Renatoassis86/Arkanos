@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Cinzel } from "next/font/google";
 import "./globals.css";
 import { SplashScreen } from "@/components/splash-screen";
 import { BottomNav } from "@/components/bottom-nav";
+import { SiteCredit } from "@/components/site-credit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +61,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <SplashScreen />
         {children}
+        <SiteCredit />
         <BottomNav />
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import type { SpellingWord } from "@/db/queries/spelling";
 import { awardSpellingArks, type ArksResult } from "@/app/spelling-bee/actions";
@@ -80,6 +81,8 @@ export function SpellingBeeGame({
   const [reveals, setReveals] = useState<RevealItem[]>([]);
   const [items, setItems] = useState<ItemResult[]>([]);
   const [tri, setTri] = useState<TriScore | null>(null);
+  const [canContinue, setCanContinue] = useState(false);
+  const router = useRouter();
 
   const q = deck[index];
   const total = deck.length;
@@ -127,6 +130,7 @@ export function SpellingBeeGame({
   async function finishGame() {
     setFinished(true);
     playFinish();
+    setTimeout(() => setCanContinue(true), 4000);
     const score = sessionScore(items);
     setTri(score);
     if (!authed) return;
@@ -175,6 +179,7 @@ export function SpellingBeeGame({
     setReveals([]);
     setItems([]);
     setTri(null);
+    setCanContinue(false);
   }
 
   if (finished) {
@@ -267,12 +272,24 @@ export function SpellingBeeGame({
             </p>
           )}
 
-          <button
-            onClick={restart}
-            className="mt-8 w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
-          >
-            Jogar novamente
-          </button>
+          <div className="mt-8 flex flex-col items-center gap-3">
+            {canContinue ? (
+              <button
+                onClick={() => router.push("/colecao")}
+                className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
+              >
+                Continuar para a Coleção →
+              </button>
+            ) : (
+              <p className="text-xs text-slate-500">Leia seu resultado e a crônica…</p>
+            )}
+            <button
+              onClick={restart}
+              className="text-sm font-bold text-slate-400 underline-offset-2 transition hover:text-[#f1c40f] hover:underline"
+            >
+              Jogar novamente
+            </button>
+          </div>
         </motion.div>
 
         {reveals.length > 0 && (

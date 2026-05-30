@@ -138,6 +138,14 @@ export default async function ColecaoPage() {
         <Section title="Títulos" hint="Toque para equipar o exibido no seu perfil">
           <TitlesManager owned={owned.titles} />
         </Section>
+
+        {/* Fluxo: da Coleção segue para o Ranking geral */}
+        <Link
+          href="/ranking"
+          className="flex w-full items-center justify-center rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition hover:-translate-y-0.5"
+        >
+          🏅 Ver ranking geral →
+        </Link>
       </div>
     </main>
   );

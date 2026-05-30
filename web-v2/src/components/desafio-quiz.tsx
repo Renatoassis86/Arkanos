@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import type { DesafioQuestion } from "@/db/queries/quiz";
 import { awardDesafioArks, type ArksResult } from "@/app/desafio/actions";
@@ -86,6 +87,9 @@ export function DesafioQuiz({
   // TRI: histórico de itens (dificuldade/tipo/acerto) p/ estimar a habilidade.
   const [items, setItems] = useState<ItemResult[]>([]);
   const [tri, setTri] = useState<TriScore | null>(null);
+  // Fluxo pós-jogo: o botão "Continuar" libera após uns segundos (lê-se o resultado).
+  const [canContinue, setCanContinue] = useState(false);
+  const router = useRouter();
 
   if (deck.length === 0) {
     return (
@@ -129,6 +133,7 @@ export function DesafioQuiz({
   async function finishGame() {
     setFinished(true);
     playFinish();
+    setTimeout(() => setCanContinue(true), 4000);
     const score = sessionScore(items);
     setTri(score);
     if (!authed) return;
@@ -178,6 +183,7 @@ export function DesafioQuiz({
     setReveals([]);
     setItems([]);
     setTri(null);
+    setCanContinue(false);
   }
 
   const correct = revealed && picked !== null && isAnswerCorrect(q, picked);
@@ -284,12 +290,24 @@ export function DesafioQuiz({
           </p>
         )}
 
-        <button
-          onClick={restart}
-          className="mt-8 w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
-        >
-          Jogar novamente
-        </button>
+        <div className="mt-8 flex flex-col items-center gap-3">
+          {canContinue ? (
+            <button
+              onClick={() => router.push("/colecao")}
+              className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
+            >
+              Continuar para a Coleção →
+            </button>
+          ) : (
+            <p className="text-xs text-slate-500">Leia seu resultado e a crônica…</p>
+          )}
+          <button
+            onClick={restart}
+            className="text-sm font-bold text-slate-400 underline-offset-2 transition hover:text-[#f1c40f] hover:underline"
+          >
+            Jogar novamente
+          </button>
+        </div>
       </motion.div>
       {reveals.length > 0 && (
         <PremiacaoOverlay
