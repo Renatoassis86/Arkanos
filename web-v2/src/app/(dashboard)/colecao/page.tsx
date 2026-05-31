@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { GameCard } from "@/components/game-card";
 import { TitlesManager } from "@/components/titles-manager";
+import { Brush } from "@/components/floating-art";
 import {
   getHud,
   getOwnedCollection,
@@ -35,7 +36,12 @@ export default async function ColecaoPage() {
   const blocks: OrbBlock[] = ["trivium", "quadrivium", "virtudes"];
 
   return (
-    <main className="min-h-screen bg-[#f6f8fc] pb-28 text-slate-800">
+    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fc] pb-28 text-slate-800">
+      {/* Brushes-marca d'água */}
+      <Brush color="#e0a417" className="left-[-18%] top-[14%] h-72 w-72" opacity={0.08} />
+      <Brush color="#8b5cf6" className="right-[-20%] top-[42%] h-72 w-72" opacity={0.06} />
+      <Brush color="#10b981" className="bottom-[10%] left-[-16%] h-72 w-72" opacity={0.06} />
+
       {/* Cabeçalho + barra de progresso de coleção rumo à Platina */}
       <header className="border-b border-slate-200 bg-white px-5 pb-8 pt-7">
         <div className="mx-auto max-w-5xl">

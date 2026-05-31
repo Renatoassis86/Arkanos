@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getHud, getLeaderboard } from "@/lib/collection-data";
 import { LEVELS } from "@/lib/collection";
+import { Brush } from "@/components/floating-art";
 
 export const dynamic = "force-dynamic";
 
@@ -17,7 +18,11 @@ export default async function RankingPage() {
   const meInTop = leaders.some((r) => r.userId === hud.userId);
 
   return (
-    <main className="min-h-screen bg-[#f6f8fc] pb-28 text-slate-800">
+    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fc] pb-28 text-slate-800">
+      {/* Brushes-marca d'água */}
+      <Brush color="#f1c40f" className="left-[-18%] top-[16%] h-72 w-72" opacity={0.08} />
+      <Brush color="#6366f1" className="right-[-20%] top-[44%] h-72 w-72" opacity={0.06} />
+
       <header className="relative overflow-hidden border-b border-slate-200 bg-white px-5 pb-7 pt-8">
         <div
           className="pointer-events-none absolute inset-0"

@@ -49,7 +49,7 @@ export function GamesSection() {
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
+          <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
             Os Jogos
           </p>
           <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">

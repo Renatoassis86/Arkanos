@@ -44,7 +44,7 @@ export function ProgramacaoSection() {
       />
       <div className="relative mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1.5 text-xs font-black uppercase tracking-[3px] text-cyan-600">
+          <span className="font-emblem inline-flex items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1.5 text-xs font-black uppercase tracking-[3px] text-cyan-600">
             Em breve · Nova Linguagem
           </span>
           <h2 className="font-display mt-4 text-4xl text-slate-900 sm:text-5xl">

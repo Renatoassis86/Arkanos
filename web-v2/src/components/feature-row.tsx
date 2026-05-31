@@ -33,7 +33,7 @@ export function FeatureRow({
         {/* Texto */}
         <Reveal className={reverse ? "lg:order-2" : ""}>
           <p
-            className="mb-3 text-xs font-black uppercase tracking-[3px]"
+            className="font-emblem mb-3 text-xs font-black uppercase tracking-[3px]"
             style={{ color }}
           >
             {eyebrow}

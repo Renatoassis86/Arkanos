@@ -12,6 +12,7 @@ import {
 } from "@/lib/collection-data";
 import { GameCard } from "@/components/game-card";
 import { GuardianAvatar } from "@/components/guardian-avatar";
+import { Brush } from "@/components/floating-art";
 import { LEVELS, ERAS, ORBS, TITLES, DAILY_MISSIONS, eraForLevel } from "@/lib/collection";
 
 const TRACK_GUARDIAN: Record<string, string> = {
@@ -50,7 +51,12 @@ export default async function DashboardPage() {
   const previewOrbs = ORBS.filter((o) => owned.orbs.has(o.key)).slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-[#f6f8fc] pb-28 text-slate-800">
+    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fc] pb-28 text-slate-800">
+      {/* Brushes-marca d'água */}
+      <Brush color="#f1c40f" className="left-[-20%] top-[12%] h-72 w-72" opacity={0.08} />
+      <Brush color="#ec4899" className="right-[-22%] top-[38%] h-72 w-72" opacity={0.06} />
+      <Brush color="#3b82f6" className="bottom-[8%] left-[-18%] h-72 w-72" opacity={0.06} />
+
       {/* HUD */}
       <header className="relative overflow-hidden border-b border-slate-200 bg-white px-5 pb-7 pt-8">
         <div
