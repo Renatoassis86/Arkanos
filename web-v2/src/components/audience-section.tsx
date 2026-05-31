@@ -22,8 +22,8 @@ const AUDIENCES: Audience[] = [
     title: "Escolas Clássicas e Cristãs",
     color: "#3b82f6",
     panelBg: "#eff6ff",
-    photo: "/img/fotos/escola-turma-arkanos.png",
-    alt: "Professora e alunos da Arkanos estudando juntos",
+    photo: "/img/fotos/familia-comemora-bg.png",
+    alt: "Estudantes celebrando suas conquistas na Arkanos",
     symbols: [
       { color: "#3b82f6", size: 50, className: "left-[2%] top-[16%]" },
       { color: "#f1c40f", size: 40, className: "right-[4%] top-[10%]", round: true },
@@ -44,7 +44,7 @@ const AUDIENCES: Audience[] = [
     title: "Famílias Educadoras (homeschool)",
     color: "#10b981",
     panelBg: "#ecfdf5",
-    photo: "/img/fotos/familia-sofa.png",
+    photo: "/img/fotos/familia-sofa-bg.png",
     alt: "Família educadora estudando junta em casa",
     symbols: [
       { color: "#10b981", size: 50, className: "right-[2%] top-[16%]" },

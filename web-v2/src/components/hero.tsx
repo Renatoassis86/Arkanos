@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
 import { Brush } from "./floating-art";
-import { PhotoMask, CornerCartela } from "./photo-frames";
+import { PhotoMask } from "./photo-frames";
 
 export function Hero() {
   return (
@@ -10,9 +10,6 @@ export function Hero() {
       <Brush color="#f1c40f" className="left-[-6%] top-[8%] h-72 w-72" opacity={0.16} />
       <Brush color="#ec4899" className="right-[-4%] top-[20%] h-64 w-64" opacity={0.14} />
       <Brush color="#34d399" className="bottom-[-8%] left-[30%] h-72 w-72" opacity={0.12} />
-
-      {/* Cartela sangrando do canto superior direito */}
-      <CornerCartela src="/img/fotos/familia-mesa-1.png" alt="Família estudando com a Arkanos" color="#f1c40f" />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
         {/* Texto */}
@@ -63,6 +60,8 @@ export function Hero() {
             alt="Criança em sua jornada de aprendizado na Arkanos"
             color="#3b82f6"
             priority
+            framePad={7}
+            className="max-w-[560px]"
           />
         </Reveal>
       </div>

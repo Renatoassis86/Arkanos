@@ -54,7 +54,7 @@ export function ClubeDoLivroSection() {
 
         <Reveal delay={0.12} className="lg:order-1">
           <PhotoMask
-            src="/img/fotos/clube-familia-livro.png"
+            src="/img/fotos/clube-familia-livro-bg.png"
             alt="Família lendo um livro juntos no Clube do Livro"
             color="#6366f1"
             symbols={SYMS}

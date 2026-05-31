@@ -65,6 +65,7 @@ export function PhotoMask({
   symbols = DEFAULT_SYMS,
   priority = false,
   className = "",
+  framePad = 16,
 }: {
   src: string;
   alt?: string;
@@ -72,6 +73,8 @@ export function PhotoMask({
   symbols?: Sym[];
   priority?: boolean;
   className?: string;
+  /** % de respiro entre a borda e a figura — menor = figura MAIOR. */
+  framePad?: number;
 }) {
   const reduce = useReducedMotion() ?? false;
   return (
@@ -95,22 +98,22 @@ export function PhotoMask({
       />
 
       {/* blob de cor desconstruído + foto recortada por cima */}
-      <div className="absolute inset-[16%] flex items-end justify-center">
+      <div className="absolute flex items-end justify-center" style={{ inset: `${framePad}%` }}>
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(60% 60% at 50% 58%, ${color}45, ${color}22 70%, transparent)`,
+            background: `radial-gradient(62% 62% at 50% 58%, ${color}45, ${color}22 70%, transparent)`,
             borderRadius: "46% 54% 50% 50% / 55% 55% 45% 45%",
           }}
         />
         <Image
           src={src}
           alt={alt}
-          width={520}
-          height={580}
+          width={560}
+          height={620}
           priority={priority}
           style={{ width: "auto", height: "auto" }}
-          className="relative z-10 max-h-[98%] max-w-[104%] object-contain drop-shadow-[0_18px_30px_rgba(2,6,23,0.20)]"
+          className="relative z-10 max-h-[112%] max-w-[112%] object-contain drop-shadow-[0_18px_30px_rgba(2,6,23,0.20)]"
         />
       </div>
 

@@ -19,19 +19,26 @@ function Orbit() {
       <div className="absolute inset-[8%] rounded-full border border-[#f1c40f]/30" />
       <div className="absolute inset-[22%] rounded-full border border-white/15" />
 
-      {/* foto central — o livro que abre o Universo */}
-      <div className="absolute inset-[26%] flex items-center justify-center">
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{ background: "radial-gradient(circle at 50% 45%, rgba(241,196,15,0.45), transparent 70%)" }}
-        />
-        <Image
-          src="/img/fotos/universo-livro-magico.png"
-          alt="O livro que revela o Universo Arkanos"
-          width={420}
-          height={300}
-          className="relative z-10 w-[88%] object-contain drop-shadow-[0_14px_30px_rgba(0,0,0,0.45)]"
-        />
+      {/* emblema/orbe luminoso central — o coração do Reino */}
+      <div className="absolute inset-[30%] flex items-center justify-center">
+        <motion.div
+          className="relative h-full w-full rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle at 38% 32%, #fff7d6, #f1c40f 45%, #b8860b 78%, #7a5a12 100%)",
+            boxShadow: "0 0 60px 10px rgba(241,196,15,0.45), inset 0 -10px 24px rgba(0,0,0,0.35)",
+          }}
+          animate={reduce ? undefined : { scale: [1, 1.05, 1] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Image
+            src="/icon.svg"
+            alt="Emblema Arkanos"
+            width={120}
+            height={120}
+            className="absolute inset-0 m-auto h-1/2 w-1/2 object-contain opacity-90"
+          />
+        </motion.div>
       </div>
 
       {/* guardiões orbitando (cada um flutua suave) */}
