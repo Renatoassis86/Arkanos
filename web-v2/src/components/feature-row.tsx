@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./reveal";
+import { PhotoCard } from "./photo-frames";
 
 export type FeatureRowProps = {
   eyebrow: string;
@@ -11,6 +12,9 @@ export type FeatureRowProps = {
   /** slug do guardião (ex.: "aion") ou caminho de imagem (foto) — figura sobre o blob. */
   guardian?: string;
   imageSrc?: string;
+  /** foto COM fundo: renderiza em PhotoCard (moldura desconstruída) em vez do blob. */
+  photoCard?: boolean;
+  alt?: string;
   reverse?: boolean;
   cta?: { label: string; href: string };
 };
@@ -23,6 +27,8 @@ export function FeatureRow({
   bullets,
   guardian,
   imageSrc,
+  photoCard,
+  alt = "",
   reverse,
   cta,
 }: FeatureRowProps) {
@@ -70,8 +76,11 @@ export function FeatureRow({
           )}
         </Reveal>
 
-        {/* Mídia: figura sobre blob colorido */}
+        {/* Mídia: foto-com-fundo em PhotoCard, ou figura sobre blob */}
         <Reveal delay={0.1} className={reverse ? "lg:order-1" : ""}>
+          {photoCard && src ? (
+            <PhotoCard src={src} alt={alt} color={color} />
+          ) : (
           <div className="relative mx-auto flex aspect-[5/4] w-full max-w-md items-end justify-center">
             {/* blob colorido */}
             <div
@@ -89,7 +98,7 @@ export function FeatureRow({
             {src && (
               <Image
                 src={src}
-                alt=""
+                alt={alt}
                 width={420}
                 height={520}
                 style={{ width: "auto" }}
@@ -97,6 +106,7 @@ export function FeatureRow({
               />
             )}
           </div>
+          )}
         </Reveal>
       </div>
     </section>

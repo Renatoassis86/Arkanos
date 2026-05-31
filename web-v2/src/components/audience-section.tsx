@@ -1,20 +1,34 @@
+import Link from "next/link";
 import { Reveal } from "./reveal";
+import { Brush } from "./floating-art";
+import { PhotoMask, type Sym } from "./photo-frames";
 
 type Audience = {
   tag: string;
   title: string;
-  mono: string;
   color: string;
+  panelBg: string;
+  photo: string;
+  alt: string;
+  symbols: Sym[];
   intro: string;
   bullets: string[];
+  cta: { label: string; href: string };
 };
 
 const AUDIENCES: Audience[] = [
   {
     tag: "Para Escolas",
     title: "Escolas Clássicas e Cristãs",
-    mono: "E",
     color: "#3b82f6",
+    panelBg: "#eff6ff",
+    photo: "/img/fotos/escola-turma-arkanos.png",
+    alt: "Professora e alunos da Arkanos estudando juntos",
+    symbols: [
+      { color: "#3b82f6", size: 50, className: "left-[2%] top-[16%]" },
+      { color: "#f1c40f", size: 40, className: "right-[4%] top-[10%]", round: true },
+      { color: "#8b5cf6", size: 44, className: "right-[2%] bottom-[18%]" },
+    ],
     intro:
       "Estruture o currículo nas 7 Artes Liberais com avaliações e acompanhamento de verdade.",
     bullets: [
@@ -23,12 +37,20 @@ const AUDIENCES: Audience[] = [
       "Ranking e progresso por aluno, turma e disciplina",
       "Gamificação que serve à formação da virtude, não ao vício",
     ],
+    cta: { label: "Levar para minha escola", href: "/signup" },
   },
   {
     tag: "Para Famílias",
     title: "Famílias Educadoras (homeschool)",
-    mono: "F",
     color: "#10b981",
+    panelBg: "#ecfdf5",
+    photo: "/img/fotos/familia-sofa.png",
+    alt: "Família educadora estudando junta em casa",
+    symbols: [
+      { color: "#10b981", size: 50, className: "right-[2%] top-[16%]" },
+      { color: "#ec4899", size: 40, className: "left-[4%] top-[10%]", round: true },
+      { color: "#f1c40f", size: 44, className: "left-[2%] bottom-[18%]" },
+    ],
     intro:
       "Eduque em casa com trilhas por idade e jogos que ensinam brincando — do Trivium ao Quadrivium.",
     bullets: [
@@ -37,13 +59,17 @@ const AUDIENCES: Audience[] = [
       "Coleção, níveis e conquistas que celebram cada avanço",
       "Verdade, Bondade e Beleza à luz da Educação Cristã Clássica",
     ],
+    cta: { label: "Começar em casa", href: "/signup" },
   },
 ];
 
 export function AudienceSection() {
   return (
     <section id="publicos" className="relative overflow-hidden bg-white px-6 py-24">
-      <div className="mx-auto max-w-6xl">
+      <Brush color="#3b82f6" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.08} />
+      <Brush color="#10b981" className="right-[-8%] bottom-[6%] h-80 w-80" opacity={0.08} />
+
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
             Para quem é
@@ -56,46 +82,57 @@ export function AudienceSection() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {AUDIENCES.map((a, i) => (
-            <Reveal key={a.tag} delay={i * 0.1}>
-              <div
-                className="group relative h-full overflow-hidden rounded-3xl border-2 bg-white p-8 shadow-[0_12px_36px_rgba(2,6,23,0.07)] transition hover:-translate-y-1"
-                style={{ borderColor: `${a.color}40` }}
-              >
+        <div className="mt-14 space-y-10">
+          {AUDIENCES.map((a, i) => {
+            const reverse = i % 2 === 1;
+            return (
+              <Reveal key={a.tag} delay={0.05}>
                 <div
-                  className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-20 blur-3xl transition group-hover:opacity-40"
-                  style={{ background: a.color }}
-                />
-                <p
-                  className="text-xs font-black uppercase tracking-widest"
-                  style={{ color: a.color }}
+                  className="grid items-center gap-8 rounded-[2.5rem] border border-white p-6 shadow-[0_18px_50px_rgba(2,6,23,0.07)] sm:p-10 lg:grid-cols-2"
+                  style={{ backgroundColor: a.panelBg }}
                 >
-                  {a.tag}
-                </p>
-                <h3 className="font-display mt-2 flex items-center gap-3 text-3xl text-slate-900">
-                  <span
-                    className="font-display flex h-12 w-12 items-center justify-center rounded-2xl text-xl font-black text-white shadow-sm"
-                    style={{ backgroundColor: a.color }}
-                  >
-                    {a.mono}
-                  </span>
-                  {a.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{a.intro}</p>
-                <ul className="mt-5 space-y-2.5">
-                  {a.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 text-sm text-slate-700">
-                      <span style={{ color: a.color }} className="mt-0.5 font-black">
-                        ✓
-                      </span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+                  {/* texto */}
+                  <div className={reverse ? "lg:order-2" : ""}>
+                    <p
+                      className="font-emblem text-xs font-black uppercase tracking-[3px]"
+                      style={{ color: a.color }}
+                    >
+                      {a.tag}
+                    </p>
+                    <h3 className="font-display mt-2 text-3xl text-slate-900 sm:text-4xl">
+                      {a.title}
+                    </h3>
+                    <p className="mt-3 text-base leading-relaxed text-slate-600">{a.intro}</p>
+                    <ul className="mt-5 space-y-3">
+                      {a.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-3 text-sm text-slate-700">
+                          <span
+                            className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-md text-xs font-black text-white"
+                            style={{ backgroundColor: a.color }}
+                          >
+                            ✓
+                          </span>
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link
+                      href={a.cta.href}
+                      className="mt-7 inline-flex rounded-full px-7 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:-translate-y-0.5"
+                      style={{ backgroundColor: a.color }}
+                    >
+                      {a.cta.label}
+                    </Link>
+                  </div>
+
+                  {/* foto recortada em máscara desconstruída */}
+                  <div className={reverse ? "lg:order-1" : ""}>
+                    <PhotoMask src={a.photo} alt={a.alt} color={a.color} symbols={a.symbols} />
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
