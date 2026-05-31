@@ -127,7 +127,7 @@ export function AudienceSection() {
 
                   {/* foto recortada em máscara desconstruída */}
                   <div className={reverse ? "lg:order-1" : ""}>
-                    <PhotoMask src={a.photo} alt={a.alt} color={a.color} symbols={a.symbols} />
+                    <PhotoMask src={a.photo} alt={a.alt} color={a.color} symbols={a.symbols} circleMask />
                   </div>
                 </div>
               </Reveal>

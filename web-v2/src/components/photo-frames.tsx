@@ -66,6 +66,7 @@ export function PhotoMask({
   priority = false,
   className = "",
   framePad = 16,
+  circleMask = false,
 }: {
   src: string;
   alt?: string;
@@ -75,46 +76,73 @@ export function PhotoMask({
   className?: string;
   /** % de respiro entre a borda e a figura — menor = figura MAIOR. */
   framePad?: number;
+  /** foto retangular: mescla dentro de um círculo com borda suave (feather). */
+  circleMask?: boolean;
 }) {
   const reduce = useReducedMotion() ?? false;
+  // máscara circular com borda esfumada — funde a foto no círculo
+  const feather =
+    "radial-gradient(circle at 50% 44%, #000 54%, rgba(0,0,0,0.55) 66%, transparent 78%)";
   return (
     <div className={`relative mx-auto aspect-square w-full max-w-[520px] ${className}`}>
       {/* brush marca-d'água vazando além da foto */}
       <Brush color={color} className="inset-[6%]" opacity={0.16} />
 
-      {/* anéis concêntricos girando */}
+      {/* anel girando bem discreto (dourado) */}
       <motion.div
         aria-hidden
-        className="absolute inset-[7%] rounded-full border border-[#f1c40f]/25"
+        className="absolute inset-[7%] rounded-full border border-[#f1c40f]/20"
         animate={reduce ? undefined : { rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
-      <motion.div
+
+      {/* LINHA FINAL — contorno circular discreto que dá a silhueta redonda */}
+      <div
         aria-hidden
-        className="absolute inset-[19%] rounded-full"
-        style={{ border: `1px solid ${color}3a` }}
-        animate={reduce ? undefined : { rotate: -360 }}
-        transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
+        className="absolute rounded-full"
+        style={{
+          inset: `${Math.max(framePad - 2, 3)}%`,
+          border: `1.5px solid ${color}45`,
+          boxShadow: `inset 0 0 40px ${color}1f`,
+        }}
       />
 
-      {/* blob de cor desconstruído + foto recortada por cima */}
+      {/* blob de cor + foto (recorte livre OU mesclada no círculo) */}
       <div className="absolute flex items-end justify-center" style={{ inset: `${framePad}%` }}>
         <div
           className="absolute inset-0"
           style={{
             background: `radial-gradient(62% 62% at 50% 58%, ${color}45, ${color}22 70%, transparent)`,
-            borderRadius: "46% 54% 50% 50% / 55% 55% 45% 45%",
+            borderRadius: circleMask ? "9999px" : "46% 54% 50% 50% / 55% 55% 45% 45%",
           }}
         />
-        <Image
-          src={src}
-          alt={alt}
-          width={560}
-          height={620}
-          priority={priority}
-          style={{ width: "auto", height: "auto" }}
-          className="relative z-10 max-h-[112%] max-w-[112%] object-contain drop-shadow-[0_18px_30px_rgba(2,6,23,0.20)]"
-        />
+        {circleMask ? (
+          <div className="absolute inset-0 overflow-hidden rounded-full">
+            <Image
+              src={src}
+              alt={alt}
+              fill
+              priority={priority}
+              sizes="(max-width: 1024px) 90vw, 480px"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center 18%",
+                maskImage: feather,
+                WebkitMaskImage: feather,
+              }}
+            />
+          </div>
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            width={560}
+            height={620}
+            priority={priority}
+            style={{ width: "auto", height: "auto" }}
+            className="relative z-10 max-h-[112%] max-w-[112%] object-contain drop-shadow-[0_18px_30px_rgba(2,6,23,0.20)]"
+          />
+        )}
       </div>
 
       {/* símbolos clay flutuando */}
