@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
 import { Brush } from "./floating-art";
+import { PhotoMask, type Sym } from "./photo-frames";
+
+const GAMES_SYMS: Sym[] = [
+  { color: "#3b82f6", size: 48, className: "left-[2%] top-[18%]" },
+  { color: "#f1c40f", size: 38, className: "right-[4%] top-[12%]", round: true },
+  { color: "#ec4899", size: 42, className: "right-[0%] bottom-[20%]" },
+];
 
 const GAMES = [
   {
@@ -48,18 +55,30 @@ export function GamesSection() {
       <Brush color="#3b82f6" className="bottom-[-6%] left-[40%] h-72 w-72" opacity={0.07} />
 
       <div className="relative z-10 mx-auto max-w-6xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
-            Os Jogos
-          </p>
-          <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">
-            Aprender jogando, com propósito
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Cada jogo reforça uma das <strong className="text-slate-900">7 Artes Liberais</strong>{" "}
-            (Trivium e Quadrivium) e é guiado por um Guardião.
-          </p>
-        </Reveal>
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <Reveal className="flex justify-center lg:order-1">
+            <PhotoMask
+              src="/img/fotos/crianca-pensa-menino.png"
+              alt="Criança concentrada em um desafio da Arkanos"
+              color="#3b82f6"
+              symbols={GAMES_SYMS}
+              className="max-w-[440px]"
+            />
+          </Reveal>
+          <Reveal className="lg:order-2">
+            <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
+              Os Jogos
+            </p>
+            <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">
+              Aprender jogando, com propósito
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Cada jogo reforça uma das <strong className="text-slate-900">7 Artes Liberais</strong>{" "}
+              (Trivium e Quadrivium) e é guiado por um Guardião — com a Crônica do Guardião e
+              pontuação por TRI.
+            </p>
+          </Reveal>
+        </div>
 
         <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {GAMES.map((g, i) => (

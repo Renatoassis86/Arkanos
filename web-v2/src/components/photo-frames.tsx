@@ -106,11 +106,11 @@ export function PhotoMask({
         <Image
           src={src}
           alt={alt}
-          width={460}
+          width={520}
           height={580}
           priority={priority}
-          style={{ width: "auto" }}
-          className="relative z-10 h-[94%] object-contain drop-shadow-[0_18px_30px_rgba(2,6,23,0.20)]"
+          style={{ width: "auto", height: "auto" }}
+          className="relative z-10 max-h-[98%] max-w-[104%] object-contain drop-shadow-[0_18px_30px_rgba(2,6,23,0.20)]"
         />
       </div>
 

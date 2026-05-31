@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./reveal";
 import { Brush } from "./floating-art";
 
@@ -6,16 +7,22 @@ const TESTIMONIALS = [
     quote:
       "Meus filhos finalmente pedem para estudar. A jornada do Trivium deu sentido ao que aprendem.",
     author: "Mariana, mãe educadora",
+    photo: "/img/fotos/leitura-mae-filha.png",
+    color: "#ec4899",
   },
   {
     quote:
       "A Crônica do Guardião transforma cada questão numa pequena aula de história e virtude.",
     author: "Prof. André, escola clássica",
+    photo: "/img/fotos/familia-comemora-bg.png",
+    color: "#3b82f6",
   },
   {
     quote:
       "O Spelling Bee e o Radix viraram rotina divertida — e o vocabulário deles disparou.",
     author: "Cláudia, ensino domiciliar",
+    photo: "/img/fotos/familia-sofa-bg.png",
+    color: "#10b981",
   },
 ];
 
@@ -39,16 +46,37 @@ export function TestimonialsSection() {
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.author} delay={i * 0.1}>
-              <figure className="flex h-full flex-col rounded-3xl border-2 border-slate-200 bg-white p-7 shadow-[0_10px_30px_rgba(2,6,23,0.06)]">
-                <span className="font-display text-5xl leading-none text-[#e0a417]/50">
-                  “
-                </span>
-                <blockquote className="-mt-3 flex-1 text-base leading-relaxed text-slate-700">
-                  {t.quote}
-                </blockquote>
-                <figcaption className="mt-5 text-sm font-bold uppercase tracking-wider text-slate-500">
-                  {t.author}
-                </figcaption>
+              <figure className="flex h-full flex-col overflow-hidden rounded-3xl border-2 border-slate-200 bg-white shadow-[0_10px_30px_rgba(2,6,23,0.06)]">
+                {/* foto no topo do card */}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <Image
+                    src={t.photo}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: `linear-gradient(180deg, transparent 55%, #ffffff)` }}
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute right-4 top-4 h-9 w-9 rounded-full border-2 border-white/70"
+                    style={{ background: `${t.color}55` }}
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-7 pt-3">
+                  <span className="font-display text-5xl leading-none" style={{ color: `${t.color}66` }}>
+                    “
+                  </span>
+                  <blockquote className="-mt-3 flex-1 text-base leading-relaxed text-slate-700">
+                    {t.quote}
+                  </blockquote>
+                  <figcaption className="mt-5 text-sm font-bold uppercase tracking-wider text-slate-500">
+                    {t.author}
+                  </figcaption>
+                </div>
               </figure>
             </Reveal>
           ))}

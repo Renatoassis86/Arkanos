@@ -1,4 +1,5 @@
 import { Reveal } from "./reveal";
+import { PhotoMask } from "./photo-frames";
 
 type Arte = {
   name: string;
@@ -100,21 +101,36 @@ export function TriviumSection() {
         }}
       />
       <div className="relative mx-auto max-w-6xl">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
-            A Jornada do Saber
-          </p>
-          <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">
-            As 7 Artes Liberais
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            O <strong className="text-slate-900">Trivium</strong> (a Palavra) e o{" "}
-            <strong className="text-slate-900">Quadrivium</strong> (o Número e o Cosmos) —
-            sete artes que conduzem à <span className="font-bold text-[#b8860b]">Verdade</span>, à{" "}
-            <span className="font-bold text-[#b8860b]">Bondade</span> e à{" "}
-            <span className="font-bold text-[#b8860b]">Beleza</span>, e à contemplação do Criador.
-          </p>
-        </Reveal>
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <Reveal>
+            <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
+              A Jornada do Saber
+            </p>
+            <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">
+              As 7 Artes Liberais
+            </h2>
+            <p className="mt-4 text-lg text-slate-600">
+              O <strong className="text-slate-900">Trivium</strong> (a Palavra) e o{" "}
+              <strong className="text-slate-900">Quadrivium</strong> (o Número e o Cosmos) —
+              sete artes que conduzem à <span className="font-bold text-[#b8860b]">Verdade</span>, à{" "}
+              <span className="font-bold text-[#b8860b]">Bondade</span> e à{" "}
+              <span className="font-bold text-[#b8860b]">Beleza</span>, e à contemplação do Criador.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12} className="flex justify-center">
+            <PhotoMask
+              src="/img/fotos/quadrivium-ciencia.png"
+              alt="Educador apresentando a ordem do cosmos — o Quadrivium"
+              color="#8b5cf6"
+              symbols={[
+                { color: "#8b5cf6", size: 48, className: "left-[2%] top-[18%]" },
+                { color: "#10b981", size: 40, className: "right-[4%] top-[12%]", round: true },
+                { color: "#6366f1", size: 42, className: "right-[0%] bottom-[20%]" },
+              ]}
+              className="max-w-[420px]"
+            />
+          </Reveal>
+        </div>
 
         <Reveal className="mt-14">
           <p className="mb-4 text-center text-sm font-black uppercase tracking-[3px] text-pink-600">
