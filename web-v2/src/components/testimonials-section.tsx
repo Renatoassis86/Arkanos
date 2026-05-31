@@ -1,4 +1,5 @@
 import { Reveal } from "./reveal";
+import { Brush } from "./floating-art";
 
 const TESTIMONIALS = [
   {
@@ -20,8 +21,12 @@ const TESTIMONIALS = [
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-[#f8fafc] px-6 py-24">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-[#f8fafc] px-6 py-24">
+      {/* Brushes-marca d'água */}
+      <Brush color="#e0a417" className="left-[-6%] top-[10%] h-72 w-72" opacity={0.10} />
+      <Brush color="#10b981" className="right-[-8%] bottom-[6%] h-80 w-80" opacity={0.08} />
+
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
             Famílias e escolas

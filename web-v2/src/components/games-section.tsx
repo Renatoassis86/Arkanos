@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
+import { Brush } from "./floating-art";
 
 const GAMES = [
   {
@@ -40,8 +41,13 @@ const GAMES = [
 
 export function GamesSection() {
   return (
-    <section id="jogos" className="bg-white px-6 py-24">
-      <div className="mx-auto max-w-6xl">
+    <section id="jogos" className="relative overflow-hidden bg-white px-6 py-24">
+      {/* Brushes-marca d'água (cor das Artes) */}
+      <Brush color="#f1c40f" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.10} />
+      <Brush color="#ec4899" className="right-[-6%] top-[30%] h-72 w-72" opacity={0.08} />
+      <Brush color="#3b82f6" className="bottom-[-6%] left-[40%] h-72 w-72" opacity={0.07} />
+
+      <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
             Os Jogos

@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
+import { Brush } from "./floating-art";
 
 export function CtaSection() {
   return (
-    <section className="bg-white px-6 py-24">
+    <section className="relative overflow-hidden bg-white px-6 py-24">
+      {/* Brushes-marca d'água */}
+      <Brush color="#f1c40f" className="left-[6%] top-[2%] h-72 w-72" opacity={0.10} />
+      <Brush color="#8b5cf6" className="right-[8%] bottom-[2%] h-64 w-64" opacity={0.07} />
       <Reveal className="mx-auto max-w-4xl">
         <div className="relative overflow-hidden rounded-[2rem] border-2 border-[#f1c40f]/30 bg-gradient-to-br from-[#fffdf3] via-white to-[#f0f7ff] px-8 py-16 text-center shadow-[0_20px_60px_rgba(2,6,23,0.08)]">
           {/* glow multicolor */}

@@ -13,8 +13,9 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
         {/* Texto */}
         <Reveal>
-          <p className="mb-5 inline-flex flex-wrap items-center gap-x-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-extrabold uppercase tracking-[3px] shadow-sm">
-            <span className="text-[#b8860b]">✦ Cosmovisão Cristã</span>
+          <p className="font-emblem mb-5 inline-flex flex-wrap items-center gap-x-2 rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-bold uppercase tracking-[3px] shadow-sm">
+            <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-[#e0a417]" />
+            <span className="text-[#b8860b]">Cosmovisão Cristã</span>
             <span className="text-slate-300">·</span>
             <span className="text-pink-500">Clássico</span>
             <span className="text-slate-300">·</span>

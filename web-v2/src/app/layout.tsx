@@ -1,24 +1,37 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Cinzel } from "next/font/google";
+import { Fraunces, Plus_Jakarta_Sans, Cinzel, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SplashScreen } from "@/components/splash-screen";
 import { BottomNav } from "@/components/bottom-nav";
 import { SiteCredit } from "@/components/site-credit";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+/* Corpo/UI — sans humanista, calorosa e legível (crianças, famílias, relatórios). */
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans-brand",
   subsets: ["latin"],
+  display: "swap",
+});
+
+/* Títulos — serifa "old-style" variável, com porte clássico e calor editorial. */
+const fraunces = Fraunces({
+  variable: "--font-display-brand",
+  subsets: ["latin"],
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+});
+
+/* Emblema/heráldica — capitulares romanas (wordmark, nomes de carta, eyebrows). */
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["500", "700", "900"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  weight: ["500", "700", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -56,7 +69,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} h-full antialiased`}
+      className={`${jakarta.variable} ${fraunces.variable} ${cinzel.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SplashScreen />

@@ -8,9 +8,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  /* Sistema tipográfico de 3 níveis (ver layout.tsx):
+     sans = corpo/UI (Plus Jakarta Sans) · display = títulos (Fraunces) ·
+     emblem = heráldica/wordmark/eyebrows (Cinzel). */
+  --font-sans: var(--font-sans-brand);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-cinzel);
+  --font-display: var(--font-display-brand);
+  --font-emblem: var(--font-cinzel);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,9 +32,26 @@ body {
   /* App escuro: cobre safe-areas (notch) e overscroll sem flashes claros */
   background: #0b1222;
   color: #f8fafc;
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans-brand), "Segoe UI", system-ui, sans-serif;
   -webkit-tap-highlight-color: transparent;
   overscroll-behavior-y: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Títulos com a serifa de marca; otimização ótica e leve ajuste fino. */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display-brand), Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.012em;
+}
+
+/* Heráldica/eyebrows/wordmark — capitulares romanas. */
+.font-emblem {
+  font-family: var(--font-cinzel), Georgia, serif;
+  letter-spacing: 0.06em;
 }
 
 /* Toque responsivo (remove o atraso de 300ms) */
