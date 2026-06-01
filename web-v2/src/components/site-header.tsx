@@ -27,10 +27,10 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
+      className={`fixed inset-x-0 top-6 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "border-slate-200 bg-white/90 shadow-[0_4px_30px_rgba(2,6,23,0.08)] backdrop-blur"
-          : "border-transparent bg-white/60 backdrop-blur-md"
+          ? "border-white/10 bg-[#15265f]/95 shadow-[0_4px_30px_rgba(2,6,23,0.25)] backdrop-blur"
+          : "border-white/10 bg-[#15265f]/75 backdrop-blur-md"
       }`}
     >
       <div
@@ -55,7 +55,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             <Link
               key={item.label}
               href={item.href}
-              className="rounded-lg px-2.5 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.5px] text-slate-600 transition-colors hover:bg-[#f1c40f]/10 hover:text-[#b8860b]"
+              className="rounded-lg px-2.5 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.5px] text-blue-50 transition-colors hover:bg-white/10 hover:text-[#fcd34d]"
             >
               {item.label}
             </Link>
@@ -74,7 +74,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             <>
               <Link
                 href="/login"
-                className="rounded-2xl border-2 border-[#f1c40f] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#b8860b] transition hover:bg-[#f1c40f]/10"
+                className="rounded-2xl border-2 border-[#f1c40f] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#fcd34d] transition hover:bg-[#f1c40f]/10"
               >
                 Entrar
               </Link>
@@ -94,9 +94,9 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
           aria-expanded={open}
           className="flex flex-col gap-[5px] p-2 lg:hidden"
         >
-          <span className="h-0.5 w-6 bg-slate-700" />
-          <span className="h-0.5 w-6 bg-slate-700" />
-          <span className="h-0.5 w-6 bg-slate-700" />
+          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-white" />
+          <span className="h-0.5 w-6 bg-white" />
         </button>
       </div>
 
