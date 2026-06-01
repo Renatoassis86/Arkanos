@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Plus_Jakarta_Sans, Cinzel, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SplashScreen } from "@/components/splash-screen";
-import { BottomNav } from "@/components/bottom-nav";
+import { TopNav } from "@/components/TopNav";
 import { SiteCredit } from "@/components/site-credit";
 
 /* Corpo/UI — sans humanista, calorosa e legível (crianças, famílias, relatórios). */
@@ -73,8 +73,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <SplashScreen />
+        <TopNav />
         {children}
-                <SiteCredit />
+        <SiteCredit />
         
       </body>
     </html>

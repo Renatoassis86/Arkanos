@@ -26,10 +26,10 @@ export function GuardianAvatar({
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src={`/img/guardioes/guardiao-${name}.webp`}
+        src={`/img/guardioes/${name}.png`}
         alt=""
         className="absolute inset-0 h-full w-full object-cover object-top"
-        style={{ transform: "scale(1.85)", transformOrigin: "top center" }}
+        style={{ transform: "scale(1.7)", transformOrigin: "top center" }}
       />
     </div>
   );

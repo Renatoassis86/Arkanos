@@ -14,6 +14,7 @@ import { GameCard } from "@/components/game-card";
 import { GuardianAvatar } from "@/components/guardian-avatar";
 import { Brush } from "@/components/floating-art";
 import { AvatarUploader } from "@/components/avatar-uploader";
+import { JourneyMap } from "@/components/journey-map";
 import { LEVELS, ERAS, ORBS, TITLES, DAILY_MISSIONS, eraForLevel } from "@/lib/collection";
 
 const TRACK_GUARDIAN: Record<string, string> = {
@@ -52,6 +53,12 @@ export default async function DashboardPage() {
   const equippedTitle = owned.titles.find((t) => t.equipped);
   const niveis = LEVELS.filter((l) => hud.level >= l.n).length;
   const previewOrbs = ORBS.filter((o) => owned.orbs.has(o.key)).slice(0, 4);
+
+  // Ação recomendada conforme a trilha (idade).
+  const RECO =
+    track === "gramatica"
+      ? { nome: "Spelling Bee", sub: "Soletração com Lyra · Gramática", href: "/spelling-bee", color: "#ec4899", guardian: "lyra" }
+      : { nome: "Desafio dos Sábios", sub: "Quiz com Aion · Lógica", href: "/desafio", color: "#3b82f6", guardian: "aion" };
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#e8f0ff] via-[#f1eaff] to-[#fdeef4] pb-28 text-slate-800">
@@ -125,24 +132,50 @@ export default async function DashboardPage() {
       </header>
 
       <div className="mx-auto max-w-3xl space-y-7 px-5 pt-7">
-        {/* Jogar */}
-        <div className="grid grid-cols-2 gap-3">
-          <GameLink href="/desafio" mono="D" color="#3b82f6" nome="Desafio dos Sábios" sub="Quiz · Aion · Lógica" />
-          <GameLink href="/spelling-bee" mono="S" color="#ec4899" nome="Spelling Bee" sub="Soletração · Lyra · Gramática" />
-          <Link
-            href="/colecao"
-            className="col-span-2 flex items-center gap-3 rounded-2xl border-2 p-5 shadow-sm transition hover:-translate-y-0.5"
-            style={{ borderColor: "#e0a41740", background: "linear-gradient(180deg, #e0a4171f, #e0a41708)" }}
+        {/* Continue sua jornada (ação recomendada) */}
+        <Link href={RECO.href} className="block">
+          <div
+            className="relative overflow-hidden rounded-3xl p-5 text-white shadow-lg transition hover:-translate-y-0.5"
+            style={{ background: `linear-gradient(135deg, ${RECO.color}, ${RECO.color}bb)` }}
           >
-            <Mono mono="C" color="#e0a417" />
-            <div>
-              <p className="font-display text-lg text-slate-900">Coleção</p>
-              <p className="text-xs text-slate-500">
-                {owned.orbs.size} orbes · {niveis} níveis
-              </p>
+            <div
+              className="pointer-events-none absolute -right-8 -top-10 h-40 w-40 rounded-full opacity-30"
+              style={{ background: "radial-gradient(circle, #ffffff, transparent 70%)" }}
+            />
+            <div className="relative flex items-center gap-4">
+              <GuardianAvatar name={RECO.guardian} size={64} ring="#ffffff" />
+              <div className="min-w-0 flex-1">
+                <p className="text-[10px] font-black uppercase tracking-[3px] text-white/85">
+                  Continue sua jornada
+                </p>
+                <p className="font-display text-xl leading-tight">{RECO.nome}</p>
+                <p className="truncate text-xs text-white/85">{RECO.sub}</p>
+              </div>
+              <span
+                className="rounded-full bg-white px-5 py-2.5 text-sm font-black uppercase tracking-wider shadow"
+                style={{ color: RECO.color }}
+              >
+                Jogar
+              </span>
             </div>
-          </Link>
-        </div>
+          </div>
+        </Link>
+
+        {/* Mapa da Jornada das 7 Artes */}
+        <section>
+          <div className="mb-3 flex items-end justify-between">
+            <div>
+              <p className="font-emblem text-[11px] font-black uppercase tracking-[3px] text-[#b8860b]">
+                A Jornada do Saber
+              </p>
+              <h2 className="font-display text-xl text-slate-900">Mapa das 7 Artes Liberais</h2>
+            </div>
+            <Link href="/colecao" className="text-xs font-bold text-[#b8860b] hover:underline">
+              Coleção · {owned.orbs.size} orbes →
+            </Link>
+          </div>
+          <JourneyMap track={track} />
+        </section>
 
         {/* Missões do dia */}
         <Card title="Missões do dia" color="#3b82f6">
