@@ -72,13 +72,11 @@ export default function RootLayout({
       className={`${jakarta.variable} ${fraunces.variable} ${cinzel.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col pt-6">
-        {/* Tarja fina de "em desenvolvimento" (topo, vermelha) */}
-        <div className="h-8 bg-red-600 flex items-center justify-center text-white text-xs font-bold mb-1">EM DESENVOLVIMENTO - Versão de teste</div>
-        <div className="h-8 bg-red-600"></div>
+
         <SplashScreen />
         {children}
-        <SiteCredit />
-        
+                <SiteCredit />
+        <div className="h-2 bg-red-600 flex items-center justify-center text-white text-xs font-bold mb-1">EM DESENVOLVIMENTO - Versão de teste</div>
         <BottomNav />
       </body>
     </html>
