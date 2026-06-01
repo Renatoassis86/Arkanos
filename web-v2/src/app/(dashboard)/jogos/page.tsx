@@ -39,6 +39,7 @@ export default async function DashboardPage() {
     getRecentSessions(supabase, hud.userId, 6),
   ]);
 
+// eslint-disable-next-line react-hooks/purity
   const now = Date.now();
   const relativo = (iso: string) => {
     const dias = Math.floor((now - new Date(iso).getTime()) / 86400000);
