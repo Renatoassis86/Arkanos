@@ -27,7 +27,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
 
   return (
     <header
-      className={`fixed inset-x-0 top-6 z-50 border-b transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
           ? "border-white/10 bg-[#15265f]/95 shadow-[0_4px_30px_rgba(2,6,23,0.25)] backdrop-blur"
           : "border-white/10 bg-[#15265f]/75 backdrop-blur-md"
