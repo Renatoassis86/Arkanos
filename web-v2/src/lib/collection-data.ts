@@ -7,6 +7,7 @@ type Supa = Awaited<ReturnType<typeof createClient>>;
 export type Hud = {
   userId: string;
   displayName: string;
+  avatarUrl: string | null;
   email: string | null;
   level: number;
   totalArks: number;
@@ -33,7 +34,7 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
   const { data: p } = await supabase
     .from("profiles")
     .select(
-      "display_name, serie, data_nascimento, total_xp, level, arks_bronze, arks_prata, arks_ouro, arks_diamante, streak_count, longest_streak",
+      "display_name, avatar_url, serie, data_nascimento, total_xp, level, arks_bronze, arks_prata, arks_ouro, arks_diamante, streak_count, longest_streak",
     )
     .eq("id", user.id)
     .single();
@@ -51,6 +52,7 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
   return {
     userId: user.id,
     displayName: p?.display_name || user.email || "Sábio",
+    avatarUrl: p?.avatar_url ?? null,
     email: user.email ?? null,
     level,
     totalArks,

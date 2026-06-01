@@ -13,6 +13,7 @@ import {
 import { GameCard } from "@/components/game-card";
 import { GuardianAvatar } from "@/components/guardian-avatar";
 import { Brush } from "@/components/floating-art";
+import { AvatarUploader } from "@/components/avatar-uploader";
 import { LEVELS, ERAS, ORBS, TITLES, DAILY_MISSIONS, eraForLevel } from "@/lib/collection";
 
 const TRACK_GUARDIAN: Record<string, string> = {
@@ -66,9 +67,11 @@ export default async function DashboardPage() {
           }}
         />
         <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-          <div className="font-display flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] text-3xl font-black text-[#3b2f00] shadow-md">
-            {hud.displayName.charAt(0).toUpperCase()}
-          </div>
+          <AvatarUploader
+            userId={hud.userId}
+            currentUrl={hud.avatarUrl}
+            displayName={hud.displayName}
+          />
           <h1 className="font-display mt-3 text-2xl text-slate-900">{hud.displayName}</h1>
           <p className="mt-1 text-sm text-slate-600">
             Nível <strong className="text-[#b8860b]">{hud.level}</strong> · {levelDef.nome}

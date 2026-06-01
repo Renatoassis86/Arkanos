@@ -188,6 +188,7 @@ export const conquistas = pgTable("jogos_conquista", {
 export const profiles = pgTable("profiles", {
   id: uuid("id").primaryKey(),
   displayName: text("display_name"),
+  avatarUrl: text("avatar_url"),
   serie: text("serie"),
   dataNascimento: date("data_nascimento"),
   role: text("role").notNull().default("student"),
