@@ -7,7 +7,7 @@ const RECURSOS = [
   { strong: "Vídeos", text: "narração e contação das histórias de cada livro." },
   { strong: "Ebooks + Resumos", text: "leitura com contexto e fichamento à luz cristã clássica." },
   { strong: "Fórum", text: "crianças e pais conversam sobre os livros, com perguntas-guia." },
-  { strong: "Flashcards", text: "memorização com repetição espaçada — integrada à coleção." },
+  { strong: "Flashcards", text: "memorização com repetição espaçada, integrada à coleção." },
 ];
 
 const SYMS: Sym[] = [
@@ -32,7 +32,7 @@ export function ClubeDoLivroSection() {
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
             Um espaço de formação leitora à luz da Educação Cristã Clássica: bons livros que cultivam a
-            Verdade, a Bondade e a Beleza — para a família ler e conversar junto.
+            Verdade, a Bondade e a Beleza, para a família ler e conversar junto.
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {RECURSOS.map((r) => (
@@ -57,6 +57,7 @@ export function ClubeDoLivroSection() {
             src="/img/fotos/clube-familia-livro-bg.png"
             alt="Família lendo um livro juntos no Clube do Livro"
             color="#6366f1"
+            circleMask
             symbols={SYMS}
           />
         </Reveal>

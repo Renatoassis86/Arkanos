@@ -13,7 +13,7 @@ const TRIVIUM: Arte[] = [
     name: "Gramática",
     guardian: "Lyra",
     color: "#ec4899",
-    desc: "Memória e vocabulário — os fatos fundamentais de cada saber, cantados e repetidos com alegria.",
+    desc: "Memória e vocabulário: os fatos fundamentais de cada saber, cantados e repetidos com alegria.",
   },
   {
     name: "Lógica",
@@ -34,25 +34,25 @@ const QUADRIVIUM: Arte[] = [
     name: "Aritmética",
     guardian: "Numa",
     color: "#10b981",
-    desc: "O número e a ordem — a linguagem com que o Criador mediu o mundo.",
+    desc: "O número e a ordem: a linguagem com que o Criador mediu o mundo.",
   },
   {
     name: "Geometria",
     guardian: "Geon",
     color: "#8b5cf6",
-    desc: "Formas e proporções — a harmonia visível da criação.",
+    desc: "Formas e proporções: a harmonia visível da criação.",
   },
   {
     name: "Música",
     guardian: "Melos",
     color: "#f59e0b",
-    desc: "Ritmo e harmonia — a beleza que se ouve, eco das esferas celestes.",
+    desc: "Ritmo e harmonia: a beleza que se ouve, eco das esferas celestes.",
   },
   {
     name: "Astronomia",
     guardian: "Astra",
     color: "#6366f1",
-    desc: "“Os céus proclamam a glória de Deus” (Sl 19:1) — o cosmos e suas ordens.",
+    desc: "“Os céus proclamam a glória de Deus” (Sl 19:1): o cosmos e suas ordens.",
   },
 ];
 
@@ -90,7 +90,7 @@ function ArteCard({ a, n }: { a: Arte; n: number }) {
 
 export function TriviumSection() {
   return (
-    <section id="programas" className="relative overflow-hidden bg-[#f8fafc] px-6 py-24">
+    <section id="programas" className="relative overflow-hidden bg-white px-6 py-24">
       <div
         className="pointer-events-none absolute inset-0 opacity-70"
         style={{
@@ -111,7 +111,7 @@ export function TriviumSection() {
             </h2>
             <p className="mt-4 text-lg text-slate-600">
               O <strong className="text-slate-900">Trivium</strong> (a Palavra) e o{" "}
-              <strong className="text-slate-900">Quadrivium</strong> (o Número e o Cosmos) —
+              <strong className="text-slate-900">Quadrivium</strong> (o Número e o Cosmos):
               sete artes que conduzem à <span className="font-bold text-[#b8860b]">Verdade</span>, à{" "}
               <span className="font-bold text-[#b8860b]">Bondade</span> e à{" "}
               <span className="font-bold text-[#b8860b]">Beleza</span>, e à contemplação do Criador.
@@ -120,8 +120,9 @@ export function TriviumSection() {
           <Reveal delay={0.12} className="flex justify-center">
             <PhotoMask
               src="/img/fotos/quadrivium-ciencia.png"
-              alt="Educador apresentando a ordem do cosmos — o Quadrivium"
+              alt="Educador apresentando a ordem do cosmos, o Quadrivium"
               color="#8b5cf6"
+              circleMask
               symbols={[
                 { color: "#8b5cf6", size: 48, className: "left-[2%] top-[18%]" },
                 { color: "#10b981", size: 40, className: "right-[4%] top-[12%]", round: true },
@@ -156,7 +157,7 @@ export function TriviumSection() {
 
         <Reveal className="mt-10 text-center" delay={0.15}>
           <p className="text-sm text-slate-500">
-            A trilha é recomendada pela idade — da memória ao pensamento, à expressão e à
+            A trilha é recomendada pela idade, da memória ao pensamento, à expressão e à
             ordem do cosmos.
           </p>
         </Reveal>

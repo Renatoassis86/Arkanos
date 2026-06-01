@@ -19,7 +19,7 @@ const TESTIMONIALS = [
   },
   {
     quote:
-      "O Spelling Bee e o Radix viraram rotina divertida — e o vocabulário deles disparou.",
+      "O Spelling Bee e o Radix viraram rotina divertida, e o vocabulário deles disparou.",
     author: "Cláudia, ensino domiciliar",
     photo: "/img/fotos/familia-sofa-bg.png",
     color: "#10b981",
@@ -28,7 +28,7 @@ const TESTIMONIALS = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#f8fafc] px-6 py-24">
+    <section className="relative overflow-hidden bg-white px-6 py-24">
       {/* Brushes-marca d'água */}
       <Brush color="#e0a417" className="left-[-6%] top-[10%] h-72 w-72" opacity={0.10} />
       <Brush color="#10b981" className="right-[-8%] bottom-[6%] h-80 w-80" opacity={0.08} />

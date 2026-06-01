@@ -1,6 +1,6 @@
 import { Reveal } from "./reveal";
 import { Brush } from "./floating-art";
-import { PhotoCard } from "./photo-frames";
+import { PhotoMask } from "./photo-frames";
 
 const PILARES = [
   { strong: "Verdade", text: "o que é real e digno de ser conhecido.", color: "#3b82f6" },
@@ -26,8 +26,8 @@ export function QuemSomosSection() {
             A Arkanos é uma <strong className="text-slate-900">plataforma gamificada</strong> e uma{" "}
             <strong className="text-slate-900">consultoria</strong> de{" "}
             <strong className="text-slate-900">Educação Cristã Clássica</strong>. Conduzimos crianças
-            pelas <strong className="text-slate-900">7 Artes Liberais</strong> — do Trivium (a Palavra)
-            ao Quadrivium (o Número e o Cosmos) — para que aprendam a pensar, falar e contemplar bem.
+            pelas <strong className="text-slate-900">7 Artes Liberais</strong>, do Trivium (a Palavra)
+            ao Quadrivium (o Número e o Cosmos), para que aprendam a pensar, falar e contemplar bem.
           </p>
           <ul className="mt-7 space-y-3">
             {PILARES.map((p) => (
@@ -37,7 +37,7 @@ export function QuemSomosSection() {
                   style={{ backgroundColor: p.color }}
                 />
                 <span>
-                  <strong className="text-slate-900">{p.strong}</strong> — {p.text}
+                  <strong className="text-slate-900">{p.strong}</strong>: {p.text}
                 </span>
               </li>
             ))}
@@ -48,10 +48,11 @@ export function QuemSomosSection() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <PhotoCard
+          <PhotoMask
             src="/img/fotos/trivium-gramatica-prof.png"
             alt="Educadora da Arkanos com materiais das artes da linguagem"
             color="#e0a417"
+            circleMask
           />
         </Reveal>
       </div>

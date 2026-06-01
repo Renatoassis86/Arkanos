@@ -30,7 +30,7 @@ export default async function SignupPage({
   return (
     <AuthShell
       title="Criar conta"
-      subtitle="É rapidinho — só seu nome e sua série!"
+      subtitle="É rapidinho, só seu nome e sua série!"
       footer={
         <>
           Já tem conta?{" "}

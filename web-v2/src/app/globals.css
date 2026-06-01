@@ -38,14 +38,24 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Títulos com a serifa de marca; otimização ótica e leve ajuste fino. */
+/* Títulos com a serifa de marca; peso encorpado, ótica e quebra equilibrada. */
 h1,
 h2,
 h3,
 .font-display {
   font-family: var(--font-display-brand), Georgia, "Times New Roman", serif;
   font-optical-sizing: auto;
-  letter-spacing: -0.012em;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  text-wrap: balance;
+}
+h1 {
+  font-weight: 640;
+  line-height: 1.04;
+}
+p,
+li {
+  text-wrap: pretty;
 }
 
 /* Heráldica/eyebrows/wordmark — capitulares romanas. */

@@ -80,9 +80,10 @@ export function PhotoMask({
   circleMask?: boolean;
 }) {
   const reduce = useReducedMotion() ?? false;
-  // máscara circular com borda esfumada — funde a foto no círculo
+  // círculo "desconstruído" (orgânico) + borda esfumada — funde a foto na forma
+  const BLOB = "46% 54% 50% 50% / 55% 55% 45% 45%";
   const feather =
-    "radial-gradient(circle at 50% 44%, #000 54%, rgba(0,0,0,0.55) 66%, transparent 78%)";
+    "radial-gradient(circle at 50% 44%, #000 52%, rgba(0,0,0,0.5) 65%, transparent 80%)";
   return (
     <div className={`relative mx-auto aspect-square w-full max-w-[520px] ${className}`}>
       {/* brush marca-d'água vazando além da foto */}
@@ -96,12 +97,13 @@ export function PhotoMask({
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
 
-      {/* LINHA FINAL — contorno circular discreto que dá a silhueta redonda */}
+      {/* LINHA FINAL — contorno em círculo desconstruído (silhueta orgânica) */}
       <div
         aria-hidden
-        className="absolute rounded-full"
+        className="absolute"
         style={{
           inset: `${Math.max(framePad - 2, 3)}%`,
+          borderRadius: BLOB,
           border: `1.5px solid ${color}45`,
           boxShadow: `inset 0 0 40px ${color}1f`,
         }}
@@ -113,11 +115,11 @@ export function PhotoMask({
           className="absolute inset-0"
           style={{
             background: `radial-gradient(62% 62% at 50% 58%, ${color}45, ${color}22 70%, transparent)`,
-            borderRadius: circleMask ? "9999px" : "46% 54% 50% 50% / 55% 55% 45% 45%",
+            borderRadius: BLOB,
           }}
         />
         {circleMask ? (
-          <div className="absolute inset-0 overflow-hidden rounded-full">
+          <div className="absolute inset-0 overflow-hidden" style={{ borderRadius: BLOB }}>
             <Image
               src={src}
               alt={alt}

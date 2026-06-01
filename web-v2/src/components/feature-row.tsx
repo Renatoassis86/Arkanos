@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./reveal";
-import { PhotoCard } from "./photo-frames";
+import { PhotoMask } from "./photo-frames";
 
 export type FeatureRowProps = {
   eyebrow: string;
@@ -12,11 +12,13 @@ export type FeatureRowProps = {
   /** slug do guardião (ex.: "aion") ou caminho de imagem (foto) — figura sobre o blob. */
   guardian?: string;
   imageSrc?: string;
-  /** foto COM fundo: renderiza em PhotoCard (moldura desconstruída) em vez do blob. */
+  /** foto COM fundo: renderiza em PhotoMask (círculo desconstruído) em vez do blob. */
   photoCard?: boolean;
   alt?: string;
   reverse?: boolean;
   cta?: { label: string; href: string };
+  /** classe de fundo da seção (alternância de cores da paleta). */
+  bg?: string;
 };
 
 export function FeatureRow({
@@ -31,10 +33,11 @@ export function FeatureRow({
   alt = "",
   reverse,
   cta,
+  bg = "bg-white",
 }: FeatureRowProps) {
   const src = imageSrc ?? (guardian ? `/img/guardioes/${guardian}.png` : null);
   return (
-    <section className="bg-white px-6 py-16">
+    <section className={`${bg} px-6 py-16`}>
       <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
         {/* Texto */}
         <Reveal className={reverse ? "lg:order-2" : ""}>
@@ -79,7 +82,7 @@ export function FeatureRow({
         {/* Mídia: foto-com-fundo em PhotoCard, ou figura sobre blob */}
         <Reveal delay={0.1} className={reverse ? "lg:order-1" : ""}>
           {photoCard && src ? (
-            <PhotoCard src={src} alt={alt} color={color} />
+            <PhotoMask src={src} alt={alt} color={color} circleMask />
           ) : (
           <div className="relative mx-auto flex aspect-[5/4] w-full max-w-md items-end justify-center">
             {/* blob colorido */}

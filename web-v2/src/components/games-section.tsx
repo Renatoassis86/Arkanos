@@ -32,7 +32,7 @@ const GAMES = [
     guardian: "Numa",
     tag: "Quadrivium",
     accent: "#34d399",
-    desc: "O número e a ordem com que o Criador mediu o mundo — cálculo e raciocínio do Quadrivium.",
+    desc: "O número e a ordem com que o Criador mediu o mundo: cálculo e raciocínio do Quadrivium.",
     soon: true,
   },
   {
@@ -48,7 +48,7 @@ const GAMES = [
 
 export function GamesSection() {
   return (
-    <section id="jogos" className="relative overflow-hidden bg-white px-6 py-24">
+    <section id="jogos" className="relative overflow-hidden bg-[#eef4ff] px-6 py-24">
       {/* Brushes-marca d'água (cor das Artes) */}
       <Brush color="#f1c40f" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.10} />
       <Brush color="#ec4899" className="right-[-6%] top-[30%] h-72 w-72" opacity={0.08} />
@@ -74,7 +74,7 @@ export function GamesSection() {
             </h2>
             <p className="mt-4 text-lg text-slate-600">
               Cada jogo reforça uma das <strong className="text-slate-900">7 Artes Liberais</strong>{" "}
-              (Trivium e Quadrivium) e é guiado por um Guardião — com a Crônica do Guardião e
+              (Trivium e Quadrivium) e é guiado por um Guardião, com a Crônica do Guardião e
               pontuação por TRI.
             </p>
           </Reveal>

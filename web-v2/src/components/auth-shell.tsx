@@ -42,7 +42,7 @@ export function AuthShell({
         <div className="relative z-10">
           <Image
             src="/img/guardioes/lyra.png"
-            alt="Lyra — Guardiã da Gramática"
+            alt="Lyra, Guardiã da Gramática"
             width={420}
             height={520}
             priority
@@ -53,7 +53,7 @@ export function AuthShell({
             O Reino do Saber e da Virtude
           </h2>
           <p className="mt-3 max-w-sm text-slate-600">
-            Aprenda com sabedoria e jogue com propósito — do Trivium ao Quadrivium, as 7 Artes
+            Aprenda com sabedoria e jogue com propósito, do Trivium ao Quadrivium, as 7 Artes
             Liberais.
           </p>
           <p className="mt-6 text-xs font-black uppercase tracking-[3px] text-[#b8860b]">

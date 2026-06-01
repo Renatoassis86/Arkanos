@@ -203,7 +203,7 @@ export function SpellingBeeGame({
         ? "Esplêndido! Lyra sorri: tua escrita floresce. Cada palavra bem soletrada é uma vitória da Verdade e da Beleza."
         : pct >= 50
           ? "Bom trabalho! A arte das letras se firma em ti a cada palavra. Continue praticando!"
-          : "A jornada das letras tem tropeços, e o sábio se levanta — “O justo cai sete vezes e se levanta” (Pv 24:16). Tente de novo!";
+          : "A jornada das letras tem tropeços, e o sábio se levanta. “O justo cai sete vezes e se levanta” (Pv 24:16). Tente de novo!";
     return (
       <>
         <motion.div

@@ -31,12 +31,13 @@ function Orbit() {
           animate={reduce ? undefined : { scale: [1, 1.05, 1] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
-          <Image
-            src="/icon.svg"
-            alt="Emblema Arkanos"
-            width={120}
-            height={120}
-            className="absolute inset-0 m-auto h-1/2 w-1/2 object-contain opacity-90"
+          {/* brilho/realce do orbe (placeholder até a arte do Grande Guardião) */}
+          <div
+            className="absolute inset-0 rounded-full"
+            style={{
+              background:
+                "radial-gradient(circle at 48% 36%, rgba(255,255,255,0.55), rgba(255,255,255,0) 52%)",
+            }}
           />
         </motion.div>
       </div>
@@ -75,7 +76,7 @@ function Orbit() {
 
 export function UniversoSection() {
   return (
-    <section id="universo" className="relative overflow-hidden bg-white px-6 py-24">
+    <section id="universo" className="relative overflow-hidden bg-[#eef4ff] px-6 py-24">
       <div className="mx-auto max-w-6xl">
         <div className="relative overflow-hidden rounded-[3rem] px-6 py-16 shadow-[0_30px_80px_rgba(2,6,23,0.25)] sm:px-12"
           style={{ background: "radial-gradient(120% 100% at 50% 0%, #1e2a52, #0b1222 70%)" }}
@@ -104,7 +105,7 @@ export function UniversoSection() {
               <p className="mt-5 text-lg leading-relaxed text-slate-300">
                 Cada uma das 7 Artes Liberais tem um <strong className="text-white">guardião-mentor</strong>{" "}
                 que acompanha a criança na jornada do saber. Eles narram cada conquista, contam a Crônica
-                do Guardião e celebram a virtude formada — do Trivium ao Quadrivium.
+                do Guardião e celebram a virtude formada, do Trivium ao Quadrivium.
               </p>
               <div className="mt-7 flex flex-wrap gap-2">
                 {[

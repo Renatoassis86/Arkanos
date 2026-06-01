@@ -36,7 +36,7 @@ export function SiteFooter() {
             <span className="font-emblem text-lg font-bold tracking-[2px] text-slate-900">ARKANOS</span>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-600">
-            O Reino do Saber e da Virtude — jogos da Educação Cristã Clássica, do Trivium ao
+            O Reino do Saber e da Virtude: jogos da Educação Cristã Clássica, do Trivium ao
             Quadrivium (as 7 Artes Liberais).
           </p>
           <p className="font-emblem mt-5 text-xs font-black uppercase tracking-[3px] text-[#b8860b]">
@@ -66,7 +66,7 @@ export function SiteFooter() {
       </div>
 
       <div className="mx-auto mt-12 max-w-6xl border-t border-slate-200 pt-6 text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} Arkanos — O Reino do Saber e da Virtude.
+        © {new Date().getFullYear()} Arkanos · O Reino do Saber e da Virtude.
       </div>
     </footer>
   );

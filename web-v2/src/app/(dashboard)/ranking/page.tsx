@@ -42,7 +42,7 @@ export default async function RankingPage() {
             {hud.rankTotal} · <strong className="text-slate-900">{hud.totalArks} pts</strong>
           </p>
           <p className="mt-1 text-xs text-slate-400">
-            Pontuação por TRI — acertar questões difíceis vale mais.
+            Pontuação por TRI: acertar questões difíceis vale mais.
           </p>
         </div>
       </header>

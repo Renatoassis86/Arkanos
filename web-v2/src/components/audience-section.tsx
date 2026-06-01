@@ -33,7 +33,7 @@ const AUDIENCES: Audience[] = [
       "Estruture o currículo nas 7 Artes Liberais com avaliações e acompanhamento de verdade.",
     bullets: [
       "Banco de questões por série, trimestre e avaliação",
-      "Pontuação por TRI (Teoria de Resposta ao Item) — mede a habilidade real",
+      "Pontuação por TRI (Teoria de Resposta ao Item), que mede a habilidade real",
       "Ranking e progresso por aluno, turma e disciplina",
       "Gamificação que serve à formação da virtude, não ao vício",
     ],
@@ -52,7 +52,7 @@ const AUDIENCES: Audience[] = [
       { color: "#f1c40f", size: 44, className: "left-[2%] bottom-[18%]" },
     ],
     intro:
-      "Eduque em casa com trilhas por idade e jogos que ensinam brincando — do Trivium ao Quadrivium.",
+      "Eduque em casa com trilhas por idade e jogos que ensinam brincando, do Trivium ao Quadrivium.",
     bullets: [
       "Trilha recomendada pela idade do seu filho",
       "Jogos do saber: Desafio dos Sábios, Spelling Bee e mais",
@@ -65,7 +65,7 @@ const AUDIENCES: Audience[] = [
 
 export function AudienceSection() {
   return (
-    <section id="publicos" className="relative overflow-hidden bg-white px-6 py-24">
+    <section id="publicos" className="relative overflow-hidden bg-[#eef4ff] px-6 py-24">
       <Brush color="#3b82f6" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.08} />
       <Brush color="#10b981" className="right-[-8%] bottom-[6%] h-80 w-80" opacity={0.08} />
 

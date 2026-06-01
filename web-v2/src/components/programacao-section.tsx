@@ -6,13 +6,13 @@ const PILARES = [
     mono: "{ }",
     color: "#06b6d4",
     title: "Pensamento Lógico",
-    desc: "Algoritmos, padrões e resolução de problemas — a Lógica do Trivium em ação no mundo digital.",
+    desc: "Algoritmos, padrões e resolução de problemas: a Lógica do Trivium em ação no mundo digital.",
   },
   {
     mono: "</>",
     color: "#8b5cf6",
     title: "Criar com Propósito",
-    desc: "Jogos, histórias e aplicativos que comunicam o bem e a beleza — a Retórica que constrói.",
+    desc: "Jogos, histórias e aplicativos que comunicam o bem e a beleza: a Retórica que constrói.",
   },
   {
     mono: "Aa",
@@ -24,7 +24,7 @@ const PILARES = [
     mono: "✦",
     color: "#e0a417",
     title: "À Luz da Cosmovisão",
-    desc: "Tecnologia a serviço da Verdade, da Bondade e da Beleza — criar como quem reflete o Criador.",
+    desc: "Tecnologia a serviço da Verdade, da Bondade e da Beleza: criar como quem reflete o Criador.",
   },
 ];
 
@@ -52,7 +52,7 @@ export function ProgramacaoSection() {
           </h2>
           <p className="mt-4 text-lg text-slate-600">
             Aprender a programar é aprender uma <strong className="text-slate-900">nova língua</strong>{" "}
-            — que une a <span className="font-bold text-[#3b82f6]">lógica</span> e a{" "}
+            , que une a <span className="font-bold text-[#3b82f6]">lógica</span> e a{" "}
             <span className="font-bold text-[#8b5cf6]">criação</span>. Uma aliada natural das 7 Artes
             Liberais, à luz da Educação Cristã Clássica.
           </p>

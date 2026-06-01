@@ -39,7 +39,7 @@ function resolve(item: RevealItem, defaultGuardian: string): View {
     const def = LEVELS.find((l) => l.n === item.level);
     return {
       category: "Novo Nível",
-      title: `Nível ${item.level} — ${def?.nome ?? ""}`,
+      title: `Nível ${item.level} · ${def?.nome ?? ""}`,
       narration: "Avança na Escada das Artes Liberais. Tua dedicação honra o Autor de toda sabedoria!",
       guardian: defaultGuardian,
       card: (

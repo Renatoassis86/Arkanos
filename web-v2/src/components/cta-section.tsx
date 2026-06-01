@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
 import { Brush } from "./floating-art";
-import { PhotoCard } from "./photo-frames";
+import { PhotoMask } from "./photo-frames";
 
 export function CtaSection() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-24">
+    <section className="relative overflow-hidden bg-[#eef4ff] px-6 py-24">
       {/* Brushes-marca d'água */}
       <Brush color="#f1c40f" className="left-[6%] top-[2%] h-72 w-72" opacity={0.10} />
       <Brush color="#8b5cf6" className="right-[8%] bottom-[2%] h-64 w-64" opacity={0.07} />
@@ -33,8 +33,8 @@ export function CtaSection() {
               </h2>
               <p className="mt-4 max-w-xl text-lg text-slate-600">
                 Para <span className="font-bold text-[#2563eb]">escolas</span> clássicas e cristãs e
-                para <span className="font-bold text-[#059669]">famílias educadoras</span> — Verdade,
-                Bondade e Beleza nas 7 Artes Liberais.
+                para <span className="font-bold text-[#059669]">famílias educadoras</span>, com
+                Verdade, Bondade e Beleza nas 7 Artes Liberais.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
@@ -54,10 +54,11 @@ export function CtaSection() {
 
             {/* foto */}
             <div className="hidden lg:block">
-              <PhotoCard
+              <PhotoMask
                 src="/img/fotos/familia-mesa-2.png"
                 alt="Família começando a jornada de aprendizado com a Arkanos"
                 color="#f1c40f"
+                circleMask
               />
             </div>
           </div>

@@ -206,10 +206,10 @@ export function DesafioQuiz({
     const gabaritou = total > 0 && correctCount === total;
     const narracao =
       pct >= 80
-        ? "Parabéns, jovem sábio! Você chegou ao fim desta jornada com honra. Tua dedicação honra o Autor de toda sabedoria — avança!"
+        ? "Parabéns, jovem sábio! Você chegou ao fim desta jornada com honra. Tua dedicação honra o Autor de toda sabedoria. Avança!"
         : pct >= 50
           ? "Bom trabalho! O saber cresce em você a cada passo. Continue firme na jornada."
-          : "A jornada do saber tem tropeços, e o sábio se levanta — “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
+          : "A jornada do saber tem tropeços, e o sábio se levanta. “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
     return (
       <>
       <motion.div

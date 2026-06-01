@@ -21,7 +21,7 @@ export default async function Home() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="min-h-screen bg-white text-slate-800">
+    <div className="min-h-screen bg-[#eaf2ff] text-slate-800">
       <SiteHeader authed={!!user} />
 
       {/* 1. Institucional / Hero */}
@@ -43,8 +43,9 @@ export default async function Home() {
       <FeatureRow
         eyebrow="Engajamento com propósito"
         color="#f59e0b"
+        bg="bg-[#fffbeb]"
         title="Aprender de forma divertida e formativa"
-        body="A gamificação da Arkanos serve à formação da virtude, não ao vício: cada conquista — Arks, orbes, medalhas e títulos — aponta para a Verdade, a Bondade e a Beleza."
+        body="A gamificação da Arkanos serve à formação da virtude, não ao vício: cada conquista (Arks, orbes, medalhas e títulos) aponta para a Verdade, a Bondade e a Beleza."
         imageSrc="/img/fotos/gamificacao-familia-xp.png"
         photoCard
         alt="Família comemorando conquistas na plataforma Arkanos"
@@ -65,8 +66,9 @@ export default async function Home() {
       <FeatureRow
         eyebrow="Escola e Família · Tempo Real"
         color="#3b82f6"
+        bg="bg-[#eef4ff]"
         title="Dados e relatórios em tempo real"
-        body="Acompanhe o progresso de cada estudante e turma com evidências de aprendizagem — a escola e a família enxergam o mesmo caminho e agem no tempo certo."
+        body="Acompanhe o progresso de cada estudante e turma com evidências de aprendizagem, para que a escola e a família enxerguem o mesmo caminho e ajam no tempo certo."
         imageSrc="/img/fotos/consultoria-executiva.png"
         photoCard
         alt="Consultora da Arkanos apresentando relatórios de aprendizagem"

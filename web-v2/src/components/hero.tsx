@@ -5,7 +5,7 @@ import { PhotoMask } from "./photo-frames";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 pt-32 pb-20">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#e7f0ff] to-white px-6 pt-32 pb-20">
       {/* Brushes de fundo em camadas */}
       <Brush color="#f1c40f" className="left-[-6%] top-[8%] h-72 w-72" opacity={0.16} />
       <Brush color="#ec4899" className="right-[-4%] top-[20%] h-64 w-64" opacity={0.14} />
@@ -22,17 +22,15 @@ export function Hero() {
             <span className="text-slate-300">·</span>
             <span className="text-emerald-500">7 Artes Liberais</span>
           </p>
-          <h1 className="font-display text-4xl leading-[1.06] text-slate-900 sm:text-5xl md:text-6xl">
-            Cada estudante é <span className="text-[#3b82f6]">único</span>,
-            <br />
-            sua jornada de saber{" "}
-            <span className="text-[#e0a417]">também</span>.
+          <h1 className="font-display text-4xl text-slate-900 sm:text-5xl md:text-[3.5rem]">
+            Cada estudante é <span className="text-[#3b82f6]">único</span>, sua jornada de
+            saber <span className="text-[#e0a417]">também</span>.
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-slate-600">
-            A Arkanos une a <strong className="text-slate-900">Educação Cristã Clássica</strong> à
-            tecnologia — do <span className="font-bold text-pink-500">Trivium</span> ao{" "}
-            <span className="font-bold text-emerald-500">Quadrivium</span> — para cultivar{" "}
-            <span className="font-bold text-[#b8860b]">Verdade, Bondade e Beleza</span>.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+            A Arkanos une a <strong className="font-semibold text-slate-900">Educação Cristã
+            Clássica</strong> à tecnologia, do <strong className="font-semibold text-slate-900">Trivium</strong> ao{" "}
+            <strong className="font-semibold text-slate-900">Quadrivium</strong>, para cultivar{" "}
+            <strong className="font-semibold text-[#b8860b]">Verdade, Bondade e Beleza</strong>.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <Link
@@ -49,7 +47,7 @@ export function Hero() {
             </Link>
           </div>
           <p className="mt-4 text-xs text-slate-500">
-            Os jogos abrem ao entrar — crie sua conta para começar a jornada.
+            Os jogos abrem ao entrar. Crie sua conta para começar a jornada.
           </p>
         </Reveal>
 
