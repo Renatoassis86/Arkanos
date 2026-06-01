@@ -11,6 +11,7 @@ import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overla
 import { GuardianAvatar } from "@/components/guardian-avatar";
 import { sessionScore, type ItemResult, type TriScore } from "@/lib/tri";
 import { FloatingCelebration } from "@/components/floating-celebration";
+import { GameTopBar } from "@/components/game-topbar";
 import type { Rarity } from "@/lib/collection";
 
 // Desafio dos Sábios é a trilha de Lógica → guardião Aion narra.
@@ -212,6 +213,9 @@ export function DesafioQuiz({
           : "A jornada do saber tem tropeços, e o sábio se levanta. “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
     return (
       <>
+      <div className="mx-auto max-w-lg">
+        <GameTopBar inProgress={false} />
+      </div>
       <motion.div
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -338,6 +342,7 @@ export function DesafioQuiz({
 
   return (
     <div className="mx-auto max-w-2xl">
+      <GameTopBar inProgress={!finished} />
       {/* HUD fixo (estilo jogo) */}
       <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-slate-200 bg-white/90 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:shadow-sm">
         <div className="flex items-center justify-between text-sm">
