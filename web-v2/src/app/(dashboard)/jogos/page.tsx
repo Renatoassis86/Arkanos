@@ -129,7 +129,8 @@ export default async function DashboardPage() {
           <GameLink href="/spelling-bee" mono="S" color="#ec4899" nome="Spelling Bee" sub="Soletração · Lyra · Gramática" />
           <Link
             href="/colecao"
-            className="col-span-2 flex items-center gap-3 rounded-2xl border-2 border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5"
+            className="col-span-2 flex items-center gap-3 rounded-2xl border-2 p-5 shadow-sm transition hover:-translate-y-0.5"
+            style={{ borderColor: "#e0a41740", background: "linear-gradient(180deg, #e0a4171f, #e0a41708)" }}
           >
             <Mono mono="C" color="#e0a417" />
             <div>
@@ -142,7 +143,7 @@ export default async function DashboardPage() {
         </div>
 
         {/* Missões do dia */}
-        <Card title="Missões do dia">
+        <Card title="Missões do dia" color="#3b82f6">
           {DAILY_MISSIONS.every((m) => daily[m.metric] >= m.target) && (
             <span className="float-right -mt-9 rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-600">
               Tudo completo!
@@ -184,7 +185,7 @@ export default async function DashboardPage() {
         </Card>
 
         {/* Últimos desafios */}
-        <Card title="Últimos desafios">
+        <Card title="Últimos desafios" color="#8b5cf6">
           {recent.length === 0 ? (
             <p className="text-sm text-slate-500">
               Você ainda não concluiu nenhum desafio. Comece agora e seus resultados aparecem aqui!
@@ -220,7 +221,7 @@ export default async function DashboardPage() {
         </Card>
 
         {/* Projetos e atividades */}
-        <Card title="Projetos e atividades">
+        <Card title="Projetos e atividades" color="#ec4899">
           <div className="rounded-xl border border-dashed border-slate-300 bg-[#f8fafc] p-5 text-center">
             <p className="text-sm text-slate-600">
               Nenhum projeto ou atividade com prazo no momento.
@@ -232,7 +233,7 @@ export default async function DashboardPage() {
         </Card>
 
         {/* Ranking */}
-        <Card title="Ranking">
+        <Card title="Ranking" color="#f59e0b">
           <span className="float-right -mt-9 text-sm font-bold text-slate-600">
             Você é <strong className="text-[#b8860b]">#{hud.rankPos}</strong> de {hud.rankTotal}
           </span>
@@ -329,8 +330,8 @@ function GameLink({
   return (
     <Link
       href={href}
-      className="rounded-2xl border-2 bg-white p-5 shadow-sm transition hover:-translate-y-0.5"
-      style={{ borderColor: `${color}40` }}
+      className="rounded-2xl border-2 p-5 shadow-sm transition hover:-translate-y-0.5"
+      style={{ borderColor: `${color}40`, background: `linear-gradient(180deg, ${color}1f, ${color}08)` }}
     >
       <Mono mono={mono} color={color} />
       <p className="font-display mt-2 text-lg text-slate-900">{nome}</p>
@@ -339,9 +340,24 @@ function GameLink({
   );
 }
 
-function Card({ title, children }: { title: string; children: React.ReactNode }) {
+function Card({
+  title,
+  children,
+  color = "#3b82f6",
+}: {
+  title: string;
+  children: React.ReactNode;
+  color?: string;
+}) {
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section
+      className="rounded-2xl border border-l-4 p-5 shadow-sm backdrop-blur"
+      style={{
+        borderColor: `${color}33`,
+        borderLeftColor: color,
+        background: `linear-gradient(180deg, ${color}1f, ${color}0a)`,
+      }}
+    >
       <h2 className="font-display mb-3 text-lg text-slate-900">{title}</h2>
       {children}
     </section>
