@@ -72,10 +72,10 @@ export default function RootLayout({
       className={`${jakarta.variable} ${fraunces.variable} ${cinzel.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="h-4 bg-red-600 flex items-center justify-center text-white text-sm font-bold">
+        <div className="h-16 bg-red-600 flex items-center justify-center text-white text-lg font-bold">
           EM DESENVOLVIMENTO - Versão de teste
         </div>
-        <div className="h-4 bg-[#cceeff]"></div>
+        <div className="h-4 bg-[#0A2540]"></div>
         <SplashScreen />
         {children}
         <SiteCredit />

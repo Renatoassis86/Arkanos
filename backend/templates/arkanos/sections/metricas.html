@@ -1,0 +1,98 @@
+{% load static %}
+<section id="metricas" class="section" style="background: #090e1a; color: #fff; padding: 100px 0;">
+  <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+    
+    <!-- LADO ESQUERDO: CARDS DE DESTAQUE -->
+    <div style="display: flex; flex-direction: column; gap: 40px;">
+      <div>
+        <span class="badge" style="background: rgba(255,255,255,0.05); color: #fbbf24; border: 1px solid rgba(251,191,36,0.3); padding: 8px 16px; border-radius: 50px; font-weight: 800; text-transform: uppercase; font-size: 0.75rem;">Impacto Arkanos</span>
+        <h2 class="title" style="color: #fff !important; font-size: 2.8rem; line-height: 1.1; margin: 24px 0; font-family: 'Cinzel', serif;">Poder de Decisão & Compra</h2>
+        <p class="muted" style="color: #94a3b8 !important; font-size: 1.1rem; line-height: 1.6; max-width: 500px;">
+          Líderes estratégicos guiando o futuro de dezenas de redes de ensino nacionais. A quantidade de pessoas impactadas pelos participantes deste evento transcende a quantidade de inscritos diretos.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <!-- Card 1 -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 30px; text-align: left;">
+          <div style="font-family: 'Cinzel', serif; font-size: 3.5rem; color: #fff; font-weight: 800;">1.492</div>
+          <div style="color: #94a3b8; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Inscritos Totais</div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 30px; text-align: left;">
+          <div style="font-family: 'Cinzel', serif; font-size: 3.5rem; color: #fff; font-weight: 800;">51.000</div>
+          <div style="color: #94a3b8; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Alunos na Rede</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <!-- Card 3 -->
+        <div style="background: rgba(251,191,36,0.05); border: 1px solid rgba(251,191,36,0.2); border-radius: 20px; padding: 30px; text-align: left;">
+          <div style="font-family: 'Cinzel', serif; font-size: 3rem; color: #fbbf24; font-weight: 800;">+240</div>
+          <div style="color: #e2e8f0; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Lideranças Decisoras</div>
+          <small style="color: #94a3b8; font-size: 0.65rem; display: block; margin-top: 5px;">*Somando diretores, gestores, famílias homeschoolers e afterschoolers.</small>
+        </div>
+        <!-- Card 4 -->
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 30px; text-align: left;">
+          <div style="font-family: 'Cinzel', serif; font-size: 3.5rem; color: #fff; font-weight: 800;">136</div>
+          <div style="color: #94a3b8; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px;">Escolas Únicas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO: GRÁFICO DE BARRAS -->
+    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; padding: 40px; align-self: center;">
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1rem; color: #fbbf24; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 30px; display: flex; align-items: center; gap: 8px;">
+         <span style="font-size: 1.2rem;">📊</span> Distribuição por Tipo de Inscrição
+      </h3>
+      
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <!-- Row 1: Professores Externos -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem;">
+            <span style="color: #f1f5f9; font-weight: 600;">Professores Externos</span>
+            <span style="color: #fbbf24; font-weight: 800;">368</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;">
+            <div style="width: 38%; height: 100%; background: linear-gradient(to right, #3b82f6, #fbbf24); border-radius: 20px;"></div>
+          </div>
+        </div>
+
+        <!-- Row 2: Alunos da FICV e Colaboradores Sistema Cidade Viva (Combinado: 296 + 128 = 424) -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem;">
+            <span style="color: #f1f5f9; font-weight: 600;">Alunos da FICV e Colaboradores Sistema Cidade Viva</span>
+            <span style="color: #fbbf24; font-weight: 800;">424</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;">
+            <div style="width: 44%; height: 100%; background: linear-gradient(to right, #10b981, #fbbf24); border-radius: 20px;"></div>
+          </div>
+        </div>
+
+        <!-- Row 3: Famílias Educadoras -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem;">
+            <span style="color: #f1f5f9; font-weight: 600;">Famílias Educadoras</span>
+            <span style="color: #fbbf24; font-weight: 800;">203</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;">
+            <div style="width: 21%; height: 100%; background: linear-gradient(to right, #a855f7, #fbbf24); border-radius: 20px;"></div>
+          </div>
+        </div>
+
+        <!-- Row 4: Diretores, Gestores, Mantenedores e Coordenadores (186) -->
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem;">
+            <span style="color: #f1f5f9; font-weight: 600;">Diretores, Gestores, Mantenedores e Coordenadores</span>
+            <span style="color: #fbbf24; font-weight: 800;">186</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden;">
+            <div style="width: 19%; height: 100%; background: linear-gradient(to right, #ef4444, #fbbf24); border-radius: 20px;"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

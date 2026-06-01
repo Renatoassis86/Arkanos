@@ -1,0 +1,499 @@
+ID: 4 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Os hemisférios da Terra são divididos por linhas imaginárias. Quais são os hemisférios principais?
+ID: 6 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual das opções apresenta apenas pontos colaterais?
+ID: 8 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual conjunto apresenta corretamente as camadas internas da Terra?
+ID: 5 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quais são os quatro pontos cardeais?
+ID: 26 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em qual ponto cardeal o Sol se põe?
+ID: 27 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual ponto colateral fica entre Norte e Leste?
+ID: 24 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quais são os quatro pontos cardeais?
+ID: 28 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual ponto colateral fica entre Sul e Oeste?
+ID: 13 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual país da América do Sul tem como capital La Paz?
+ID: 14 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quantos continentes existem na divisão mais comum estudada (América do Norte e do Sul separadas)?
+ID: 25 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em qual ponto cardeal o Sol nasce?
+ID: 428 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 259 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 6.951 + 5.069
+ID: 268 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Uma padaria vendeu 867 coxinhas e 1.538 pastéis. Quantos salgadinhos foram vendidos ao todo?
+ID: 311 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 35 + 6
+ID: 319 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 75 + 6
+ID: 329 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 125 + 8
+ID: 10 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Chile?
+ID: 7 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a camada mais externa da Terra?
+ID: 9 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital da Argentina?
+ID: 11 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Uruguai?
+ID: 29 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual instrumento/representação é usado no mapa para indicar direções (N, S, L, O)?
+ID: 30 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O que é um hemisfério?
+ID: 32 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual linha imaginária divide a Terra em hemisfério Ocidental e hemisfério Oriental?
+ID: 34 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual posição a Terra ocupa em relação ao Sol (ordem dos planetas)?
+ID: 35 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual movimento da Terra é responsável pelo dia e pela noite?
+ID: 36 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual movimento da Terra é a volta ao redor do Sol?
+ID: 37 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Aproximadamente, quanto tempo a Terra leva para completar uma volta ao redor do Sol?
+ID: 38 | Subject: Geografia | has_image: False | type: multiple_choice | Q: As estações do ano acontecem principalmente por causa de:
+ID: 41 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O núcleo da Terra se divide em:
+ID: 48 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual é a capital do Paraná (PR)?
+ID: 49 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual é a capital de Santa Catarina (SC)?
+ID: 47 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A Região Sul do Brasil é formada por quais estados?
+ID: 33 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual par de hemisférios é formado quando usamos a Linha do Equador?
+ID: 424 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 346 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 64 - 10
+ID: 352 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 106 - 21
+ID: 360 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 162 - 28
+ID: 39 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a camada mais externa da Terra (onde vivemos)?
+ID: 40 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual camada fica abaixo da crosta terrestre?
+ID: 54 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital da Argentina?
+ID: 43 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A atmosfera é:
+ID: 45 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual camada da atmosfera é a mais próxima do solo?
+ID: 55 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Chile?
+ID: 61 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país tem formato alongado e é conhecido por ser bem estreito em vários trechos (pouco mais de 160 km em um ponto, no conteúdo)?
+ID: 256 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Qual é o resultado de 5.641 + 4.324?
+ID: 74 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual capital corresponde ao estado do Rio Grande do Sul (RS)?
+ID: 66 | Subject: Geografia | has_image: False | type: multiple_choice | Q: As Ilhas Malvinas são classificadas no conteúdo como:
+ID: 67 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país é responsável pela defesa das Malvinas no texto?
+ID: 69 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O Rio da Prata é associado, em conteúdos escolares, principalmente aos rios:
+ID: 70 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Para que serve a legenda de um mapa?
+ID: 71 | Subject: Geografia | has_image: False | type: multiple_choice | Q: A escala em um mapa serve para:
+ID: 72 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual capital corresponde ao estado do Paraná (PR)?
+ID: 73 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual capital corresponde ao estado de Santa Catarina (SC)?
+ID: 82 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em mapas escolares, a cordilheira que aparece ao longo do lado oeste da Argentina é:
+ID: 76 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O hemisfério Ocidental é o lado do planeta a:
+ID: 77 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O hemisfério Oriental é o lado do planeta a:
+ID: 78 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O que significa 'hemisfério'?
+ID: 337 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 165 + 7
+ID: 166 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual país é citado como 'sem litoral' (sem saída para o mar)?
+ID: 59 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a maior montanha do Ocidente citada no conteúdo (nos Andes, na Argentina)?
+ID: 60 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual cordilheira separa a Argentina do Chile?
+ID: 58 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A Bolívia é conhecida (em muitos conteúdos escolares) por ter duas capitais. Quais são elas?
+ID: 68 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual lago passa pela Bolívia e pelo Peru, citado no conteúdo?
+ID: 79 | Subject: Geografia | has_image: True | type: multiple_choice | Q: O que é o 'Primeiro Meridiano' citado no conteúdo?
+ID: 56 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Uruguai?
+ID: 57 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Paraguai?
+ID: 85 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Como se chamam as estátuas gigantes da Ilha de Páscoa?
+ID: 87 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual item do mapa explica símbolos como aeroporto, porto e cidade?
+ID: 88 | Subject: Geografia | has_image: False | type: multiple_choice | Q: No mapa, a seta com a letra 'N' indica:
+ID: 90 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual alternativa mostra a ordem correta de fora para dentro das camadas internas?
+ID: 369 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 225 - 10
+ID: 86 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual país é citado como 'sem litoral' (sem saída para o mar)?
+ID: 107 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual ponto colateral fica entre Norte e Leste?
+ID: 94 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quantos continentes existem na divisão mais comum estudada (América do Norte e do Sul separadas)?
+ID: 91 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual das opções NÃO é uma camada da atmosfera?
+ID: 106 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em qual ponto cardeal o Sol se põe?
+ID: 89 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A Região Sul cita grande influência europeia, principalmente de origem:
+ID: 105 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em qual ponto cardeal o Sol nasce?
+ID: 84 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual ilha é parte do Chile desde 1888 e famosa por suas estátuas Moai?
+ID: 109 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual instrumento/representação é usado no mapa para indicar direções (N, S, L, O)?
+ID: 110 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O que é um hemisfério?
+ID: 104 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Quais são os quatro pontos cardeais?
+ID: 421 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 92 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A rotação é o movimento da Terra ao redor:
+ID: 83 | Subject: Geografia | has_image: True | type: multiple_choice | Q: O Chile é descrito como um pedaço de terra situado ao longo da:
+ID: 93 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A translação é o movimento da Terra ao redor:
+ID: 112 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual linha imaginária divide a Terra em hemisfério Ocidental e hemisfério Oriental?
+ID: 114 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual posição a Terra ocupa em relação ao Sol (ordem dos planetas)?
+ID: 115 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual movimento da Terra é responsável pelo dia e pela noite?
+ID: 116 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual movimento da Terra é a volta ao redor do Sol?
+ID: 117 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Aproximadamente, quanto tempo a Terra leva para completar uma volta ao redor do Sol?
+ID: 118 | Subject: Geografia | has_image: False | type: multiple_choice | Q: As estações do ano acontecem principalmente por causa de:
+ID: 121 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O núcleo da Terra se divide em:
+ID: 204 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. Qual desses países não tem saída para o mar (é um país sem litoral)?
+ID: 127 | Subject: Geografia | has_image: False | type: multiple_choice | Q: A Região Sul do Brasil é formada por quais estados?
+ID: 128 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual é a capital do Paraná (PR)?
+ID: 129 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual é a capital de Santa Catarina (SC)?
+ID: 44 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Dois gases muito importantes na composição da atmosfera são:
+ID: 124 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Dois gases muito importantes na composição da atmosfera são:
+ID: 113 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual par de hemisférios é formado quando usamos a Linha do Equador?
+ID: 125 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual camada da atmosfera é a mais próxima do solo?
+ID: 135 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Chile?
+ID: 138 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A Bolívia é conhecida (em muitos conteúdos escolares) por ter duas capitais. Quais são elas?
+ID: 136 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Uruguai?
+ID: 119 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a camada mais externa da Terra (onde vivemos)?
+ID: 120 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual camada fica abaixo da crosta terrestre?
+ID: 134 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital da Argentina?
+ID: 137 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Paraguai?
+ID: 141 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país tem formato alongado e é conhecido por ser bem estreito em vários trechos (pouco mais de 160 km em um ponto, no conteúdo)?
+ID: 154 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual capital corresponde ao estado do Rio Grande do Sul (RS)?
+ID: 142 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual deserto é citado como um dos mais secos do mundo, localizado no norte do Chile?
+ID: 146 | Subject: Geografia | has_image: False | type: multiple_choice | Q: As Ilhas Malvinas são classificadas no conteúdo como:
+ID: 147 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país é responsável pela defesa das Malvinas no texto?
+ID: 149 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O Rio da Prata é associado, em conteúdos escolares, principalmente aos rios:
+ID: 150 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Para que serve a legenda de um mapa?
+ID: 151 | Subject: Geografia | has_image: False | type: multiple_choice | Q: A escala em um mapa serve para:
+ID: 152 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual capital corresponde ao estado do Paraná (PR)?
+ID: 153 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual capital corresponde ao estado de Santa Catarina (SC)?
+ID: 123 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A atmosfera é:
+ID: 156 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O hemisfério Ocidental é o lado do planeta a:
+ID: 157 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O hemisfério Oriental é o lado do planeta a:
+ID: 158 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O que significa 'hemisfério'?
+ID: 163 | Subject: Geografia | has_image: True | type: multiple_choice | Q: O Chile é descrito como um pedaço de terra situado ao longo da:
+ID: 139 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a maior montanha do Ocidente citada no conteúdo (nos Andes, na Argentina)?
+ID: 165 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Como se chamam as estátuas gigantes da Ilha de Páscoa?
+ID: 443 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 140 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual cordilheira separa a Argentina do Chile?
+ID: 162 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em mapas escolares, a cordilheira que aparece ao longo do lado oeste da Argentina é:
+ID: 148 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual lago passa pela Bolívia e pelo Peru, citado no conteúdo?
+ID: 159 | Subject: Geografia | has_image: True | type: multiple_choice | Q: O que é o 'Primeiro Meridiano' citado no conteúdo?
+ID: 167 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual item do mapa explica símbolos como aeroporto, porto e cidade?
+ID: 168 | Subject: Geografia | has_image: False | type: multiple_choice | Q: No mapa, a seta com a letra 'N' indica:
+ID: 170 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual alternativa mostra a ordem correta de fora para dentro das camadas internas?
+ID: 189 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país fica ao sol do Brasil e faz fronteira com o Rio Grande do Sul?
+ID: 172 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A rotação é o movimento da Terra ao redor:
+ID: 171 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual das opções NÃO é uma camada da atmosfera?
+ID: 174 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quantos continentes existem no planeta Terra?
+ID: 186 | Subject: Geografia | has_image: False | type: multiple_choice | Q: O que são linhas imaginárias da Terra?
+ID: 177 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quantos oceanos existem na Terra?
+ID: 175 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual destes é um continente?
+ID: 179 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quais são os quatro pontos cardeais?
+ID: 164 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual ilha é parte do Chile desde 1888 e famosa por suas estátuas Moai?
+ID: 298 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Filipe tinha 258 figurinhas. Pedro tinha 54 a mais. Quantas Pedro tinha?
+ID: 180 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em qual direção o sol nasce?
+ID: 184 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual linha imaginária divide a Terra em hemisfério norte e sul?
+ID: 12 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Paraguai?
+ID: 181 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em qual direção o sol se põe?
+ID: 185 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual linha imaginária divide o planeta em leste e oeste?
+ID: 445 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 173 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A translação é o movimento da Terra ao redor:
+ID: 80 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual país fica ao sul do Brasil e faz fronteira com o Rio Grande do Sul?
+ID: 194 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa com continentes coloridos. Qual é o maior continente do planeta?
+ID: 197 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o diagrama do globo terrestre. O Brasil está localizado principalmente em qual hemisfério em relação à Linha do Equador?
+ID: 214 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a imagem do nascer do sol. Em qual direção o Sol nasce?
+ID: 435 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 434 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 294 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Maria juntou 27 latinhas e Carla 32. Quantas juntaram ao todo?
+ID: 290 | Subject: Matemática | has_image: False | type: multiple_choice | Q: João ganha 6.000 reais. Ele gastou 1.452 em um computador e 875 em uma geladeira. Quanto gastou ao todo?
+ID: 291 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Quanto sobrou do salário de João após as compras?
+ID: 292 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Em uma escola há 986 meninos e 1.345 meninas. Quantos meninos há a menos?
+ID: 293 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Quantos alunos há na escola ao todo?
+ID: 295 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Se 25 latinhas foram reaproveitadas, quantas não foram?
+ID: 296 | Subject: Matemática | has_image: False | type: multiple_choice | Q: 245 alunos participaram de uma competição. 102 eram meninas. Quantos meninos participaram?
+ID: 297 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Quantos meninos havia a mais que meninas?
+ID: 198 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o diagrama. Qual movimento da Terra causa a alternância entre o dia e a noite?
+ID: 199 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o diagrama do Sistema Solar. Qual movimento da Terra causa as estações do ano?
+ID: 289 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma TV custa 1.249 reais e outra 1.625 reais. Qual a diferença de preço?
+ID: 432 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 213 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Na rosa dos ventos, qual direção aparece à direita?
+ID: 455 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 411 frutas pela manhã e 206 à tarde. Quantas frutas vendeu ao todo?
+ID: 212 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe a rosa dos ventos. Qual direção está na parte superior?
+ID: 207 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa e marque o continente gelado do extremo sul.
+ID: 216 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe a bússola ilustrada. Para que ela serve?
+ID: 220 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o globo com uma linha horizontal no centro. Essa linha representa:
+ID: 226 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Na rosa dos ventos ilustrada, qual ponto cardeal está na parte superior?
+ID: 221 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o globo com uma linha vertical central. Essa linha representa:
+ID: 222 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: A linha destacada no centro do globo divide a Terra em quais hemisférios?
+ID: 223 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: A linha vertical destacada no globo divide a Terra em quais hemisférios?
+ID: 450 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 302 frutas pela manhã e 114 à tarde. Quantas frutas vendeu ao todo?
+ID: 234 | Subject: Geografia | has_image: True | type: map_analysis | Q: No mapa, qual capital está marcada na Argentina?
+ID: 236 | Subject: Geografia | has_image: True | type: map_analysis | Q: No mapa do Chile, qual capital está assinalada?
+ID: 228 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Qual ponto colateral está entre Sul e Oeste?
+ID: 230 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o globo com uma linha vertical central destacada. Ela representa:
+ID: 231 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: A linha destacada no centro do globo divide a Terra em quais hemisférios?
+ID: 232 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: A linha vertical destacada divide a Terra em quais hemisférios?
+ID: 276 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 3.864 + 5.377
+ID: 241 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: No diagrama, o centro mais interno da Terra corresponde a:
+ID: 277 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 4.957 + 5.084
+ID: 238 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a imagem com fronteiras e bandeiras. O conceito representado é o de:
+ID: 278 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 3.824 + 2.176
+ID: 279 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 3.927 + 2.184
+ID: 242 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe a Terra girando em torno de si mesma. Esse movimento se chama:
+ID: 243 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o esquema da Terra ao redor do Sol. Esse movimento se chama:
+ID: 427 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 249 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. Qual pequeno país ao sul do Brasil está destacado?
+ID: 248 | Subject: Geografia | has_image: True | type: map_analysis | Q: No mapa da Bolívia, qual capital está marcada?
+ID: 240 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: No esquema das camadas da Terra, qual parte aparece entre a crosta e o núcleo?
+ID: 280 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 8.032 − 5.170
+ID: 253 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa da América do Sul. Qual oceano aparece a leste do continente?
+ID: 281 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 7.000 − 5.482
+ID: 282 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 9.500 − 3.846
+ID: 283 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 6.813 − 3.267
+ID: 384 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 8 centenas, 9 dezenas e 9 unidades?
+ID: 250 | Subject: Geografia | has_image: True | type: map_analysis | Q: No mapa do Uruguai, qual capital aparece assinalada?
+ID: 251 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. Qual país destacado faz fronteira com o Paraná e aparece sem litoral?
+ID: 176 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior oceano do planeta?
+ID: 284 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 9.132 − 4.555
+ID: 285 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 7.942 − 2.654
+ID: 210 | Subject: Geografia | has_image: True | type: map_analysis | Q: Qual oceano destacado aparece a oeste da América do Sul?
+ID: 224 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a prancha com mapa-múndi, rosa dos ventos, globo com Equador e desenho do Japão. Esses elementos pertencem ao estudo de:
+ID: 286 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Em uma reunião escolar havia 2.065 pessoas. Dessas, 1.048 eram adultos. Quantas eram crianças?
+ID: 287 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Na escola havia 1.340 alunos. Faltaram 48. Quantos estavam presentes?
+ID: 288 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Foram distribuídos 3.480 ingressos. 1.395 eram para futebol. Quantos para outros esportes?
+ID: 187 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual continente fica entre a Europa e o Oceano Pacífico?
+ID: 239 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o esquema da Terra em corte. Qual camada está na parte mais externa?
+ID: 420 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 263 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 9.000 − 5.806
+ID: 264 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 7.658 − 2.245
+ID: 265 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 8.697 − 4.543
+ID: 266 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 9.673 − 7.382
+ID: 267 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Calcule: 4.682 − 1.999
+ID: 270 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Pedro e Paulo distribuíram 3.584 balinhas. Pedro distribuiu 1.752. Quantas Paulo distribuiu?
+ID: 271 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Maria economizou 1.854 reais e seu marido 2.267 reais. Quanto o marido economizou a mais?
+ID: 272 | Subject: Matemática | has_image: False | type: multiple_choice | Q: A Igreja foi visitada por 2.145 pessoas de avião. De ônibus vieram 4.386 pessoas. Quantas vieram de ônibus a mais?
+ID: 273 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Ricardo economizou 3.500 reais. Ele economizou 1.500 reais a menos que seu irmão. Quanto o irmão economizou?
+ID: 188 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano fica entre a América e a Ásia?
+ID: 258 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 5.637 + 3.287
+ID: 260 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 8.567 + 1.221
+ID: 261 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 7.234 + 2.587
+ID: 262 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 8.674 + 3.479
+ID: 274 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 5.697 + 2.302
+ID: 275 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 8.065 + 1.273
+ID: 269 | Subject: Matemática | has_image: True | type: multiple_choice | Q: De manhã uma exposição recebeu 2.648 visitantes. À tarde recebeu 3.259. Quantas pessoas a mais visitaram à tarde?
+ID: 257 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 7.642 + 1.138
+ID: 299 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Quantas figurinhas tinham os dois juntos?
+ID: 300 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma granja coletou 2.358 ovos de galinha e 857 ovos de pata a menos. Quantos ovos de pata?
+ID: 301 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Quantos ovos foram coletados ao todo?
+ID: 302 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Na competição participaram 6.350 alunos. 2.890 eram meninas. Quantos meninos participaram?
+ID: 303 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Rosa vendeu 1.075 bilhetes e Joana 860. Quantos venderam juntas?
+ID: 304 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Se foram vendidos 1.376 bilhetes, quantos não foram vendidos?
+ID: 305 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Um refrigerador custa 1.385 reais. O fogão custa 550 reais a menos. Quanto custa o fogão?
+ID: 308 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 20 + 9
+ID: 309 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 25 + 6
+ID: 313 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 45 + 8
+ID: 314 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 50 + 2
+ID: 315 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 55 + 6
+ID: 316 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 60 + 9
+ID: 317 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 65 + 4
+ID: 318 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 70 + 5
+ID: 321 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 85 + 9
+ID: 322 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 90 + 7
+ID: 323 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 95 + 5
+ID: 324 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 100 + 9
+ID: 307 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 15 + 9
+ID: 310 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 30 + 5
+ID: 312 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 40 + 3
+ID: 327 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 115 + 4
+ID: 328 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 120 + 5
+ID: 331 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 135 + 7
+ID: 332 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 140 + 4
+ID: 333 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 145 + 9
+ID: 334 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 150 + 5
+ID: 335 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 155 + 2
+ID: 336 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 160 + 8
+ID: 338 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 170 + 4
+ID: 340 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 180 + 9
+ID: 341 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 185 + 5
+ID: 342 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 190 + 6
+ID: 343 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 195 + 7
+ID: 344 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 50 - 27
+ID: 345 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 57 - 27
+ID: 347 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 71 - 10
+ID: 348 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 78 - 21
+ID: 349 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 85 - 21
+ID: 326 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 110 + 6
+ID: 330 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 130 + 4
+ID: 354 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 120 - 14
+ID: 356 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 134 - 15
+ID: 357 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 141 - 14
+ID: 358 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 148 - 19
+ID: 359 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 155 - 12
+ID: 361 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 169 - 7
+ID: 362 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 176 - 5
+ID: 363 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 183 - 8
+ID: 364 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 190 - 23
+ID: 365 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 197 - 29
+ID: 366 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 204 - 17
+ID: 367 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 211 - 27
+ID: 368 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 218 - 18
+ID: 370 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 232 - 16
+ID: 371 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 239 - 10
+ID: 372 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 246 - 21
+ID: 373 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 253 - 5
+ID: 161 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país faz fronteira com o Paraná (PR) na Região Sul?
+ID: 353 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 113 - 19
+ID: 355 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 127 - 11
+ID: 191 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. Quantos oceanos existem na Terra?
+ID: 375 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 267 - 8
+ID: 376 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 274 - 8
+ID: 377 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 281 - 14
+ID: 378 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 288 - 5
+ID: 379 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 295 - 24
+ID: 1 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual das opções apresenta apenas continentes?
+ID: 15 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual opção apresenta apenas continentes?
+ID: 95 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual opção apresenta apenas continentes?
+ID: 405 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 7 centenas, 8 dezenas e 9 unidades?
+ID: 182 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual continente fica a leste da Europa?
+ID: 422 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 217 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. O continente destacado é:
+ID: 183 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior continente do planeta?
+ID: 205 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa-múndi e identifique o continente destacado.
+ID: 206 | Subject: Geografia | has_image: True | type: map_analysis | Q: No mapa, qual continente está destacado abaixo da Europa?
+ID: 218 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa com o Japão marcado. Em qual continente ele fica?
+ID: 209 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa com oceanos nomeados. Qual oceano está destacado entre a América e a Europa?
+ID: 306 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 10 + 5
+ID: 208 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. Qual continente destacado fica a oeste da África?
+ID: 498 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 318 ___ 803
+ID: 320 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 80 + 7
+ID: 325 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 105 + 6
+ID: 62 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual deserto é citado como um dos mais secos do mundo, localizado no norte do Chile?
+ID: 50 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é a capital do Rio Grande do Sul (RS)?
+ID: 437 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 339 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 175 + 6
+ID: 160 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual país fica ao sul do Brasil e faz fronteira com o Rio Grande do Sul?
+ID: 233 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa da América do Sul. Qual país destacado é a Argentina?
+ID: 23 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano fica principalmente entre a África e a Austrália/Oceania?
+ID: 22 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano banha a costa oeste da América do Sul?
+ID: 102 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano banha a costa oeste da América do Sul?
+ID: 448 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 454 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 112 frutas pela manhã e 66 à tarde. Quantas frutas vendeu ao todo?
+ID: 470 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 151 frutas pela manhã e 99 à tarde. Quantas frutas vendeu ao todo?
+ID: 219 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a imagem com um templo oriental e a bandeira do Japão. Esse país pertence a qual continente?
+ID: 111 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual linha imaginária divide a Terra em hemisfério Norte e hemisfério Sul?
+ID: 31 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual linha imaginária divide a Terra em hemisfério Norte e hemisfério Sul?
+ID: 195 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o globo terrestre com as linhas imaginárias. Qual linha divide a Terra em Hemisfério Norte e Hemisfério Sul?
+ID: 203 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa da América do Sul. Qual país faz fronteira com o Brasil ao sul e tem Buenos Aires como capital?
+ID: 51 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano banha a costa leste da Região Sul do Brasil?
+ID: 202 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe a rosa dos ventos completa. Qual é o ponto colateral entre Norte e Leste?
+ID: 351 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 99 - 17
+ID: 133 | Subject: Geografia | has_image: False | type: multiple_choice | Q: A Região Sul faz fronteira ao norte principalmente com:
+ID: 374 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 260 - 27
+ID: 483 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 316 ___ 474
+ID: 484 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 344 ___ 202
+ID: 486 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 298 ___ 313
+ID: 487 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 591 ___ 392
+ID: 488 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 103 ___ 450
+ID: 489 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 506 ___ 496
+ID: 490 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 975 ___ 672
+ID: 491 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 951 ___ 667
+ID: 492 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 620 ___ 814
+ID: 493 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 254 ___ 889
+ID: 495 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 709 ___ 801
+ID: 496 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 263 ___ 503
+ID: 497 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 286 ___ 216
+ID: 480 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 327 ___ 566
+ID: 481 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 410 ___ 590
+ID: 482 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 510 ___ 987
+ID: 407 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 0 centenas, 4 dezenas e 5 unidades?
+ID: 255 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a prancha com mapa da América do Sul, rosa dos ventos, globo com hemisférios e diagrama da Terra. Esses elementos pertencem ao estudo de:
+ID: 215 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a imagem do pôr do sol. Em qual direção o Sol se põe?
+ID: 499 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 499 ___ 541
+ID: 388 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 3 centenas, 7 dezenas e 6 unidades?
+ID: 350 | Subject: Matemática | has_image: True | type: multiple_choice | Q: Calcule: 92 - 10
+ID: 494 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 122 ___ 314
+ID: 485 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Complete com >, < ou = : 728 ___ 950
+ID: 418 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 7 centenas, 4 dezenas e 6 unidades?
+ID: 438 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 446 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 430 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 452 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 400 frutas pela manhã e 228 à tarde. Quantas frutas vendeu ao todo?
+ID: 476 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 222 frutas pela manhã e 174 à tarde. Quantas frutas vendeu ao todo?
+ID: 401 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 4 centenas, 6 dezenas e 2 unidades?
+ID: 439 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 65 | Subject: Geografia | has_image: True | type: multiple_choice | Q: As Ilhas Malvinas ficam em qual oceano, segundo o conteúdo?
+ID: 433 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 436 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 63 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano está a oeste do Chile?
+ID: 193 | Subject: Geografia | has_image: True | type: visual_interpretation | Q: Observe a imagem do nascer do Sol. Um garoto está de frente para o Sol nascendo. Qual é a direção que está às suas costas?
+ID: 431 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 444 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 396 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 6 centenas, 1 dezenas e 6 unidades?
+ID: 386 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 3 milhares, 2 centenas, 1 dezenas e 9 unidades?
+ID: 471 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 458 frutas pela manhã e 258 à tarde. Quantas frutas vendeu ao todo?
+ID: 52 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quais países fazem fronteira com a Região Sul do Brasil?
+ID: 81 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual país faz fronteira com o Paraná (PR) na Região Sul?
+ID: 18 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual continente está a oeste da Ásia e ao norte da África?
+ID: 98 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual continente está a oeste da Ásia e ao norte da África?
+ID: 145 | Subject: Geografia | has_image: True | type: multiple_choice | Q: As Ilhas Malvinas ficam em qual oceano, segundo o conteúdo?
+ID: 42 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em muitos materiais didáticos, o manto pode ser dividido em:
+ID: 122 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Em muitos materiais didáticos, o manto pode ser dividido em:
+ID: 200 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o corte transversal da Terra. Qual é a camada mais externa do planeta?
+ID: 46 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual sequência apresenta apenas camadas da atmosfera citadas em muitos livros didáticos?
+ID: 126 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual sequência apresenta apenas camadas da atmosfera citadas em muitos livros didáticos?
+ID: 201 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o diagrama das camadas da atmosfera. Em qual camada ocorrem os fenômenos climáticos como chuva, nuvens e vento?
+ID: 244 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe os dois esquemas lado a lado. Qual deles mostra o movimento responsável pelo dia e pela noite?
+ID: 246 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Na imagem das camadas da atmosfera, qual é a camada mais próxima da superfície da Terra?
+ID: 473 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 161 frutas pela manhã e 133 à tarde. Quantas frutas vendeu ao todo?
+ID: 252 | Subject: Geografia | has_image: True | type: map_analysis | Q: No mapa do Paraguai, qual capital está marcada?
+ID: 2 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior oceano do planeta Terra?
+ID: 20 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior oceano do planeta?
+ID: 100 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior oceano do planeta?
+ID: 21 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano separa a América da Europa e da África?
+ID: 103 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano fica principalmente entre a África e a Austrália/Oceania?
+ID: 131 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano banha a costa leste da Região Sul do Brasil?
+ID: 143 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano está a oeste do Chile?
+ID: 245 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o esquema em camadas ao redor da Terra. O conjunto dessas camadas é chamado de:
+ID: 477 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 261 frutas pela manhã e 276 à tarde. Quantas frutas vendeu ao todo?
+ID: 178 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano separa a América da Europa?
+ID: 16 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual continente fica no extremo sul do planeta Terra?
+ID: 3 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual conjunto apresenta corretamente os cinco oceanos?
+ID: 19 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quantos oceanos existem na Terra?
+ID: 75 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual alternativa tem APENAS oceanos?
+ID: 99 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Quantos oceanos existem na Terra?
+ID: 155 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual alternativa tem APENAS oceanos?
+ID: 17 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior continente do planeta?
+ID: 97 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual é o maior continente do planeta?
+ID: 225 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa-múndi e identifique o continente destacado.
+ID: 227 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe a rosa dos ventos. Qual ponto colateral fica entre Norte e Leste?
+ID: 190 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa-múndi. Quantos continentes existem no planeta Terra?
+ID: 211 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa. Qual oceano destacado fica entre a África, a Ásia e a Oceania?
+ID: 101 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual oceano separa a América da Europa e da África?
+ID: 235 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa da América do Sul. Qual país longo e estreito destacado é o Chile?
+ID: 466 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 442 frutas pela manhã e 115 à tarde. Quantas frutas vendeu ao todo?
+ID: 96 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual continente fica no extremo sul do planeta Terra?
+ID: 64 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual cabo é localizado no extremo sul da América do Sul?
+ID: 144 | Subject: Geografia | has_image: True | type: multiple_choice | Q: Qual cabo é localizado no extremo sul da América do Sul?
+ID: 108 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual ponto colateral fica entre Sul e Oeste?
+ID: 237 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa do Atlântico Sul. As ilhas destacadas correspondem a quais territórios estudados?
+ID: 469 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 196 frutas pela manhã e 53 à tarde. Quantas frutas vendeu ao todo?
+ID: 463 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 264 frutas pela manhã e 208 à tarde. Quantas frutas vendeu ao todo?
+ID: 169 | Subject: Geografia | has_image: False | type: multiple_choice | Q: A Região Sul cita grande influência europeia, principalmente de origem:
+ID: 53 | Subject: Geografia | has_image: True | type: multiple_choice | Q: A Região Sul faz fronteira ao norte principalmente com:
+ID: 397 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 2 centenas, 0 dezenas e 4 unidades?
+ID: 130 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Qual é a capital do Rio Grande do Sul (RS)?
+ID: 132 | Subject: Geografia | has_image: False | type: multiple_choice | Q: Quais países fazem fronteira com a Região Sul do Brasil?
+ID: 247 | Subject: Geografia | has_image: True | type: map_analysis | Q: Observe o mapa da América do Sul. Qual país destacado não possui saída para o mar?
+ID: 254 | Subject: Geografia | has_image: True | type: map_analysis | Q: Qual oceano aparece a oeste da América do Sul no mapa?
+ID: 196 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o globo. Qual linha imaginárias divide a Terra em Hemisfério Leste e Hemisfério Oeste?
+ID: 192 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe a rosa dos ventos. Qual ponto cardeal está sempre em direção ao nascer do Sol?
+ID: 472 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 137 frutas pela manhã e 260 à tarde. Quantas frutas vendeu ao todo?
+ID: 479 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 188 frutas pela manhã e 171 à tarde. Quantas frutas vendeu ao todo?
+ID: 468 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 368 frutas pela manhã e 155 à tarde. Quantas frutas vendeu ao todo?
+ID: 229 | Subject: Geografia | has_image: True | type: diagram_analysis | Q: Observe o globo com uma linha horizontal destacada. Essa linha representa:
+ID: 394 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 3 centenas, 7 dezenas e 0 unidades?
+ID: 382 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 1 centenas, 2 dezenas e 8 unidades?
+ID: 402 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 5 centenas, 2 dezenas e 7 unidades?
+ID: 395 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 3 centenas, 5 dezenas e 8 unidades?
+ID: 426 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 387 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 4 centenas, 5 dezenas e 8 unidades?
+ID: 406 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 8 centenas, 2 dezenas e 6 unidades?
+ID: 462 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 379 frutas pela manhã e 190 à tarde. Quantas frutas vendeu ao todo?
+ID: 389 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 0 centenas, 3 dezenas e 3 unidades?
+ID: 457 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 131 frutas pela manhã e 220 à tarde. Quantas frutas vendeu ao todo?
+ID: 400 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 3 centenas, 2 dezenas e 1 unidades?
+ID: 393 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 2 centenas, 8 dezenas e 7 unidades?
+ID: 467 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 431 frutas pela manhã e 71 à tarde. Quantas frutas vendeu ao todo?
+ID: 451 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 107 frutas pela manhã e 156 à tarde. Quantas frutas vendeu ao todo?
+ID: 464 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 222 frutas pela manhã e 82 à tarde. Quantas frutas vendeu ao todo?
+ID: 415 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 0 centenas, 3 dezenas e 1 unidades?
+ID: 399 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 8 centenas, 9 dezenas e 8 unidades?
+ID: 408 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 3 milhares, 4 centenas, 0 dezenas e 9 unidades?
+ID: 460 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 243 frutas pela manhã e 124 à tarde. Quantas frutas vendeu ao todo?
+ID: 391 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 5 centenas, 2 dezenas e 9 unidades?
+ID: 417 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 3 milhares, 4 centenas, 9 dezenas e 3 unidades?
+ID: 416 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 7 centenas, 5 dezenas e 9 unidades?
+ID: 475 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 487 frutas pela manhã e 285 à tarde. Quantas frutas vendeu ao todo?
+ID: 458 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 305 frutas pela manhã e 90 à tarde. Quantas frutas vendeu ao todo?
+ID: 414 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 6 centenas, 6 dezenas e 6 unidades?
+ID: 459 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 453 frutas pela manhã e 190 à tarde. Quantas frutas vendeu ao todo?
+ID: 441 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 478 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 414 frutas pela manhã e 104 à tarde. Quantas frutas vendeu ao todo?
+ID: 390 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 4 centenas, 4 dezenas e 8 unidades?
+ID: 385 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 6 centenas, 9 dezenas e 5 unidades?
+ID: 410 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 3 centenas, 4 dezenas e 7 unidades?
+ID: 461 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 219 frutas pela manhã e 207 à tarde. Quantas frutas vendeu ao todo?
+ID: 383 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 9 centenas, 3 dezenas e 1 unidades?
+ID: 413 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 3 milhares, 8 centenas, 3 dezenas e 7 unidades?
+ID: 419 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 8 centenas, 3 dezenas e 7 unidades?
+ID: 423 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 381 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 7 centenas, 9 dezenas e 0 unidades?
+ID: 412 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 2 centenas, 5 dezenas e 9 unidades?
+ID: 442 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 440 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 447 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 411 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 4 milhares, 3 centenas, 3 dezenas e 0 unidades?
+ID: 392 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 9 centenas, 9 dezenas e 1 unidades?
+ID: 453 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 361 frutas pela manhã e 221 à tarde. Quantas frutas vendeu ao todo?
+ID: 429 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 425 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 409 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 3 milhares, 4 centenas, 0 dezenas e 5 unidades?
+ID: 474 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 416 frutas pela manhã e 120 à tarde. Quantas frutas vendeu ao todo?
+ID: 403 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 1 milhares, 7 centenas, 0 dezenas e 4 unidades?
+ID: 404 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 3 milhares, 9 centenas, 8 dezenas e 6 unidades?
+ID: 465 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 116 frutas pela manhã e 177 à tarde. Quantas frutas vendeu ao todo?
+ID: 449 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Observe o ábaco e identifique o número representado.
+ID: 380 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 5 milhares, 8 centenas, 3 dezenas e 2 unidades?
+ID: 398 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Qual número tem 2 milhares, 2 centenas, 5 dezenas e 9 unidades?
+ID: 456 | Subject: Matemática | has_image: False | type: multiple_choice | Q: Uma barraca vendeu 189 frutas pela manhã e 244 à tarde. Quantas frutas vendeu ao todo?
