@@ -5,10 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const NAV = [
-  { label: "Jornada", href: "#programas" },
-  { label: "Jogos", href: "#jogos" },
+  { label: "Sobre", href: "#institucional" },
   { label: "Públicos", href: "#publicos" },
-  { label: "Guardiões", href: "#guardioes" },
+  { label: "7 Artes", href: "#programas" },
+  { label: "Jogos", href: "#jogos" },
+  { label: "Clube do Livro", href: "#clube-do-livro" },
+  { label: "Universo", href: "#universo" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -53,7 +55,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             <Link
               key={item.label}
               href={item.href}
-              className="rounded-lg px-3 py-1.5 text-[13px] font-extrabold uppercase tracking-[1.5px] text-slate-600 transition-colors hover:bg-[#f1c40f]/10 hover:text-[#b8860b]"
+              className="rounded-lg px-2.5 py-1.5 text-[12px] font-extrabold uppercase tracking-[0.5px] text-slate-600 transition-colors hover:bg-[#f1c40f]/10 hover:text-[#b8860b]"
             >
               {item.label}
             </Link>

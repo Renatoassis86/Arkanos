@@ -36,11 +36,12 @@ export default async function ColecaoPage() {
   const blocks: OrbBlock[] = ["trivium", "quadrivium", "virtudes"];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fc] pb-28 text-slate-800">
-      {/* Brushes-marca d'água */}
-      <Brush color="#e0a417" className="left-[-18%] top-[14%] h-72 w-72" opacity={0.08} />
-      <Brush color="#8b5cf6" className="right-[-20%] top-[42%] h-72 w-72" opacity={0.06} />
-      <Brush color="#10b981" className="bottom-[10%] left-[-16%] h-72 w-72" opacity={0.06} />
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#fff7e8] via-[#f1eaff] to-[#e8f5ff] pb-28 text-slate-800">
+      {/* Brushes-marca d'água (cores dividindo o fundo) */}
+      <Brush color="#e0a417" className="left-[-18%] top-[12%] h-72 w-72" opacity={0.16} />
+      <Brush color="#8b5cf6" className="right-[-20%] top-[40%] h-72 w-72" opacity={0.16} />
+      <Brush color="#ec4899" className="right-[-16%] top-[64%] h-72 w-72" opacity={0.12} />
+      <Brush color="#10b981" className="bottom-[8%] left-[-16%] h-72 w-72" opacity={0.14} />
 
       {/* Cabeçalho + barra de progresso de coleção rumo à Platina */}
       <header className="border-b border-slate-200 bg-white px-5 pb-8 pt-7">

@@ -52,18 +52,21 @@ export default async function DashboardPage() {
   const previewOrbs = ORBS.filter((o) => owned.orbs.has(o.key)).slice(0, 4);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fc] pb-28 text-slate-800">
-      {/* Brushes-marca d'água */}
-      <Brush color="#f1c40f" className="left-[-20%] top-[12%] h-72 w-72" opacity={0.08} />
-      <Brush color="#ec4899" className="right-[-22%] top-[38%] h-72 w-72" opacity={0.06} />
-      <Brush color="#3b82f6" className="bottom-[8%] left-[-18%] h-72 w-72" opacity={0.06} />
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#e8f0ff] via-[#f1eaff] to-[#fdeef4] pb-28 text-slate-800">
+      {/* Brushes-marca d'água (cores dividindo o fundo) */}
+      <Brush color="#f1c40f" className="left-[-20%] top-[10%] h-72 w-72" opacity={0.16} />
+      <Brush color="#8b5cf6" className="right-[-22%] top-[34%] h-72 w-72" opacity={0.16} />
+      <Brush color="#ec4899" className="right-[-18%] top-[60%] h-72 w-72" opacity={0.12} />
+      <Brush color="#3b82f6" className="bottom-[6%] left-[-18%] h-72 w-72" opacity={0.14} />
 
       {/* HUD */}
-      <header className="relative overflow-hidden border-b border-slate-200 bg-white px-5 pb-7 pt-8">
+      <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#1e3a8a] via-[#3730a3] to-[#6d28d9] px-5 pb-8 pt-8">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: "radial-gradient(70% 60% at 50% 0%, rgba(241,196,15,0.18), transparent 70%)",
+            background:
+              "radial-gradient(70% 60% at 50% 0%, rgba(241,196,15,0.30), transparent 70%)," +
+              "radial-gradient(50% 50% at 92% 100%, rgba(236,72,153,0.28), transparent 70%)",
           }}
         />
         <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
@@ -72,28 +75,28 @@ export default async function DashboardPage() {
             currentUrl={hud.avatarUrl}
             displayName={hud.displayName}
           />
-          <h1 className="font-display mt-3 text-2xl text-slate-900">{hud.displayName}</h1>
-          <p className="mt-1 text-sm text-slate-600">
-            Nível <strong className="text-[#b8860b]">{hud.level}</strong> · {levelDef.nome}
+          <h1 className="font-display mt-3 text-2xl text-white">{hud.displayName}</h1>
+          <p className="mt-1 text-sm text-blue-100">
+            Nível <strong className="text-[#fcd34d]">{hud.level}</strong> · {levelDef.nome}
             {equippedTitle
               ? ` · ★ ${TITLES.find((t) => t.key === equippedTitle.key)?.nome}`
               : ""}
           </p>
           {hud.streak > 0 && (
-            <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-orange-300 bg-orange-50 px-3 py-1 text-sm font-bold text-orange-600">
+            <span className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1 text-sm font-bold text-amber-200">
               <span className="h-2 w-2 rounded-full bg-orange-500" />
               {hud.streak} {hud.streak === 1 ? "dia" : "dias"} de ofensiva
             </span>
           )}
 
           <div className="mt-4 w-full max-w-md">
-            <div className="mb-1 flex justify-between text-xs font-bold text-slate-500">
-              <span className="text-[#b8860b]">{hud.totalArks} Arks</span>
+            <div className="mb-1 flex justify-between text-xs font-bold text-blue-100">
+              <span className="text-[#fcd34d]">{hud.totalArks} Arks</span>
               <span>
                 {hud.arksForNext > 0 ? `${hud.arksForNext} p/ Nv ${hud.level + 1}` : "Nível máximo!"}
               </span>
             </div>
-            <div className="h-2.5 overflow-hidden rounded-full bg-slate-200">
+            <div className="h-2.5 overflow-hidden rounded-full bg-white/20">
               <div
                 className="h-full rounded-full bg-gradient-to-r from-[#f1c40f] to-[#e0a417]"
                 style={{ width: `${hud.levelProgress}%` }}
@@ -108,11 +111,11 @@ export default async function DashboardPage() {
             <ArkChip label="Diamante" n={hud.arks.diamante} color="#0891b2" />
           </div>
 
-          <div className="mt-5 flex items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] px-4 py-3">
+          <div className="mt-5 flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur">
             <GuardianAvatar name={TRACK_GUARDIAN[track]} size={52} />
-            <p className="text-left text-sm text-slate-600">
+            <p className="text-left text-sm text-blue-50">
               Seu guia na trilha de{" "}
-              <strong className="text-[#b8860b]">{TRACK_LABELS[track]}</strong>
+              <strong className="text-[#fcd34d]">{TRACK_LABELS[track]}</strong>
               {age !== null ? ` (${age} anos)` : ""}
             </p>
           </div>
@@ -347,10 +350,7 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
 
 function ArkChip({ label, n, color }: { label: string; n: number; color: string }) {
   return (
-    <span
-      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
-      style={{ backgroundColor: `${color}1a`, color }}
-    >
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/12 px-3 py-1 text-white">
       <span className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
       {label} {n}
     </span>

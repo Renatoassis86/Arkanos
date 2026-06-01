@@ -18,10 +18,11 @@ export default async function RankingPage() {
   const meInTop = leaders.some((r) => r.userId === hud.userId);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#f6f8fc] pb-28 text-slate-800">
-      {/* Brushes-marca d'água */}
-      <Brush color="#f1c40f" className="left-[-18%] top-[16%] h-72 w-72" opacity={0.08} />
-      <Brush color="#6366f1" className="right-[-20%] top-[44%] h-72 w-72" opacity={0.06} />
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#e8f0ff] via-[#eee9ff] to-[#fef3e8] pb-28 text-slate-800">
+      {/* Brushes-marca d'água (cores dividindo o fundo) */}
+      <Brush color="#f1c40f" className="left-[-18%] top-[14%] h-72 w-72" opacity={0.16} />
+      <Brush color="#6366f1" className="right-[-20%] top-[42%] h-72 w-72" opacity={0.16} />
+      <Brush color="#ec4899" className="bottom-[10%] left-[-16%] h-72 w-72" opacity={0.12} />
 
       <header className="relative overflow-hidden border-b border-slate-200 bg-white px-5 pb-7 pt-8">
         <div
