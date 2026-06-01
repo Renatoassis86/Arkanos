@@ -33,7 +33,7 @@ export default async function ColecaoPage() {
   const medalhasObtidas = MEDALS.filter((m) => owned.achievements.has(m.key)).length;
   const titulosObtidos = owned.titles.length;
 
-  const blocks: OrbBlock[] = ["trivium", "quadrivium", "virtudes"];
+  const blocks: OrbBlock[] = ["conhecimento", "virtudes", "mitico"];
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#fff7e8] via-[#f1eaff] to-[#e8f5ff] pb-28 text-slate-800">

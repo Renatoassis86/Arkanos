@@ -59,7 +59,7 @@ export const MAX_LEVEL = LEVELS.length;
 // `art` = slug do arquivo /img/cards/orbe-<art>.webp (null = sem arte ainda).
 // ============================================================
 
-export type OrbBlock = "trivium" | "quadrivium" | "virtudes";
+export type OrbBlock = "conhecimento" | "virtudes" | "mitico";
 export type Rarity = "terrestre" | "lunar" | "solar" | "estelar" | "celeste";
 
 export const RARITY_LABEL: Record<Rarity, string> = {
@@ -81,17 +81,19 @@ export const RARITY_GLOW: Record<Rarity, string> = {
 
 export type OrbDef = { key: string; nome: string; block: OrbBlock; art: string | null };
 
-// Orbes com arte real em /img/cards/orbe-<key>.webp. Faltam só 4 do Quadrivium
-// (forma, simetria, harmonia, ritmo) — esses caem no objeto-placeholder do GameCard.
+// Orbes com arte real em /img/cards/orbe-<key>.webp.
 const ORB_ART = new Set([
-  // Trivium (9)
-  "gramatica", "vocabulario", "ortografia", "logos", "deducao", "argumento",
-  "eloquencia", "persuasao", "narrativa",
-  // Quadrivium (6 de 10)
-  "numero", "calculo", "proporcao", "ceus", "constelacoes", "calendario",
-  // Virtudes (11)
-  "verdade", "bondade", "beleza", "sabedoria", "prudencia", "fortaleza",
-  "temperanca", "justica", "fe", "esperanca", "caridade",
+  // Conhecimento (12)
+  "conhecimento-abaco", "conhecimento-numero-um", "conhecimento-compasso-regua",
+  "conhecimento-cubo-geometrico", "conhecimento-padrao-simetrico", "conhecimento-espiral-aurea",
+  "conhecimento-lira-musical", "conhecimento-melodia-nota", "conhecimento-ritmo-batidas",
+  "conhecimento-lua-ceu", "conhecimento-constelacoes", "conhecimento-astrolabio-tempo",
+  // Virtudes (12)
+  "virtude-verdade", "virtude-bondade", "virtude-beleza", "virtude-sabedoria",
+  "virtude-prudencia", "virtude-fortaleza", "virtude-temperanca", "virtude-justica",
+  "virtude-fe", "virtude-esperanca", "virtude-caridade", "virtude-humildade",
+  // Mítico (1)
+  "mitico-palavra",
 ]);
 
 function orb(key: string, nome: string, block: OrbBlock): OrbDef {
@@ -99,45 +101,40 @@ function orb(key: string, nome: string, block: OrbBlock): OrbDef {
 }
 
 export const ORBS: OrbDef[] = [
-  // Trivium — a Palavra (1–9)
-  orb("gramatica", "Orbe da Gramática", "trivium"),
-  orb("vocabulario", "Orbe do Vocabulário", "trivium"),
-  orb("ortografia", "Orbe da Ortografia", "trivium"),
-  orb("logos", "Orbe de Logos", "trivium"),
-  orb("deducao", "Orbe da Dedução", "trivium"),
-  orb("argumento", "Orbe do Argumento", "trivium"),
-  orb("eloquencia", "Orbe da Eloquência", "trivium"),
-  orb("persuasao", "Orbe da Persuasão", "trivium"),
-  orb("narrativa", "Orbe da Narrativa", "trivium"),
-  // Quadrivium — o Número e o Cosmos (10–19)
-  orb("numero", "Orbe do Número", "quadrivium"),
-  orb("calculo", "Orbe do Cálculo", "quadrivium"),
-  orb("proporcao", "Orbe da Proporção", "quadrivium"),
-  orb("forma", "Orbe da Forma", "quadrivium"),
-  orb("simetria", "Orbe da Simetria", "quadrivium"),
-  orb("harmonia", "Orbe da Harmonia", "quadrivium"),
-  orb("ritmo", "Orbe do Ritmo", "quadrivium"),
-  orb("ceus", "Orbe dos Céus", "quadrivium"),
-  orb("constelacoes", "Orbe das Constelações", "quadrivium"),
-  orb("calendario", "Orbe do Calendário", "quadrivium"),
-  // Virtudes & Cosmovisão (20–30)
-  orb("verdade", "Orbe da Verdade", "virtudes"),
-  orb("bondade", "Orbe da Bondade", "virtudes"),
-  orb("beleza", "Orbe da Beleza", "virtudes"),
-  orb("sabedoria", "Orbe da Sabedoria", "virtudes"),
-  orb("prudencia", "Orbe da Prudência", "virtudes"),
-  orb("fortaleza", "Orbe da Fortaleza", "virtudes"),
-  orb("temperanca", "Orbe da Temperança", "virtudes"),
-  orb("justica", "Orbe da Justiça", "virtudes"),
-  orb("fe", "Orbe da Fé", "virtudes"),
-  orb("esperanca", "Orbe da Esperança", "virtudes"),
-  orb("caridade", "Orbe da Caridade", "virtudes"),
+  // Conhecimento — Número, Forma, Música e Cosmos (12)
+  orb("conhecimento-abaco", "Orbe do Ábaco", "conhecimento"),
+  orb("conhecimento-numero-um", "Orbe do Número", "conhecimento"),
+  orb("conhecimento-compasso-regua", "Orbe do Compasso", "conhecimento"),
+  orb("conhecimento-cubo-geometrico", "Orbe do Cubo", "conhecimento"),
+  orb("conhecimento-padrao-simetrico", "Orbe da Simetria", "conhecimento"),
+  orb("conhecimento-espiral-aurea", "Orbe da Espiral Áurea", "conhecimento"),
+  orb("conhecimento-lira-musical", "Orbe da Lira", "conhecimento"),
+  orb("conhecimento-melodia-nota", "Orbe da Melodia", "conhecimento"),
+  orb("conhecimento-ritmo-batidas", "Orbe do Ritmo", "conhecimento"),
+  orb("conhecimento-lua-ceu", "Orbe da Lua", "conhecimento"),
+  orb("conhecimento-constelacoes", "Orbe das Constelações", "conhecimento"),
+  orb("conhecimento-astrolabio-tempo", "Orbe do Astrolábio", "conhecimento"),
+  // Virtudes Lendárias (12)
+  orb("virtude-verdade", "Orbe da Verdade", "virtudes"),
+  orb("virtude-bondade", "Orbe da Bondade", "virtudes"),
+  orb("virtude-beleza", "Orbe da Beleza", "virtudes"),
+  orb("virtude-sabedoria", "Orbe da Sabedoria", "virtudes"),
+  orb("virtude-prudencia", "Orbe da Prudência", "virtudes"),
+  orb("virtude-fortaleza", "Orbe da Fortaleza", "virtudes"),
+  orb("virtude-temperanca", "Orbe da Temperança", "virtudes"),
+  orb("virtude-justica", "Orbe da Justiça", "virtudes"),
+  orb("virtude-fe", "Orbe da Fé", "virtudes"),
+  orb("virtude-esperanca", "Orbe da Esperança", "virtudes"),
+  orb("virtude-caridade", "Orbe da Caridade", "virtudes"),
+  orb("virtude-humildade", "Orbe da Humildade", "virtudes"),
+  // Mítico (1) — A Palavra
+  orb("mitico-palavra", "A Palavra", "mitico"),
 ];
 
 export const ORB_BLOCK_LABEL: Record<OrbBlock, string> = {
-  trivium: "Trivium · a Palavra",
-  quadrivium: "Quadrivium · o Número e o Cosmos",
-  virtudes: "Virtudes & Cosmovisão",
+  conhecimento: "Conhecimento · Número, Forma e Cosmos",
+  virtudes: "Virtudes Lendárias",
+  mitico: "Mítico",
 };
 
 // ============================================================

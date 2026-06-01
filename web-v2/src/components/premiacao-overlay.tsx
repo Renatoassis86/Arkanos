@@ -24,7 +24,11 @@ export type RevealItem =
   | { kind: "medal"; key: string };
 
 // Orbes da Lógica → narrados por Aion; demais, narração genérica.
-const AION_ORBS = new Set(["logos", "deducao", "argumento"]);
+const AION_ORBS = new Set([
+  "conhecimento-numero-um",
+  "conhecimento-compasso-regua",
+  "conhecimento-cubo-geometrico",
+]);
 
 type View = {
   category: string;
