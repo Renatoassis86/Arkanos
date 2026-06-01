@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./reveal";
-import { Brush } from "./floating-art";
+import { Brush, ContextWatermark } from "./floating-art";
 import { PhotoMask, type Sym } from "./photo-frames";
 
 type Audience = {
@@ -68,6 +68,7 @@ export function AudienceSection() {
     <section id="publicos" className="relative overflow-hidden bg-[#eef4ff] px-6 py-24">
       <Brush color="#3b82f6" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.08} />
       <Brush color="#10b981" className="right-[-8%] bottom-[6%] h-80 w-80" opacity={0.08} />
+      <ContextWatermark />
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">

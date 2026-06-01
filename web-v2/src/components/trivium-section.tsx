@@ -1,5 +1,6 @@
 import { Reveal } from "./reveal";
 import { PhotoMask } from "./photo-frames";
+import { ContextWatermark } from "./floating-art";
 
 type Arte = {
   name: string;
@@ -100,6 +101,7 @@ export function TriviumSection() {
             "radial-gradient(45% 35% at 50% 100%, rgba(16,185,129,0.10), transparent 60%)",
         }}
       />
+      <ContextWatermark />
       <div className="relative mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <Reveal>

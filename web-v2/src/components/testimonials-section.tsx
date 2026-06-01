@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./reveal";
-import { Brush } from "./floating-art";
+import { Brush, ContextWatermark } from "./floating-art";
 
 const TESTIMONIALS = [
   {
@@ -32,6 +32,7 @@ export function TestimonialsSection() {
       {/* Brushes-marca d'água */}
       <Brush color="#e0a417" className="left-[-6%] top-[10%] h-72 w-72" opacity={0.10} />
       <Brush color="#10b981" className="right-[-8%] bottom-[6%] h-80 w-80" opacity={0.08} />
+      <ContextWatermark />
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-2xl text-center">

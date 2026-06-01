@@ -1,5 +1,5 @@
 import { Reveal } from "./reveal";
-import { Brush } from "./floating-art";
+import { Brush, ContextWatermark } from "./floating-art";
 import { PhotoMask } from "./photo-frames";
 
 const PILARES = [
@@ -13,6 +13,7 @@ export function QuemSomosSection() {
     <section id="institucional" className="relative overflow-hidden bg-[#fffdf3] px-6 py-24">
       <Brush color="#f1c40f" className="left-[-6%] top-[10%] h-80 w-80" opacity={0.12} />
       <Brush color="#e0a417" className="right-[-8%] bottom-[8%] h-72 w-72" opacity={0.08} />
+      <ContextWatermark />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
         <Reveal>

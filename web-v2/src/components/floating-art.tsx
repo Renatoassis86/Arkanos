@@ -28,6 +28,75 @@ export function Brush({
   );
 }
 
+/* ============================================================
+ * Marca d'água CONTEXTUAL — símbolos das Artes (pena, compasso, estrela,
+ * livro, esfera, lira) em linha, esfumados, para as seções claras.
+ * ============================================================ */
+const MARKS: { d: string; fill?: boolean }[] = [
+  { d: "M5 19c7-1.2 11-6 14.5-13.5L21 3l-1 4.2L15.5 8.5 M6 18.5 9 17.5" }, // pena
+  { d: "M12 3.5 16.8 18 M12 3.5 7.2 18 M7.2 18a6 6 0 0 0 9.6 0 M12 3.5a1.2 1.2 0 1 0 0-.1" }, // compasso
+  { d: "M3 5h8v15H5a2 2 0 0 1-2-2zM21 5h-8v15h6a2 2 0 0 0 2-2zM12 5v15", fill: false }, // livro
+  { d: "M12 2.5l2.5 6.9 7.3.2-5.8 4.5 2.1 7-6.1-4.1-6.1 4.1 2.1-7L2.2 9.6l7.3-.2z", fill: true }, // estrela
+];
+
+function Mark({
+  d,
+  fill,
+  color,
+  size,
+  className,
+  delay,
+  reduce,
+}: {
+  d: string;
+  fill?: boolean;
+  color: string;
+  size: number;
+  className: string;
+  delay: number;
+  reduce: boolean;
+}) {
+  return (
+    <motion.svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      className={`absolute ${className}`}
+      style={{ width: size, height: size }}
+      animate={reduce ? undefined : { y: [0, -10, 0], rotate: [0, 4, 0] }}
+      transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay }}
+    >
+      <path
+        d={d}
+        fill={fill ? color : "none"}
+        stroke={fill ? "none" : color}
+        strokeWidth={1.1}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </motion.svg>
+  );
+}
+
+/** Marca d'água contextual (símbolos das Artes) em azul claro nas seções claras. */
+export function ContextWatermark({
+  color = "#60a5fa",
+  opacity = 0.16,
+}: {
+  color?: string;
+  opacity?: number;
+}) {
+  const reduce = useReducedMotion() ?? false;
+  return (
+    <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden" style={{ opacity }}>
+      <Mark d={MARKS[0].d} color={color} size={120} className="left-[3%] top-[12%]" delay={0} reduce={reduce} />
+      <Mark d={MARKS[1].d} color={color} size={104} className="right-[5%] top-[16%]" delay={0.8} reduce={reduce} />
+      <Mark d={MARKS[3].d} fill color={color} size={64} className="left-[14%] bottom-[14%]" delay={1.4} reduce={reduce} />
+      <Mark d={MARKS[2].d} color={color} size={110} className="right-[10%] bottom-[10%]" delay={0.4} reduce={reduce} />
+      <Mark d={MARKS[3].d} fill color={color} size={40} className="right-[34%] top-[8%]" delay={1.1} reduce={reduce} />
+    </div>
+  );
+}
+
 /* Etiqueta flutuante (pílula com rótulo) — orbita a figura central. */
 function Chip({
   label,
