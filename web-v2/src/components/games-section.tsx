@@ -48,11 +48,11 @@ const GAMES = [
 
 export function GamesSection() {
   return (
-    <section id="jogos" className="relative overflow-hidden bg-[#eef4ff] px-6 py-24">
-      {/* Brushes-marca d'água (cor das Artes) */}
-      <Brush color="#f1c40f" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.10} />
-      <Brush color="#ec4899" className="right-[-6%] top-[30%] h-72 w-72" opacity={0.08} />
-      <Brush color="#3b82f6" className="bottom-[-6%] left-[40%] h-72 w-72" opacity={0.07} />
+    <section id="jogos" className="relative overflow-hidden bg-gradient-to-br from-[#1e1b4b] via-[#2e1065] to-[#1e3a8a] px-6 py-24">
+      {/* Brushes-marca d'água (cores vivas sobre o escuro) */}
+      <Brush color="#a855f7" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.35} />
+      <Brush color="#ec4899" className="right-[-6%] top-[30%] h-72 w-72" opacity={0.28} />
+      <Brush color="#3b82f6" className="bottom-[-6%] left-[40%] h-72 w-72" opacity={0.30} />
 
       <div className="relative z-10 mx-auto max-w-6xl">
         <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -66,13 +66,13 @@ export function GamesSection() {
             />
           </Reveal>
           <Reveal className="lg:order-2">
-            <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
+            <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#fcd34d]">
               Os Jogos
             </p>
-            <h2 className="font-display text-4xl text-slate-900 sm:text-5xl">
+            <h2 className="font-display text-4xl text-white sm:text-5xl">
               Aprender jogando, com propósito
             </h2>
-            <p className="mt-4 text-lg text-slate-600">
+            <p className="mt-4 text-lg text-indigo-100">
               Cada jogo reforça uma das <strong className="text-slate-900">7 Artes Liberais</strong>{" "}
               (Trivium e Quadrivium) e é guiado por um Guardião, com a Crônica do Guardião e
               pontuação por TRI.

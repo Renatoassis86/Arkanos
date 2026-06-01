@@ -1,0 +1,7 @@
+node_modules
+.next
+.git
+.vercel
+
+# Exports crus do Gemini (não usados pelo app — a coleção usa public/img/cards/orbe-*.webp)
+public/img/orbes

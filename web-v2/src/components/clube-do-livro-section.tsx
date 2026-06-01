@@ -18,19 +18,19 @@ const SYMS: Sym[] = [
 
 export function ClubeDoLivroSection() {
   return (
-    <section id="clube-do-livro" className="relative overflow-hidden bg-[#eef2ff] px-6 py-24">
-      <Brush color="#6366f1" className="left-[-8%] top-[8%] h-80 w-80" opacity={0.12} />
-      <Brush color="#ec4899" className="right-[-8%] bottom-[6%] h-72 w-72" opacity={0.08} />
+    <section id="clube-do-livro" className="relative overflow-hidden bg-gradient-to-br from-[#1e1b4b] via-[#312e81] to-[#4338ca] px-6 py-24">
+      <Brush color="#818cf8" className="left-[-8%] top-[8%] h-80 w-80" opacity={0.35} />
+      <Brush color="#ec4899" className="right-[-8%] bottom-[6%] h-72 w-72" opacity={0.28} />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
         <Reveal className="lg:order-2">
-          <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#4f46e5]">
+          <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#a5b4fc]">
             Leitura · Gramática · Lyra
           </p>
-          <h2 className="font-display text-4xl leading-tight text-slate-900 sm:text-5xl">
+          <h2 className="font-display text-4xl leading-tight text-white sm:text-5xl">
             Clube do Livro
           </h2>
-          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+          <p className="mt-5 text-lg leading-relaxed text-indigo-100">
             Um espaço de formação leitora à luz da Educação Cristã Clássica: bons livros que cultivam a
             Verdade, a Bondade e a Beleza, para a família ler e conversar junto.
           </p>
@@ -38,9 +38,9 @@ export function ClubeDoLivroSection() {
             {RECURSOS.map((r) => (
               <li
                 key={r.strong}
-                className="rounded-2xl border border-white bg-white/70 p-4 text-sm text-slate-600 shadow-sm"
+                className="rounded-2xl border border-white/15 bg-white/10 p-4 text-sm text-indigo-100 backdrop-blur"
               >
-                <strong className="text-slate-900">{r.strong}:</strong> {r.text}
+                <strong className="text-white">{r.strong}:</strong> {r.text}
               </li>
             ))}
           </ul>
