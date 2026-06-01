@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { UserMenu } from "./user-menu";
 
 type IconName = "painel" | "desafios" | "colecao" | "ranking" | "universo";
 
@@ -43,22 +44,25 @@ export function TopNav() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-gradient-to-r from-[#1e3a8a] to-[#3730a3] text-white shadow-[0_4px_20px_rgba(2,6,23,0.25)]">
-      <div className="mx-auto flex max-w-3xl items-center gap-1 overflow-x-auto px-3 py-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {ITEMS.map((it) => {
-          const active = it.match(pathname);
-          return (
-            <Link
-              key={it.label}
-              href={it.href}
-              className={`flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-black uppercase tracking-wide transition ${
-                active ? "bg-white/20 text-white" : "text-blue-100/80 hover:bg-white/10 hover:text-white"
-              }`}
-            >
-              <Icon name={it.icon} active={active} />
-              {it.label}
-            </Link>
-          );
-        })}
+      <div className="mx-auto flex max-w-5xl items-center gap-2 px-3 py-2">
+        <div className="flex flex-1 items-center gap-1 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {ITEMS.map((it) => {
+            const active = it.match(pathname);
+            return (
+              <Link
+                key={it.label}
+                href={it.href}
+                className={`flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-black uppercase tracking-wide transition ${
+                  active ? "bg-white/20 text-white" : "text-blue-100/80 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                <Icon name={it.icon} active={active} />
+                {it.label}
+              </Link>
+            );
+          })}
+        </div>
+        <UserMenu />
       </div>
     </nav>
   );
