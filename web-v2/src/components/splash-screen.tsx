@@ -4,19 +4,21 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function SplashScreen() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("ark_splash")) {
+      return false;
+    }
+    return true;
+  });
 
   useEffect(() => {
-    if (sessionStorage.getItem("ark_splash")) {
-      setShow(false);
-      return;
-    }
     const t = setTimeout(() => {
       sessionStorage.setItem("ark_splash", "1");
       setShow(false);
     }, 1100);
     return () => clearTimeout(t);
   }, []);
+
 
   if (!show) return null;
 

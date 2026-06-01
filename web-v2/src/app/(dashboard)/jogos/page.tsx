@@ -39,8 +39,9 @@ export default async function DashboardPage() {
     getRecentSessions(supabase, hud.userId, 6),
   ]);
 
+  const now = Date.now();
   const relativo = (iso: string) => {
-    const dias = Math.floor((Date.now() - new Date(iso).getTime()) / 86400000);
+    const dias = Math.floor((now - new Date(iso).getTime()) / 86400000);
     return dias <= 0 ? "hoje" : dias === 1 ? "ontem" : `há ${dias} dias`;
   };
 
