@@ -23,7 +23,7 @@ export function BottomNav() {
     return null;
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-red-600 h-12 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:inset-x-auto sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 sm:rounded-full sm:border sm:shadow-[0_8px_30px_rgba(2,6,23,0.15)] text-white">
+    <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-blue-600 h-12 pb-[env(safe-area-inset-bottom)] backdrop-blur sm:inset-x-auto sm:bottom-4 sm:left-1/2 sm:-translate-x-1/2 sm:rounded-full sm:border sm:shadow-[0_8px_30px_rgba(2,6,23,0.15)] text-white">
       <div className="mx-auto flex max-w-md items-stretch justify-around sm:gap-1 sm:px-2">
         {ITEMS.map((it) => {
           return (
