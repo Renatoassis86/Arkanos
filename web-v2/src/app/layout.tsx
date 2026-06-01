@@ -81,6 +81,15 @@ export default function RootLayout({
             </div>
           ) : null;
         })()}
+        {/* Extra red stripe above BottomNav */}
+        {(() => {
+          const showExtraStripe = true; // Set to false to hide the extra stripe
+          return showExtraStripe ? (
+            <div className="h-2 bg-red-600 flex items-center justify-center text-white text-xs font-bold mb-1">
+              EM DESENVOLVIMENTO - Versão de teste
+            </div>
+          ) : null;
+        })()}
         <BottomNav />
         <SplashScreen />
         {children}
