@@ -73,9 +73,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col pt-6">
         {/* Tarja fina de "em desenvolvimento" (topo, vermelha) */}
-        <div className="fixed inset-x-0 top-0 z-[100] flex h-6 items-center justify-center bg-red-600 text-[11px] font-bold uppercase tracking-[2px] text-white">
-          Em desenvolvimento · versão de teste
-        </div>
+        <div className="h-8 bg-red-600 flex items-center justify-center text-white text-xs font-bold mb-1">EM DESENVOLVIMENTO - Versão de teste</div>
+        <div className="h-8 bg-red-600"></div>
         <SplashScreen />
         {children}
         <SiteCredit />
