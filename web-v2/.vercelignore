@@ -5,3 +5,6 @@ node_modules
 
 # Exports crus do Gemini (não usados pelo app — a coleção usa public/img/cards/orbe-*.webp)
 public/img/orbes
+
+# Imagens brutas do quiz (ChatGPT) — só os .webp otimizados vão pro deploy
+public/img/quiz/5ano_t2_av1_historia/ChatGPT*
