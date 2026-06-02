@@ -113,13 +113,13 @@ export function UserMenu() {
                   <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
                   <circle cx="12" cy="13" r="4" />
                 </svg>
-                {busy ? "Enviando foto…" : "Mudar foto de perfil"}
+                {busy ? "Enviando foto…" : "Editar perfil"}
               </button>
               <Link href="/jogos" onClick={() => setOpen(false)} className={`${item} text-slate-700 hover:bg-slate-100`}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 10.5 12 3l9 7.5" /><path d="M5 9.5V20h14V9.5" />
                 </svg>
-                Meu painel
+                Minha plataforma
               </Link>
               <Link href="/" onClick={() => setOpen(false)} className={`${item} text-slate-700 hover:bg-slate-100`}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

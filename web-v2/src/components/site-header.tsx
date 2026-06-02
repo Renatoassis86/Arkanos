@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { UserMenu } from "./user-menu";
 
 const NAV = [
   { label: "Sobre", href: "#institucional" },
@@ -64,12 +65,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
 
         <div className="hidden items-center gap-3 lg:flex">
           {authed ? (
-            <Link
-              href="/jogos"
-              className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-7 py-3 text-[13px] font-black uppercase tracking-[2px] text-[#3b2f00] shadow-[0_6px_20px_rgba(241,196,15,0.45)] transition hover:-translate-y-0.5"
-            >
-              Meu Painel →
-            </Link>
+            <UserMenu />
           ) : (
             <>
               <Link

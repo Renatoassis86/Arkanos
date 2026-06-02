@@ -4,21 +4,19 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function SplashScreen() {
-  const [show, setShow] = useState(() => {
-    if (typeof window !== "undefined" && sessionStorage.getItem("ark_splash")) {
-      return false;
-    }
-    return true;
-  });
+  // Inicia igual no servidor e no cliente (evita divergência de hidratação,
+  // que travava a interatividade da página). A decisão de esconder é no efeito.
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem("ark_splash")) return; // já visto nesta sessão
+    setShow(true);
     const t = setTimeout(() => {
       sessionStorage.setItem("ark_splash", "1");
       setShow(false);
     }, 1100);
     return () => clearTimeout(t);
   }, []);
-
 
   if (!show) return null;
 
