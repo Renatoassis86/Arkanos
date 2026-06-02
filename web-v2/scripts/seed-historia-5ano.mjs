@@ -15,8 +15,12 @@ const ANO = "5º Ano", DISC = "História", PROVA = "AV1", TRIM = 2;
 
 // Reconhecimento visual: número da questão -> índice da imagem na folha de contato.
 const SRC = {
-  1: 0, 2: 1, 3: 2, 4: 5, 5: 3, 6: 7, 7: 15, 8: 16, 9: 9, 10: 10,
-  11: 13, 12: 11, 13: 17, 14: 12, 15: 6, 16: 18, 17: 28, 18: 43, 19: 31, 20: 34,
+  // q01-20 (colonização): cruz/litoral, pau-brasil, caravelas, Martim Afonso, São Vicente,
+  // porto, sesmarias, mapa-capitanias, donatário, função, Pernambuco, governo, Tomé de Sousa,
+  // Salvador, capital, jesuítas, catequese, Anchieta, indígenas, ocas.
+  1: 0, 2: 1, 3: 2, 4: 5, 5: 3, 6: 7, 7: 15, 8: 16, 9: 11, 10: 8,
+  11: 13, 12: 10, 13: 9, 14: 12, 15: 6, 16: 18, 17: 17, 18: 43, 19: 19, 20: 31,
+  // q21-40 (bandeiras, indígenas, jesuítas, Anchieta)
   21: 21, 22: 37, 23: 27, 24: 39, 25: 40, 26: 23, 27: 29, 28: 22, 29: 32, 30: 41,
   31: 44, 32: 45, 33: 55, 34: 48, 35: 46, 36: 57, 37: 58, 38: 47, 39: 33, 40: 56,
 };
