@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { logout } from "../../(auth)/actions";
-import { ageFromBirthdate, recommendedTrack, TRACK_LABELS } from "@/lib/trivium";
+import { trackForSerie } from "@/lib/trivium";
 import {
   getHud,
   getOwnedCollection,
@@ -55,8 +55,7 @@ export default async function DashboardPage() {
     return dias <= 0 ? "hoje" : dias === 1 ? "ontem" : `há ${dias} dias`;
   };
 
-  const age = ageFromBirthdate(hud.dataNascimento);
-  const track = recommendedTrack(age);
+  const track = trackForSerie(hud.serie);
   const levelDef = LEVELS.find((l) => l.n === hud.level) ?? LEVELS[0];
   const equippedTitle = owned.titles.find((t) => t.equipped);
   const previewOrbs = ORBS.filter((o) => owned.orbs.has(o.key)).slice(0, 3);

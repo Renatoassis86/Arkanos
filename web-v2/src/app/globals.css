@@ -26,6 +26,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Evita rolagem/corte horizontal no mobile (clip não quebra position:sticky). */
+  overflow-x: clip;
 }
 
 body {

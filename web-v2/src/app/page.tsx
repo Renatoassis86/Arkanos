@@ -21,7 +21,7 @@ export default async function Home() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="min-h-screen bg-[#eaf2ff] text-slate-800">
+    <div className="min-h-screen overflow-x-hidden bg-[#eaf2ff] text-slate-800">
       <SiteHeader authed={!!user} />
 
       {/* 1. Institucional / Hero */}

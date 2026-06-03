@@ -27,6 +27,16 @@ export function recommendedTrack(age: number | null): TriviumTrack {
   return "retorica";
 }
 
+/** Trilha recomendada pela SÉRIE (ex.: "5º ano"). Fundamentais → Gramática,
+ *  finais → Lógica, mais avançados → Retórica. */
+export function trackForSerie(serie: string | null | undefined): TriviumTrack {
+  const n = serie ? parseInt(serie, 10) : NaN;
+  if (!Number.isFinite(n)) return "gramatica";
+  if (n <= 3) return "gramatica";
+  if (n <= 6) return "logica";
+  return "retorica";
+}
+
 export const TRACK_LABELS: Record<TriviumTrack, string> = {
   gramatica: "Gramática",
   logica: "Lógica",

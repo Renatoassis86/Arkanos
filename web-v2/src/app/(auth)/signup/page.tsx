@@ -60,15 +60,6 @@ export default async function SignupPage({
           className={inputClass}
         />
         <label className="space-y-1.5">
-          <span className={labelClass}>Data de nascimento</span>
-          <input
-            name="data_nascimento"
-            type="date"
-            required
-            className={`${inputClass} [color-scheme:dark]`}
-          />
-        </label>
-        <label className="space-y-1.5">
           <span className={labelClass}>Série</span>
           <select name="serie" defaultValue="3º ano" className={inputClass}>
             {SERIES.map((s) => (
@@ -80,8 +71,8 @@ export default async function SignupPage({
         </label>
 
         <p className="rounded-xl bg-slate-50 px-4 py-3 text-xs text-slate-500">
-          📌 Para entrar depois, use o seu <strong className="text-slate-200">nome</strong>{" "}
-          e o seu <strong className="text-slate-200">sobrenome</strong>.
+          Para entrar depois, use o seu <strong className="text-slate-700">nome</strong>{" "}
+          e o seu <strong className="text-slate-700">último sobrenome</strong>.
         </p>
 
         <button type="submit" className={submitClass}>

@@ -5,17 +5,9 @@ import { listDesafioQuestions, getGradeIdByName } from "@/db/queries/quiz";
 import { DesafioQuiz } from "@/components/desafio-quiz";
 import { BankNavigator } from "./bank-navigator";
 import { createClient } from "@/lib/supabase/server";
+import { roundOf } from "@/lib/quiz-round";
 
 export const dynamic = "force-dynamic";
-
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
 
 function num(v: string | string[] | undefined): number | undefined {
   const n = Number(Array.isArray(v) ? v[0] : v);
@@ -49,7 +41,7 @@ export default async function DesafioPage({
 
   let body;
   if (assessmentId) {
-    const questions = await listDesafioQuestions(50, assessmentId);
+    const questions = await listDesafioQuestions(500, assessmentId);
     const backHref =
       subjectId && trimestre
         ? `/desafio?subject=${subjectId}&trimestre=${trimestre}`
@@ -64,7 +56,7 @@ export default async function DesafioPage({
             ← Trocar prova
           </Link>
         </div>
-        <DesafioQuiz questions={shuffle(questions)} authed />
+        <DesafioQuiz questions={roundOf(questions, questions.length)} authed />
       </>
     );
   } else if (!gradeId) {

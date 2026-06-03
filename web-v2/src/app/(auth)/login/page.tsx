@@ -43,27 +43,18 @@ export default async function LoginPage({
           />
         </label>
         <label className="space-y-1.5">
-          <span className={labelClass}>Sobrenome</span>
+          <span className={labelClass}>Último sobrenome</span>
           <input
             name="sobrenome"
             type="text"
             required
             autoComplete="off"
-            placeholder="Seu sobrenome"
+            placeholder="Seu último sobrenome"
             className={inputClass}
           />
         </label>
-        <label className="space-y-1.5">
-          <span className={labelClass}>Data de nascimento</span>
-          <input
-            name="data_nascimento"
-            type="date"
-            required
-            className={`${inputClass} [color-scheme:dark]`}
-          />
-        </label>
 
-        <button type="submit" className={submitClass}>
+        <button type="submit" className={`${submitClass} py-4 text-base`}>
           Entrar
         </button>
       </form>

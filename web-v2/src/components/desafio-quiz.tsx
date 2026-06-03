@@ -12,6 +12,7 @@ import { GuardianAvatar } from "@/components/guardian-avatar";
 import { sessionScore, type ItemResult, type TriScore } from "@/lib/tri";
 import { FloatingCelebration } from "@/components/floating-celebration";
 import { GameTopBar } from "@/components/game-topbar";
+import { roundOf } from "@/lib/quiz-round";
 import type { Rarity } from "@/lib/collection";
 
 // Desafio dos Sábios é a trilha de Lógica → guardião Aion narra.
@@ -36,15 +37,6 @@ function normalize(s: string) {
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .replace(/[.!?]+$/, "");
-}
-
-function shuffle<T>(arr: T[]): T[] {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
 }
 
 function isAnswerCorrect(q: DesafioQuestion, value: string) {
@@ -81,9 +73,10 @@ export function DesafioQuiz({
   questions: DesafioQuestion[];
   authed: boolean;
 }) {
-  // Sem shuffle no render inicial (evita mismatch de hidratação): o servidor já
-  // entrega embaralhado; o cliente só re-embaralha ao reiniciar (ação do usuário).
-  const [deck, setDeck] = useState(questions);
+  // Sem random no render inicial (evita mismatch de hidratação): o servidor já
+  // entrega o banco embaralhado (ordem + alternativas). Aqui só recortamos 30
+  // de forma determinística; a re-aleatorização acontece ao reiniciar (cliente).
+  const [deck, setDeck] = useState(() => questions.slice(0, 30));
 
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState("");
@@ -181,7 +174,7 @@ export function DesafioQuiz({
   }
 
   function restart() {
-    setDeck(shuffle(questions));
+    setDeck(roundOf(questions, 30));
     setIndex(0);
     setTyped("");
     setPicked(null);
@@ -372,11 +365,11 @@ export function DesafioQuiz({
           {/* Faixa ilustrada: imagem real OU ilustração temática */}
           {q.imageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <div className="flex justify-center bg-slate-100 p-3">
+            <div className="flex justify-center bg-slate-100 p-2 sm:p-3">
               <img
                 src={q.imageUrl}
                 alt={q.imageAlt ?? q.question}
-                className="max-h-80 w-auto rounded-xl object-contain"
+                className="max-h-72 w-full rounded-xl object-contain sm:max-h-80"
               />
             </div>
           ) : (

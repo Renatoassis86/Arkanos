@@ -18,7 +18,6 @@ import {
   MEDAL_TIER_COLOR,
   medalArt,
   TITLES,
-  RARITY_LABEL,
   type OrbBlock,
 } from "@/lib/collection";
 
@@ -102,7 +101,7 @@ export default async function ColecaoPage() {
                           key={o.key}
                           type="orbe"
                           artSrc={o.art}
-                          title={isOwned ? o.nome : RARITY_LABEL.terrestre}
+                          title={o.nome}
                           rarity={rarity}
                           locked={!isOwned}
                         />

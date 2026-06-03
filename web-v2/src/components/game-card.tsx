@@ -44,10 +44,12 @@ export function GameCard({
   const glow = rarity ? RARITY_GLOW[rarity] : tierColor;
   // Objeto-placeholder para orbe sem arte: esfera estilizada (trocável pela arte real).
   const orbColor = rarity ? RARITY_GLOW[rarity] : "#f1c40f";
-  const showOrbSphere = type === "orbe" && !artSrc;
-  // Medalha tem arte completa (medalha-<key>.webp): mostra inteira, sem moldura.
-  const artFit = type === "medalha" ? "object-contain" : "object-cover";
-  const showTemplate = type !== "medalha" || !artSrc;
+  const hasArt = !!artSrc;
+  const showOrbSphere = type === "orbe" && !hasArt;
+  // Cartas com arte própria mostram a imagem inteira, SEM moldura genérica por cima.
+  // A moldura só entra como fallback quando não há arte (placeholder de orbe/medalha).
+  const artFit = type === "nivel" ? "object-cover" : "object-contain";
+  const showTemplate = !hasArt;
   // Glifo só aparece como fallback quando não há arte (medalhas sem .webp).
   const showSymbol = symbol && !artSrc;
 
@@ -131,11 +133,15 @@ export function GameCard({
         </div>
       )}
 
-      {/* 5. Cadeado quando bloqueado */}
+      {/* 5. Cadeado quando bloqueado (ícone desenhado, sem emoji) */}
       {locked && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-2xl opacity-70" aria-hidden>
-            🔒
+          <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/55 backdrop-blur">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1c40f" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <rect x="5" y="11" width="14" height="9" rx="2" fill="#f1c40f22" />
+              <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+              <circle cx="12" cy="15.4" r="1.2" fill="#f1c40f" />
+            </svg>
           </span>
         </div>
       )}

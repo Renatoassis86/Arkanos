@@ -11,7 +11,7 @@ import sharp from "sharp";
 const DATA = "data/5ano_t2_av1_historia.json";
 const IMG_DIR = "public/img/quiz/5ano_t2_av1_historia";
 const URL_BASE = "/img/quiz/5ano_t2_av1_historia/";
-const ANO = "5º Ano", DISC = "História", PROVA = "AV1", TRIM = 2;
+const ANO = "5º ano", DISC = "História", PROVA = "AV1", TRIM = 2;
 
 // Reconhecimento visual: número da questão -> índice da imagem na folha de contato.
 const SRC = {
