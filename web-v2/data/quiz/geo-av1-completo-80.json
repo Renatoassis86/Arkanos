@@ -1,0 +1,1601 @@
+{
+  "meta": {
+    "descricao": "Matriz Mestre Completa de Questões Geografia AV1 (1-80)",
+    "total": 80,
+    "blocos": {
+      "bloco_1": "Questões 1-30 (Fácil) - Localizações, Capitais, Cultura, Bandeiras",
+      "bloco_2": "Questões 31-60 (Médio) - Cartografia, Coordenadas, Rosa dos Ventos",
+      "bloco_3": "Questões 61-80 (Difícil) - Relevo, Andes, Integração"
+    },
+    "ultima_atualizacao": "2026-06-08",
+    "imagens_unicas": 80,
+    "temas": [
+      "Brasil",
+      "América do Sul",
+      "Guianas",
+      "Venezuela",
+      "Colômbia",
+      "Equador",
+      "Cultura",
+      "Cartografia",
+      "Relevo",
+      "Andes",
+      "Revisão Geral"
+    ],
+    "dificuldades": {
+      "facil": 30,
+      "media": 30,
+      "dificil": 20
+    }
+  },
+  "questoes": {
+    "geo_av1_001": {
+      "id": "geo_av1_001",
+      "numero": 1,
+      "tema": "Brasil",
+      "subtema": "Localização",
+      "dificuldade": "facil",
+      "pergunta": "Em qual continente o Brasil está localizado?",
+      "alternativas": {
+        "A": "América do Sul",
+        "B": "América do Norte",
+        "C": "África",
+        "D": "Ásia"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Brasil é o maior país da América do Sul.",
+      "imagem": "geo_av1_001.webp",
+      "promptImagem": "Illustrated map of Brazil highlighted on South American continent, educational fantasy atlas style, premium game asset"
+    },
+    "geo_av1_002": {
+      "id": "geo_av1_002",
+      "numero": 2,
+      "tema": "Brasil",
+      "subtema": "Capital",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital do Brasil?",
+      "alternativas": {
+        "A": "Brasília",
+        "B": "Rio de Janeiro",
+        "C": "São Paulo",
+        "D": "Salvador"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Brasília foi construída no centro do Brasil como capital planejada.",
+      "imagem": "geo_av1_002.webp",
+      "promptImagem": "Fantasy map of Brazil with capital city marked, educational atlas style"
+    },
+    "geo_av1_003": {
+      "id": "geo_av1_003",
+      "numero": 3,
+      "tema": "Brasil",
+      "subtema": "Regiões",
+      "dificuldade": "facil",
+      "pergunta": "O Brasil é dividido em quantas regiões?",
+      "alternativas": {
+        "A": "5",
+        "B": "7",
+        "C": "10",
+        "D": "3"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As cinco regiões do Brasil são: Norte, Nordeste, Centro-Oeste, Sudeste e Sul.",
+      "imagem": "geo_av1_003.webp",
+      "promptImagem": "Illustrated map of Brazil divided by regions with colors, educational fantasy atlas style"
+    },
+    "geo_av1_004": {
+      "id": "geo_av1_004",
+      "numero": 4,
+      "tema": "Brasil",
+      "subtema": "Regiões",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a maior região do Brasil em extensão territorial?",
+      "alternativas": {
+        "A": "Norte",
+        "B": "Nordeste",
+        "C": "Centro-Oeste",
+        "D": "Sudeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Região Norte contém a Floresta Amazônica.",
+      "imagem": "geo_av1_004.webp",
+      "promptImagem": "North region of Brazil highlighted on educational fantasy map"
+    },
+    "geo_av1_005": {
+      "id": "geo_av1_005",
+      "numero": 5,
+      "tema": "Brasil",
+      "subtema": "Regiões",
+      "dificuldade": "facil",
+      "pergunta": "Qual região do Brasil é conhecida pelo Nordeste?",
+      "alternativas": {
+        "A": "Nordeste",
+        "B": "Norte",
+        "C": "Centro-Oeste",
+        "D": "Sul"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Nordeste possui importantes capitais como Salvador e Recife.",
+      "imagem": "geo_av1_005.webp",
+      "promptImagem": "Northeast region of Brazil educational fantasy atlas"
+    },
+    "geo_av1_006": {
+      "id": "geo_av1_006",
+      "numero": 6,
+      "tema": "América do Sul",
+      "subtema": "Países",
+      "dificuldade": "facil",
+      "pergunta": "Quantos países independentes existem na América do Sul?",
+      "alternativas": {
+        "A": "12",
+        "B": "15",
+        "C": "10",
+        "D": "8"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A América do Sul possui grande diversidade de países e culturas.",
+      "imagem": "geo_av1_006.webp",
+      "promptImagem": "Political map of South America showing all countries, educational fantasy atlas style"
+    },
+    "geo_av1_007": {
+      "id": "geo_av1_007",
+      "numero": 7,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital do Peru?",
+      "alternativas": {
+        "A": "Lima",
+        "B": "Cuzco",
+        "C": "Arequipa",
+        "D": "Trujillo"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Lima fica na costa do Oceano Pacífico.",
+      "imagem": "geo_av1_007.webp",
+      "promptImagem": "Fantasy atlas map of Peru with capital city marked, premium illustration"
+    },
+    "geo_av1_008": {
+      "id": "geo_av1_008",
+      "numero": 8,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital do Chile?",
+      "alternativas": {
+        "A": "Santiago",
+        "B": "Valparaíso",
+        "C": "Concepción",
+        "D": "Antofagasta"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Santiago está localizada na região central do Chile.",
+      "imagem": "geo_av1_008.webp",
+      "promptImagem": "Educational fantasy map of Chile with capital marked"
+    },
+    "geo_av1_009": {
+      "id": "geo_av1_009",
+      "numero": 9,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital da Argentina?",
+      "alternativas": {
+        "A": "Buenos Aires",
+        "B": "Mendoza",
+        "C": "Córdoba",
+        "D": "Rosário"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Buenos Aires é uma das maiores cidades da América do Sul.",
+      "imagem": "geo_av1_009.webp",
+      "promptImagem": "Argentina atlas map with Buenos Aires highlighted, educational fantasy style"
+    },
+    "geo_av1_010": {
+      "id": "geo_av1_010",
+      "numero": 10,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital do Uruguai?",
+      "alternativas": {
+        "A": "Montevidéu",
+        "B": "Salto",
+        "C": "Paysandú",
+        "D": "Melo"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Montevidéu é o principal porto do Uruguai.",
+      "imagem": "geo_av1_010.webp",
+      "promptImagem": "Educational atlas map of Uruguay with capital city"
+    },
+    "geo_av1_011": {
+      "id": "geo_av1_011",
+      "numero": 11,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital do Paraguai?",
+      "alternativas": {
+        "A": "Assunção",
+        "B": "Ciudad del Este",
+        "C": "Encarnación",
+        "D": "Concepción"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Assunção está localizada às margens do Rio da Prata.",
+      "imagem": "geo_av1_011.webp",
+      "promptImagem": "Fantasy atlas map of Paraguay showing capital, educational style"
+    },
+    "geo_av1_012": {
+      "id": "geo_av1_012",
+      "numero": 12,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital da Bolívia?",
+      "alternativas": {
+        "A": "La Paz",
+        "B": "Santa Cruz",
+        "C": "Sucre",
+        "D": "Oruro"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "La Paz é uma das capitais mais altas do mundo.",
+      "imagem": "geo_av1_012.webp",
+      "promptImagem": "Bolivia educational atlas map, fantasy style"
+    },
+    "geo_av1_013": {
+      "id": "geo_av1_013",
+      "numero": 13,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital do Equador?",
+      "alternativas": {
+        "A": "Quito",
+        "B": "Guayaquil",
+        "C": "Cuenca",
+        "D": "Ambato"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Quito está localizada na região andina do Equador.",
+      "imagem": "geo_av1_013.webp",
+      "promptImagem": "Ecuador fantasy atlas map with capital marked"
+    },
+    "geo_av1_014": {
+      "id": "geo_av1_014",
+      "numero": 14,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital da Venezuela?",
+      "alternativas": {
+        "A": "Caracas",
+        "B": "Maracaibo",
+        "C": "Valencia",
+        "D": "Barquisimeto"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Caracas fica no litoral do Mar do Caribe.",
+      "imagem": "geo_av1_014.webp",
+      "promptImagem": "Venezuela educational fantasy atlas map"
+    },
+    "geo_av1_015": {
+      "id": "geo_av1_015",
+      "numero": 15,
+      "tema": "América do Sul",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual é a capital da Colômbia?",
+      "alternativas": {
+        "A": "Bogotá",
+        "B": "Medellín",
+        "C": "Cali",
+        "D": "Barranquilla"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Bogotá está localizada na região andina da Colômbia.",
+      "imagem": "geo_av1_015.webp",
+      "promptImagem": "Colombia fantasy atlas map, educational style"
+    },
+    "geo_av1_016": {
+      "id": "geo_av1_016",
+      "numero": 16,
+      "tema": "Guianas",
+      "subtema": "Localização",
+      "dificuldade": "facil",
+      "pergunta": "Em qual região da América do Sul estão localizadas as Guianas?",
+      "alternativas": {
+        "A": "Norte",
+        "B": "Sul",
+        "C": "Oeste",
+        "D": "Centro"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As Guianas ocupam a porção norte da América do Sul e são cobertas por extensas florestas tropicais.",
+      "imagem": "geo_av1_016.webp",
+      "promptImagem": "Illustrated map of Guyana, Suriname and French Guiana, lush rainforest, rivers and coastline, educational fantasy atlas style, premium game asset"
+    },
+    "geo_av1_017": {
+      "id": "geo_av1_017",
+      "numero": 17,
+      "tema": "Guianas",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual capital pertence à Guiana Francesa?",
+      "alternativas": {
+        "A": "Caiena",
+        "B": "Georgetown",
+        "C": "Paramaribo",
+        "D": "Bogotá"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Caiena é uma importante cidade costeira da Guiana Francesa.",
+      "imagem": "geo_av1_017.webp",
+      "promptImagem": "Fantasy atlas map of the Guianas with coastal settlements and rivers, premium educational illustration"
+    },
+    "geo_av1_018": {
+      "id": "geo_av1_018",
+      "numero": 18,
+      "tema": "Guianas",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual capital pertence ao Suriname?",
+      "alternativas": {
+        "A": "Paramaribo",
+        "B": "Caiena",
+        "C": "Caracas",
+        "D": "Lima"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Paramaribo é conhecida por sua mistura de influências culturais.",
+      "imagem": "geo_av1_018.webp",
+      "promptImagem": "Educational fantasy map of Suriname with rivers and tropical vegetation"
+    },
+    "geo_av1_019": {
+      "id": "geo_av1_019",
+      "numero": 19,
+      "tema": "Guianas",
+      "subtema": "Capitais",
+      "dificuldade": "facil",
+      "pergunta": "Qual capital pertence à Guiana?",
+      "alternativas": {
+        "A": "Georgetown",
+        "B": "Paramaribo",
+        "C": "Caiena",
+        "D": "Quito"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Georgetown fica próxima ao Oceano Atlântico.",
+      "imagem": "geo_av1_019.webp",
+      "promptImagem": "Guyana fantasy atlas map with coastlines and rivers"
+    },
+    "geo_av1_020": {
+      "id": "geo_av1_020",
+      "numero": 20,
+      "tema": "Venezuela",
+      "subtema": "Localização",
+      "dificuldade": "facil",
+      "pergunta": "A Venezuela está localizada em qual parte da América do Sul?",
+      "alternativas": {
+        "A": "Norte",
+        "B": "Sul",
+        "C": "Extremo Oeste",
+        "D": "Centro"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Venezuela possui litoral voltado para o Mar do Caribe.",
+      "imagem": "geo_av1_020.webp",
+      "promptImagem": "Illustrated northern South America map, educational fantasy atlas style"
+    },
+    "geo_av1_021": {
+      "id": "geo_av1_021",
+      "numero": 21,
+      "tema": "Colômbia",
+      "subtema": "Localização",
+      "dificuldade": "facil",
+      "pergunta": "Qual país faz fronteira com a Venezuela e possui capital chamada Bogotá?",
+      "alternativas": {
+        "A": "Colômbia",
+        "B": "Peru",
+        "C": "Chile",
+        "D": "Uruguai"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Colômbia possui paisagens que vão das montanhas andinas até praias tropicais.",
+      "imagem": "geo_av1_021.webp",
+      "promptImagem": "Educational fantasy map of Colombia and neighboring countries"
+    },
+    "geo_av1_022": {
+      "id": "geo_av1_022",
+      "numero": 22,
+      "tema": "Cultura",
+      "subtema": "Arepas",
+      "dificuldade": "facil",
+      "pergunta": "As arepas são um alimento típico de qual região?",
+      "alternativas": {
+        "A": "Venezuela e Colômbia",
+        "B": "Brasil e Argentina",
+        "C": "Chile e Uruguai",
+        "D": "Peru e Bolívia"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As arepas são muito populares e podem ser recheadas com diversos ingredientes.",
+      "imagem": "geo_av1_022.webp",
+      "promptImagem": "Traditional arepas arranged on rustic table, educational fantasy food illustration, premium game asset"
+    },
+    "geo_av1_023": {
+      "id": "geo_av1_023",
+      "numero": 23,
+      "tema": "Cultura",
+      "subtema": "Chocolate",
+      "dificuldade": "facil",
+      "pergunta": "Qual país é famoso pela produção de chocolate estudada no capítulo?",
+      "alternativas": {
+        "A": "Colômbia",
+        "B": "Chile",
+        "C": "Paraguai",
+        "D": "Uruguai"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O cacau é uma importante matéria-prima para a produção de chocolate.",
+      "imagem": "geo_av1_023.webp",
+      "promptImagem": "Chocolate and cacao beans displayed in educational fantasy style, premium illustration"
+    },
+    "geo_av1_024": {
+      "id": "geo_av1_024",
+      "numero": 24,
+      "tema": "Equador",
+      "subtema": "Cultura",
+      "dificuldade": "facil",
+      "pergunta": "Qual celebração tradicional foi apresentada no conteúdo sobre o Equador?",
+      "alternativas": {
+        "A": "Dia dos Mortos",
+        "B": "Carnaval de Veneza",
+        "C": "Oktoberfest",
+        "D": "Ano Novo Chinês"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Dia dos Mortos possui grande importância cultural em diversos países latino-americanos.",
+      "imagem": "geo_av1_024.webp",
+      "promptImagem": "Traditional Ecuadorian Day of the Dead celebration, educational fantasy illustration, colorful and respectful"
+    },
+    "geo_av1_025": {
+      "id": "geo_av1_025",
+      "numero": 25,
+      "tema": "América do Sul",
+      "subtema": "Mapa",
+      "dificuldade": "facil",
+      "pergunta": "Ao observar um mapa da América do Sul, qual país ocupa a maior área territorial?",
+      "alternativas": {
+        "A": "Brasil",
+        "B": "Colômbia",
+        "C": "Chile",
+        "D": "Uruguai"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Brasil ocupa quase metade da área total da América do Sul.",
+      "imagem": "geo_av1_025.webp",
+      "promptImagem": "South America atlas map with countries clearly distinguishable, educational fantasy style"
+    },
+    "geo_av1_026": {
+      "id": "geo_av1_026",
+      "numero": 26,
+      "tema": "Bandeiras",
+      "subtema": "Reconhecimento",
+      "dificuldade": "facil",
+      "pergunta": "Observe a imagem e identifique a bandeira da Colômbia.",
+      "alternativas": {
+        "A": "Colômbia",
+        "B": "Peru",
+        "C": "Brasil",
+        "D": "Argentina"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A bandeira colombiana possui as cores amarelo, azul e vermelho.",
+      "imagem": "geo_av1_026.webp",
+      "promptImagem": "Collection of South American flags displayed over explorer atlas table, no text"
+    },
+    "geo_av1_027": {
+      "id": "geo_av1_027",
+      "numero": 27,
+      "tema": "Bandeiras",
+      "subtema": "Reconhecimento",
+      "dificuldade": "facil",
+      "pergunta": "Observe a imagem e identifique a bandeira da Venezuela.",
+      "alternativas": {
+        "A": "Venezuela",
+        "B": "Equador",
+        "C": "Chile",
+        "D": "Paraguai"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A bandeira da Venezuela possui estrelas representando suas regiões históricas.",
+      "imagem": "geo_av1_027.webp",
+      "promptImagem": "South American flags collection, educational fantasy style"
+    },
+    "geo_av1_028": {
+      "id": "geo_av1_028",
+      "numero": 28,
+      "tema": "América do Sul",
+      "subtema": "Países",
+      "dificuldade": "facil",
+      "pergunta": "Qual destes países faz parte das Guianas?",
+      "alternativas": {
+        "A": "Suriname",
+        "B": "Chile",
+        "C": "Uruguai",
+        "D": "Argentina"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Suriname é o menor país independente da América do Sul.",
+      "imagem": "geo_av1_028.webp",
+      "promptImagem": "Map of the Guianas, tropical forests and rivers, educational fantasy atlas"
+    },
+    "geo_av1_029": {
+      "id": "geo_av1_029",
+      "numero": 29,
+      "tema": "Venezuela",
+      "subtema": "Natureza",
+      "dificuldade": "facil",
+      "pergunta": "Qual famosa queda d'água da Venezuela é considerada a mais alta do mundo?",
+      "alternativas": {
+        "A": "Catarata Ángel",
+        "B": "Kaieteur",
+        "C": "Iguaçu",
+        "D": "Niágara"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Catarata Ángel possui quase 1 quilômetro de altura total.",
+      "imagem": "geo_av1_029.webp",
+      "promptImagem": "Angel Falls over tepui mountain, educational fantasy illustration"
+    },
+    "geo_av1_030": {
+      "id": "geo_av1_030",
+      "numero": 30,
+      "tema": "Guiana",
+      "subtema": "Natureza",
+      "dificuldade": "facil",
+      "pergunta": "Qual atração natural estudada está localizada na Guiana?",
+      "alternativas": {
+        "A": "Cataratas Kaieteur",
+        "B": "Machu Picchu",
+        "C": "Deserto do Atacama",
+        "D": "Monte Everest"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As Cataratas Kaieteur impressionam pela altura e pelo enorme volume de água.",
+      "imagem": "geo_av1_030.webp",
+      "promptImagem": "Kaieteur Falls in tropical rainforest, educational fantasy illustration, premium game asset"
+    },
+    "geo_av1_031": {
+      "id": "geo_av1_031",
+      "numero": 31,
+      "tema": "Cartografia",
+      "subtema": "Latitude",
+      "dificuldade": "media",
+      "pergunta": "O que a latitude indica em um mapa?",
+      "alternativas": {
+        "A": "A distância de um lugar em relação à Linha do Equador",
+        "B": "A altura das montanhas",
+        "C": "A profundidade dos oceanos",
+        "D": "O tamanho dos países"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A latitude ajuda os exploradores a descobrir se um lugar está mais ao norte ou ao sul do planeta.",
+      "imagem": "geo_av1_031.webp",
+      "promptImagem": "Educational fantasy map showing latitude lines crossing South America, elegant atlas style, highly readable, no text"
+    },
+    "geo_av1_032": {
+      "id": "geo_av1_032",
+      "numero": 32,
+      "tema": "Cartografia",
+      "subtema": "Longitude",
+      "dificuldade": "media",
+      "pergunta": "O que a longitude indica em um mapa?",
+      "alternativas": {
+        "A": "A distância de um lugar em relação ao Meridiano de Greenwich",
+        "B": "A altura do relevo",
+        "C": "A temperatura do local",
+        "D": "A vegetação predominante"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A longitude permite localizar lugares a leste ou oeste do planeta.",
+      "imagem": "geo_av1_032.webp",
+      "promptImagem": "Educational fantasy map showing longitude lines crossing globe, premium atlas illustration"
+    },
+    "geo_av1_033": {
+      "id": "geo_av1_033",
+      "numero": 33,
+      "tema": "Cartografia",
+      "subtema": "Linha do Equador",
+      "dificuldade": "media",
+      "pergunta": "Qual é o principal paralelo da Terra?",
+      "alternativas": {
+        "A": "Linha do Equador",
+        "B": "Trópico de Capricórnio",
+        "C": "Círculo Polar Ártico",
+        "D": "Meridiano de Greenwich"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Linha do Equador divide a Terra em Hemisfério Norte e Hemisfério Sul.",
+      "imagem": "geo_av1_033.webp",
+      "promptImagem": "South America crossed by Equator line, educational fantasy atlas style"
+    },
+    "geo_av1_034": {
+      "id": "geo_av1_034",
+      "numero": 34,
+      "tema": "Cartografia",
+      "subtema": "Greenwich",
+      "dificuldade": "media",
+      "pergunta": "Qual meridiano é utilizado como referência principal para medir a longitude?",
+      "alternativas": {
+        "A": "Meridiano de Greenwich",
+        "B": "Linha do Equador",
+        "C": "Trópico de Câncer",
+        "D": "Meridiano Sul"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Meridiano de Greenwich passa pela Inglaterra e serve de referência mundial.",
+      "imagem": "geo_av1_034.webp",
+      "promptImagem": "Ancient navigation map showing Greenwich reference line, educational fantasy style"
+    },
+    "geo_av1_035": {
+      "id": "geo_av1_035",
+      "numero": 35,
+      "tema": "Cartografia",
+      "subtema": "Coordenadas",
+      "dificuldade": "media",
+      "pergunta": "As coordenadas geográficas são formadas por:",
+      "alternativas": {
+        "A": "Latitude e longitude",
+        "B": "Altitude e relevo",
+        "C": "Clima e vegetação",
+        "D": "Oceanos e rios"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Latitude e longitude funcionam como o endereço de qualquer lugar do planeta.",
+      "imagem": "geo_av1_035.webp",
+      "promptImagem": "Coordinate grid over explorer atlas map, educational fantasy illustration"
+    },
+    "geo_av1_036": {
+      "id": "geo_av1_036",
+      "numero": 36,
+      "tema": "Cartografia",
+      "subtema": "Rosa dos Ventos",
+      "dificuldade": "media",
+      "pergunta": "Qual instrumento ajuda a indicar direções em um mapa?",
+      "alternativas": {
+        "A": "Rosa dos Ventos",
+        "B": "Termômetro",
+        "C": "Bússola solar",
+        "D": "Pluviômetro"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Rosa dos Ventos orienta viajantes há séculos.",
+      "imagem": "geo_av1_036.webp",
+      "promptImagem": "Elegant compass rose, educational fantasy style, golden details, no text"
+    },
+    "geo_av1_037": {
+      "id": "geo_av1_037",
+      "numero": 37,
+      "tema": "Cartografia",
+      "subtema": "Direções",
+      "dificuldade": "media",
+      "pergunta": "Qual direção fica acima em uma Rosa dos Ventos tradicional?",
+      "alternativas": {
+        "A": "Norte",
+        "B": "Sul",
+        "C": "Leste",
+        "D": "Oeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Em mapas convencionais, o norte normalmente aparece na parte superior.",
+      "imagem": "geo_av1_037.webp",
+      "promptImagem": "Compass rose with cardinal directions, educational fantasy illustration"
+    },
+    "geo_av1_038": {
+      "id": "geo_av1_038",
+      "numero": 38,
+      "tema": "Cartografia",
+      "subtema": "Direções",
+      "dificuldade": "media",
+      "pergunta": "Qual direção fica oposta ao norte?",
+      "alternativas": {
+        "A": "Sul",
+        "B": "Leste",
+        "C": "Oeste",
+        "D": "Nordeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Norte e Sul são direções opostas na Rosa dos Ventos.",
+      "imagem": "geo_av1_038.webp",
+      "promptImagem": "Compass rose, educational fantasy atlas style"
+    },
+    "geo_av1_039": {
+      "id": "geo_av1_039",
+      "numero": 39,
+      "tema": "Cartografia",
+      "subtema": "Direções",
+      "dificuldade": "media",
+      "pergunta": "Qual direção fica à direita do norte em uma Rosa dos Ventos?",
+      "alternativas": {
+        "A": "Leste",
+        "B": "Oeste",
+        "C": "Sul",
+        "D": "Noroeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Sol nasce aproximadamente na direção leste.",
+      "imagem": "geo_av1_039.webp",
+      "promptImagem": "Compass rose educational fantasy style"
+    },
+    "geo_av1_040": {
+      "id": "geo_av1_040",
+      "numero": 40,
+      "tema": "Cartografia",
+      "subtema": "Direções",
+      "dificuldade": "media",
+      "pergunta": "Qual direção fica à esquerda do norte?",
+      "alternativas": {
+        "A": "Oeste",
+        "B": "Leste",
+        "C": "Sul",
+        "D": "Sudeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O oeste é tradicionalmente associado ao pôr do sol.",
+      "imagem": "geo_av1_040.webp",
+      "promptImagem": "Compass rose educational fantasy illustration"
+    },
+    "geo_av1_041": {
+      "id": "geo_av1_041",
+      "numero": 41,
+      "tema": "Cartografia",
+      "subtema": "Coordenadas",
+      "dificuldade": "media",
+      "pergunta": "Para localizar exatamente um ponto na superfície terrestre precisamos utilizar:",
+      "alternativas": {
+        "A": "Latitude e longitude",
+        "B": "Rios e montanhas",
+        "C": "País e cidade",
+        "D": "Clima e vegetação"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As coordenadas geográficas funcionam como o endereço secreto de qualquer lugar da Terra.",
+      "imagem": "geo_av1_041.webp",
+      "promptImagem": "Educational fantasy coordinate grid over South America, premium atlas illustration, highly readable"
+    },
+    "geo_av1_042": {
+      "id": "geo_av1_042",
+      "numero": 42,
+      "tema": "Cartografia",
+      "subtema": "Latitude",
+      "dificuldade": "media",
+      "pergunta": "As linhas imaginárias que medem a latitude são chamadas de:",
+      "alternativas": {
+        "A": "Paralelos",
+        "B": "Meridianos",
+        "C": "Escalas",
+        "D": "Fronteiras"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Os paralelos circulam a Terra como anéis invisíveis.",
+      "imagem": "geo_av1_042.webp",
+      "promptImagem": "Latitude lines wrapping around globe, educational fantasy atlas style"
+    },
+    "geo_av1_043": {
+      "id": "geo_av1_043",
+      "numero": 43,
+      "tema": "Cartografia",
+      "subtema": "Longitude",
+      "dificuldade": "media",
+      "pergunta": "As linhas imaginárias que medem a longitude são chamadas de:",
+      "alternativas": {
+        "A": "Meridianos",
+        "B": "Paralelos",
+        "C": "Escalas",
+        "D": "Fusos"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Os meridianos ligam o Polo Norte ao Polo Sul.",
+      "imagem": "geo_av1_043.webp",
+      "promptImagem": "Longitude lines on globe, educational fantasy atlas illustration"
+    },
+    "geo_av1_044": {
+      "id": "geo_av1_044",
+      "numero": 44,
+      "tema": "Cartografia",
+      "subtema": "Equador",
+      "dificuldade": "media",
+      "pergunta": "A Linha do Equador divide a Terra em:",
+      "alternativas": {
+        "A": "Hemisfério Norte e Hemisfério Sul",
+        "B": "Leste e Oeste",
+        "C": "Oceanos e continentes",
+        "D": "Trópicos e polos"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Muitos países da América do Sul estão próximos da Linha do Equador.",
+      "imagem": "geo_av1_044.webp",
+      "promptImagem": "Equator crossing South America, educational fantasy atlas"
+    },
+    "geo_av1_045": {
+      "id": "geo_av1_045",
+      "numero": 45,
+      "tema": "Cartografia",
+      "subtema": "Greenwich",
+      "dificuldade": "media",
+      "pergunta": "O Meridiano de Greenwich divide a Terra em:",
+      "alternativas": {
+        "A": "Leste e Oeste",
+        "B": "Norte e Sul",
+        "C": "Continentes e oceanos",
+        "D": "Trópicos"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Greenwich é uma das referências mais importantes da navegação mundial.",
+      "imagem": "geo_av1_045.webp",
+      "promptImagem": "Ancient navigation chart highlighting Greenwich reference, educational fantasy style"
+    },
+    "geo_av1_046": {
+      "id": "geo_av1_046",
+      "numero": 46,
+      "tema": "Cartografia",
+      "subtema": "Mapas",
+      "dificuldade": "media",
+      "pergunta": "Qual elemento do mapa indica o significado das cores e símbolos utilizados?",
+      "alternativas": {
+        "A": "Legenda",
+        "B": "Escala",
+        "C": "Título",
+        "D": "Rosa dos Ventos"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A legenda é a chave para compreender qualquer mapa.",
+      "imagem": "geo_av1_046.webp",
+      "promptImagem": "Explorer atlas map with symbols and regions, educational fantasy illustration"
+    },
+    "geo_av1_047": {
+      "id": "geo_av1_047",
+      "numero": 47,
+      "tema": "Cartografia",
+      "subtema": "Mapas",
+      "dificuldade": "media",
+      "pergunta": "Qual elemento do mapa indica a orientação?",
+      "alternativas": {
+        "A": "Rosa dos Ventos",
+        "B": "Legenda",
+        "C": "Título",
+        "D": "Escala"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Rosa dos Ventos ajuda exploradores a encontrar o caminho correto.",
+      "imagem": "geo_av1_047.webp",
+      "promptImagem": "Elegant compass rose, fantasy educational style, gold accents"
+    },
+    "geo_av1_048": {
+      "id": "geo_av1_048",
+      "numero": 48,
+      "tema": "Cartografia",
+      "subtema": "Mapas",
+      "dificuldade": "media",
+      "pergunta": "Qual direção fica entre Norte e Leste?",
+      "alternativas": {
+        "A": "Nordeste",
+        "B": "Noroeste",
+        "C": "Sudeste",
+        "D": "Sudoeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As direções intermediárias tornam a navegação ainda mais precisa.",
+      "imagem": "geo_av1_048.webp",
+      "promptImagem": "Compass rose showing cardinal and intermediate directions"
+    },
+    "geo_av1_049": {
+      "id": "geo_av1_049",
+      "numero": 49,
+      "tema": "Cartografia",
+      "subtema": "Mapas",
+      "dificuldade": "media",
+      "pergunta": "Qual direção fica entre Sul e Oeste?",
+      "alternativas": {
+        "A": "Sudoeste",
+        "B": "Sudeste",
+        "C": "Nordeste",
+        "D": "Noroeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Exploradores utilizam direções intermediárias para trajetos mais precisos.",
+      "imagem": "geo_av1_049.webp",
+      "promptImagem": "Compass rose educational fantasy illustration"
+    },
+    "geo_av1_050": {
+      "id": "geo_av1_050",
+      "numero": 50,
+      "tema": "Cartografia",
+      "subtema": "Localização",
+      "dificuldade": "media",
+      "pergunta": "A Colômbia está localizada em qual porção da América do Sul?",
+      "alternativas": {
+        "A": "Noroeste",
+        "B": "Sudeste",
+        "C": "Sul",
+        "D": "Centro"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Colômbia faz ligação entre a América do Sul e a América Central.",
+      "imagem": "geo_av1_050.webp",
+      "promptImagem": "Northwestern South America map, educational fantasy atlas"
+    },
+    "geo_av1_051": {
+      "id": "geo_av1_051",
+      "numero": 51,
+      "tema": "Cartografia",
+      "subtema": "Localização",
+      "dificuldade": "media",
+      "pergunta": "A Venezuela possui litoral voltado para qual mar?",
+      "alternativas": {
+        "A": "Mar do Caribe",
+        "B": "Mar Mediterrâneo",
+        "C": "Mar Vermelho",
+        "D": "Mar Negro"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Mar do Caribe é uma importante área turística e comercial.",
+      "imagem": "geo_av1_051.webp",
+      "promptImagem": "Caribbean coastline of Venezuela, educational fantasy style"
+    },
+    "geo_av1_052": {
+      "id": "geo_av1_052",
+      "numero": 52,
+      "tema": "Guianas",
+      "subtema": "Comparação",
+      "dificuldade": "media",
+      "pergunta": "Qual destas NÃO faz parte da região das Guianas?",
+      "alternativas": {
+        "A": "Chile",
+        "B": "Guiana",
+        "C": "Suriname",
+        "D": "Guiana Francesa"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As Guianas ocupam uma área contínua no norte do continente.",
+      "imagem": "geo_av1_052.webp",
+      "promptImagem": "Illustrated Guianas region map, educational fantasy atlas"
+    },
+    "geo_av1_053": {
+      "id": "geo_av1_053",
+      "numero": 53,
+      "tema": "Guianas",
+      "subtema": "Capitais",
+      "dificuldade": "media",
+      "pergunta": "Qual sequência apresenta corretamente as capitais das Guianas?",
+      "alternativas": {
+        "A": "Georgetown, Paramaribo e Caiena",
+        "B": "Bogotá, Caracas e Lima",
+        "C": "Quito, Santiago e Lima",
+        "D": "Brasília, Assunção e Montevidéu"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Cada uma das Guianas possui uma capital costeira importante.",
+      "imagem": "geo_av1_053.webp",
+      "promptImagem": "Educational atlas map highlighting capitals of the Guianas"
+    },
+    "geo_av1_054": {
+      "id": "geo_av1_054",
+      "numero": 54,
+      "tema": "Cultura",
+      "subtema": "Arepas",
+      "dificuldade": "media",
+      "pergunta": "As arepas são feitas principalmente a partir de:",
+      "alternativas": {
+        "A": "Milho",
+        "B": "Arroz",
+        "C": "Batata",
+        "D": "Trigo"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O milho é um alimento tradicional de muitos povos da América do Sul.",
+      "imagem": "geo_av1_054.webp",
+      "promptImagem": "Traditional arepas and corn ingredients, educational fantasy food illustration"
+    },
+    "geo_av1_055": {
+      "id": "geo_av1_055",
+      "numero": 55,
+      "tema": "Cultura",
+      "subtema": "Chocolate",
+      "dificuldade": "media",
+      "pergunta": "O chocolate é produzido a partir de qual fruto?",
+      "alternativas": {
+        "A": "Cacau",
+        "B": "Café",
+        "C": "Cana-de-açúcar",
+        "D": "Milho"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O cacau cresce melhor em regiões quentes e úmidas.",
+      "imagem": "geo_av1_055.webp",
+      "promptImagem": "Cacao pods and chocolate, educational fantasy illustration"
+    },
+    "geo_av1_056": {
+      "id": "geo_av1_056",
+      "numero": 56,
+      "tema": "Mapas",
+      "subtema": "Interpretação",
+      "dificuldade": "media",
+      "pergunta": "Ao observar um mapa da América do Sul, qual oceano aparece à esquerda do continente?",
+      "alternativas": {
+        "A": "Pacífico",
+        "B": "Atlântico",
+        "C": "Índico",
+        "D": "Ártico"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Oceano Pacífico banha toda a costa oeste da América do Sul.",
+      "imagem": "geo_av1_056.webp",
+      "promptImagem": "South America atlas map with surrounding oceans, educational fantasy style"
+    },
+    "geo_av1_057": {
+      "id": "geo_av1_057",
+      "numero": 57,
+      "tema": "Mapas",
+      "subtema": "Interpretação",
+      "dificuldade": "media",
+      "pergunta": "Ao observar um mapa da América do Sul, qual oceano aparece à direita do continente?",
+      "alternativas": {
+        "A": "Atlântico",
+        "B": "Pacífico",
+        "C": "Índico",
+        "D": "Glacial Ártico"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O Atlântico é o oceano que banha a costa leste do Brasil.",
+      "imagem": "geo_av1_057.webp",
+      "promptImagem": "South America atlas map, educational fantasy illustration"
+    },
+    "geo_av1_058": {
+      "id": "geo_av1_058",
+      "numero": 58,
+      "tema": "Cartografia",
+      "subtema": "Coordenadas",
+      "dificuldade": "media",
+      "pergunta": "Para encontrar um local exato em um mapa usamos:",
+      "alternativas": {
+        "A": "Coordenadas geográficas",
+        "B": "Clima",
+        "C": "Vegetação",
+        "D": "Economia"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As coordenadas ajudam navegadores, aviadores e cientistas.",
+      "imagem": "geo_av1_058.webp",
+      "promptImagem": "Coordinate grid over atlas map, educational fantasy style"
+    },
+    "geo_av1_059": {
+      "id": "geo_av1_059",
+      "numero": 59,
+      "tema": "Cartografia",
+      "subtema": "Latitude",
+      "dificuldade": "media",
+      "pergunta": "A latitude é medida a partir de qual linha de referência?",
+      "alternativas": {
+        "A": "Linha do Equador",
+        "B": "Greenwich",
+        "C": "Trópico de Capricórnio",
+        "D": "Trópico de Câncer"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Linha do Equador é o paralelo mais importante do planeta.",
+      "imagem": "geo_av1_059.webp",
+      "promptImagem": "Equator highlighted across globe, educational fantasy atlas"
+    },
+    "geo_av1_060": {
+      "id": "geo_av1_060",
+      "numero": 60,
+      "tema": "Cartografia",
+      "subtema": "Longitude",
+      "dificuldade": "media",
+      "pergunta": "A longitude é medida a partir de qual linha de referência?",
+      "alternativas": {
+        "A": "Meridiano de Greenwich",
+        "B": "Linha do Equador",
+        "C": "Trópico de Capricórnio",
+        "D": "Círculo Polar Ártico"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Greenwich é a principal referência para medir longitudes.",
+      "imagem": "geo_av1_060.webp",
+      "promptImagem": "Greenwich meridian navigation map, educational fantasy style"
+    },
+    "geo_av1_061": {
+      "id": "geo_av1_061",
+      "numero": 61,
+      "tema": "Relevo",
+      "subtema": "Montanha",
+      "dificuldade": "dificil",
+      "pergunta": "Qual forma de relevo é caracterizada por grandes elevações naturais do terreno?",
+      "alternativas": {
+        "A": "Montanha",
+        "B": "Planície",
+        "C": "Depressão",
+        "D": "Vale"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As montanhas são algumas das formações mais impressionantes da superfície terrestre.",
+      "imagem": "geo_av1_061.webp",
+      "promptImagem": "Educational fantasy landforms scene showing mountains, plateaus and plains, premium atlas illustration, no text"
+    },
+    "geo_av1_062": {
+      "id": "geo_av1_062",
+      "numero": 62,
+      "tema": "Relevo",
+      "subtema": "Planalto",
+      "dificuldade": "dificil",
+      "pergunta": "Qual forma de relevo apresenta áreas elevadas com topo relativamente plano?",
+      "alternativas": {
+        "A": "Planalto",
+        "B": "Planície",
+        "C": "Depressão",
+        "D": "Delta"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Muitos rios nascem em regiões de planalto.",
+      "imagem": "geo_av1_062.webp",
+      "promptImagem": "Plateau landform with flat elevated surface, educational fantasy atlas style"
+    },
+    "geo_av1_063": {
+      "id": "geo_av1_063",
+      "numero": 63,
+      "tema": "Relevo",
+      "subtema": "Planície",
+      "dificuldade": "dificil",
+      "pergunta": "Qual relevo possui terrenos baixos e pouco inclinados?",
+      "alternativas": {
+        "A": "Planície",
+        "B": "Montanha",
+        "C": "Chapada",
+        "D": "Serra"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As planícies costumam ser favoráveis à agricultura e ocupação humana.",
+      "imagem": "geo_av1_063.webp",
+      "promptImagem": "Wide plain landscape, educational fantasy atlas illustration"
+    },
+    "geo_av1_064": {
+      "id": "geo_av1_064",
+      "numero": 64,
+      "tema": "Relevo",
+      "subtema": "Depressão",
+      "dificuldade": "dificil",
+      "pergunta": "Como chamamos uma área mais baixa que os terrenos ao seu redor?",
+      "alternativas": {
+        "A": "Depressão",
+        "B": "Planalto",
+        "C": "Chapada",
+        "D": "Cordilheira"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As depressões podem ser formadas pela ação da erosão durante milhares de anos.",
+      "imagem": "geo_av1_064.webp",
+      "promptImagem": "Depression landform in educational fantasy atlas style"
+    },
+    "geo_av1_065": {
+      "id": "geo_av1_065",
+      "numero": 65,
+      "tema": "Relevo",
+      "subtema": "Chapada",
+      "dificuldade": "dificil",
+      "pergunta": "Qual relevo apresenta topo plano e encostas íngremes?",
+      "alternativas": {
+        "A": "Chapada",
+        "B": "Planície",
+        "C": "Vale",
+        "D": "Delta"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As chapadas costumam formar paisagens muito impressionantes.",
+      "imagem": "geo_av1_065.webp",
+      "promptImagem": "Mesa-like plateau chapada landscape, educational fantasy atlas illustration"
+    },
+    "geo_av1_066": {
+      "id": "geo_av1_066",
+      "numero": 66,
+      "tema": "Relevo",
+      "subtema": "Cordilheira",
+      "dificuldade": "dificil",
+      "pergunta": "Uma sequência de montanhas interligadas recebe o nome de:",
+      "alternativas": {
+        "A": "Cordilheira",
+        "B": "Planalto",
+        "C": "Chapada",
+        "D": "Depressão"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As maiores montanhas do planeta costumam formar extensas cordilheiras.",
+      "imagem": "geo_av1_066.webp",
+      "promptImagem": "Mountain range stretching across horizon, educational fantasy atlas illustration"
+    },
+    "geo_av1_067": {
+      "id": "geo_av1_067",
+      "numero": 67,
+      "tema": "Andes",
+      "subtema": "Localização",
+      "dificuldade": "dificil",
+      "pergunta": "Qual é a principal cordilheira da América do Sul?",
+      "alternativas": {
+        "A": "Cordilheira dos Andes",
+        "B": "Montanhas Rochosas",
+        "C": "Alpes",
+        "D": "Himalaia"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Os Andes atravessam diversos países da América do Sul.",
+      "imagem": "geo_av1_067.webp",
+      "promptImagem": "Andes mountain range, educational fantasy style, premium atlas artwork"
+    },
+    "geo_av1_068": {
+      "id": "geo_av1_068",
+      "numero": 68,
+      "tema": "Andes",
+      "subtema": "Geografia",
+      "dificuldade": "dificil",
+      "pergunta": "Em qual lado da América do Sul se localiza a Cordilheira dos Andes?",
+      "alternativas": {
+        "A": "Oeste",
+        "B": "Leste",
+        "C": "Centro",
+        "D": "Nordeste"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Os Andes acompanham grande parte da costa do Oceano Pacífico.",
+      "imagem": "geo_av1_068.webp",
+      "promptImagem": "Andes mountains beside Pacific coast, educational fantasy atlas"
+    },
+    "geo_av1_069": {
+      "id": "geo_av1_069",
+      "numero": 69,
+      "tema": "Andes",
+      "subtema": "Interpretação",
+      "dificuldade": "dificil",
+      "pergunta": "Qual relevo dificulta a construção de estradas devido às grandes altitudes?",
+      "alternativas": {
+        "A": "Cordilheira",
+        "B": "Planície",
+        "C": "Vale",
+        "D": "Praia"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Grandes altitudes exigem soluções especiais de engenharia.",
+      "imagem": "geo_av1_069.webp",
+      "promptImagem": "High mountain range with valleys and passes, educational fantasy illustration"
+    },
+    "geo_av1_070": {
+      "id": "geo_av1_070",
+      "numero": 70,
+      "tema": "Andes",
+      "subtema": "Natureza",
+      "dificuldade": "dificil",
+      "pergunta": "Os Andes são conhecidos principalmente por:",
+      "alternativas": {
+        "A": "Grandes altitudes",
+        "B": "Extensas praias",
+        "C": "Florestas costeiras",
+        "D": "Desertos gelados"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Alguns dos picos mais altos das Américas estão nos Andes.",
+      "imagem": "geo_av1_070.webp",
+      "promptImagem": "Snow-capped Andes peaks, educational fantasy atlas style"
+    },
+    "geo_av1_071": {
+      "id": "geo_av1_071",
+      "numero": 71,
+      "tema": "Relevo",
+      "subtema": "Pico",
+      "dificuldade": "dificil",
+      "pergunta": "Como chamamos o ponto mais alto de uma montanha?",
+      "alternativas": {
+        "A": "Pico",
+        "B": "Vale",
+        "C": "Sopé",
+        "D": "Planície"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Os picos costumam ser os primeiros locais a receber neve em regiões frias.",
+      "imagem": "geo_av1_071.webp",
+      "promptImagem": "Mountain peak highlighted, educational fantasy atlas illustration"
+    },
+    "geo_av1_072": {
+      "id": "geo_av1_072",
+      "numero": 72,
+      "tema": "Relevo",
+      "subtema": "Sopé",
+      "dificuldade": "dificil",
+      "pergunta": "Qual nome recebe a parte inferior de uma montanha?",
+      "alternativas": {
+        "A": "Sopé",
+        "B": "Cume",
+        "C": "Pico",
+        "D": "Crista"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "O sopé marca a transição entre a montanha e os terrenos vizinhos.",
+      "imagem": "geo_av1_072.webp",
+      "promptImagem": "Mountain base and slope educational fantasy illustration"
+    },
+    "geo_av1_073": {
+      "id": "geo_av1_073",
+      "numero": 73,
+      "tema": "Relevo",
+      "subtema": "Cume",
+      "dificuldade": "dificil",
+      "pergunta": "O cume corresponde a qual parte da montanha?",
+      "alternativas": {
+        "A": "Parte mais alta",
+        "B": "Parte mais baixa",
+        "C": "Encosta lateral",
+        "D": "Vale"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Muitos exploradores sonham em alcançar o cume de grandes montanhas.",
+      "imagem": "geo_av1_073.webp",
+      "promptImagem": "Mountain summit illuminated by sunrise, educational fantasy style"
+    },
+    "geo_av1_074": {
+      "id": "geo_av1_074",
+      "numero": 74,
+      "tema": "Relevo",
+      "subtema": "Comparação",
+      "dificuldade": "dificil",
+      "pergunta": "Qual relevo normalmente apresenta menor altitude?",
+      "alternativas": {
+        "A": "Planície",
+        "B": "Cordilheira",
+        "C": "Montanha",
+        "D": "Chapada"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "As planícies costumam se formar por deposição de sedimentos.",
+      "imagem": "geo_av1_074.webp",
+      "promptImagem": "Comparison of plains and mountains, educational fantasy atlas"
+    },
+    "geo_av1_075": {
+      "id": "geo_av1_075",
+      "numero": 75,
+      "tema": "Cartografia",
+      "subtema": "Integração",
+      "dificuldade": "dificil",
+      "pergunta": "Para localizar um ponto exato em uma cordilheira, o mais adequado é utilizar:",
+      "alternativas": {
+        "A": "Coordenadas geográficas",
+        "B": "Nome do oceano",
+        "C": "Vegetação",
+        "D": "Clima"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Coordenadas permitem localizar até mesmo os lugares mais remotos.",
+      "imagem": "geo_av1_075.webp",
+      "promptImagem": "Coordinate grid over mountainous region, educational fantasy style"
+    },
+    "geo_av1_076": {
+      "id": "geo_av1_076",
+      "numero": 76,
+      "tema": "Cartografia",
+      "subtema": "Integração",
+      "dificuldade": "dificil",
+      "pergunta": "Qual elemento do mapa ajuda a identificar direções durante uma expedição?",
+      "alternativas": {
+        "A": "Rosa dos Ventos",
+        "B": "Legenda",
+        "C": "Título",
+        "D": "Escala"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Exploradores dependem da orientação para chegar ao destino correto.",
+      "imagem": "geo_av1_076.webp",
+      "promptImagem": "Compass rose integrated with explorer atlas, educational fantasy illustration"
+    },
+    "geo_av1_077": {
+      "id": "geo_av1_077",
+      "numero": 77,
+      "tema": "América do Sul",
+      "subtema": "Integração",
+      "dificuldade": "dificil",
+      "pergunta": "Qual conjunto apresenta apenas países estudados neste capítulo?",
+      "alternativas": {
+        "A": "Colômbia, Venezuela, Guiana e Suriname",
+        "B": "Brasil, Japão, Canadá e México",
+        "C": "França, Alemanha, Itália e Espanha",
+        "D": "China, Índia, Rússia e Japão"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Esses países ocupam a porção norte da América do Sul.",
+      "imagem": "geo_av1_077.webp",
+      "promptImagem": "Northern South America atlas map, educational fantasy style"
+    },
+    "geo_av1_078": {
+      "id": "geo_av1_078",
+      "numero": 78,
+      "tema": "América do Sul",
+      "subtema": "Integração",
+      "dificuldade": "dificil",
+      "pergunta": "Qual país estudado abriga as Cataratas Ángel?",
+      "alternativas": {
+        "A": "Venezuela",
+        "B": "Suriname",
+        "C": "Guiana Francesa",
+        "D": "Equador"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "A Catarata Ángel é considerada uma das maiores maravilhas naturais da América do Sul.",
+      "imagem": "geo_av1_078.webp",
+      "promptImagem": "Angel Falls in Venezuela, educational fantasy premium illustration"
+    },
+    "geo_av1_079": {
+      "id": "geo_av1_079",
+      "numero": 79,
+      "tema": "América do Sul",
+      "subtema": "Integração",
+      "dificuldade": "dificil",
+      "pergunta": "Qual país estudado abriga as Cataratas Kaieteur?",
+      "alternativas": {
+        "A": "Guiana",
+        "B": "Colômbia",
+        "C": "Venezuela",
+        "D": "Peru"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Kaieteur é uma das cachoeiras de queda única mais impressionantes do mundo.",
+      "imagem": "geo_av1_079.webp",
+      "promptImagem": "Kaieteur Falls surrounded by rainforest, educational fantasy style"
+    },
+    "geo_av1_080": {
+      "id": "geo_av1_080",
+      "numero": 80,
+      "tema": "Revisão Geral",
+      "subtema": "Síntese",
+      "dificuldade": "dificil",
+      "pergunta": "Para estudar corretamente um território, geralmente utilizamos mapas, coordenadas, relevo e informações culturais porque:",
+      "alternativas": {
+        "A": "Todos esses elementos ajudam a compreender um lugar de forma completa",
+        "B": "Apenas mapas são importantes",
+        "C": "Apenas relevo é importante",
+        "D": "Somente a cultura importa"
+      },
+      "respostaCorreta": "A",
+      "cronicaGuardiao": "Os grandes exploradores observam natureza, localização, cultura e paisagens para compreender o mundo.",
+      "imagem": "geo_av1_080.webp",
+      "promptImagem": "Grand explorer atlas of South America with maps, mountains, coordinates and cultural elements, educational fantasy, premium game asset, highly readable, no text, no characters"
+    }
+  },
+  "indice_imagens": {
+    "geo_brasil_01.webp": [
+      "geo_av1_001",
+      "geo_av1_002"
+    ],
+    "geo_brasil_regioes_01.webp": [
+      "geo_av1_003",
+      "geo_av1_004",
+      "geo_av1_005"
+    ],
+    "geo_mapa_america_sul_01.webp": [
+      "geo_av1_006",
+      "geo_av1_025",
+      "geo_av1_046",
+      "geo_av1_056",
+      "geo_av1_057",
+      "geo_av1_077"
+    ],
+    "geo_peru_01.webp": [
+      "geo_av1_007"
+    ],
+    "geo_chile_01.webp": [
+      "geo_av1_008"
+    ],
+    "geo_argentina_01.webp": [
+      "geo_av1_009"
+    ],
+    "geo_uruguai_01.webp": [
+      "geo_av1_010"
+    ],
+    "geo_paraguai_01.webp": [
+      "geo_av1_011"
+    ],
+    "geo_bolivia_01.webp": [
+      "geo_av1_012"
+    ],
+    "geo_equador_01.webp": [
+      "geo_av1_013"
+    ],
+    "geo_venezuela_colombia_01.webp": [
+      "geo_av1_014",
+      "geo_av1_015",
+      "geo_av1_020",
+      "geo_av1_021",
+      "geo_av1_050",
+      "geo_av1_051"
+    ],
+    "geo_guianas_01.webp": [
+      "geo_av1_016",
+      "geo_av1_017",
+      "geo_av1_018",
+      "geo_av1_019",
+      "geo_av1_028",
+      "geo_av1_052",
+      "geo_av1_053"
+    ],
+    "geo_arepas_01.webp": [
+      "geo_av1_022",
+      "geo_av1_054"
+    ],
+    "geo_chocolate_colombiano_01.webp": [
+      "geo_av1_023",
+      "geo_av1_055"
+    ],
+    "geo_dia_mortos_equador_01.webp": [
+      "geo_av1_024"
+    ],
+    "geo_angel_falls_01.webp": [
+      "geo_av1_029",
+      "geo_av1_078"
+    ],
+    "geo_kaieteur_01.webp": [
+      "geo_av1_030",
+      "geo_av1_079"
+    ],
+    "geo_coordenadas_01.webp": [
+      "geo_av1_031",
+      "geo_av1_032",
+      "geo_av1_033",
+      "geo_av1_034",
+      "geo_av1_035",
+      "geo_av1_041",
+      "geo_av1_042",
+      "geo_av1_043",
+      "geo_av1_044",
+      "geo_av1_045",
+      "geo_av1_058",
+      "geo_av1_059",
+      "geo_av1_060",
+      "geo_av1_075"
+    ],
+    "geo_rosa_ventos_01.webp": [
+      "geo_av1_036",
+      "geo_av1_037",
+      "geo_av1_038",
+      "geo_av1_039",
+      "geo_av1_040",
+      "geo_av1_047",
+      "geo_av1_048",
+      "geo_av1_049",
+      "geo_av1_076"
+    ],
+    "geo_bandeiras_america_sul_01.webp": [
+      "geo_av1_026",
+      "geo_av1_027"
+    ],
+    "geo_relevo_01.webp": [
+      "geo_av1_061",
+      "geo_av1_062",
+      "geo_av1_063",
+      "geo_av1_064",
+      "geo_av1_065",
+      "geo_av1_072",
+      "geo_av1_074"
+    ],
+    "geo_andes_01.webp": [
+      "geo_av1_066",
+      "geo_av1_067",
+      "geo_av1_068",
+      "geo_av1_069",
+      "geo_av1_070",
+      "geo_av1_071",
+      "geo_av1_073"
+    ],
+    "geo_atlas_astra_01.webp": [
+      "geo_av1_080"
+    ]
+  }
+}
