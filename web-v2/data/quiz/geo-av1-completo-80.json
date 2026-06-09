@@ -3,1599 +3,1462 @@
     "descricao": "Matriz Mestre Completa de Questões Geografia AV1 (1-80)",
     "total": 80,
     "blocos": {
-      "bloco_1": "Questões 1-30 (Fácil) - Localizações, Capitais, Cultura, Bandeiras",
-      "bloco_2": "Questões 31-60 (Médio) - Cartografia, Coordenadas, Rosa dos Ventos",
-      "bloco_3": "Questões 61-80 (Difícil) - Relevo, Andes, Integração"
+      "bloco_1": "Questões 1-30 - Geografia, Relevo e Lendas",
+      "bloco_2": "Questões 31-60 - Paul Bunyan e Geografia Andina",
+      "bloco_3": "Questões 61-80 - Cartografia, Andes e Relevo"
     },
-    "ultima_atualizacao": "2026-06-08",
+    "ultima_atualizacao": "2026-06-09",
     "imagens_unicas": 80,
     "temas": [
-      "Brasil",
-      "América do Sul",
-      "Guianas",
-      "Venezuela",
-      "Colômbia",
       "Equador",
-      "Cultura",
-      "Cartografia",
-      "Relevo",
+      "Peru",
       "Andes",
-      "Revisão Geral"
-    ],
-    "dificuldades": {
-      "facil": 30,
-      "media": 30,
-      "dificil": 20
-    }
+      "Machu Picchu",
+      "Lendas",
+      "Relevo",
+      "América do Sul"
+    ]
   },
   "questoes": {
     "geo_av1_001": {
       "id": "geo_av1_001",
       "numero": 1,
-      "tema": "Brasil",
-      "subtema": "Localização",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "facil",
-      "pergunta": "Em qual continente o Brasil está localizado?",
+      "pergunta": "Em qual continente ficam o Peru e o Equador?",
       "alternativas": {
-        "A": "América do Sul",
-        "B": "América do Norte",
+        "A": "Europa",
+        "B": "América do Sul",
         "C": "África",
         "D": "Ásia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Brasil é o maior país da América do Sul.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "A América do Sul abriga a Floresta Amazônica, os Andes e diversas civilizações antigas.",
       "imagem": "geo_av1_001.webp",
-      "promptImagem": "Illustrated map of Brazil highlighted on South American continent, educational fantasy atlas style, premium game asset"
+      "promptImagem": "Educational fantasy illustration representing: Em qual continente ficam o Peru e o Equador?"
     },
     "geo_av1_002": {
       "id": "geo_av1_002",
       "numero": 2,
-      "tema": "Brasil",
-      "subtema": "Capital",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital do Brasil?",
+      "pergunta": "Qual país fica ao norte do Peru?",
       "alternativas": {
-        "A": "Brasília",
-        "B": "Rio de Janeiro",
-        "C": "São Paulo",
-        "D": "Salvador"
+        "A": "Chile",
+        "B": "Brasil",
+        "C": "Equador",
+        "D": "Bolívia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Brasília foi construída no centro do Brasil como capital planejada.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O Equador recebeu esse nome porque a Linha do Equador passa pelo país.",
       "imagem": "geo_av1_002.webp",
-      "promptImagem": "Fantasy map of Brazil with capital city marked, educational atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual país fica ao norte do Peru?"
     },
     "geo_av1_003": {
       "id": "geo_av1_003",
       "numero": 3,
-      "tema": "Brasil",
-      "subtema": "Regiões",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "facil",
-      "pergunta": "O Brasil é dividido em quantas regiões?",
+      "pergunta": "Qual cidade é a capital do Equador?",
       "alternativas": {
-        "A": "5",
-        "B": "7",
-        "C": "10",
-        "D": "3"
+        "A": "Guayaquil",
+        "B": "Cusco",
+        "C": "Quito",
+        "D": "Lima"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As cinco regiões do Brasil são: Norte, Nordeste, Centro-Oeste, Sudeste e Sul.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Quito está entre as capitais mais altas do planeta.",
       "imagem": "geo_av1_003.webp",
-      "promptImagem": "Illustrated map of Brazil divided by regions with colors, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual cidade é a capital do Equador?"
     },
     "geo_av1_004": {
       "id": "geo_av1_004",
       "numero": 4,
-      "tema": "Brasil",
-      "subtema": "Regiões",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "facil",
-      "pergunta": "Qual é a maior região do Brasil em extensão territorial?",
+      "pergunta": "Qual montanha é a mais alta do Equador?",
       "alternativas": {
-        "A": "Norte",
-        "B": "Nordeste",
-        "C": "Centro-Oeste",
-        "D": "Sudeste"
+        "A": "Cotopaxi",
+        "B": "Chimborazo",
+        "C": "Andes",
+        "D": "Pico da Neblina"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Região Norte contém a Floresta Amazônica.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "O topo do Chimborazo é o point da superfície terrestre mais distante do centro da Terra.",
       "imagem": "geo_av1_004.webp",
-      "promptImagem": "North region of Brazil highlighted on educational fantasy map"
+      "promptImagem": "Educational fantasy illustration representing: Qual montanha é a mais alta do Equador?"
     },
     "geo_av1_005": {
       "id": "geo_av1_005",
       "numero": 5,
-      "tema": "Brasil",
-      "subtema": "Regiões",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "facil",
-      "pergunta": "Qual região do Brasil é conhecida pelo Nordeste?",
+      "pergunta": "Qual arquipélago pertence ao Equador?",
       "alternativas": {
-        "A": "Nordeste",
-        "B": "Norte",
-        "C": "Centro-Oeste",
-        "D": "Sul"
+        "A": "Malvinas",
+        "B": "Galápagos",
+        "C": "Canárias",
+        "D": "Açores"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Nordeste possui importantes capitais como Salvador e Recife.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Galápagos ficou famosa pelos estudos de Charles Darwin.",
       "imagem": "geo_av1_005.webp",
-      "promptImagem": "Northeast region of Brazil educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Qual arquipélago pertence ao Equador?"
     },
     "geo_av1_006": {
       "id": "geo_av1_006",
       "numero": 6,
-      "tema": "América do Sul",
-      "subtema": "Países",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "facil",
-      "pergunta": "Quantos países independentes existem na América do Sul?",
+      "pergunta": "Qual grande cadeia de montanhas atravessa a América do Sul?",
       "alternativas": {
-        "A": "12",
-        "B": "15",
-        "C": "10",
-        "D": "8"
+        "A": "Alpes",
+        "B": "Atlas",
+        "C": "Andes",
+        "D": "Rochosas"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A América do Sul possui grande diversidade de países e culturas.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Os Andes se estendem por cerca de 7 mil quilômetros.",
       "imagem": "geo_av1_006.webp",
-      "promptImagem": "Political map of South America showing all countries, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual grande cadeia de montanhas atravessa a América do Sul?"
     },
     "geo_av1_007": {
       "id": "geo_av1_007",
       "numero": 7,
       "tema": "América do Sul",
-      "subtema": "Capitais",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital do Peru?",
+      "pergunta": "O que significa a palavra 'remanescente'?",
       "alternativas": {
-        "A": "Lima",
-        "B": "Cuzco",
-        "C": "Arequipa",
-        "D": "Trujillo"
+        "A": "Algo perdido",
+        "B": "Algo que sobra ou permanece",
+        "C": "Algo escondido",
+        "D": "Algo recém-criado"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Lima fica na costa do Oceano Pacífico.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Remanescente é aquilo que permanece depois de grandes mudanças.",
       "imagem": "geo_av1_007.webp",
-      "promptImagem": "Fantasy atlas map of Peru with capital city marked, premium illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que significa a palavra 'remanescente'?"
     },
     "geo_av1_008": {
       "id": "geo_av1_008",
       "numero": 8,
       "tema": "América do Sul",
-      "subtema": "Capitais",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital do Chile?",
+      "pergunta": "Como os incas chamavam seu império?",
       "alternativas": {
-        "A": "Santiago",
-        "B": "Valparaíso",
-        "C": "Concepción",
-        "D": "Antofagasta"
+        "A": "Tahuantinsuyo",
+        "B": "Machu Picchu",
+        "C": "Cuscolândia",
+        "D": "Império Solar"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "Santiago está localizada na região central do Chile.",
+      "cronicaGuardiao": "Tahuantinsuyo significa 'Terra dos Quatro Quartos'.",
       "imagem": "geo_av1_008.webp",
-      "promptImagem": "Educational fantasy map of Chile with capital marked"
+      "promptImagem": "Educational fantasy illustration representing: Como os incas chamavam seu império?"
     },
     "geo_av1_009": {
       "id": "geo_av1_009",
       "numero": 9,
       "tema": "América do Sul",
-      "subtema": "Capitais",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital da Argentina?",
+      "pergunta": "Quem eram os incas?",
       "alternativas": {
-        "A": "Buenos Aires",
-        "B": "Mendoza",
-        "C": "Córdoba",
-        "D": "Rosário"
+        "A": "Um povo da Europa",
+        "B": "Um povo indígena da América do Sul",
+        "C": "Um povo da África",
+        "D": "Um povo da Ásia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Buenos Aires é uma das maiores cidades da América do Sul.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Os incas construíram um dos maiores impérios da América.",
       "imagem": "geo_av1_009.webp",
-      "promptImagem": "Argentina atlas map with Buenos Aires highlighted, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Quem eram os incas?"
     },
     "geo_av1_010": {
       "id": "geo_av1_010",
       "numero": 10,
       "tema": "América do Sul",
-      "subtema": "Capitais",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital do Uruguai?",
+      "pergunta": "Qual animal é muito associado aos Andes?",
       "alternativas": {
-        "A": "Montevidéu",
-        "B": "Salto",
-        "C": "Paysandú",
-        "D": "Melo"
+        "A": "Camelo",
+        "B": "Lhama",
+        "C": "Búfalo",
+        "D": "Alce"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Montevidéu é o principal porto do Uruguai.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "As lhamas eram usadas para transporte pelos povos andinos.",
       "imagem": "geo_av1_010.webp",
-      "promptImagem": "Educational atlas map of Uruguay with capital city"
+      "promptImagem": "Educational fantasy illustration representing: Qual animal é muito associado aos Andes?"
     },
     "geo_av1_011": {
       "id": "geo_av1_011",
       "numero": 11,
       "tema": "América do Sul",
-      "subtema": "Capitais",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital do Paraguai?",
+      "pergunta": "Qual cidade antiga ficou conhecida como a Cidade Perdida dos Incas?",
       "alternativas": {
-        "A": "Assunção",
-        "B": "Ciudad del Este",
-        "C": "Encarnación",
-        "D": "Concepción"
+        "A": "Cusco",
+        "B": "Lima",
+        "C": "Machu Picchu",
+        "D": "Quito"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Assunção está localizada às margens do Rio da Prata.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Machu Picchu permaneceu escondida dos conquistadores espanhóis.",
       "imagem": "geo_av1_011.webp",
-      "promptImagem": "Fantasy atlas map of Paraguay showing capital, educational style"
+      "promptImagem": "Educational fantasy illustration representing: Qual cidade antiga ficou conhecida como a Cidade Perdida dos Incas?"
     },
     "geo_av1_012": {
       "id": "geo_av1_012",
       "numero": 12,
-      "tema": "América do Sul",
-      "subtema": "Capitais",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital da Bolívia?",
+      "pergunta": "Em qual país está localizada Machu Picchu?",
       "alternativas": {
-        "A": "La Paz",
-        "B": "Santa Cruz",
-        "C": "Sucre",
-        "D": "Oruro"
+        "A": "Chile",
+        "B": "Peru",
+        "C": "Equador",
+        "D": "Bolívia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "La Paz é uma das capitais mais altas do mundo.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Machu Picchu está entre os sítios arqueológicos mais famosos do mundo.",
       "imagem": "geo_av1_012.webp",
-      "promptImagem": "Bolivia educational atlas map, fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Em qual país está localizada Machu Picchu?"
     },
     "geo_av1_013": {
       "id": "geo_av1_013",
       "numero": 13,
-      "tema": "América do Sul",
-      "subtema": "Capitais",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital do Equador?",
+      "pergunta": "Quem redescobriu Machu Picchu em 1911?",
       "alternativas": {
-        "A": "Quito",
-        "B": "Guayaquil",
-        "C": "Cuenca",
-        "D": "Ambato"
+        "A": "Atahualpa",
+        "B": "Francisco Pizarro",
+        "C": "Hiram Bingham",
+        "D": "Simón Bolívar"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Quito está localizada na região andina do Equador.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Hiram Bingham apresentou Machu Picchu ao mundo moderno.",
       "imagem": "geo_av1_013.webp",
-      "promptImagem": "Ecuador fantasy atlas map with capital marked"
+      "promptImagem": "Educational fantasy illustration representing: Quem redescobriu Machu Picchu em 1911?"
     },
     "geo_av1_014": {
       "id": "geo_av1_014",
       "numero": 14,
-      "tema": "América do Sul",
-      "subtema": "Capitais",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital da Venezuela?",
+      "pergunta": "Qual organização declarou Machu Picchu Patrimônio Mundial?",
       "alternativas": {
-        "A": "Caracas",
-        "B": "Maracaibo",
-        "C": "Valencia",
-        "D": "Barquisimeto"
+        "A": "ONU",
+        "B": "OMS",
+        "C": "UNESCO",
+        "D": "OTAN"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Caracas fica no litoral do Mar do Caribe.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "A UNESCO protege locais considerados valiosos para toda a humanidade.",
       "imagem": "geo_av1_014.webp",
-      "promptImagem": "Venezuela educational fantasy atlas map"
+      "promptImagem": "Educational fantasy illustration representing: Qual organização declarou Machu Picchu Patrimônio Mundial?"
     },
     "geo_av1_015": {
       "id": "geo_av1_015",
       "numero": 15,
-      "tema": "América do Sul",
-      "subtema": "Capitais",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "facil",
-      "pergunta": "Qual é a capital da Colômbia?",
+      "pergunta": "Qual era uma das funções possíveis de Machu Picchu?",
       "alternativas": {
-        "A": "Bogotá",
-        "B": "Medellín",
-        "C": "Cali",
-        "D": "Barranquilla"
+        "A": "Base naval",
+        "B": "Refúgio para reis incas",
+        "C": "Porto marítimo",
+        "D": "Fábrica"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Bogotá está localizada na região andina da Colômbia.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Pesquisadores acreditam que o local possuía funções religiosas e administrativas.",
       "imagem": "geo_av1_015.webp",
-      "promptImagem": "Colombia fantasy atlas map, educational style"
+      "promptImagem": "Educational fantasy illustration representing: Qual era uma das funções possíveis de Machu Picchu?"
     },
     "geo_av1_016": {
       "id": "geo_av1_016",
       "numero": 16,
-      "tema": "Guianas",
-      "subtema": "Localização",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "Em qual região da América do Sul estão localizadas as Guianas?",
+      "pergunta": "Qual destes é um alimento tradicional dos Andes?",
       "alternativas": {
-        "A": "Norte",
-        "B": "Sul",
-        "C": "Oeste",
-        "D": "Centro"
+        "A": "Batata",
+        "B": "Trigo",
+        "C": "Cevada",
+        "D": "Aveia"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "As Guianas ocupam a porção norte da América do Sul e são cobertas por extensas florestas tropicais.",
+      "cronicaGuardiao": "Existem milhares de variedades de batata cultivadas nos Andes.",
       "imagem": "geo_av1_016.webp",
-      "promptImagem": "Illustrated map of Guyana, Suriname and French Guiana, lush rainforest, rivers and coastline, educational fantasy atlas style, premium game asset"
+      "promptImagem": "Educational fantasy illustration representing: Qual destes é um alimento tradicional dos Andes?"
     },
     "geo_av1_017": {
       "id": "geo_av1_017",
       "numero": 17,
-      "tema": "Guianas",
-      "subtema": "Capitais",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "facil",
-      "pergunta": "Qual capital pertence à Guiana Francesa?",
+      "pergunta": "Qual é a capital do Peru?",
       "alternativas": {
-        "A": "Caiena",
-        "B": "Georgetown",
-        "C": "Paramaribo",
-        "D": "Bogotá"
+        "A": "Cusco",
+        "B": "Lima",
+        "C": "Arequipa",
+        "D": "Puno"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Caiena é uma importante cidade costeira da Guiana Francesa.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Lima é a maior cidade do Peru.",
       "imagem": "geo_av1_017.webp",
-      "promptImagem": "Fantasy atlas map of the Guianas with coastal settlements and rivers, premium educational illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual é a capital do Peru?"
     },
     "geo_av1_018": {
       "id": "geo_av1_018",
       "numero": 18,
-      "tema": "Guianas",
-      "subtema": "Capitais",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "facil",
-      "pergunta": "Qual capital pertence ao Suriname?",
+      "pergunta": "Qual oceano banha a costa do Peru?",
       "alternativas": {
-        "A": "Paramaribo",
-        "B": "Caiena",
-        "C": "Caracas",
-        "D": "Lima"
+        "A": "Atlântico",
+        "B": "Índico",
+        "C": "Pacífico",
+        "D": "Ártico"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Paramaribo é conhecida por sua mistura de influências culturais.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O Pacífico é o maior oceano do planeta.",
       "imagem": "geo_av1_018.webp",
-      "promptImagem": "Educational fantasy map of Suriname with rivers and tropical vegetation"
+      "promptImagem": "Educational fantasy illustration representing: Qual oceano banha a costa do Peru?"
     },
     "geo_av1_019": {
       "id": "geo_av1_019",
       "numero": 19,
-      "tema": "Guianas",
-      "subtema": "Capitais",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "facil",
-      "pergunta": "Qual capital pertence à Guiana?",
+      "pergunta": "Qual animal aparece frequentemente em imagens de Machu Picchu?",
       "alternativas": {
-        "A": "Georgetown",
-        "B": "Paramaribo",
-        "C": "Caiena",
-        "D": "Quito"
+        "A": "Lhama",
+        "B": "Bisão",
+        "C": "Urso",
+        "D": "Raposa"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "Georgetown fica próxima ao Oceano Atlântico.",
+      "cronicaGuardiao": "As lhamas circulam livremente em muitas áreas de Machu Picchu.",
       "imagem": "geo_av1_019.webp",
-      "promptImagem": "Guyana fantasy atlas map with coastlines and rivers"
+      "promptImagem": "Educational fantasy illustration representing: Qual animal aparece frequentemente em imagens de Machu Picchu?"
     },
     "geo_av1_020": {
       "id": "geo_av1_020",
       "numero": 20,
-      "tema": "Venezuela",
-      "subtema": "Localização",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "facil",
-      "pergunta": "A Venezuela está localizada em qual parte da América do Sul?",
+      "pergunta": "Os Andes são uma:",
       "alternativas": {
-        "A": "Norte",
-        "B": "Sul",
-        "C": "Extremo Oeste",
-        "D": "Centro"
+        "A": "Planície",
+        "B": "Cordilheira",
+        "C": "Floresta",
+        "D": "Ilha"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Venezuela possui litoral voltado para o Mar do Caribe.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Uma cordilheira é um conjunto de montanhas ligadas.",
       "imagem": "geo_av1_020.webp",
-      "promptImagem": "Illustrated northern South America map, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Os Andes são uma:"
     },
     "geo_av1_021": {
       "id": "geo_av1_021",
       "numero": 21,
-      "tema": "Colômbia",
-      "subtema": "Localização",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Qual país faz fronteira com a Venezuela e possui capital chamada Bogotá?",
+      "pergunta": "Quem é o personagem principal das histórias contadas neste capítulo?",
       "alternativas": {
-        "A": "Colômbia",
-        "B": "Peru",
-        "C": "Chile",
-        "D": "Uruguai"
+        "A": "Davy Crockett",
+        "B": "Paul Bunyan",
+        "C": "Hiram Bingham",
+        "D": "Atahualpa"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Colômbia possui paisagens que vão das montanhas andinas até praias tropicais.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Paul Bunyan é um dos personagens mais famosos do folclore norte-americano.",
       "imagem": "geo_av1_021.webp",
-      "promptImagem": "Educational fantasy map of Colombia and neighboring countries"
+      "promptImagem": "Educational fantasy illustration representing: Quem é o personagem principal das histórias contadas neste capítulo?"
     },
     "geo_av1_022": {
       "id": "geo_av1_022",
       "numero": 22,
-      "tema": "Cultura",
-      "subtema": "Arepas",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "As arepas são um alimento típico de qual região?",
+      "pergunta": "Qual era a profissão de Paul Bunyan?",
       "alternativas": {
-        "A": "Venezuela e Colômbia",
-        "B": "Brasil e Argentina",
-        "C": "Chile e Uruguai",
-        "D": "Peru e Bolívia"
+        "A": "Pescador",
+        "B": "Lenhador",
+        "C": "Mineiro",
+        "D": "Fazendeiro"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As arepas são muito populares e podem ser recheadas com diversos ingredientes.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "As lendas dizem que Paul Bunyan era tão grande que derrubava florestas inteiras.",
       "imagem": "geo_av1_022.webp",
-      "promptImagem": "Traditional arepas arranged on rustic table, educational fantasy food illustration, premium game asset"
+      "promptImagem": "Educational fantasy illustration representing: Qual era a profissão de Paul Bunyan?"
     },
     "geo_av1_023": {
       "id": "geo_av1_023",
       "numero": 23,
-      "tema": "Cultura",
-      "subtema": "Chocolate",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Qual país é famoso pela produção de chocolate estudada no capítulo?",
+      "pergunta": "Qual era o nome do famoso boi de Paul Bunyan?",
       "alternativas": {
-        "A": "Colômbia",
-        "B": "Chile",
-        "C": "Paraguai",
-        "D": "Uruguai"
+        "A": "Max",
+        "B": "Thunder",
+        "C": "Babe",
+        "D": "Bluey"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O cacau é uma importante matéria-prima para a produção de chocolate.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Babe é um dos animais mais conhecidos do folclore dos Estados Unidos.",
       "imagem": "geo_av1_023.webp",
-      "promptImagem": "Chocolate and cacao beans displayed in educational fantasy style, premium illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual era o nome do famoso boi de Paul Bunyan?"
     },
     "geo_av1_024": {
       "id": "geo_av1_024",
       "numero": 24,
-      "tema": "Equador",
-      "subtema": "Cultura",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Qual celebração tradicional foi apresentada no conteúdo sobre o Equador?",
+      "pergunta": "Qual era a cor do boi Babe?",
       "alternativas": {
-        "A": "Dia dos Mortos",
-        "B": "Carnaval de Veneza",
-        "C": "Oktoberfest",
-        "D": "Ano Novo Chinês"
+        "A": "Preto",
+        "B": "Marrom",
+        "C": "Branco",
+        "D": "Azul"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Dia dos Mortos possui grande importância cultural em diversos países latino-americanos.",
+      "respostaCorreta": "D",
+      "cronicaGuardiao": "Babe ficou conhecido como o lendário Boi Azul.",
       "imagem": "geo_av1_024.webp",
-      "promptImagem": "Traditional Ecuadorian Day of the Dead celebration, educational fantasy illustration, colorful and respectful"
+      "promptImagem": "Educational fantasy illustration representing: Qual era a cor do boi Babe?"
     },
     "geo_av1_025": {
       "id": "geo_av1_025",
       "numero": 25,
-      "tema": "América do Sul",
-      "subtema": "Mapa",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Ao observar um mapa da América do Sul, qual país ocupa a maior área territorial?",
+      "pergunta": "Segundo a lenda, como Babe ficou azul?",
       "alternativas": {
-        "A": "Brasil",
-        "B": "Colômbia",
-        "C": "Chile",
-        "D": "Uruguai"
+        "A": "Foi pintado",
+        "B": "Nasceu azul",
+        "C": "Ficou preso em uma tempestade de neve",
+        "D": "Tomou uma poção mágica"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Brasil ocupa quase metade da área total da América do Sul.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "As histórias exageradas são uma marca das lendas de Paul Bunyan.",
       "imagem": "geo_av1_025.webp",
-      "promptImagem": "South America atlas map with countries clearly distinguishable, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Segundo a lenda, como Babe ficou azul?"
     },
     "geo_av1_026": {
       "id": "geo_av1_026",
       "numero": 26,
-      "tema": "Bandeiras",
-      "subtema": "Reconhecimento",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Observe a imagem e identifique a qual país pertence esta bandeira.",
+      "pergunta": "As histórias de Paul Bunyan são exemplos de:",
       "alternativas": {
-        "A": "Colômbia",
-        "B": "Peru",
-        "C": "Brasil",
-        "D": "Argentina"
+        "A": "Relatórios científicos",
+        "B": "Lendas folclóricas",
+        "C": "Biografias",
+        "D": "Notícias"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A bandeira colombiana possui as cores amarelo, azul e vermelho.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Lendas misturam fatos e imaginação para criar histórias marcantes.",
       "imagem": "geo_av1_026.webp",
-      "promptImagem": "Collection of South American flags displayed over explorer atlas table, no text"
+      "promptImagem": "Educational fantasy illustration representing: As histórias de Paul Bunyan são exemplos de:"
     },
     "geo_av1_027": {
       "id": "geo_av1_027",
       "numero": 27,
-      "tema": "Bandeiras",
-      "subtema": "Reconhecimento",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Observe a imagem e identifique a qual país pertence esta bandeira.",
+      "pergunta": "O que torna Paul Bunyan diferente das pessoas comuns?",
       "alternativas": {
-        "A": "Venezuela",
-        "B": "Equador",
-        "C": "Chile",
-        "D": "Paraguai"
+        "A": "Sua inteligência",
+        "B": "Sua velocidade",
+        "C": "Seu tamanho gigantesco",
+        "D": "Sua riqueza"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A bandeira da Venezuela possui estrelas representando suas regiões históricas.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Nas lendas, Paul Bunyan possuía força e tamanho extraordinários.",
       "imagem": "geo_av1_027.webp",
-      "promptImagem": "South American flags collection, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: O que torna Paul Bunyan diferente das pessoas comuns?"
     },
     "geo_av1_028": {
       "id": "geo_av1_028",
       "numero": 28,
-      "tema": "América do Sul",
-      "subtema": "Países",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Qual destes países faz parte das Guianas?",
+      "pergunta": "O que geralmente acontece nas histórias de Paul Bunyan?",
       "alternativas": {
-        "A": "Suriname",
-        "B": "Chile",
-        "C": "Uruguai",
-        "D": "Argentina"
+        "A": "Eventos comuns",
+        "B": "Situações exageradas e impossíveis",
+        "C": "Experimentos científicos",
+        "D": "Batalhas históricas"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Suriname é o menor país independente da América do Sul.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "O exagero é uma característica típica do gênero conhecido como 'tall tale'.",
       "imagem": "geo_av1_028.webp",
-      "promptImagem": "Map of the Guianas, tropical forests and rivers, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: O que geralmente acontece nas histórias de Paul Bunyan?"
     },
     "geo_av1_029": {
       "id": "geo_av1_029",
       "numero": 29,
-      "tema": "Venezuela",
-      "subtema": "Natureza",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Qual famosa queda d'água da Venezuela é considerada a mais alta do mundo?",
+      "pergunta": "Em que país surgiram as histórias de Paul Bunyan?",
       "alternativas": {
-        "A": "Catarata Ángel",
-        "B": "Kaieteur",
-        "C": "Iguaçu",
-        "D": "Niágara"
+        "A": "Canadá",
+        "B": "México",
+        "C": "Estados Unidos",
+        "D": "Peru"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Catarata Ángel possui quase 1 quilômetro de altura total.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Paul Bunyan tornou-se um símbolo das regiões florestais dos Estados Unidos.",
       "imagem": "geo_av1_029.webp",
-      "promptImagem": "Angel Falls over tepui mountain, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Em que país surgiram as histórias de Paul Bunyan?"
     },
     "geo_av1_030": {
       "id": "geo_av1_030",
       "numero": 30,
-      "tema": "Guiana",
-      "subtema": "Natureza",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "facil",
-      "pergunta": "Qual atração natural estudada está localizada na Guiana?",
+      "pergunta": "Qual característica melhor descreve Babe?",
       "alternativas": {
-        "A": "Cataratas Kaieteur",
-        "B": "Machu Picchu",
-        "C": "Deserto do Atacama",
-        "D": "Monte Everest"
+        "A": "Pequeno e rápido",
+        "B": "Azul e gigantesco",
+        "C": "Velho e cansado",
+        "D": "Branco e tímido"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As Cataratas Kaieteur impressionam pela altura e pelo enorme volume de água.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Nas lendas, Babe era tão grande quanto seu dono.",
       "imagem": "geo_av1_030.webp",
-      "promptImagem": "Kaieteur Falls in tropical rainforest, educational fantasy illustration, premium game asset"
+      "promptImagem": "Educational fantasy illustration representing: Qual característica melhor descreve Babe?"
     },
     "geo_av1_031": {
       "id": "geo_av1_031",
       "numero": 31,
-      "tema": "Cartografia",
-      "subtema": "Latitude",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "O que a latitude indica em um mapa?",
+      "pergunta": "Qual era a principal companhia de Paul Bunyan?",
       "alternativas": {
-        "A": "A distância de um lugar em relação à Linha do Equador",
-        "B": "A altura das montanhas",
-        "C": "A profundidade dos oceanos",
-        "D": "O tamanho dos países"
+        "A": "Seu cachorro",
+        "B": "Seu cavalo",
+        "C": "O boi Babe",
+        "D": "Seu irmão"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A latitude ajuda os exploradores a descobrir se um lugar está mais ao norte ou ao sul do planeta.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Babe participava das aventuras mais incríveis de Paul Bunyan.",
       "imagem": "geo_av1_031.webp",
-      "promptImagem": "Educational fantasy map showing latitude lines crossing South America, elegant atlas style, highly readable, no text"
+      "promptImagem": "Educational fantasy illustration representing: Qual era a principal companhia de Paul Bunyan?"
     },
     "geo_av1_032": {
       "id": "geo_av1_032",
       "numero": 32,
-      "tema": "Cartografia",
-      "subtema": "Longitude",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "O que a longitude indica em um mapa?",
+      "pergunta": "O que é uma lenda?",
       "alternativas": {
-        "A": "A distância de um lugar em relação ao Meridiano de Greenwich",
-        "B": "A altura do relevo",
-        "C": "A temperatura do local",
-        "D": "A vegetação predominante"
+        "A": "Uma conta matemática",
+        "B": "Uma história transmitida ao longo do tempo",
+        "C": "Uma reportagem",
+        "D": "Um mapa"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A longitude permite localizar lugares a leste ou oeste do planeta.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "As lendas ajudam a preservar a cultura e as tradições dos povos.",
       "imagem": "geo_av1_032.webp",
-      "promptImagem": "Educational fantasy map showing longitude lines crossing globe, premium atlas illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que é uma lenda?"
     },
     "geo_av1_033": {
       "id": "geo_av1_033",
       "numero": 33,
-      "tema": "Cartografia",
-      "subtema": "Linha do Equador",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual é o principal paralelo da Terra?",
+      "pergunta": "Qual destas características aparece frequentemente nas lendas?",
       "alternativas": {
-        "A": "Linha do Equador",
-        "B": "Trópico de Capricórnio",
-        "C": "Círculo Polar Ártico",
-        "D": "Meridiano de Greenwich"
+        "A": "Exagero",
+        "B": "Precisão científica",
+        "C": "Fórmulas matemáticas",
+        "D": "Dados estatísticos"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "A Linha do Equador divide a Terra em Hemisfério Norte e Hemisfério Sul.",
+      "cronicaGuardiao": "O exagero torna as histórias mais divertidas e memoráveis.",
       "imagem": "geo_av1_033.webp",
-      "promptImagem": "South America crossed by Equator line, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual destas características aparece frequentemente nas lendas?"
     },
     "geo_av1_034": {
       "id": "geo_av1_034",
       "numero": 34,
-      "tema": "Cartografia",
-      "subtema": "Greenwich",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual meridiano é utilizado como referência principal para medir a longitude?",
+      "pergunta": "Por que Babe chamou a atenção das pessoas?",
       "alternativas": {
-        "A": "Meridiano de Greenwich",
-        "B": "Linha do Equador",
-        "C": "Trópico de Câncer",
-        "D": "Meridiano Sul"
+        "A": "Porque falava",
+        "B": "Porque era azul",
+        "C": "Porque voava",
+        "D": "Porque vivia no mar"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Meridiano de Greenwich passa pela Inglaterra e serve de referência mundial.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "A cor azul de Babe tornou-o uma figura inesquecível das lendas.",
       "imagem": "geo_av1_034.webp",
-      "promptImagem": "Ancient navigation map showing Greenwich reference line, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Por que Babe chamou a atenção das pessoas?"
     },
     "geo_av1_035": {
       "id": "geo_av1_035",
       "numero": 35,
-      "tema": "Cartografia",
-      "subtema": "Coordenadas",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "As coordenadas geográficas são formadas por:",
+      "pergunta": "Qual destas palavras descreve melhor Paul Bunyan?",
       "alternativas": {
-        "A": "Latitude e longitude",
-        "B": "Altitude e relevo",
-        "C": "Clima e vegetação",
-        "D": "Oceanos e rios"
+        "A": "Gigante",
+        "B": "Pequeno",
+        "C": "Frágil",
+        "D": "Medroso"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "Latitude e longitude funcionam como o endereço de qualquer lugar do planeta.",
+      "cronicaGuardiao": "Os feitos de Paul Bunyan eram proporcionais ao seu tamanho lendário.",
       "imagem": "geo_av1_035.webp",
-      "promptImagem": "Coordinate grid over explorer atlas map, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual destas palavras descreve melhor Paul Bunyan?"
     },
     "geo_av1_036": {
       "id": "geo_av1_036",
       "numero": 36,
-      "tema": "Cartografia",
-      "subtema": "Rosa dos Ventos",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual instrumento ajuda a indicar direções em um mapa?",
+      "pergunta": "O objetivo principal das histórias de Paul Bunyan é:",
       "alternativas": {
-        "A": "Rosa dos Ventos",
-        "B": "Termômetro",
-        "C": "Bússola solar",
-        "D": "Pluviômetro"
+        "A": "Ensinar matemática",
+        "B": "Explicar fenômenos científicos",
+        "C": "Entreter e transmitir tradições",
+        "D": "Registrar fatos históricos"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Rosa dos Ventos orienta viajantes há séculos.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O folclore preserva valores e histórias importantes para cada povo.",
       "imagem": "geo_av1_036.webp",
-      "promptImagem": "Elegant compass rose, educational fantasy style, golden details, no text"
+      "promptImagem": "Educational fantasy illustration representing: O objetivo principal das histórias de Paul Bunyan é:"
     },
     "geo_av1_037": {
       "id": "geo_av1_037",
       "numero": 37,
-      "tema": "Cartografia",
-      "subtema": "Direções",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual direção fica acima em uma Rosa dos Ventos tradicional?",
+      "pergunta": "O que diferencia uma lenda de uma notícia?",
       "alternativas": {
-        "A": "Norte",
-        "B": "Sul",
-        "C": "Leste",
-        "D": "Oeste"
+        "A": "A lenda usa imaginação",
+        "B": "A notícia usa imaginação",
+        "C": "A lenda sempre é verdadeira",
+        "D": "Não existe diferença"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "Em mapas convencionais, o norte normalmente aparece na parte superior.",
+      "cronicaGuardiao": "Lendas podem conter elementos imaginários e fantásticos.",
       "imagem": "geo_av1_037.webp",
-      "promptImagem": "Compass rose with cardinal directions, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que diferencia uma lenda de uma notícia?"
     },
     "geo_av1_038": {
       "id": "geo_av1_038",
       "numero": 38,
-      "tema": "Cartografia",
-      "subtema": "Direções",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual direção fica oposta ao norte?",
+      "pergunta": "Qual animal acompanha Paul Bunyan em suas aventuras?",
       "alternativas": {
-        "A": "Sul",
-        "B": "Leste",
-        "C": "Oeste",
-        "D": "Nordeste"
+        "A": "Urso",
+        "B": "Lobo",
+        "C": "Boi",
+        "D": "Águia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Norte e Sul são direções opostas na Rosa dos Ventos.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Babe é um dos animais mais famosos da literatura folclórica americana.",
       "imagem": "geo_av1_038.webp",
-      "promptImagem": "Compass rose, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual animal acompanha Paul Bunyan em suas aventuras?"
     },
     "geo_av1_039": {
       "id": "geo_av1_039",
       "numero": 39,
-      "tema": "Cartografia",
-      "subtema": "Direções",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual direção fica à direita do norte em uma Rosa dos Ventos?",
+      "pergunta": "O Sr. Bunyan é lembrado principalmente por:",
       "alternativas": {
-        "A": "Leste",
-        "B": "Oeste",
-        "C": "Sul",
-        "D": "Noroeste"
+        "A": "Suas invenções",
+        "B": "Suas aventuras gigantescas",
+        "C": "Suas viagens marítimas",
+        "D": "Suas descobertas científicas"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Sol nasce aproximadamente na direção leste.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "As aventuras exageradas fazem parte da tradição dos contos do Oeste.",
       "imagem": "geo_av1_039.webp",
-      "promptImagem": "Compass rose educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: O Sr. Bunyan é lembrado principalmente por:"
     },
     "geo_av1_040": {
       "id": "geo_av1_040",
       "numero": 40,
-      "tema": "Cartografia",
-      "subtema": "Direções",
+      "tema": "Lendas",
+      "subtema": "Folclore",
       "dificuldade": "media",
-      "pergunta": "Qual direção fica à esquerda do norte?",
+      "pergunta": "Qual lição podemos aprender com as lendas?",
       "alternativas": {
-        "A": "Oeste",
-        "B": "Leste",
-        "C": "Sul",
-        "D": "Sudeste"
+        "A": "Apenas fatos históricos importam",
+        "B": "A imaginação também ajuda a transmitir cultura",
+        "C": "As histórias não têm valor",
+        "D": "Somente a ciência ensina"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O oeste é tradicionalmente associado ao pôr do sol.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Os povos preservam sua memória por meio das histórias que contam.",
       "imagem": "geo_av1_040.webp",
-      "promptImagem": "Compass rose educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual lição podemos aprender com as lendas?"
     },
     "geo_av1_041": {
       "id": "geo_av1_041",
       "numero": 41,
-      "tema": "Cartografia",
-      "subtema": "Coordenadas",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "Para localizar exatamente um ponto na superfície terrestre precisamos utilizar:",
+      "pergunta": "Qual é a capital do Equador mostrada no mapa?",
       "alternativas": {
-        "A": "Latitude e longitude",
-        "B": "Rios e montanhas",
-        "C": "País e cidade",
-        "D": "Clima e vegetação"
+        "A": "Lima",
+        "B": "Quito",
+        "C": "Cusco",
+        "D": "Guayaquil"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As coordenadas geográficas funcionam como o endereço secreto de qualquer lugar da Terra.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Quito está localizada próxima à Linha do Equador e é uma das capitais mais altas do mundo.",
       "imagem": "geo_av1_041.webp",
-      "promptImagem": "Educational fantasy coordinate grid over South America, premium atlas illustration, highly readable"
+      "promptImagem": "Educational fantasy illustration representing: Qual é a capital do Equador mostrada no mapa?"
     },
     "geo_av1_042": {
       "id": "geo_av1_042",
       "numero": 42,
-      "tema": "Cartografia",
-      "subtema": "Latitude",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "media",
-      "pergunta": "As linhas imaginárias que medem a latitude são chamadas de:",
+      "pergunta": "Qual é a montanha mais alta do Equador?",
       "alternativas": {
-        "A": "Paralelos",
-        "B": "Meridianos",
-        "C": "Escalas",
-        "D": "Fronteiras"
+        "A": "Aconcágua",
+        "B": "Cotopaxi",
+        "C": "Chimborazo",
+        "D": "Illimani"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Os paralelos circulam a Terra como anéis invisíveis.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O Chimborazo é tão alto que seu topo é o ponto da Terra mais distante do centro do planeta.",
       "imagem": "geo_av1_042.webp",
-      "promptImagem": "Latitude lines wrapping around globe, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual é a montanha mais alta do Equador?"
     },
     "geo_av1_043": {
       "id": "geo_av1_043",
       "numero": 43,
-      "tema": "Cartografia",
-      "subtema": "Longitude",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "media",
-      "pergunta": "As linhas imaginárias que medem a longitude são chamadas de:",
+      "pergunta": "Como os incas chamavam seu império?",
       "alternativas": {
-        "A": "Meridianos",
-        "B": "Paralelos",
-        "C": "Escalas",
-        "D": "Fusos"
+        "A": "Machu Picchu",
+        "B": "Tahuantinsuyo",
+        "C": "Cusco",
+        "D": "Andesia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Os meridianos ligam o Polo Norte ao Polo Sul.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Tahuantinsuyo significa 'Terra dos Quatro Quartos', pois o império era dividido em quatro regiões.",
       "imagem": "geo_av1_043.webp",
-      "promptImagem": "Longitude lines on globe, educational fantasy atlas illustration"
+      "promptImagem": "Educational fantasy illustration representing: Como os incas chamavam seu império?"
     },
     "geo_av1_044": {
       "id": "geo_av1_044",
       "numero": 44,
-      "tema": "Cartografia",
-      "subtema": "Equador",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "media",
-      "pergunta": "A Linha do Equador divide a Terra em:",
+      "pergunta": "Qual animal aparece na fotografia ao lado do texto sobre Machu Picchu?",
       "alternativas": {
-        "A": "Hemisfério Norte e Hemisfério Sul",
-        "B": "Leste e Oeste",
-        "C": "Oceanos e continentes",
-        "D": "Trópicos e polos"
+        "A": "Alpaca",
+        "B": "Vicunha",
+        "C": "Lhama",
+        "D": "Guanaco"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Muitos países da América do Sul estão próximos da Linha do Equador.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "As lhamas eram muito importantes para os povos andinos como meio de transporte.",
       "imagem": "geo_av1_044.webp",
-      "promptImagem": "Equator crossing South America, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Qual animal aparece na fotografia ao lado do texto sobre Machu Picchu?"
     },
     "geo_av1_045": {
       "id": "geo_av1_045",
       "numero": 45,
-      "tema": "Cartografia",
-      "subtema": "Greenwich",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "media",
-      "pergunta": "O Meridiano de Greenwich divide a Terra em:",
+      "pergunta": "Em qual país fica Machu Picchu?",
       "alternativas": {
-        "A": "Leste e Oeste",
-        "B": "Norte e Sul",
-        "C": "Continentes e oceanos",
-        "D": "Trópicos"
+        "A": "Bolívia",
+        "B": "Chile",
+        "C": "Equador",
+        "D": "Peru"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Greenwich é uma das referências mais importantes da navegação mundial.",
+      "respostaCorreta": "D",
+      "cronicaGuardiao": "Machu Picchu foi construída pelos incas nas montanhas do Peru.",
       "imagem": "geo_av1_045.webp",
-      "promptImagem": "Ancient navigation chart highlighting Greenwich reference, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Em qual país fica Machu Picchu?"
     },
     "geo_av1_046": {
       "id": "geo_av1_046",
       "numero": 46,
-      "tema": "Cartografia",
-      "subtema": "Mapas",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "media",
-      "pergunta": "Qual elemento do mapa indica o significado das cores e símbolos utilizados?",
+      "pergunta": "Quem redescobriu Machu Picchu in 1911?",
       "alternativas": {
-        "A": "Legenda",
-        "B": "Escala",
-        "C": "Título",
-        "D": "Rosa dos Ventos"
+        "A": "Francisco Pizarro",
+        "B": "Simón Bolívar",
+        "C": "Hiram Bingham",
+        "D": "Atahualpa"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A legenda é a chave para compreender qualquer mapa.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Hiram Bingham era um explorador americano que levou Machu Picchu ao conhecimento mundial.",
       "imagem": "geo_av1_046.webp",
-      "promptImagem": "Explorer atlas map with symbols and regions, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Quem redescobriu Machu Picchu in 1911?"
     },
     "geo_av1_047": {
       "id": "geo_av1_047",
       "numero": 47,
-      "tema": "Cartografia",
-      "subtema": "Mapas",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "media",
-      "pergunta": "Qual elemento do mapa indica a orientação?",
+      "pergunta": "Qual cordilheira atravessa o Peru?",
       "alternativas": {
-        "A": "Rosa dos Ventos",
-        "B": "Legenda",
-        "C": "Título",
-        "D": "Escala"
+        "A": "Montanhas Rochosas",
+        "B": "Alpes",
+        "C": "Andes",
+        "D": "Atlas"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Rosa dos Ventos ajuda exploradores a encontrar o caminho correto.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "A Cordilheira dos Andes é a maior cadeia de montanhas da América do Sul.",
       "imagem": "geo_av1_047.webp",
-      "promptImagem": "Elegant compass rose, fantasy educational style, gold accents"
+      "promptImagem": "Educational fantasy illustration representing: Qual cordilheira atravessa o Peru?"
     },
     "geo_av1_048": {
       "id": "geo_av1_048",
       "numero": 48,
-      "tema": "Cartografia",
-      "subtema": "Mapas",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "Qual direção fica entre Norte e Leste?",
+      "pergunta": "Qual oceano fica a oeste do Peru?",
       "alternativas": {
-        "A": "Nordeste",
-        "B": "Noroeste",
-        "C": "Sudeste",
-        "D": "Sudoeste"
+        "A": "Atlântico",
+        "B": "Índico",
+        "C": "Glacial Ártico",
+        "D": "Pacífico"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As direções intermediárias tornam a navegação ainda mais precisa.",
+      "respostaCorreta": "D",
+      "cronicaGuardiao": "O Oceano Pacífico banha toda a costa oeste da América do Sul.",
       "imagem": "geo_av1_048.webp",
-      "promptImagem": "Compass rose showing cardinal and intermediate directions"
+      "promptImagem": "Educational fantasy illustration representing: Qual oceano fica a oeste do Peru?"
     },
     "geo_av1_049": {
       "id": "geo_av1_049",
       "numero": 49,
-      "tema": "Cartografia",
-      "subtema": "Mapas",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "Qual direção fica entre Sul e Oeste?",
+      "pergunta": "Qual destes países NÃO faz fronteira com o Peru?",
       "alternativas": {
-        "A": "Sudoeste",
-        "B": "Sudeste",
-        "C": "Nordeste",
-        "D": "Noroeste"
+        "A": "Brasil",
+        "B": "Chile",
+        "C": "Bolívia",
+        "D": "Argentina"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Exploradores utilizam direções intermediárias para trajetos mais precisos.",
+      "respostaCorreta": "D",
+      "cronicaGuardiao": "A Argentina não faz fronteira com o Peru.",
       "imagem": "geo_av1_049.webp",
-      "promptImagem": "Compass rose educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual destes países NÃO faz fronteira com o Peru?"
     },
     "geo_av1_050": {
       "id": "geo_av1_050",
       "numero": 50,
-      "tema": "Cartografia",
-      "subtema": "Localização",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "A Colômbia está localizada em qual porção da América do Sul?",
+      "pergunta": "Qual era o antigo império localizado onde hoje fica o Peru?",
       "alternativas": {
-        "A": "Noroeste",
-        "B": "Sudeste",
-        "C": "Sul",
-        "D": "Centro"
+        "A": "Asteca",
+        "B": "Maia",
+        "C": "Inca",
+        "D": "Olmeca"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Colômbia faz ligação entre a América do Sul e a América Central.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O Império Inca foi o maior império da América pré-colombiana.",
       "imagem": "geo_av1_050.webp",
-      "promptImagem": "Northwestern South America map, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Qual era o antigo império localizado onde hoje fica o Peru?"
     },
     "geo_av1_051": {
       "id": "geo_av1_051",
       "numero": 51,
-      "tema": "Cartografia",
-      "subtema": "Localização",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "A Venezuela possui litoral voltado para qual mar?",
+      "pergunta": "Qual destes alimentos é citado como parte da culinária peruana?",
       "alternativas": {
-        "A": "Mar do Caribe",
-        "B": "Mar Mediterrâneo",
-        "C": "Mar Vermelho",
-        "D": "Mar Negro"
+        "A": "Trigo",
+        "B": "Milho",
+        "C": "Centeio",
+        "D": "Aveia"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Mar do Caribe é uma importante área turística e comercial.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "O milho é cultivado nos Andes há milhares de anos.",
       "imagem": "geo_av1_051.webp",
-      "promptImagem": "Caribbean coastline of Venezuela, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Qual destes alimentos é citado como parte da culinária peruana?"
     },
     "geo_av1_052": {
       "id": "geo_av1_052",
       "numero": 52,
-      "tema": "Guianas",
-      "subtema": "Comparação",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "Qual destas NÃO faz parte da região das Guianas?",
+      "pergunta": "Segundo o texto, qual animal de estimação popular nos EUA também é consumido no Peru?",
       "alternativas": {
-        "A": "Chile",
-        "B": "Guiana",
-        "C": "Suriname",
-        "D": "Guiana Francesa"
+        "A": "Coelho",
+        "B": "Hamster",
+        "C": "Porquinho-da-índia",
+        "D": "Periquito"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As Guianas ocupam uma área contínua no norte do continente.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O porquinho-da-índia é um alimento tradicional em algumas regiões andinas.",
       "imagem": "geo_av1_052.webp",
-      "promptImagem": "Illustrated Guianas region map, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Segundo o texto, qual animal de estimação popular nos EUA também é consumido no Peru?"
     },
     "geo_av1_053": {
       "id": "geo_av1_053",
       "numero": 53,
-      "tema": "Guianas",
-      "subtema": "Capitais",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "Qual sequência apresenta corretamente as capitais das Guianas?",
+      "pergunta": "Qual cidade é a capital do Peru?",
       "alternativas": {
-        "A": "Georgetown, Paramaribo e Caiena",
-        "B": "Bogotá, Caracas e Lima",
-        "C": "Quito, Santiago e Lima",
-        "D": "Brasília, Assunção e Montevidéu"
+        "A": "Cusco",
+        "B": "Arequipa",
+        "C": "Lima",
+        "D": "Puno"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Cada uma das Guianas possui uma capital costeira importante.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Lima foi fundada pelos espanhóis em 1535.",
       "imagem": "geo_av1_053.webp",
-      "promptImagem": "Educational atlas map highlighting capitals of the Guianas"
+      "promptImagem": "Educational fantasy illustration representing: Qual cidade é a capital do Peru?"
     },
     "geo_av1_054": {
       "id": "geo_av1_054",
       "numero": 54,
-      "tema": "Cultura",
-      "subtema": "Arepas",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "media",
-      "pergunta": "As arepas são feitas principalmente a partir de:",
+      "pergunta": "Em que continente ficam Equador e Peru?",
       "alternativas": {
-        "A": "Milho",
-        "B": "Arroz",
-        "C": "Batata",
-        "D": "Trigo"
+        "A": "Europa",
+        "B": "Ásia",
+        "C": "América do Sul",
+        "D": "África"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O milho é um alimento tradicional de muitos povos da América do Sul.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "A América do Sul abriga a Cordilheira dos Andes e a Floresta Amazônica.",
       "imagem": "geo_av1_054.webp",
-      "promptImagem": "Traditional arepas and corn ingredients, educational fantasy food illustration"
+      "promptImagem": "Educational fantasy illustration representing: Em que continente ficam Equador e Peru?"
     },
     "geo_av1_055": {
       "id": "geo_av1_055",
       "numero": 55,
-      "tema": "Cultura",
-      "subtema": "Chocolate",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "media",
-      "pergunta": "O chocolate é produzido a partir de qual fruto?",
+      "pergunta": "O que significa a palavra 'remanescente' apresentada no vocabulário?",
       "alternativas": {
-        "A": "Cacau",
-        "B": "Café",
-        "C": "Cana-de-açúcar",
-        "D": "Milho"
+        "A": "Algo que desapareceu",
+        "B": "Algo que sobrou",
+        "C": "Algo novo",
+        "D": "Algo antigo"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O cacau cresce melhor em regiões quentes e úmidas.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Remanescente é aquilo que permanece depois que o restante desaparece.",
       "imagem": "geo_av1_055.webp",
-      "promptImagem": "Cacao pods and chocolate, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que significa a palavra 'remanescente' apresentada no vocabulário?"
     },
     "geo_av1_056": {
       "id": "geo_av1_056",
       "numero": 56,
-      "tema": "Mapas",
-      "subtema": "Interpretação",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "media",
-      "pergunta": "Ao observar um mapa da América do Sul, qual oceano aparece à esquerda do continente?",
+      "pergunta": "O que é uma cordilheira?",
       "alternativas": {
-        "A": "Pacífico",
-        "B": "Atlântico",
-        "C": "Índico",
-        "D": "Ártico"
+        "A": "Uma ilha",
+        "B": "Um rio",
+        "C": "Um grupo de montanhas conectadas",
+        "D": "Uma floresta"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Oceano Pacífico banha toda a costa oeste da América do Sul.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Os Andes formam a maior cordilheira da América do Sul.",
       "imagem": "geo_av1_056.webp",
-      "promptImagem": "South America atlas map with surrounding oceans, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: O que é uma cordilheira?"
     },
     "geo_av1_057": {
       "id": "geo_av1_057",
       "numero": 57,
-      "tema": "Mapas",
-      "subtema": "Interpretação",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "media",
-      "pergunta": "Ao observar um mapa da América do Sul, qual oceano aparece à direita do continente?",
+      "pergunta": "Como é chamado o ponto mais alto de uma montanha?",
       "alternativas": {
-        "A": "Atlântico",
-        "B": "Pacífico",
-        "C": "Índico",
-        "D": "Glacial Ártico"
+        "A": "Vale",
+        "B": "Sopé",
+        "C": "Passagem",
+        "D": "Cume"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O Atlântico é o oceano que banha a costa leste do Brasil.",
+      "respostaCorreta": "D",
+      "cronicaGuardiao": "Alpinistas costumam celebrar quando alcançam o cume de uma montanha.",
       "imagem": "geo_av1_057.webp",
-      "promptImagem": "South America atlas map, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Como é chamado o ponto mais alto de uma montanha?"
     },
     "geo_av1_058": {
       "id": "geo_av1_058",
       "numero": 58,
-      "tema": "Cartografia",
-      "subtema": "Coordenadas",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "media",
-      "pergunta": "Para encontrar um local exato em um mapa usamos:",
+      "pergunta": "O que é um cânion?",
       "alternativas": {
-        "A": "Coordenadas geográficas",
-        "B": "Clima",
-        "C": "Vegetação",
-        "D": "Economia"
+        "A": "Um lago profundo",
+        "B": "Um vale profundo com lados íngremes",
+        "C": "Uma montanha isolada",
+        "D": "Uma floresta fechada"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As coordenadas ajudam navegadores, aviadores e cientistas.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Os cânions são formados principalmente pela erosão causada pelos rios.",
       "imagem": "geo_av1_058.webp",
-      "promptImagem": "Coordinate grid over atlas map, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: O que é um cânion?"
     },
     "geo_av1_059": {
       "id": "geo_av1_059",
       "numero": 59,
-      "tema": "Cartografia",
-      "subtema": "Latitude",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "media",
-      "pergunta": "A latitude é medida a partir de qual linha de referência?",
+      "pergunta": "Como é chamado o local baixo entre montanhas?",
       "alternativas": {
-        "A": "Linha do Equador",
-        "B": "Greenwich",
-        "C": "Trópico de Capricórnio",
-        "D": "Trópico de Câncer"
+        "A": "Vale",
+        "B": "Pico",
+        "C": "Penhasco",
+        "D": "Planalto"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "A Linha do Equador é o paralelo mais importante do planeta.",
+      "cronicaGuardiao": "Muitas cidades importantes foram construídas em vales.",
       "imagem": "geo_av1_059.webp",
-      "promptImagem": "Equator highlighted across globe, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Como é chamado o local baixo entre montanhas?"
     },
     "geo_av1_060": {
       "id": "geo_av1_060",
       "numero": 60,
-      "tema": "Cartografia",
-      "subtema": "Longitude",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "media",
-      "pergunta": "A longitude é medida a partir de qual linha de referência?",
+      "pergunta": "Qual patrimônio histórico dos incas foi declarado Patrimônio Mundial pela UNESCO em 1983?",
       "alternativas": {
-        "A": "Meridiano de Greenwich",
-        "B": "Linha do Equador",
-        "C": "Trópico de Capricórnio",
-        "D": "Círculo Polar Ártico"
+        "A": "Cusco",
+        "B": "Lago Titicaca",
+        "C": "Machu Picchu",
+        "D": "Nazca"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Greenwich é a principal referência para medir longitudes.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Machu Picchu é considerada uma das maravilhas do mundo moderno.",
       "imagem": "geo_av1_060.webp",
-      "promptImagem": "Greenwich meridian navigation map, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Qual patrimônio histórico dos incas foi declarado Patrimônio Mundial pela UNESCO em 1983?"
     },
     "geo_av1_061": {
       "id": "geo_av1_061",
       "numero": 61,
-      "tema": "Relevo",
-      "subtema": "Montanha",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "dificil",
-      "pergunta": "Qual forma de relevo é caracterizada por grandes elevações naturais do terreno?",
+      "pergunta": "Observando o mapa do Peru, qual cidade é a capital do país?",
       "alternativas": {
-        "A": "Montanha",
-        "B": "Planície",
-        "C": "Depressão",
-        "D": "Vale"
+        "A": "Cusco",
+        "B": "Pucallpa",
+        "C": "Lima",
+        "D": "Matarani"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As montanhas são algumas das formações mais impressionantes da superfície terrestre.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Lima é a maior cidade do Peru e está localizada na costa do Oceano Pacífico.",
       "imagem": "geo_av1_061.webp",
-      "promptImagem": "Educational fantasy landforms scene showing mountains, plateaus and plains, premium atlas illustration, no text"
+      "promptImagem": "Educational fantasy illustration representing: Observando o mapa do Peru, qual cidade é a capital do país?"
     },
     "geo_av1_062": {
       "id": "geo_av1_062",
       "numero": 62,
-      "tema": "Relevo",
-      "subtema": "Planalto",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "dificil",
-      "pergunta": "Qual forma de relevo apresenta áreas elevadas com topo relativamente plano?",
+      "pergunta": "Qual lago aparece no sul do mapa do Peru?",
       "alternativas": {
-        "A": "Planalto",
-        "B": "Planície",
-        "C": "Depressão",
-        "D": "Delta"
+        "A": "Lago Vitória",
+        "B": "Lago Titicaca",
+        "C": "Lago Superior",
+        "D": "Lago Ness"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Muitos rios nascem em regiões de planalto.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "O Lago Titicaca é um dos lagos navegáveis mais altos do mundo.",
       "imagem": "geo_av1_062.webp",
-      "promptImagem": "Plateau landform with flat elevated surface, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual lago aparece no sul do mapa do Peru?"
     },
     "geo_av1_063": {
       "id": "geo_av1_063",
       "numero": 63,
-      "tema": "Relevo",
-      "subtema": "Planície",
+      "tema": "Peru",
+      "subtema": "Geografia",
       "dificuldade": "dificil",
-      "pergunta": "Qual relevo possui terrenos baixos e pouco inclinados?",
+      "pergunta": "Qual destes países faz fronteira com o Peru?",
       "alternativas": {
-        "A": "Planície",
-        "B": "Montanha",
-        "C": "Chapada",
-        "D": "Serra"
+        "A": "Paraguai",
+        "B": "Uruguai",
+        "C": "Colômbia",
+        "D": "Argentina"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As planícies costumam ser favoráveis à agricultura e ocupação humana.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "A Colômbia está ao norte do Peru.",
       "imagem": "geo_av1_063.webp",
-      "promptImagem": "Wide plain landscape, educational fantasy atlas illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual destes países faz fronteira com o Peru?"
     },
     "geo_av1_064": {
       "id": "geo_av1_064",
       "numero": 64,
-      "tema": "Relevo",
-      "subtema": "Depressão",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "dificil",
-      "pergunta": "Como chamamos uma área mais baixa que os terrenos ao seu redor?",
+      "pergunta": "Qual é o nome da grande bacia hidrográfica mostrada nos mapas do Peru e do Equador?",
       "alternativas": {
-        "A": "Depressão",
-        "B": "Planalto",
-        "C": "Chapada",
-        "D": "Cordilheira"
+        "A": "Bacia do Prata",
+        "B": "Bacia do Orinoco",
+        "C": "Bacia Amazônica",
+        "D": "Bacia do Mississipi"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As depressões podem ser formadas pela ação da erosão durante milhares de anos.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "A Bacia Amazônica é a maior bacia hidrográfica do planeta.",
       "imagem": "geo_av1_064.webp",
-      "promptImagem": "Depression landform in educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: Qual é o nome da grande bacia hidrográfica mostrada nos mapas do Peru e do Equador?"
     },
     "geo_av1_065": {
       "id": "geo_av1_065",
       "numero": 65,
-      "tema": "Relevo",
-      "subtema": "Chapada",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "dificil",
-      "pergunta": "Qual relevo apresenta topo plano e encostas íngremes?",
+      "pergunta": "O que é um penhasco?",
       "alternativas": {
-        "A": "Chapada",
-        "B": "Planície",
-        "C": "Vale",
-        "D": "Delta"
+        "A": "Uma planície",
+        "B": "Uma face íngreme de rocha ou solo",
+        "C": "Um rio estreito",
+        "D": "Uma montanha baixa"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As chapadas costumam formar paisagens muito impressionantes.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Penhascos costumam se formar pela erosão do relevo ao longo de milhares de anos.",
       "imagem": "geo_av1_065.webp",
-      "promptImagem": "Mesa-like plateau chapada landscape, educational fantasy atlas illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que é um penhasco?"
     },
     "geo_av1_066": {
       "id": "geo_av1_066",
       "numero": 66,
-      "tema": "Relevo",
-      "subtema": "Cordilheira",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "dificil",
-      "pergunta": "Uma sequência de montanhas interligadas recebe o nome de:",
+      "pergunta": "O que é um planalto?",
       "alternativas": {
-        "A": "Cordilheira",
-        "B": "Planalto",
-        "C": "Chapada",
-        "D": "Depressão"
+        "A": "Uma área baixa inundada",
+        "B": "Uma montanha com topo plano ou colina elevada",
+        "C": "Um vale estreito",
+        "D": "Um lago cercado por montanhas"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As maiores montanhas do planeta costumam formar extensas cordilheiras.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Muitos planaltos servem como importantes áreas agrícolas.",
       "imagem": "geo_av1_066.webp",
-      "promptImagem": "Mountain range stretching across horizon, educational fantasy atlas illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que é um planalto?"
     },
     "geo_av1_067": {
       "id": "geo_av1_067",
       "numero": 67,
-      "tema": "Andes",
-      "subtema": "Localização",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "dificil",
-      "pergunta": "Qual é a principal cordilheira da América do Sul?",
+      "pergunta": "Qual é o significado da palavra elevação?",
       "alternativas": {
-        "A": "Cordilheira dos Andes",
-        "B": "Montanhas Rochosas",
-        "C": "Alpes",
-        "D": "Himalaia"
+        "A": "Profundidade de um rio",
+        "B": "Altura acima do nível do mar",
+        "C": "Velocidade do vento",
+        "D": "Quantidade de chuva"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Os Andes atravessam diversos países da América do Sul.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Montanhas possuem grandes elevações em relação ao nível do mar.",
       "imagem": "geo_av1_067.webp",
-      "promptImagem": "Andes mountain range, educational fantasy style, premium atlas artwork"
+      "promptImagem": "Educational fantasy illustration representing: Qual é o significado da palavra elevação?"
     },
     "geo_av1_068": {
       "id": "geo_av1_068",
       "numero": 68,
-      "tema": "Andes",
-      "subtema": "Geografia",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "dificil",
-      "pergunta": "Em qual lado da América do Sul se localiza a Cordilheira dos Andes?",
+      "pergunta": "Como se chama o ponto que se projeta para fora de uma montanha?",
       "alternativas": {
-        "A": "Oeste",
-        "B": "Leste",
-        "C": "Centro",
-        "D": "Nordeste"
+        "A": "Vale",
+        "B": "Cume",
+        "C": "Pico",
+        "D": "Planalto"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Os Andes acompanham grande parte da costa do Oceano Pacífico.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Nem todo pico é o ponto mais alto da montanha, mas sempre se destaca no relevo.",
       "imagem": "geo_av1_068.webp",
-      "promptImagem": "Andes mountains beside Pacific coast, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Como se chama o ponto que se projeta para fora de uma montanha?"
     },
     "geo_av1_069": {
       "id": "geo_av1_069",
       "numero": 69,
-      "tema": "Andes",
-      "subtema": "Interpretação",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "dificil",
-      "pergunta": "Qual relevo dificulta a construção de estradas devido às grandes altitudes?",
+      "pergunta": "O que é uma passagem nas montanhas?",
       "alternativas": {
-        "A": "Cordilheira",
-        "B": "Planície",
-        "C": "Vale",
-        "D": "Praia"
+        "A": "Um lago escondido",
+        "B": "Um caminho sobre ou através das montanhas",
+        "C": "Uma floresta tropical",
+        "D": "Uma mina abandonada"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Grandes altitudes exigem soluções especiais de engenharia.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Muitas rotas comerciais históricas atravessavam passagens montanhosas.",
       "imagem": "geo_av1_069.webp",
-      "promptImagem": "High mountain range with valleys and passes, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: O que é uma passagem nas montanhas?"
     },
     "geo_av1_070": {
       "id": "geo_av1_070",
       "numero": 70,
-      "tema": "Andes",
-      "subtema": "Natureza",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "dificil",
-      "pergunta": "Os Andes são conhecidos principalmente por:",
+      "pergunta": "O que são sopés?",
       "alternativas": {
-        "A": "Grandes altitudes",
-        "B": "Extensas praias",
-        "C": "Florestas costeiras",
-        "D": "Desertos gelados"
+        "A": "Os picos das montanhas",
+        "B": "As colinas na base das montanhas",
+        "C": "As cavernas dos Andes",
+        "D": "Os vales inundados"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Alguns dos picos mais altos das Américas estão nos Andes.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "O sopé marca a transição entre a montanha e a área mais plana ao redor.",
       "imagem": "geo_av1_070.webp",
-      "promptImagem": "Snow-capped Andes peaks, educational fantasy atlas style"
+      "promptImagem": "Educational fantasy illustration representing: O que são sopés?"
     },
     "geo_av1_071": {
       "id": "geo_av1_071",
       "numero": 71,
-      "tema": "Relevo",
-      "subtema": "Pico",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "dificil",
-      "pergunta": "Como chamamos o ponto mais alto de uma montanha?",
+      "pergunta": "Em qual cordilheira foi construída Machu Picchu?",
       "alternativas": {
-        "A": "Pico",
-        "B": "Vale",
-        "C": "Sopé",
-        "D": "Planície"
+        "A": "Montanhas Rochosas",
+        "B": "Alpes",
+        "C": "Andes",
+        "D": "Atlas"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Os picos costumam ser os primeiros locais a receber neve em regiões frias.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "Os Andes se estendem por cerca de 7.000 quilômetros ao longo da América do Sul.",
       "imagem": "geo_av1_071.webp",
-      "promptImagem": "Mountain peak highlighted, educational fantasy atlas illustration"
+      "promptImagem": "Educational fantasy illustration representing: Em qual cordilheira foi construída Machu Picchu?"
     },
     "geo_av1_072": {
       "id": "geo_av1_072",
       "numero": 72,
-      "tema": "Relevo",
-      "subtema": "Sopé",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "dificil",
-      "pergunta": "Qual nome recebe a parte inferior de uma montanha?",
+      "pergunta": "Qual organização declarou Machu Picchu Patrimônio Mundial?",
       "alternativas": {
-        "A": "Sopé",
-        "B": "Cume",
-        "C": "Pico",
-        "D": "Crista"
+        "A": "ONU",
+        "B": "UNESCO",
+        "C": "OTAN",
+        "D": "OMS"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "O sopé marca a transição entre a montanha e os terrenos vizinhos.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "A UNESCO protege locais considerados importantes para toda a humanidade.",
       "imagem": "geo_av1_072.webp",
-      "promptImagem": "Mountain base and slope educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual organização declarou Machu Picchu Patrimônio Mundial?"
     },
     "geo_av1_073": {
       "id": "geo_av1_073",
       "numero": 73,
-      "tema": "Relevo",
-      "subtema": "Cume",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "dificil",
-      "pergunta": "O cume corresponde a qual parte da montanha?",
+      "pergunta": "Qual destas construções é citada como uma das principais de Machu Picchu?",
       "alternativas": {
-        "A": "Parte mais alta",
-        "B": "Parte mais baixa",
-        "C": "Encosta lateral",
-        "D": "Vale"
+        "A": "Templo do Sol",
+        "B": "Coliseu",
+        "C": "Partenon",
+        "D": "Pirâmide do Sol"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "Muitos exploradores sonham em alcançar o cume de grandes montanhas.",
+      "cronicaGuardiao": "Templo do Sol era um dos locais mais importantes da cidade inca.",
       "imagem": "geo_av1_073.webp",
-      "promptImagem": "Mountain summit illuminated by sunrise, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Qual destas construções é citada como uma das principais de Machu Picchu?"
     },
     "geo_av1_074": {
       "id": "geo_av1_074",
       "numero": 74,
-      "tema": "Relevo",
-      "subtema": "Comparação",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "dificil",
-      "pergunta": "Qual relevo normalmente apresenta menor altitude?",
+      "pergunta": "Segundo alguns pesquisadores, Machu Picchu pode ter servido como:",
       "alternativas": {
-        "A": "Planície",
-        "B": "Cordilheira",
-        "C": "Montanha",
-        "D": "Chapada"
+        "A": "Base naval",
+        "B": "Refúgio para reis e rainhas incas",
+        "C": "Mercado internacional",
+        "D": "Fortaleza espanhola"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "As planícies costumam se formar por deposição de sedimentos.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Muitos estudiosos acreditam que Machu Picchu possuía funções religiosas e administrativas.",
       "imagem": "geo_av1_074.webp",
-      "promptImagem": "Comparison of plains and mountains, educational fantasy atlas"
+      "promptImagem": "Educational fantasy illustration representing: Segundo alguns pesquisadores, Machu Picchu pode ter servido como:"
     },
     "geo_av1_075": {
       "id": "geo_av1_075",
       "numero": 75,
-      "tema": "Cartografia",
-      "subtema": "Integração",
+      "tema": "América do Sul",
+      "subtema": "Geral",
       "dificuldade": "dificil",
-      "pergunta": "Para localizar um ponto exato em uma cordilheira, o mais adequado é utilizar:",
+      "pergunta": "Qual destes animais está associado aos povos andinos?",
       "alternativas": {
-        "A": "Coordenadas geográficas",
-        "B": "Nome do oceano",
-        "C": "Vegetação",
-        "D": "Clima"
+        "A": "Camelo",
+        "B": "Lhama",
+        "C": "Bisão",
+        "D": "Alce"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Coordenadas permitem localizar até mesmo os lugares mais remotos.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "A lã das lhamas é utilizada até hoje na produção de roupas.",
       "imagem": "geo_av1_075.webp",
-      "promptImagem": "Coordinate grid over mountainous region, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: Qual destes animais está associado aos povos andinos?"
     },
     "geo_av1_076": {
       "id": "geo_av1_076",
       "numero": 76,
-      "tema": "Cartografia",
-      "subtema": "Integração",
+      "tema": "Equador",
+      "subtema": "Geografia",
       "dificuldade": "dificil",
-      "pergunta": "Qual elemento do mapa ajuda a identificar direções durante uma expedição?",
+      "pergunta": "Qual oceano aparece tanto no mapa do Peru quanto próximo ao Equador?",
       "alternativas": {
-        "A": "Rosa dos Ventos",
-        "B": "Legenda",
-        "C": "Título",
-        "D": "Escala"
+        "A": "Atlântico",
+        "B": "Índico",
+        "C": "Pacífico",
+        "D": "Ártico"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Exploradores dependem da orientação para chegar ao destino correto.",
+      "respostaCorreta": "C",
+      "cronicaGuardiao": "O Oceano Pacífico é o maior oceano do planeta.",
       "imagem": "geo_av1_076.webp",
-      "promptImagem": "Compass rose integrated with explorer atlas, educational fantasy illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual oceano aparece tanto no mapa do Peru quanto próximo ao Equador?"
     },
     "geo_av1_077": {
       "id": "geo_av1_077",
       "numero": 77,
       "tema": "América do Sul",
-      "subtema": "Integração",
+      "subtema": "Geral",
       "dificuldade": "dificil",
-      "pergunta": "Qual conjunto apresenta apenas países estudados neste capítulo?",
+      "pergunta": "O arquipélago de Galápagos pertence a qual país?",
       "alternativas": {
-        "A": "Colômbia, Venezuela, Guiana e Suriname",
-        "B": "Brasil, Japão, Canadá e México",
-        "C": "França, Alemanha, Itália e Espanha",
-        "D": "China, Índia, Rússia e Japão"
+        "A": "Peru",
+        "B": "Chile",
+        "C": "Colômbia",
+        "D": "Equador"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Esses países ocupam a porção norte da América do Sul.",
+      "respostaCorreta": "D",
+      "cronicaGuardiao": "As Ilhas Galápagos ficaram famosas pelos estudos de Charles Darwin.",
       "imagem": "geo_av1_077.webp",
-      "promptImagem": "Northern South America atlas map, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: O arquipélago de Galápagos pertence a qual país?"
     },
     "geo_av1_078": {
       "id": "geo_av1_078",
       "numero": 78,
-      "tema": "América do Sul",
-      "subtema": "Integração",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "dificil",
-      "pergunta": "Qual país estudado abriga as Cataratas Ángel?",
+      "pergunta": "Qual cidade peruana aparece próxima a Machu Picchu no mapa?",
       "alternativas": {
-        "A": "Venezuela",
-        "B": "Suriname",
-        "C": "Guiana Francesa",
-        "D": "Equador"
+        "A": "Lima",
+        "B": "Cusco",
+        "C": "Talara",
+        "D": "Pucallpa"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "A Catarata Ángel é considerada uma das maiores maravilhas naturais da América do Sul.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "Cusco foi a antiga capital do Império Inca.",
       "imagem": "geo_av1_078.webp",
-      "promptImagem": "Angel Falls in Venezuela, educational fantasy premium illustration"
+      "promptImagem": "Educational fantasy illustration representing: Qual cidade peruana aparece próxima a Machu Picchu no mapa?"
     },
     "geo_av1_079": {
       "id": "geo_av1_079",
       "numero": 79,
-      "tema": "América do Sul",
-      "subtema": "Integração",
+      "tema": "Relevo",
+      "subtema": "Geografia Física",
       "dificuldade": "dificil",
-      "pergunta": "Qual país estudado abriga as Cataratas Kaieteur?",
+      "pergunta": "O que caracteriza uma montanha?",
       "alternativas": {
-        "A": "Guiana",
-        "B": "Colômbia",
-        "C": "Venezuela",
-        "D": "Peru"
+        "A": "Uma grande elevação natural do terreno",
+        "B": "Uma área coberta por água",
+        "C": "Uma floresta tropical",
+        "D": "Uma região desértica"
       },
       "respostaCorreta": "A",
-      "cronicaGuardiao": "Kaieteur é uma das cachoeiras de queda única mais impressionantes do mundo.",
+      "cronicaGuardiao": "As montanhas são formadas por movimentos tectônicos da crosta terrestre.",
       "imagem": "geo_av1_079.webp",
-      "promptImagem": "Kaieteur Falls surrounded by rainforest, educational fantasy style"
+      "promptImagem": "Educational fantasy illustration representing: O que caracteriza uma montanha?"
     },
     "geo_av1_080": {
       "id": "geo_av1_080",
       "numero": 80,
-      "tema": "Revisão Geral",
-      "subtema": "Síntese",
+      "tema": "Machu Picchu",
+      "subtema": "História",
       "dificuldade": "dificil",
-      "pergunta": "Para estudar corretamente um território, geralmente utilizamos mapas, coordenadas, relevo e informações culturais porque:",
+      "pergunta": "Qual grande tema une Equador, Peru, Andes e Machu Picchu neste capítulo?",
       "alternativas": {
-        "A": "Todos esses elementos ajudam a compreender um lugar de forma completa",
-        "B": "Apenas mapas são importantes",
-        "C": "Apenas relevo é importante",
-        "D": "Somente a cultura importa"
+        "A": "A história dos vikings",
+        "B": "A exploração da América do Sul e da herança inca",
+        "C": "A Revolução Industrial",
+        "D": "A colonização australiana"
       },
-      "respostaCorreta": "A",
-      "cronicaGuardiao": "Os grandes exploradores observam natureza, localização, cultura e paisagens para compreender o mundo.",
+      "respostaCorreta": "B",
+      "cronicaGuardiao": "A civilização inca deixou um legado impressionante que ainda pode ser visto nos Andes.",
       "imagem": "geo_av1_080.webp",
-      "promptImagem": "Grand explorer atlas of South America with maps, mountains, coordinates and cultural elements, educational fantasy, premium game asset, highly readable, no text, no characters"
+      "promptImagem": "Educational fantasy illustration representing: Qual grande tema une Equador, Peru, Andes e Machu Picchu neste capítulo?"
     }
-  },
-  "indice_imagens": {
-    "geo_brasil_01.webp": [
-      "geo_av1_001",
-      "geo_av1_002"
-    ],
-    "geo_brasil_regioes_01.webp": [
-      "geo_av1_003",
-      "geo_av1_004",
-      "geo_av1_005"
-    ],
-    "geo_mapa_america_sul_01.webp": [
-      "geo_av1_006",
-      "geo_av1_025",
-      "geo_av1_046",
-      "geo_av1_056",
-      "geo_av1_057",
-      "geo_av1_077"
-    ],
-    "geo_peru_01.webp": [
-      "geo_av1_007"
-    ],
-    "geo_chile_01.webp": [
-      "geo_av1_008"
-    ],
-    "geo_argentina_01.webp": [
-      "geo_av1_009"
-    ],
-    "geo_uruguai_01.webp": [
-      "geo_av1_010"
-    ],
-    "geo_paraguai_01.webp": [
-      "geo_av1_011"
-    ],
-    "geo_bolivia_01.webp": [
-      "geo_av1_012"
-    ],
-    "geo_equador_01.webp": [
-      "geo_av1_013"
-    ],
-    "geo_venezuela_colombia_01.webp": [
-      "geo_av1_014",
-      "geo_av1_015",
-      "geo_av1_020",
-      "geo_av1_021",
-      "geo_av1_050",
-      "geo_av1_051"
-    ],
-    "geo_guianas_01.webp": [
-      "geo_av1_016",
-      "geo_av1_017",
-      "geo_av1_018",
-      "geo_av1_019",
-      "geo_av1_028",
-      "geo_av1_052",
-      "geo_av1_053"
-    ],
-    "geo_arepas_01.webp": [
-      "geo_av1_022",
-      "geo_av1_054"
-    ],
-    "geo_chocolate_colombiano_01.webp": [
-      "geo_av1_023",
-      "geo_av1_055"
-    ],
-    "geo_dia_mortos_equador_01.webp": [
-      "geo_av1_024"
-    ],
-    "geo_angel_falls_01.webp": [
-      "geo_av1_029",
-      "geo_av1_078"
-    ],
-    "geo_kaieteur_01.webp": [
-      "geo_av1_030",
-      "geo_av1_079"
-    ],
-    "geo_coordenadas_01.webp": [
-      "geo_av1_031",
-      "geo_av1_032",
-      "geo_av1_033",
-      "geo_av1_034",
-      "geo_av1_035",
-      "geo_av1_041",
-      "geo_av1_042",
-      "geo_av1_043",
-      "geo_av1_044",
-      "geo_av1_045",
-      "geo_av1_058",
-      "geo_av1_059",
-      "geo_av1_060",
-      "geo_av1_075"
-    ],
-    "geo_rosa_ventos_01.webp": [
-      "geo_av1_036",
-      "geo_av1_037",
-      "geo_av1_038",
-      "geo_av1_039",
-      "geo_av1_040",
-      "geo_av1_047",
-      "geo_av1_048",
-      "geo_av1_049",
-      "geo_av1_076"
-    ],
-    "geo_bandeiras_america_sul_01.webp": [
-      "geo_av1_026",
-      "geo_av1_027"
-    ],
-    "geo_relevo_01.webp": [
-      "geo_av1_061",
-      "geo_av1_062",
-      "geo_av1_063",
-      "geo_av1_064",
-      "geo_av1_065",
-      "geo_av1_072",
-      "geo_av1_074"
-    ],
-    "geo_andes_01.webp": [
-      "geo_av1_066",
-      "geo_av1_067",
-      "geo_av1_068",
-      "geo_av1_069",
-      "geo_av1_070",
-      "geo_av1_071",
-      "geo_av1_073"
-    ],
-    "geo_atlas_astra_01.webp": [
-      "geo_av1_080"
-    ]
   }
 }
