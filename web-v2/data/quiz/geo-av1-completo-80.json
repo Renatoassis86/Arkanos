@@ -485,7 +485,7 @@
       "tema": "Bandeiras",
       "subtema": "Reconhecimento",
       "dificuldade": "facil",
-      "pergunta": "Observe a imagem e identifique a bandeira da Colômbia.",
+      "pergunta": "Observe a imagem e identifique a qual país pertence esta bandeira.",
       "alternativas": {
         "A": "Colômbia",
         "B": "Peru",
@@ -503,7 +503,7 @@
       "tema": "Bandeiras",
       "subtema": "Reconhecimento",
       "dificuldade": "facil",
-      "pergunta": "Observe a imagem e identifique a bandeira da Venezuela.",
+      "pergunta": "Observe a imagem e identifique a qual país pertence esta bandeira.",
       "alternativas": {
         "A": "Venezuela",
         "B": "Equador",
