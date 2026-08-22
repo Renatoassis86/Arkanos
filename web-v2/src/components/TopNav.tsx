@@ -6,10 +6,11 @@ import { UserMenu } from "./user-menu";
 
 const ITEMS: { href: string; label: string; match: (p: string) => boolean }[] = [
   { href: "/jogos", label: "Painel", match: (p) => p === "/jogos" },
-  { href: "/desafio", label: "Desafios", match: (p) => p.startsWith("/desafio") || p.startsWith("/spelling") },
-  { href: "/colecao", label: "Coleção", match: (p) => p.startsWith("/colecao") },
+  { href: "/radix", label: "Radix", match: (p) => p.startsWith("/radix") },
+  { href: "/spelling-bee", label: "Spelling Bee", match: (p) => p.startsWith("/spelling-bee") },
+  { href: "/desafio", label: "Desafios", match: (p) => p.startsWith("/desafio") },
   { href: "/ranking", label: "Ranking", match: (p) => p.startsWith("/ranking") },
-  { href: "/#universo", label: "Universo", match: () => false },
+  { href: "/colecao", label: "Coleção", match: (p) => p.startsWith("/colecao") },
 ];
 
 export function TopNav() {

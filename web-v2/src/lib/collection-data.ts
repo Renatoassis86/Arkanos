@@ -11,6 +11,8 @@ export type Hud = {
   email: string | null;
   level: number;
   totalArks: number;
+  highScore: number;
+  maxStreak: number;
   arks: { bronze: number; prata: number; ouro: number; diamante: number };
   serie: string | null;
   dataNascimento: string | null;
@@ -34,7 +36,7 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
   const { data: p } = await supabase
     .from("profiles")
     .select(
-      "display_name, avatar_url, serie, data_nascimento, total_xp, level, arks_bronze, arks_prata, arks_ouro, arks_diamante, streak_count, longest_streak",
+      "display_name, avatar_url, serie, data_nascimento, total_xp, level, high_score, max_streak, arks_bronze, arks_prata, arks_ouro, arks_diamante, streak_count, longest_streak",
     )
     .eq("id", user.id)
     .single();
@@ -44,6 +46,9 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
 
   const level = p?.level ?? 1;
   const totalArks = p?.total_xp ?? 0;
+  const highScore = p?.high_score ?? rank?.high_score ?? totalArks;
+  const maxStreak = p?.max_streak ?? rank?.max_streak ?? 0;
+
   const floor = arksForLevel(level);
   const ceil = level >= MAX_LEVEL ? floor : arksForLevel(level + 1);
   const span = Math.max(1, ceil - floor);
@@ -56,6 +61,8 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
     email: user.email ?? null,
     level,
     totalArks,
+    highScore,
+    maxStreak,
     arks: {
       bronze: p?.arks_bronze ?? 0,
       prata: p?.arks_prata ?? 0,
@@ -104,6 +111,8 @@ export type LeaderRow = {
   displayName: string;
   level: number;
   totalArks: number;
+  highScore: number;
+  maxStreak: number;
 };
 
 export type DailyProgress = { sessions: number; correct: number; games: number };
@@ -171,12 +180,22 @@ export async function getRecentSessions(
 export async function getLeaderboard(supabase: Supa, limit = 20): Promise<LeaderRow[]> {
   const { data } = await supabase.rpc("leaderboard_top", { p_limit: limit });
   return (data ?? []).map(
-    (r: { rank: number; user_id: string; display_name: string; level: number; total_xp: number }) => ({
+    (r: {
+      rank: number;
+      user_id: string;
+      display_name: string;
+      level: number;
+      total_xp: number;
+      high_score?: number;
+      max_streak?: number;
+    }) => ({
       rank: Number(r.rank),
       userId: r.user_id,
       displayName: r.display_name,
       level: r.level,
       totalArks: r.total_xp,
+      highScore: Number(r.high_score ?? r.total_xp ?? 0),
+      maxStreak: Number(r.max_streak ?? 0),
     }),
   );
 }

@@ -45,6 +45,8 @@ export async function awardRadixArks(input: {
       rankPos: Number(r.rank_pos),
       rankTotal: Number(r.rank_total),
       granted: (r.granted ?? []) as GrantedReward[],
+      newHighScore: Boolean(r.new_high_score),
+      currentHighScore: Number(r.current_high_score ?? r.total_arks),
     };
   } catch {
     return { persisted: false };

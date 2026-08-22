@@ -18,6 +18,8 @@ export type ArksResult =
       rankPos: number;
       rankTotal: number;
       granted: GrantedReward[];
+      newHighScore?: boolean;
+      currentHighScore?: number;
     };
 
 /**

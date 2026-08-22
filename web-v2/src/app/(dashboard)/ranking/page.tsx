@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { getHud, getLeaderboard } from "@/lib/collection-data";
 import { LEVELS } from "@/lib/collection";
 import { Brush } from "@/components/floating-art";
+import { TrophyIcon, StarIcon, CheckCircleIcon } from "@/components/game-icons";
 
 export const dynamic = "force-dynamic";
 
@@ -19,7 +20,7 @@ export default async function RankingPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#e8f0ff] via-[#eee9ff] to-[#fef3e8] pb-28 text-slate-800">
-      {/* Brushes-marca d'água (cores dividindo o fundo) */}
+      {/* Brushes-marca d'água */}
       <Brush color="#f1c40f" className="left-[-18%] top-[14%] h-72 w-72" opacity={0.16} />
       <Brush color="#6366f1" className="right-[-20%] top-[42%] h-72 w-72" opacity={0.16} />
       <Brush color="#ec4899" className="bottom-[10%] left-[-16%] h-72 w-72" opacity={0.12} />
@@ -32,18 +33,18 @@ export default async function RankingPage() {
           }}
         />
         <div className="relative mx-auto max-w-2xl text-center">
-          <p className="text-xs font-black uppercase tracking-[4px] text-[#b8860b]">
-            Ranking Geral
+          <p className="text-xs font-black uppercase tracking-[4px] text-[#b8860b] flex items-center justify-center gap-1.5">
+            <TrophyIcon className="h-4 w-4" /> Ranking Geral dos Sábios
           </p>
-          <h1 className="font-display mt-2 text-3xl text-slate-900 sm:text-4xl">
-            Sábios de Arkanos
+          <h1 className="font-display mt-2 text-3xl font-black text-slate-900 sm:text-4xl">
+            Mestres do Saber
           </h1>
           <p className="mt-2 text-sm text-slate-600">
             Sua posição: <strong className="text-[#b8860b]">#{hud.rankPos}</strong> de{" "}
-            {hud.rankTotal} · <strong className="text-slate-900">{hud.totalArks} pts</strong>
+            {hud.rankTotal} · Seu Recorde: <strong className="text-slate-900">{hud.highScore} pts</strong>
           </p>
-          <p className="mt-1 text-xs text-slate-400">
-            Pontuação por TRI: acertar questões difíceis vale mais.
+          <p className="mt-1 text-xs text-slate-500 font-medium">
+            Classificação pelo <strong>Recorde da Melhor Corrida</strong> e <strong>Sequência de Acertos Consecutivos</strong>.
           </p>
         </div>
       </header>
@@ -57,7 +58,7 @@ export default async function RankingPage() {
             return (
               <li
                 key={r.userId}
-                className={`flex items-center justify-between rounded-2xl border-2 px-4 py-3 ${
+                className={`flex items-center justify-between rounded-2xl border-2 px-4 py-3 shadow-sm ${
                   me ? "border-[#f1c40f] bg-[#f1c40f]/10" : "border-slate-200 bg-white"
                 }`}
               >
@@ -76,17 +77,21 @@ export default async function RankingPage() {
                     <span
                       className={`block truncate font-bold ${me ? "text-[#b8860b]" : "text-slate-900"}`}
                     >
-                      {r.displayName} {me && <span className="text-xs">(você)</span>}
+                      {r.displayName} {me && <span className="text-xs font-normal">(você)</span>}
                     </span>
-                    <span className="text-xs text-slate-500">
-                      Nível {r.level}
-                      {levelName ? ` · ${levelName}` : ""}
+                    <span className="text-xs text-slate-500 flex items-center gap-1">
+                      Nível {r.level} {levelName ? `· ${levelName}` : ""}
+                      {r.maxStreak > 0 && (
+                        <span className="ml-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded">
+                          {r.maxStreak} seguidas
+                        </span>
+                      )}
                     </span>
                   </span>
                 </span>
                 <span className="shrink-0 text-right">
-                  <span className="font-display text-lg text-slate-900">{r.totalArks}</span>
-                  <span className="ml-1 text-xs text-slate-400">pts</span>
+                  <span className="font-display text-lg font-black text-slate-900">{r.highScore}</span>
+                  <span className="ml-1 text-xs text-slate-400 font-bold">pts</span>
                 </span>
               </li>
             );
@@ -94,23 +99,31 @@ export default async function RankingPage() {
         </ol>
 
         {!meInTop && (
-          <div className="mt-3 flex items-center justify-between rounded-2xl border-2 border-[#f1c40f] bg-[#f1c40f]/10 px-4 py-3">
+          <div className="mt-3 flex items-center justify-between rounded-2xl border-2 border-[#f1c40f] bg-[#f1c40f]/10 px-4 py-3 shadow-sm">
             <span className="flex items-center gap-3">
               <span className="w-8 text-center text-lg font-black text-[#b8860b]">
                 #{hud.rankPos}
               </span>
               <span className="font-bold text-[#b8860b]">{hud.displayName} (você)</span>
             </span>
-            <span className="font-display text-lg text-slate-900">{hud.totalArks} pts</span>
+            <span className="font-display text-lg font-black text-slate-900">{hud.highScore} pts</span>
           </div>
         )}
 
-        <Link
-          href="/desafio"
-          className="mt-8 flex w-full items-center justify-center rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] shadow-md transition hover:-translate-y-0.5"
-        >
-          Ir para os Desafios →
-        </Link>
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/radix"
+            className="flex-1 flex items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:-translate-y-0.5"
+          >
+            Jogar Radix →
+          </Link>
+          <Link
+            href="/spelling-bee"
+            className="flex-1 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:-translate-y-0.5"
+          >
+            Jogar Spelling Bee →
+          </Link>
+        </div>
       </div>
     </main>
   );

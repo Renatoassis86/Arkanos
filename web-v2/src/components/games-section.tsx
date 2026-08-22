@@ -11,12 +11,13 @@ const GAMES_SYMS: Sym[] = [
 
 const GAMES = [
   {
-    name: "Desafio dos Sábios",
-    arte: "Lógica",
-    guardian: "Aion",
-    tag: "Quiz",
-    accent: "#60a5fa",
-    desc: "Quiz pedagógico com a Crônica do Guardião: curiosidade, fato histórico e conexão interdisciplinar. Pontuação por TRI.",
+    name: "Radix · Soletração",
+    arte: "Gramática",
+    guardian: "Lyra",
+    tag: "Português",
+    accent: "#10b981",
+    href: "/radix",
+    desc: "Soletração do vocabulário em português por nível de dificuldade, com captura fonética precisa e ranking dos sábios.",
   },
   {
     name: "Spelling Bee",
@@ -24,15 +25,25 @@ const GAMES = [
     guardian: "Lyra",
     tag: "Inglês",
     accent: "#ec4899",
-    desc: "Soletração em inglês com significado, fonética (IPA) e frases de exemplo, organizada por série.",
+    href: "/spelling-bee",
+    desc: "Soletração em inglês com significado, fonética e frases de exemplo, com baralho completo por série escolar.",
+  },
+  {
+    name: "Desafio dos Sábios",
+    arte: "Lógica",
+    guardian: "Aion",
+    tag: "Quiz",
+    accent: "#3b82f6",
+    href: "/desafio",
+    desc: "Quiz pedagógico com a Crônica do Guardião: curiosidade, fato histórico e conexão interdisciplinar. Pontuação por TRI.",
   },
   {
     name: "Ábaco Sagrado",
     arte: "Aritmética",
     guardian: "Numa",
     tag: "Quadrivium",
-    accent: "#34d399",
-    desc: "O número e a ordem com que o Criador mediu o mundo: cálculo e raciocínio do Quadrivium.",
+    accent: "#f59e0b",
+    desc: "O número e a ordem com que o Criador mediu o mundo: cálculo mental e raciocínio do Quadrivium.",
     soon: true,
   },
   {
@@ -40,8 +51,8 @@ const GAMES = [
     arte: "Retórica",
     guardian: "Kael",
     tag: "Histórias",
-    accent: "#f87171",
-    desc: "Criação de histórias ilustradas com propósito, cultivando a expressão e a beleza.",
+    accent: "#8b5cf6",
+    desc: "Criação de histórias ilustradas com propósito, cultivando a expressão, a oratória e a beleza.",
     soon: true,
   },
 ];
@@ -73,18 +84,18 @@ export function GamesSection() {
               Aprender jogando, com propósito
             </h2>
             <p className="mt-4 text-lg text-indigo-100">
-              Cada jogo reforça uma das <strong className="text-slate-900">7 Artes Liberais</strong>{" "}
-              (Trivium e Quadrivium) e é guiado por um Guardião, com a Crônica do Guardião e
-              pontuação por TRI.
+              Cada jogo reforça uma das <strong className="text-[#fcd34d]">7 Artes Liberais</strong>{" "}
+              (Trivium e Quadrivium) e é guiado por um Guardião, com desafios pedagógicos e
+              pontuação de mérito por nível de acertos.
             </p>
           </Reveal>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {GAMES.map((g, i) => (
             <Reveal key={g.name} delay={i * 0.08}>
               <div
-                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border-2 bg-white p-6 shadow-[0_10px_30px_rgba(2,6,23,0.06)] transition hover:-translate-y-1.5"
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border-2 bg-white p-5 shadow-[0_10px_30px_rgba(2,6,23,0.06)] transition hover:-translate-y-1.5"
                 style={{ borderColor: `${g.accent}40` }}
               >
                 <div
@@ -93,35 +104,37 @@ export function GamesSection() {
                 />
                 <div className="relative z-10 flex items-center justify-between">
                   <span
-                    className="rounded-full px-3 py-1 text-[11px] font-black uppercase tracking-wider"
+                    className="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider"
                     style={{ color: g.accent, backgroundColor: `${g.accent}1f` }}
                   >
                     {g.tag}
                   </span>
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-slate-400">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                     {g.arte}
                   </span>
                 </div>
 
-                <h3 className="font-display relative z-10 mt-5 text-2xl text-slate-900">{g.name}</h3>
-                <p className="relative z-10 mt-1 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <h3 className="font-display relative z-10 mt-4 text-xl font-black text-slate-900 leading-tight">
+                  {g.name}
+                </h3>
+                <p className="relative z-10 mt-1 text-[11px] font-bold uppercase tracking-widest text-slate-400">
                   Guardião(ã): {g.guardian}
                 </p>
-                <p className="relative z-10 mt-3 flex-1 text-sm leading-relaxed text-slate-600">
+                <p className="relative z-10 mt-2.5 flex-1 text-xs leading-relaxed text-slate-600">
                   {g.desc}
                 </p>
 
                 {g.soon ? (
-                  <span className="relative z-10 mt-5 inline-flex w-fit rounded-full border border-slate-200 px-4 py-2 text-xs font-black uppercase tracking-wider text-slate-400">
+                  <span className="relative z-10 mt-4 inline-flex w-fit rounded-full border border-slate-200 px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">
                     Em breve
                   </span>
                 ) : (
                   <Link
-                    href="/signup"
-                    className="relative z-10 mt-5 inline-flex w-fit rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-sm transition hover:-translate-y-0.5"
+                    href={g.href ?? "/signup"}
+                    className="relative z-10 mt-4 inline-flex w-fit rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-sm transition hover:-translate-y-0.5"
                     style={{ backgroundColor: g.accent }}
                   >
-                    Entrar para jogar →
+                    Jogar Agora →
                   </Link>
                 )}
               </div>

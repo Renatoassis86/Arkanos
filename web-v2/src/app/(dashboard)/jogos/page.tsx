@@ -16,18 +16,76 @@ import { Brush } from "@/components/floating-art";
 import { AvatarUploader } from "@/components/avatar-uploader";
 import { JourneyMap } from "@/components/journey-map";
 import { LEVELS, ERAS, ORBS, TITLES, DAILY_MISSIONS, eraForLevel } from "@/lib/collection";
-
-const TRACK_GUARDIAN: Record<string, string> = { gramatica: "lyra", logica: "aion", retorica: "kael" };
+import { GamepadIcon, TrophyIcon, StarIcon, BookIcon } from "@/components/game-icons";
 
 const GAME_LABEL: Record<string, { nome: string; mono: string; color: string }> = {
   desafio: { nome: "Desafio dos Sábios", mono: "D", color: "#3b82f6" },
   "spelling-bee": { nome: "Spelling Bee", mono: "S", color: "#ec4899" },
+  radix: { nome: "Radix", mono: "R", color: "#10b981" },
 };
+
+type GameOption = {
+  id: string;
+  nome: string;
+  sub: string;
+  tag: string;
+  href: string;
+  guardian: string;
+  bgGradient: string;
+  borderHover: string;
+  btnBg: string;
+  btnText: string;
+  tagBg: string;
+  tagText: string;
+};
+
+const GAMES_CATALOG: GameOption[] = [
+  {
+    id: "radix",
+    nome: "Radix · Soletração",
+    sub: "Soletre palavras em português por ordem de dificuldade e suba no ranking dos sábios.",
+    tag: "Língua Portuguesa",
+    href: "/radix",
+    guardian: "lyra",
+    bgGradient: "from-emerald-700 via-teal-800 to-emerald-950",
+    borderHover: "hover:border-emerald-400",
+    btnBg: "bg-emerald-400 hover:bg-emerald-300 text-emerald-950",
+    btnText: "Jogar Radix",
+    tagBg: "bg-emerald-500/20 border-emerald-400/30",
+    tagText: "text-emerald-300",
+  },
+  {
+    id: "spelling-bee",
+    nome: "Spelling Bee",
+    sub: "Ouça a pronúncia em inglês, peça significado, exemplos e soletre com precisão fonética.",
+    tag: "English Language",
+    href: "/spelling-bee",
+    guardian: "lyra",
+    bgGradient: "from-pink-600 via-rose-700 to-pink-900",
+    borderHover: "hover:border-pink-300",
+    btnBg: "bg-pink-100 hover:bg-white text-pink-900",
+    btnText: "Jogar Spelling Bee",
+    tagBg: "bg-pink-500/20 border-pink-300/30",
+    tagText: "text-pink-200",
+  },
+  {
+    id: "desafio",
+    nome: "Desafio dos Sábios",
+    sub: "Quiz dinâmico de lógica, ciências, matemática e raciocínio com pontuação ponderada.",
+    tag: "Quiz & Lógica",
+    href: "/desafio",
+    guardian: "aion",
+    bgGradient: "from-blue-700 via-indigo-800 to-slate-900",
+    borderHover: "hover:border-blue-400",
+    btnBg: "bg-amber-400 hover:bg-amber-300 text-amber-950",
+    btnText: "Iniciar Desafio",
+    tagBg: "bg-blue-500/20 border-blue-400/30",
+    tagText: "text-blue-200",
+  },
+];
 
 type Tool = { label: string; sub: string; mono: string; color: string; href?: string; soon?: boolean };
 const TOOLS: Tool[] = [
-  { label: "Desafios", sub: "Quiz · Lógica", mono: "D", color: "#3b82f6", href: "/desafio" },
-  { label: "Spelling Bee", sub: "Soletração", mono: "S", color: "#ec4899", href: "/spelling-bee" },
   { label: "Coleção", sub: "Orbes e níveis", mono: "C", color: "#e0a417", href: "/colecao" },
   { label: "Ranking", sub: "Sua posição", mono: "R", color: "#f59e0b", href: "/ranking" },
   { label: "Clube do Livro", sub: "Leitura", mono: "L", color: "#6366f1", href: "/#clube-do-livro" },
@@ -62,18 +120,13 @@ export default async function DashboardPage() {
   const dailyDone = DAILY_MISSIONS.filter((m) => daily[m.metric] >= m.target).length;
   const dailyPct = Math.round((dailyDone / DAILY_MISSIONS.length) * 100);
 
-  const RECO =
-    track === "gramatica"
-      ? { nome: "Spelling Bee", sub: "Soletração com Lyra · Gramática", href: "/spelling-bee", color: "#ec4899", guardian: "lyra" }
-      : { nome: "Desafio dos Sábios", sub: "Quiz com Aion · Lógica", href: "/desafio", color: "#3b82f6", guardian: "aion" };
-
   return (
     <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#e8f0ff] via-[#f1eaff] to-[#fdeef4] pb-16 text-slate-800">
       <Brush color="#f1c40f" className="left-[-20%] top-[10%] h-72 w-72" opacity={0.14} />
       <Brush color="#8b5cf6" className="right-[-22%] top-[34%] h-72 w-72" opacity={0.14} />
       <Brush color="#3b82f6" className="bottom-[6%] left-[-18%] h-72 w-72" opacity={0.12} />
 
-      {/* ============ HUD ============ */}
+      {/* ============ HUD DO JOGADOR ============ */}
       <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#1e3a8a] via-[#3730a3] to-[#6d28d9] px-5 pb-7 pt-7">
         <div
           className="pointer-events-none absolute inset-0"
@@ -118,29 +171,65 @@ export default async function DashboardPage() {
       <div className="relative mx-auto max-w-5xl px-4 pt-6 sm:px-6">
         <div className="grid gap-5 lg:grid-cols-3">
           {/* ---- COLUNA PRINCIPAL ---- */}
-          <div className="space-y-5 lg:col-span-2">
-            {/* Continue sua jornada */}
-            <Link href={RECO.href} className="block">
-              <div
-                className="relative overflow-hidden rounded-3xl p-5 text-white shadow-lg transition hover:-translate-y-0.5"
-                style={{ background: `linear-gradient(135deg, ${RECO.color}, ${RECO.color}bb)` }}
-              >
-                <div className="pointer-events-none absolute -right-8 -top-10 h-40 w-40 rounded-full opacity-30" style={{ background: "radial-gradient(circle, #fff, transparent 70%)" }} />
-                <div className="relative flex items-center gap-4">
-                  <GuardianAvatar name={RECO.guardian} size={64} ring="#ffffff" />
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-black uppercase tracking-[3px] text-white/85">Continue sua jornada</p>
-                    <p className="font-display text-xl leading-tight">{RECO.nome}</p>
-                    <p className="truncate text-xs text-white/85">{RECO.sub}</p>
-                  </div>
-                  <span className="rounded-full bg-white px-5 py-2.5 text-sm font-black uppercase tracking-wider shadow" style={{ color: RECO.color }}>Jogar</span>
+          <div className="space-y-6 lg:col-span-2">
+            
+            {/* ========================================================================= */}
+            {/* SEÇÃO DEDICADA: SALÃO DOS JOGOS (ESCOLHA SEU JOGO) */}
+            {/* ========================================================================= */}
+            <section className="rounded-3xl border-2 border-indigo-200 bg-white/90 p-5 sm:p-6 shadow-md backdrop-blur">
+              <div className="mb-4 flex items-center justify-between">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-indigo-600">
+                    <GamepadIcon className="h-4 w-4" /> Salão dos Jogos
+                  </span>
+                  <h2 className="font-display text-xl font-black text-slate-900 sm:text-2xl">
+                    Escolha seu Desafio
+                  </h2>
                 </div>
+                <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700 border border-indigo-100">
+                  3 Jogos Disponíveis
+                </span>
               </div>
-            </Link>
+
+              <div className="grid gap-3.5">
+                {GAMES_CATALOG.map((g) => (
+                  <Link
+                    key={g.id}
+                    href={g.href}
+                    className={`group relative overflow-hidden rounded-2xl border-2 border-transparent bg-gradient-to-r ${g.bgGradient} p-4 text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl ${g.borderHover}`}
+                  >
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div className="flex items-center gap-3.5">
+                        <GuardianAvatar name={g.guardian} size={58} ring="#ffffff" className="shrink-0 group-hover:scale-105 transition duration-200" />
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className={`inline-block rounded-md border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${g.tagBg} ${g.tagText}`}>
+                              {g.tag}
+                            </span>
+                          </div>
+                          <h3 className="font-display text-lg font-black leading-tight text-white mt-1">
+                            {g.nome}
+                          </h3>
+                          <p className="mt-0.5 text-xs text-white/80 line-clamp-2 max-w-md">
+                            {g.sub}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="shrink-0 self-end sm:self-center">
+                        <span className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs font-black uppercase tracking-wider shadow-md transition group-hover:scale-105 active:scale-95 ${g.btnBg}`}>
+                          {g.btnText} →
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
 
             {/* Suas ferramentas */}
             <Panel title="Suas ferramentas" color="#3b82f6">
-              <div className="grid grid-cols-3 gap-3 sm:grid-cols-4">
+              <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                 {TOOLS.map((t) => {
                   const inner = (
                     <div
@@ -168,14 +257,6 @@ export default async function DashboardPage() {
               right={<Link href="/colecao" className="text-xs font-bold text-[#b8860b] hover:underline">Coleção →</Link>}
             >
               <JourneyMap track={track} />
-            </Panel>
-
-            {/* Projetos e atividades */}
-            <Panel title="Projetos e atividades" color="#ec4899">
-              <div className="rounded-xl border border-dashed border-slate-300 bg-[#f8fafc] p-5 text-center">
-                <p className="text-sm text-slate-600">Nenhum projeto ou atividade com prazo no momento.</p>
-                <p className="mt-1 text-xs text-slate-400">Em breve: trabalhos e projetos com data, atribuídos pela escola ou pela família.</p>
-              </div>
             </Panel>
           </div>
 
@@ -222,7 +303,7 @@ export default async function DashboardPage() {
                         <span className="w-5 text-center font-black text-slate-400">{r.rank}</span>
                         <span className="truncate">{r.displayName}{me && " (você)"}</span>
                       </span>
-                      <span className="shrink-0 text-xs text-slate-400">{r.totalArks} pts</span>
+                      <span className="shrink-0 text-xs text-slate-400 font-bold">{r.highScore} pts</span>
                     </li>
                   );
                 })}

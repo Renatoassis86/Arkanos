@@ -18,6 +18,7 @@ import {
   speechSupported,
 } from "@/lib/spell-speech";
 import { awardRadixArks, type ArksResult } from "@/app/radix/actions";
+import { calculateSpellingScore, type SpellingItemResult } from "@/lib/spelling-score";
 import {
   SpeakerIcon,
   BookIcon,
@@ -33,12 +34,6 @@ import {
 } from "@/components/game-icons";
 
 const RADIX_GUARDIAN = "lyra"; // Lyra · Gramática / Soletração Clássica
-
-const ARKS_BY_DIFFICULTY: Record<string, number> = {
-  facil: 10,
-  medio: 20,
-  dificil: 40,
-};
 
 function norm(s: string) {
   return s
@@ -111,8 +106,10 @@ export function RadixGame({
   const [micError, setMicError] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
 
+  const [results, setResults] = useState<SpellingItemResult[]>([]);
   const [correctCount, setCorrectCount] = useState(0);
   const [xp, setXp] = useState(0);
+  const [highestTier, setHighestTier] = useState<string>("Fácil");
   const [missedAttempt, setMissedAttempt] = useState<string>("");
   const [rankingInfo, setRankingInfo] = useState<ArksResult | null>(null);
   const [saving, setSaving] = useState(false);
@@ -159,8 +156,10 @@ export function RadixGame({
     setPhase("intro");
     setSpelled("");
     setTyped("");
+    setResults([]);
     setCorrectCount(0);
     setXp(0);
+    setHighestTier("Fácil");
     setMissedAttempt("");
     setRankingInfo(null);
   }
@@ -183,8 +182,10 @@ export function RadixGame({
     setPhase("listen");
     setSpelled("");
     setTyped("");
+    setResults([]);
     setCorrectCount(0);
     setXp(0);
+    setHighestTier("Fácil");
     setMissedAttempt("");
     setRankingInfo(null);
     if (newDeck[0]) {
@@ -283,23 +284,28 @@ export function RadixGame({
     }
   }
 
-  async function handleElimination(attemptText: string) {
+  async function handleElimination(attemptText: string, finalResults: SpellingItemResult[]) {
     setMissedAttempt(attemptText);
     setPhase("eliminated");
     playWrong();
+
+    const summary = calculateSpellingScore(finalResults);
+    setCorrectCount(summary.streak);
+    setXp(summary.totalPoints);
+    setHighestTier(summary.highestTier);
 
     // Salva pontuação da sessão e obtém posição no ranking
     if (authed) {
       setSaving(true);
       try {
         const res = await awardRadixArks({
-          bronze: 0,
-          prata: 0,
-          ouro: 0,
-          diamante: 0,
-          correct: correctCount,
+          bronze: summary.easyCorrect,
+          prata: summary.mediumCorrect,
+          ouro: summary.hardCorrect,
+          diamante: summary.streak >= total ? 1 : 0,
+          correct: summary.streak,
           total,
-          points: xp,
+          points: summary.totalPoints,
         });
         setRankingInfo(res);
       } catch {
@@ -337,9 +343,12 @@ export function RadixGame({
 
     if (isOk) {
       // ACERTOU
-      const earned = ARKS_BY_DIFFICULTY[q.dificuldade] ?? 20;
-      setCorrectCount((c) => c + 1);
-      setXp((x) => x + earned);
+      const newResults = [...results, { difficulty: q.dificuldade, correct: true }];
+      setResults(newResults);
+      const summary = calculateSpellingScore(newResults);
+      setCorrectCount(summary.streak);
+      setXp(summary.totalPoints);
+      setHighestTier(summary.highestTier);
       setPhase("reveal");
       playCorrect();
       speak("Correto! Muito bem!", {
@@ -348,7 +357,9 @@ export function RadixGame({
       });
     } else {
       // ERROU -> Eliminação oficial com tela de correção, áudio e ranking
-      handleElimination(attempt);
+      const finalResults = [...results, { difficulty: q.dificuldade, correct: false }];
+      setResults(finalResults);
+      handleElimination(attempt, finalResults);
     }
   }
 
@@ -458,37 +469,45 @@ export function RadixGame({
             <div className="grid grid-cols-2 gap-2 border-b border-amber-200/60 pb-3">
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
-                  Palavras Corretas
+                  Sequência Consecutiva
                 </span>
                 <p className="font-display text-2xl font-black text-slate-900">
-                  {correctCount} <span className="text-xs text-slate-500 font-normal">de {total}</span>
+                  {correctCount} <span className="text-xs text-slate-500 font-normal">palavras</span>
                 </p>
+                <span className="inline-block mt-0.5 rounded bg-emerald-100 px-2 py-0.5 text-[10px] font-black uppercase text-emerald-800">
+                  Nível {highestTier}
+                </span>
               </div>
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
-                  Arks Conquistados
+                  Pontos Desta Corrida
                 </span>
                 <p className="font-display text-2xl font-black text-amber-600">
-                  +{xp} Arks
+                  +{xp} pts
                 </p>
+                {rankingInfo?.persisted && rankingInfo.newHighScore && (
+                  <span className="inline-block mt-0.5 rounded bg-amber-200 px-2 py-0.5 text-[10px] font-black uppercase text-amber-900">
+                    Novo Recorde!
+                  </span>
+                )}
               </div>
             </div>
 
-            {/* POSIÇÃO NO RANKING */}
+            {/* POSIÇÃO NO RANKING POR RECORDE */}
             <div className="pt-3">
               <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-slate-600">
-                <TrophyIcon className="h-4 w-4 text-amber-600" /> Ranking Geral dos Sábios
+                <TrophyIcon className="h-4 w-4 text-amber-600" /> Ranking dos Sábios (Melhor Corrida)
               </span>
               {rankingInfo?.persisted ? (
                 <p className="mt-1 text-sm font-bold text-slate-800">
                   Sua Posição: <strong className="text-amber-600">#{rankingInfo.rankPos}</strong> de {rankingInfo.rankTotal} alunos
                   <span className="block text-xs font-normal text-slate-500 mt-0.5">
-                    Total Acumulado: {rankingInfo.totalArks} Arks
+                    Seu Recorde Pessoal: <strong className="text-slate-700">{rankingInfo.currentHighScore ?? xp} pts</strong>
                   </span>
                 </p>
               ) : (
                 <p className="mt-1 text-xs text-slate-600">
-                  {authed ? "Pontuação registrada com sucesso no ranking geral!" : "Faça login para salvar seus pontos no ranking geral!"}
+                  {authed ? "Pontuação e recorde registrados com sucesso!" : "Faça login para salvar seus pontos no ranking geral!"}
                 </p>
               )}
             </div>

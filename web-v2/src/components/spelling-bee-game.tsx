@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
 import type { SpellingWord } from "@/db/queries/spelling";
 import { awardSpellingArks, type ArksResult } from "@/app/spelling-bee/actions";
+import { calculateSpellingScore, type SpellingItemResult } from "@/lib/spelling-score";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
 import { GuardianAvatar } from "@/components/guardian-avatar";
@@ -520,35 +521,40 @@ export function SpellingBeeGame({
                   Palavras Corretas
                 </span>
                 <p className="font-display text-2xl font-black text-slate-900">
-                  {correctCount} <span className="text-xs text-slate-500 font-normal">de {total}</span>
+                  {correctCount} <span className="text-xs text-slate-500 font-normal">palavras</span>
                 </p>
               </div>
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
-                  Arks Conquistados
+                  Pontos Desta Corrida
                 </span>
                 <p className="font-display text-2xl font-black text-amber-600">
-                  +{xp} Arks
+                  +{xp} pts
                 </p>
+                {persisted?.persisted && persisted.newHighScore && (
+                  <span className="inline-block mt-0.5 rounded bg-amber-200 px-2 py-0.5 text-[10px] font-black uppercase text-amber-900">
+                    Novo Recorde!
+                  </span>
+                )}
               </div>
             </div>
 
             {/* POSIÇÃO NO RANKING */}
             <div className="pt-3">
               <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-slate-600">
-                <TrophyIcon className="h-4 w-4 text-amber-600" /> Ranking Geral dos Sábios
+                <TrophyIcon className="h-4 w-4 text-amber-600" /> Ranking Geral dos Sábios (Melhor Corrida)
               </span>
               {persisted?.persisted ? (
                 <p className="mt-1 text-sm font-bold text-slate-800">
                   Sua Posição: <strong className="text-amber-600">#{persisted.rankPos}</strong> de {persisted.rankTotal} alunos
                   <span className="block text-xs font-normal text-slate-500 mt-0.5">
-                    Total Acumulado: {persisted.totalArks} Arks
+                    Seu Recorde Pessoal: <strong className="text-slate-700">{persisted.currentHighScore ?? xp} pts</strong>
                   </span>
                 </p>
               ) : (
                 <p className="mt-1 text-xs text-slate-600">
                   {authed
-                    ? "Pontuação registrada com sucesso no ranking geral!"
+                    ? "Pontuação e recorde registrados com sucesso!"
                     : "Faça login para salvar seus pontos no ranking geral!"}
                 </p>
               )}
