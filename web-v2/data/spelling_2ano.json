@@ -1,0 +1,882 @@
+[
+  {
+    "id": 1,
+    "palavra": "apple",
+    "significado": "A sweet fruit that is red or green.",
+    "exemplo": "I eat an apple every day.",
+    "ipa": "/apple/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 2,
+    "palavra": "arm",
+    "significado": "A part of your body between your shoulder and hand.",
+    "exemplo": "She raised her arm to answer.",
+    "ipa": "/arm/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 3,
+    "palavra": "baby",
+    "significado": "A very young child.",
+    "exemplo": "The baby is sleeping.",
+    "ipa": "/baby/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 4,
+    "palavra": "bag",
+    "significado": "A container to carry things.",
+    "exemplo": "He packed his school bag.",
+    "ipa": "/bag/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 5,
+    "palavra": "ball",
+    "significado": "A round object used in games and sports.",
+    "exemplo": "They played with a ball at the park.",
+    "ipa": "/ball/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 6,
+    "palavra": "banana",
+    "significado": "A long yellow fruit.",
+    "exemplo": "Monkeys love to eat bananas.",
+    "ipa": "/banana/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 7,
+    "palavra": "bed",
+    "significado": "A place where you sleep.",
+    "exemplo": "I go to bed at night.",
+    "ipa": "/bed/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 8,
+    "palavra": "bee",
+    "significado": "A flying insect that makes honey.",
+    "exemplo": "The bee is buzzing near the flower.",
+    "ipa": "/bee/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 9,
+    "palavra": "bird",
+    "significado": "An animal that has wings and can fly.",
+    "exemplo": "The bird is singing in the tree.",
+    "ipa": "/bird/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 10,
+    "palavra": "book",
+    "significado": "A set of pages with stories or facts.",
+    "exemplo": "I read a book before bed.",
+    "ipa": "/book/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 11,
+    "palavra": "box",
+    "significado": "A container used to hold things.",
+    "exemplo": "He put the toys in the box.",
+    "ipa": "/box/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 12,
+    "palavra": "boy",
+    "significado": "A male child.",
+    "exemplo": "The boy is playing outside.",
+    "ipa": "/boy/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 13,
+    "palavra": "bread",
+    "significado": "Food made from flour and baked.",
+    "exemplo": "She ate bread with butter.",
+    "ipa": "/bread/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 14,
+    "palavra": "brother",
+    "significado": "A male sibling.",
+    "exemplo": "My brother is older than me.",
+    "ipa": "/brother/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 15,
+    "palavra": "bus",
+    "significado": "A large vehicle for many passengers.",
+    "exemplo": "I go to school by bus.",
+    "ipa": "/bus/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 16,
+    "palavra": "cake",
+    "significado": "A sweet baked food.",
+    "exemplo": "We had chocolate cake at the party.",
+    "ipa": "/cake/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 17,
+    "palavra": "car",
+    "significado": "A vehicle with four wheels.",
+    "exemplo": "Dad drives the car to work.",
+    "ipa": "/car/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 18,
+    "palavra": "cat",
+    "significado": "A small animal that meows.",
+    "exemplo": "The cat is sleeping on the couch.",
+    "ipa": "/cat/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 19,
+    "palavra": "chair",
+    "significado": "A seat with a back.",
+    "exemplo": "She sat on the chair.",
+    "ipa": "/chair/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 20,
+    "palavra": "cheese",
+    "significado": "A dairy food made from milk.",
+    "exemplo": "I like cheese on my sandwich.",
+    "ipa": "/cheese/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 21,
+    "palavra": "chicken",
+    "significado": "A bird kept for its eggs or meat.",
+    "exemplo": "We had chicken for lunch.",
+    "ipa": "/chicken/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 22,
+    "palavra": "child",
+    "significado": "A young person.",
+    "exemplo": "The child is learning to read.",
+    "ipa": "/child/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 23,
+    "palavra": "coat",
+    "significado": "A warm piece of clothing.",
+    "exemplo": "She wore a coat because it was cold.",
+    "ipa": "/coat/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 24,
+    "palavra": "cookie",
+    "significado": "A sweet baked snack.",
+    "exemplo": "He ate a chocolate cookie.",
+    "ipa": "/cookie/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 25,
+    "palavra": "cow",
+    "significado": "An animal that gives milk.",
+    "exemplo": "The cow is eating grass.",
+    "ipa": "/cow/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 26,
+    "palavra": "cup",
+    "significado": "A small container for drinks.",
+    "exemplo": "She drank tea from a cup.",
+    "ipa": "/cup/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 27,
+    "palavra": "dad",
+    "significado": "Another word for father.",
+    "exemplo": "My dad is strong and kind.",
+    "ipa": "/dad/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 28,
+    "palavra": "doll",
+    "significado": "A toy shaped like a person.",
+    "exemplo": "The girl is playing with her doll.",
+    "ipa": "/doll/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 29,
+    "palavra": "door",
+    "significado": "A movable barrier used to close an entrance.",
+    "exemplo": "He opened the door slowly.",
+    "ipa": "/door/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 30,
+    "palavra": "duck",
+    "significado": "A bird that swims and quacks.",
+    "exemplo": "The duck is in the pond.",
+    "ipa": "/duck/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 31,
+    "palavra": "egg",
+    "significado": "A round object from a bird, often eaten.",
+    "exemplo": "I had an egg for breakfast.",
+    "ipa": "/egg/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 32,
+    "palavra": "eye",
+    "significado": "The part of the body used to see.",
+    "exemplo": "She closed one eye.",
+    "ipa": "/eye/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 33,
+    "palavra": "face",
+    "significado": "The front part of the head.",
+    "exemplo": "He washed his face.",
+    "ipa": "/face/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 34,
+    "palavra": "family",
+    "significado": "A group of people related to each other.",
+    "exemplo": "My family is very big.",
+    "ipa": "/family/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 35,
+    "palavra": "fish",
+    "significado": "An animal that lives in water.",
+    "exemplo": "We saw a big fish in the river.",
+    "ipa": "/fish/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 36,
+    "palavra": "floor",
+    "significado": "The bottom surface of a room.",
+    "exemplo": "He sat on the floor.",
+    "ipa": "/floor/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 37,
+    "palavra": "flower",
+    "significado": "A colorful plant part that blooms.",
+    "exemplo": "The flower smells nice.",
+    "ipa": "/flower/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 38,
+    "palavra": "foot",
+    "significado": "The lower part of the leg.",
+    "exemplo": "He hurt his foot.",
+    "ipa": "/foot/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 39,
+    "palavra": "friend",
+    "significado": "Someone you like and trust.",
+    "exemplo": "She is my best friend.",
+    "ipa": "/friend/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 40,
+    "palavra": "frog",
+    "significado": "A small animal that jumps and lives in water.",
+    "exemplo": "The frog is green.",
+    "ipa": "/frog/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 41,
+    "palavra": "fruit",
+    "significado": "A sweet food that grows on trees or plants.",
+    "exemplo": "I like to eat fruit every day.",
+    "ipa": "/fruit/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 42,
+    "palavra": "game",
+    "significado": "An activity for fun or competition.",
+    "exemplo": "They played a game outside.",
+    "ipa": "/game/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 43,
+    "palavra": "girl",
+    "significado": "A female child.",
+    "exemplo": "The girl is smiling.",
+    "ipa": "/girl/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 44,
+    "palavra": "grape",
+    "significado": "A small round fruit, purple or green.",
+    "exemplo": "She ate a bunch of grapes.",
+    "ipa": "/grape/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 45,
+    "palavra": "grass",
+    "significado": "Green plants that cover the ground.",
+    "exemplo": "The grass is wet.",
+    "ipa": "/grass/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 46,
+    "palavra": "hand",
+    "significado": "The part of your body at the end of your arm.",
+    "exemplo": "Raise your hand to answer.",
+    "ipa": "/hand/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 47,
+    "palavra": "hat",
+    "significado": "Something you wear on your head.",
+    "exemplo": "He is wearing a red hat.",
+    "ipa": "/hat/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 48,
+    "palavra": "head",
+    "significado": "The top part of your body with eyes and ears.",
+    "exemplo": "She shook her head.",
+    "ipa": "/head/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 49,
+    "palavra": "horse",
+    "significado": "A large animal you can ride.",
+    "exemplo": "The horse is running fast.",
+    "ipa": "/horse/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 50,
+    "palavra": "house",
+    "significado": "A building where people live.",
+    "exemplo": "My house is blue.",
+    "ipa": "/house/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 51,
+    "palavra": "ice",
+    "significado": "Frozen water.",
+    "exemplo": "Put ice in the drink.",
+    "ipa": "/ice/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 52,
+    "palavra": "jam",
+    "significado": "A sweet food made from fruit.",
+    "exemplo": "I like toast with jam.",
+    "ipa": "/jam/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 53,
+    "palavra": "jeans",
+    "significado": "Pants made of denim.",
+    "exemplo": "He wore blue jeans today.",
+    "ipa": "/jeans/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 54,
+    "palavra": "juice",
+    "significado": "A drink made from fruit.",
+    "exemplo": "She drank orange juice.",
+    "ipa": "/juice/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 55,
+    "palavra": "key",
+    "significado": "A tool to open locks.",
+    "exemplo": "He lost his house key.",
+    "ipa": "/key/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 56,
+    "palavra": "kite",
+    "significado": "A toy that flies in the wind.",
+    "exemplo": "The kite flew high in the sky.",
+    "ipa": "/kite/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 57,
+    "palavra": "leg",
+    "significado": "A limb used for walking.",
+    "exemplo": "Her leg is sore.",
+    "ipa": "/leg/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 58,
+    "palavra": "lemon",
+    "significado": "A yellow sour fruit.",
+    "exemplo": "Lemon juice is very sour.",
+    "ipa": "/lemon/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 59,
+    "palavra": "letter",
+    "significado": "A message sent by mail or a symbol in the alphabet.",
+    "exemplo": "I got a letter from grandma.",
+    "ipa": "/letter/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 60,
+    "palavra": "lion",
+    "significado": "A big wild cat with a mane.",
+    "exemplo": "The lion roared loudly.",
+    "ipa": "/lion/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 61,
+    "palavra": "milk",
+    "significado": "A white drink from cows.",
+    "exemplo": "He drinks milk every morning.",
+    "ipa": "/milk/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 62,
+    "palavra": "mom",
+    "significado": "Another word for mother.",
+    "exemplo": "My mom is very kind.",
+    "ipa": "/mom/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 63,
+    "palavra": "monkey",
+    "significado": "An animal that swings in trees.",
+    "exemplo": "The monkey ate a banana.",
+    "ipa": "/monkey/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 64,
+    "palavra": "moon",
+    "significado": "The round object in the night sky.",
+    "exemplo": "The moon is bright tonight.",
+    "ipa": "/moon/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 65,
+    "palavra": "mouth",
+    "significado": "The part of the face used for eating and speaking.",
+    "exemplo": "Open your mouth wide.",
+    "ipa": "/mouth/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 66,
+    "palavra": "name",
+    "significado": "What a person or thing is called.",
+    "exemplo": "My name is Ben.",
+    "ipa": "/name/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 67,
+    "palavra": "neck",
+    "significado": "The part of the body between the head and shoulders.",
+    "exemplo": "He wore a scarf around his neck.",
+    "ipa": "/neck/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 68,
+    "palavra": "nose",
+    "significado": "The part of the face used for smelling.",
+    "exemplo": "She has a small nose.",
+    "ipa": "/nose/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 69,
+    "palavra": "orange",
+    "significado": "A round orange fruit.",
+    "exemplo": "I peeled an orange for snack.",
+    "ipa": "/orange/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 70,
+    "palavra": "pencil",
+    "significado": "A tool used for writing or drawing.",
+    "exemplo": "I wrote my name with a pencil.",
+    "ipa": "/pencil/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 71,
+    "palavra": "pizza",
+    "significado": "A round food with cheese and toppings.",
+    "exemplo": "We had pizza for lunch.",
+    "ipa": "/pizza/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 72,
+    "palavra": "rabbit",
+    "significado": "An animal with long ears that hops.",
+    "exemplo": "The rabbit ran fast.",
+    "ipa": "/rabbit/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 73,
+    "palavra": "rain",
+    "significado": "Water that falls from the sky.",
+    "exemplo": "It started to rain this morning.",
+    "ipa": "/rain/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 74,
+    "palavra": "ring",
+    "significado": "A small circle worn on a finger.",
+    "exemplo": "She wore a gold ring.",
+    "ipa": "/ring/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 75,
+    "palavra": "road",
+    "significado": "A path for cars to drive on.",
+    "exemplo": "The road goes to school.",
+    "ipa": "/road/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 76,
+    "palavra": "robot",
+    "significado": "A machine that can do things automatically.",
+    "exemplo": "The robot can move and talk.",
+    "ipa": "/robot/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 77,
+    "palavra": "rock",
+    "significado": "A hard piece of the ground.",
+    "exemplo": "She picked up a small rock.",
+    "ipa": "/rock/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 78,
+    "palavra": "shoe",
+    "significado": "Something worn on your foot.",
+    "exemplo": "He tied his shoe.",
+    "ipa": "/shoe/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 79,
+    "palavra": "sister",
+    "significado": "A girl who has the same parents as you.",
+    "exemplo": "My sister is younger than me.",
+    "ipa": "/sister/",
+    "serie": "2ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 80,
+    "palavra": "snow",
+    "significado": "Soft white ice falling from the sky.",
+    "exemplo": "It started to snow last night.",
+    "ipa": "/snow/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 81,
+    "palavra": "sock",
+    "significado": "A piece of clothing worn on the foot.",
+    "exemplo": "I lost one sock.",
+    "ipa": "/sock/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 82,
+    "palavra": "spoon",
+    "significado": "A tool used to eat or stir food.",
+    "exemplo": "She used a spoon to eat soup.",
+    "ipa": "/spoon/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 83,
+    "palavra": "star",
+    "significado": "A bright light in the night sky.",
+    "exemplo": "I see a shining star.",
+    "ipa": "/star/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 84,
+    "palavra": "sun",
+    "significado": "The big ball of light in the sky.",
+    "exemplo": "The sun is hot today.",
+    "ipa": "/sun/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 85,
+    "palavra": "table",
+    "significado": "A piece of furniture with a flat top.",
+    "exemplo": "We ate dinner at the table.",
+    "ipa": "/table/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 86,
+    "palavra": "toe",
+    "significado": "One of the small parts on your foot.",
+    "exemplo": "He stubbed his toe.",
+    "ipa": "/toe/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 87,
+    "palavra": "tooth",
+    "significado": "A hard part in the mouth used for chewing.",
+    "exemplo": "She lost a baby tooth.",
+    "ipa": "/tooth/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 88,
+    "palavra": "toy",
+    "significado": "Something children play with.",
+    "exemplo": "That toy is very fun.",
+    "ipa": "/toy/",
+    "serie": "2ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  }
+]

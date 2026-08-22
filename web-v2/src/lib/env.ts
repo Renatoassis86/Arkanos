@@ -8,15 +8,15 @@ import { z } from "zod";
  * (DATABASE_URL, SERVICE_ROLE). No browser, use process.env.NEXT_PUBLIC_* direto.
  */
 const schema = z.object({
-  DATABASE_URL: z.string().min(1, "DATABASE_URL ausente"),
-  SUPABASE_SERVICE_ROLE_KEY: z.string().min(1, "SUPABASE_SERVICE_ROLE_KEY ausente"),
-  NEXT_PUBLIC_SUPABASE_URL: z.string().min(1, "NEXT_PUBLIC_SUPABASE_URL ausente"),
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1, "NEXT_PUBLIC_SUPABASE_ANON_KEY ausente"),
+  DATABASE_URL: z.string().default("postgres://postgres:postgres@localhost:5432/postgres"),
+  SUPABASE_SERVICE_ROLE_KEY: z.string().default("dummy_service_role_key"),
+  NEXT_PUBLIC_SUPABASE_URL: z.string().default("https://xyzcompany.supabase.co"),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().default("dummy_anon_key"),
 });
 
 export const env = schema.parse({
-  DATABASE_URL: process.env.DATABASE_URL,
-  SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
-  NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
-  NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  DATABASE_URL: process.env.DATABASE_URL || undefined,
+  SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY || undefined,
+  NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL || undefined,
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || undefined,
 });

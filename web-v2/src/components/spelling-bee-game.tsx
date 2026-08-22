@@ -16,19 +16,43 @@ import {
   spellOutWord,
   stopSpeaking,
   lettersFromTranscript,
+  detectTriggerWord,
   createRecognizer,
   speechSupported,
 } from "@/lib/spell-speech";
 import type { Rarity } from "@/lib/collection";
+import {
+  SpeakerIcon,
+  BookIcon,
+  FileTextIcon,
+  MicIcon,
+  SquareIcon,
+  RotateCwIcon,
+  GamepadIcon,
+  TrophyIcon,
+  StarIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+} from "@/components/game-icons";
 
 const SPELLING_GUARDIAN = "lyra"; // Lyra · Grammar guides the Spelling Bee.
 
 const ARKS_BY_DIFFICULTY: Record<string, number> = {
-  facil: 10, easy: 10, medio: 20, medium: 20, dificil: 40, hard: 40,
+  facil: 10,
+  easy: 10,
+  medio: 20,
+  medium: 20,
+  dificil: 40,
+  hard: 40,
 };
 
 function norm(s: string) {
-  return s.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z]/g, "");
+  return s
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z]/g, "");
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -41,31 +65,75 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 const helpBtn =
-  "flex items-center justify-center gap-2 rounded-2xl border-2 border-pink-200 bg-pink-50/50 px-4 py-3.5 text-sm font-bold text-pink-600 transition hover:border-pink-300 hover:bg-pink-50";
+  "flex items-center justify-center gap-2 rounded-2xl border-2 border-pink-200 bg-pink-50/50 px-4 py-3.5 text-sm font-bold text-pink-600 transition hover:border-pink-300 hover:bg-pink-100/60 active:scale-95 shadow-sm";
 
-function SpeakerIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M11 5 6 9H2v6h4l5 4z" />
-      <path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14" />
-    </svg>
-  );
-}
+const SERIES_OPTIONS = [
+  { key: "2ano", label: "2º Ano" },
+  { key: "3ano", label: "3º Ano" },
+  { key: "4ano", label: "4º Ano" },
+  { key: "5ano", label: "5º Ano" },
+  { key: "todos", label: "Todas" },
+];
 
 type Phase = "intro" | "listen" | "spelling" | "reveal";
 
 export function SpellingBeeGame({
   words,
   authed,
+  gameTitle = "Spelling Bee",
+  idioma = "en-US",
 }: {
   words: SpellingWord[];
   authed: boolean;
+  gameTitle?: string;
+  idioma?: "en-US" | "pt-BR";
 }) {
-  const [deck, setDeck] = useState(() => shuffle(words).slice(0, 12));
+  const router = useRouter();
+  const [selectedSerie, setSelectedSerie] = useState("todos");
+
+  // Filtra todas as palavras da série selecionada
+  const filteredWords = words.filter(
+    (w) => selectedSerie === "todos" || !w.serie || w.serie.includes(selectedSerie)
+  );
+  const pool = filteredWords.length > 0 ? filteredWords : words;
+
+  const [deck, setDeck] = useState(() => shuffle(pool));
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("intro");
 
-  const [spelled, setSpelled] = useState(""); // letras reconhecidas
+  // Atualiza o baralho quando muda de série
+  function restartDeck(serie = selectedSerie) {
+    setSelectedSerie(serie);
+    const subset = words.filter((w) => serie === "todos" || !w.serie || w.serie.includes(serie));
+    const available = subset.length > 0 ? subset : words;
+    const newDeck = shuffle(available);
+    setDeck(newDeck);
+    setIndex(0);
+    setPhase("intro");
+    setSpelled("");
+    setTyped("");
+    setCorrectCount(0);
+    setXp(0);
+    setFinished(false);
+  }
+
+  function retryWithNewOrder() {
+    const subset = words.filter(
+      (w) => selectedSerie === "todos" || !w.serie || w.serie.includes(selectedSerie)
+    );
+    const available = subset.length > 0 ? subset : words;
+    setDeck(shuffle(available));
+    setIndex(0);
+    setPhase("listen");
+    setSpelled("");
+    setTyped("");
+    setCorrectCount(0);
+    setXp(0);
+    setFinished(false);
+    setTimeout(sayWord, 300);
+  }
+
+  const [spelled, setSpelled] = useState("");
   const [listening, setListening] = useState(false);
   const [micError, setMicError] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
@@ -88,61 +156,102 @@ export function SpellingBeeGame({
 
   const recRef = useRef<SpeechRecognition | null>(null);
   const finalRef = useRef("");
-  const router = useRouter();
   const supported = speechSupported();
 
-  const q = deck[index];
+  const q = deck[index] || deck[0];
   const total = deck.length;
 
-  // Para o microfone ao sair da fase de soletração / desmontar.
   function stopMic() {
-    try { recRef.current?.stop(); } catch { /* noop */ }
+    try {
+      recRef.current?.stop();
+    } catch {
+      /* noop */
+    }
     recRef.current = null;
     setListening(false);
   }
-  useEffect(() => () => { stopMic(); stopSpeaking(); }, []);
+
+  useEffect(() => {
+    return () => {
+      stopMic();
+      stopSpeaking();
+    };
+  }, []);
 
   if (!q && !finished) {
-    return <p className="text-center text-slate-300">No words available yet.</p>;
+    return <p className="text-center text-slate-400">Loading words…</p>;
   }
 
-  // ---- pronouncer ----
-  function sayWord() { if (q) speak(q.palavra, { rate: 0.85 }); }
-  function sayMeaning() { if (q) speak(`Meaning: ${q.significado}`); }
-  function saySentence() { if (q?.exemplo) speak(q.exemplo); }
+  function sayWord() {
+    if (q) speak(q.palavra, { lang: "en-US", rate: 0.85 });
+  }
+  function sayMeaning() {
+    if (q) speak(`Meaning: ${q.significado}`, { lang: "en-US" });
+  }
+  function saySentence() {
+    if (q?.exemplo) speak(q.exemplo, { lang: "en-US" });
+  }
 
-  // ---- microfone / soletração ----
+  const [wordTriggered, setWordTriggered] = useState(false);
+
   function startSpelling() {
     setMicError(null);
     setSpelled("");
+    setWordTriggered(false);
     finalRef.current = "";
     setPhase("spelling");
-    if (!supported) return; // mostra fallback de digitação
-    const rec = createRecognizer();
-    if (!rec) { setMicError("Speech recognition is not available on this browser."); return; }
+    if (!supported) return;
+
+    const rec = createRecognizer("en-US");
+    if (!rec) {
+      setMicError("Speech recognition not supported in this browser.");
+      return;
+    }
     recRef.current = rec;
+
     rec.onresult = (e: SpeechRecognitionEvent) => {
-      let interim = "";
-      for (let i = e.resultIndex; i < e.results.length; i++) {
-        const r = e.results[i];
-        if (r.isFinal) finalRef.current += " " + r[0].transcript;
-        else interim += " " + r[0].transcript;
+      let fullTranscript = "";
+      for (let i = 0; i < e.results.length; i++) {
+        fullTranscript += " " + e.results[i][0].transcript;
       }
-      const letters = lettersFromTranscript(finalRef.current + " " + interim);
-      setSpelled(letters);
-      // auto-confere quando atinge o tamanho da palavra
-      if (q && letters.length >= q.palavra.replace(/[^a-zA-Z]/g, "").length) {
-        setTimeout(() => check(letters), 500);
+      const clean = fullTranscript.trim();
+      finalRef.current = clean;
+      const targetWord = q ? q.palavra : "";
+
+      const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
+
+      if (triggered) {
+        setWordTriggered(true);
+        // Apenas as letras soletradas DEPOIS da palavra entram nos slots
+        const letters = lettersFromTranscript(spokenAfter);
+        if (letters) {
+          setSpelled(letters);
+          const targetLen = q ? norm(q.palavra).length : 0;
+          if (targetLen > 0 && letters.length >= targetLen) {
+            setTimeout(() => check(letters), 400);
+          }
+        }
       }
     };
+
     rec.onerror = (e: SpeechRecognitionErrorEvent) => {
-      setMicError(e.error === "not-allowed"
-        ? "Microphone blocked. Allow it in the browser, or type your answer below."
-        : "Could not hear you. Try again or type below.");
+      if (e.error !== "no-speech") {
+        setMicError(
+          e.error === "not-allowed"
+            ? "Microphone access blocked. Click on the letters below instead."
+            : "Could not hear clearly. Try again or click on the letters."
+        );
+      }
       setListening(false);
     };
+
     rec.onend = () => setListening(false);
-    try { rec.start(); setListening(true); } catch { /* já iniciado */ }
+    try {
+      rec.start();
+      setListening(true);
+    } catch {
+      /* noop */
+    }
   }
 
   function check(value?: string) {
@@ -153,7 +262,7 @@ export function SpellingBeeGame({
     const target = norm(q.palavra);
     const ok =
       norm(attempt) === target ||
-      norm(finalRef.current.replace(/\s+/g, "")) === target; // fallback: palavra dita junto
+      norm(finalRef.current.replace(/\s+/g, "")) === target;
 
     setItems((arr) => [...arr, { difficulty: q.dificuldade, type: "spelling", correct: ok }]);
     setLastCorrect(ok);
@@ -166,16 +275,34 @@ export function SpellingBeeGame({
       else if (q.dificuldade === "medio" || q.dificuldade === "medium") setPrata((p) => p + 1);
       else setBronze((b) => b + 1);
       playCorrect();
-      speak("Correct! Well done.", { onend: () => spellOutWord(q.palavra) });
+      speak("Correct! Well done.", {
+        lang: "en-US",
+        onend: () => spellOutWord(q.palavra, { lang: "en-US" }),
+      });
     } else {
       playWrong();
-      speak("Oops, not quite. Let's learn it.", { onend: () => spellOutWord(q.palavra) });
+      // Eliminação imediata com voz explicando e soletrando a grafia correta
+      speak(`The correct spelling is ${q.palavra}.`, {
+        lang: "en-US",
+        onend: () => {
+          spellOutWord(q.palavra, {
+            lang: "en-US",
+            onend: () => {
+              if (q.significado) speak(`Meaning: ${q.significado}`, { lang: "en-US" });
+            },
+          });
+        },
+      });
+      void finishGame(true);
     }
   }
 
   function nextWord() {
     if (!lastCorrect) return;
-    if (index + 1 >= total) { void finishGame(false); return; }
+    if (index + 1 >= total) {
+      void finishGame(false);
+      return;
+    }
     setIndex((i) => i + 1);
     setSpelled("");
     setTyped("");
@@ -194,8 +321,13 @@ export function SpellingBeeGame({
     setSaving(true);
     const diamante = !eliminated && total > 0 && correctCount === total ? 1 : 0;
     const res = await awardSpellingArks({
-      bronze, prata, ouro, diamante,
-      correct: correctCount, total, points: score.points,
+      bronze,
+      prata,
+      ouro,
+      diamante,
+      correct: correctCount,
+      total,
+      points: score.points,
     });
     setSaving(false);
     setPersisted(res);
@@ -203,7 +335,8 @@ export function SpellingBeeGame({
       const queue: RevealItem[] = [];
       if (res.leveledUp) queue.push({ kind: "level", level: res.level });
       for (const g of res.granted) {
-        if (g.kind === "orb") queue.push({ kind: "orb", key: g.key, rarity: (g.rarity ?? "terrestre") as Rarity });
+        if (g.kind === "orb")
+          queue.push({ kind: "orb", key: g.key, rarity: (g.rarity ?? "terrestre") as Rarity });
         else queue.push({ kind: "medal", key: g.key });
       }
       if (queue.length > 0) setReveals(queue);
@@ -211,25 +344,45 @@ export function SpellingBeeGame({
   }
 
   function restart() {
-    stopMic(); stopSpeaking();
-    setDeck(shuffle(words).slice(0, 12));
-    setIndex(0); setPhase("intro");
-    setSpelled(""); setTyped(""); setListening(false); setMicError(null);
-    setLastCorrect(false); setCorrectCount(0); setXp(0);
-    setBronze(0); setPrata(0); setOuro(0); setItems([]);
-    setFinished(false); setMissedWord(null); setSaving(false);
-    setPersisted(null); setReveals([]); setTri(null); setCanContinue(false);
+    stopMic();
+    stopSpeaking();
+    const subset = words.filter(
+      (w) => selectedSerie === "todos" || !w.serie || w.serie.includes(selectedSerie)
+    );
+    const available = subset.length > 0 ? subset : words;
+    setDeck(shuffle(available));
+    setIndex(0);
+    setPhase("intro");
+    setSpelled("");
+    setTyped("");
+    setListening(false);
+    setMicError(null);
+    setLastCorrect(false);
+    setCorrectCount(0);
+    setXp(0);
+    setBronze(0);
+    setPrata(0);
+    setOuro(0);
+    setItems([]);
+    setFinished(false);
+    setMissedWord(null);
+    setSaving(false);
+    setPersisted(null);
+    setReveals([]);
+    setTri(null);
+    setCanContinue(false);
   }
 
-  // Tiles com a palavra (visual do resultado).
   function WordTiles({ word, dim }: { word: string; dim?: boolean }) {
     return (
       <div className="flex flex-wrap justify-center gap-1.5">
         {word.split("").map((ch, i) => (
           <span
             key={i}
-            className={`flex h-11 w-9 items-center justify-center rounded-lg border-2 text-xl font-black uppercase ${
-              dim ? "border-slate-200 bg-slate-50 text-slate-400" : "border-[#f1c40f]/40 bg-[#f1c40f]/10 text-[#b8860b]"
+            className={`flex h-12 w-10 items-center justify-center rounded-xl border-2 font-black uppercase text-xl shadow-sm ${
+              dim
+                ? "border-slate-300 bg-slate-100 text-slate-400"
+                : "border-pink-500 bg-pink-50 text-pink-700"
             }`}
           >
             {ch}
@@ -239,121 +392,208 @@ export function SpellingBeeGame({
     );
   }
 
-  // ============ FINISHED ============
+  // =========================================================================
+  // TELA: FINISHED (ELIMINAÇÃO / CONCLUSÃO) - SEM EMOJIS
+  // =========================================================================
   if (finished) {
-    const pct = total > 0 ? Math.round((correctCount / total) * 100) : 0;
     return (
-      <>
-        <div className="mx-auto max-w-lg"><GameTopBar inProgress={false} /></div>
+      <div className="mx-auto max-w-xl">
+        <GameTopBar inProgress={false} />
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }}
-          className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-7 text-center shadow-lg sm:p-9"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="mt-6 overflow-hidden rounded-3xl border-2 border-slate-200 bg-white p-6 text-center shadow-xl sm:p-8"
         >
-          <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
-            {missedWord ? "Game over" : "Spelling complete"}
-          </p>
-          <p className="font-display mt-2 text-5xl font-black text-slate-900">
-            {correctCount}<span className="text-2xl text-slate-400">/{total}</span>
-          </p>
-          <p className="mt-1 text-sm text-slate-500">words spelled correctly · {pct}%</p>
+          <span
+            className={`inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-black uppercase tracking-wider ${
+              missedWord ? "bg-rose-100 text-rose-700" : "bg-emerald-100 text-emerald-800"
+            }`}
+          >
+            {missedWord ? (
+              <>
+                <XCircleIcon className="h-4 w-4" /> Soletração Incorreta · Fim do Turno
+              </>
+            ) : (
+              <>
+                <CheckCircleIcon className="h-4 w-4" /> Rodada Concluída com Sucesso!
+              </>
+            )}
+          </span>
+          <h2 className="font-display mt-3 text-2xl font-black text-slate-900 sm:text-3xl">
+            {missedWord ? "Vamos Aprender a Palavra" : "Excelente Desempenho!"}
+          </h2>
 
-          {missedWord && (
-            <div className="mt-6 rounded-2xl border-2 border-rose-200 bg-rose-50/50 p-4">
-              <p className="text-xs font-black uppercase tracking-widest text-rose-500">The word was</p>
-              <div className="mt-3"><WordTiles word={missedWord} /></div>
+          {/* PALAVRA CORRETA EM DESTAQUE */}
+          {q && (
+            <div className="mt-5 rounded-2xl border-2 border-pink-300 bg-pink-50/60 p-4 text-center">
+              <span className="text-xs font-black uppercase tracking-wider text-pink-700">
+                Grafia Correta em Inglês:
+              </span>
+              <div className="mt-3 flex flex-wrap justify-center gap-1.5">
+                {q.palavra.toUpperCase().split("").map((ch, i) => (
+                  <span
+                    key={i}
+                    className="flex h-12 w-10 sm:h-13 sm:w-11 items-center justify-center rounded-xl border-2 border-pink-500 bg-white text-2xl font-black uppercase text-pink-700 shadow-sm"
+                  >
+                    {ch}
+                  </span>
+                ))}
+              </div>
+
+              {missedWord && (
+                <div className="mt-4 space-y-2 rounded-xl border border-slate-200 bg-white p-3 text-left text-xs sm:text-sm">
+                  <div className="flex items-start gap-2">
+                    <BookIcon className="mt-0.5 h-4 w-4 text-slate-500 shrink-0" />
+                    <div>
+                      <strong className="text-slate-800">Significado:</strong> {q.significado}
+                    </div>
+                  </div>
+                  {q.exemplo && (
+                    <div className="flex items-start gap-2 pt-1 border-t border-slate-100">
+                      <FileTextIcon className="mt-0.5 h-4 w-4 text-slate-500 shrink-0" />
+                      <div className="italic text-slate-600">
+                        <strong className="text-slate-800 not-italic">Exemplo:</strong> "{q.exemplo}"
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <button
-                onClick={() => spellOutWord(missedWord)}
-                className="mt-3 text-sm font-bold text-[#b8860b] hover:underline"
+                type="button"
+                onClick={() => {
+                  speak(`The correct spelling is ${q.palavra}.`, {
+                    lang: "en-US",
+                    onend: () => spellOutWord(q.palavra, { lang: "en-US" }),
+                  });
+                }}
+                className="mt-3 w-full rounded-xl border border-pink-300 bg-white py-2.5 text-xs font-bold text-pink-700 hover:bg-pink-50 transition flex items-center justify-center gap-2"
               >
-                ▸ Hear it spelled
+                <SpeakerIcon className="h-4 w-4" /> Ouvir Soletração Novamente
               </button>
             </div>
           )}
 
-          <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
-            <GuardianAvatar name={SPELLING_GUARDIAN} size={52} ring="#ec4899" />
-            <p className="text-sm leading-relaxed text-slate-700">
-              {missedWord
-                ? "Every speller stumbles — that is how we learn. Listen, learn the spelling, and try again!"
-                : "Splendid! Your spelling shines. Keep practicing to master every word."}
-            </p>
+          {/* RESULTADO DA SESSÃO E RANKING GERAL */}
+          <div className="mt-6 rounded-2xl border-2 border-amber-200 bg-gradient-to-br from-amber-50/80 to-yellow-50/40 p-4 text-center">
+            <div className="grid grid-cols-2 gap-2 border-b border-amber-200/60 pb-3">
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
+                  Palavras Corretas
+                </span>
+                <p className="font-display text-2xl font-black text-slate-900">
+                  {correctCount} <span className="text-xs text-slate-500 font-normal">de {total}</span>
+                </p>
+              </div>
+              <div>
+                <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800">
+                  Arks Conquistados
+                </span>
+                <p className="font-display text-2xl font-black text-amber-600">
+                  +{xp} Arks
+                </p>
+              </div>
+            </div>
+
+            {/* POSIÇÃO NO RANKING */}
+            <div className="pt-3">
+              <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-slate-600">
+                <TrophyIcon className="h-4 w-4 text-amber-600" /> Ranking Geral dos Sábios
+              </span>
+              {persisted?.persisted ? (
+                <p className="mt-1 text-sm font-bold text-slate-800">
+                  Sua Posição: <strong className="text-amber-600">#{persisted.rankPos}</strong> de {persisted.rankTotal} alunos
+                  <span className="block text-xs font-normal text-slate-500 mt-0.5">
+                    Total Acumulado: {persisted.totalArks} Arks
+                  </span>
+                </p>
+              ) : (
+                <p className="mt-1 text-xs text-slate-600">
+                  {authed
+                    ? "Pontuação registrada com sucesso no ranking geral!"
+                    : "Faça login para salvar seus pontos no ranking geral!"}
+                </p>
+              )}
+            </div>
           </div>
 
-          {tri && (
-            <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
-              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">Score (IRT)</p>
-              <p className="font-display mt-1 text-4xl text-slate-900">{tri.points}</p>
-            </div>
-          )}
-
-          {saving && <p className="mt-5 text-sm text-slate-400">Saving your rewards…</p>}
-          {persisted?.persisted && (
-            <div className="mt-6 rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
-              {persisted.leveledUp && (
-                <p className="font-display text-lg text-[#b8860b]">★ Level up — now level {persisted.level}!</p>
-              )}
-              <p className="mt-1 text-sm text-slate-700">
-                Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong> · Rank{" "}
-                <strong className="text-slate-900">#{persisted.rankPos}</strong> of {persisted.rankTotal}
-              </p>
-            </div>
-          )}
-          {!authed && (
-            <p className="mt-5 text-sm text-slate-500">
-              <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">Create an account</Link>{" "}
-              to save your Arks and join the ranking.
-            </p>
-          )}
-
-          <div className="mt-7 flex flex-col items-center gap-3">
+          {/* BOTÕES DE AÇÃO */}
+          <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
             <button
-              onClick={restart}
-              className="w-full rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
+              type="button"
+              onClick={retryWithNewOrder}
+              className="flex-1 rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md hover:bg-pink-700 transition active:scale-95 flex items-center justify-center gap-2"
             >
-              Try again
+              <RotateCwIcon className="h-4 w-4" /> Começar de Novo
             </button>
-            {canContinue && (
-              <button onClick={() => router.push("/colecao")} className="text-sm font-bold text-slate-500 hover:text-[#b8860b] hover:underline">
-                Go to Collection →
-              </button>
-            )}
+            <Link
+              href="/jogos"
+              className="flex-1 rounded-2xl border-2 border-slate-200 bg-white py-3.5 text-sm font-bold text-slate-700 hover:bg-slate-50 transition flex items-center justify-center gap-2"
+            >
+              <GamepadIcon className="h-4 w-4" /> Trocar de Jogo
+            </Link>
           </div>
         </motion.div>
 
         {reveals.length > 0 && (
-          <PremiacaoOverlay items={reveals} guardian={SPELLING_GUARDIAN} onClose={() => setReveals([])} />
+          <PremiacaoOverlay
+            items={reveals}
+            guardian={SPELLING_GUARDIAN}
+            onClose={() => setReveals([])}
+          />
         )}
-      </>
+      </div>
     );
   }
 
-  // ============ INTRO ============
+  // =========================================================================
+  // TELA: INTRO
+  // =========================================================================
   if (phase === "intro") {
     return (
-      <div className="mx-auto max-w-lg">
+      <div className="mx-auto max-w-xl">
         <GameTopBar inProgress={false} />
         <motion.div
-          initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
-          className="rounded-3xl border-2 border-pink-200 bg-white p-8 text-center shadow-lg"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="rounded-3xl border-2 border-pink-200 bg-white p-6 sm:p-8 text-center shadow-lg"
         >
           <GuardianAvatar name={SPELLING_GUARDIAN} size={72} ring="#ec4899" className="mx-auto" />
-          <h1 className="font-display mt-4 text-3xl text-slate-900">Spelling Bee</h1>
-          <p className="mt-2 text-slate-600">
-            Listen to the word. You can ask for its <strong>meaning</strong>, hear it in a{" "}
-            <strong>sentence</strong>, or <strong>repeat</strong> it. Then tap{" "}
-            <strong>Spell it</strong> and spell the word out loud, letter by letter.
+          <h1 className="font-display mt-4 text-3xl font-black text-slate-900">Spelling Bee</h1>
+          <p className="mt-2 text-slate-600 text-sm">
+            Ouça a palavra em inglês. Peça o <strong>significado</strong>, ouça na{" "}
+            <strong>frase</strong> ou peça para <strong>repetir</strong>. Depois, soletre por voz
+            ou clicando nas letras!
           </p>
-          <p className="mt-2 text-sm text-rose-500">Careful: one wrong word ends the game!</p>
-          {!supported && (
-            <p className="mt-3 rounded-xl bg-amber-50 px-3 py-2 text-xs text-amber-700">
-              Your browser can&apos;t open the mic — you&apos;ll be able to type the spelling instead.
-            </p>
-          )}
+
+          {/* SELETOR DE SÉRIE */}
+          <div className="mt-6 text-left">
+            <label className="mb-2 block text-xs font-black uppercase tracking-wider text-slate-500 text-center">
+              Selecione a Série Escolar:
+            </label>
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
+              {SERIES_OPTIONS.map((opt) => (
+                <button
+                  key={opt.key}
+                  type="button"
+                  onClick={() => restartDeck(opt.key)}
+                  className={`rounded-2xl border-2 py-2.5 px-2 text-xs font-black transition ${
+                    selectedSerie === opt.key
+                      ? "border-pink-500 bg-pink-50 text-pink-700 shadow-sm"
+                      : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <button
-            onClick={() => { setPhase("listen"); setTimeout(sayWord, 250); }}
-            className="mt-6 w-full rounded-full bg-gradient-to-br from-[#ec4899] to-[#db2777] px-8 py-4 text-base font-black uppercase tracking-wider text-white transition hover:-translate-y-0.5 active:scale-95"
+            onClick={retryWithNewOrder}
+            className="mt-7 w-full rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] px-8 py-4 text-base font-black uppercase tracking-wider text-white shadow-lg shadow-pink-500/25 transition hover:-translate-y-0.5 active:scale-95"
           >
-            Start
+            Iniciar Rodada ({total} Palavras)
           </button>
         </motion.div>
       </div>
@@ -362,54 +602,77 @@ export function SpellingBeeGame({
 
   const wordLen = q.palavra.replace(/[^a-zA-Z]/g, "").length;
 
-  // ============ PLAYING (listen / spelling / reveal) ============
+  // =========================================================================
+  // TELA: JOGO ATIVO (LISTEN / SPELLING / REVEAL)
+  // =========================================================================
   return (
     <div className="mx-auto max-w-2xl">
       <GameTopBar inProgress />
-      {/* HUD */}
-      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-slate-200 bg-white/90 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:shadow-sm">
+      {/* HUD DINÂMICO */}
+      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-slate-200 bg-white/95 px-6 py-3.5 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-5 sm:shadow-sm">
         <div className="flex items-center justify-between text-sm">
-          <span className="font-bold text-slate-500">Word {index + 1} / {total}</span>
-          <span className="font-black text-[#b8860b]">{xp} Arks</span>
+          <div className="flex items-center gap-2">
+            <span className="rounded-md bg-pink-100 px-2 py-0.5 text-xs font-black text-pink-700 uppercase">
+              {SERIES_OPTIONS.find((s) => s.key === selectedSerie)?.label || "Geral"}
+            </span>
+            <span className="font-bold text-slate-600">
+              Palavra <strong className="text-slate-900">{index + 1}</strong> de{" "}
+              <strong className="text-slate-900">{total}</strong>
+            </span>
+          </div>
+          <span className="font-black text-amber-600 flex items-center gap-1">
+            <StarIcon className="h-4 w-4" /> {xp} Arks
+          </span>
         </div>
-        <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">
-          <motion.div className="h-full bg-gradient-to-r from-[#ec4899] to-[#db2777]"
-            animate={{ width: `${(index / total) * 100}%` }} transition={{ duration: 0.4 }} />
+        <div className="mt-2.5 h-2.5 overflow-hidden rounded-full bg-slate-100">
+          <motion.div
+            className="h-full bg-gradient-to-r from-[#ec4899] to-[#db2777]"
+            animate={{ width: `${((index + 1) / total) * 100}%` }}
+            transition={{ duration: 0.4 }}
+          />
         </div>
       </div>
 
       <motion.div
         key={`${q.id}-${phase}`}
-        initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
         className="overflow-hidden rounded-3xl border-2 border-slate-200 bg-white p-6 shadow-sm sm:p-8"
       >
         {/* ---- LISTEN ---- */}
         {phase === "listen" && (
           <>
-            <p className="mb-1 text-center text-xs font-bold uppercase tracking-widest text-slate-400">
-              Listen, then spell · {wordLen} letters
+            <p className="mb-1 text-center text-xs font-black uppercase tracking-widest text-pink-600">
+              Ouça com Atenção · {wordLen} Letras
             </p>
-            <p className="mb-4 text-center text-sm text-slate-500">Need help? Tap a button below.</p>
+            <p className="mb-4 text-center text-sm text-slate-500">
+              Peça uma dica oficial se precisar:
+            </p>
 
-            {/* 3 botões de ajuda (a criança aperta se precisar) */}
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <button onClick={sayWord} className={helpBtn}>
-                <SpeakerIcon /> Repeat the word
+            {/* 3 BOTÕES OFICIAIS COM ÍCONES MONOCROMÁTICOS */}
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+              <button onClick={sayWord} className={helpBtn} type="button">
+                <SpeakerIcon className="h-4 w-4" /> Repetir Palavra
               </button>
-              <button onClick={sayMeaning} className={helpBtn}>
-                <SpeakerIcon /> Meaning
+              <button onClick={sayMeaning} className={helpBtn} type="button">
+                <BookIcon className="h-4 w-4" /> Significado
               </button>
-              <button onClick={saySentence} disabled={!q.exemplo} className={`${helpBtn} disabled:opacity-40`}>
-                <SpeakerIcon /> In a sentence
+              <button
+                onClick={saySentence}
+                disabled={!q.exemplo}
+                className={`${helpBtn} disabled:opacity-40`}
+                type="button"
+              >
+                <FileTextIcon className="h-4 w-4" /> Frase Exemplo
               </button>
             </div>
 
-            {/* 4º botão: começar a soletrar */}
+            {/* Iniciar soletração */}
             <button
               onClick={startSpelling}
-              className="mt-6 w-full rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] px-8 py-5 text-base font-black uppercase tracking-wider text-white shadow-[0_10px_30px_rgba(236,72,153,0.35)] transition hover:-translate-y-0.5 active:scale-95"
+              className="mt-6 w-full rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] px-8 py-4.5 text-base font-black uppercase tracking-wider text-white shadow-[0_10px_30px_rgba(236,72,153,0.35)] transition hover:-translate-y-0.5 active:scale-95"
             >
-              I&apos;m ready — Spell it
+              Estou Pronto — Soletrar
             </button>
           </>
         )}
@@ -418,49 +681,163 @@ export function SpellingBeeGame({
         {phase === "spelling" && (
           <>
             <div className="text-center">
-              <div className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full ${listening ? "animate-pulse bg-rose-100 text-rose-600" : "bg-slate-100 text-slate-400"}`}>
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 10a7 7 0 0 0 14 0M12 17v4" />
-                </svg>
+              <div
+                className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full ${
+                  listening ? "animate-pulse bg-rose-100 text-rose-600" : "bg-slate-100 text-slate-400"
+                }`}
+              >
+                <MicIcon className="h-7 w-7" />
               </div>
-              <p className="mt-3 font-bold text-slate-700">
-                {listening ? "Listening… spell the word out loud" : supported ? "Tap to speak" : "Type the spelling"}
-              </p>
+              <div className="mt-3">
+                {!wordTriggered ? (
+                  <p className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-4 py-1.5 text-xs font-bold text-amber-800 border border-amber-200">
+                    Diga a palavra <strong className="uppercase font-black text-amber-950">"{q.palavra}"</strong> para liberar a soletração
+                  </p>
+                ) : (
+                  <p className="inline-flex items-center gap-1.5 rounded-full bg-pink-50 px-4 py-1.5 text-xs font-bold text-pink-700 border border-pink-200">
+                    <CheckCircleIcon className="h-3.5 w-3.5" /> Palavra confirmada! Agora soletre letra a letra
+                  </p>
+                )}
+              </div>
             </div>
 
-            {/* Letras reconhecidas */}
-            <div className="mt-5 flex min-h-[3.5rem] flex-wrap justify-center gap-1.5">
+            {/* Letras reconhecidas com slots animados e interativos */}
+            <div className="mt-5 flex min-h-[4rem] flex-wrap items-center justify-center gap-2">
               {(spelled || "").split("").map((ch, i) => (
-                <span key={i} className="flex h-11 w-9 items-center justify-center rounded-lg border-2 border-pink-300 bg-pink-50 text-xl font-black uppercase text-pink-600">
-                  {ch}
-                </span>
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => {
+                    const next = spelled.slice(0, i) + spelled.slice(i + 1);
+                    setSpelled(next);
+                  }}
+                  title="Clique para remover esta letra"
+                  className="group relative flex h-14 w-11 items-center justify-center rounded-xl border-2 border-pink-400 bg-gradient-to-b from-pink-50 to-pink-100 text-2xl font-black uppercase text-pink-700 shadow-sm transition hover:scale-105 hover:border-rose-400 hover:bg-rose-50"
+                >
+                  <motion.span
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {ch}
+                  </motion.span>
+                  <span className="absolute -top-1 -right-1 hidden h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[9px] font-bold text-white group-hover:flex">
+                    ×
+                  </span>
+                </button>
               ))}
               {Array.from({ length: Math.max(0, wordLen - spelled.length) }).map((_, i) => (
-                <span key={`e${i}`} className="flex h-11 w-9 items-center justify-center rounded-lg border-2 border-dashed border-slate-200 text-slate-300">·</span>
+                <span
+                  key={`e${i}`}
+                  className={`flex h-14 w-11 items-center justify-center rounded-xl border-2 ${
+                    i === 0
+                      ? "border-pink-300 bg-pink-50/40 animate-pulse"
+                      : "border-dashed border-slate-200 bg-slate-50/50"
+                  } text-sm font-bold text-slate-300`}
+                >
+                  {i === 0 ? "·" : ""}
+                </span>
               ))}
             </div>
 
-            {micError && <p className="mt-4 rounded-xl bg-amber-50 px-3 py-2 text-center text-xs text-amber-700">{micError}</p>}
+            {/* Banco de Letras Interativo (Clicar para Soletrar) */}
+            <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5">
+              <div className="mb-2 flex items-center justify-between px-1">
+                <span className="text-xs font-black uppercase tracking-wider text-slate-400">
+                  Ou clique nas letras:
+                </span>
+                {spelled.length > 0 && (
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setSpelled((s) => s.slice(0, -1))}
+                      className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 transition hover:bg-slate-100"
+                    >
+                      Apagar
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSpelled("")}
+                      className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-400 transition hover:bg-slate-100"
+                    >
+                      Limpar
+                    </button>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-wrap justify-center gap-1.5">
+                {Array.from(
+                  new Set(
+                    (
+                      q.palavra.toLowerCase().replace(/[^a-z]/g, "") + "rstlneaiocmdpb"
+                    ).split("")
+                  )
+                )
+                  .slice(0, 16)
+                  .sort()
+                  .map((letter) => (
+                    <button
+                      key={letter}
+                      type="button"
+                      onClick={() => {
+                        if (spelled.length < wordLen) {
+                          const next = spelled + letter;
+                          setSpelled(next);
+                          if (next.length >= wordLen) {
+                            setTimeout(() => check(next), 400);
+                          }
+                        }
+                      }}
+                      className="flex h-11 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-base font-black uppercase text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-pink-300 hover:bg-pink-50 hover:text-pink-600 active:scale-95"
+                    >
+                      {letter}
+                    </button>
+                  ))}
+              </div>
+            </div>
+
+            {micError && (
+              <p className="mt-4 rounded-xl bg-amber-50 px-3 py-2 text-center text-xs text-amber-700">
+                {micError}
+              </p>
+            )}
 
             {/* Fallback: digitar */}
             {(!supported || micError) && (
               <input
-                value={typed} onChange={(e) => setTyped(e.target.value)} autoFocus
-                autoCapitalize="none" autoCorrect="off" spellCheck={false} placeholder="Type the spelling…"
+                value={typed}
+                onChange={(e) => setTyped(e.target.value)}
+                autoFocus
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                placeholder="Ou digite a soletração aqui…"
                 className="mt-4 w-full rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-center text-lg font-bold tracking-[2px] text-slate-900 outline-none focus:border-[#ec4899]"
               />
             )}
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              {supported && !micError && (
-                <button onClick={() => (listening ? stopMic() : startSpelling())}
-                  className="flex-1 rounded-full border-2 border-pink-300 px-6 py-3.5 text-sm font-black uppercase tracking-wider text-pink-600 transition hover:bg-pink-50">
-                  {listening ? "Stop mic" : "Speak again"}
+              {supported && (
+                <button
+                  onClick={() => (listening ? stopMic() : startSpelling())}
+                  className="flex-1 rounded-full border-2 border-pink-300 px-6 py-3.5 text-sm font-black uppercase tracking-wider text-pink-600 transition hover:bg-pink-50 flex items-center justify-center gap-2"
+                >
+                  {listening ? (
+                    <>
+                      <SquareIcon className="h-4 w-4" /> Parar microfone
+                    </>
+                  ) : (
+                    <>
+                      <MicIcon className="h-4 w-4" /> Falar novamente
+                    </>
+                  )}
                 </button>
               )}
-              <button onClick={() => check()}
-                className="flex-1 rounded-full bg-gradient-to-br from-[#ec4899] to-[#db2777] px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white transition hover:-translate-y-0.5">
-                Check spelling
+              <button
+                onClick={() => check()}
+                className="flex-1 rounded-full bg-gradient-to-br from-[#ec4899] to-[#db2777] px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white transition hover:-translate-y-0.5 shadow-sm"
+              >
+                Conferir Soletração
               </button>
             </div>
           </>
@@ -469,28 +846,24 @@ export function SpellingBeeGame({
         {/* ---- REVEAL ---- */}
         {phase === "reveal" && (
           <div className="text-center">
-            <p className={`text-2xl font-black ${lastCorrect ? "text-emerald-600" : "text-rose-600"}`}>
-              {lastCorrect ? "Correct!" : "Not quite"}
+            <p className="inline-flex items-center gap-1.5 text-2xl font-black text-emerald-600">
+              <CheckCircleIcon className="h-6 w-6" /> Resposta Correta!
             </p>
-            <p className="mt-1 text-sm text-slate-500">The correct spelling is</p>
-            <div className="mt-4"><WordTiles word={q.palavra} /></div>
-            <p className="mt-3 text-sm text-slate-600"><span className="font-bold text-slate-500">Meaning:</span> {q.significado}</p>
-            <button onClick={() => spellOutWord(q.palavra)} className="mt-3 text-sm font-bold text-[#b8860b] hover:underline">
-              ▸ Hear it spelled &amp; pronounced
-            </button>
+            <p className="mt-1 text-sm text-slate-500">A grafia correta é:</p>
+            <div className="mt-4">
+              <WordTiles word={q.palavra} />
+            </div>
+            <p className="mt-3 text-sm text-slate-600">
+              <strong className="text-slate-800">Significado:</strong> {q.significado}
+            </p>
 
             <div className="mt-7">
-              {lastCorrect ? (
-                <button onClick={nextWord}
-                  className="w-full rounded-full bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-slate-700 active:scale-95 sm:w-auto">
-                  {index + 1 >= total ? "See result →" : "Next word →"}
-                </button>
-              ) : (
-                <button onClick={() => finishGame(true)}
-                  className="w-full rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] transition hover:-translate-y-0.5 active:scale-95 sm:w-auto">
-                  Continue
-                </button>
-              )}
+              <button
+                onClick={nextWord}
+                className="w-full rounded-full bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-slate-700 active:scale-95 sm:w-auto"
+              >
+                {index + 1 >= total ? "Ver Resultado →" : "Próxima Palavra →"}
+              </button>
             </div>
           </div>
         )}

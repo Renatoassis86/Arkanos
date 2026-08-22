@@ -1,0 +1,1292 @@
+[
+  {
+    "id": 1,
+    "palavra": "about",
+    "significado": "On the subject of something.",
+    "exemplo": "We talked about animals.",
+    "ipa": "/about/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 2,
+    "palavra": "above",
+    "significado": "At a higher place.",
+    "exemplo": "The bird flew above the trees.",
+    "ipa": "/above/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 3,
+    "palavra": "accident",
+    "significado": "Something bad that happens unexpectedly.",
+    "exemplo": "He had a bike accident.",
+    "ipa": "/accident/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 4,
+    "palavra": "across",
+    "significado": "From one side to the other.",
+    "exemplo": "She walked across the street.",
+    "ipa": "/across/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 5,
+    "palavra": "address",
+    "significado": "Where someone lives.",
+    "exemplo": "I wrote my address on the envelope.",
+    "ipa": "/address/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 6,
+    "palavra": "afraid",
+    "significado": "Feeling fear or worry.",
+    "exemplo": "She is afraid of the dark.",
+    "ipa": "/afraid/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 7,
+    "palavra": "again",
+    "significado": "One more time.",
+    "exemplo": "Please say it again.",
+    "ipa": "/again/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 8,
+    "palavra": "against",
+    "significado": "In opposition to something.",
+    "exemplo": "They played against the other team.",
+    "ipa": "/against/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 9,
+    "palavra": "airplane",
+    "significado": "A flying vehicle with wings.",
+    "exemplo": "We traveled by airplane.",
+    "ipa": "/airplane/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 10,
+    "palavra": "always",
+    "significado": "All the time.",
+    "exemplo": "He always brushes his teeth.",
+    "ipa": "/always/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 11,
+    "palavra": "angry",
+    "significado": "Feeling mad or upset.",
+    "exemplo": "She was angry about the mess.",
+    "ipa": "/angry/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 12,
+    "palavra": "animal",
+    "significado": "A living thing that is not a plant.",
+    "exemplo": "The lion is a wild animal.",
+    "ipa": "/animal/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 13,
+    "palavra": "another",
+    "significado": "One more or different.",
+    "exemplo": "May I have another cookie?",
+    "ipa": "/another/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 14,
+    "palavra": "answer",
+    "significado": "A reply to a question.",
+    "exemplo": "I know the answer!",
+    "ipa": "/answer/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 15,
+    "palavra": "apple",
+    "significado": "A red or green fruit.",
+    "exemplo": "I ate an apple for lunch.",
+    "ipa": "/apple/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 16,
+    "palavra": "around",
+    "significado": "In a circle or nearby.",
+    "exemplo": "We walked around the park.",
+    "ipa": "/around/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 17,
+    "palavra": "arrive",
+    "significado": "To reach a place.",
+    "exemplo": "What time will you arrive?",
+    "ipa": "/arrive/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 18,
+    "palavra": "ask",
+    "significado": "To say something to get an answer.",
+    "exemplo": "I will ask a question.",
+    "ipa": "/ask/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 19,
+    "palavra": "aunt",
+    "significado": "Your mom or dad’s sister.",
+    "exemplo": "My aunt is visiting today.",
+    "ipa": "/aunt/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 20,
+    "palavra": "autumn",
+    "significado": "The season between summer and winter.",
+    "exemplo": "Leaves fall in autumn.",
+    "ipa": "/autumn/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 21,
+    "palavra": "baby",
+    "significado": "A very young child.",
+    "exemplo": "The baby is sleeping.",
+    "ipa": "/baby/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 22,
+    "palavra": "back",
+    "significado": "The rear part of something.",
+    "exemplo": "He sat at the back of the room.",
+    "ipa": "/back/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 23,
+    "palavra": "ball",
+    "significado": "A round toy for playing.",
+    "exemplo": "We played with a ball.",
+    "ipa": "/ball/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 24,
+    "palavra": "banana",
+    "significado": "A long yellow fruit.",
+    "exemplo": "Bananas grow on trees.",
+    "ipa": "/banana/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 25,
+    "palavra": "bathroom",
+    "significado": "A room with a toilet and sink.",
+    "exemplo": "I need to use the bathroom.",
+    "ipa": "/bathroom/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 26,
+    "palavra": "beautiful",
+    "significado": "Very pretty or nice to look at.",
+    "exemplo": "The flowers are beautiful.",
+    "ipa": "/beautiful/",
+    "serie": "4ano",
+    "dificuldade": "dificil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 27,
+    "palavra": "because",
+    "significado": "The reason for something.",
+    "exemplo": "I’m happy because it’s my birthday.",
+    "ipa": "/because/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 28,
+    "palavra": "before",
+    "significado": "Earlier than something else.",
+    "exemplo": "Wash your hands before eating.",
+    "ipa": "/before/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 29,
+    "palavra": "begin",
+    "significado": "To start something.",
+    "exemplo": "Let’s begin the lesson.",
+    "ipa": "/begin/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 30,
+    "palavra": "behind",
+    "significado": "At the back of something.",
+    "exemplo": "The cat is behind the sofa.",
+    "ipa": "/behind/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 31,
+    "palavra": "believe",
+    "significado": "To think something is true.",
+    "exemplo": "I believe in kindness.",
+    "ipa": "/believe/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 32,
+    "palavra": "below",
+    "significado": "In a lower place.",
+    "exemplo": "The shoes are below the bed.",
+    "ipa": "/below/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 33,
+    "palavra": "best",
+    "significado": "Better than all others.",
+    "exemplo": "She is my best friend.",
+    "ipa": "/best/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 34,
+    "palavra": "better",
+    "significado": "Improved or more good.",
+    "exemplo": "I feel better today.",
+    "ipa": "/better/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 35,
+    "palavra": "between",
+    "significado": "In the space separating two things.",
+    "exemplo": "The ball is between the chairs.",
+    "ipa": "/between/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 36,
+    "palavra": "big",
+    "significado": "Large in size.",
+    "exemplo": "That dog is very big.",
+    "ipa": "/big/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 37,
+    "palavra": "birthday",
+    "significado": "The day you were born.",
+    "exemplo": "My birthday is in July.",
+    "ipa": "/birthday/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 38,
+    "palavra": "black",
+    "significado": "The darkest color.",
+    "exemplo": "She wore a black dress.",
+    "ipa": "/black/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 39,
+    "palavra": "blue",
+    "significado": "A color like the sky or ocean.",
+    "exemplo": "His eyes are blue.",
+    "ipa": "/blue/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 40,
+    "palavra": "boat",
+    "significado": "A vehicle that floats on water.",
+    "exemplo": "We went fishing in a boat.",
+    "ipa": "/boat/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 41,
+    "palavra": "body",
+    "significado": "All the parts of a person or animal.",
+    "exemplo": "Exercise is good for your body.",
+    "ipa": "/body/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 42,
+    "palavra": "book",
+    "significado": "A set of written or printed pages.",
+    "exemplo": "She read a new book.",
+    "ipa": "/book/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 43,
+    "palavra": "both",
+    "significado": "Two things together.",
+    "exemplo": "I like both cats and dogs.",
+    "ipa": "/both/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 44,
+    "palavra": "bottle",
+    "significado": "A container for holding liquids.",
+    "exemplo": "He drank a bottle of water.",
+    "ipa": "/bottle/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 45,
+    "palavra": "box",
+    "significado": "A container with flat sides.",
+    "exemplo": "The toys are in the box.",
+    "ipa": "/box/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 46,
+    "palavra": "boy",
+    "significado": "A male child.",
+    "exemplo": "The boy is playing soccer.",
+    "ipa": "/boy/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 47,
+    "palavra": "bread",
+    "significado": "A baked food made from flour.",
+    "exemplo": "I like bread with butter.",
+    "ipa": "/bread/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 48,
+    "palavra": "break",
+    "significado": "To separate into pieces or pause.",
+    "exemplo": "Let’s take a short break.",
+    "ipa": "/break/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 49,
+    "palavra": "bring",
+    "significado": "To carry something to a place.",
+    "exemplo": "Please bring your homework.",
+    "ipa": "/bring/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 50,
+    "palavra": "brother",
+    "significado": "A male sibling.",
+    "exemplo": "My brother is older than me.",
+    "ipa": "/brother/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 51,
+    "palavra": "brown",
+    "significado": "A color like chocolate or wood.",
+    "exemplo": "She has brown hair.",
+    "ipa": "/brown/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 52,
+    "palavra": "build",
+    "significado": "To make something by putting parts together.",
+    "exemplo": "We will build a sandcastle.",
+    "ipa": "/build/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 53,
+    "palavra": "bus",
+    "significado": "A big vehicle that carries many people.",
+    "exemplo": "I go to school by bus.",
+    "ipa": "/bus/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 54,
+    "palavra": "buy",
+    "significado": "To get something by paying money.",
+    "exemplo": "I will buy a toy.",
+    "ipa": "/buy/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 55,
+    "palavra": "cake",
+    "significado": "A sweet baked dessert.",
+    "exemplo": "He had chocolate cake for dessert.",
+    "ipa": "/cake/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 56,
+    "palavra": "call",
+    "significado": "To use a phone or shout a name.",
+    "exemplo": "I will call my friend.",
+    "ipa": "/call/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 57,
+    "palavra": "can",
+    "significado": "To be able to do something.",
+    "exemplo": "I can ride a bike.",
+    "ipa": "/can/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 58,
+    "palavra": "car",
+    "significado": "A vehicle with four wheels.",
+    "exemplo": "She drove a red car.",
+    "ipa": "/car/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 59,
+    "palavra": "carry",
+    "significado": "To hold and move something.",
+    "exemplo": "He will carry the bag.",
+    "ipa": "/carry/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 60,
+    "palavra": "cat",
+    "significado": "A small animal that says meow.",
+    "exemplo": "The cat is on the sofa.",
+    "ipa": "/cat/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 61,
+    "palavra": "chair",
+    "significado": "A seat with legs and a back.",
+    "exemplo": "She sat on the chair.",
+    "ipa": "/chair/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 62,
+    "palavra": "change",
+    "significado": "To make something different.",
+    "exemplo": "Let’s change the color.",
+    "ipa": "/change/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 63,
+    "palavra": "chicken",
+    "significado": "A bird or its meat.",
+    "exemplo": "We had chicken for lunch.",
+    "ipa": "/chicken/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 64,
+    "palavra": "child",
+    "significado": "A young person.",
+    "exemplo": "The child is learning to read.",
+    "ipa": "/child/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 65,
+    "palavra": "clean",
+    "significado": "Free from dirt or mess.",
+    "exemplo": "Wash your hands and keep them clean.",
+    "ipa": "/clean/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 66,
+    "palavra": "climb",
+    "significado": "To go up something like a tree or stairs.",
+    "exemplo": "He can climb the ladder.",
+    "ipa": "/climb/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 67,
+    "palavra": "close",
+    "significado": "To shut something.",
+    "exemplo": "Please close the door.",
+    "ipa": "/close/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 68,
+    "palavra": "cloud",
+    "significado": "A white or gray shape in the sky.",
+    "exemplo": "That cloud looks like a rabbit!",
+    "ipa": "/cloud/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 69,
+    "palavra": "coat",
+    "significado": "A warm piece of clothing.",
+    "exemplo": "She wore a red coat.",
+    "ipa": "/coat/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 70,
+    "palavra": "cold",
+    "significado": "Having a low temperature.",
+    "exemplo": "The water is very cold.",
+    "ipa": "/cold/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 71,
+    "palavra": "color",
+    "significado": "The shade or appearance of something.",
+    "exemplo": "My favorite color is green.",
+    "ipa": "/color/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 72,
+    "palavra": "come",
+    "significado": "To move toward someone or something.",
+    "exemplo": "Come here, please!",
+    "ipa": "/come/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 73,
+    "palavra": "cookie",
+    "significado": "A small sweet baked treat.",
+    "exemplo": "He ate a chocolate chip cookie.",
+    "ipa": "/cookie/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 74,
+    "palavra": "cool",
+    "significado": "A little cold or calm and stylish.",
+    "exemplo": "It’s cool outside today.",
+    "ipa": "/cool/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 75,
+    "palavra": "corner",
+    "significado": "The point where two sides meet.",
+    "exemplo": "He stood in the corner.",
+    "ipa": "/corner/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 76,
+    "palavra": "cow",
+    "significado": "A farm animal that gives milk.",
+    "exemplo": "The cow is eating grass.",
+    "ipa": "/cow/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 77,
+    "palavra": "cry",
+    "significado": "To shed tears when sad or hurt.",
+    "exemplo": "The baby began to cry.",
+    "ipa": "/cry/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 78,
+    "palavra": "cup",
+    "significado": "A small container for drinking.",
+    "exemplo": "She drank tea from a cup.",
+    "ipa": "/cup/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 79,
+    "palavra": "cut",
+    "significado": "To divide something using a sharp tool.",
+    "exemplo": "He will cut the paper.",
+    "ipa": "/cut/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 80,
+    "palavra": "dance",
+    "significado": "To move to music.",
+    "exemplo": "We love to dance at parties.",
+    "ipa": "/dance/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 81,
+    "palavra": "day",
+    "significado": "The time from morning to night.",
+    "exemplo": "Today is a sunny day.",
+    "ipa": "/day/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 82,
+    "palavra": "dear",
+    "significado": "Loved or cherished.",
+    "exemplo": "My grandma is very dear to me.",
+    "ipa": "/dear/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 83,
+    "palavra": "desk",
+    "significado": "A piece of furniture used for writing or working.",
+    "exemplo": "He sat at his desk.",
+    "ipa": "/desk/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 84,
+    "palavra": "dictionary",
+    "significado": "A book that gives meanings of words.",
+    "exemplo": "I looked it up in the dictionary.",
+    "ipa": "/dictionary/",
+    "serie": "4ano",
+    "dificuldade": "dificil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 85,
+    "palavra": "dinner",
+    "significado": "The main meal of the evening.",
+    "exemplo": "We had pasta for dinner.",
+    "ipa": "/dinner/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 86,
+    "palavra": "dog",
+    "significado": "A common pet that barks.",
+    "exemplo": "The dog is running in the yard.",
+    "ipa": "/dog/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 87,
+    "palavra": "door",
+    "significado": "An entry or exit that opens and closes.",
+    "exemplo": "She knocked on the door.",
+    "ipa": "/door/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 88,
+    "palavra": "down",
+    "significado": "Toward a lower place.",
+    "exemplo": "The ball rolled down the hill.",
+    "ipa": "/down/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 89,
+    "palavra": "draw",
+    "significado": "To make a picture with a pencil or pen.",
+    "exemplo": "I will draw a house.",
+    "ipa": "/draw/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 90,
+    "palavra": "drink",
+    "significado": "To take in liquid.",
+    "exemplo": "He likes to drink juice.",
+    "ipa": "/drink/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 91,
+    "palavra": "drive",
+    "significado": "To control a car or vehicle.",
+    "exemplo": "She can drive to school.",
+    "ipa": "/drive/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 92,
+    "palavra": "duck",
+    "significado": "A bird that swims and quacks.",
+    "exemplo": "The duck is in the pond.",
+    "ipa": "/duck/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 93,
+    "palavra": "each",
+    "significado": "Every one of two or more.",
+    "exemplo": "Each student has a book.",
+    "ipa": "/each/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 94,
+    "palavra": "ear",
+    "significado": "The part of the body used to hear.",
+    "exemplo": "He covered his ear.",
+    "ipa": "/ear/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 95,
+    "palavra": "early",
+    "significado": "Before the usual time.",
+    "exemplo": "She woke up early today.",
+    "ipa": "/early/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 96,
+    "palavra": "earth",
+    "significado": "The planet we live on.",
+    "exemplo": "The earth goes around the sun.",
+    "ipa": "/earth/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 97,
+    "palavra": "eat",
+    "significado": "To take food into the mouth and swallow it.",
+    "exemplo": "We eat lunch at noon.",
+    "ipa": "/eat/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 98,
+    "palavra": "egg",
+    "significado": "A round food from a bird.",
+    "exemplo": "He had an egg for breakfast.",
+    "ipa": "/egg/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 99,
+    "palavra": "eight",
+    "significado": "The number after seven.",
+    "exemplo": "I have eight pencils.",
+    "ipa": "/eight/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 100,
+    "palavra": "elephant",
+    "significado": "A large gray animal with a trunk.",
+    "exemplo": "The elephant is big and smart.",
+    "ipa": "/elephant/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 101,
+    "palavra": "end",
+    "significado": "The final part of something.",
+    "exemplo": "We reached the end of the story.",
+    "ipa": "/end/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 102,
+    "palavra": "enough",
+    "significado": "As much as needed.",
+    "exemplo": "Do you have enough water?",
+    "ipa": "/enough/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 103,
+    "palavra": "every",
+    "significado": "All the individual members of a group.",
+    "exemplo": "Every student must read the book.",
+    "ipa": "/every/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 104,
+    "palavra": "eye",
+    "significado": "Part of the body used to see.",
+    "exemplo": "She has blue eyes.",
+    "ipa": "/eye/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 105,
+    "palavra": "face",
+    "significado": "The front part of the head.",
+    "exemplo": "Wash your face in the morning.",
+    "ipa": "/face/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 106,
+    "palavra": "family",
+    "significado": "A group of people related to each other.",
+    "exemplo": "I love my family.",
+    "ipa": "/family/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 107,
+    "palavra": "farm",
+    "significado": "A place where animals and crops are raised.",
+    "exemplo": "My uncle works on a farm.",
+    "ipa": "/farm/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 108,
+    "palavra": "fast",
+    "significado": "Quick or in a short time.",
+    "exemplo": "He runs very fast.",
+    "ipa": "/fast/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 109,
+    "palavra": "father",
+    "significado": "Another word for dad.",
+    "exemplo": "My father is very kind.",
+    "ipa": "/father/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 110,
+    "palavra": "favorite",
+    "significado": "Most liked.",
+    "exemplo": "Blue is my favorite color.",
+    "ipa": "/favorite/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 111,
+    "palavra": "feel",
+    "significado": "To sense something through touch or emotions.",
+    "exemplo": "I feel happy today.",
+    "ipa": "/feel/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 112,
+    "palavra": "feet",
+    "significado": "The plural of foot.",
+    "exemplo": "My feet are tired.",
+    "ipa": "/feet/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 113,
+    "palavra": "find",
+    "significado": "To discover something that was lost.",
+    "exemplo": "Can you find my keys?",
+    "ipa": "/find/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 114,
+    "palavra": "finger",
+    "significado": "One of the five parts on each hand.",
+    "exemplo": "I hurt my finger.",
+    "ipa": "/finger/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 115,
+    "palavra": "finish",
+    "significado": "To complete something.",
+    "exemplo": "I will finish my homework soon.",
+    "ipa": "/finish/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 116,
+    "palavra": "fire",
+    "significado": "Heat and light from something burning.",
+    "exemplo": "The fire kept us warm.",
+    "ipa": "/fire/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 117,
+    "palavra": "fish",
+    "significado": "An animal that lives in water.",
+    "exemplo": "He caught a big fish.",
+    "ipa": "/fish/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 118,
+    "palavra": "floor",
+    "significado": "The bottom surface of a room.",
+    "exemplo": "The floor is clean.",
+    "ipa": "/floor/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 119,
+    "palavra": "flower",
+    "significado": "A colorful part of a plant.",
+    "exemplo": "She picked a yellow flower.",
+    "ipa": "/flower/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 120,
+    "palavra": "fly",
+    "significado": "To move through the air.",
+    "exemplo": "Birds fly in the sky.",
+    "ipa": "/fly/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 121,
+    "palavra": "food",
+    "significado": "What people and animals eat.",
+    "exemplo": "We brought food for the picnic.",
+    "ipa": "/food/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 122,
+    "palavra": "foot",
+    "significado": "The part of the body below the ankle.",
+    "exemplo": "I stepped on a rock with my foot.",
+    "ipa": "/foot/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 123,
+    "palavra": "forest",
+    "significado": "A large area filled with trees.",
+    "exemplo": "The forest is full of animals.",
+    "ipa": "/forest/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 124,
+    "palavra": "forget",
+    "significado": "To not remember something.",
+    "exemplo": "Don’t forget your backpack!",
+    "ipa": "/forget/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 125,
+    "palavra": "four",
+    "significado": "The number after three.",
+    "exemplo": "She has four pets.",
+    "ipa": "/four/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 126,
+    "palavra": "friend",
+    "significado": "Someone you like and trust.",
+    "exemplo": "He is my best friend.",
+    "ipa": "/friend/",
+    "serie": "4ano",
+    "dificuldade": "medio",
+    "idioma": "en-US"
+  },
+  {
+    "id": 127,
+    "palavra": "frog",
+    "significado": "A small animal that jumps and croaks.",
+    "exemplo": "The frog is green and wet.",
+    "ipa": "/frog/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 128,
+    "palavra": "fruit",
+    "significado": "Sweet food that grows on trees or plants.",
+    "exemplo": "She eats fruit every day.",
+    "ipa": "/fruit/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  },
+  {
+    "id": 129,
+    "palavra": "funny",
+    "significado": "Causing laughter or amusement.",
+    "exemplo": "That movie was very funny.",
+    "ipa": "/funny/",
+    "serie": "4ano",
+    "dificuldade": "facil",
+    "idioma": "en-US"
+  }
+]

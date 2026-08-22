@@ -12,9 +12,8 @@ export default async function SpellingBeePage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/login?next=/spelling-bee");
 
-  const words = await listSpellingWords(12);
+  const words = await listSpellingWords("todos", 300);
 
   return (
     <div className="min-h-screen bg-[#f6f8fc]">
@@ -37,7 +36,7 @@ export default async function SpellingBeePage() {
       </header>
 
       <main className="px-6 py-12">
-        <SpellingBeeGame words={words} authed />
+        <SpellingBeeGame words={words} authed={!!user} />
       </main>
     </div>
   );
