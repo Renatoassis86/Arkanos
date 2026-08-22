@@ -64,6 +64,23 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/** Ordena o baralho por nível: FÁCIL -> MÉDIO -> DIFÍCIL, com ordem aleatória em cada nível */
+function shuffleByDifficulty(arr: SpellingWord[]): SpellingWord[] {
+  const easy = arr.filter((w) => w.dificuldade === "facil" || w.dificuldade === "easy");
+  const medium = arr.filter((w) => w.dificuldade === "medio" || w.dificuldade === "medium");
+  const hard = arr.filter((w) => w.dificuldade === "dificil" || w.dificuldade === "hard");
+  const others = arr.filter(
+    (w) => !["facil", "easy", "medio", "medium", "dificil", "hard"].includes(w.dificuldade)
+  );
+
+  return [
+    ...shuffle(easy),
+    ...shuffle(medium),
+    ...shuffle(hard),
+    ...shuffle(others),
+  ];
+}
+
 const helpBtn =
   "flex items-center justify-center gap-2 rounded-2xl border-2 border-pink-200 bg-pink-50/50 px-4 py-3.5 text-sm font-bold text-pink-600 transition hover:border-pink-300 hover:bg-pink-100/60 active:scale-95 shadow-sm";
 
@@ -89,7 +106,7 @@ export function SpellingBeeGame({
   idioma?: "en-US" | "pt-BR";
 }) {
   const router = useRouter();
-  const [selectedSerie, setSelectedSerie] = useState("todos");
+  const [selectedSerie, setSelectedSerie] = useState("2ano");
 
   // Filtra todas as palavras da série selecionada
   const filteredWords = words.filter(
@@ -97,7 +114,7 @@ export function SpellingBeeGame({
   );
   const pool = filteredWords.length > 0 ? filteredWords : words;
 
-  const [deck, setDeck] = useState(() => shuffle(pool));
+  const [deck, setDeck] = useState(() => shuffleByDifficulty(pool));
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("intro");
 
@@ -106,7 +123,7 @@ export function SpellingBeeGame({
     setSelectedSerie(serie);
     const subset = words.filter((w) => serie === "todos" || !w.serie || w.serie.includes(serie));
     const available = subset.length > 0 ? subset : words;
-    const newDeck = shuffle(available);
+    const newDeck = shuffleByDifficulty(available);
     setDeck(newDeck);
     setIndex(0);
     setPhase("intro");
@@ -122,7 +139,8 @@ export function SpellingBeeGame({
       (w) => selectedSerie === "todos" || !w.serie || w.serie.includes(selectedSerie)
     );
     const available = subset.length > 0 ? subset : words;
-    setDeck(shuffle(available));
+    const newDeck = shuffleByDifficulty(available);
+    setDeck(newDeck);
     setIndex(0);
     setPhase("listen");
     setSpelled("");
@@ -130,7 +148,9 @@ export function SpellingBeeGame({
     setCorrectCount(0);
     setXp(0);
     setFinished(false);
-    setTimeout(sayWord, 300);
+    if (newDeck[0]) {
+      setTimeout(() => sayWord(newDeck[0]), 350);
+    }
   }
 
   const [spelled, setSpelled] = useState("");
@@ -182,8 +202,8 @@ export function SpellingBeeGame({
     return <p className="text-center text-slate-400">Loading words…</p>;
   }
 
-  function sayWord() {
-    if (q) speak(q.palavra, { lang: "en-US", rate: 0.85 });
+  function sayWord(target = q) {
+    if (target) speak(`How do you spell: ${target.palavra}?`, { lang: "en-US", rate: 0.85 });
   }
   function sayMeaning() {
     if (q) speak(`Meaning: ${q.significado}`, { lang: "en-US" });
@@ -193,11 +213,13 @@ export function SpellingBeeGame({
   }
 
   const [wordTriggered, setWordTriggered] = useState(false);
+  const triggeredRef = useRef(false);
 
   function startSpelling() {
     setMicError(null);
     setSpelled("");
     setWordTriggered(false);
+    triggeredRef.current = false;
     finalRef.current = "";
     setPhase("spelling");
     if (!supported) return;
@@ -218,12 +240,23 @@ export function SpellingBeeGame({
       finalRef.current = clean;
       const targetWord = q ? q.palavra : "";
 
-      const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
-
-      if (triggered) {
-        setWordTriggered(true);
-        // Apenas as letras soletradas DEPOIS da palavra entram nos slots
-        const letters = lettersFromTranscript(spokenAfter);
+      if (!triggeredRef.current) {
+        const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
+        if (triggered) {
+          triggeredRef.current = true;
+          setWordTriggered(true);
+          const letters = lettersFromTranscript(spokenAfter);
+          if (letters) {
+            setSpelled(letters);
+            const targetLen = q ? norm(q.palavra).length : 0;
+            if (targetLen > 0 && letters.length >= targetLen) {
+              setTimeout(() => check(letters), 400);
+            }
+          }
+        }
+      } else {
+        const { spokenAfter } = detectTriggerWord(clean, targetWord);
+        const letters = lettersFromTranscript(spokenAfter || clean);
         if (letters) {
           setSpelled(letters);
           const targetLen = q ? norm(q.palavra).length : 0;
@@ -303,10 +336,15 @@ export function SpellingBeeGame({
       void finishGame(false);
       return;
     }
-    setIndex((i) => i + 1);
+    const nextIdx = index + 1;
+    setIndex(nextIdx);
     setSpelled("");
     setTyped("");
     setPhase("listen");
+    const nextQ = deck[nextIdx];
+    if (nextQ) {
+      setTimeout(() => sayWord(nextQ), 350);
+    }
   }
 
   async function finishGame(eliminated: boolean) {
@@ -651,7 +689,7 @@ export function SpellingBeeGame({
 
             {/* 3 BOTÕES OFICIAIS COM ÍCONES MONOCROMÁTICOS */}
             <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-              <button onClick={sayWord} className={helpBtn} type="button">
+              <button onClick={() => sayWord()} className={helpBtn} type="button">
                 <SpeakerIcon className="h-4 w-4" /> Repetir Palavra
               </button>
               <button onClick={sayMeaning} className={helpBtn} type="button">

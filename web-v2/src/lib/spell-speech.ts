@@ -1,7 +1,7 @@
 /**
- * Motor de Voz e Reconhecimento Fonético de Alta Precisão para o Arkanos (Radix & Spelling Bee).
+ * Motor de Voz e Reconhecimento Fonético Calibrado de Alta Precisão para o Arkanos (Radix & Spelling Bee).
  * - TTS com seleção automática de vozes neurais / naturais de alta definição.
- * - Reconhecimento estrito de soletração: NUNCA decompõe palavras inteiras em letras.
+ * - Reconhecimento fonético tolerante e sem perda de primeira letra.
  * - Suporta gatilho por pronúncia da palavra inteira antes de iniciar a captura das letras.
  */
 
@@ -160,34 +160,34 @@ export function stopSpeaking() {
   }
 }
 
-/** Tabela fonética completa cobrindo todas as pronúncias das letras em PT e EN. */
+/** Tabela fonética completa e super tolerante cobrindo todas as pronúncias das letras em PT e EN. */
 const LETTER_NAMES: Record<string, string[]> = {
   a: ["a", "ay", "eh", "ah", "á", "à", "ã", "â"],
   b: ["b", "be", "bee", "bê", "be."],
-  c: ["c", "see", "sea", "cee", "cê", "ce"],
+  c: ["c", "see", "sea", "cee", "cê", "ce", "si"],
   d: ["d", "de", "dee", "dê", "di"],
   e: ["e", "ee", "eh", "é", "ê"],
   f: ["f", "ef", "eff", "efe", "efi"],
-  g: ["g", "gee", "jee", "gê", "ge", "guê"],
+  g: ["g", "gee", "jee", "gê", "ge", "guê", "ji"],
   h: ["h", "aitch", "haitch", "age", "hatch", "agá", "aga", "hagá", "haga", "rá", "raga"],
   i: ["i", "eye", "ai", "í", "ih"],
-  j: ["j", "jay", "jey", "jota", "jóta"],
+  j: ["j", "jay", "jey", "jota", "jóta", "je"],
   k: ["k", "kay", "key", "cá", "ka", "ca"],
   l: ["l", "el", "ell", "ele", "eli"],
   m: ["m", "em", "eme", "emi"],
-  n: ["n", "en", "ene", "eni"],
+  n: ["n", "en", "ene", "eni", "ne"],
   o: ["o", "oh", "ou", "owe", "ó", "ô"],
   p: ["p", "pe", "pee", "pea", "pê"],
   q: ["q", "cue", "queue", "kew", "kyu", "quê", "que", "ke"],
-  r: ["r", "ar", "are", "erre", "erri", "er"],
-  s: ["s", "es", "ess", "esse", "essi", "esi"],
+  r: ["r", "ar", "are", "erre", "erri", "er", "re"],
+  s: ["s", "es", "ess", "esse", "essi", "esi", "se"],
   t: ["t", "te", "tee", "tea", "tê", "ti"],
   u: ["u", "you", "yu", "ewe", "ú", "uh"],
   v: ["v", "ve", "vee", "vê", "vi"],
   w: ["w", "double u", "double you", "dub", "dáblio", "dabliu", "dábliu", "dablio", "duplo v", "duplo vê"],
   x: ["x", "ex", "eks", "xis", "xiz", "chiz"],
   y: ["y", "why", "wai", "ípsilon", "ipsilon", "ipisilon", "ipslon"],
-  z: ["z", "zee", "zed", "zê", "zi"],
+  z: ["z", "zee", "zed", "zê", "zi", "ze"],
   ç: ["ç", "cedilha", "cê-cedilha", "ce cedilha", "cê cedilha"],
 };
 
@@ -198,8 +198,8 @@ for (const [letter, names] of Object.entries(LETTER_NAMES)) {
   }
 }
 
-function normWord(s: string) {
-  return s
+export function normWord(s: string): string {
+  return (s || "")
     .trim()
     .toLowerCase()
     .normalize("NFD")
@@ -208,7 +208,7 @@ function normWord(s: string) {
 }
 
 /**
- * Detecta se a palavra-gatilho foi dita e retorna o texto posterior a ela.
+ * Detecta se a palavra-gatilho foi dita e extrai o conteúdo posterior.
  */
 export function detectTriggerWord(
   transcript: string,
@@ -220,15 +220,23 @@ export function detectTriggerWord(
   if (!normTarget) return { triggered: false, spokenAfter: "" };
 
   const clean = transcript.toLowerCase().trim();
-  const words = clean.split(/\s+/);
+  const rawWords = clean.split(/[\s,.;:!?\-]+/);
 
-  for (let i = 0; i < words.length; i++) {
-    const wNorm = normWord(words[i]);
+  for (let i = 0; i < rawWords.length; i++) {
+    const wNorm = normWord(rawWords[i]);
     if (wNorm === normTarget) {
       // Palavra encontrada! Pega todo o texto falado APÓS a palavra
-      const spokenAfter = words.slice(i + 1).join(" ");
+      const spokenAfter = rawWords.slice(i + 1).join(" ");
       return { triggered: true, spokenAfter };
     }
+  }
+
+  // Se a frase inteira contém o alvo colado
+  const normClean = normWord(clean);
+  if (normClean.includes(normTarget)) {
+    const idx = normClean.indexOf(normTarget);
+    const afterNorm = normClean.slice(idx + normTarget.length);
+    return { triggered: true, spokenAfter: afterNorm };
   }
 
   return { triggered: false, spokenAfter: "" };
@@ -236,8 +244,7 @@ export function detectTriggerWord(
 
 /**
  * Converte transcrição de fala em tempo real em sequência de letras soletradas.
- * REGRA ESTRITA: NUNCA quebra palavras completas em letras. Apenas aceita
- * letras soltas ("a", "b", "c") ou nomes fonéticos de letras ("pê", "agá", "erre", "cedilha", etc.).
+ * Altamente calibrado para não perder a 1ª letra e ignorar ruídos.
  */
 export function lettersFromTranscript(transcript: string): string {
   if (!transcript) return "";
@@ -249,25 +256,34 @@ export function lettersFromTranscript(transcript: string): string {
     .replace(/double\s+(u|you)/g, " w ")
     .replace(/duplo\s+(v|vê)/g, " w ")
     .replace(/c[êe][\s\-]cedilha/g, " ç ")
-    .replace(/[^a-z0-9áéíóúâêôãõç\s]/g, " ");
+    .replace(/[^a-z0-9áéíóúâêôãõç\s,.;:\-]/g, " ");
 
-  const tokens = clean.split(/\s+/).filter(Boolean);
+  const tokens = clean.split(/[\s,.;:\-]+/).filter(Boolean);
   let out = "";
 
   for (const tok of tokens) {
-    if (tok.length === 1 && /[a-zç]/i.test(tok)) {
-      out += tok;
-    } else if (TOKEN_TO_LETTER[tok]) {
-      out += TOKEN_TO_LETTER[tok];
+    const cleanedTok = tok.trim();
+    if (!cleanedTok) continue;
+
+    if (cleanedTok.length === 1 && /[a-zç]/i.test(cleanedTok)) {
+      out += cleanedTok;
+    } else if (TOKEN_TO_LETTER[cleanedTok]) {
+      out += TOKEN_TO_LETTER[cleanedTok];
+    } else {
+      const normTok = normWord(cleanedTok);
+      if (normTok.length === 1 && /[a-zç]/i.test(normTok)) {
+        out += normTok;
+      } else if (TOKEN_TO_LETTER[normTok]) {
+        out += TOKEN_TO_LETTER[normTok];
+      }
     }
-    // NOTA: Palavras com 2 ou mais letras que não estão no dicionário fonético são IGNORADAS!
   }
 
   return out;
 }
 
 /**
- * Reconhecedor de fala contínuo e sem lag.
+ * Reconhecedor de fala contínuo e com alta taxa de amostragem.
  */
 export function createRecognizer(lang: "en-US" | "pt-BR" = "en-US"): SpeechRecognition | null {
   if (typeof window === "undefined") return null;

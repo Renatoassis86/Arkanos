@@ -31,8 +31,8 @@ function loadJsonSafe<T>(relativePath: string): T | null {
   return null;
 }
 
-/** Palavras do Spelling Bee (Inglês) por série. */
-export async function listSpellingWords(serie = "todos", limit = 12): Promise<SpellingWord[]> {
+/** Palavras do Spelling Bee (Inglês) por série - Carrega 100% do banco da série. */
+export async function listSpellingWords(serie = "todos", limit?: number): Promise<SpellingWord[]> {
   try {
     const query = db
       .select({
@@ -46,12 +46,16 @@ export async function listSpellingWords(serie = "todos", limit = 12): Promise<Sp
       })
       .from(palavrasSpellingBee);
 
-    const rows =
-      serie && serie !== "todos"
-        ? await query.where(eq(palavrasSpellingBee.serie, serie)).orderBy(sql`random()`).limit(limit)
-        : await query.orderBy(sql`random()`).limit(limit);
+    let rows: SpellingWord[] = [];
+    if (serie && serie !== "todos") {
+      rows = (await query.where(eq(palavrasSpellingBee.serie, serie)).orderBy(sql`random()`)) as SpellingWord[];
+    } else {
+      rows = (await query.orderBy(sql`random()`)) as SpellingWord[];
+    }
 
-    if (rows && rows.length > 0) return rows as SpellingWord[];
+    if (rows && rows.length > 0) {
+      return limit && limit > 0 ? rows.slice(0, limit) : rows;
+    }
   } catch {
     // Fallback gracioso para arquivo JSON local
   }
@@ -67,15 +71,15 @@ export async function listSpellingWords(serie = "todos", limit = 12): Promise<Sp
     }
     if (pool.length > 0) {
       const shuffled = [...pool].sort(() => Math.random() - 0.5);
-      return shuffled.slice(0, limit);
+      return limit && limit > 0 ? shuffled.slice(0, limit) : shuffled;
     }
   }
 
   return [];
 }
 
-/** Palavras do Radix (Português) por série (3º Ano / 5º Ano / Todos). */
-export async function listRadixWords(serie = "3ano", limit = 12): Promise<SpellingWord[]> {
+/** Palavras do Radix (Português) por série (3º Ano / 5º Ano / Todos) - Retorna 100% do banco. */
+export async function listRadixWords(serie = "3ano", limit?: number): Promise<SpellingWord[]> {
   const file =
     serie === "5ano"
       ? "data/radix_5ano.json"
@@ -86,7 +90,7 @@ export async function listRadixWords(serie = "3ano", limit = 12): Promise<Spelli
   const data = loadJsonSafe<SpellingWord[]>(file) || loadJsonSafe<SpellingWord[]>("data/radix_all.json") || [];
   if (data.length > 0) {
     const shuffled = [...data].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, limit);
+    return limit && limit > 0 ? shuffled.slice(0, limit) : shuffled;
   }
   return [];
 }

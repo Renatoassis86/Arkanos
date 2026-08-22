@@ -58,6 +58,23 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/** Ordena o baralho por nível: FÁCIL -> MÉDIO -> DIFÍCIL, embaralhando aleatoriamente dentro de cada nível */
+function shuffleByDifficulty(arr: SpellingWord[]): SpellingWord[] {
+  const easy = arr.filter((w) => w.dificuldade === "facil" || w.dificuldade === "easy");
+  const medium = arr.filter((w) => w.dificuldade === "medio" || w.dificuldade === "medium");
+  const hard = arr.filter((w) => w.dificuldade === "dificil" || w.dificuldade === "hard");
+  const others = arr.filter(
+    (w) => !["facil", "easy", "medio", "medium", "dificil", "hard"].includes(w.dificuldade)
+  );
+
+  return [
+    ...shuffle(easy),
+    ...shuffle(medium),
+    ...shuffle(hard),
+    ...shuffle(others),
+  ];
+}
+
 const helpBtn =
   "flex items-center justify-center gap-2 rounded-2xl border-2 border-emerald-200 bg-emerald-50/70 px-4 py-3.5 text-sm font-bold text-emerald-800 transition hover:border-emerald-300 hover:bg-emerald-100/70 active:scale-95 shadow-sm";
 
@@ -79,13 +96,13 @@ export function RadixGame({
       selectedSerie === "todos" ||
       !w.serie ||
       w.serie.includes(selectedSerie) ||
-      (selectedSerie === "3ano" && w.serie?.includes("3")) ||
-      (selectedSerie === "5ano" && w.serie?.includes("5"))
+      (selectedSerie === "3ano" && (w.serie?.includes("3") || (w as unknown as { serie_slug?: string }).serie_slug === "3ano")) ||
+      (selectedSerie === "5ano" && (w.serie?.includes("5") || (w as unknown as { serie_slug?: string }).serie_slug === "5ano"))
   );
   const activePool = filtered.length > 0 ? filtered : words;
 
-  // Baralho com TODAS as palavras da série em ordem randomizada
-  const [deck, setDeck] = useState(() => shuffle(activePool));
+  // Baralho completo com TODAS as palavras ordenadas por dificuldade crescente (fácil -> médio -> difícil)
+  const [deck, setDeck] = useState(() => shuffleByDifficulty(activePool));
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("intro");
 
@@ -133,11 +150,11 @@ export function RadixGame({
         serie === "todos" ||
         !w.serie ||
         w.serie.includes(serie) ||
-        (serie === "3ano" && w.serie?.includes("3")) ||
-        (serie === "5ano" && w.serie?.includes("5"))
+        (serie === "3ano" && (w.serie?.includes("3") || (w as unknown as { serie_slug?: string }).serie_slug === "3ano")) ||
+        (serie === "5ano" && (w.serie?.includes("5") || (w as unknown as { serie_slug?: string }).serie_slug === "5ano"))
     );
     const av = sub.length > 0 ? sub : words;
-    setDeck(shuffle(av));
+    setDeck(shuffleByDifficulty(av));
     setIndex(0);
     setPhase("intro");
     setSpelled("");
@@ -156,11 +173,12 @@ export function RadixGame({
         selectedSerie === "todos" ||
         !w.serie ||
         w.serie.includes(selectedSerie) ||
-        (selectedSerie === "3ano" && w.serie?.includes("3")) ||
-        (selectedSerie === "5ano" && w.serie?.includes("5"))
+        (selectedSerie === "3ano" && (w.serie?.includes("3") || (w as unknown as { serie_slug?: string }).serie_slug === "3ano")) ||
+        (selectedSerie === "5ano" && (w.serie?.includes("5") || (w as unknown as { serie_slug?: string }).serie_slug === "5ano"))
     );
     const av = sub.length > 0 ? sub : words;
-    setDeck(shuffle(av));
+    const newDeck = shuffleByDifficulty(av);
+    setDeck(newDeck);
     setIndex(0);
     setPhase("listen");
     setSpelled("");
@@ -169,7 +187,9 @@ export function RadixGame({
     setXp(0);
     setMissedAttempt("");
     setRankingInfo(null);
-    setTimeout(sayWord, 350);
+    if (newDeck[0]) {
+      setTimeout(() => sayWord(newDeck[0]), 350);
+    }
   }
 
   if (!q) {
@@ -177,8 +197,8 @@ export function RadixGame({
   }
 
   // ---- Síntese de Voz (Português) ----
-  function sayWord() {
-    if (q) speak(q.palavra, { lang: "pt-BR", rate: 0.88 });
+  function sayWord(target = q) {
+    if (target) speak(`Como você soletra: ${target.palavra}?`, { lang: "pt-BR", rate: 0.88 });
   }
   function sayMeaning() {
     if (q) speak(`Significado: ${q.significado}`, { lang: "pt-BR", rate: 0.9 });
@@ -188,12 +208,14 @@ export function RadixGame({
   }
 
   const [wordTriggered, setWordTriggered] = useState(false);
+  const triggeredRef = useRef(false);
 
   // ---- Microfone PT-BR ----
   function startSpelling() {
     setMicError(null);
     setSpelled("");
     setWordTriggered(false);
+    triggeredRef.current = false;
     finalRef.current = "";
     setPhase("spelling");
     if (!supported) return;
@@ -214,12 +236,23 @@ export function RadixGame({
       finalRef.current = clean;
       const targetWord = q ? q.palavra : "";
 
-      const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
-
-      if (triggered) {
-        setWordTriggered(true);
-        // Apenas o que foi soletrado DEPOIS da palavra entra como letra
-        const letters = lettersFromTranscript(spokenAfter);
+      if (!triggeredRef.current) {
+        const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
+        if (triggered) {
+          triggeredRef.current = true;
+          setWordTriggered(true);
+          const letters = lettersFromTranscript(spokenAfter);
+          if (letters) {
+            setSpelled(letters);
+            const targetLen = q ? norm(q.palavra).length : 0;
+            if (targetLen > 0 && letters.length >= targetLen) {
+              setTimeout(() => check(letters), 400);
+            }
+          }
+        }
+      } else {
+        const { spokenAfter } = detectTriggerWord(clean, targetWord);
+        const letters = lettersFromTranscript(spokenAfter || clean);
         if (letters) {
           setSpelled(letters);
           const targetLen = q ? norm(q.palavra).length : 0;
@@ -325,11 +358,15 @@ export function RadixGame({
       setPhase("eliminated");
       return;
     }
-    setIndex((i) => i + 1);
+    const nextIdx = index + 1;
+    setIndex(nextIdx);
     setSpelled("");
     setTyped("");
     setPhase("listen");
-    setTimeout(sayWord, 350);
+    const nextQ = deck[nextIdx];
+    if (nextQ) {
+      setTimeout(() => sayWord(nextQ), 350);
+    }
   }
 
   const rawClean = q ? q.palavra.replace(/[^a-zA-ZáéíóúâêôãõçÁÉÍÓÚÂÊÔÃÕÇ]/g, "") : "";
@@ -608,7 +645,7 @@ export function RadixGame({
 
             {/* 3 BOTÕES OFICIAIS COM ÍCONES MONOCROMÁTICOS */}
             <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-              <button onClick={sayWord} className={helpBtn} type="button">
+              <button onClick={() => sayWord()} className={helpBtn} type="button">
                 <SpeakerIcon className="h-4 w-4" /> Repetir Palavra
               </button>
 
