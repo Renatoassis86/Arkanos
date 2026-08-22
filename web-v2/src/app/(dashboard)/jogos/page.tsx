@@ -64,7 +64,7 @@ const GAMES_CATALOG: GameOption[] = [
     bgGradient: "from-pink-600 via-rose-700 to-pink-900",
     borderHover: "hover:border-pink-300",
     btnBg: "bg-pink-100 hover:bg-white text-pink-900",
-    btnText: "Jogar Spelling Bee",
+    btnText: "Jogar Spelling",
     tagBg: "bg-pink-500/20 border-pink-300/30",
     tagText: "text-pink-200",
   },
@@ -88,7 +88,7 @@ type Tool = { label: string; sub: string; mono: string; color: string; href?: st
 const TOOLS: Tool[] = [
   { label: "Coleção", sub: "Orbes e níveis", mono: "C", color: "#e0a417", href: "/colecao" },
   { label: "Ranking", sub: "Sua posição", mono: "R", color: "#f59e0b", href: "/ranking" },
-  { label: "Clube do Livro", sub: "Leitura", mono: "L", color: "#6366f1", href: "/#clube-do-livro" },
+  { label: "Clube Livro", sub: "Leitura", mono: "L", color: "#6366f1", href: "/#clube-do-livro" },
   { label: "Universo", sub: "Guardiões", mono: "U", color: "#8b5cf6", href: "/#universo" },
   { label: "Projetos", sub: "Em breve", mono: "P", color: "#10b981", soon: true },
   { label: "Relatórios", sub: "Em breve", mono: "G", color: "#0ea5e9", soon: true },
@@ -121,13 +121,13 @@ export default async function DashboardPage() {
   const dailyPct = Math.round((dailyDone / DAILY_MISSIONS.length) * 100);
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#e8f0ff] via-[#f1eaff] to-[#fdeef4] pb-16 text-slate-800">
+    <main className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#e8f0ff] via-[#f1eaff] to-[#fdeef4] pb-16 text-slate-800">
       <Brush color="#f1c40f" className="left-[-20%] top-[10%] h-72 w-72" opacity={0.14} />
       <Brush color="#8b5cf6" className="right-[-22%] top-[34%] h-72 w-72" opacity={0.14} />
       <Brush color="#3b82f6" className="bottom-[6%] left-[-18%] h-72 w-72" opacity={0.12} />
 
       {/* ============ HUD DO JOGADOR ============ */}
-      <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#1e3a8a] via-[#3730a3] to-[#6d28d9] px-5 pb-7 pt-7">
+      <header className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#1e3a8a] via-[#3730a3] to-[#6d28d9] px-3.5 pb-6 pt-6 sm:px-5 sm:pb-7 sm:pt-7">
         <div
           className="pointer-events-none absolute inset-0"
           style={{
@@ -137,16 +137,16 @@ export default async function DashboardPage() {
           }}
         />
         <div className="relative mx-auto max-w-5xl">
-          <div className="flex items-center gap-4">
-            <AvatarUploader userId={hud.userId} currentUrl={hud.avatarUrl} displayName={hud.displayName} size={72} />
+          <div className="flex items-center gap-3 sm:gap-4">
+            <AvatarUploader userId={hud.userId} currentUrl={hud.avatarUrl} displayName={hud.displayName} size={64} />
             <div className="min-w-0 flex-1">
-              <h1 className="font-display text-2xl leading-tight text-white">{hud.displayName}</h1>
-              <p className="mt-0.5 text-sm text-blue-100">
+              <h1 className="font-display text-xl sm:text-2xl leading-tight text-white truncate">{hud.displayName}</h1>
+              <p className="mt-0.5 text-xs sm:text-sm text-blue-100 truncate">
                 Nível <strong className="text-[#fcd34d]">{hud.level}</strong> · {levelDef.nome}
                 {equippedTitle ? ` · ★ ${TITLES.find((t) => t.key === equippedTitle.key)?.nome}` : ""}
               </p>
               <div className="mt-2 max-w-md">
-                <div className="mb-1 flex justify-between text-[11px] font-bold text-blue-100">
+                <div className="mb-1 flex justify-between text-[10px] sm:text-[11px] font-bold text-blue-100">
                   <span className="text-[#fcd34d]">{hud.totalArks} Arks</span>
                   <span>{hud.arksForNext > 0 ? `${hud.arksForNext} p/ Nv ${hud.level + 1}` : "Nível máximo!"}</span>
                 </div>
@@ -159,7 +159,7 @@ export default async function DashboardPage() {
 
           {/* strip de métricas */}
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
-            <Stat value={String(hud.streak)} label={hud.streak === 1 ? "dia de ofensiva" : "dias de ofensiva"} accent="#fb923c" />
+            <Stat value={String(hud.streak)} label={hud.streak === 1 ? "dia de ofensiva" : "dias ofensiva"} accent="#fb923c" />
             <Stat value={`${dailyDone}/${DAILY_MISSIONS.length}`} label="meta do dia" accent="#34d399" />
             <Stat value={String(hud.totalArks)} label="Arks" accent="#fcd34d" />
             <Stat value={`#${hud.rankPos}`} label={`de ${hud.rankTotal} no ranking`} accent="#60a5fa" />
@@ -168,56 +168,56 @@ export default async function DashboardPage() {
       </header>
 
       {/* ============ DASHBOARD ============ */}
-      <div className="relative mx-auto max-w-5xl px-4 pt-6 sm:px-6">
+      <div className="relative mx-auto max-w-5xl px-3 pt-5 sm:px-6 sm:pt-6">
         <div className="grid gap-5 lg:grid-cols-3">
           {/* ---- COLUNA PRINCIPAL ---- */}
-          <div className="space-y-6 lg:col-span-2">
+          <div className="space-y-5 lg:col-span-2">
             
             {/* ========================================================================= */}
             {/* SEÇÃO DEDICADA: SALÃO DOS JOGOS (ESCOLHA SEU JOGO) */}
             {/* ========================================================================= */}
-            <section className="rounded-3xl border-2 border-indigo-200 bg-white/90 p-5 sm:p-6 shadow-md backdrop-blur">
-              <div className="mb-4 flex items-center justify-between">
+            <section className="rounded-2xl sm:rounded-3xl border-2 border-indigo-200 bg-white/90 p-4 sm:p-6 shadow-md backdrop-blur">
+              <div className="mb-3.5 flex items-center justify-between">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-indigo-600">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-black uppercase tracking-wider text-indigo-600">
                     <GamepadIcon className="h-4 w-4" /> Salão dos Jogos
                   </span>
-                  <h2 className="font-display text-xl font-black text-slate-900 sm:text-2xl">
+                  <h2 className="font-display text-lg sm:text-2xl font-black text-slate-900">
                     Escolha seu Desafio
                   </h2>
                 </div>
-                <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-700 border border-indigo-100">
-                  3 Jogos Disponíveis
+                <span className="rounded-full bg-indigo-50 px-2.5 py-1 text-[11px] sm:text-xs font-bold text-indigo-700 border border-indigo-100">
+                  3 Jogos
                 </span>
               </div>
 
-              <div className="grid gap-3.5">
+              <div className="grid gap-3">
                 {GAMES_CATALOG.map((g) => (
                   <Link
                     key={g.id}
                     href={g.href}
-                    className={`group relative overflow-hidden rounded-2xl border-2 border-transparent bg-gradient-to-r ${g.bgGradient} p-4 text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl ${g.borderHover}`}
+                    className={`group relative overflow-hidden rounded-2xl border-2 border-transparent bg-gradient-to-r ${g.bgGradient} p-3.5 sm:p-4 text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl ${g.borderHover}`}
                   >
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                      <div className="flex items-center gap-3.5">
-                        <GuardianAvatar name={g.guardian} size={58} ring="#ffffff" className="shrink-0 group-hover:scale-105 transition duration-200" />
-                        <div>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+                      <div className="flex items-center gap-3">
+                        <GuardianAvatar name={g.guardian} size={48} ring="#ffffff" className="shrink-0 group-hover:scale-105 transition duration-200" />
+                        <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2">
-                            <span className={`inline-block rounded-md border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider ${g.tagBg} ${g.tagText}`}>
+                            <span className={`inline-block rounded-md border px-2 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider ${g.tagBg} ${g.tagText}`}>
                               {g.tag}
                             </span>
                           </div>
-                          <h3 className="font-display text-lg font-black leading-tight text-white mt-1">
+                          <h3 className="font-display text-base sm:text-lg font-black leading-tight text-white mt-0.5 truncate">
                             {g.nome}
                           </h3>
-                          <p className="mt-0.5 text-xs text-white/80 line-clamp-2 max-w-md">
+                          <p className="mt-0.5 text-[11px] sm:text-xs text-white/80 line-clamp-2">
                             {g.sub}
                           </p>
                         </div>
                       </div>
 
-                      <div className="shrink-0 self-end sm:self-center">
-                        <span className={`inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-xs font-black uppercase tracking-wider shadow-md transition group-hover:scale-105 active:scale-95 ${g.btnBg}`}>
+                      <div className="shrink-0 sm:self-center">
+                        <span className={`inline-flex w-full sm:w-auto items-center justify-center gap-1.5 rounded-full px-4 py-2 sm:px-5 sm:py-2.5 text-xs font-black uppercase tracking-wider shadow-md transition group-hover:scale-105 active:scale-95 ${g.btnBg}`}>
                           {g.btnText} →
                         </span>
                       </div>
@@ -229,16 +229,16 @@ export default async function DashboardPage() {
 
             {/* Suas ferramentas */}
             <Panel title="Suas ferramentas" color="#3b82f6">
-              <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+              <div className="grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
                 {TOOLS.map((t) => {
                   const inner = (
                     <div
-                      className="flex h-full flex-col items-center gap-1 rounded-2xl border bg-white p-3 text-center shadow-sm transition hover:-translate-y-0.5"
+                      className="flex h-full flex-col items-center gap-1 rounded-2xl border bg-white p-2.5 sm:p-3 text-center shadow-sm transition hover:-translate-y-0.5"
                       style={{ borderColor: `${t.color}33` }}
                     >
-                      <Mono mono={t.mono} color={t.color} size={40} />
-                      <p className="mt-0.5 text-xs font-black leading-tight text-slate-900">{t.label}</p>
-                      <p className="text-[10px] text-slate-400">{t.sub}</p>
+                      <Mono mono={t.mono} color={t.color} size={36} />
+                      <p className="mt-1 text-[11px] sm:text-xs font-black leading-tight text-slate-900 truncate w-full">{t.label}</p>
+                      <p className="text-[9px] sm:text-[10px] text-slate-400 truncate w-full">{t.sub}</p>
                     </div>
                   );
                   return t.soon || !t.href ? (
@@ -358,7 +358,7 @@ export default async function DashboardPage() {
         </div>
 
         <form action={logout} className="mx-auto mt-8 max-w-xs">
-          <button type="submit" className="w-full rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-bold uppercase tracking-wider text-slate-500 transition hover:bg-white">
+          <button type="submit" className="w-full rounded-full border border-slate-300 bg-white/70 px-6 py-3 text-sm font-bold uppercase tracking-wider text-slate-500 transition hover:bg-white active:scale-95">
             Sair
           </button>
         </form>
@@ -372,7 +372,7 @@ export default async function DashboardPage() {
 function Mono({ mono, color, size = 44 }: { mono: string; color: string; size?: number }) {
   return (
     <span
-      className="font-display flex shrink-0 items-center justify-center rounded-2xl font-black text-white shadow-sm"
+      className="font-display flex shrink-0 items-center justify-center rounded-xl sm:rounded-2xl font-black text-white shadow-sm"
       style={{ width: size, height: size, background: `linear-gradient(145deg, ${color}, ${color}cc)`, fontSize: size * 0.42 }}
     >
       {mono}
@@ -382,9 +382,9 @@ function Mono({ mono, color, size = 44 }: { mono: string; color: string; size?: 
 
 function Stat({ value, label, accent }: { value: string; label: string; accent: string }) {
   return (
-    <div className="rounded-2xl border border-white/15 bg-white/10 px-3 py-2.5 text-center backdrop-blur">
-      <p className="font-display text-2xl leading-none" style={{ color: accent }}>{value}</p>
-      <p className="mt-1 text-[10px] font-bold uppercase tracking-wide leading-tight text-blue-100">{label}</p>
+    <div className="rounded-2xl border border-white/15 bg-white/10 px-2 py-2 sm:px-3 sm:py-2.5 text-center backdrop-blur">
+      <p className="font-display text-xl sm:text-2xl leading-none" style={{ color: accent }}>{value}</p>
+      <p className="mt-1 text-[9px] sm:text-[10px] font-bold uppercase tracking-wide leading-tight text-blue-100">{label}</p>
     </div>
   );
 }
@@ -401,9 +401,9 @@ function Panel({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-l-4 bg-white/85 p-4 shadow-sm backdrop-blur" style={{ borderColor: `${color}26`, borderLeftColor: color }}>
+    <section className="rounded-2xl border border-l-4 bg-white/85 p-3.5 sm:p-4 shadow-sm backdrop-blur" style={{ borderColor: `${color}26`, borderLeftColor: color }}>
       <div className="mb-3 flex items-center justify-between gap-2">
-        <h2 className="font-display text-base text-slate-900">{title}</h2>
+        <h2 className="font-display text-sm sm:text-base font-black text-slate-900">{title}</h2>
         {right}
       </div>
       {children}
@@ -415,7 +415,7 @@ function Ring({ pct, color }: { pct: number; color: string }) {
   const r = 17;
   const c = 2 * Math.PI * r;
   return (
-    <svg width="42" height="42" viewBox="0 0 42 42" className="shrink-0">
+    <svg width="38" height="38" viewBox="0 0 42 42" className="shrink-0">
       <circle cx="21" cy="21" r={r} fill="none" stroke="#e2e8f0" strokeWidth="5" />
       <circle cx="21" cy="21" r={r} fill="none" stroke={color} strokeWidth="5" strokeLinecap="round" strokeDasharray={c} strokeDashoffset={c * (1 - pct / 100)} transform="rotate(-90 21 21)" />
       <text x="21" y="25" textAnchor="middle" fontSize="11" fontWeight="800" fill="#334155">{pct}%</text>

@@ -110,50 +110,61 @@ export function SpellingBeeGame({
   const [selectedSerie, setSelectedSerie] = useState("2ano");
 
   // Filtra todas as palavras da série selecionada
-  const filteredWords = words.filter(
-    (w) => selectedSerie === "todos" || !w.serie || w.serie.includes(selectedSerie)
-  );
-  const pool = filteredWords.length > 0 ? filteredWords : words;
+  function getPool(serie = selectedSerie) {
+    if (serie === "todos") return words;
+    const sub = words.filter(
+      (w) =>
+        w.serie_slug === serie ||
+        w.serie === serie ||
+        (serie === "2ano" && (w.serie?.includes("2") || w.serie_slug === "2ano")) ||
+        (serie === "3ano" && (w.serie?.includes("3") || w.serie_slug === "3ano")) ||
+        (serie === "4ano" && (w.serie?.includes("4") || w.serie_slug === "4ano")) ||
+        (serie === "5ano" && (w.serie?.includes("5") || w.serie_slug === "5ano"))
+    );
+    return sub.length > 0 ? sub : words;
+  }
 
-  const [deck, setDeck] = useState(() => shuffleByDifficulty(pool));
+  const [deck, setDeck] = useState(() => shuffleByDifficulty(getPool("2ano")));
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<Phase>("intro");
 
   // Atualiza o baralho quando muda de série
   function restartDeck(serie = selectedSerie) {
     setSelectedSerie(serie);
-    const subset = words.filter((w) => serie === "todos" || !w.serie || w.serie.includes(serie));
-    const available = subset.length > 0 ? subset : words;
+    const available = getPool(serie);
     const newDeck = shuffleByDifficulty(available);
     setDeck(newDeck);
     setIndex(0);
     setPhase("intro");
     setSpelled("");
     setTyped("");
+    setResults([]);
     setCorrectCount(0);
     setXp(0);
+    setHighestTier("Fácil");
     setFinished(false);
   }
 
   function retryWithNewOrder() {
-    const subset = words.filter(
-      (w) => selectedSerie === "todos" || !w.serie || w.serie.includes(selectedSerie)
-    );
-    const available = subset.length > 0 ? subset : words;
+    const available = getPool(selectedSerie);
     const newDeck = shuffleByDifficulty(available);
     setDeck(newDeck);
     setIndex(0);
     setPhase("listen");
     setSpelled("");
     setTyped("");
+    setResults([]);
     setCorrectCount(0);
     setXp(0);
+    setHighestTier("Fácil");
     setFinished(false);
     if (newDeck[0]) {
       setTimeout(() => sayWord(newDeck[0]), 350);
     }
   }
 
+  const [results, setResults] = useState<SpellingItemResult[]>([]);
+  const [highestTier, setHighestTier] = useState<string>("Fácil");
   const [spelled, setSpelled] = useState("");
   const [listening, setListening] = useState(false);
   const [micError, setMicError] = useState<string | null>(null);
@@ -298,22 +309,23 @@ export function SpellingBeeGame({
       norm(attempt) === target ||
       norm(finalRef.current.replace(/\s+/g, "")) === target;
 
-    setItems((arr) => [...arr, { difficulty: q.dificuldade, type: "spelling", correct: ok }]);
+    const newResults = [...results, { difficulty: q.dificuldade, correct: ok }];
+    setResults(newResults);
+    const summary = calculateSpellingScore(newResults);
+    setCorrectCount(summary.streak);
+    setXp(summary.totalPoints);
+    setHighestTier(summary.highestTier);
     setLastCorrect(ok);
-    setPhase("reveal");
 
     if (ok) {
-      setCorrectCount((c) => c + 1);
-      setXp((x) => x + (ARKS_BY_DIFFICULTY[q.dificuldade] ?? 10));
-      if (q.dificuldade === "dificil" || q.dificuldade === "hard") setOuro((o) => o + 1);
-      else if (q.dificuldade === "medio" || q.dificuldade === "medium") setPrata((p) => p + 1);
-      else setBronze((b) => b + 1);
+      setPhase("reveal");
       playCorrect();
       speak("Correct! Well done.", {
         lang: "en-US",
         onend: () => spellOutWord(q.palavra, { lang: "en-US" }),
       });
     } else {
+      setPhase("reveal");
       playWrong();
       // Eliminação imediata com voz explicando e soletrando a grafia correta
       speak(`The correct spelling is ${q.palavra}.`, {
@@ -327,7 +339,7 @@ export function SpellingBeeGame({
           });
         },
       });
-      void finishGame(true);
+      void finishGame(true, newResults);
     }
   }
 
@@ -348,25 +360,30 @@ export function SpellingBeeGame({
     }
   }
 
-  async function finishGame(eliminated: boolean) {
+  async function finishGame(eliminated: boolean, finalResults?: SpellingItemResult[]) {
     stopMic();
     setFinished(true);
     if (eliminated && q) setMissedWord(q.palavra);
     playFinish();
     setTimeout(() => setCanContinue(true), 3500);
-    const score = sessionScore(items);
-    setTri(score);
+
+    const rList = finalResults ?? results;
+    const summary = calculateSpellingScore(rList);
+    setCorrectCount(summary.streak);
+    setXp(summary.totalPoints);
+    setHighestTier(summary.highestTier);
+
     if (!authed) return;
     setSaving(true);
-    const diamante = !eliminated && total > 0 && correctCount === total ? 1 : 0;
+    const diamante = !eliminated && total > 0 && summary.streak === total ? 1 : 0;
     const res = await awardSpellingArks({
-      bronze,
-      prata,
-      ouro,
+      bronze: summary.easyCorrect,
+      prata: summary.mediumCorrect,
+      ouro: summary.hardCorrect,
       diamante,
-      correct: correctCount,
+      correct: summary.streak,
       total,
-      points: score.points,
+      points: summary.totalPoints,
     });
     setSaving(false);
     setPersisted(res);

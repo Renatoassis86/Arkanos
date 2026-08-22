@@ -89,10 +89,9 @@ export function RadixGame({
   const filtered = words.filter(
     (w) =>
       selectedSerie === "todos" ||
-      !w.serie ||
-      w.serie.includes(selectedSerie) ||
-      (selectedSerie === "3ano" && (w.serie?.includes("3") || (w as unknown as { serie_slug?: string }).serie_slug === "3ano")) ||
-      (selectedSerie === "5ano" && (w.serie?.includes("5") || (w as unknown as { serie_slug?: string }).serie_slug === "5ano"))
+      w.serie_slug === selectedSerie ||
+      (selectedSerie === "3ano" && (w.serie?.includes("3") || w.serie_slug === "3ano")) ||
+      (selectedSerie === "5ano" && (w.serie?.includes("5") || w.serie_slug === "5ano"))
   );
   const activePool = filtered.length > 0 ? filtered : words;
 

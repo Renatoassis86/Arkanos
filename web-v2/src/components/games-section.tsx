@@ -57,33 +57,33 @@ const GAMES = [
   },
 ];
 
-export function GamesSection() {
+export function GamesSection({ authed }: { authed?: boolean }) {
   return (
-    <section id="jogos" className="relative overflow-hidden bg-gradient-to-br from-[#1e1b4b] via-[#2e1065] to-[#1e3a8a] px-6 py-24">
-      {/* Brushes-marca d'água (cores vivas sobre o escuro) */}
+    <section id="jogos" className="relative overflow-hidden bg-gradient-to-br from-[#1e1b4b] via-[#2e1065] to-[#1e3a8a] px-4 py-16 sm:px-6 sm:py-24">
+      {/* Brushes-marca d'água */}
       <Brush color="#a855f7" className="left-[-8%] top-[6%] h-80 w-80" opacity={0.35} />
       <Brush color="#ec4899" className="right-[-6%] top-[30%] h-72 w-72" opacity={0.28} />
       <Brush color="#3b82f6" className="bottom-[-6%] left-[40%] h-72 w-72" opacity={0.30} />
 
       <div className="relative z-10 mx-auto max-w-6xl">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
           <Reveal className="flex justify-center lg:order-1">
             <PhotoMask
               src="/img/fotos/crianca-pensa-menino.png"
               alt="Criança concentrada em um desafio da Arkanos"
               color="#3b82f6"
               symbols={GAMES_SYMS}
-              className="max-w-[440px]"
+              className="w-full max-w-[340px] sm:max-w-[440px]"
             />
           </Reveal>
-          <Reveal className="lg:order-2">
-            <p className="font-emblem mb-3 text-xs font-extrabold uppercase tracking-[4px] text-[#fcd34d]">
+          <Reveal className="lg:order-2 text-center lg:text-left">
+            <p className="font-emblem mb-2 sm:mb-3 text-xs font-extrabold uppercase tracking-[3px] sm:tracking-[4px] text-[#fcd34d]">
               Os Jogos
             </p>
-            <h2 className="font-display text-4xl text-white sm:text-5xl">
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-white">
               Aprender jogando, com propósito
             </h2>
-            <p className="mt-4 text-lg text-indigo-100">
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-indigo-100 leading-relaxed">
               Cada jogo reforça uma das <strong className="text-[#fcd34d]">7 Artes Liberais</strong>{" "}
               (Trivium e Quadrivium) e é guiado por um Guardião, com desafios pedagógicos e
               pontuação de mérito por nível de acertos.
@@ -91,7 +91,7 @@ export function GamesSection() {
           </Reveal>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {GAMES.map((g, i) => (
             <Reveal key={g.name} delay={i * 0.08}>
               <div
@@ -125,16 +125,16 @@ export function GamesSection() {
                 </p>
 
                 {g.soon ? (
-                  <span className="relative z-10 mt-4 inline-flex w-fit rounded-full border border-slate-200 px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider text-slate-400">
+                  <span className="relative z-10 mt-4 inline-flex w-fit rounded-full border border-slate-200 px-3.5 py-2 text-[11px] font-black uppercase tracking-wider text-slate-400">
                     Em breve
                   </span>
                 ) : (
                   <Link
-                    href={g.href ?? "/signup"}
-                    className="relative z-10 mt-4 inline-flex w-fit rounded-full px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-sm transition hover:-translate-y-0.5"
+                    href={authed ? (g.href ?? "/jogos") : (g.href ? `/login?next=${g.href}` : "/signup")}
+                    className="relative z-10 mt-4 inline-flex w-full sm:w-fit items-center justify-center rounded-full px-4 py-2.5 text-xs font-black uppercase tracking-wider text-white shadow-sm transition hover:-translate-y-0.5"
                     style={{ backgroundColor: g.accent }}
                   >
-                    Jogar Agora →
+                    {authed ? "Jogar Agora →" : "Entrar para Jogar →"}
                   </Link>
                 )}
               </div>

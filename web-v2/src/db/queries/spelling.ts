@@ -1,6 +1,3 @@
-import { sql, eq } from "drizzle-orm";
-import { db } from "@/db/client";
-import { palavrasSpellingBee } from "@/db/schema";
 import fs from "fs";
 import path from "path";
 
@@ -12,6 +9,7 @@ export type SpellingWord = {
   exemplo?: string;
   dificuldade: string;
   serie?: string;
+  serie_slug?: string;
   silabas?: string;
   classe?: string;
   sinonimos?: string;
@@ -31,66 +29,61 @@ function loadJsonSafe<T>(relativePath: string): T | null {
   return null;
 }
 
-/** Palavras do Spelling Bee (Inglês) por série - Carrega 100% do banco da série. */
+/** 
+ * Palavras do Spelling Bee (Inglês) por série - Carrega 100% das palavras do banco da série.
+ * 2º ano: 88 palavras
+ * 3º ano: 108 palavras
+ * 4º ano: 129 palavras
+ * 5º ano: 42 palavras
+ * Total Geral: 367 palavras
+ */
 export async function listSpellingWords(serie = "todos", limit?: number): Promise<SpellingWord[]> {
-  try {
-    const query = db
-      .select({
-        id: palavrasSpellingBee.id,
-        palavra: palavrasSpellingBee.palavra,
-        significado: palavrasSpellingBee.significado,
-        ipa: palavrasSpellingBee.ipa,
-        exemplo: palavrasSpellingBee.exemplo,
-        dificuldade: palavrasSpellingBee.dificuldade,
-        serie: palavrasSpellingBee.serie,
-      })
-      .from(palavrasSpellingBee);
-
-    let rows: SpellingWord[] = [];
-    if (serie && serie !== "todos") {
-      rows = (await query.where(eq(palavrasSpellingBee.serie, serie)).orderBy(sql`random()`)) as SpellingWord[];
-    } else {
-      rows = (await query.orderBy(sql`random()`)) as SpellingWord[];
-    }
-
-    if (rows && rows.length > 0) {
-      return limit && limit > 0 ? rows.slice(0, limit) : rows;
-    }
-  } catch {
-    // Fallback gracioso para arquivo JSON local
-  }
-
-  // Carrega do JSON por série
   const seriesData = loadJsonSafe<Record<string, SpellingWord[]>>("data/spelling_by_serie.json");
   if (seriesData) {
     let pool: SpellingWord[] = [];
-    if (serie === "todos" || !seriesData[serie]) {
-      pool = Object.values(seriesData).flat();
-    } else {
-      pool = seriesData[serie] || [];
+    if (serie === "todos") {
+      for (const [key, items] of Object.entries(seriesData)) {
+        for (const item of items) {
+          pool.push({ ...item, serie: key, serie_slug: key });
+        }
+      }
+    } else if (seriesData[serie]) {
+      pool = seriesData[serie].map((item) => ({ ...item, serie, serie_slug: serie }));
     }
+
     if (pool.length > 0) {
-      const shuffled = [...pool].sort(() => Math.random() - 0.5);
-      return limit && limit > 0 ? shuffled.slice(0, limit) : shuffled;
+      return limit && limit > 0 ? pool.slice(0, limit) : pool;
     }
   }
 
   return [];
 }
 
-/** Palavras do Radix (Português) por série (3º Ano / 5º Ano / Todos) - Retorna 100% do banco. */
-export async function listRadixWords(serie = "3ano", limit?: number): Promise<SpellingWord[]> {
-  const file =
-    serie === "5ano"
-      ? "data/radix_5ano.json"
-      : serie === "todos"
-      ? "data/radix_all.json"
-      : "data/radix_3ano.json";
-
-  const data = loadJsonSafe<SpellingWord[]>(file) || loadJsonSafe<SpellingWord[]>("data/radix_all.json") || [];
-  if (data.length > 0) {
-    const shuffled = [...data].sort(() => Math.random() - 0.5);
-    return limit && limit > 0 ? shuffled.slice(0, limit) : shuffled;
+/** 
+ * Palavras do Radix (Português) por série.
+ * 3º ano: 148 palavras
+ * 5º ano: 150 palavras
+ * Total Geral: 298 palavras
+ */
+export async function listRadixWords(serie = "todos", limit?: number): Promise<SpellingWord[]> {
+  if (serie === "3ano") {
+    const r3 = loadJsonSafe<SpellingWord[]>("data/radix_3ano.json") || [];
+    const mapped = r3.map((w) => ({ ...w, serie: "3º Ano", serie_slug: "3ano" }));
+    return limit && limit > 0 ? mapped.slice(0, limit) : mapped;
   }
-  return [];
+
+  if (serie === "5ano") {
+    const r5 = loadJsonSafe<SpellingWord[]>("data/radix_5ano.json") || [];
+    const mapped = r5.map((w) => ({ ...w, serie: "5º Ano", serie_slug: "5ano" }));
+    return limit && limit > 0 ? mapped.slice(0, limit) : mapped;
+  }
+
+  // "todos"
+  const r3 = loadJsonSafe<SpellingWord[]>("data/radix_3ano.json") || [];
+  const r5 = loadJsonSafe<SpellingWord[]>("data/radix_5ano.json") || [];
+  const all = [
+    ...r3.map((w) => ({ ...w, serie: "3º Ano", serie_slug: "3ano" })),
+    ...r5.map((w) => ({ ...w, serie: "5º Ano", serie_slug: "5ano" })),
+  ];
+  return limit && limit > 0 ? all.slice(0, limit) : all;
 }

@@ -25,7 +25,7 @@ export default async function Home() {
       <SiteHeader authed={!!user} />
 
       {/* 1. Institucional / Hero */}
-      <Hero />
+      <Hero authed={!!user} />
       {/* 2. Credibilidade */}
       <StatsSection />
       {/* 3. Quem somos / Manifesto */}
@@ -35,7 +35,7 @@ export default async function Home() {
       {/* 5. As 7 Artes Liberais */}
       <TriviumSection />
       {/* 6. Jogos / Programas */}
-      <GamesSection />
+      <GamesSection authed={!!user} />
       {/* 7. Programação (nova linguagem) */}
       <ProgramacaoSection />
 
@@ -85,7 +85,7 @@ export default async function Home() {
       {/* 12. Depoimentos */}
       <TestimonialsSection />
       {/* 13. CTA */}
-      <CtaSection />
+      <CtaSection authed={!!user} />
       {/* 14. Contato / Footer */}
       <SiteFooter />
     </div>

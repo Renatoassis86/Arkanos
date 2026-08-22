@@ -244,7 +244,7 @@ export function detectTriggerWord(
 
 /**
  * Converte transcrição de fala em tempo real em sequência de letras soletradas.
- * Altamente calibrado para não perder a 1ª letra e ignorar ruídos.
+ * FILTRO ESTRITO: Rejeita conversas, ruídos e palavras inteiras que não sejam nomes válidos de letras.
  */
 export function lettersFromTranscript(transcript: string): string {
   if (!transcript) return "";
@@ -265,18 +265,30 @@ export function lettersFromTranscript(transcript: string): string {
     const cleanedTok = tok.trim();
     if (!cleanedTok) continue;
 
+    // 1. Se for uma letra isolada (a-z, ç)
     if (cleanedTok.length === 1 && /[a-zç]/i.test(cleanedTok)) {
       out += cleanedTok;
-    } else if (TOKEN_TO_LETTER[cleanedTok]) {
-      out += TOKEN_TO_LETTER[cleanedTok];
-    } else {
-      const normTok = normWord(cleanedTok);
-      if (normTok.length === 1 && /[a-zç]/i.test(normTok)) {
-        out += normTok;
-      } else if (TOKEN_TO_LETTER[normTok]) {
-        out += TOKEN_TO_LETTER[normTok];
-      }
+      continue;
     }
+
+    // 2. Se for um nome fonético exato de letra cadastrado no dicionário (ex: "bê", "agá", "erre", "cedilha", "bee", "see", "aitch")
+    if (TOKEN_TO_LETTER[cleanedTok]) {
+      out += TOKEN_TO_LETTER[cleanedTok];
+      continue;
+    }
+
+    // 3. Versão normalizada sem acentos
+    const normTok = normWord(cleanedTok);
+    if (normTok.length === 1 && /[a-zç]/i.test(normTok)) {
+      out += normTok;
+      continue;
+    }
+    if (TOKEN_TO_LETTER[normTok]) {
+      out += TOKEN_TO_LETTER[normTok];
+      continue;
+    }
+
+    // Se não for uma letra nem um nome de letra válido (ex: "olha", "peraí", "calma", "hum", ruído), REJEITA e ignora.
   }
 
   return out;

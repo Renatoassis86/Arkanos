@@ -15,7 +15,7 @@ type Art = {
 };
 
 const ARTES: Art[] = [
-  { key: "gramatica", nome: "Gramática", grupo: "Trivium", inicial: "L", guardiao: "Lyra", color: "#ec4899", jogo: { nome: "Spelling Bee", href: "/spelling-bee" } },
+  { key: "gramatica", nome: "Gramática", grupo: "Trivium", inicial: "L", guardiao: "Lyra", color: "#ec4899", jogo: { nome: "Radix / Spelling", href: "/radix" } },
   { key: "logica", nome: "Lógica", grupo: "Trivium", inicial: "A", guardiao: "Aion", color: "#3b82f6", jogo: { nome: "Desafio dos Sábios", href: "/desafio" } },
   { key: "retorica", nome: "Retórica", grupo: "Trivium", inicial: "K", guardiao: "Kael", color: "#ef4444" },
   { key: "aritmetica", nome: "Aritmética", grupo: "Quadrivium", inicial: "N", guardiao: "Numa", color: "#10b981" },
@@ -26,22 +26,22 @@ const ARTES: Art[] = [
 
 export function JourneyMap({ track }: { track: string }) {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       {/* espinha da trilha */}
-      <div className="absolute bottom-6 left-[34px] top-6 w-1 rounded-full bg-gradient-to-b from-[#f1c40f]/50 via-[#8b5cf6]/30 to-slate-200" />
-      <ul className="space-y-3">
+      <div className="absolute bottom-6 left-[27px] sm:left-[31px] top-6 w-0.5 sm:w-1 rounded-full bg-gradient-to-b from-[#f1c40f]/50 via-[#8b5cf6]/30 to-slate-200" />
+      <ul className="space-y-2.5 sm:space-y-3">
         {ARTES.map((a) => {
           const atual = a.key === track;
           const jogavel = !!a.jogo;
           const node = (
             <div
-              className={`relative flex items-center gap-3 rounded-2xl border p-3 transition ${
+              className={`relative flex items-center gap-2.5 sm:gap-3 rounded-2xl border p-2.5 sm:p-3 transition ${
                 jogavel ? "bg-white shadow-sm hover:-translate-y-0.5" : "bg-white/55"
               }`}
               style={{ borderColor: `${a.color}40` }}
             >
               <span
-                className="font-display relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-2xl font-black text-white shadow-md"
+                className="font-display relative z-10 flex h-11 w-11 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-full text-lg sm:text-2xl font-black text-white shadow-sm"
                 style={{
                   background: `radial-gradient(circle at 34% 28%, #ffffff66, ${a.color} 60%, ${a.color} 100%)`,
                   opacity: jogavel ? 1 : 0.65,
@@ -50,29 +50,29 @@ export function JourneyMap({ track }: { track: string }) {
                 {a.inicial}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] font-black uppercase tracking-widest" style={{ color: a.color }}>
+                <p className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider truncate" style={{ color: a.color }}>
                   {a.grupo} · {a.guardiao}
                 </p>
-                <p className="font-display text-lg leading-tight text-slate-900">{a.nome}</p>
-                <p className="truncate text-xs text-slate-500">
+                <p className="font-display text-sm sm:text-base font-black leading-tight text-slate-900 truncate">{a.nome}</p>
+                <p className="truncate text-[10px] sm:text-xs text-slate-500">
                   {a.jogo ? a.jogo.nome : "Trilha em preparação"}
                 </p>
               </div>
               <div className="flex shrink-0 flex-col items-end gap-1">
                 {atual && (
-                  <span className="rounded-full bg-[#f1c40f] px-2 py-0.5 text-[9px] font-black uppercase tracking-wide text-[#3b2f00]">
+                  <span className="rounded-full bg-[#f1c40f] px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] font-black uppercase tracking-wide text-[#3b2f00]">
                     Você aqui
                   </span>
                 )}
                 {jogavel ? (
                   <span
-                    className="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white"
+                    className="rounded-full px-2.5 sm:px-3 py-1 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-white"
                     style={{ background: a.color }}
                   >
                     Jogar
                   </span>
                 ) : (
-                  <span className="rounded-full border border-slate-200 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400">
+                  <span className="rounded-full border border-slate-200 px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-slate-400">
                     Em breve
                   </span>
                 )}

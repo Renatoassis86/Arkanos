@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 import { login } from "../actions";
 import {
   AuthShell,
@@ -11,9 +13,17 @@ import {
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; next?: string }>;
 }) {
-  const { error } = await searchParams;
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const { error, next } = await searchParams;
+  if (user) {
+    redirect(next ?? "/jogos");
+  }
 
   return (
     <AuthShell
