@@ -2,6 +2,9 @@
   "name": "arkanos",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "web-v2"
+  ],
   "scripts": {
     "dev": "npm run dev --prefix web-v2",
     "build": "npm run build --prefix web-v2",
