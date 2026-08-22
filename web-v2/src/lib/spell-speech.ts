@@ -34,24 +34,41 @@ function getBestVoice(lang: "pt-BR" | "en-US"): SpeechSynthesisVoice | null {
       "Microsoft Francisca Online (Natural)",
       "Microsoft Antonio Online (Natural)",
       "Microsoft Thalita Online (Natural)",
+      "Microsoft Brenda Online (Natural)",
+      "Microsoft Donato Online (Natural)",
+      "Microsoft Elza Online (Natural)",
+      "Microsoft Fabio Online (Natural)",
+      "Microsoft Giovanna Online (Natural)",
+      "Microsoft Humberto Online (Natural)",
+      "Microsoft Julio Online (Natural)",
+      "Microsoft Leide Online (Natural)",
+      "Microsoft Leticia Online (Natural)",
+      "Microsoft Manuela Online (Natural)",
+      "Microsoft Nicolau Online (Natural)",
+      "Microsoft Valerio Online (Natural)",
+      "Microsoft Yara Online (Natural)",
       "Google português do Brasil",
+      "Luciana (Enhanced)",
       "Luciana",
+      "Felipe (Enhanced)",
       "Felipe",
-      "Daniel",
       "Heloisa",
       "Letícia",
       "Yara",
       "Maria",
       "pt-BR",
+      "pt_BR",
     ];
 
     for (const name of preferredPT) {
       const match = voices.find(
-        (v) => (v.name.includes(name) || v.voiceURI.includes(name)) && v.lang.replace("_", "-").startsWith("pt")
+        (v) =>
+          (v.name.includes(name) || v.voiceURI.includes(name)) &&
+          (v.lang.replace("_", "-").toLowerCase().startsWith("pt-br") || v.lang.replace("_", "-").toLowerCase().startsWith("pt"))
       );
       if (match) return match;
     }
-    return voices.find((v) => v.lang.replace("_", "-").startsWith("pt")) || null;
+    return voices.find((v) => v.lang.replace("_", "-").toLowerCase().startsWith("pt")) || null;
   } else {
     const preferredEN = [
       "Microsoft Jenny Online (Natural)",

@@ -160,7 +160,7 @@ export function SpellingBeeGame({
     setHighestTier("Fácil");
     setFinished(false);
     if (newDeck[0]) {
-      setTimeout(() => sayWord(newDeck[0]), 350);
+      setTimeout(() => sayWord(newDeck[0], true), 350);
     }
   }
 
@@ -224,12 +224,23 @@ export function SpellingBeeGame({
     return <p className="text-center text-slate-400">Loading words…</p>;
   }
 
-  function sayWord(target = q) {
-    if (target) speak(`How do you spell: ${target.palavra}?`, { lang: "en-US", rate: 0.85 });
+  function sayWord(target = q, isIntro = false) {
+    if (!target) return;
+    if (isIntro) {
+      speak(`How do you spell: ${target.palavra}?`, { lang: "en-US", rate: 0.88 });
+    } else {
+      speak(target.palavra, { lang: "en-US", rate: 0.85 });
+    }
   }
+
+  function repeatWord() {
+    if (q) speak(q.palavra, { lang: "en-US", rate: 0.85 });
+  }
+
   function sayMeaning() {
     if (q) speak(`Meaning: ${q.significado}`, { lang: "en-US" });
   }
+
   function saySentence() {
     if (q?.exemplo) speak(q.exemplo, { lang: "en-US" });
   }
@@ -366,7 +377,7 @@ export function SpellingBeeGame({
     setPhase("listen");
     const nextQ = deck[nextIdx];
     if (nextQ) {
-      setTimeout(() => sayWord(nextQ), 350);
+      setTimeout(() => sayWord(nextQ, true), 350);
     }
   }
 
@@ -740,7 +751,7 @@ export function SpellingBeeGame({
 
             {/* 3 BOTÕES OFICIAIS COM ÍCONES MONOCROMÁTICOS */}
             <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-              <button onClick={() => sayWord()} className={helpBtn} type="button">
+              <button onClick={repeatWord} className={helpBtn} type="button">
                 <SpeakerIcon className="h-4 w-4" /> Repetir Palavra
               </button>
               <button onClick={sayMeaning} className={helpBtn} type="button">

@@ -207,12 +207,23 @@ export function RadixGame({
   }
 
   // ---- Síntese de Voz (Português) ----
-  function sayWord(target = q) {
-    if (target) speak(`Como você soletra: ${target.palavra}?`, { lang: "pt-BR", rate: 0.88 });
+  function sayWord(target = q, isIntro = false) {
+    if (!target) return;
+    if (isIntro) {
+      speak(`Como você soletra a palavra: ${target.palavra}?`, { lang: "pt-BR", rate: 0.9 });
+    } else {
+      speak(target.palavra, { lang: "pt-BR", rate: 0.88 });
+    }
   }
+
+  function repeatWord() {
+    if (q) speak(q.palavra, { lang: "pt-BR", rate: 0.88 });
+  }
+
   function sayMeaning() {
     if (q) speak(`Significado: ${q.significado}`, { lang: "pt-BR", rate: 0.9 });
   }
+
   function saySentence() {
     if (q?.exemplo) speak(q.exemplo, { lang: "pt-BR", rate: 0.9 });
   }
@@ -691,7 +702,7 @@ export function RadixGame({
 
             {/* 3 BOTÕES OFICIAIS COM ÍCONES MONOCROMÁTICOS */}
             <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-              <button onClick={() => sayWord()} className={helpBtn} type="button">
+              <button onClick={repeatWord} className={helpBtn} type="button">
                 <SpeakerIcon className="h-4 w-4" /> Repetir Palavra
               </button>
 
