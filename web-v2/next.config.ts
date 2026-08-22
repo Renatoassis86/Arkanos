@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
-  // Há um package-lock.json no repo pai (build Tailwind do Django).
-  // Fixa a raiz deste app para o Turbopack não inferir o diretório errado.
+  outputFileTracingRoot: path.join(__dirname),
   turbopack: {
     root: __dirname,
   },

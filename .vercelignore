@@ -1,41 +1,31 @@
-# Vercel Ignore - Optimized for Arkanos RPG
-# Main Goal: Keep bundle < 250MB while including all high-quality PNGs
+# Vercel Ignore for Arkanos Next.js Web-v2
+# Exclui todo o backend legado em Django, scripts Python e arquivos pesados
 
-# Python/System
+# Python / Django Legado
+backend/
+core/
+ark/
+desafio_dos_sabios/
+arkan os-cards/
+arkanos/
+banco_radix_spell/
+jogos/
+modules/
+templates/
+docs/
+*.py
+*.pyc
+*.ipynb
+__pycache__/
 venv/
 .venv/
-__pycache__/
-*.pyc
-node_modules/
-*.log
-.DS_Store
-.vercel/
-.vercel_cache/
-
-# Heavy Archives
-**/*.rar
-**/*.zip
-**/*.7z
-**/*.exe
-
-# Database
 db.sqlite3
+*.log
+*.txt
 
-# Consolidado: Ignoramos as pastas estáticas redundantes
-/static/
-/staticfiles/
-
-# Staticfiles processado - Mantemos apenas o do backend
-!backend/static/
-!backend/staticfiles/
-
-
-
-# CRITICAL OVERRIDE: Ignore these heavy files regardless of folder inclusion
-/backend/static/img/quiz_linked/
+# Arquivos de mídia pesados fora do web-v2
 **/*.mp4
 **/*.mp3
-
 **/*.wav
 **/*.mov
 **/*.MOV
@@ -43,7 +33,9 @@ db.sqlite3
 **/*.wmv
 **/*.zip
 **/*.rar
-**/videos/
-**/video/
-**/staticfiles/videos/
-**/staticfiles/video/
+**/*.7z
+**/*.exe
+
+# Node/Vercel
+.vercel/
+.vercel_cache/
