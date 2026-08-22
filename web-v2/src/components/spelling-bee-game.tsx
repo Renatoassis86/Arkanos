@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 import type { SpellingWord } from "@/db/queries/spelling";
 import { awardSpellingArks, type ArksResult } from "@/app/spelling-bee/actions";
 import { calculateSpellingScore, type SpellingItemResult } from "@/lib/spelling-score";
+import { SpellingTutorialModal, shouldShowTutorial } from "@/components/spelling-tutorial-modal";
 import { playCorrect, playWrong, playFinish } from "@/lib/feedback";
 import { PremiacaoOverlay, type RevealItem } from "@/components/premiacao-overlay";
 import { GuardianAvatar } from "@/components/guardian-avatar";
@@ -163,6 +164,15 @@ export function SpellingBeeGame({
     }
   }
 
+  function handleStartRound() {
+    if (shouldShowTutorial()) {
+      setShowTutorial(true);
+    } else {
+      retryWithNewOrder();
+    }
+  }
+
+  const [showTutorial, setShowTutorial] = useState(false);
   const [results, setResults] = useState<SpellingItemResult[]>([]);
   const [highestTier, setHighestTier] = useState<string>("Fácil");
   const [spelled, setSpelled] = useState("");
@@ -651,12 +661,30 @@ export function SpellingBeeGame({
           </div>
 
           <button
-            onClick={retryWithNewOrder}
+            onClick={handleStartRound}
             className="mt-7 w-full rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] px-8 py-4 text-base font-black uppercase tracking-wider text-white shadow-lg shadow-pink-500/25 transition hover:-translate-y-0.5 active:scale-95"
           >
             Iniciar Rodada ({total} Palavras)
           </button>
+
+          <button
+            type="button"
+            onClick={() => setShowTutorial(true)}
+            className="mt-3 w-full text-center text-xs font-bold text-pink-600 hover:underline"
+          >
+            How to Play & Voice Calibration (Tutorial) →
+          </button>
         </motion.div>
+
+        <SpellingTutorialModal
+          isOpen={showTutorial}
+          onClose={() => {
+            setShowTutorial(false);
+            retryWithNewOrder();
+          }}
+          lang="en-US"
+          gameTitle="Spelling Bee"
+        />
       </div>
     );
   }

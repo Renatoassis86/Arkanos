@@ -19,6 +19,7 @@ import {
 } from "@/lib/spell-speech";
 import { awardRadixArks, type ArksResult } from "@/app/radix/actions";
 import { calculateSpellingScore, type SpellingItemResult } from "@/lib/spelling-score";
+import { SpellingTutorialModal, shouldShowTutorial } from "@/components/spelling-tutorial-modal";
 import {
   SpeakerIcon,
   BookIcon,
@@ -105,6 +106,7 @@ export function RadixGame({
   const [micError, setMicError] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
 
+  const [showTutorial, setShowTutorial] = useState(false);
   const [results, setResults] = useState<SpellingItemResult[]>([]);
   const [correctCount, setCorrectCount] = useState(0);
   const [xp, setXp] = useState(0);
@@ -119,6 +121,14 @@ export function RadixGame({
 
   const q = deck[index] || deck[0];
   const total = deck.length;
+
+  function handleStartRound() {
+    if (shouldShowTutorial()) {
+      setShowTutorial(true);
+    } else {
+      retryWithNewOrder();
+    }
+  }
 
   function stopMic() {
     try {
@@ -602,12 +612,30 @@ export function RadixGame({
 
           <button
             type="button"
-            onClick={retryWithNewOrder}
+            onClick={handleStartRound}
             className="mt-7 w-full rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 py-4 text-base font-black uppercase tracking-wider text-white shadow-lg shadow-emerald-600/30 transition hover:-translate-y-0.5 active:scale-95"
           >
             Iniciar Rodada ({total} Palavras)
           </button>
+
+          <button
+            type="button"
+            onClick={() => setShowTutorial(true)}
+            className="mt-3 w-full text-center text-xs font-bold text-emerald-700 hover:underline"
+          >
+            Como Jogar & Calibração de Voz (Tutorial) →
+          </button>
         </motion.div>
+
+        <SpellingTutorialModal
+          isOpen={showTutorial}
+          onClose={() => {
+            setShowTutorial(false);
+            retryWithNewOrder();
+          }}
+          lang="pt-BR"
+          gameTitle="Radix"
+        />
       </div>
     );
   }
