@@ -9,29 +9,29 @@ MODULES = [
         "url": "http://localhost:3000/",
         "selector": "main section:first-of-type",
         "num": "01",
-        "tag": "PLATAFORMA & MANIFESTO",
-        "title": "A Jornada do Saber dos Meus Filhos",
-        "subtitle": "Como usei tecnologia para transformar o dever de casa e os estudos em uma grande jornada de virtude e aprendizado.",
-        "footer": "arkanos.arkosintelligence.com · Educação Clássica no Dia a Dia"
+        "tag": "EDUCAÇÃO PACTUAL & PRESENÇA",
+        "title": "A Tecnologia a Serviço da Formação dos Meus Filhos",
+        "subtitle": "A tecnologia não é neutra: usei minha vocação profissional para criar uma ferramenta que nos aproxima na rotina de estudos em casa.",
+        "footer": "Iniciativa 100% familiar e sem fins comerciais · Presença ativa de pai"
     },
     {
         "id": "02_artes_liberais",
         "url": "http://localhost:3000/",
         "selector": "section:has-text('As 7 Artes Liberais')",
         "num": "02",
-        "tag": "BASE PEDAGÓGICA",
-        "title": "Trivium & Quadrivium Aplicados",
-        "subtitle": "Gramática, Lógica, Retórica e Ciências: ensinando as crianças a pensar com clareza e autonomia desde cedo.",
-        "footer": "Cultivando a Verdade, a Bondade e a Beleza em cada atividade"
+        "tag": "TRIVIUM & QUADRIVIUM",
+        "title": "Resgatando a Ordem e o Pensamento Claro",
+        "subtitle": "Gramática, Lógica e Ciências para amenizar o ruído e a distração moderna, ensinando a amar a Verdade, a Bondade e a Beleza.",
+        "footer": "Formação integral da mente e do caráter através das 7 Artes Liberais"
     },
     {
         "id": "03_salao_dos_jogos",
         "url": "http://localhost:3000/",
         "selector": "section#jogos",
         "num": "03",
-        "tag": "ESTUDO GAMIFICADO",
+        "tag": "VOCAÇÃO & DISCIPLINA",
         "title": "O Salão dos Jogos Formativos",
-        "subtitle": "Três ambientes interativos onde o dever de casa e o estudo diário viram desafios práticos com reconhecimento de voz.",
+        "subtitle": "Transformando o dever de casa em um ambiente de constância, onde o estudo é celebrado como exercício da vocação.",
         "footer": "Radix · Spelling Bee · Desafio dos Sábios"
     },
     {
@@ -39,40 +39,40 @@ MODULES = [
         "url": "http://localhost:3000/radix",
         "selector": "main",
         "num": "04",
-        "tag": "PORTUGUÊS & FONÉTICA",
-        "title": "Módulo Radix · Concurso de Soletração",
-        "subtitle": "298 palavras oficiais por série escolar (3º ao 5º ano), síntese de áudio, frases exemplo e captação de voz sem ruído.",
-        "footer": "Treinamento diário de ortografia e vocabulário em Língua Portuguesa"
+        "tag": "DOMÍNIO DA LÍNGUA MATERNA",
+        "title": "Módulo Radix · Soletração em Português",
+        "subtitle": "298 palavras por série com síntese de áudio, significado e frases. Cuidar da palavra é cuidar da capacidade de expressar a verdade.",
+        "footer": "Sem distrações ou anúncios · Reconhecimento fonético calibrado"
     },
     {
         "id": "05_spelling_bee",
         "url": "http://localhost:3000/spelling-bee",
         "selector": "main",
         "num": "05",
-        "tag": "INGLÊS & PRONÚNCIA",
-        "title": "Módulo Spelling Bee · Vocabulário em Inglês",
-        "subtitle": "367 palavras em inglês divididas por níveis escolares com pronúncia nativa e soletração letra a letra.",
-        "footer": "Aprendizado bilíngue prático e divertido na rotina de casa"
+        "tag": "PREPARO & CULTURA",
+        "title": "Módulo Spelling Bee · Inglês com Propósito",
+        "subtitle": "367 palavras em inglês estruturadas por níveis para capacitar os filhos a se comunicarem e servirem com excelência.",
+        "footer": "Aprendizado bilíngue no ritmo da família"
     },
     {
         "id": "06_desafio_sabios",
         "url": "http://localhost:3000/desafio",
         "selector": "main",
         "num": "06",
-        "tag": "RACIOCÍNIO & TRI",
-        "title": "Módulo Desafio dos Sábios · Quizzes",
-        "subtitle": "Avaliação pedagógica pela Teoria de Resposta ao Item (TRI) em História, Ciências e Lógica com a Crônica do Guardião.",
-        "footer": "Medição real do conhecimento e evolução constante"
+        "tag": "SABEDORIA & DISCERNIMENTO",
+        "title": "Desafio dos Sábios · Quizzes & TRI",
+        "subtitle": "Avaliação pedagógica (TRI) que mede a compreensão real e não apenas a decoreba, estimulando a curiosidade ordenada.",
+        "footer": "História, Ciências e Lógica com reflexões formativas"
     },
     {
         "id": "07_gamificacao_virtude",
         "url": "http://localhost:3000/",
         "selector": "section:has-text('Engajamento com propósito')",
         "num": "07",
-        "tag": "RECONHECIMENTO & MÉRITO",
-        "title": "Gamificação da Virtude · Orbes e Arks",
-        "subtitle": "Sem mecânicas viciosas: cada vitória celebra o esforço e a constância diária dos meus filhos com títulos de honra.",
-        "footer": "Acesse gratuitamente: arkanos.arkosintelligence.com"
+        "tag": "VIRTUDE, NÃO VÍCIO",
+        "title": "Gamificação para Edificar e Servir",
+        "subtitle": "Sem mecânicas de retenção viciosas. Cada orbe e conquista reforça a constância, o dever bem feito e o serviço ao próximo.",
+        "footer": "Aberto gratuitamente para outras famílias: arkanos.arkosintelligence.com"
     }
 ]
 
@@ -92,10 +92,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <!-- TOPO: BADGE & CABEÇALHO -->
   <div class="space-y-3">
     <div class="flex items-center justify-between">
-      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[11px] font-black tracking-wider uppercase">
-        <span>🏛️ INICIATIVA DE PAI PARA FILHOS</span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/30 text-amber-300 text-[11px] font-black tracking-wider uppercase">
+        <span>🏛️ EDUCAÇÃO PACTUAL & FAMÍLIA</span>
         <span class="text-amber-500">•</span>
-        <span>ARKOS INTELLIGENCE</span>
+        <span>SEM FINS COMERCIAIS</span>
       </div>
       <span class="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-black">
         {num} / 07
@@ -117,7 +117,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <!-- RODAPÉ -->
   <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs">
     <span class="text-slate-400 font-medium">{footer}</span>
-    <span class="text-amber-300 font-black text-[11px] uppercase tracking-wider">Arkanos · Plataforma Educativa</span>
+    <span class="text-amber-300 font-black text-[11px] uppercase tracking-wider">Arkanos · Paternidade & Propósito</span>
   </div>
 
 </body>
@@ -140,36 +140,6 @@ async def main():
 
     async with async_playwright() as p:
         browser = await p.chromium.launch()
-        
-        # 1. Captura as telas brutas do site
-        ctx = await browser.new_context(viewport={"width": 1440, "height": 900}, device_scale_factor=2)
-        page = await ctx.new_page()
-
-        for mod in MODULES:
-            print(f"1. Capturando tela do modulo: {mod['id']}...")
-            await page.goto(mod["url"], wait_until="networkidle")
-            await asyncio.sleep(1)
-            
-            if "radix" in mod["id"] or "spelling" in mod["id"]:
-                btn = page.locator("button:has-text('Iniciar Rodada')")
-                if await btn.count() > 0:
-                    await btn.click()
-                    await asyncio.sleep(1)
-                    tut = page.locator("button:has-text('Entendido'), button:has-text('Understood')")
-                    if await tut.count() > 0:
-                        await tut.first.click()
-                        await asyncio.sleep(1)
-                        
-            raw_path = raw_dir / f"{mod['id']}.png"
-            loc = page.locator(mod["selector"])
-            if await loc.count() > 0:
-                await loc.first.scroll_into_view_if_needed()
-                await asyncio.sleep(1)
-                await loc.first.screenshot(path=str(raw_path))
-            else:
-                await page.screenshot(path=str(raw_path))
-
-        # 2. Renderiza os Cards Finais para Instagram (1080x1350) e LinkedIn (1080x1080)
         card_page = await browser.new_page()
 
         for mod in MODULES:
@@ -222,7 +192,7 @@ async def main():
             print(f"  [OK] LinkedIn Slide {mod['num']}: {linkedin_out_jpg.name}")
 
         await browser.close()
-        print("\n[FINALIZADO COM SUCESSO] Todos os cards dos modulos do site foram gerados em alta definicao!")
+        print("\n[CONCLUÍDO COM SUCESSO] Novos cards com ênfase pactual e formativa gerados!")
 
 if __name__ == "__main__":
     asyncio.run(main())
