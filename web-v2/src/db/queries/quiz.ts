@@ -1,4 +1,4 @@
-import { eq, inArray, and } from "drizzle-orm";
+import { eq, inArray, and, or, isNull } from "drizzle-orm";
 import { db } from "@/db/client";
 import {
   quizSubjects,
@@ -33,7 +33,7 @@ export type DesafioQuestion = {
 };
 
 /** Questões jogáveis (inclui os tipos visuais) com disciplina, tópico e imagem. */
-export async function listDesafioQuestions(limit = 30, assessmentId?: number): Promise<DesafioQuestion[]> {
+export async function listDesafioQuestions(limit = 500, assessmentId?: number): Promise<DesafioQuestion[]> {
   const rows = await db
     .select({
       id: quizQuestions.id,
@@ -113,7 +113,7 @@ export async function listBankGrades(subjectId: number) {
 
 export async function listBankTrimestres(subjectId: number, gradeId: number) {
   const rows = await db
-    .selectDistinct({ trimestre: quizAssessments.trimestre })
+    .selectDistinct({ trimestre: quizAssessments.trimestre, name: quizAssessments.name })
     .from(quizQuestions)
     .innerJoin(quizTopics, eq(quizQuestions.topicId, quizTopics.id))
     .innerJoin(quizAssessments, eq(quizTopics.assessmentId, quizAssessments.id))
@@ -122,9 +122,21 @@ export async function listBankTrimestres(subjectId: number, gradeId: number) {
         eq(quizAssessments.subjectId, subjectId),
         eq(quizAssessments.gradeId, gradeId),
       ),
-    )
-    .orderBy(quizAssessments.trimestre);
-  return rows.map((r) => r.trimestre).filter((t): t is number => t != null);
+    );
+
+  const trimestres = new Set<number>();
+  for (const r of rows) {
+    if (r.trimestre) {
+      trimestres.add(r.trimestre);
+    } else if (r.name.includes("AV2") || r.name.includes("2")) {
+      trimestres.add(2);
+    } else if (r.name.includes("AV1") || r.name.includes("1")) {
+      trimestres.add(1);
+    } else {
+      trimestres.add(2);
+    }
+  }
+  return Array.from(trimestres);
 }
 
 export async function listBankProvas(
@@ -141,7 +153,10 @@ export async function listBankProvas(
       and(
         eq(quizAssessments.subjectId, subjectId),
         eq(quizAssessments.gradeId, gradeId),
-        eq(quizAssessments.trimestre, trimestre),
+        or(
+          eq(quizAssessments.trimestre, trimestre),
+          isNull(quizAssessments.trimestre)
+        )
       ),
     )
     .orderBy(quizAssessments.name);
