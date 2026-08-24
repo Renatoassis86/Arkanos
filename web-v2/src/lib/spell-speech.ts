@@ -263,10 +263,19 @@ export function detectTriggerWord(
  * Converte transcrição de fala em tempo real em sequência de letras soletradas.
  * FILTRO ESTRITO: Rejeita conversas, ruídos e palavras inteiras que não sejam nomes válidos de letras.
  */
-export function lettersFromTranscript(transcript: string): string {
+export function lettersFromTranscript(transcript: string, targetWord?: string): string {
   if (!transcript) return "";
 
   let clean = transcript.toLowerCase().trim();
+
+  // Se a criança disse a palavra inteira diretamente (ex: "sabedoria")
+  if (targetWord) {
+    const normTarget = normWord(targetWord);
+    const normClean = normWord(clean);
+    if (normTarget && (normClean === normTarget || normClean.includes(normTarget))) {
+      return normTarget;
+    }
+  }
 
   // Substitui expressões fonéticas compostas conhecidas por tokens únicos
   clean = clean
@@ -305,7 +314,11 @@ export function lettersFromTranscript(transcript: string): string {
       continue;
     }
 
-    // Se não for uma letra nem um nome de letra válido (ex: "olha", "peraí", "calma", "hum", ruído), REJEITA e ignora.
+    // 4. Se a palavra falada for exatamente a palavra alvo (ex: "sabedoria")
+    if (targetWord && normTok === normWord(targetWord)) {
+      out += normTok;
+      continue;
+    }
   }
 
   return out;

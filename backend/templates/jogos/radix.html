@@ -193,13 +193,20 @@
                 </div>
 
                 <div class="action-zone flex flex-col items-center w-full">
-                    <div class="relative w-full max-w-xl">
+                    <div class="relative w-full max-w-xl flex gap-3 items-center">
                         <input type="text" id="input-answer"
                             class="w-full bg-white border-4 border-slate-200 rounded-3xl px-8 py-8 text-4xl font-black text-center uppercase tracking-[0.2em] focus:outline-none focus:border-logos-blue focus:ring-8 focus:ring-logos-blue/5 transition-all shadow-inner"
                             placeholder="SOLETRE AQUI..." autocomplete="off">
+                        <button id="btn-mic" type="button" title="Ativar microfone para soletrar por voz"
+                            class="bg-gradient-to-br from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold p-5 rounded-3xl text-3xl shadow-lg transition-all transform active:scale-95 flex items-center justify-center shrink-0 w-20 h-20">
+                            🎤
+                        </button>
                     </div>
-                    <p class="mt-8 text-slate-400 font-extrabold tracking-[3px] text-xs animate-pulse uppercase">
-                        PRESSIONE [ENTER] PARA VALIDAR
+                    <p id="mic-status" class="mt-4 text-sm font-bold text-blue-600 hidden">
+                        🎙️ Ouvindo... Pode soletrar letra por letra ou falar a palavra!
+                    </p>
+                    <p class="mt-4 text-slate-400 font-extrabold tracking-[3px] text-xs animate-pulse uppercase">
+                        PRESSIONE [ENTER] OU USE O MICROFONE PARA VALIDAR
                     </p>
                 </div>
             </div>

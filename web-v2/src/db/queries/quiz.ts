@@ -62,6 +62,7 @@ export async function listDesafioQuestions(limit = 30, assessmentId?: number): P
           "map_analysis",
           "diagram_analysis",
           "visual_interpretation",
+          "ordering",
         ]),
         assessmentId ? eq(quizTopics.assessmentId, assessmentId) : undefined
       )

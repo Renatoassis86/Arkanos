@@ -73,10 +73,8 @@ export function DesafioQuiz({
   questions: DesafioQuestion[];
   authed: boolean;
 }) {
-  // Sem random no render inicial (evita mismatch de hidratação): o servidor já
-  // entrega o banco embaralhado (ordem + alternativas). Aqui só recortamos 30
-  // de forma determinística; a re-aleatorização acontece ao reiniciar (cliente).
-  const [deck, setDeck] = useState(() => questions.slice(0, 30));
+  // O servidor entrega o banco embaralhado; recortamos até 50 questões por rodada.
+  const [deck, setDeck] = useState(() => questions.slice(0, Math.min(50, questions.length)));
 
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState("");
@@ -395,7 +393,8 @@ export function DesafioQuiz({
                 q.type === "image_multiple_choice" ||
                 q.type === "map_analysis" ||
                 q.type === "diagram_analysis" ||
-                q.type === "visual_interpretation") && (
+                q.type === "visual_interpretation" ||
+                q.type === "ordering") && (
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {(q.options ?? []).map((opt, i) => {
                     const st = optionState(opt, picked === opt);

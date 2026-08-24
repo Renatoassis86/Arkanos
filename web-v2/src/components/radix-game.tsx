@@ -249,37 +249,31 @@ export function RadixGame({
     recRef.current = rec;
 
     rec.onresult = (e: SpeechRecognitionEvent) => {
-      let fullTranscript = "";
-      for (let i = 0; i < e.results.length; i++) {
-        fullTranscript += " " + e.results[i][0].transcript;
-      }
-      const clean = fullTranscript.trim();
-      finalRef.current = clean;
       const targetWord = q ? q.palavra : "";
+      let accumulatedLetters = "";
 
-      if (!triggeredRef.current) {
-        const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
-        if (triggered) {
-          triggeredRef.current = true;
-          setWordTriggered(true);
-          const letters = lettersFromTranscript(spokenAfter);
-          if (letters) {
-            setSpelled(letters);
-            const targetLen = q ? norm(q.palavra).length : 0;
-            if (targetLen > 0 && letters.length >= targetLen) {
-              setTimeout(() => check(letters), 400);
-            }
+      for (let i = 0; i < e.results.length; i++) {
+        const text = e.results[i][0].transcript.trim();
+        const extracted = lettersFromTranscript(text, targetWord);
+
+        if (extracted) {
+          // Se falou a palavra inteira (ex: "sabedoria")
+          if (norm(extracted) === norm(targetWord)) {
+            accumulatedLetters = norm(targetWord);
+            break;
           }
+          // Concatena as letras de cada segmento sem repetir resultados parciais
+          accumulatedLetters += extracted;
         }
-      } else {
-        const { spokenAfter } = detectTriggerWord(clean, targetWord);
-        const letters = lettersFromTranscript(spokenAfter || clean);
-        if (letters) {
-          setSpelled(letters);
-          const targetLen = q ? norm(q.palavra).length : 0;
-          if (targetLen > 0 && letters.length >= targetLen) {
-            setTimeout(() => check(letters), 400);
-          }
+      }
+
+      if (accumulatedLetters) {
+        const targetLen = q ? norm(q.palavra).length : 15;
+        const cleanLetters = accumulatedLetters.slice(0, targetLen);
+        setSpelled(cleanLetters);
+
+        if (targetLen > 0 && cleanLetters.length >= targetLen) {
+          setTimeout(() => check(cleanLetters), 400);
         }
       }
     };
@@ -288,14 +282,26 @@ export function RadixGame({
       if (e.error !== "no-speech") {
         setMicError(
           e.error === "not-allowed"
-            ? "Microfone bloqueado. Permita o acesso ou clique nas letras abaixo."
-            : "Não ouvimos com clareza. Tente novamente ou clique nas letras."
+            ? "Microfone bloqueado. Permita o acesso no navegador ou digite/clique nas letras."
+            : "Não ouvimos com clareza. Tente novamente ou digite/clique nas letras."
         );
       }
       setListening(false);
     };
 
-    rec.onend = () => setListening(false);
+    rec.onend = () => {
+      setListening(false);
+      // Auto-reconecta suavemente se o jogador ainda estiver na fase de soletração
+      if (recRef.current === rec) {
+        try {
+          rec.start();
+          setListening(true);
+        } catch {
+          /* noop */
+        }
+      }
+    };
+
     try {
       rec.start();
       setListening(true);
@@ -744,15 +750,9 @@ export function RadixGame({
                 <MicIcon className="h-6 w-6" />
               </div>
               <div className="mt-3">
-                {!wordTriggered ? (
-                  <p className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-4 py-1.5 text-xs font-bold text-amber-800 border border-amber-200">
-                    Diga a palavra <strong className="uppercase font-black text-amber-950">"{q.palavra}"</strong> para liberar a soletração
-                  </p>
-                ) : (
-                  <p className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-4 py-1.5 text-xs font-bold text-emerald-800 border border-emerald-200">
-                    <CheckCircleIcon className="h-3.5 w-3.5" /> Palavra confirmada! Agora soletre letra a letra
-                  </p>
-                )}
+                <p className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-4 py-1.5 text-xs font-bold text-emerald-800 border border-emerald-200">
+                  <MicIcon className="h-3.5 w-3.5" /> Ouça o áudio com atenção e soletre letra por letra (voz ou teclado)
+                </p>
               </div>
             </div>
 

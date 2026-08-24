@@ -20,7 +20,7 @@ def question_list(request):
         allowed_types = [
             'multiple_choice', 'image_multiple_choice', 'true_false', 
             'short_answer', 'map_analysis', 'diagram_analysis', 
-            'visual_interpretation'
+            'visual_interpretation', 'ordering'
         ]
         q = model.objects.filter(type__in=allowed_types).select_related('topic__subject')
         

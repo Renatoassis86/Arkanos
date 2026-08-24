@@ -265,37 +265,30 @@ export function SpellingBeeGame({
     recRef.current = rec;
 
     rec.onresult = (e: SpeechRecognitionEvent) => {
-      let fullTranscript = "";
-      for (let i = 0; i < e.results.length; i++) {
-        fullTranscript += " " + e.results[i][0].transcript;
-      }
-      const clean = fullTranscript.trim();
-      finalRef.current = clean;
       const targetWord = q ? q.palavra : "";
+      let accumulatedLetters = "";
 
-      if (!triggeredRef.current) {
-        const { triggered, spokenAfter } = detectTriggerWord(clean, targetWord);
-        if (triggered) {
-          triggeredRef.current = true;
-          setWordTriggered(true);
-          const letters = lettersFromTranscript(spokenAfter);
-          if (letters) {
-            setSpelled(letters);
-            const targetLen = q ? norm(q.palavra).length : 0;
-            if (targetLen > 0 && letters.length >= targetLen) {
-              setTimeout(() => check(letters), 400);
-            }
+      for (let i = 0; i < e.results.length; i++) {
+        const text = e.results[i][0].transcript.trim();
+        const extracted = lettersFromTranscript(text, targetWord);
+
+        if (extracted) {
+          // If the player spoke the entire word
+          if (norm(extracted) === norm(targetWord)) {
+            accumulatedLetters = norm(targetWord);
+            break;
           }
+          accumulatedLetters += extracted;
         }
-      } else {
-        const { spokenAfter } = detectTriggerWord(clean, targetWord);
-        const letters = lettersFromTranscript(spokenAfter || clean);
-        if (letters) {
-          setSpelled(letters);
-          const targetLen = q ? norm(q.palavra).length : 0;
-          if (targetLen > 0 && letters.length >= targetLen) {
-            setTimeout(() => check(letters), 400);
-          }
+      }
+
+      if (accumulatedLetters) {
+        const targetLen = q ? norm(q.palavra).length : 15;
+        const cleanLetters = accumulatedLetters.slice(0, targetLen);
+        setSpelled(cleanLetters);
+
+        if (targetLen > 0 && cleanLetters.length >= targetLen) {
+          setTimeout(() => check(cleanLetters), 400);
         }
       }
     };
@@ -311,7 +304,18 @@ export function SpellingBeeGame({
       setListening(false);
     };
 
-    rec.onend = () => setListening(false);
+    rec.onend = () => {
+      setListening(false);
+      if (recRef.current === rec) {
+        try {
+          rec.start();
+          setListening(true);
+        } catch {
+          /* noop */
+        }
+      }
+    };
+
     try {
       rec.start();
       setListening(true);
@@ -789,15 +793,9 @@ export function SpellingBeeGame({
                 <MicIcon className="h-7 w-7" />
               </div>
               <div className="mt-3">
-                {!wordTriggered ? (
-                  <p className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-4 py-1.5 text-xs font-bold text-amber-800 border border-amber-200">
-                    Diga a palavra <strong className="uppercase font-black text-amber-950">"{q.palavra}"</strong> para liberar a soletração
-                  </p>
-                ) : (
-                  <p className="inline-flex items-center gap-1.5 rounded-full bg-pink-50 px-4 py-1.5 text-xs font-bold text-pink-700 border border-pink-200">
-                    <CheckCircleIcon className="h-3.5 w-3.5" /> Palavra confirmada! Agora soletre letra a letra
-                  </p>
-                )}
+                <p className="inline-flex items-center gap-1.5 rounded-full bg-pink-50 px-4 py-1.5 text-xs font-bold text-pink-700 border border-pink-200">
+                  <MicIcon className="h-3.5 w-3.5" /> Listen to the audio and spell letter by letter (voice or keyboard)
+                </p>
               </div>
             </div>
 

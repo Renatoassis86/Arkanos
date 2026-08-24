@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
         currentWord = words[currentIndex];
-        txtMystery.innerText = currentWord.palavra[0].toUpperCase() + currentWord.palavra.slice(1).replace(/[a-zA-Záéíóúâêôãõç]/g, ' _');
+        txtMystery.innerText = currentWord.palavra.replace(/[a-zA-Záéíóúâêôãõç]/g, '_ ').trim().toUpperCase();
         txtMystery.style.color = "var(--rpg-text)";
         inputAnswer.value = '';
         inputAnswer.focus();
@@ -180,6 +180,161 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     });
+
+    // --- Reconhecimento de Voz (SpeechRecognition em PT-BR) ---
+    const btnMic = document.getElementById('btn-mic');
+    const micStatus = document.getElementById('mic-status');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    let isListening = false;
+    let recognizer = null;
+
+    const LETTER_NAMES = {
+        'a': ['a', 'á', 'à', 'ã', 'â'],
+        'b': ['b', 'be', 'bê'],
+        'c': ['c', 'ce', 'cê', 'si'],
+        'd': ['d', 'de', 'dê', 'di'],
+        'e': ['e', 'é', 'ê'],
+        'f': ['f', 'ef', 'efe', 'efi'],
+        'g': ['g', 'ge', 'gê', 'ji'],
+        'h': ['h', 'aga', 'agá', 'raga', 'rá'],
+        'i': ['i', 'í'],
+        'j': ['j', 'jota', 'jóta', 'je'],
+        'k': ['k', 'ka', 'cá'],
+        'l': ['l', 'el', 'ele', 'eli'],
+        'm': ['m', 'em', 'eme', 'emi'],
+        'n': ['n', 'en', 'ene', 'eni'],
+        'o': ['o', 'ó', 'ô'],
+        'p': ['p', 'pe', 'pê'],
+        'q': ['q', 'que', 'quê'],
+        'r': ['r', 'er', 'erre', 'erri'],
+        's': ['s', 'es', 'esse', 'essi'],
+        't': ['t', 'te', 'tê', 'ti'],
+        'u': ['u', 'ú'],
+        'v': ['v', 've', 'vê', 'vi'],
+        'w': ['w', 'dablio', 'dábliu', 'dabliu'],
+        'x': ['x', 'ex', 'xis', 'xiz'],
+        'y': ['y', 'ipsilon', 'ípsilon'],
+        'z': ['z', 'ze', 'zê', 'zi'],
+        'ç': ['ç', 'cedilha', 'ce cedilha', 'cê cedilha']
+    };
+
+    const TOKEN_MAP = {};
+    for (const [letter, synonyms] of Object.entries(LETTER_NAMES)) {
+        for (const syn of synonyms) {
+            TOKEN_MAP[syn] = letter;
+        }
+    }
+
+    function parseSpokenLetters(text, targetWord) {
+        if (!text) return '';
+        const norm = (s) => (s || '').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]/g, '');
+        const normTarget = norm(targetWord);
+        const normText = norm(text);
+
+        // 1. Se a pessoa falou a palavra inteira
+        if (normTarget && (normText === normTarget || normText.includes(normTarget))) {
+            return normTarget;
+        }
+
+        // 2. Se soletrou letra a letra
+        const tokens = text.toLowerCase().replace(/[^a-z0-9áéíóúâêôãõç\s]/g, ' ').split(/\s+/).filter(Boolean);
+        let result = '';
+
+        for (const tok of tokens) {
+            const cleanTok = tok.trim();
+            if (cleanTok.length === 1 && /[a-zç]/i.test(cleanTok)) {
+                result += cleanTok;
+            } else if (TOKEN_MAP[cleanTok]) {
+                result += TOKEN_MAP[cleanTok];
+            } else {
+                const normTok = norm(cleanTok);
+                if (normTok.length === 1 && /[a-zç]/i.test(normTok)) {
+                    result += normTok;
+                } else if (TOKEN_MAP[normTok]) {
+                    result += TOKEN_MAP[normTok];
+                } else if (normTarget && normTok === normTarget) {
+                    result += normTok;
+                }
+            }
+        }
+
+        return result;
+    }
+
+    if (SpeechRecognition) {
+        recognizer = new SpeechRecognition();
+        recognizer.lang = 'pt-BR';
+        recognizer.continuous = true;
+        recognizer.interimResults = true;
+
+        recognizer.onresult = (e) => {
+            const targetWord = currentWord ? currentWord.palavra : '';
+            let accumulated = '';
+            for (let i = 0; i < e.results.length; i++) {
+                const text = e.results[i][0].transcript.trim();
+                const letters = parseSpokenLetters(text, targetWord);
+                if (letters) {
+                    if (letters.toLowerCase() === targetWord.toLowerCase()) {
+                        accumulated = targetWord.toLowerCase();
+                        break;
+                    }
+                    accumulated += letters;
+                }
+            }
+            if (accumulated) {
+                const maxLen = targetWord.length || 15;
+                const clean = accumulated.slice(0, maxLen).toUpperCase();
+                inputAnswer.value = clean;
+
+                if (clean.toLowerCase() === targetWord.toLowerCase()) {
+                    stopMic();
+                    const event = new KeyboardEvent('keydown', { key: 'Enter' });
+                    inputAnswer.dispatchEvent(event);
+                }
+            }
+        };
+
+        recognizer.onerror = () => {
+            stopMic();
+        };
+
+        recognizer.onend = () => {
+            if (isListening) {
+                try { recognizer.start(); } catch (err) { stopMic(); }
+            }
+        };
+
+        function startMic() {
+            try {
+                isListening = true;
+                recognizer.start();
+                if (btnMic) btnMic.classList.add('animate-pulse', 'ring-4', 'ring-blue-400');
+                if (micStatus) micStatus.classList.remove('hidden');
+            } catch (e) {
+                stopMic();
+            }
+        }
+
+        function stopMic() {
+            isListening = false;
+            try { recognizer.stop(); } catch (e) {}
+            if (btnMic) btnMic.classList.remove('animate-pulse', 'ring-4', 'ring-blue-400');
+            if (micStatus) micStatus.classList.add('hidden');
+        }
+
+        if (btnMic) {
+            btnMic.addEventListener('click', () => {
+                if (isListening) {
+                    stopMic();
+                } else {
+                    startMic();
+                }
+            });
+        }
+    } else if (btnMic) {
+        btnMic.style.display = 'none';
+    }
 
     // Window bindings for hints
     window.showMeaning = () => {
