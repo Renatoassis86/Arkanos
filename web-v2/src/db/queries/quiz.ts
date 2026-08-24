@@ -164,12 +164,28 @@ export async function listBankProvas(
 
 /** Resolve o id da série (quiz_grades) pelo nome (ex.: "3º ano"). */
 export async function getGradeIdByName(name: string): Promise<number | null> {
-  const rows = await db
-    .select({ id: quizGrades.id })
-    .from(quizGrades)
-    .where(eq(quizGrades.name, name))
-    .limit(1);
-  return rows[0]?.id ?? null;
+  if (!name) return null;
+  const cleanName = name.trim().toLowerCase();
+
+  const allGrades = await db
+    .select({ id: quizGrades.id, name: quizGrades.name })
+    .from(quizGrades);
+
+  // 1. Exact case-insensitive match
+  let found = allGrades.find((g) => g.name.toLowerCase() === cleanName);
+  if (found) return found.id;
+
+  // 2. Flexible digit matching ("5º ano", "5º Ano", "5 ano", etc)
+  if (cleanName.includes("5")) {
+    found = allGrades.find((g) => g.name.includes("5"));
+    if (found) return found.id;
+  }
+  if (cleanName.includes("3")) {
+    found = allGrades.find((g) => g.name.includes("3"));
+    if (found) return found.id;
+  }
+
+  return allGrades[0]?.id ?? null;
 }
 
 /** Disciplinas com questões para uma série específica. */

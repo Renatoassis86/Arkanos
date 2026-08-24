@@ -36,8 +36,11 @@ export default async function DesafioPage({
     .eq("id", user.id)
     .single();
 
-  const serie = profile?.serie ?? null;
-  const gradeId = serie ? await getGradeIdByName(serie) : null;
+  const serie = profile?.serie || "5º ano";
+  let gradeId = await getGradeIdByName(serie);
+  if (!gradeId) {
+    gradeId = (await getGradeIdByName("5º ano")) ?? (await getGradeIdByName("3º ano"));
+  }
 
   let body;
   if (assessmentId) {
