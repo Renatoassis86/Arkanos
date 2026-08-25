@@ -1,0 +1,21 @@
+=== FILE: 1.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 11.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 2.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 22.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 3.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 33.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 4.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 44.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 55.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: 66.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
+
+=== FILE: WhatsApp Image 2026-08-23 at 19.36.19.jpeg ERROR: 'NoneType' object has no attribute 'shape' ===
