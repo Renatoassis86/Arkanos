@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { TITLES } from "@/lib/collection";
-import { equipTitle } from "@/app/(dashboard)/colecao/actions";
+import { equipTitle } from "@/app/colecao/actions";
 
 type Owned = { key: string; equipped: boolean };
 
