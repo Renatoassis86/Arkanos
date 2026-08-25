@@ -3222,346 +3222,6 @@
     }
   },
   {
-    "id": 101,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "De acordo com a folha de revisão, por que a Inglaterra ajudou a Família Real portuguesa a fugir para o Brasil em 1807?",
-    "options": [
-      "Porque a Inglaterra queria manter o comércio com Portugal e derrotar o Bloqueio Continental de Napoleão",
-      "Porque a Inglaterra queria morar no Brasil",
-      "Porque os navios ingleses estavam perdidos no mar",
-      "Porque a França comprou a Inglaterra"
-    ],
-    "answer": "Porque a Inglaterra queria manter o comércio com Portugal e derrotar o Bloqueio Continental de Napoleão",
-    "explanation": "A aliança entre Inglaterra e Portugal visava furar o Bloqueio Continental e manter as trocas mercantis vivas.",
-    "cronica_do_guardiao": "A escolta naval britânica garantiu a travessia segura da comitiva real portuguesa através do Oceano Atlântico.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_001.png",
-    "image_prompt": "Ilustracao didatica de navios ingleses e portugueses navegando juntos no Atlantico em 1807, estilo Arkanos 5 ano",
-    "image_alt": "Desenho didático da escolta naval inglesa em 1807",
-    "metadata_json": {
-      "id_original": "HIST5_REV_001",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 102,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "easy",
-    "question": "Qual foi a consequência imediata para o Brasil da medida econômica 'Abertura dos Portos às Nações Amigas' decretada por D. João em 1808?",
-    "options": [
-      "Fim do monopólio comercial português (Pacto Colonial) e liberdade de comércio com outros países",
-      "Proibição da venda de açúcar para a Europa",
-      "Fechamento de todos os portos do Brasil",
-      "Criação da primeira ferrovia de trens"
-    ],
-    "answer": "Fim do monopólio comercial português (Pacto Colonial) e liberdade de comércio com outros países",
-    "explanation": "A Abertura dos Portos acabou com a obrigação de vender só para Portugal, beneficiando o comércio brasileiro.",
-    "cronica_do_guardiao": "Os portos brasileiros encheram-se de navios internacionais, inaugurando uma nova era econômica.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_002.png",
-    "image_prompt": "Ilustracao didatica dos portos do Rio de Janeiro abertos para navios mercantes em 1808, estilo Arkanos 5 ano",
-    "image_alt": "Desenho da Abertura dos Portos em 1808",
-    "metadata_json": {
-      "id_original": "HIST5_REV_002",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 103,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Na folha de revisão, qual foi a principal causa do descontentamento que gerou a Insurreição Pernambucana em 1817?",
-    "options": [
-      "Os impostos altíssimos cobrados pela Coroa para bancar o luxo da corte no Rio de Janeiro durante uma crise agrícola no Nordeste",
-      "A falta de praias em Pernambuco",
-      "A proibição do plantio de milho",
-      "O excesso de chuva na Europa"
-    ],
-    "answer": "Os impostos altíssimos cobrados pela Coroa para bancar o luxo da corte no Rio de Janeiro durante uma crise agrícola no Nordeste",
-    "explanation": "Pernambuco pagava impostos pesados para financiar os gastos da capital enquanto sofria com a seca e a crise do açúcar.",
-    "cronica_do_guardiao": "O povo nordestino recusou-se a continuar pagando a conta dos luxos da corte real.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_003.png",
-    "image_prompt": "Ilustracao didatica dos revoltosos pernambucanos protestando em Recife em 1817, estilo Arkanos 5 ano",
-    "image_alt": "Desenho dos protestos da Insurreição Pernambucana de 1817",
-    "metadata_json": {
-      "id_original": "HIST5_REV_003",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 104,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Como ficou conhecida a Insurreição Pernambucana de 1817 devido à forte participação dos sacerdotes do Seminário de Olinda na liderança do movimento?",
-    "options": [
-      "Revolução dos Padres",
-      "Guerra dos Navegantes",
-      "Revolta dos Imperadores",
-      "Revolução Industrial"
-    ],
-    "answer": "Revolução dos Padres",
-    "explanation": "Diversos padres instruídos participaram ativamente da organização da República Provisória de 1817.",
-    "cronica_do_guardiao": "Padres como o Frei Caneca usaram a palavra e a fé para defender a liberdade republicana.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_004.png",
-    "image_prompt": "Ilustracao didatica do Frei Caneca e sacerdotes liderando a revolucao em 1817, estilo Arkanos 5 ano",
-    "image_alt": "Ilustração do Frei Caneca e padres na Revolução de 1817",
-    "metadata_json": {
-      "id_original": "HIST5_REV_004",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 105,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "O que as ideias do Iluminismo (nascidas na Europa) defendiam para as colônias da América?",
-    "options": [
-      "Liberdade política, igualdade de direitos e o fim do absolutismo dos reis",
-      "A continuação da escravidão obrigatória",
-      "O aumento dos impostos coloniais",
-      "O fechamento de todas as escolas"
-    ],
-    "answer": "Liberdade política, igualdade de direitos e o fim do absolutismo dos reis",
-    "explanation": "O Iluminismo inspirou os patriotas americanos a lutarem contra a tirania das metrópoles europeias.",
-    "cronica_do_guardiao": "Ideias iluministas acenderam a luz da razão e da igualdade nas mentes dos colonos.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_005.png",
-    "image_prompt": "Ilustracao didatica simbolizando a luz do Iluminismo iluminando livros e pergaminhos da liberdade, estilo Arkanos 5 ano",
-    "image_alt": "Desenho didático simbolizando as ideias iluministas",
-    "metadata_json": {
-      "id_original": "HIST5_REV_005",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 106,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "easy",
-    "question": "Em 9 de janeiro de 1822, D. Pedro recusou-se a voltar para Portugal após receber uma petição com milhares de assinaturas do povo. Como esse dia é celebrado?",
-    "options": [
-      "Dia do Fico",
-      "Grito do Ipiranga",
-      "Dia da Bandeira",
-      "Proclamação da República"
-    ],
-    "answer": "Dia do Fico",
-    "explanation": "No Dia do Fico, D. Pedro declarou: 'Se é para o bem de todos e felicidade geral da Nação, diga ao povo que fico!'.",
-    "cronica_do_guardiao": "A decisão de D. Pedro de permanecer no Brasil selou o compromisso com a autonomia nacional.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_006.png",
-    "image_prompt": "Ilustracao didatica de D. Pedro acenando para o povo no Dia do Fico em 1822, estilo Arkanos 5 ano",
-    "image_alt": "Desenho didático de D. Pedro no Dia do Fico",
-    "metadata_json": {
-      "id_original": "HIST5_REV_006",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 107,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "hard",
-    "question": "Qual foi o motivo pelo qual as Cortes de Lisboa em 1820 exigiram o retorno de D. João VI para Portugal?",
-    "options": [
-      "Porque Portugal estava em crise econômica e exigia uma nova Constituição e a recolonização do Brasil",
-      "Porque queriam dar de presente a Europa ao Brasil",
-      "Porque o rei tinha esquecido as chaves do palácio",
-      "Porque Napoleão virou rei de Lisboa"
-    ],
-    "answer": "Porque Portugal estava em crise econômica e exigia uma nova Constituição e a recolonização do Brasil",
-    "explanation": "A Revolução do Porto de 1820 queria restaurar os privilégios comerciais de Portugal fazendo o Brasil voltar a ser colônia.",
-    "cronica_do_guardiao": "A tentativa portuguesa de recolonizar o Brasil acelerou a busca pela independência total.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_007.png",
-    "image_prompt": "Ilustracao didatica das Cortes de Lisboa reunidas exigindo o retorno do Rei em 1820, estilo Arkanos 5 ano",
-    "image_alt": "Ilustração da Revolução do Porto em 1820",
-    "metadata_json": {
-      "id_original": "HIST5_REV_007",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 108,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Quem foi a figura histórica conhecida como 'Patriarca da Independência', que atuou como conselheiro político de D. Pedro I?",
-    "options": [
-      "José Bonifácio de Andrada e Silva",
-      "Frei Caneca",
-      "Túpac Amaru II",
-      "Toussaint Louverture"
-    ],
-    "answer": "José Bonifácio de Andrada e Silva",
-    "explanation": "José Bonifácio foi o arquiteto político da independência, organizando o apoio das províncias ao príncipe D. Pedro.",
-    "cronica_do_guardiao": "A sabedoria política de José Bonifácio guiou a fundação do Império do Brasil.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_008.png",
-    "image_prompt": "Retrato didatico nobre de Jose Bonifacio o Patriarca da Independencia, estilo Arkanos 5 ano",
-    "image_alt": "Retrato didático de José Bonifácio",
-    "metadata_json": {
-      "id_original": "HIST5_REV_008",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 109,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "easy",
-    "question": "Qual foi a célebre frase proferida por D. Pedro I às margens do riacho Ipiranga em 7 de setembro de 1822?",
-    "options": [
-      "Independência ou Morte!",
-      "Se é para o bem de todos, eu fico!",
-      "Ordem e Progresso!",
-      "Liberdade ainda que tardia!"
-    ],
-    "answer": "Independência ou Morte!",
-    "explanation": "O brado 'Independência ou Morte!' marcou o desligamento oficial do Brasil em relação a Portugal.",
-    "cronica_do_guardiao": "Com a espada erguida, D. Pedro I proclamou o nascimento do Brasil independente.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_009.png",
-    "image_prompt": "Ilustracao didatica de D. Pedro proclamando a independencia no riacho Ipiranga em 1822, estilo Arkanos 5 ano",
-    "image_alt": "Desenho didático do Grito do Ipiranga",
-    "metadata_json": {
-      "id_original": "HIST5_REV_009",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
-    "id": 110,
-    "subject": "História",
-    "grade": "5º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "Exercícios de Revisão do Cap. 10",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Qual forma de governo foi adotada no Brasil após a independência em 1822?",
-    "options": [
-      "Monarquia Imperial (com D. Pedro I coroado imperador)",
-      "República Presidencialista",
-      "Ditadura Militar",
-      "Reino Feudal"
-    ],
-    "answer": "Monarquia Imperial (com D. Pedro I coroado imperador)",
-    "explanation": "Diferente dos vizinhos hispânicos que viraram repúblicas, o Brasil manteve a forma monárquica sob a coroa de D. Pedro I.",
-    "cronica_do_guardiao": "O Brasil iniciou sua trajetória independente como o único Império das Américas.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia5/hist5_rev_010.png",
-    "image_prompt": "Ilustracao didatica da coroacao de D. Pedro I como Imperador em 1822, estilo Arkanos 5 ano",
-    "image_alt": "Desenho da coroação de D. Pedro I",
-    "metadata_json": {
-      "id_original": "HIST5_REV_010",
-      "origem": "Exercício de Revisão Escolar",
-      "estudante": "Benjamim",
-      "avaliacao": "AV2",
-      "serie": "5º ano",
-      "disciplina": "História",
-      "eixo": "Exercício de Revisão"
-    }
-  },
-  {
     "id": 111,
     "subject": "História",
     "grade": "3º ano",
@@ -4870,333 +4530,7 @@
     }
   },
   {
-    "id": 151,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "multiple_choice",
-    "difficulty": "easy",
-    "question": "Na folha de revisão da Cidade Viva Academy, como Roma começou a sua história antes de se tornar uma grande potência mundial?",
-    "options": [
-      "Começou como uma pequena comunidade de agricultores e pastores de gado na Itália",
-      "Começou como um castelo de gelo",
-      "Começou como uma frota de navios no ar",
-      "Começou como um grande parque temático"
-    ],
-    "answer": "Começou como uma pequena comunidade de agricultores e pastores de gado na Itália",
-    "explanation": "Roma nasceu como uma modesta aldeia de agricultores junto ao rio Tibre antes de crescer e conquistar terras.",
-    "cronica_do_guardiao": "Pequenas origens nobres deram início à cidade que viria a governar o mundo antigo.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_041.png",
-    "image_prompt": "Ilustracao didatica da pequena aldeia inicial de Roma proxima ao rio Tibre, estilo Arkanos 3 ano",
-    "image_alt": "Desenho didático da pequena aldeia que deu origem a Roma",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_041",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 152,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Por que Roma foi reconhecida como uma grande liderança no mundo antigo?",
-    "options": [
-      "Porque combinou um exército forte, boas estratégias e a superioridade de sua tecnologia urbana",
-      "Porque não tinha soldados",
-      "Porque ficava escondida embaixo da terra",
-      "Porque vendia sorvetes"
-    ],
-    "answer": "Porque combinou um exército forte, boas estratégias e a superioridade de sua tecnologia urbana",
-    "explanation": "A força militar somada ao talento dos engenheiros romanos fez de Roma uma potência incomparável.",
-    "cronica_do_guardiao": "Estratégia militar e grandes invenções urbanas garantiram a liderança romana.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_042.png",
-    "image_prompt": "Ilustracao didatica simbolizando o poder militar e a engenharia de Roma, estilo Arkanos 3 ano",
-    "image_alt": "Desenho da força e tecnologia de Roma",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_042",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 153,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Qual das seguintes invenções facilitou a vida dos cidadãos romanos nas cidades?",
-    "options": [
-      "Construção de aquedutos para trazer água e estradas pavimentadas para transporte",
-      "Invenção do computador de madeira",
-      "Construção de foguetes de papel",
-      "Proibição do uso de sapatos"
-    ],
-    "answer": "Construção de aquedutos para trazer água e estradas pavimentadas para transporte",
-    "explanation": "Água encanada fresca e estradas de pedra foram inovações que transformaram a vida urbana.",
-    "cronica_do_guardiao": "Aquedutos e estradas trouxeram conforto e comunicação eficiente para o povo.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_043.png",
-    "image_prompt": "Infografico didatico escolar 3 ano mostrando aquedutos e estradas romanas juntas, estilo Arkanos",
-    "image_alt": "Infográfico de aqueduto e estrada romana",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_043",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 154,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "true_false",
-    "difficulty": "easy",
-    "question": "Na revisão da Tia Thamy, aprendemos que os romanos tinham capacidade de organizar a cidade com construções de melhorias públicas.",
-    "options": [
-      "Verdadeiro",
-      "Falso"
-    ],
-    "answer": "Verdadeiro",
-    "explanation": "Os romanos organizavam praças, mercados, banhos e tribunais pensando no bem-estar dos cidadãos.",
-    "cronica_do_guardiao": "Organizar o espaço urbano garantiu a beleza e a funcionalidade das cidades romanas.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_044.png",
-    "image_prompt": "Ilustracao didatica de uma cidade romana organizada e cheia de vida, estilo Arkanos 3 ano",
-    "image_alt": "Desenho didático de cidade romana organizada",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_044",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 155,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Quem foi o famoso general de quem Otávio herdou o nome de César ao se tornar o primeiro imperador?",
-    "options": [
-      "Júlio César",
-      "Marco Antônio",
-      "Brutus",
-      "Pompeu"
-    ],
-    "answer": "Júlio César",
-    "explanation": "Otávio era sobrinho e herdeiro adotivo de Júlio César, adotando seu nome ao governar Roma.",
-    "cronica_do_guardiao": "O nome de César tornou-se sinônimo do próprio cargo de imperador.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_045.png",
-    "image_prompt": "Ilustracao didatica relacionando Julio Cesar e Otavio Augusto como grandes governantes de Roma, estilo Arkanos 3 ano",
-    "image_alt": "Desenho relacionando Júlio César e Otávio Augusto",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_045",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 156,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "multiple_choice",
-    "difficulty": "easy",
-    "question": "Em qual província dominada por Roma Jesus Cristo nasceu durante o reinado de César Augusto?",
-    "options": [
-      "Judeia (na cidade de Belém)",
-      "Na cidade de Paris",
-      "Na ilha do Haiti",
-      "No Brasil"
-    ],
-    "answer": "Judeia (na cidade de Belém)",
-    "explanation": "A Judeia fazia parte do mapa de províncias controladas pelo Império Romano na época do nascimento de Cristo.",
-    "cronica_do_guardiao": "O contexto histórico de Roma envolve o cenário bíblico do nascimento de Jesus em Belém.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_046.png",
-    "image_prompt": "Ilustracao didatica mostrando a cidade antiga de Belem sob a admistracao romana, estilo Arkanos 3 ano",
-    "image_alt": "Desenho didático da antiga Belém na época romana",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_046",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 157,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "multiple_choice",
-    "difficulty": "medium",
-    "question": "Quais destas opções lista construções feitas pelos romanos nas cidades?",
-    "options": [
-      "Pontes, aquedutos, templos, edifícios públicos e banhos termais",
-      "Apenas pirâmides de madeira",
-      "Casas de palha no meio da lagoa",
-      "Apenas fortes de gelo"
-    ],
-    "answer": "Pontes, aquedutos, templos, edifícios públicos e banhos termais",
-    "explanation": "A engenharia romana ergueu monumentos permanentes de pedra e concreto que resistiram aos séculos.",
-    "cronica_do_guardiao": "Templos, pontes e termas demonstram o talento dos arquitetos de Roma.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_047.png",
-    "image_prompt": "Ilustracao didatica agrupando as construções romanas: pontes, templos e aquedutos, estilo Arkanos 3 ano",
-    "image_alt": "Desenho agrupando as várias construções romanas",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_047",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 158,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "visual_interpretation",
-    "difficulty": "medium",
-    "question": "Observe o soldado romano equipado. Qual era a função do escudo retangular (Scutum) usado pelo legionário?",
-    "options": [
-      "Proteger o corpo inteiro do soldado em combates de perto e na formação de defesa coletiva",
-      "Servir como prancha de surfe no mar",
-      "Servir como mesa para comer pão",
-      "Carregar água das fontes"
-    ],
-    "answer": "Proteger o corpo inteiro do soldado em combates de perto e na formação de defesa coletiva",
-    "explanation": "O scutum era um escudo grande feito de madeira curvada revestida de couro e metal, essencial para a defesa do soldado.",
-    "cronica_do_guardiao": "O escudo curvado de couro e metal garantia a proteção do legionário no campo de batalha.",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_048.png",
-    "image_prompt": "Ilustracao didatica de um soldado romano com seu escudo grande retangular vermelho (Scutum), estilo Arkanos 3 ano",
-    "image_alt": "Desenho didático de legionário com seu escudo Scutum",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_048",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 159,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "true_false",
-    "difficulty": "easy",
-    "question": "Theo estudou bastante com a Tia Thamy na Cidade Viva Academy e está 100% preparado para tirar nota 10 na prova de História da AV2!",
-    "options": [
-      "Verdadeiro",
-      "Falso"
-    ],
-    "answer": "Verdadeiro",
-    "explanation": "Com dedicação, revisão e o estudo dos mapas e histórias de Roma, o Theo vai gabaritar a prova com honra!",
-    "cronica_do_guardiao": "Avante, jovem Sábio Theo! Teus estudos honram o conhecimento e a sabedoria. Você vai dar um show na AV2!",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_049.png",
-    "image_prompt": "Ilustracao didatica festiva de um jovem estudante sabio celebrando a vitoria nos estudos com o guardiao Aion, estilo Arkanos 3 ano",
-    "image_alt": "Desenho comemorativo do estudante sábio Theo com o guardião Aion",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_049",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 160,
-    "subject": "História",
-    "grade": "3º ano",
-    "assessment": "AV2",
-    "trimestre": 2,
-    "topic": "História do Brasil (Revisão Geral)",
-    "type": "ordering",
-    "difficulty": "hard",
-    "question": "Qual a sequência da Linha do Tempo da História de Roma estudada por Theo?",
-    "options": [
-      "Pequena aldeia de agricultores -> Reinado de Júlio César -> Império de César Augusto e Pax Romana -> Nascimento de Cristo em Belém",
-      "Nascimento de Cristo -> Aldeia inicial -> Conquista da Gália -> Calendário Juliano",
-      "Reinado de César Augusto -> Aldeia inicial -> Júlio César -> Guerra de Troia",
-      "Abertura dos Portos -> Júlio César -> Império de Roma"
-    ],
-    "answer": "Pequena aldeia de agricultores -> Reinado de Júlio César -> Império de César Augusto e Pax Romana -> Nascimento de Cristo em Belém",
-    "explanation": "Essa é a grande linha do tempo mestra do 3º Ano: das origens da aldeia ao império de Augusto e o nascimento de Cristo.",
-    "cronica_do_guardiao": "Parabéns, Theo! Você dominou toda a jornada da Roma Antiga e está pronto para gabaritar a prova da AV2!",
-    "has_image": true,
-    "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/historia3/hist3_theo_050.png",
-    "image_prompt": "Linha do tempo mestra didatica infantil completa com os 4 grandes marcos da Historia de Roma para o 3 ano, estilo Arkanos",
-    "image_alt": "Linha do tempo mestra da AV2 de História do 3º Ano para Theo",
-    "metadata_json": {
-      "id_original": "HIST3_THEO_050",
-      "estudante": "Theo",
-      "avaliacao": "AV2",
-      "serie": "3º ano",
-      "disciplina": "História",
-      "eixo": "Revisão Escolar da Tia Thamy"
-    }
-  },
-  {
-    "id": 161,
+    "id": 181,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5212,7 +4546,7 @@
       "Fuga para a Europa e petições enviadas ao Rei de Portugal."
     ],
     "answer": "Formas de desobediência e fuga, como destruição dos materiais de trabalho, revolta e a formação de quilombos.",
-    "explanation": "Na folha de exercícios de revisão, a resposta do professor destaca que as principais formas de resistência negra eram a desobediência e a fuga, que incluíam destruição dos materiais, revoltas e a criação de quilombos.",
+    "explanation": "As principais formas de resistência negra durante a escravidão eram a desobediência e a fuga, que incluíam a destruição dos materiais de trabalho, revoltas e a formação de quilombos.",
     "cronica_do_guardiao": "O Guardião Aion recorda: a liberdade não foi presente concedido, mas chama acesa no coração daqueles que resistiram nos vales e florestas do Brasil Colônia.",
     "has_image": false,
     "image_mode": "none",
@@ -5222,7 +4556,7 @@
     "metadata_json": {}
   },
   {
-    "id": 162,
+    "id": 182,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5238,7 +4572,7 @@
       "Padres jesuítas responsáveis pela fundação das primeiras escolas de Olinda."
     ],
     "answer": "Líderes do Quilombo dos Palmares que lutaram contra a escravidão e a libertação dos negros. Zumbi foi o último líder e Dandara foi a esposa guerreira que lutou no Quilombo.",
-    "explanation": "Na folha de exercícios, Zumbi e Dandara são descritos como líderes heroicos do Quilombo dos Palmares. Zumbi foi o último grande líder e Dandara uma guerreira fundamental na defesa do quilombo.",
+    "explanation": "Zumbi e Dandara foram líderes heroicos do Quilombo dos Palmares. Zumbi foi o último grande líder e Dandara uma guerreira fundamental na defesa do quilombo.",
     "cronica_do_guardiao": "Aion contempla Palmares: na Serra da Barriga, os nomes de Zumbi e Dandara ecoam como símbolos eternos de coragem e dignidade.",
     "has_image": false,
     "image_mode": "none",
@@ -5248,7 +4582,7 @@
     "metadata_json": {}
   },
   {
-    "id": 163,
+    "id": 183,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5264,7 +4598,7 @@
       "Um navio negreiro que transportava africanos até o litoral."
     ],
     "answer": "É o solo fértil propício para a plantação e cultivo de cana-de-açúcar.",
-    "explanation": "O massapê é o solo escuro, argiloso e extremamente fértil do litoral nordestino, essencial para o sucesso das grandes plantações de cana-de-açúcar.",
+    "explanation": "O massapê é o solo escuro, argiloso e extremamente fértil do litoral nordestino, essencial para a plantação e cultivo da cana-de-açúcar.",
     "cronica_do_guardiao": "Sobre a terra escura do Nordeste, Aion viu erguerem-se os canaviais que moldaram a economia e a história do Brasil açucareiro.",
     "has_image": false,
     "image_mode": "none",
@@ -5274,7 +4608,7 @@
     "metadata_json": {}
   },
   {
-    "id": 164,
+    "id": 184,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5290,7 +4624,7 @@
       "Grandes galpões usados para armazenar ferramentas e sacos de açúcar."
     ],
     "answer": "Comunidade fundada por escravizados fugidos que oferecia um refúgio seguro e preservava as tradições africanas.",
-    "explanation": "Os quilombos eram comunidades autônomas formadas por escravizados que fugiam dos engenhos, funcionando como centros de resistência, liberdade e preservação cultural.",
+    "explanation": "Os quilombos eram comunidades autônomas formadas por escravizados que fugiam dos engenhos, funcionando como centros de refúgio, resistência e preservação cultural.",
     "cronica_do_guardiao": "Dentro dos quilombos, o som dos tambores e o cultivo da terra mantinham viva a chama das raízes africanas no solo brasileiro.",
     "has_image": false,
     "image_mode": "none",
@@ -5300,7 +4634,7 @@
     "metadata_json": {}
   },
   {
-    "id": 165,
+    "id": 185,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5326,7 +4660,7 @@
     "metadata_json": {}
   },
   {
-    "id": 166,
+    "id": 186,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5342,7 +4676,7 @@
       "Uma rota de turismo marítimo entre a África e a Ásia no século XVI."
     ],
     "answer": "Foi o transporte forçado de africanos para as Américas para serem escravizados.",
-    "explanation": "O tráfico transatlântico foi o comércio forçado de seres humanos trazidos da África para as Américas em navios negreiros sob condições desumanas.",
+    "explanation": "O tráfico transatlântico foi o transporte forçado de seres humanos trazidos da África para as Américas em navios negreiros.",
     "cronica_do_guardiao": "Aion recorda com tristeza as águas do Atlântico, testemunhas da dor de milhões de almas arrancadas de sua terra natal.",
     "has_image": false,
     "image_mode": "none",
@@ -5352,7 +4686,7 @@
     "metadata_json": {}
   },
   {
-    "id": 167,
+    "id": 187,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5368,7 +4702,7 @@
       "Dedicavam-se exclusivamente à pintura de quadros e construção de igrejas."
     ],
     "answer": "Trabalhavam por longas horas, realizando tarefas como o plantio e colheita da cana, moagem, purificação do açúcar e serviços domésticos.",
-    "explanation": "As pessoas escravizadas enfrentavam uma rotina exaustiva e violenta de trabalho nos canaviais, nas moendas, nas fornalhas e nas tarefas domésticas da Casa-Grande.",
+    "explanation": "As pessoas escravizadas enfrentavam longas horas de trabalho exaustivo, atuando no plantio e colheita da cana, moagem, purificação do açúcar e tarefas domésticas.",
     "cronica_do_guardiao": "Do romper da alvorada até a noite alta, a força e o suor dos escravizados ergueram as riquezas do Brasil Colônia.",
     "has_image": false,
     "image_mode": "none",
@@ -5378,7 +4712,7 @@
     "metadata_json": {}
   },
   {
-    "id": 168,
+    "id": 188,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5394,7 +4728,7 @@
       "Ambas eram habitações idênticas distribuídas igualmente entre os moradores do engenho."
     ],
     "answer": "A Casa-Grande era a residência do senhor de engenho e sua família, simbolizando o poder. A Senzala era a moradia precária dos escravizados, sem conforto e superlotada.",
-    "explanation": "A Casa-Grande e a Senzala eram os dois polos opostos da sociedade colonial: o luxo e a autoridade do senhor de engenho contrastavam com a privação extrema da Senzala.",
+    "explanation": "A Casa-Grande era a moradia confortável do senhor de engenho e sua família, enquanto a Senzala era a habitação precária e superlotada das pessoas escravizadas.",
     "cronica_do_guardiao": "Em dois espaços tão próximos e opostos, Aion contempla o retrato marcante da desigualdade do período açucareiro.",
     "has_image": false,
     "image_mode": "none",
@@ -5404,7 +4738,7 @@
     "metadata_json": {}
   },
   {
-    "id": 169,
+    "id": 189,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5420,7 +4754,7 @@
       "Significava que não havia líderes e todos tinham o mesmo poder de voto."
     ],
     "answer": "Significava que o pai/homem era a autoridade máxima da família e da sociedade.",
-    "explanation": "Uma sociedade patriarcal é aquela centrada no domínio da figura masculina (o patriarca), que exercia controle absoluto sobre a família, os dependentes e a propriedade.",
+    "explanation": "Dizer que o Brasil tinha uma sociedade patriarcal significava que a figura masculina (o pai/homem) concentrava a autoridade máxima na família e na sociedade.",
     "cronica_do_guardiao": "Na casa patriarcal colonial, a palavra do senhor de engenho era a lei suprema sobre toda a sua família e servos.",
     "has_image": false,
     "image_mode": "none",
@@ -5430,7 +4764,7 @@
     "metadata_json": {}
   },
   {
-    "id": 170,
+    "id": 190,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -5446,7 +4780,7 @@
       "Era organizar torneios esportivos entre tribos rivais no litoral."
     ],
     "answer": "O trabalho no processo de catequização era impor a cultura e religião católica aos indígenas, tornando-os submissos.",
-    "explanation": "A catequização jesuítica buscava converter os nativos ao catolicismo, alterando seus costumes e crenças originais para integrá-los de forma submissa à ordem colonial.",
+    "explanation": "A catequização jesuítica buscava impor a fé católica e a cultura europeia aos indígenas, visando torná-los submissos à ordem colonial.",
     "cronica_do_guardiao": "Nas missões e aldeamentos, a fé e os costumes europeus transformaram o modo de vida milenar dos povos originários.",
     "has_image": false,
     "image_mode": "none",
