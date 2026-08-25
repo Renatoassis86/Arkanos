@@ -373,7 +373,6 @@ export function DesafioQuiz({
     setCanContinue(false);
   }
 
-  const correct = revealed && picked !== null && isAnswerCorrect(q, picked);
 
   if (finished) {
     const pct = Math.round((correctCount / total) * 100);
