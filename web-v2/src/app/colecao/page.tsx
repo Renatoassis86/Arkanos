@@ -48,7 +48,7 @@ export default async function ColecaoPage() {
       {/* Cabeçalho + barra de progresso de coleção rumo à Platina */}
       <header className="border-b border-slate-200 bg-white px-5 pb-8 pt-7">
         <div className="mx-auto max-w-5xl">
-          <Link href="/jogos" className="text-sm font-bold text-slate-500 hover:text-[#b8860b]">
+          <Link href="/jogos" prefetch={false} className="text-sm font-bold text-slate-500 hover:text-[#b8860b]">
             ← Perfil
           </Link>
           <h1 className="font-display mt-2 text-3xl text-slate-900 sm:text-4xl">Coleção</h1>
@@ -151,6 +151,7 @@ export default async function ColecaoPage() {
         {/* Fluxo: da Coleção segue para o Ranking geral */}
         <Link
           href="/ranking"
+          prefetch={false}
           className="flex w-full items-center justify-center rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] shadow-md transition hover:-translate-y-0.5"
         >
           Ver ranking geral →

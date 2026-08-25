@@ -127,6 +127,7 @@ export function UniversoSection() {
               </div>
               <Link
                 href="/colecao"
+                prefetch={false}
                 className="mt-8 inline-flex rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] shadow-[0_10px_30px_rgba(241,196,15,0.45)] transition hover:-translate-y-1"
               >
                 Conhecer os guardiões

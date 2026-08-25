@@ -89,7 +89,7 @@ export default async function DesafioPage({
     <div className="min-h-screen bg-[#f6f8fc]">
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-6 py-4">
-          <Link href="/jogos" className="flex items-center gap-2">
+          <Link href="/jogos" prefetch={false} className="flex items-center gap-2">
             <Image
               src="/img/logo.png"
               alt="Arkanos"
@@ -109,6 +109,7 @@ export default async function DesafioPage({
             )}
             <Link
               href="/jogos"
+              prefetch={false}
               className="text-sm font-bold text-slate-500 transition hover:text-[#b8860b]"
             >
               ← Painel

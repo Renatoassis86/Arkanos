@@ -114,12 +114,14 @@ export default async function RankingPage() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/radix"
+            prefetch={false}
             className="flex-1 flex items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:-translate-y-0.5"
           >
             Jogar Radix →
           </Link>
           <Link
             href="/spelling-bee"
+            prefetch={false}
             className="flex-1 flex items-center justify-center rounded-2xl bg-gradient-to-br from-[#ec4899] to-[#db2777] py-3.5 text-sm font-black uppercase tracking-wider text-white shadow-md transition hover:-translate-y-0.5"
           >
             Jogar Spelling Bee →

@@ -20,7 +20,7 @@ export default async function RadixPage() {
     <div className="min-h-screen bg-[#f3f8f5]">
       <header className="border-b border-emerald-100 bg-white shadow-sm">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-6 py-4">
-          <Link href="/jogos" className="flex items-center gap-2.5">
+          <Link href="/jogos" prefetch={false} className="flex items-center gap-2.5">
             <Image
               src="/img/logo.png"
               alt="Arkanos"

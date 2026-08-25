@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { GuardianAvatar } from "@/components/guardian-avatar";
 import { createClient } from "@/lib/supabase/client";
+
+const PROTECTED_PREFIXES = ["/jogos", "/desafio", "/radix", "/spelling-bee", "/ranking", "/colecao"];
 
 export default function NotFound() {
   const [attempted, setAttempted] = useState(false);
@@ -16,7 +17,7 @@ export default function NotFound() {
         setAttempted(true);
         // Recarrega a rota limpa se o 404 foi causado por prefetch/cache do router client
         const path = window.location.pathname;
-        if (path === "/jogos" || path === "/desafio" || path === "/radix" || path === "/spelling-bee" || path === "/ranking" || path === "/colecao") {
+        if (PROTECTED_PREFIXES.some((p) => path.startsWith(p))) {
           window.location.href = path;
         }
       }

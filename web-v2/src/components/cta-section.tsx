@@ -40,6 +40,7 @@ export function CtaSection({ authed }: { authed?: boolean }) {
                 {authed ? (
                   <Link
                     href="/jogos"
+                    prefetch={false}
                     className="w-full sm:w-auto text-center rounded-full bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-8 py-3.5 sm:py-4 text-sm sm:text-base font-black text-[#3b2f00] shadow-[0_10px_30px_rgba(241,196,15,0.45)] transition hover:-translate-y-1"
                   >
                     Acessar Meu Painel →

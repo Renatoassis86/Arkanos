@@ -200,6 +200,7 @@ export function PremiacaoOverlay({
           >
             <Link
               href="/colecao"
+              prefetch={false}
               className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-wider text-slate-200 transition hover:bg-white/10"
             >
               Ver na coleção

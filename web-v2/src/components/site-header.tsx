@@ -112,6 +112,7 @@ export function SiteHeader({ authed = false }: { authed?: boolean }) {
             {authed ? (
               <Link
                 href="/jogos"
+                prefetch={false}
                 onClick={() => setOpen(false)}
                 className="flex-1 rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-4 py-3 text-center text-xs font-black uppercase tracking-wider text-[#3b2f00]"
               >

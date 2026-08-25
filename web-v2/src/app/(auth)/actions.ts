@@ -56,6 +56,8 @@ export async function signup(formData: FormData) {
 export async function login(formData: FormData) {
   const nome = String(formData.get("nome") ?? "").trim();
   const sobrenome = String(formData.get("sobrenome") ?? "").trim();
+  const nextRaw = String(formData.get("next") ?? "/jogos");
+  const next = nextRaw.startsWith("/") && !nextRaw.startsWith("//") ? nextRaw : "/jogos";
 
   const email = synthEmail(nome, sobrenome);
   const password = synthPassword(sobrenome);
@@ -65,12 +67,12 @@ export async function login(formData: FormData) {
 
   if (error) {
     redirect(
-      `/login?error=${encodeURIComponent("Nome ou sobrenome incorretos. Verifique e tente de novo.")}`,
+      `/login?error=${encodeURIComponent("Nome ou sobrenome incorretos. Verifique e tente de novo.")}&next=${encodeURIComponent(next)}`,
     );
   }
 
   revalidatePath("/", "layout");
-  redirect("/jogos");
+  redirect(next);
 }
 
 export async function logout() {

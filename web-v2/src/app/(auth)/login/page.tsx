@@ -41,6 +41,7 @@ export default async function LoginPage({
       {error && <p className={errorClass}>{decodeURIComponent(error)}</p>}
 
       <form action={login} className="mt-8 space-y-6">
+        <input type="hidden" name="next" value={next ?? "/jogos"} />
         <div>
           <label className={labelClass}>Nome</label>
           <input

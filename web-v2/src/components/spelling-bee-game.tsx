@@ -614,6 +614,7 @@ export function SpellingBeeGame({
             </button>
             <Link
               href="/jogos"
+              prefetch={false}
               className="flex-1 rounded-2xl border-2 border-slate-200 bg-white py-3.5 text-sm font-bold text-slate-700 hover:bg-slate-50 transition flex items-center justify-center gap-2"
             >
               <GamepadIcon className="h-4 w-4" /> Trocar de Jogo

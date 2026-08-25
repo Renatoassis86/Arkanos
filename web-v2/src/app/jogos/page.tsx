@@ -199,6 +199,7 @@ export default async function DashboardPage() {
                   <Link
                     key={g.id}
                     href={g.href}
+                    prefetch={false}
                     className={`group relative overflow-hidden rounded-2xl border-2 border-transparent bg-gradient-to-r ${g.bgGradient} p-3.5 sm:p-4 text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl ${g.borderHover}`}
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
@@ -247,7 +248,7 @@ export default async function DashboardPage() {
                   return t.soon || !t.href ? (
                     <div key={t.label} className="cursor-default opacity-70">{inner}</div>
                   ) : (
-                    <Link key={t.label} href={t.href} className="block h-full">{inner}</Link>
+                    <Link key={t.label} href={t.href} prefetch={false} className="block h-full">{inner}</Link>
                   );
                 })}
               </div>
@@ -257,7 +258,7 @@ export default async function DashboardPage() {
             <Panel
               title="Mapa das 7 Artes Liberais"
               color="#8b5cf6"
-              right={<Link href="/colecao" className="text-xs font-bold text-[#b8860b] hover:underline">Coleção →</Link>}
+              right={<Link href="/colecao" prefetch={false} className="text-xs font-bold text-[#b8860b] hover:underline">Coleção →</Link>}
             >
               <JourneyMap track={track} />
             </Panel>
@@ -311,7 +312,7 @@ export default async function DashboardPage() {
                   );
                 })}
               </ol>
-              <Link href="/ranking" className="mt-2 block text-center text-xs font-bold text-[#b8860b] hover:underline">Ver completo →</Link>
+              <Link href="/ranking" prefetch={false} className="mt-2 block text-center text-xs font-bold text-[#b8860b] hover:underline">Ver completo →</Link>
             </Panel>
 
             {/* Últimos desafios */}
@@ -344,7 +345,7 @@ export default async function DashboardPage() {
             </Panel>
 
             {/* Coleção em destaque */}
-            <Panel title="Coleção" color="#e0a417" right={<Link href="/colecao" className="text-xs font-bold text-[#b8860b] hover:underline">Ver tudo →</Link>}>
+            <Panel title="Coleção" color="#e0a417" right={<Link href="/colecao" prefetch={false} className="text-xs font-bold text-[#b8860b] hover:underline">Ver tudo →</Link>}>
               <div className="grid grid-cols-3 gap-2">
                 <GameCard type="nivel" artSrc={ERAS[eraForLevel(hud.level)].bg} badge={`Nv ${hud.level}`} title={levelDef.nome} />
                 {previewOrbs.map((o) => (
