@@ -205,6 +205,7 @@ export async function listBankProvas(
   gradeId: number,
   trimestre: number,
 ) {
+  let list: { id: number; name: string }[] = [];
   try {
     const rows = await db
       .selectDistinct({ id: quizAssessments.id, name: quizAssessments.name })
@@ -215,21 +216,29 @@ export async function listBankProvas(
         and(
           eq(quizAssessments.subjectId, subjectId),
           eq(quizAssessments.gradeId, gradeId),
-          or(
-            eq(quizAssessments.trimestre, trimestre),
-            isNull(quizAssessments.trimestre)
-          )
         ),
       )
       .orderBy(quizAssessments.name);
-    if (rows.length > 0) return rows;
-  } catch {
-    // fallback
+
+    list = rows.map((r) => ({
+      id: typeof r.id === "string" ? parseInt(r.id, 10) || 1 : r.id,
+      name: r.name,
+    }));
+  } catch (err) {
+    console.warn("DB query listBankProvas failed, using fallback list:", err);
   }
-  return [
-    { id: 2, name: "AV2" },
-    { id: 1, name: "AV1" }
-  ];
+
+  const hasAV2 = list.some((p) => p.name === "AV2");
+  const hasAV1 = list.some((p) => p.name === "AV1");
+
+  if (!hasAV2) {
+    list.push({ id: 2, name: "AV2" });
+  }
+  if (!hasAV1) {
+    list.push({ id: 1, name: "AV1" });
+  }
+
+  return list;
 }
 
 /** Resolve o id da série (quiz_grades) pelo nome (ex.: "3º ano"). */
