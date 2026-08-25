@@ -85,6 +85,7 @@ export function DesafioQuiz({
   const [persisted, setPersisted] = useState<ArksResult | null>(null);
   const [reveals, setReveals] = useState<RevealItem[]>([]);
   const [items, setItems] = useState<ItemResult[]>([]);
+  const [tri, setTri] = useState<TriScore | null>(null);
   const [seconds, setSeconds] = useState(0);
   const [canContinue, setCanContinue] = useState(false);
   const router = useRouter();
