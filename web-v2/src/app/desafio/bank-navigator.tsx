@@ -6,7 +6,7 @@ import {
 } from "@/db/queries/quiz";
 
 const TRIMESTRES = [1, 2, 3];
-const PROVAS = ["AV1", "AV2", "Prova"];
+const PROVAS = ["AV1", "AV2", "Exercício de Revisão"];
 
 type Item = { label: string; href?: string };
 
@@ -35,7 +35,7 @@ function Step({
           {empty ?? "Nada por aqui ainda."}
         </p>
       ) : (
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
           {items.map((it) =>
             it.href ? (
               <Link
@@ -121,12 +121,12 @@ export async function BankNavigator({
     );
   }
 
-  // 3) Prova (AV1, AV2, Prova — canônico)
+  // 3) Prova (AV1, AV2, Exercício de Revisão)
   const provas = await listBankProvas(subjectId, gradeId, trimestre);
   const byName = new Map(provas.map((p) => [p.name, p.id]));
   return (
     <Step
-      title="Escolha a prova"
+      title="Escolha o simulado ou exercício"
       back={`/desafio?subject=${subjectId}`}
       items={PROVAS.map((name) => ({
         label: name,

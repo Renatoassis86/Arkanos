@@ -31,7 +31,7 @@ export function GameTopBar({ inProgress }: { inProgress: boolean }) {
     <>
       <div className="mb-4 flex items-center justify-between gap-2 rounded-2xl border border-slate-200 bg-white/90 px-2.5 py-2 shadow-sm backdrop-blur">
         <button
-          onClick={() => guard(() => router.push("/jogos"))}
+          onClick={() => guard(() => { window.location.href = "/jogos"; })}
           className={`${btn} text-slate-600 hover:bg-slate-100`}
         >
           ← Painel
@@ -58,7 +58,7 @@ export function GameTopBar({ inProgress }: { inProgress: boolean }) {
                     key={g.href}
                     onClick={() => {
                       setMenu(false);
-                      guard(() => router.push(g.href));
+                      guard(() => { window.location.href = g.href; });
                     }}
                     className="block w-full rounded-lg px-3 py-2 text-left text-sm font-bold text-slate-700 transition hover:bg-[#f1c40f]/10 hover:text-[#b8860b]"
                   >
@@ -71,7 +71,11 @@ export function GameTopBar({ inProgress }: { inProgress: boolean }) {
         </div>
 
         <button
-          onClick={() => guard(() => void logout())}
+          onClick={() => guard(() => {
+            void logout().finally(() => {
+              window.location.href = "/login";
+            });
+          })}
           className={`${btn} text-rose-500 hover:bg-rose-50`}
         >
           Sair

@@ -256,12 +256,16 @@ export async function listBankProvas(
 
   const hasAV2 = list.some((p) => p.name === "AV2");
   const hasAV1 = list.some((p) => p.name === "AV1");
+  const hasRevisao = list.some((p) => p.name === "Exercício de Revisão");
 
   if (!hasAV2) {
     list.push({ id: 2, name: "AV2" });
   }
   if (!hasAV1) {
     list.push({ id: 1, name: "AV1" });
+  }
+  if (!hasRevisao) {
+    list.push({ id: 99, name: "Exercício de Revisão" });
   }
 
   return list;
