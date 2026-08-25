@@ -134,7 +134,19 @@ export function speak(text: string, opts: SpeakOptions = {}) {
   synth.speak(u);
 }
 
-/** Soletra a palavra com pausas melódicas e depois pronuncia a palavra completa. */
+const PT_SPELL_MAP: Record<string, string> = {
+  a: "a", á: "á", à: "à", ã: "ã", â: "â",
+  b: "bê", c: "cê", ç: "cê-cedilha", d: "dê",
+  e: "e", é: "é", ê: "ê",
+  f: "efe", g: "gê", h: "agá",
+  i: "i", í: "í",
+  j: "jota", k: "cá", l: "ele", m: "eme", n: "ene",
+  o: "o", ó: "ó", ô: "ô", õ: "õ",
+  p: "pê", q: "quê", r: "erre", s: "esse", t: "tê",
+  u: "u", ú: "ú", v: "vê", w: "dábliu", x: "xis", y: "ípsilon", z: "zê"
+};
+
+/** Soletra a palavra com pausas melódicas sem dizer a palavra maiúscula e depois pronuncia a palavra completa. */
 export function spellOutWord(word: string, opts: SpeakOptions = {}) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     opts.onend?.();
@@ -145,17 +157,18 @@ export function spellOutWord(word: string, opts: SpeakOptions = {}) {
   const lang = opts.lang ?? "pt-BR";
   const voice = getBestVoice(lang);
 
-  const letters = word
-    .toUpperCase()
-    .replace(/[^A-ZÁÉÍÓÚÂÊÔÃÕÇ]/g, "")
+  const cleanChars = word
+    .toLowerCase()
+    .replace(/[^a-záéíóúâêôãõç]/g, "")
     .split("");
 
-  letters.forEach((ch) => {
-    const u = new SpeechSynthesisUtterance(ch);
+  cleanChars.forEach((ch) => {
+    const textToSpeak = lang === "pt-BR" ? (PT_SPELL_MAP[ch] ?? ch) : ch;
+    const u = new SpeechSynthesisUtterance(textToSpeak);
     u.lang = lang;
     if (voice) u.voice = voice;
-    u.rate = 0.78;
-    u.pitch = 1.02;
+    u.rate = 0.82;
+    u.pitch = 1.0;
     synth.speak(u);
   });
 

@@ -85,9 +85,23 @@ export function DesafioQuiz({
   const [persisted, setPersisted] = useState<ArksResult | null>(null);
   const [reveals, setReveals] = useState<RevealItem[]>([]);
   const [items, setItems] = useState<ItemResult[]>([]);
-  const [tri, setTri] = useState<TriScore | null>(null);
+  const [seconds, setSeconds] = useState(0);
   const [canContinue, setCanContinue] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    if (finished) return;
+    const interval = setInterval(() => {
+      setSeconds((s) => s + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [finished]);
+
+  const formatTime = (sec: number) => {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+  };
 
   if (deck.length === 0) {
     return (
@@ -228,12 +242,22 @@ export function DesafioQuiz({
 
           {tri && (
             <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
-              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
-                Pontuação (TRI)
-              </p>
-              <p className="font-display mt-1 text-3xl text-slate-900 sm:text-4xl">{tri.points}</p>
-              <p className="text-xs text-slate-400">
-                acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
+              <div className="grid grid-cols-2 gap-2 text-center">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#b8860b]">
+                    Pontuação (TRI)
+                  </p>
+                  <p className="font-display mt-0.5 text-3xl text-slate-900">{tri.points}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-[#b8860b]">
+                    Tempo Total
+                  </p>
+                  <p className="font-display mt-0.5 text-3xl text-slate-900">{formatTime(seconds)}</p>
+                </div>
+              </div>
+              <p className="mt-2 text-xs text-slate-500 border-t border-[#f1c40f]/20 pt-2">
+                acertar questões difíceis em menos tempo aumenta sua posição no ranking · habilidade {tri.abilityPct}%
               </p>
             </div>
           )}

@@ -864,16 +864,16 @@ export function SpellingBeeGame({
                 )}
               </div>
               <div className="flex flex-wrap justify-center gap-1.5">
-                {Array.from(
-                  new Set(
-                    (
-                      q.palavra.toLowerCase().replace(/[^a-z]/g, "") + "rstlneaiocmdpb"
-                    ).split("")
-                  )
-                )
-                  .slice(0, 16)
-                  .sort()
-                  .map((letter) => (
+                {(() => {
+                  const targetChars = Array.from(new Set(q.palavra.toLowerCase().replace(/[^a-z]/g, "").split("")));
+                  const pool = new Set(targetChars);
+                  const extraDistractors = "abcdefghijklmnopqrstuvwxyz".split("");
+                  for (const d of extraDistractors) {
+                    if (pool.size >= Math.max(16, targetChars.length + 6)) break;
+                    pool.add(d);
+                  }
+                  return Array.from(pool).sort((a, b) => a.localeCompare(b, "en"));
+                })().map((letter) => (
                     <button
                       key={letter}
                       type="button"

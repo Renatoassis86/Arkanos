@@ -815,10 +815,16 @@ export function RadixGame({
                 )}
               </div>
               <div className="flex flex-wrap justify-center gap-1.5">
-                {Array.from(new Set((rawClean.toLowerCase() + "aeioucçstrnlmdp").split("")))
-                  .slice(0, 18)
-                  .sort((a, b) => a.localeCompare(b, "pt-BR"))
-                  .map((letter) => (
+                {(() => {
+                  const targetChars = Array.from(new Set(q.palavra.toLowerCase().replace(/[^a-záéíóúâêôãõç]/g, "").split("")));
+                  const pool = new Set(targetChars);
+                  const extraDistractors = "abcdefghijklmnopqrstuvwxyzáéíóúâêôãõç".split("");
+                  for (const d of extraDistractors) {
+                    if (pool.size >= Math.max(16, targetChars.length + 6)) break;
+                    pool.add(d);
+                  }
+                  return Array.from(pool).sort((a, b) => a.localeCompare(b, "pt-BR"));
+                })().map((letter) => (
                     <button
                       key={letter}
                       type="button"

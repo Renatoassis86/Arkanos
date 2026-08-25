@@ -129,7 +129,7 @@ export function SpellingTutorialModal({
                 </strong>
                 <p className="text-slate-600 text-xs mt-0.5">
                   {isPt
-                    ? 'Pronuncie cada letra com calma (ex: "C... A... S... A"). Não emende as letras.'
+                    ? 'Pronuncie cada letra com calma (ex: "C... A... S... A"). Para acentos ou ç, fale diretamente a letra ("á", "é", "cê-cedilha") ou clique na tela.'
                     : 'Spell with a brief pause between letters (e.g., "A... P... P... L... E").'}
                 </p>
               </div>
