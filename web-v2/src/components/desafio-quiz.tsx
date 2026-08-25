@@ -69,7 +69,7 @@ export function DesafioQuiz({
   questions: DesafioQuestion[];
   authed: boolean;
 }) {
-  const [deck, setDeck] = useState(() => questions.slice(0, Math.min(50, questions.length)));
+  const [deck, setDeck] = useState(() => roundOf(questions, questions.length));
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState("");
   const [picked, setPicked] = useState<string | null>(null);
@@ -165,7 +165,7 @@ export function DesafioQuiz({
   }
 
   function restart() {
-    setDeck(roundOf(questions, 30));
+    setDeck(roundOf(questions, questions.length));
     setIndex(0);
     setTyped("");
     setPicked(null);

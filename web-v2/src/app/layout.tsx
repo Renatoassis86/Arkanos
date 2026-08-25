@@ -35,6 +35,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://arkanos.arkosintelligence.com"),
   title: "Arkanos — O Reino do Saber e da Virtude",
   description:
     "Plataforma de jogos educacionais da Educação Cristã Clássica, nas fases do Trivium.",
@@ -51,6 +52,30 @@ export const metadata: Metadata = {
       { url: "/img/logo.png", type: "image/png" },
     ],
     apple: "/img/logo.png",
+  },
+  openGraph: {
+    title: "Arkanos — O Reino do Saber e da Virtude",
+    description:
+      "Plataforma de jogos educacionais da Educação Cristã Clássica, nas fases do Trivium.",
+    url: "https://arkanos.arkosintelligence.com",
+    siteName: "Arkanos",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Arkanos - Educação Cristã Clássica",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Arkanos — O Reino do Saber e da Virtude",
+    description:
+      "Plataforma de jogos educacionais da Educação Cristã Clássica, nas fases do Trivium.",
+    images: ["/og-image.jpg"],
   },
 };
 

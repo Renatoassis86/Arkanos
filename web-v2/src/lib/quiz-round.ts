@@ -13,7 +13,7 @@ export function shuffle<T>(arr: T[]): T[] {
 /** Embaralha as alternativas da questão (a correta é comparada por TEXTO,
  *  então a letra/posição da resposta certa muda a cada partida). */
 export function withShuffledOptions(q: DesafioQuestion): DesafioQuestion {
-  if (q.type !== "multiple_choice" || !q.options || q.options.length < 2) return q;
+  if (!q.options || q.options.length < 2) return q;
   return { ...q, options: shuffle(q.options) };
 }
 
