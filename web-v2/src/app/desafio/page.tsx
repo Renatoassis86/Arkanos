@@ -86,10 +86,6 @@ export default async function DesafioPage({
 
   return (
     <div className="min-h-screen bg-[#f6f8fc]">
-    <div className="h-4 bg-red-600 flex items-center justify-center text-white text-sm font-bold">
-  EM DESENVOLVIMENTO - Versão de teste
-</div>
-    <div className="h-4 bg-[#cceeff]"></div>
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-3xl items-center justify-between gap-3 px-6 py-4">
           <Link href="/jogos" className="flex items-center gap-2">

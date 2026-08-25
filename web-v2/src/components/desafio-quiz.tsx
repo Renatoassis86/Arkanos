@@ -312,17 +312,194 @@ export function DesafioQuiz({
     );
   }
 
-  const tfOptions = [
+  const [imgError, setImgError] = useState(false);
+
+  // Reset imgError quando mudar a questão
+  const currentQId = q.id;
+
+  tfOptions = [
     { label: "Verdadeiro", value: "true", icon: "✓" },
     { label: "Falso", value: "false", icon: "✗" },
   ];
 
-  function optionState(matchValue: string, isThisPicked: boolean) {
+  function check(value: string) {
+    if (revealed) return;
+    const ok = isAnswerCorrect(q, value);
+    setItems((arr) => [...arr, { difficulty: q.difficulty, type: q.type, correct: ok }]);
+    setPicked(value);
+    setRevealed(true);
+    if (ok) {
+      setCorrectCount((c) => c + 1);
+      setXp((x) => x + (ARKS_BY_DIFFICULTY[q.difficulty] ?? 10));
+      if (q.difficulty === "hard") setOuro((o) => o + 1);
+      else if (q.difficulty === "medium") setPrata((p) => p + 1);
+      else setBronze((b) => b + 1);
+      playCorrect();
+    } else {
+      playWrong();
+    }
+  }
+
+  function next() {
+    if (index + 1 >= total) {
+      void finishGame();
+      return;
+    }
+    setIndex((i) => i + 1);
+    setTyped("");
+    setPicked(null);
+    setRevealed(false);
+    setImgError(false);
+  }
+
+  function restart() {
+    setDeck(roundOf(questions, 30));
+    setIndex(0);
+    setTyped("");
+    setPicked(null);
+    setRevealed(false);
+    setImgError(false);
+    setCorrectCount(0);
+    setXp(0);
+    setBronze(0);
+    setPrata(0);
+    setOuro(0);
+    setFinished(false);
+    setSaving(false);
+    setPersisted(null);
+    setReveals([]);
+    setItems([]);
+    setTri(null);
+    setCanContinue(false);
+  }
+
+  const correct = revealed && picked !== null && isAnswerCorrect(q, picked);
+
+  if (finished) {
+    const pct = Math.round((correctCount / total) * 100);
+    const gabaritou = total > 0 && correctCount === total;
+    const narracao =
+      pct >= 80
+        ? "Parabéns, jovem sábio! Você chegou ao fim desta jornada com honra. Tua dedicação honra o Autor de toda sabedoria. Avança!"
+        : pct >= 50
+          ? "Bom trabalho! O saber cresce em você a cada passo. Continue firme na jornada."
+          : "A jornada do saber tem tropeços, e o sábio se levanta. “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
+    return (
+      <>
+      <div className="mx-auto max-w-lg px-4">
+        <GameTopBar inProgress={false} />
+      </div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-6 text-center shadow-lg sm:p-10"
+      >
+        <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
+          {pct >= 50 ? "Jornada concluída" : "Quase lá"}
+        </p>
+        <p className="font-display mt-3 text-5xl font-black text-slate-900 sm:text-6xl">{pct}%</p>
+        <p className="mt-1 text-slate-600">
+          {correctCount} de {total} corretas
+        </p>
+
+        <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
+          <GuardianAvatar name={DESAFIO_GUARDIAN} size={56} />
+          <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">{narracao}</p>
+        </div>
+
+        {/* Arks ganhos nesta partida */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
+          {bronze > 0 && <ArkPill label="Bronze" n={bronze} color="#b87333" />}
+          {prata > 0 && <ArkPill label="Prata" n={prata} color="#64748b" />}
+          {ouro > 0 && <ArkPill label="Ouro" n={ouro} color="#d4a017" />}
+          {gabaritou && <ArkPill label="Diamante" n={1} color="#0891b2" />}
+        </div>
+
+        {/* Pontuação por TRI */}
+        {tri && (
+          <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
+            <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
+              Pontuação (TRI)
+            </p>
+            <p className="font-display mt-1 text-3xl text-slate-900 sm:text-4xl">{tri.points}</p>
+            <p className="text-xs text-slate-400">
+              acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
+            </p>
+          </div>
+        )}
+
+        {saving && (
+          <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>
+        )}
+
+        {persisted?.persisted && (
+          <div className="mt-6 space-y-3">
+            {persisted.leveledUp && (
+              <p className="font-display text-xl text-[#b8860b]">
+                ★ Subiu para o nível {persisted.level}!
+              </p>
+            )}
+            <div className="rounded-2xl border-2 border-[#f1c40f]/20 bg-[#f1c40f]/8 p-4">
+              <p className="text-sm text-slate-700">
+                Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong>{" "}
+                · Nível <strong className="text-slate-900">{persisted.level}</strong>
+              </p>
+            </div>
+            <div className="rounded-2xl border-2 border-[#f1c40f]/40 bg-[#f1c40f]/8 p-5">
+              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
+                Sua posição no ranking
+              </p>
+              <p className="font-display mt-1 text-4xl text-slate-900">#{persisted.rankPos}</p>
+              <p className="text-sm text-slate-600">de {persisted.rankTotal} jogadores</p>
+            </div>
+          </div>
+        )}
+
+        {!authed && (
+          <p className="mt-5 text-sm text-slate-500">
+            <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">
+              Crie uma conta
+            </Link>{" "}
+            para salvar seus Arks e entrar no ranking.
+          </p>
+        )}
+
+        <div className="mt-8 flex flex-col items-center gap-3">
+          {canContinue ? (
+            <button
+              onClick={() => router.push("/colecao")}
+              className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5"
+            >
+              Continuar para a Coleção →
+            </button>
+          ) : (
+            <p className="text-xs text-slate-500">Leia seu resultado e a crônica…</p>
+          )}
+          <button
+            onClick={restart}
+            className="text-sm font-bold text-slate-500 underline-offset-2 transition hover:text-[#b8860b] hover:underline"
+          >
+            Jogar novamente
+          </button>
+        </div>
+      </motion.div>
+      {reveals.length > 0 && (
+        <PremiacaoOverlay
+          items={reveals}
+          guardian={DESAFIO_GUARDIAN}
+          onClose={() => setReveals([])}
+        />
+      )}
+      </>
+    );
+  }
+
+  const optionState = (matchValue: string, isThisPicked: boolean) => {
     if (!revealed) return "idle";
     if (isAnswerCorrect(q, matchValue)) return "correct";
     if (isThisPicked) return "wrong";
     return "dim";
-  }
+  };
 
   const stateClasses: Record<string, string> = {
     idle: "border-2 border-slate-200 bg-white text-slate-800 hover:border-[#f1c40f]/60 hover:bg-[#f1c40f]/5",
@@ -332,17 +509,18 @@ export function DesafioQuiz({
   };
 
   return (
-    <div className="mx-auto max-w-2xl">
+    <div className="mx-auto max-w-2xl px-4 sm:px-0">
       <GameTopBar inProgress={!finished} />
-      {/* HUD fixo (estilo jogo) */}
-      <div className="sticky top-0 z-20 -mx-6 mb-6 border-b border-slate-200 bg-white/90 px-6 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-4 sm:shadow-sm">
-        <div className="flex items-center justify-between text-sm">
-          <span className="font-bold text-slate-500">
+      
+      {/* HUD de progresso sem sobreposição */}
+      <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+        <div className="flex items-center justify-between text-sm font-bold">
+          <span className="text-slate-500">
             {index + 1} / {total}
           </span>
-          <span className="font-black text-[#b8860b]">{xp} Arks</span>
+          <span className="text-[#b8860b]">{xp} Arks</span>
         </div>
-        <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">
+        <div className="mt-2 h-2.5 overflow-hidden rounded-full bg-slate-100">
           <motion.div
             className="h-full bg-gradient-to-r from-[#f1c40f] to-[#e0a417]"
             animate={{ width: `${((index + (revealed ? 1 : 0)) / total) * 100}%` }}
@@ -354,25 +532,26 @@ export function DesafioQuiz({
       <AnimatePresence mode="wait">
         <motion.div
           key={q.id}
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -24 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.25 }}
           className="overflow-hidden rounded-3xl border-2 border-slate-200 bg-white shadow-sm"
         >
-          {/* Faixa ilustrada: imagem real OU ilustração temática */}
-          {q.imageUrl ? (
+          {/* Faixa com imagem ou gradiente seguro */}
+          {q.imageUrl && !imgError ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <div className="flex justify-center bg-slate-100 p-2 sm:p-3">
+            <div className="flex justify-center bg-slate-100 p-3 sm:p-4">
               <img
                 src={q.imageUrl}
                 alt={q.imageAlt ?? q.question}
-                className="max-h-72 w-full rounded-xl object-contain sm:max-h-80"
+                onError={() => setImgError(true)}
+                className="max-h-64 w-full rounded-xl object-contain sm:max-h-80"
               />
             </div>
           ) : (
             <div
-              className="h-2.5"
+              className="h-3"
               style={{
                 background: `linear-gradient(135deg, ${art.from}, ${art.to})`,
               }}
