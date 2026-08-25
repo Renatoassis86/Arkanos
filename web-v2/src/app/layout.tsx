@@ -61,9 +61,10 @@ export const metadata: Metadata = {
     siteName: "Arkanos",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://arkanos.arkosintelligence.com/og-image.jpg?v=2",
         width: 1200,
         height: 630,
+        type: "image/jpeg",
         alt: "Arkanos - Educação Cristã Clássica",
       },
     ],
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
     title: "Arkanos — O Reino do Saber e da Virtude",
     description:
       "Plataforma de jogos educacionais da Educação Cristã Clássica, nas fases do Trivium.",
-    images: ["/og-image.jpg"],
+    images: ["https://arkanos.arkosintelligence.com/og-image.jpg?v=2"],
   },
 };
 
@@ -96,6 +97,13 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${jakarta.variable} ${fraunces.variable} ${cinzel.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <meta property="og:image" content="https://arkanos.arkosintelligence.com/og-image.jpg?v=2" />
+        <meta property="og:image:secure_url" content="https://arkanos.arkosintelligence.com/og-image.jpg?v=2" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+      </head>
       <body className="min-h-full flex flex-col">
         <SplashScreen />
         <TopNav />
