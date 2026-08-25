@@ -1,0 +1,43 @@
+=== FILE: 1.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 11.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 2.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 22.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 3.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 33.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 4.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 44.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 55.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: 66.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
+
+=== FILE: WhatsApp Image 2026-08-23 at 19.36.19.jpeg ===
+
+OCR Error: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
