@@ -4530,7 +4530,7 @@
     }
   },
   {
-    "id": 191,
+    "id": 201,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4540,12 +4540,12 @@
     "difficulty": "medium",
     "question": "No início do século XIX, Portugal mantinha uma importante relação comercial com a Inglaterra. Ao mesmo tempo, Napoleão Bonaparte aumentava seu domínio sobre vários países da Europa. Explique por que essa situação trouxe problemas para Portugal.",
     "options": [
-      "Portugal era aliada da Inglaterra e com o bloqueio continental, Napoleão Bonaparte impediu os países da Europa de ter relação com a Inglaterra. Assim, a França invadiu Portugal.",
+      "Portugal era aliada da Inglaterra e com o bloqueio continental, Napoleão Bonaparte impediu os países da Europa de ter relação com a Inglaterra. Assim, a França invade Portugal.",
       "Portugal decidiu declarar guerra contra a Espanha e perdeu todo o seu exército na Europa.",
       "A Inglaterra cortou todas as rotas de comércio com Portugal por falta de pagamento de dívidas.",
       "Napoleão ofereceu o trono português ao Rei da Prússia sem o conhecimento da Inglaterra."
     ],
-    "answer": "Portugal era aliada da Inglaterra e com o bloqueio continental, Napoleão Bonaparte impediu os países da Europa de ter relação com a Inglaterra. Assim, a França invadiu Portugal.",
+    "answer": "Portugal era aliada da Inglaterra e com o bloqueio continental, Napoleão Bonaparte impediu os países da Europa de ter relação com a Inglaterra. Assim, a França invade Portugal.",
     "explanation": "Como Portugal era aliado da Inglaterra, o Bloqueio Continental decretado por Napoleão proibiu o comércio com os ingleses, levando a França a invadir o território português.",
     "cronica_do_guardiao": "O Guardião Aion recorda: as pressões diplomáticas na Europa napoleônica forçaram a decisão que mudaria para sempre o destino do Brasil.",
     "has_image": false,
@@ -4556,7 +4556,7 @@
     "metadata_json": {}
   },
   {
-    "id": 192,
+    "id": 202,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4566,12 +4566,12 @@
     "difficulty": "medium",
     "question": "A chegada da Família Real ao Brasil, em 1808, trouxe mudanças para a colônia, principalmente para o Rio de Janeiro. Explique como a presença da Corte portuguesa ajudou a transformar o Brasil nesse período.",
     "options": [
-      "Muitas inovações e mudanças ocorreram, à exemplo da criação da faculdade de medicina, do primeiro jornal e do Banco do Brasil.",
+      "Muitas inovações e mudanças ocorreram, à exemplo da criação da Faculdade de medicina, do primeiro jornal e do Banco do Brasil.",
       "A Corte proibiu o comércio de mercadorias estrangeiras e fechou todos os portos coloniais.",
       "O Rio de Janeiro foi abandonado e a capital foi transferida imediatamente para Manaus.",
       "Todas as escolas e igrejas foram fechadas para cortar despesas da família real."
     ],
-    "answer": "Muitas inovações e mudanças ocorreram, à exemplo da criação da faculdade de medicina, do primeiro jornal e do Banco do Brasil.",
+    "answer": "Muitas inovações e mudanças ocorreram, à exemplo da criação da Faculdade de medicina, do primeiro jornal e do Banco do Brasil.",
     "explanation": "A instalação da Corte no Rio de Janeiro impulsionou a criação da Faculdade de Medicina, da Imprensa Régia (primeiro jornal) e do Banco do Brasil.",
     "cronica_do_guardiao": "Aion contempla a transformação: de colônia restrita a sede do Reino Unido de Portugal, o Brasil floresceu em instituições e cultura.",
     "has_image": false,
@@ -4582,7 +4582,7 @@
     "metadata_json": {}
   },
   {
-    "id": 193,
+    "id": 203,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4608,7 +4608,7 @@
     "metadata_json": {}
   },
   {
-    "id": 194,
+    "id": 204,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4618,12 +4618,12 @@
     "difficulty": "medium",
     "question": "Em 1807, a Família Real Portuguesa precisou deixar Portugal às pressas e realizar uma longa viagem até o Brasil. Explique o que estava acontecendo em Portugal e como foi realizada a viagem da Família Real até o Brasil.",
     "options": [
-      "As tropas de Napoleão estavam invadindo Portugal e a família real portuguesa estava fugindo às pressas para o Brasil. A viagem foi longa e difícil.",
+      "As tropas de Napoleão estavam invadindo Portugal e a família Real portuguesa estava fugindo às pressas para o Brasil. A viagem foi longa e difícil.",
       "D. João viajou pacificamente em um passeio de férias com apoio das tropas francesas.",
       "A viagem durou apenas dois dias graças ao uso de navios a vapor modernos de última geração.",
       "A família real viajou por terra cruzando o oceano Atlântico a cavalo."
     ],
-    "answer": "As tropas de Napoleão estavam invadindo Portugal e a família real portuguesa estava fugindo às pressas para o Brasil. A viagem foi longa e difícil.",
+    "answer": "As tropas de Napoleão estavam invadindo Portugal e a família Real portuguesa estava fugindo às pressas para o Brasil. A viagem foi longa e difícil.",
     "explanation": "A ameaça iminente da invasão francesa fez com que a Família Real embarcasse às pressas sob proteção britânica, enfrentando uma travessia exaustiva pelo Atlântico.",
     "cronica_do_guardiao": "Sob tempestades e incertezas no oceano, a frota portuguesa cruzou o mar trazendo a coroa para o solo americano.",
     "has_image": false,
@@ -4634,7 +4634,7 @@
     "metadata_json": {}
   },
   {
-    "id": 195,
+    "id": 205,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4660,7 +4660,7 @@
     "metadata_json": {}
   },
   {
-    "id": 196,
+    "id": 206,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4686,7 +4686,7 @@
     "metadata_json": {}
   },
   {
-    "id": 197,
+    "id": 207,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4696,12 +4696,12 @@
     "difficulty": "medium",
     "question": "No Brasil colonial, as pessoas escravizadas realizavam diferentes tipos de trabalho nas cidades e no campo. Explique quem eram as pessoas escravizadas no Brasil e cite algumas atividades realizadas por elas.",
     "options": [
-      "Os escravizados podiam ser indígenas ou africanos. A maior parte dos escravizados trabalhavam nos engenhos e lavouras.",
+      "Os escravizados podiam ser indígenas ou africanos. A maior parte dos escravizados trabalharam nos engenhos e lavouras.",
       "Os escravizados eram apenas imigrantes italianos que trabalhavam em escritórios de advocacia.",
       "Eram cavaleiros portugueses que serviam como guardas de honra da família real.",
       "Eram marinheiros holandeses que cuidavam da manutenção dos portos do Rio de Janeiro."
     ],
-    "answer": "Os escravizados podiam ser indígenas ou africanos. A maior parte dos escravizados trabalhavam nos engenhos e lavouras.",
+    "answer": "Os escravizados podiam ser indígenas ou africanos. A maior parte dos escravizados trabalharam nos engenhos e lavouras.",
     "explanation": "A escravidão incidiu sobre indígenas e, principalmente, africanos, que executavam a maior parte dos trabalhos braçais nos canaviais e instalações dos engenhos.",
     "cronica_do_guardiao": "Aion contempla as mãos que moveram a terra e a moenda: o trabalho pesado dos indígenas e africanos sustentava a colônia.",
     "has_image": false,
@@ -4712,7 +4712,7 @@
     "metadata_json": {}
   },
   {
-    "id": 198,
+    "id": 208,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4738,7 +4738,7 @@
     "metadata_json": {}
   },
   {
-    "id": 199,
+    "id": 209,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4764,7 +4764,7 @@
     "metadata_json": {}
   },
   {
-    "id": 200,
+    "id": 210,
     "subject": "História",
     "grade": "5º ano",
     "assessment": "AV2",
@@ -4774,14 +4774,14 @@
     "difficulty": "medium",
     "question": "As pessoas escravizadas enfrentavam uma vida marcada pela falta de liberdade, pelo trabalho forçado e pela violência. Apesar disso, elas também desenvolveram diferentes formas de enfrentar a escravidão. Explique como era o trabalho das pessoas escravizadas e de que maneiras elas poderiam resistir à escravidão.",
     "options": [
-      "Os escravizados resistiam de diversas maneiras. Além das fugas, os escravos criaram os quilombos, que eram comunidades de escravos fugitivos onde eles se escondiam para serem salvos. O trabalho das pessoas escravizadas era muito cansativo e pesado.",
+      "Os escravizados resistiam de diversas maneiras. Além das fugas, os escravos criaram os quilombos, que eram comunidades de escravos fugitivos, onde eles se escondiam para serem salvos. O trabalho das pessoas escravizadas era muito cansativo e pesado.",
       "Os escravizados não resistiam e preferiam trabalhar sem descanso para ganhar promoções de cargo.",
       "A única forma de resistência era enviar cartas registradas para os bispos em Roma.",
       "O trabalho era leve e divertido, consistindo apenas em organizar banquetes de comemoração."
     ],
-    "answer": "Os escravizados resistiam de diversas maneiras. Além das fugas, os escravos criaram os quilombos, que eram comunidades de escravos fugitivos onde eles se escondiam para serem salvos. O trabalho das pessoas escravizadas era muito cansativo e pesado.",
+    "answer": "Os escravizados resistiam de diversas maneiras. Além das fugas, os escravos criaram os quilombos, que eram comunidades de escravos fugitivos, onde eles se escondiam para serem salvos. O trabalho das pessoas escravizadas era muito cansativo e pesado.",
     "explanation": "Frente ao trabalho exaustivo e violento, os escravizados reagiam com fugas, revoltas e a criação de quilombos — refúgios seguros de liberdade e preservação cultural.",
-    "cronica_do_guardiao": "Aion rende homenagem aos quilombolas: mesmo nas sombras da opressão, a busca pela liberdade nunca se apogou.",
+    "cronica_do_guardiao": "Aion rende homenagem aos quilombolas: mesmo nas sombras da opressão, a busca pela liberdade nunca se apagou.",
     "has_image": false,
     "image_mode": "none",
     "image_url": null,
