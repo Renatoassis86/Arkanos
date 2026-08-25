@@ -40,20 +40,20 @@ export default async function LoginPage({
     >
       {error && <p className={errorClass}>{decodeURIComponent(error)}</p>}
 
-      <form action={login} className="mt-5 space-y-4">
-        <label className="space-y-1.5">
-          <span className={labelClass}>Nome</span>
+      <form action={login} className="mt-8 space-y-6">
+        <div>
+          <label className={labelClass}>Nome</label>
           <input
             name="nome"
             type="text"
             required
             autoComplete="off"
-            placeholder="Seu nome"
+            placeholder="Seu primeiro nome"
             className={inputClass}
           />
-        </label>
-        <label className="space-y-1.5">
-          <span className={labelClass}>Último sobrenome</span>
+        </div>
+        <div>
+          <label className={labelClass}>Último sobrenome</label>
           <input
             name="sobrenome"
             type="text"
@@ -62,11 +62,13 @@ export default async function LoginPage({
             placeholder="Seu último sobrenome"
             className={inputClass}
           />
-        </label>
+        </div>
 
-        <button type="submit" className={`${submitClass} py-4 text-base`}>
-          Entrar
-        </button>
+        <div className="pt-2">
+          <button type="submit" className={submitClass}>
+            Entrar no Arkanos →
+          </button>
+        </div>
       </form>
     </AuthShell>
   );

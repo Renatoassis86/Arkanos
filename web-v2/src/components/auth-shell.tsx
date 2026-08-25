@@ -67,28 +67,33 @@ export function AuthShell({
       </aside>
 
       {/* Painel do formulário */}
-      <section className="relative flex items-center justify-center bg-[#f6f8fc] px-6 py-16">
-        <div className="w-full max-w-md">
+      <section className="relative flex items-center justify-center bg-[#f6f8fc] px-4 py-12 sm:px-6 sm:py-20">
+        <div className="w-full max-w-lg">
           <Link href="/" className="mb-8 flex flex-col items-center gap-3 lg:hidden">
             <Image
               src="/img/logo.png"
               alt="Arkanos"
-              width={72}
-              height={72}
+              width={80}
+              height={80}
               priority
               className="h-16 w-16 object-contain"
             />
           </Link>
 
-          <div className="rounded-3xl border-2 border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(2,6,23,0.08)]">
-            <header className="mb-6 text-center">
-              <h1 className="font-display text-3xl text-slate-900">{title}</h1>
-              <p className="mt-1 text-sm text-slate-500">{subtitle}</p>
+          <div className="rounded-[32px] border border-slate-200/80 bg-white/95 p-8 sm:p-12 shadow-[0_25px_70px_-15px_rgba(11,18,34,0.12)] backdrop-blur-xl">
+            <header className="mb-8 text-center">
+              <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-amber-200/80 bg-amber-50 text-2xl shadow-inner">
+                🏛️
+              </div>
+              <h1 className="font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
+                {title}
+              </h1>
+              <p className="mt-2 text-sm font-medium text-slate-500 sm:text-base">{subtitle}</p>
             </header>
             {children}
           </div>
 
-          <p className="mt-6 text-center text-sm text-slate-500">{footer}</p>
+          <p className="mt-8 text-center text-sm font-semibold text-slate-500">{footer}</p>
         </div>
       </section>
     </main>
@@ -96,13 +101,13 @@ export function AuthShell({
 }
 
 export const inputClass =
-  "w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#f1c40f] focus:ring-2 focus:ring-[#f1c40f]/20";
+  "w-full rounded-2xl border-2 border-slate-200/90 bg-slate-50/50 px-5 py-4 text-base font-medium text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#f1c40f] focus:bg-white focus:ring-4 focus:ring-[#f1c40f]/20 shadow-sm";
 
 export const labelClass =
-  "block text-xs font-bold uppercase tracking-wider text-slate-500";
+  "block text-xs font-black uppercase tracking-[1.5px] text-slate-500 mb-2";
 
 export const submitClass =
-  "w-full rounded-xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-4 py-3 text-sm font-black uppercase tracking-wider text-[#3b2f00] shadow-[0_4px_20px_rgba(241,196,15,0.4)] transition hover:-translate-y-0.5";
+  "w-full rounded-2xl bg-gradient-to-r from-[#f1c40f] via-[#eab308] to-[#d97706] px-6 py-4.5 text-base font-black uppercase tracking-wider text-[#0b1222] shadow-[0_10px_25px_-5px_rgba(241,196,15,0.45)] transition duration-200 active:scale-[0.98] hover:-translate-y-0.5 hover:shadow-[0_15px_30px_-5px_rgba(241,196,15,0.55)]";
 
 export const errorClass =
-  "rounded-xl border-2 border-rose-300 bg-rose-50 px-4 py-3 text-sm text-rose-700";
+  "rounded-2xl border-2 border-rose-300 bg-rose-50 px-5 py-4 text-sm font-semibold text-rose-700 shadow-sm mb-6";
