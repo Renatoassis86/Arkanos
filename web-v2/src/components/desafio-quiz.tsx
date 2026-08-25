@@ -40,24 +40,20 @@ function normalize(s: string) {
 }
 
 function isAnswerCorrect(q: DesafioQuestion, value: string) {
-  // Resposta digitada: tolera maiúsculas/acentos e acerto parcial.
   if (q.type === "short_answer") {
     if (normalize(value) === normalize(q.answer)) return true;
     return normalize(value).length > 2 && normalize(q.answer).includes(normalize(value));
   }
-  // Verdadeiro/Falso: comparação normalizada (true/false/Verdadeiro/Falso).
   if (q.type === "true_false") {
     return normalize(value) === normalize(q.answer);
   }
-  // Múltipla escolha (incl. visuais): a opção correta é a que bate EXATAMENTE com a
-  // resposta — preserva maiúscula, acento e pontuação (essencial em ortografia/pontuação).
   return value.trim() === q.answer.trim();
 }
 
 function ArkPill({ label, n, color }: { label: string; n: number; color: string }) {
   return (
     <span
-      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1"
+      className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-extrabold sm:text-sm"
       style={{ backgroundColor: `${color}1a`, color }}
     >
       <span className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
@@ -73,13 +69,12 @@ export function DesafioQuiz({
   questions: DesafioQuestion[];
   authed: boolean;
 }) {
-  // O servidor entrega o banco embaralhado; recortamos até 50 questões por rodada.
   const [deck, setDeck] = useState(() => questions.slice(0, Math.min(50, questions.length)));
-
   const [index, setIndex] = useState(0);
   const [typed, setTyped] = useState("");
   const [picked, setPicked] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
+  const [imgError, setImgError] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [xp, setXp] = useState(0);
   const [bronze, setBronze] = useState(0);
@@ -89,16 +84,14 @@ export function DesafioQuiz({
   const [saving, setSaving] = useState(false);
   const [persisted, setPersisted] = useState<ArksResult | null>(null);
   const [reveals, setReveals] = useState<RevealItem[]>([]);
-  // TRI: histórico de itens (dificuldade/tipo/acerto) p/ estimar a habilidade.
   const [items, setItems] = useState<ItemResult[]>([]);
   const [tri, setTri] = useState<TriScore | null>(null);
-  // Fluxo pós-jogo: o botão "Continuar" libera após uns segundos (lê-se o resultado).
   const [canContinue, setCanContinue] = useState(false);
   const router = useRouter();
 
   if (deck.length === 0) {
     return (
-      <p className="text-center text-slate-300">Nenhuma questão disponível ainda.</p>
+      <p className="py-12 text-center font-bold text-slate-400">Nenhuma questão disponível ainda.</p>
     );
   }
 
@@ -133,6 +126,7 @@ export function DesafioQuiz({
     setTyped("");
     setPicked(null);
     setRevealed(false);
+    setImgError(false);
   }
 
   async function finishGame() {
@@ -143,7 +137,7 @@ export function DesafioQuiz({
     setTri(score);
     if (!authed) return;
     setSaving(true);
-    const diamante = total > 0 && correctCount === total ? 1 : 0; // gabaritou
+    const diamante = total > 0 && correctCount === total ? 1 : 0;
     const res = await awardDesafioArks({
       bronze,
       prata,
@@ -156,7 +150,6 @@ export function DesafioQuiz({
     setSaving(false);
     setPersisted(res);
 
-    // Monta a fila de premiação (nível + orbes/medalhas recém-concedidos).
     if (res.persisted) {
       const queue: RevealItem[] = [];
       if (res.leveledUp) queue.push({ kind: "level", level: res.level });
@@ -177,6 +170,7 @@ export function DesafioQuiz({
     setTyped("");
     setPicked(null);
     setRevealed(false);
+    setImgError(false);
     setCorrectCount(0);
     setXp(0);
     setBronze(0);
@@ -204,301 +198,123 @@ export function DesafioQuiz({
           : "A jornada do saber tem tropeços, e o sábio se levanta. “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
     return (
       <>
-      <div className="mx-auto max-w-lg">
-        <GameTopBar inProgress={false} />
-      </div>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-8 text-center shadow-lg sm:p-10"
-      >
-        <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
-          {pct >= 50 ? "Jornada concluída" : "Quase lá"}
-        </p>
-        <p className="font-display mt-3 text-6xl font-black text-slate-900">{pct}%</p>
-        <p className="mt-1 text-slate-600">
-          {correctCount} de {total} corretas
-        </p>
-
-        <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
-          <GuardianAvatar name={DESAFIO_GUARDIAN} size={56} />
-          <p className="text-sm leading-relaxed text-slate-700">{narracao}</p>
+        <div className="mx-auto max-w-lg px-4">
+          <GameTopBar inProgress={false} />
         </div>
-
-        {/* Arks ganhos nesta partida */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
-          {bronze > 0 && <ArkPill label="Bronze" n={bronze} color="#b87333" />}
-          {prata > 0 && <ArkPill label="Prata" n={prata} color="#64748b" />}
-          {ouro > 0 && <ArkPill label="Ouro" n={ouro} color="#d4a017" />}
-          {gabaritou && <ArkPill label="Diamante" n={1} color="#0891b2" />}
-        </div>
-
-        {/* Pontuação por TRI (Teoria de Resposta ao Item) — sem fator tempo */}
-        {tri && (
-          <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
-            <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
-              Pontuação (TRI)
-            </p>
-            <p className="font-display mt-1 text-4xl text-slate-900">{tri.points}</p>
-            <p className="text-xs text-slate-400">
-              acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
-            </p>
-          </div>
-        )}
-
-        {saving && (
-          <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>
-        )}
-
-        {persisted?.persisted && (
-          <div className="mt-6 space-y-3">
-            {persisted.leveledUp && (
-              <p className="font-display text-xl text-[#b8860b]">
-                ★ Subiu para o nível {persisted.level}!
-              </p>
-            )}
-            <div className="rounded-2xl border-2 border-[#f1c40f]/20 bg-[#f1c40f]/8 p-4">
-              <p className="text-sm text-slate-700">
-                Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong>{" "}
-                · Nível <strong className="text-slate-900">{persisted.level}</strong>
-              </p>
-            </div>
-            <div className="rounded-2xl border-2 border-[#f1c40f]/40 bg-[#f1c40f]/8 p-5">
-              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
-                Sua posição no ranking
-              </p>
-              <p className="font-display mt-1 text-4xl text-slate-900">#{persisted.rankPos}</p>
-              <p className="text-sm text-slate-600">de {persisted.rankTotal} jogadores</p>
-            </div>
-          </div>
-        )}
-
-        {!authed && (
-          <p className="mt-5 text-sm text-slate-500">
-            <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">
-              Crie uma conta
-            </Link>{" "}
-            para salvar seus Arks e entrar no ranking.
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-6 text-center shadow-lg sm:p-10"
+        >
+          <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
+            {pct >= 50 ? "Jornada concluída" : "Quase lá"}
           </p>
-        )}
+          <p className="font-display mt-3 text-5xl font-black text-slate-900 sm:text-6xl">{pct}%</p>
+          <p className="mt-1 text-slate-600">
+            {correctCount} de {total} corretas
+          </p>
 
-        <div className="mt-8 flex flex-col items-center gap-3">
-          {canContinue ? (
-            <button
-              onClick={() => router.push("/colecao")}
-              className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5 sm:w-auto"
-            >
-              Continuar para a Coleção →
-            </button>
-          ) : (
-            <p className="text-xs text-slate-500">Leia seu resultado e a crônica…</p>
+          <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
+            <GuardianAvatar name={DESAFIO_GUARDIAN} size={56} />
+            <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">{narracao}</p>
+          </div>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
+            {bronze > 0 && <ArkPill label="Bronze" n={bronze} color="#b87333" />}
+            {prata > 0 && <ArkPill label="Prata" n={prata} color="#64748b" />}
+            {ouro > 0 && <ArkPill label="Ouro" n={ouro} color="#d4a017" />}
+            {gabaritou && <ArkPill label="Diamante" n={1} color="#0891b2" />}
+          </div>
+
+          {tri && (
+            <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
+              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
+                Pontuação (TRI)
+              </p>
+              <p className="font-display mt-1 text-3xl text-slate-900 sm:text-4xl">{tri.points}</p>
+              <p className="text-xs text-slate-400">
+                acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
+              </p>
+            </div>
           )}
-          <button
-            onClick={restart}
-            className="text-sm font-bold text-slate-500 underline-offset-2 transition hover:text-[#b8860b] hover:underline"
-          >
-            Jogar novamente
-          </button>
-        </div>
-      </motion.div>
-      {reveals.length > 0 && (
-        <PremiacaoOverlay
-          items={reveals}
-          guardian={DESAFIO_GUARDIAN}
-          onClose={() => setReveals([])}
-        />
-      )}
+
+          {saving && (
+            <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>
+          )}
+
+          {persisted?.persisted && (
+            <div className="mt-6 space-y-3">
+              {persisted.leveledUp && (
+                <p className="font-display text-xl text-[#b8860b]">
+                  ★ Subiu para o nível {persisted.level}!
+                </p>
+              )}
+              <div className="rounded-2xl border-2 border-[#f1c40f]/20 bg-[#f1c40f]/8 p-4">
+                <p className="text-sm text-slate-700">
+                  Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong>{" "}
+                  · Nível <strong className="text-slate-900">{persisted.level}</strong>
+                </p>
+              </div>
+              <div className="rounded-2xl border-2 border-[#f1c40f]/40 bg-[#f1c40f]/8 p-5">
+                <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
+                  Sua posição no ranking
+                </p>
+                <p className="font-display mt-1 text-4xl text-slate-900">#{persisted.rankPos}</p>
+                <p className="text-sm text-slate-600">de {persisted.rankTotal} jogadores</p>
+              </div>
+            </div>
+          )}
+
+          {!authed && (
+            <p className="mt-5 text-sm text-slate-500">
+              <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">
+                Crie uma conta
+              </Link>{" "}
+              para salvar seus Arks e entrar no ranking.
+            </p>
+          )}
+
+          <div className="mt-8 flex flex-col items-center gap-3">
+            {canContinue ? (
+              <button
+                onClick={() => router.push("/colecao")}
+                className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5"
+              >
+                Continuar para a Coleção →
+              </button>
+            ) : (
+              <p className="text-xs text-slate-500">Leia seu resultado e a crônica…</p>
+            )}
+            <button
+              onClick={restart}
+              className="text-sm font-bold text-slate-500 underline-offset-2 transition hover:text-[#b8860b] hover:underline"
+            >
+              Jogar novamente
+            </button>
+          </div>
+        </motion.div>
+        {reveals.length > 0 && (
+          <PremiacaoOverlay
+            items={reveals}
+            guardian={DESAFIO_GUARDIAN}
+            onClose={() => setReveals([])}
+          />
+        )}
       </>
     );
   }
 
-  const [imgError, setImgError] = useState(false);
-
-  // Reset imgError quando mudar a questão
-  const currentQId = q.id;
-
-  tfOptions = [
+  const tfOptions = [
     { label: "Verdadeiro", value: "true", icon: "✓" },
     { label: "Falso", value: "false", icon: "✗" },
   ];
 
-  function check(value: string) {
-    if (revealed) return;
-    const ok = isAnswerCorrect(q, value);
-    setItems((arr) => [...arr, { difficulty: q.difficulty, type: q.type, correct: ok }]);
-    setPicked(value);
-    setRevealed(true);
-    if (ok) {
-      setCorrectCount((c) => c + 1);
-      setXp((x) => x + (ARKS_BY_DIFFICULTY[q.difficulty] ?? 10));
-      if (q.difficulty === "hard") setOuro((o) => o + 1);
-      else if (q.difficulty === "medium") setPrata((p) => p + 1);
-      else setBronze((b) => b + 1);
-      playCorrect();
-    } else {
-      playWrong();
-    }
-  }
-
-  function next() {
-    if (index + 1 >= total) {
-      void finishGame();
-      return;
-    }
-    setIndex((i) => i + 1);
-    setTyped("");
-    setPicked(null);
-    setRevealed(false);
-    setImgError(false);
-  }
-
-  function restart() {
-    setDeck(roundOf(questions, 30));
-    setIndex(0);
-    setTyped("");
-    setPicked(null);
-    setRevealed(false);
-    setImgError(false);
-    setCorrectCount(0);
-    setXp(0);
-    setBronze(0);
-    setPrata(0);
-    setOuro(0);
-    setFinished(false);
-    setSaving(false);
-    setPersisted(null);
-    setReveals([]);
-    setItems([]);
-    setTri(null);
-    setCanContinue(false);
-  }
-
-
-  if (finished) {
-    const pct = Math.round((correctCount / total) * 100);
-    const gabaritou = total > 0 && correctCount === total;
-    const narracao =
-      pct >= 80
-        ? "Parabéns, jovem sábio! Você chegou ao fim desta jornada com honra. Tua dedicação honra o Autor de toda sabedoria. Avança!"
-        : pct >= 50
-          ? "Bom trabalho! O saber cresce em você a cada passo. Continue firme na jornada."
-          : "A jornada do saber tem tropeços, e o sábio se levanta. “O justo cai sete vezes e se levanta” (Pv 24:16). Tenta de novo!";
-    return (
-      <>
-      <div className="mx-auto max-w-lg px-4">
-        <GameTopBar inProgress={false} />
-      </div>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="mx-auto max-w-lg rounded-3xl border-2 border-slate-200 bg-white p-6 text-center shadow-lg sm:p-10"
-      >
-        <p className="text-xs font-extrabold uppercase tracking-[4px] text-[#b8860b]">
-          {pct >= 50 ? "Jornada concluída" : "Quase lá"}
-        </p>
-        <p className="font-display mt-3 text-5xl font-black text-slate-900 sm:text-6xl">{pct}%</p>
-        <p className="mt-1 text-slate-600">
-          {correctCount} de {total} corretas
-        </p>
-
-        <div className="mx-auto mt-5 flex max-w-md items-center gap-3 rounded-2xl border border-slate-200 bg-[#f8fafc] p-3 text-left">
-          <GuardianAvatar name={DESAFIO_GUARDIAN} size={56} />
-          <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">{narracao}</p>
-        </div>
-
-        {/* Arks ganhos nesta partida */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm font-bold">
-          {bronze > 0 && <ArkPill label="Bronze" n={bronze} color="#b87333" />}
-          {prata > 0 && <ArkPill label="Prata" n={prata} color="#64748b" />}
-          {ouro > 0 && <ArkPill label="Ouro" n={ouro} color="#d4a017" />}
-          {gabaritou && <ArkPill label="Diamante" n={1} color="#0891b2" />}
-        </div>
-
-        {/* Pontuação por TRI */}
-        {tri && (
-          <div className="mx-auto mt-5 max-w-md rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-4">
-            <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
-              Pontuação (TRI)
-            </p>
-            <p className="font-display mt-1 text-3xl text-slate-900 sm:text-4xl">{tri.points}</p>
-            <p className="text-xs text-slate-400">
-              acertar questões difíceis vale mais · habilidade {tri.abilityPct}%
-            </p>
-          </div>
-        )}
-
-        {saving && (
-          <p className="mt-5 text-sm text-slate-400">Salvando suas conquistas…</p>
-        )}
-
-        {persisted?.persisted && (
-          <div className="mt-6 space-y-3">
-            {persisted.leveledUp && (
-              <p className="font-display text-xl text-[#b8860b]">
-                ★ Subiu para o nível {persisted.level}!
-              </p>
-            )}
-            <div className="rounded-2xl border-2 border-[#f1c40f]/20 bg-[#f1c40f]/8 p-4">
-              <p className="text-sm text-slate-700">
-                Total: <strong className="text-slate-900">{persisted.totalArks} Arks</strong>{" "}
-                · Nível <strong className="text-slate-900">{persisted.level}</strong>
-              </p>
-            </div>
-            <div className="rounded-2xl border-2 border-[#f1c40f]/40 bg-[#f1c40f]/8 p-5">
-              <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
-                Sua posição no ranking
-              </p>
-              <p className="font-display mt-1 text-4xl text-slate-900">#{persisted.rankPos}</p>
-              <p className="text-sm text-slate-600">de {persisted.rankTotal} jogadores</p>
-            </div>
-          </div>
-        )}
-
-        {!authed && (
-          <p className="mt-5 text-sm text-slate-500">
-            <Link href="/signup" className="font-bold text-[#b8860b] hover:underline">
-              Crie uma conta
-            </Link>{" "}
-            para salvar seus Arks e entrar no ranking.
-          </p>
-        )}
-
-        <div className="mt-8 flex flex-col items-center gap-3">
-          {canContinue ? (
-            <button
-              onClick={() => router.push("/colecao")}
-              className="w-full rounded-full bg-[#f1c40f] px-8 py-4 text-sm font-black uppercase tracking-wider text-[#0b1222] transition active:scale-95 hover:-translate-y-0.5"
-            >
-              Continuar para a Coleção →
-            </button>
-          ) : (
-            <p className="text-xs text-slate-500">Leia seu resultado e a crônica…</p>
-          )}
-          <button
-            onClick={restart}
-            className="text-sm font-bold text-slate-500 underline-offset-2 transition hover:text-[#b8860b] hover:underline"
-          >
-            Jogar novamente
-          </button>
-        </div>
-      </motion.div>
-      {reveals.length > 0 && (
-        <PremiacaoOverlay
-          items={reveals}
-          guardian={DESAFIO_GUARDIAN}
-          onClose={() => setReveals([])}
-        />
-      )}
-      </>
-    );
-  }
-
-  const optionState = (matchValue: string, isThisPicked: boolean) => {
+  function optionState(matchValue: string, isThisPicked: boolean) {
     if (!revealed) return "idle";
     if (isAnswerCorrect(q, matchValue)) return "correct";
     if (isThisPicked) return "wrong";
     return "dim";
-  };
+  }
 
   const stateClasses: Record<string, string> = {
     idle: "border-2 border-slate-200 bg-white text-slate-800 hover:border-[#f1c40f]/60 hover:bg-[#f1c40f]/5",
@@ -511,7 +327,7 @@ export function DesafioQuiz({
     <div className="mx-auto max-w-2xl px-4 sm:px-0">
       <GameTopBar inProgress={!finished} />
       
-      {/* HUD de progresso sem sobreposição */}
+      {/* HUD de progresso limpo sem sobreposição */}
       <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
         <div className="flex items-center justify-between text-sm font-bold">
           <span className="text-slate-500">
@@ -537,7 +353,7 @@ export function DesafioQuiz({
           transition={{ duration: 0.25 }}
           className="overflow-hidden rounded-3xl border-2 border-slate-200 bg-white shadow-sm"
         >
-          {/* Faixa com imagem ou gradiente seguro */}
+          {/* Faixa com imagem ou gradiente elegante */}
           {q.imageUrl && !imgError ? (
             // eslint-disable-next-line @next/next/no-img-element
             <div className="flex justify-center bg-slate-100 p-3 sm:p-4">
@@ -557,16 +373,16 @@ export function DesafioQuiz({
             />
           )}
 
-          <div className="p-6 sm:p-8">
+          <div className="p-5 sm:p-8">
             <p className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
               {q.subject} · {q.topic} · {q.difficulty}
             </p>
-            <h2 className="font-display text-2xl leading-snug text-slate-900 sm:text-3xl">
+            <h2 className="font-display text-xl leading-snug text-slate-900 sm:text-3xl">
               {q.question}
             </h2>
 
             {/* Alternativas por tipo */}
-            <div className="mt-7">
+            <div className="mt-6 sm:mt-7">
               {(q.type === "multiple_choice" ||
                 q.type === "image_multiple_choice" ||
                 q.type === "map_analysis" ||
@@ -581,14 +397,14 @@ export function DesafioQuiz({
                         key={opt}
                         disabled={revealed}
                         onClick={() => check(opt)}
-                        className={`flex select-none items-center gap-3 rounded-2xl border px-4 py-5 text-left text-base font-semibold transition active:scale-[0.98] ${stateClasses[st]} ${
+                        className={`flex min-h-[56px] select-none items-center gap-3 rounded-2xl border px-4 py-4 text-left text-sm font-semibold transition active:scale-[0.98] sm:text-base ${stateClasses[st]} ${
                           st === "idle" ? "hover:-translate-y-0.5" : ""
                         }`}
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-sm font-black text-slate-600">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-xs font-black text-slate-600 sm:text-sm">
                           {String.fromCharCode(65 + i)}
                         </span>
-                        <span>{opt}</span>
+                        <span className="leading-snug">{opt}</span>
                       </button>
                     );
                   })}
@@ -604,11 +420,11 @@ export function DesafioQuiz({
                         key={opt.value}
                         disabled={revealed}
                         onClick={() => check(opt.value)}
-                        className={`flex select-none flex-col items-center gap-2 rounded-2xl border px-4 py-6 text-base font-bold transition active:scale-[0.98] ${stateClasses[st]} ${
+                        className={`flex min-h-[96px] select-none flex-col items-center justify-center gap-2 rounded-2xl border px-4 py-5 text-base font-bold transition active:scale-[0.98] ${stateClasses[st]} ${
                           st === "idle" ? "hover:-translate-y-0.5" : ""
                         }`}
                       >
-                        <span className="text-3xl">{opt.icon}</span>
+                        <span className="text-2xl sm:text-3xl">{opt.icon}</span>
                         {opt.label}
                       </button>
                     );
@@ -626,15 +442,16 @@ export function DesafioQuiz({
                 >
                   <input
                     value={typed}
-                    onChange={(e) => setTyped(e.target.value)}
                     disabled={revealed}
-                    placeholder="Digite sua resposta…"
-                    className="flex-1 rounded-2xl border-2 border-slate-200 bg-white px-5 py-4 text-base text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#f1c40f] focus:ring-2 focus:ring-[#f1c40f]/20"
+                    onChange={(e) => setTyped(e.target.value)}
+                    placeholder="Sua resposta…"
+                    className="w-full rounded-2xl border-2 border-slate-200 px-4 py-3.5 text-base text-slate-900 outline-none transition focus:border-[#f1c40f]"
                   />
                   {!revealed && (
                     <button
                       type="submit"
-                      className="rounded-2xl bg-gradient-to-br from-[#f1c40f] to-[#e0a417] px-6 py-4 text-sm font-black uppercase tracking-wider text-[#3b2f00] transition hover:-translate-y-0.5"
+                      disabled={!typed.trim()}
+                      className="rounded-2xl bg-[#f1c40f] px-6 py-3.5 text-sm font-black uppercase text-[#0b1222] transition hover:bg-[#e0a417] disabled:opacity-50"
                     >
                       Responder
                     </button>
@@ -643,52 +460,58 @@ export function DesafioQuiz({
               )}
             </div>
 
-            {/* Feedback */}
+            {/* Gabarito e Explicação imediata */}
             {revealed && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="relative mt-6"
+                className="mt-6 space-y-4 rounded-2xl border border-slate-200 bg-[#f8fafc] p-4 sm:p-5"
               >
-                {correct && <FloatingCelebration />}
-                <p
-                  className={`relative z-10 text-lg font-black ${
-                    correct ? "text-emerald-600" : "text-rose-600"
-                  }`}
-                >
-                  {correct ? "Correto!" : "Quase lá!"}
-                </p>
+                <div className="flex items-center gap-2">
+                  <span className={`text-xl ${correct ? "text-emerald-500" : "text-rose-500"}`}>
+                    {correct ? "✓" : "✗"}
+                  </span>
+                  <span className={`font-bold ${correct ? "text-emerald-700" : "text-rose-700"}`}>
+                    {correct ? "Resposta Correta!" : "Você errou!"}
+                  </span>
+                </div>
+
                 {!correct && (
-                  <p className="mt-1 text-sm text-slate-600">
-                    Resposta certa: <strong className="text-slate-900">{q.answer}</strong>
+                  <p className="text-sm font-semibold text-slate-700">
+                    A resposta certa é: <strong className="text-emerald-700">{q.answer}</strong>
                   </p>
                 )}
+
                 {q.explanation && (
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                    {q.explanation}
-                  </p>
-                )}
-                {q.cronica && (
-                  <div className="mt-4 rounded-2xl border-2 border-[#f1c40f]/30 bg-[#f1c40f]/8 p-5">
-                    <p className="text-xs font-black uppercase tracking-widest text-[#b8860b]">
-                      Crônica do Guardião
-                    </p>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-700">
-                      {q.cronica}
-                    </p>
+                  <div className="rounded-xl border border-slate-200/80 bg-white p-3.5 text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    <p className="font-bold text-slate-900">Explicação:</p>
+                    <p className="mt-1">{q.explanation}</p>
                   </div>
                 )}
+
+                {q.cronica && (
+                  <div className="rounded-xl border border-[#f1c40f]/40 bg-[#f1c40f]/10 p-3.5 text-xs leading-relaxed text-slate-700 sm:text-sm">
+                    <div className="flex items-center gap-2">
+                      <GuardianAvatar name={DESAFIO_GUARDIAN} size={28} />
+                      <span className="font-extrabold text-[#b8860b]">Crônica do Guardião Aion:</span>
+                    </div>
+                    <p className="mt-1.5 italic text-slate-800">“{q.cronica}”</p>
+                  </div>
+                )}
+
                 <button
                   onClick={next}
-                  className="mt-6 w-full rounded-full bg-slate-900 px-8 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-slate-700 active:scale-95 sm:w-auto"
+                  className="w-full rounded-2xl bg-[#0b1222] py-4 text-center text-sm font-black uppercase tracking-wider text-white transition hover:bg-slate-800 active:scale-[0.98]"
                 >
-                  {index + 1 >= total ? "Ver resultado" : "Próxima →"}
+                  {index + 1 < total ? "Próxima Questão →" : "Ver Resultado Final →"}
                 </button>
               </motion.div>
             )}
           </div>
         </motion.div>
       </AnimatePresence>
+
+      {correct && <FloatingCelebration />}
     </div>
   );
 }
