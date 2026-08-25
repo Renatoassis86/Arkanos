@@ -132,7 +132,8 @@ export async function listDesafioQuestions(
     if (targetGrade.includes("5") && !qGrade.includes("5")) return false;
 
     if (!assessmentId) return true;
-    if (assessmentId === 2) return (q.assessment === "AV2" || q.trimestre === 2);
+    if (assessmentId === 99) return q.topic === "Exercício de Revisão";
+    if (assessmentId === 2) return (q.assessment === "AV2" || q.trimestre === 2) && q.topic !== "Exercício de Revisão";
     if (assessmentId === 1) return (q.assessment === "AV1" || q.trimestre === 1);
     return true;
   });
