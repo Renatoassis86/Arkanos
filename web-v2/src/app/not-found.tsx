@@ -10,16 +10,22 @@ export default function NotFound() {
   const [attempted, setAttempted] = useState(false);
 
   useEffect(() => {
-    // Auto-recuperação de sessão se estiver autenticado no cliente
+    if (attempted) return;
+    const path = window.location.pathname;
+    if (!PROTECTED_PREFIXES.some((p) => path.startsWith(p))) return;
+
+    // Guarda em sessionStorage para nunca recarregar mais de uma vez por
+    // caminho: sem isso, um 404 genuino (rota realmente quebrada) vira um
+    // loop infinito de reload que martela o servidor a cada requisicao.
+    const key = `arkanos:404-retry:${path}`;
+    if (sessionStorage.getItem(key)) return;
+
+    setAttempted(true);
     const supabase = createClient();
     supabase.auth.getUser().then(({ data }) => {
-      if (data.user && !attempted) {
-        setAttempted(true);
-        // Recarrega a rota limpa se o 404 foi causado por prefetch/cache do router client
-        const path = window.location.pathname;
-        if (PROTECTED_PREFIXES.some((p) => path.startsWith(p))) {
-          window.location.href = path;
-        }
+      if (data.user) {
+        sessionStorage.setItem(key, "1");
+        window.location.href = path;
       }
     });
   }, [attempted]);

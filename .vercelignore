@@ -1,18 +1,20 @@
 # Vercel Ignore for Arkanos Next.js Web-v2
 # Exclui todo o backend legado em Django, scripts Python e arquivos pesados
 
-# Python / Django Legado
-backend/
-core/
-ark/
-desafio_dos_sabios/
-arkan os-cards/
-arkanos/
-banco_radix_spell/
-jogos/
-modules/
-templates/
-docs/
+# Python / Django Legado (ancorado na raiz do repo — sem "/" no inicio,
+# esses padroes bateriam com qualquer pasta de mesmo nome dentro de
+# web-v2/, ex.: web-v2/src/app/jogos/ era excluida por engano pelo "jogos/")
+/backend/
+/core/
+/ark/
+/desafio_dos_sabios/
+/arkan os-cards/
+/arkanos/
+/banco_radix_spell/
+/jogos/
+/modules/
+/templates/
+/docs/
 *.py
 *.pyc
 *.ipynb
