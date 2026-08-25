@@ -1,7 +1,28 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { GuardianAvatar } from "@/components/guardian-avatar";
+import { createClient } from "@/lib/supabase/client";
 
 export default function NotFound() {
+  const [attempted, setAttempted] = useState(false);
+
+  useEffect(() => {
+    // Auto-recuperação de sessão se estiver autenticado no cliente
+    const supabase = createClient();
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user && !attempted) {
+        setAttempted(true);
+        // Recarrega a rota limpa se o 404 foi causado por prefetch/cache do router client
+        const path = window.location.pathname;
+        if (path === "/jogos" || path === "/desafio" || path === "/radix" || path === "/spelling-bee" || path === "/ranking" || path === "/colecao") {
+          window.location.href = path;
+        }
+      }
+    });
+  }, [attempted]);
+
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center p-4 text-center">
       <div className="mx-auto max-w-md rounded-3xl border-2 border-indigo-100 bg-white p-6 shadow-xl sm:p-8">
@@ -19,18 +40,20 @@ export default function NotFound() {
         </p>
 
         <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
-          <Link
-            href="/jogos"
+          <button
+            type="button"
+            onClick={() => { window.location.href = "/jogos"; }}
             className="flex-1 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-700 py-3 text-xs font-black uppercase tracking-wider text-white shadow-md transition hover:from-blue-700 hover:to-indigo-800 active:scale-95"
           >
             Ir para o Painel →
-          </Link>
-          <Link
-            href="/login"
+          </button>
+          <button
+            type="button"
+            onClick={() => { window.location.href = "/login"; }}
             className="flex-1 rounded-2xl border-2 border-slate-200 bg-slate-50 py-3 text-xs font-black uppercase tracking-wider text-slate-700 transition hover:bg-slate-100 active:scale-95"
           >
             Fazer Login
-          </Link>
+          </button>
         </div>
       </div>
     </div>

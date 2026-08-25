@@ -115,13 +115,13 @@ export function UserMenu() {
                 </svg>
                 {busy ? "Enviando foto…" : "Editar perfil"}
               </button>
-              <Link href="/jogos" onClick={() => setOpen(false)} className={`${item} text-slate-700 hover:bg-slate-100`}>
+              <Link href="/jogos" prefetch={false} onClick={() => setOpen(false)} className={`${item} text-slate-700 hover:bg-slate-100`}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 10.5 12 3l9 7.5" /><path d="M5 9.5V20h14V9.5" />
                 </svg>
                 Minha plataforma
               </Link>
-              <Link href="/" onClick={() => setOpen(false)} className={`${item} text-slate-700 hover:bg-slate-100`}>
+              <Link href="/" prefetch={false} onClick={() => setOpen(false)} className={`${item} text-slate-700 hover:bg-slate-100`}>
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
                 </svg>

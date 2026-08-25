@@ -31,6 +31,7 @@ export function TopNav() {
               <Link
                 key={it.label}
                 href={it.href}
+                prefetch={false}
                 className={`shrink-0 rounded-full px-2.5 py-1.5 text-[11px] font-black uppercase tracking-wide transition sm:px-3.5 sm:py-2 sm:text-xs ${
                   active ? "bg-white/20 text-white shadow-sm" : "text-blue-100/80 hover:bg-white/10 hover:text-white"
                 }`}
