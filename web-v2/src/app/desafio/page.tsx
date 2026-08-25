@@ -8,6 +8,7 @@ import { createClient } from "@/lib/supabase/server";
 import { roundOf } from "@/lib/quiz-round";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 function num(v: string | string[] | undefined): number | undefined {
   const n = Number(Array.isArray(v) ? v[0] : v);

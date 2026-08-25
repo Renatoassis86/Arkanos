@@ -2,24 +2,26 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 /**
- * Proxy (antigo "middleware" — renomeado na Next.js 16).
- * Renova a sessão do Supabase e protege rotas. À PROVA DE FALHAS: se o ambiente
- * de auth não estiver configurado ou ocorrer erro, não derruba o site (segue sem
- * sessão). A autorização definitiva é feita dentro de cada página/Server Action.
+ * Proxy oficial da Next.js 16+ (antigo "middleware").
+ * Renova a sessão do Supabase, protege rotas e força a desativação de cache
+ * em respostas autenticadas para impedir exibição de 404/obsoletas em trocas de conta.
  */
-const PROTECTED_PREFIXES = ["/jogos", "/desafio"];
+const PROTECTED_PREFIXES = ["/jogos", "/desafio", "/radix", "/spelling-bee", "/ranking", "/colecao"];
 
 export async function proxy(request: NextRequest) {
-  const passthrough = NextResponse.next({ request });
+  const { pathname } = request.nextUrl;
+
+  let response = NextResponse.next({ request });
+
+  // Desativa cache local do navegador para evitar renderização de páginas obsoletas pós-logout
+  response.headers.set("Cache-Control", "no-store, max-age=0, must-revalidate");
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anon = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-  // Sem env de auth no build/runtime: não quebra — só não renova a sessão.
-  if (!url || !anon) return passthrough;
+  if (!url || !anon) return response;
 
   try {
-    let response = passthrough;
     const supabase = createServerClient(url, anon, {
       cookies: {
         getAll() {
@@ -30,6 +32,7 @@ export async function proxy(request: NextRequest) {
             request.cookies.set(name, value);
           }
           response = NextResponse.next({ request });
+          response.headers.set("Cache-Control", "no-store, max-age=0, must-revalidate");
           for (const { name, value, options } of cookiesToSet) {
             response.cookies.set(name, value, options);
           }
@@ -41,20 +44,20 @@ export async function proxy(request: NextRequest) {
       data: { user },
     } = await supabase.auth.getUser();
 
-    const { pathname } = request.nextUrl;
     const isProtected = PROTECTED_PREFIXES.some((p) => pathname.startsWith(p));
 
     if (!user && isProtected) {
       const redirectUrl = request.nextUrl.clone();
       redirectUrl.pathname = "/login";
       redirectUrl.searchParams.set("next", pathname);
-      return NextResponse.redirect(redirectUrl);
+      const redir = NextResponse.redirect(redirectUrl);
+      redir.headers.set("Cache-Control", "no-store, max-age=0, must-revalidate");
+      return redir;
     }
 
     return response;
   } catch {
-    // Qualquer falha (env inválido, rede, etc.) não pode derrubar o site inteiro.
-    return passthrough;
+    return response;
   }
 }
 

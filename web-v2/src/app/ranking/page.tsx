@@ -7,6 +7,7 @@ import { Brush } from "@/components/floating-art";
 import { TrophyIcon, StarIcon, CheckCircleIcon } from "@/components/game-icons";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const MEDAL: Record<number, string> = { 1: "#d4a017", 2: "#94a3b8", 3: "#b87333" };
 

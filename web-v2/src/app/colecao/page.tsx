@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import { createClient } from "@/lib/supabase/server";
 import { GameCard } from "@/components/game-card";
 import { TitlesManager } from "@/components/titles-manager";

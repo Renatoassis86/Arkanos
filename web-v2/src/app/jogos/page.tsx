@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { logout } from "../../(auth)/actions";
+import { logout } from "../(auth)/actions";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 import { trackForSerie } from "@/lib/trivium";
 import {
   getHud,
