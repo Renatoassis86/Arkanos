@@ -44,7 +44,7 @@ export default async function DesafioPage({
 
   let body;
   if (assessmentId) {
-    const questions = await listDesafioQuestions(500, assessmentId);
+    const questions = await listDesafioQuestions(500, assessmentId, serie);
     const backHref =
       subjectId && trimestre
         ? `/desafio?subject=${subjectId}&trimestre=${trimestre}`

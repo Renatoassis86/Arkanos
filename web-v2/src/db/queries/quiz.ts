@@ -46,7 +46,11 @@ export type DesafioQuestion = {
 };
 
 /** Questões jogáveis (inclui os tipos visuais) com disciplina, tópico e imagem. */
-export async function listDesafioQuestions(limit = 500, assessmentId?: number): Promise<DesafioQuestion[]> {
+export async function listDesafioQuestions(
+  limit = 500, 
+  assessmentId?: number,
+  gradeName?: string
+): Promise<DesafioQuestion[]> {
   try {
     const rows = await db
       .select({
@@ -63,10 +67,13 @@ export async function listDesafioQuestions(limit = 500, assessmentId?: number): 
         imageUrl: quizQuestions.imageUrl,
         imageLegacy: quizQuestions.image,
         imageAlt: quizQuestions.imageAlt,
+        grade: quizGrades.name,
       })
       .from(quizQuestions)
       .innerJoin(quizTopics, eq(quizQuestions.topicId, quizTopics.id))
       .innerJoin(quizSubjects, eq(quizTopics.subjectId, quizSubjects.id))
+      .innerJoin(quizAssessments, eq(quizTopics.assessmentId, quizAssessments.id))
+      .innerJoin(quizGrades, eq(quizAssessments.gradeId, quizGrades.id))
       .where(
         and(
           inArray(quizQuestions.type, [
@@ -84,27 +91,46 @@ export async function listDesafioQuestions(limit = 500, assessmentId?: number): 
       .limit(limit);
 
     if (rows.length > 0) {
-      return rows.map((r) => ({
-        id: typeof r.id === "string" ? parseInt(r.id, 10) || 1 : r.id,
-        question: r.question,
-        options: r.options as string[] | null,
-        answer: r.answer,
-        type: r.type,
-        difficulty: r.difficulty,
-        explanation: r.explanation,
-        cronica: r.cronica,
-        subject: r.subject,
-        topic: r.topic,
-        imageUrl: r.imageUrl ?? r.imageLegacy ?? null,
-        imageAlt: r.imageAlt,
-      }));
+      const targetGrade = gradeName ? gradeName.toLowerCase() : "";
+      const filtered = rows.filter((r) => {
+        if (!targetGrade) return true;
+        const g = (r.grade || "").toLowerCase();
+        if (targetGrade.includes("3") && !g.includes("3")) return false;
+        if (targetGrade.includes("5") && !g.includes("5")) return false;
+        return true;
+      });
+
+      if (filtered.length > 0) {
+        return filtered.map((r) => ({
+          id: typeof r.id === "string" ? parseInt(r.id, 10) || 1 : r.id,
+          question: r.question,
+          options: r.options as string[] | null,
+          answer: r.answer,
+          type: r.type,
+          difficulty: r.difficulty,
+          explanation: r.explanation,
+          cronica: r.cronica,
+          subject: r.subject,
+          topic: r.topic,
+          imageUrl: r.imageUrl ?? r.imageLegacy ?? null,
+          imageAlt: r.imageAlt,
+        }));
+      }
     }
   } catch (err) {
     console.warn("DB query listDesafioQuestions failed, using static JSON fallback:", err);
   }
 
-  // Fallback estático usando staticQuizData (160 questões)
+  // Fallback estático usando staticQuizData (160 questões exclusivas de Benjamim e Theo)
+  const targetGrade = gradeName ? gradeName.toLowerCase() : "5º ano";
+
   const filtered = staticQuizData.filter((q: any) => {
+    const qGrade = (q.grade || "5º ano").toLowerCase();
+    
+    // Strict grade filter
+    if (targetGrade.includes("3") && !qGrade.includes("3")) return false;
+    if (targetGrade.includes("5") && !qGrade.includes("5")) return false;
+
     if (!assessmentId) return true;
     if (assessmentId === 2) return (q.assessment === "AV2" || q.trimestre === 2);
     if (assessmentId === 1) return (q.assessment === "AV1" || q.trimestre === 1);
