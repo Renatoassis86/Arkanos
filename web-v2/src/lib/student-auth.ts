@@ -44,21 +44,55 @@ export function synthPassword(sobrenome: string): string {
  * Retorna null se o formato ou a data (calendário real) forem inválidos.
  */
 export function parseBirthdate(input: string): { iso: string; compact: string } | null {
-  const m = input.trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
-  if (!m) return null;
-  const [, ddStr, mmStr, yyyyStr] = m;
-  const dd = Number(ddStr);
-  const mm = Number(mmStr);
-  const yyyy = Number(yyyyStr);
-  const thisYear = new Date().getFullYear();
-  if (yyyy < 1900 || yyyy > thisYear) return null;
+  if (!input) return null;
+  const cleaned = input.trim();
 
-  const date = new Date(Date.UTC(yyyy, mm - 1, dd));
-  const valid =
-    date.getUTCFullYear() === yyyy && date.getUTCMonth() === mm - 1 && date.getUTCDate() === dd;
-  if (!valid) return null;
+  // Tenta formato ISO (AAAA-MM-DD ou AAAA/MM/DD)
+  const isoMatch = cleaned.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+  if (isoMatch) {
+    const [, yyyyStr, mmRaw, ddRaw] = isoMatch;
+    const ddStr = ddRaw.padStart(2, "0");
+    const mmStr = mmRaw.padStart(2, "0");
+    const dd = Number(ddStr);
+    const mm = Number(mmStr);
+    const yyyy = Number(yyyyStr);
+    const thisYear = new Date().getFullYear();
+    if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1900 && yyyy <= thisYear) {
+      return { iso: `${yyyyStr}-${mmStr}-${ddStr}`, compact: `${yyyyStr}${mmStr}${ddStr}` };
+    }
+  }
 
-  return { iso: `${yyyyStr}-${mmStr}-${ddStr}`, compact: `${yyyyStr}${mmStr}${ddStr}` };
+  // Tenta formato brasileiro (DD/MM/AAAA ou D/M/AAAA ou DD-MM-AAAA)
+  const brMatch = cleaned.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
+  if (brMatch) {
+    const [, ddRaw, mmRaw, yyyyStr] = brMatch;
+    const ddStr = ddRaw.padStart(2, "0");
+    const mmStr = mmRaw.padStart(2, "0");
+    const dd = Number(ddStr);
+    const mm = Number(mmStr);
+    const yyyy = Number(yyyyStr);
+    const thisYear = new Date().getFullYear();
+    if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1900 && yyyy <= thisYear) {
+      return { iso: `${yyyyStr}-${mmStr}-${ddStr}`, compact: `${yyyyStr}${mmStr}${ddStr}` };
+    }
+  }
+
+  // Tenta formato só números (DDMMAAAA - 8 dígitos)
+  const digitsMatch = cleaned.replace(/\D/g, "");
+  if (digitsMatch.length === 8) {
+    const ddStr = digitsMatch.slice(0, 2);
+    const mmStr = digitsMatch.slice(2, 4);
+    const yyyyStr = digitsMatch.slice(4, 8);
+    const dd = Number(ddStr);
+    const mm = Number(mmStr);
+    const yyyy = Number(yyyyStr);
+    const thisYear = new Date().getFullYear();
+    if (mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31 && yyyy >= 1900 && yyyy <= thisYear) {
+      return { iso: `${yyyyStr}-${mmStr}-${ddStr}`, compact: `${yyyyStr}${mmStr}${ddStr}` };
+    }
+  }
+
+  return null;
 }
 
 /**
