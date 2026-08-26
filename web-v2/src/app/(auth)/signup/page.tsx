@@ -11,6 +11,7 @@ import {
 } from "@/components/auth-shell";
 
 const SERIES = [
+  "Infantil 2",
   "1º ano",
   "2º ano",
   "3º ano",
@@ -20,6 +21,9 @@ const SERIES = [
   "7º ano",
   "8º ano",
   "9º ano",
+  "1ª série EM",
+  "2ª série EM",
+  "3ª série EM",
 ];
 
 export default async function SignupPage({
@@ -69,6 +73,22 @@ export default async function SignupPage({
           placeholder="Seu sobrenome"
           className={inputClass}
         />
+        <div>
+          <input
+            name="data_nascimento"
+            type="text"
+            required
+            inputMode="numeric"
+            autoComplete="off"
+            placeholder="15/07/1986"
+            pattern="\d{2}/\d{2}/\d{4}"
+            title="Formato: DD/MM/AAAA"
+            className={inputClass}
+          />
+          <p className="mt-1.5 text-xs text-slate-500">
+            Data de nascimento — formato DD/MM/AAAA (dia/mês/ano), ex: 15/07/1986.
+          </p>
+        </div>
         <label className="space-y-1.5">
           <span className={labelClass}>Série</span>
           <select name="serie" defaultValue="3º ano" className={inputClass}>

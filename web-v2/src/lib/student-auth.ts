@@ -12,14 +12,53 @@ export function slug(s: string): string {
     .replace(/[^a-z0-9]/g, ""); // só letras/números
 }
 
-/** E-mail sintético determinístico a partir de nome + último sobrenome (sem data). */
-export function synthEmail(nome: string, sobrenome: string): string {
-  return `${slug(nome)}.${slug(sobrenome)}@alunos.arkanos.quest`;
+/**
+ * Chave de busca do login: nome + último sobrenome normalizados.
+ * NÃO é única — vários alunos reais podem ter o mesmo nome+sobrenome.
+ * É por isso que login_key existe separado do e-mail: o e-mail (com ou
+ * sem sufixo de data de nascimento) é que garante a conta ser única.
+ */
+export function loginKey(nome: string, sobrenome: string): string {
+  return `${slug(nome)}.${slug(sobrenome)}`;
+}
+
+/**
+ * E-mail sintético determinístico a partir de nome + último sobrenome.
+ * Quando já existe outro aluno com o mesmo login_key, `birthdateCompact`
+ * (formato AAAAMMDD) desambigua a conta — dois alunos com nome e
+ * sobrenome iguais nunca podem cair na mesma conta.
+ */
+export function synthEmail(nome: string, sobrenome: string, birthdateCompact?: string): string {
+  const key = loginKey(nome, sobrenome);
+  const suffix = birthdateCompact ? `.${birthdateCompact}` : "";
+  return `${key}${suffix}@alunos.arkanos.quest`;
 }
 
 /** Senha derivada do sobrenome (sufixo garante o mínimo de 6 caracteres do Supabase). */
 export function synthPassword(sobrenome: string): string {
   return `${slug(sobrenome)}.arkanos`;
+}
+
+/**
+ * Valida e converte uma data no formato brasileiro DD/MM/AAAA.
+ * Retorna null se o formato ou a data (calendário real) forem inválidos.
+ */
+export function parseBirthdate(input: string): { iso: string; compact: string } | null {
+  const m = input.trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!m) return null;
+  const [, ddStr, mmStr, yyyyStr] = m;
+  const dd = Number(ddStr);
+  const mm = Number(mmStr);
+  const yyyy = Number(yyyyStr);
+  const thisYear = new Date().getFullYear();
+  if (yyyy < 1900 || yyyy > thisYear) return null;
+
+  const date = new Date(Date.UTC(yyyy, mm - 1, dd));
+  const valid =
+    date.getUTCFullYear() === yyyy && date.getUTCMonth() === mm - 1 && date.getUTCDate() === dd;
+  if (!valid) return null;
+
+  return { iso: `${yyyyStr}-${mmStr}-${ddStr}`, compact: `${yyyyStr}${mmStr}${ddStr}` };
 }
 
 /**
