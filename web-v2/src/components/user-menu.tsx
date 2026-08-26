@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { logout } from "@/app/(auth)/actions";
+import { friendlyNameFromEmail } from "@/lib/student-auth";
 
 /** Menu de conta no canto superior direito: mudar foto, ver site, sair. */
 export function UserMenu() {
@@ -27,7 +28,7 @@ export function UserMenu() {
         .select("display_name, avatar_url")
         .eq("id", user.id)
         .single();
-      setName(p?.display_name || user.email || "Sábio");
+      setName(p?.display_name || friendlyNameFromEmail(user.email));
       setAvatar(p?.avatar_url ?? null);
     });
   }, []);

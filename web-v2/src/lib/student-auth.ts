@@ -21,3 +21,18 @@ export function synthEmail(nome: string, sobrenome: string): string {
 export function synthPassword(sobrenome: string): string {
   return `${slug(sobrenome)}.arkanos`;
 }
+
+/**
+ * Nome de exibição de último recurso, usado só se o perfil ainda não tem
+ * display_name salvo. Nunca mostra o e-mail sintético — deriva um nome
+ * legível a partir dele (ex.: "theo.assis@..." -> "Theo Assis").
+ */
+export function friendlyNameFromEmail(email: string | null | undefined): string {
+  const local = (email ?? "").split("@")[0] ?? "";
+  const nome = local
+    .split(".")
+    .filter(Boolean)
+    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .join(" ");
+  return nome || "Sábio";
+}

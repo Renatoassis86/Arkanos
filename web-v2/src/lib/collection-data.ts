@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Rarity } from "@/lib/collection";
 import { arksForLevel, MAX_LEVEL } from "@/lib/collection";
+import { friendlyNameFromEmail } from "@/lib/student-auth";
 
 type Supa = Awaited<ReturnType<typeof createClient>>;
 
@@ -56,7 +57,7 @@ export async function getHud(supabase: Supa): Promise<Hud | null> {
 
   return {
     userId: user.id,
-    displayName: p?.display_name || user.email || "Sábio",
+    displayName: p?.display_name || friendlyNameFromEmail(user.email),
     avatarUrl: p?.avatar_url ?? null,
     email: user.email ?? null,
     level,
