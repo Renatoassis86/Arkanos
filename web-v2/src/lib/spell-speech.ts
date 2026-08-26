@@ -274,12 +274,6 @@ function fallbackSpellOutWord(word: string, opts: SpeakOptions = {}) {
   synth.speak(w);
 }
 
-export function stopSpeaking() {
-  if (typeof window !== "undefined" && window.speechSynthesis) {
-    window.speechSynthesis.cancel();
-  }
-}
-
 /** Tabela fonética completa e super tolerante cobrindo todas as pronúncias das letras em PT e EN. */
 const LETTER_NAMES: Record<string, string[]> = {
   a: ["a", "ay", "eh", "ah", "á", "à", "ã", "â"],
