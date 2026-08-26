@@ -36,13 +36,12 @@ import {
 
 const RADIX_GUARDIAN = "lyra"; // Lyra · Gramática / Soletração Clássica
 
+/** Normaliza texto preservando rigorosamente a acentuação e cedilha em português */
 function norm(s: string) {
-  return s
+  return (s || "")
     .trim()
     .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z]/g, "");
+    .replace(/[^a-záéíóúâêôãõç]/g, "");
 }
 
 function shuffle<T>(arr: T[]): T[] {
@@ -102,21 +101,25 @@ export function RadixGame({
   const [phase, setPhase] = useState<Phase>("intro");
 
   const [spelled, setSpelled] = useState("");
-  const [listening, setListening] = useState(false);
-  const [micError, setMicError] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
-
-  const [showTutorial, setShowTutorial] = useState(false);
   const [results, setResults] = useState<SpellingItemResult[]>([]);
   const [correctCount, setCorrectCount] = useState(0);
   const [xp, setXp] = useState(0);
-  const [highestTier, setHighestTier] = useState<string>("Fácil");
-  const [missedAttempt, setMissedAttempt] = useState<string>("");
-  const [rankingInfo, setRankingInfo] = useState<ArksResult | null>(null);
+  const [highestTier, setHighestTier] = useState("Fácil");
+
+  const [micError, setMicError] = useState<string | null>(null);
+  const [listening, setListening] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [missedAttempt, setMissedAttempt] = useState("");
+  const [rankingInfo, setRankingInfo] = useState<ArksResult | null>(null);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   const recRef = useRef<SpeechRecognition | null>(null);
-  const finalRef = useRef("");
+  const spelledRef = useRef(spelled);
+  useEffect(() => {
+    spelledRef.current = spelled;
+  }, [spelled]);
+
   const supported = speechSupported();
 
   const q = deck[index] || deck[0];
@@ -138,6 +141,16 @@ export function RadixGame({
     }
     recRef.current = null;
     setListening(false);
+  }
+
+  function restartMicBuffer() {
+    if (recRef.current) {
+      try {
+        recRef.current.abort();
+      } catch {
+        /* noop */
+      }
+    }
   }
 
   useEffect(() => {
@@ -233,13 +246,10 @@ export function RadixGame({
 
   // ---- Microfone PT-BR ----
   function startSpelling() {
-    setMicError(null);
-    setSpelled("");
-    setWordTriggered(false);
-    triggeredRef.current = false;
-    finalRef.current = "";
-    setPhase("spelling");
     if (!supported) return;
+    stopMic();
+    setPhase("spelling");
+    setMicError(null);
 
     const rec = createRecognizer("pt-BR");
     if (!rec) {
@@ -250,30 +260,30 @@ export function RadixGame({
 
     rec.onresult = (e: SpeechRecognitionEvent) => {
       const targetWord = q ? q.palavra : "";
-      let accumulatedLetters = "";
+      const targetLen = q ? norm(q.palavra).length : 15;
 
-      for (let i = 0; i < e.results.length; i++) {
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        if (!e.results[i].isFinal && i > e.resultIndex) continue;
         const text = e.results[i][0].transcript.trim();
         const extracted = lettersFromTranscript(text, targetWord);
 
         if (extracted) {
-          // Se falou a palavra inteira (ex: "sabedoria")
           if (norm(extracted) === norm(targetWord)) {
-            accumulatedLetters = norm(targetWord);
+            const full = norm(targetWord);
+            setSpelled(full);
+            setTimeout(() => check(full), 400);
             break;
+          } else {
+            const current = spelledRef.current;
+            // Se as letras extraídas já estão contidas ou duplicadas, evita append desnecessário
+            if (!current.endsWith(extracted)) {
+              const next = (current + extracted).slice(0, targetLen);
+              setSpelled(next);
+              if (next.length >= targetLen) {
+                setTimeout(() => check(next), 400);
+              }
+            }
           }
-          // Concatena as letras de cada segmento sem repetir resultados parciais
-          accumulatedLetters += extracted;
-        }
-      }
-
-      if (accumulatedLetters) {
-        const targetLen = q ? norm(q.palavra).length : 15;
-        const cleanLetters = accumulatedLetters.slice(0, targetLen);
-        setSpelled(cleanLetters);
-
-        if (targetLen > 0 && cleanLetters.length >= targetLen) {
-          setTimeout(() => check(cleanLetters), 400);
         }
       }
     };
@@ -365,7 +375,7 @@ export function RadixGame({
     stopMic();
 
     const target = norm(q.palavra);
-    const isOk = norm(attempt) === target || norm(finalRef.current.replace(/\s+/g, "")) === target;
+    const isOk = norm(attempt) === target;
 
     if (isOk) {
       // ACERTOU
@@ -764,6 +774,7 @@ export function RadixGame({
                   key={i}
                   type="button"
                   onClick={() => {
+                    restartMicBuffer();
                     const next = spelled.slice(0, i) + spelled.slice(i + 1);
                     setSpelled(next);
                   }}
@@ -800,14 +811,20 @@ export function RadixGame({
                   <div className="flex gap-1.5">
                     <button
                       type="button"
-                      onClick={() => setSpelled((s) => s.slice(0, -1))}
+                      onClick={() => {
+                        restartMicBuffer();
+                        setSpelled((s) => s.slice(0, -1));
+                      }}
                       className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-slate-100"
                     >
                       Apagar
                     </button>
                     <button
                       type="button"
-                      onClick={() => setSpelled("")}
+                      onClick={() => {
+                        restartMicBuffer();
+                        setSpelled("");
+                      }}
                       className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-400 hover:bg-slate-100"
                     >
                       Limpar

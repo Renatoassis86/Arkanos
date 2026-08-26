@@ -245,17 +245,26 @@ export function SpellingBeeGame({
     if (q?.exemplo) speak(q.exemplo, { lang: "en-US" });
   }
 
-  const [wordTriggered, setWordTriggered] = useState(false);
-  const triggeredRef = useRef(false);
+  const spelledRef = useRef(spelled);
+  useEffect(() => {
+    spelledRef.current = spelled;
+  }, [spelled]);
+
+  function restartMicBuffer() {
+    if (recRef.current) {
+      try {
+        recRef.current.abort();
+      } catch {
+        /* noop */
+      }
+    }
+  }
 
   function startSpelling() {
     setMicError(null);
-    setSpelled("");
-    setWordTriggered(false);
-    triggeredRef.current = false;
-    finalRef.current = "";
     setPhase("spelling");
     if (!supported) return;
+    stopMic();
 
     const rec = createRecognizer("en-US");
     if (!rec) {
@@ -266,29 +275,29 @@ export function SpellingBeeGame({
 
     rec.onresult = (e: SpeechRecognitionEvent) => {
       const targetWord = q ? q.palavra : "";
-      let accumulatedLetters = "";
+      const targetLen = q ? norm(q.palavra).length : 15;
 
-      for (let i = 0; i < e.results.length; i++) {
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        if (!e.results[i].isFinal && i > e.resultIndex) continue;
         const text = e.results[i][0].transcript.trim();
         const extracted = lettersFromTranscript(text, targetWord);
 
         if (extracted) {
-          // If the player spoke the entire word
           if (norm(extracted) === norm(targetWord)) {
-            accumulatedLetters = norm(targetWord);
+            const full = norm(targetWord);
+            setSpelled(full);
+            setTimeout(() => check(full), 400);
             break;
+          } else {
+            const current = spelledRef.current;
+            if (!current.endsWith(extracted)) {
+              const next = (current + extracted).slice(0, targetLen);
+              setSpelled(next);
+              if (next.length >= targetLen) {
+                setTimeout(() => check(next), 400);
+              }
+            }
           }
-          accumulatedLetters += extracted;
-        }
-      }
-
-      if (accumulatedLetters) {
-        const targetLen = q ? norm(q.palavra).length : 15;
-        const cleanLetters = accumulatedLetters.slice(0, targetLen);
-        setSpelled(cleanLetters);
-
-        if (targetLen > 0 && cleanLetters.length >= targetLen) {
-          setTimeout(() => check(cleanLetters), 400);
         }
       }
     };
@@ -807,6 +816,7 @@ export function SpellingBeeGame({
                   key={i}
                   type="button"
                   onClick={() => {
+                    restartMicBuffer();
                     const next = spelled.slice(0, i) + spelled.slice(i + 1);
                     setSpelled(next);
                   }}
@@ -849,14 +859,20 @@ export function SpellingBeeGame({
                   <div className="flex gap-2">
                     <button
                       type="button"
-                      onClick={() => setSpelled((s) => s.slice(0, -1))}
+                      onClick={() => {
+                        restartMicBuffer();
+                        setSpelled((s) => s.slice(0, -1));
+                      }}
                       className="rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-bold text-slate-600 transition hover:bg-slate-100"
                     >
                       Apagar
                     </button>
                     <button
                       type="button"
-                      onClick={() => setSpelled("")}
+                      onClick={() => {
+                        restartMicBuffer();
+                        setSpelled("");
+                      }}
                       className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-bold text-slate-400 transition hover:bg-slate-100"
                     >
                       Limpar

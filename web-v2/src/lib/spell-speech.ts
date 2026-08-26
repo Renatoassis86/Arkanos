@@ -276,27 +276,38 @@ function fallbackSpellOutWord(word: string, opts: SpeakOptions = {}) {
 
 /** Tabela fonética completa e super tolerante cobrindo todas as pronúncias das letras em PT e EN. */
 const LETTER_NAMES: Record<string, string[]> = {
-  a: ["a", "ay", "eh", "ah", "á", "à", "ã", "â"],
+  a: ["a", "ay", "eh", "ah"],
+  á: ["á"],
+  à: ["à"],
+  ã: ["ã"],
+  â: ["â"],
   b: ["b", "be", "bee", "bê", "be."],
   c: ["c", "see", "sea", "cee", "cê", "ce", "si"],
   d: ["d", "de", "dee", "dê", "di"],
-  e: ["e", "ee", "eh", "é", "ê"],
+  e: ["e", "ee", "eh"],
+  é: ["é"],
+  ê: ["ê"],
   f: ["f", "ef", "eff", "efe", "efi"],
   g: ["g", "gee", "jee", "gê", "ge", "guê", "ji"],
   h: ["h", "aitch", "haitch", "age", "hatch", "agá", "aga", "hagá", "haga", "rá", "raga"],
-  i: ["i", "eye", "ai", "í", "ih"],
+  i: ["i", "eye", "ai", "ih"],
+  í: ["í"],
   j: ["j", "jay", "jey", "jota", "jóta", "je"],
   k: ["k", "kay", "key", "cá", "ka", "ca"],
   l: ["l", "el", "ell", "ele", "eli"],
   m: ["m", "em", "eme", "emi"],
   n: ["n", "en", "ene", "eni", "ne"],
-  o: ["o", "oh", "ou", "owe", "ó", "ô"],
+  o: ["o", "oh", "ou", "owe"],
+  ó: ["ó"],
+  ô: ["ô"],
+  õ: ["õ"],
   p: ["p", "pe", "pee", "pea", "pê"],
   q: ["q", "cue", "queue", "kew", "kyu", "quê", "que", "ke"],
   r: ["r", "ar", "are", "erre", "erri", "er", "re"],
-  s: ["s", "es", "ess", "esse", "essi", "esi", "se"],
+  s: ["s", "es", "ess", "esse", "essi", "esi"],
   t: ["t", "te", "tee", "tea", "tê", "ti"],
-  u: ["u", "you", "yu", "ewe", "ú", "uh"],
+  u: ["u", "you", "yu", "ewe", "uh"],
+  ú: ["ú"],
   v: ["v", "ve", "vee", "vê", "vi"],
   w: ["w", "double u", "double you", "dub", "dáblio", "dabliu", "dábliu", "dablio", "duplo v", "duplo vê"],
   x: ["x", "ex", "eks", "xis", "xiz", "chiz"],
@@ -376,9 +387,20 @@ export function lettersFromTranscript(transcript: string, targetWord?: string): 
 
   // Substitui expressões fonéticas compostas conhecidas por tokens únicos
   clean = clean
-    .replace(/double\s+(u|you)/g, " w ")
-    .replace(/duplo\s+(v|vê)/g, " w ")
-    .replace(/c[êe][\s\-]cedilha/g, " ç ")
+    .replace(/double\s+(u|you)/gi, " w ")
+    .replace(/duplo\s+(v|vê)/gi, " w ")
+    .replace(/c[êe][\s\-]cedilha/gi, " ç ")
+    .replace(/[aá]\s+(com\s+)?(acento\s+agudo|agudo|acentuado)/gi, " á ")
+    .replace(/[aá]\s+(com\s+)?til/gi, " ã ")
+    .replace(/[aá]\s+(com\s+)?(circunflexo|chapéu)/gi, " â ")
+    .replace(/[aá]\s+(com\s+)?crase/gi, " à ")
+    .replace(/[eé]\s+(com\s+)?(acento\s+agudo|agudo|acentuado)/gi, " é ")
+    .replace(/[eé]\s+(com\s+)?(circunflexo|chapéu)/gi, " ê ")
+    .replace(/[ií]\s+(com\s+)?(acento\s+agudo|agudo|acentuado)/gi, " í ")
+    .replace(/[oó]\s+(com\s+)?(acento\s+agudo|agudo|acentuado)/gi, " ó ")
+    .replace(/[oó]\s+(com\s+)?(circunflexo|chapéu)/gi, " ô ")
+    .replace(/[oó]\s+(com\s+)?til/gi, " õ ")
+    .replace(/[uú]\s+(com\s+)?(acento\s+agudo|agudo|acentuado)/gi, " ú ")
     .replace(/[^a-z0-9áéíóúâêôãõç\s,.;:\-]/g, " ");
 
   const tokens = clean.split(/[\s,.;:\-]+/).filter(Boolean);
