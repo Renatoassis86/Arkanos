@@ -95,11 +95,94 @@ export interface SpeakOptions {
   lang?: "pt-BR" | "en-US";
   rate?: number;
   pitch?: number;
+  type?: "word" | "meaning" | "sentence" | "spell";
   onend?: () => void;
 }
 
-/** Fala um texto com entonação humana e ritmo cadenciado. */
+let activeAudio: HTMLAudioElement | null = null;
+
+export function stopSpeaking() {
+  if (activeAudio) {
+    try {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+    } catch {
+      /* noop */
+    }
+    activeAudio = null;
+  }
+  if (typeof window !== "undefined" && window.speechSynthesis) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+function normKey(s: string): string {
+  return (s || "")
+    .toLowerCase()
+    .trim()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]/g, "");
+}
+
+/**
+ * Tenta reproduzir o áudio MP3 de estúdio HD pré-gerado.
+ * Se o áudio estático for encontrado, reproduz imediatamente (latência 0ms).
+ * Se não for encontrado, faz o fallback gracioso para a síntese neural do navegador.
+ */
+export function playStudioAudio(word: string, type: "word" | "meaning" | "sentence" | "spell", opts: SpeakOptions = {}): boolean {
+  if (typeof window === "undefined") return false;
+  stopSpeaking();
+
+  const lang = opts.lang ?? "pt-BR";
+  const langPrefix = lang.startsWith("pt") ? "pt" : "en";
+  const key = normKey(word);
+
+  if (!key) return false;
+
+  const typeDir = type === "word" ? "words" : type === "meaning" ? "meanings" : type === "sentence" ? "sentences" : "spells";
+  const audioUrl = `/audio/spelling/${langPrefix}/${typeDir}/${key}.mp3`;
+
+  const audio = new Audio(audioUrl);
+  activeAudio = audio;
+
+  audio.onended = () => {
+    if (activeAudio === audio) activeAudio = null;
+    opts.onend?.();
+  };
+
+  audio.onerror = () => {
+    if (activeAudio === audio) activeAudio = null;
+    // Fallback para fala neural do navegador se o arquivo de áudio específico falhar
+    if (type === "spell") {
+      fallbackSpellOutWord(word, opts);
+    } else {
+      fallbackSpeak(word, opts);
+    }
+  };
+
+  audio.play().catch(() => {
+    if (activeAudio === audio) activeAudio = null;
+    if (type === "spell") {
+      fallbackSpellOutWord(word, opts);
+    } else {
+      fallbackSpeak(word, opts);
+    }
+  });
+
+  return true;
+}
+
+/** Fala um texto com entonação humana e ritmo cadenciado (com suporte a MP3 de Estúdio). */
 export function speak(text: string, opts: SpeakOptions = {}) {
+  if (opts.type) {
+    playStudioAudio(text, opts.type, opts);
+    return;
+  }
+  fallbackSpeak(text, opts);
+}
+
+function fallbackSpeak(text: string, opts: SpeakOptions = {}) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     opts.onend?.();
     return;
@@ -146,8 +229,15 @@ const PT_SPELL_MAP: Record<string, string> = {
   u: "u", ú: "ú", v: "vê", w: "dábliu", x: "xis", y: "ípsilon", z: "zê"
 };
 
-/** Soletra a palavra com pausas melódicas sem dizer a palavra maiúscula e depois pronuncia a palavra completa. */
+/** Soletra a palavra com pausas melódicas sem dizer a palavra maiúscula. */
 export function spellOutWord(word: string, opts: SpeakOptions = {}) {
+  if (playStudioAudio(word, "spell", opts)) {
+    return;
+  }
+  fallbackSpellOutWord(word, opts);
+}
+
+function fallbackSpellOutWord(word: string, opts: SpeakOptions = {}) {
   if (typeof window === "undefined" || !window.speechSynthesis) {
     opts.onend?.();
     return;
@@ -178,6 +268,11 @@ export function spellOutWord(word: string, opts: SpeakOptions = {}) {
   w.rate = 0.88;
   w.pitch = 1.0;
   if (opts.onend) {
+    w.onend = opts.onend;
+    w.onerror = () => opts.onend?.();
+  }
+  synth.speak(w);
+}
     w.onend = opts.onend;
     w.onerror = () => opts.onend?.();
   }
