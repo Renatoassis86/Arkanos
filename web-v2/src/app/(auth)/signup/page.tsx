@@ -2,6 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { signup } from "../actions";
+import { BirthdateInput } from "@/components/birthdate-input";
 import {
   AuthShell,
   inputClass,
@@ -74,19 +75,9 @@ export default async function SignupPage({
           className={inputClass}
         />
         <div>
-          <input
-            name="data_nascimento"
-            type="text"
-            required
-            inputMode="numeric"
-            autoComplete="off"
-            placeholder="15/07/1986"
-            pattern="\d{2}/\d{2}/\d{4}"
-            title="Formato: DD/MM/AAAA"
-            className={inputClass}
-          />
+          <BirthdateInput required className={inputClass} />
           <p className="mt-1.5 text-xs text-slate-500">
-            Data de nascimento — formato DD/MM/AAAA (dia/mês/ano), ex: 15/07/1986.
+            Data de nascimento — só digite os números, as barras aparecem sozinhas (ex: 15/07/1986).
           </p>
         </div>
         <label className="space-y-1.5">
