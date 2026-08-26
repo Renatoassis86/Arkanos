@@ -273,11 +273,6 @@ function fallbackSpellOutWord(word: string, opts: SpeakOptions = {}) {
   }
   synth.speak(w);
 }
-    w.onend = opts.onend;
-    w.onerror = () => opts.onend?.();
-  }
-  synth.speak(w);
-}
 
 export function stopSpeaking() {
   if (typeof window !== "undefined" && window.speechSynthesis) {
