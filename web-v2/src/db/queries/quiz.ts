@@ -52,6 +52,26 @@ export async function listDesafioQuestions(
   gradeName?: string,
   subjectId?: number
 ): Promise<DesafioQuestion[]> {
+  const targetGrade = gradeName ? gradeName.toLowerCase() : "5º ano";
+
+  // Helper local para filtrar questões do 5º ano de Geografia que dependem de imagem
+  const filterGeo5Images = <T extends { subject?: string; grade?: string; imageUrl?: string | null; imageLegacy?: string | null; image_url?: string | null; image?: string | null; has_image?: boolean; type?: string; question?: string }>(items: T[]): T[] => {
+    return items.filter((q) => {
+      const qSub = (q.subject || "").toLowerCase();
+      const qGrd = (q.grade || "5º ano").toLowerCase();
+      const isGeo5 = qSub.includes("geo") && (qGrd.includes("5") || targetGrade.includes("5"));
+
+      if (isGeo5) {
+        const hasImg = !!(q.imageUrl || q.imageLegacy || q.image_url || q.image || q.has_image);
+        const isVisualType = ["map_analysis", "diagram_analysis", "visual_interpretation", "image_multiple_choice"].includes(q.type || "");
+        const qText = (q.question || "").toLowerCase();
+        const mentionsImg = qText.includes("mapa") || qText.includes("imagem") || qText.includes("figura") || qText.includes("legenda");
+        if (hasImg || isVisualType || mentionsImg) return false;
+      }
+      return true;
+    });
+  };
+
   try {
     const rows = await db
       .select({
@@ -92,7 +112,6 @@ export async function listDesafioQuestions(
       .limit(limit);
 
     if (rows.length > 0) {
-      const targetGrade = gradeName ? gradeName.toLowerCase() : "";
       const filtered = rows.filter((r) => {
         if (subjectId && subjectId === 2 && !r.subject.toLowerCase().includes("geo")) return false;
         if (subjectId && subjectId === 1 && !r.subject.toLowerCase().includes("his")) return false;
@@ -103,8 +122,10 @@ export async function listDesafioQuestions(
         return true;
       });
 
-      if (filtered.length > 0) {
-        return filtered.map((r) => ({
+      const finalDbRows = filterGeo5Images(filtered);
+
+      if (finalDbRows.length > 0) {
+        return finalDbRows.map((r) => ({
           id: typeof r.id === "string" ? parseInt(r.id, 10) || 1 : r.id,
           question: r.question,
           options: r.options as string[] | null,
@@ -125,9 +146,7 @@ export async function listDesafioQuestions(
   }
 
   // Fallback estático usando staticQuizData (527 questões de Benjamim e Theo)
-  const targetGrade = gradeName ? gradeName.toLowerCase() : "5º ano";
-
-  const filtered = staticQuizData.filter((q: any) => {
+  let filtered = staticQuizData.filter((q: any) => {
     const qGrade = (q.grade || "5º ano").toLowerCase();
     const qSubject = (q.subject || "História").toLowerCase();
     
@@ -145,7 +164,24 @@ export async function listDesafioQuestions(
     return true;
   });
 
-  return filtered.map((q: any, idx: number) => ({
+  // Se o filtro específico por assessment não retornou nada, recua para todas as questões da série/matéria
+  if (filtered.length === 0) {
+    filtered = staticQuizData.filter((q: any) => {
+      const qGrade = (q.grade || "5º ano").toLowerCase();
+      const qSubject = (q.subject || "História").toLowerCase();
+      
+      if (subjectId === 2 && !qSubject.includes("geo")) return false;
+      if (subjectId === 1 && !qSubject.includes("his")) return false;
+
+      if (targetGrade.includes("3") && !qGrade.includes("3")) return false;
+      if (targetGrade.includes("5") && !qGrade.includes("5")) return false;
+      return true;
+    });
+  }
+
+  const finalStaticRows = filterGeo5Images(filtered);
+
+  return finalStaticRows.map((q: any, idx: number) => ({
     id: idx + 1,
     question: q.question,
     options: q.options || null,
