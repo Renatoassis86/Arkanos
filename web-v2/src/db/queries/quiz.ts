@@ -167,19 +167,10 @@ export async function listDesafioQuestions(
 // ============================================================
 
 export async function listBankSubjects() {
-  try {
-    const rows = await db
-      .selectDistinct({ id: quizSubjects.id, name: quizSubjects.name })
-      .from(quizQuestions)
-      .innerJoin(quizTopics, eq(quizQuestions.topicId, quizTopics.id))
-      .innerJoin(quizAssessments, eq(quizTopics.assessmentId, quizAssessments.id))
-      .innerJoin(quizSubjects, eq(quizAssessments.subjectId, quizSubjects.id))
-      .orderBy(quizSubjects.name);
-    if (rows.length > 0) return rows;
-  } catch {
-    // fallback
-  }
-  return [{ id: 1, name: "História" }];
+  return [
+    { id: 1, name: "História" },
+    { id: 2, name: "Geografia" }
+  ];
 }
 
 export async function listBankGrades(subjectId: number) {
