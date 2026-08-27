@@ -6759,9 +6759,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Segundo o material complementar, Honduras faz fronteira com El Salvador, Guatemala e Nicarágua.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-035",
       "avaliacao": "AV2",
@@ -6769,7 +6769,8 @@
       "disciplina": "Geografia",
       "eixo": "Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5036,
@@ -6957,9 +6958,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Península de Iucatã é uma península no sudeste do México que separa o Mar do Caribe do Golfo do México.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-041",
       "avaliacao": "AV2",
@@ -6967,7 +6968,8 @@
       "disciplina": "Geografia",
       "eixo": "Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5042,
@@ -7219,9 +7221,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Sierra Madre Mtns. atravessa a Guatemala, Honduras e El Salvador.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-049",
       "avaliacao": "AV2",
@@ -7229,7 +7231,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5050,
@@ -7252,9 +7255,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Lago Ilopango fica próximo a San Salvador, capital de El Salvador.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-050",
       "avaliacao": "AV2",
@@ -7262,7 +7265,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5051,
@@ -7285,9 +7289,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Costa do Mosquito fica no leste de Honduras, junto ao Mar do Caribe.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-051",
       "avaliacao": "AV2",
@@ -7295,7 +7299,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5052,
@@ -7317,9 +7322,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Ao norte fica o Mar do Caribe e ao sul fica o Oceano Pacífico.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-052",
       "avaliacao": "AV2",
@@ -7327,7 +7332,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5053,
@@ -7350,9 +7356,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: No mapa, Belmopã aparece com a estrela de capital federal; a Cidade de Belize é marcada apenas com um ponto.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-053",
       "avaliacao": "AV2",
@@ -7360,7 +7366,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5054,
@@ -7383,9 +7390,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Tegucigalpa aparece no mapa com o símbolo de capital federal.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-054",
       "avaliacao": "AV2",
@@ -7393,7 +7400,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5055,
@@ -7416,9 +7424,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Lago de Atitlán aparece a oeste da Cidade da Guatemala.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-055",
       "avaliacao": "AV2",
@@ -7426,7 +7434,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5056,
@@ -7449,9 +7458,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Lago de Izabal fica no leste da Guatemala, perto do Golfo de Honduras.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-056",
       "avaliacao": "AV2",
@@ -7459,7 +7468,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5057,
@@ -7482,9 +7492,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Serra dos Cuchumatanes aparece no mapa dentro do território da Guatemala.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-057",
       "avaliacao": "AV2",
@@ -7492,7 +7502,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5058,
@@ -7515,9 +7526,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Ilhas da Baía ficam no Mar do Caribe, ao norte de Honduras.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-058",
       "avaliacao": "AV2",
@@ -7525,7 +7536,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5059,
@@ -7548,9 +7560,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O rio Usumacinta aparece na região de fronteira entre a Guatemala e o México.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-059",
       "avaliacao": "AV2",
@@ -7558,7 +7570,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5060,
@@ -7581,9 +7594,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Laguna de Caratasca aparece no litoral caribenho de Honduras.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-060",
       "avaliacao": "AV2",
@@ -7591,7 +7604,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5061,
@@ -7614,9 +7628,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Cayo Ambergris e as Turneffe Islands ficam no litoral caribenho de Belize.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-061",
       "avaliacao": "AV2",
@@ -7624,7 +7638,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5062,
@@ -7647,9 +7662,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O rio Lempa aparece atravessando El Salvador.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-062",
       "avaliacao": "AV2",
@@ -7657,7 +7672,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5063,
@@ -7865,9 +7881,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Segundo a legenda do mapa, a estrela indica a capital federal e o ponto indica a capital estadual.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-068",
       "avaliacao": "AV2",
@@ -7875,7 +7891,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5069,
@@ -7898,9 +7915,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Na legenda, a linha azul representa um rio.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-02.png",
+    "image_url": "/geografia/IMG-02.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte geográfico: do Golfo do México (norte) ao norte da Costa Rica (sul); de 90° O a 83° O. Guatemala, Belize, Honduras e El Salvador em destaque verde com relevo; México, Nicarágua e Costa Rica em bege-areia apenas nomeados. ROTULAR OBRIGATORIAMENTE, nas posições corretas: GOLFO DO MÉXICO, PENÍNSULA DE IUCATÃ, MAR DO CARIBE, OCEANO PACÍFICO, GOLFO DE HONDURAS, GOLFO DE FONSECA, LAGUNA DE CARATASCA, COSTA DO MOSQUITO, ILHAS DA BAÍA, Cayo Ambergris, Turneffe Islands. Cidades: Cidade de Belize (ponto), Belmopã (estrela), Guatemala City (estrela), Quetzaltenango (ponto), Tegucigalpa (estrela), San Pedro Sula (ponto), La Ceiba (ponto), San Salvador (estrela), San Miguel (ponto), Sensuntepeque (ponto), Choluteca (ponto), Reservatório Cerrón (ponto). Relevo e feições: MONTES MAIAS, SERRA DOS CUCHUMATANES, SIERRA MADRE MTNS., PACIFIC LOWLANDS. Lagos: Lake Petén Itzá, Lago de Izabal, Lago de Atitlán, Lago Ilopango. Rios rotulados em azul: Hondo, Usumacinta, Grijalva, Chixoy, Pasión, Motagua, Ulúa, Aguán, Patuca, Coco, Lempa. Nomes de país em versalete: GUATEMALA, BELIZE, HONDURAS, EL SALVADOR, MÉXICO, NICARÁGUA, COSTA RICA. Grade com 15° e 10° nas laterais e 90° e 85° na base. Barra de escala dupla no canto inferior esquerdo: linha superior '0 | 65 | 130 MILES', linha inferior '0 | 65 | 130 KM', barras alternadas em amarelo, laranja e marrom. Abaixo do mapa, à esquerda, as quatro bandeiras nacionais em miniatura (Belize, Guatemala, El Salvador, Honduras) dispostas em 2 colunas x 2 linhas, cada uma com 120 x 80 px e borda preta fina. Abaixo do mapa, à direita, caixa retangular 'LEGENDA:' com: Cidade / Capital Federal (estrela) / Divisa de Estados (linha tracejada) / PAÍS / Capital Estadual (ponto) / Rio (linha azul). Título acima do mapa em versalete espaçado: 'BELIZE, GUATEMALA, EL SALVADOR, HONDURAS'.",
-    "image_alt": "Mapa: Belize, Guatemala, El Salvador e Honduras (réplica da p. 76)",
+    "image_alt": "Ilustração/Mapa IMG-02 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-069",
       "avaliacao": "AV2",
@@ -7908,7 +7925,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Belize, Guatemala, El Salvador e Honduras",
       "imagem_id": "IMG-02"
-    }
+    },
+    "image": "/geografia/IMG-02.jpeg"
   },
   {
     "id": 5070,
@@ -7963,9 +7981,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Lago Manágua e o Lago Nicarágua são os dois maiores lagos de água doce da América Central, ambos na Nicarágua.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-071",
       "avaliacao": "AV2",
@@ -7973,7 +7991,8 @@
       "disciplina": "Geografia",
       "eixo": "Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5072,
@@ -8029,9 +8048,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Costa Rica é um país da América Central situado ao sul da Nicarágua.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-073",
       "avaliacao": "AV2",
@@ -8039,7 +8058,8 @@
       "disciplina": "Geografia",
       "eixo": "Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5074,
@@ -8225,9 +8245,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Costa Rica fica entre a Nicarágua, ao norte, e o Panamá, ao sul.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-079",
       "avaliacao": "AV2",
@@ -8235,7 +8255,8 @@
       "disciplina": "Geografia",
       "eixo": "Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5080,
@@ -8258,9 +8279,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Arquipélago de Bocas del Toro fica ao largo da costa norte do Panamá, no Mar do Caribe.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-080",
       "avaliacao": "AV2",
@@ -8268,7 +8289,8 @@
       "disciplina": "Geografia",
       "eixo": "Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5081,
@@ -8666,9 +8688,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Manágua aparece no mapa com o símbolo de capital federal.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-092",
       "avaliacao": "AV2",
@@ -8676,7 +8698,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5093,
@@ -8699,9 +8722,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: San José aparece no mapa com o símbolo de capital federal da Costa Rica.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-093",
       "avaliacao": "AV2",
@@ -8709,7 +8732,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5094,
@@ -8732,9 +8756,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Cidade do Panamá aparece no mapa com o símbolo de capital federal.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-094",
       "avaliacao": "AV2",
@@ -8742,7 +8766,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5095,
@@ -8765,9 +8790,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Os Cayos Miskitos ficam no litoral caribenho da Nicarágua.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-095",
       "avaliacao": "AV2",
@@ -8775,7 +8800,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5096,
@@ -8798,9 +8824,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Cordilheira Isabella aparece no noroeste da Nicarágua.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-096",
       "avaliacao": "AV2",
@@ -8808,7 +8834,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5097,
@@ -8831,9 +8858,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Chirripó aparece na Costa Rica, na região montanhosa central.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-097",
       "avaliacao": "AV2",
@@ -8841,7 +8868,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5098,
@@ -8864,9 +8892,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Península de Osa aparece no litoral pacífico da Costa Rica.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-098",
       "avaliacao": "AV2",
@@ -8874,7 +8902,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5099,
@@ -8897,9 +8926,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Península de Azuero aparece no litoral pacífico do Panamá.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-099",
       "avaliacao": "AV2",
@@ -8907,7 +8936,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5100,
@@ -8930,9 +8960,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Ilha de Coiba fica no Oceano Pacífico, junto ao litoral do Panamá.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-100",
       "avaliacao": "AV2",
@@ -8940,7 +8970,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5101,
@@ -8963,9 +8994,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Colômbia aparece no canto sudeste do mapa, fazendo fronteira com o Panamá.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-101",
       "avaliacao": "AV2",
@@ -8973,7 +9004,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5102,
@@ -8996,9 +9028,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Colón fica na entrada caribenha do Canal do Panamá.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-102",
       "avaliacao": "AV2",
@@ -9006,7 +9038,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5103,
@@ -9029,9 +9062,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Ilhas Pérola aparecem no Golfo do Panamá, no Oceano Pacífico.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-103",
       "avaliacao": "AV2",
@@ -9039,7 +9072,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5104,
@@ -9062,9 +9096,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Golfo do Papagaio e o Golfo do Nicoya ficam no litoral pacífico da Costa Rica. O Golfo de Urabá e o Golfo do Panamá aparecem mais a leste.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-03.png",
+    "image_url": "/geografia/IMG-03.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: do sul de Honduras até o oeste da Colômbia; de 87° O a 77° O. Nicarágua, Costa Rica e Panamá em verde com relevo sombreado; Honduras e Colômbia em bege apenas nomeados. ROTULAR OBRIGATORIAMENTE: MAR DO CARIBE, OCEANO PACÍFICO (implícito à esquerda), GOLFO DE FONSECA, GOLFO DO PAPAGAIO, GOLFO DO NICOYA, GOLFO DE MOSQUITOS, GOLFO DE CHIRIQUÍ, GOLFO DO PANAMÁ, GOLFO DE URABÁ, COSTA DO MOSQUITO, Cayos Miskitos, Monkey Points, Arquipélago de Bocas del Toro, Ilhas Pérola, Ilha de Coiba, Ilha de Cébaco, PENÍNSULA DE OSA, PENÍNSULA DE AZUERO, CANAL DO PANAMÁ (rotulado sobre o istmo). Relevo: CORDILHEIRA ISABELLA, MONTANHAS GUANACASTE, MONTANHAS TILARÁN, CENTRAL MTNS., TALAMANCA, CORDILHEIRA CENTRAL, CORDILHEIRA SAN BLAS, pico Chirripó. Lagos: Lago Managuá e Lago Nicarágua, ambos em azul com rótulo bem legível. Rios: Coco, Rio Grande, Encondido, San Juan, Tempisque, General. Cidades: Manágua (estrela), León (ponto), Granada (ponto), San José (estrela), David (ponto), Colón (ponto), Cidade do Panamá (estrela), Santa Maria (ponto). Nomes de país: NICARÁGUA, COSTA RICA, PANAMÁ, HONDURAS, COLÔMBIA. Barra de escala dupla no canto inferior esquerdo: '0 | 65 | 130 MILES' e '0 | 65 | 130 KM'. Acima do mapa, à direita, as três bandeiras (Costa Rica, Panamá, Nicarágua) em miniatura de 140 x 90 px, lado a lado, com borda preta fina. Caixa 'LEGENDA:' abaixo, à direita, igual à do IMG-02. Título à esquerda, em três linhas versalete: 'NICARÁGUA, / COSTA RICA, / PANAMÁ'.",
-    "image_alt": "Mapa: Nicarágua, Costa Rica e Panamá (réplica da p. 80)",
+    "image_alt": "Ilustração/Mapa IMG-03 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-104",
       "avaliacao": "AV2",
@@ -9072,7 +9106,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Nicarágua, Costa Rica e Panamá",
       "imagem_id": "IMG-03"
-    }
+    },
+    "image": "/geografia/IMG-03.jpeg"
   },
   {
     "id": 5105,
@@ -12938,9 +12973,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Estreito da Flórida separa Cuba dos Estados Unidos.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-221",
       "avaliacao": "AV2",
@@ -12948,7 +12983,8 @@
       "disciplina": "Geografia",
       "eixo": "Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5222,
@@ -12971,9 +13007,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Haiti é a nação insular que fica a leste de Cuba.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-222",
       "avaliacao": "AV2",
@@ -12981,7 +13017,8 @@
       "disciplina": "Geografia",
       "eixo": "Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5223,
@@ -13004,9 +13041,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: No mapa de Cuba aparecem o Reina Archipelago, o Sabana Archipelago e o Arquipélago de Sabana-Camagüey.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-223",
       "avaliacao": "AV2",
@@ -13014,7 +13051,8 @@
       "disciplina": "Geografia",
       "eixo": "Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5224,
@@ -13035,9 +13073,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Verdadeiro. Cuba é uma das cinco Grandes Antilhas, junto com Jamaica, Haiti, República Dominicana e Porto Rico.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-224",
       "avaliacao": "AV2",
@@ -13045,7 +13083,8 @@
       "disciplina": "Geografia",
       "eixo": "Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5225,
@@ -13068,9 +13107,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Ilhas Cayman aparecem ao sul de Cuba, no Mar do Caribe.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-225",
       "avaliacao": "AV2",
@@ -13078,7 +13117,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5226,
@@ -13101,9 +13141,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Serra Maestra aparece no sudeste de Cuba, próxima a Guantánamo.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-226",
       "avaliacao": "AV2",
@@ -13111,7 +13151,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5227,
@@ -13134,9 +13175,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Sierra de los Órganos aparece no oeste de Cuba, perto de Pinar del Río.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-227",
       "avaliacao": "AV2",
@@ -13144,7 +13185,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5228,
@@ -13167,9 +13209,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Golfo de Batabanó aparece na costa sul de Cuba, perto da Ilha da Juventude.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-228",
       "avaliacao": "AV2",
@@ -13177,7 +13219,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5229,
@@ -13200,9 +13243,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Guantánamo aparece no extremo leste da ilha de Cuba.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-229",
       "avaliacao": "AV2",
@@ -13210,7 +13253,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5230,
@@ -13233,9 +13277,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Os E.U.A aparecem ao norte de Cuba, do outro lado do Estreito da Flórida.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-230",
       "avaliacao": "AV2",
@@ -13243,7 +13287,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5231,
@@ -13266,9 +13311,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Bahamas aparecem a nordeste de Cuba, no Oceano Atlântico.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-231",
       "avaliacao": "AV2",
@@ -13276,7 +13321,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5232,
@@ -13299,9 +13345,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O rio Cauto aparece rotulado no leste de Cuba.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-04.png",
+    "image_url": "/geografia/IMG-04.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) à Jamaica (sul); de 85° O a 73° O. Cuba em verde-oliva com relevo; E.U.A, Bahamas, Haiti e Jamaica em bege-areia. ROTULAR OBRIGATORIAMENTE: E.U.A, GOLFO DO MÉXICO, ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, BAHAMAS, MAR DO CARIBE, HAITI, JAMAICA, Grandes Antilhas (em itálico grande e curvo sobre o mar, a sudeste de Cuba), Ilhas Cayman, Fossa Cayman, Golfo de Batabanó, Ilha da Juventude, Sabana Archipelago, Arquipélago de Sabana-Camagüey, Reina Archipelago. Relevo: SIERRA DE LOS ÓRGANOS (oeste), SERRA MAESTRA (sudeste). Cidades: Havana (estrela), Matanzas, Pinar del Río, Santa Clara, Cienfuegos, Camaguey, Holguín, Guantánamo (todas com ponto). Rio Cauto rotulado em azul. Nome do país 'CUBA' em versalete grande. Grade com 25° e 20° nas laterais e 85°, 80°, 75° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeira de Cuba em miniatura (160 x 100 px) no canto superior direito, acima da moldura do mapa. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'CUBA' à esquerda, acima do mapa, em versalete espaçado.",
-    "image_alt": "Mapa de Cuba e arredores (réplica da p. 100)",
+    "image_alt": "Ilustração/Mapa IMG-04 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-232",
       "avaliacao": "AV2",
@@ -13309,7 +13355,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa de Cuba",
       "imagem_id": "IMG-04"
-    }
+    },
+    "image": "/geografia/IMG-04.jpeg"
   },
   {
     "id": 5233,
@@ -13542,9 +13589,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Jamaica é a nação insular ao sul de Cuba.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-239",
       "avaliacao": "AV2",
@@ -13552,7 +13599,8 @@
       "disciplina": "Geografia",
       "eixo": "Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5240,
@@ -13806,9 +13854,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Bahamas formam uma nação a sudeste da Flórida.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-247",
       "avaliacao": "AV2",
@@ -13816,7 +13864,8 @@
       "disciplina": "Geografia",
       "eixo": "Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5248,
@@ -13938,9 +13987,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A capital das Bahamas é Nassau.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-251",
       "avaliacao": "AV2",
@@ -13948,7 +13997,8 @@
       "disciplina": "Geografia",
       "eixo": "Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5252,
@@ -14103,9 +14153,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Freeport fica na ilha Grand Bahama.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-256",
       "avaliacao": "AV2",
@@ -14113,7 +14163,8 @@
       "disciplina": "Geografia",
       "eixo": "Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5257,
@@ -14136,9 +14187,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Cuba fica ao norte da Jamaica e ao sul das Bahamas.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-257",
       "avaliacao": "AV2",
@@ -14146,7 +14197,8 @@
       "disciplina": "Geografia",
       "eixo": "Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5258,
@@ -14202,9 +14254,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Matthew Town, nas Bahamas, e Clark's Town, na Jamaica, são cidades.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-259",
       "avaliacao": "AV2",
@@ -14212,7 +14264,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5260,
@@ -14235,9 +14288,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Sandy Bay e Long Bay, na Jamaica, são baías.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-260",
       "avaliacao": "AV2",
@@ -14245,7 +14298,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5261,
@@ -14268,9 +14322,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: A Ilha Gato (Cat Island) e a Long Island são ilhas das Bahamas.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-261",
       "avaliacao": "AV2",
@@ -14278,7 +14332,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5262,
@@ -14301,9 +14356,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Nassau fica na ilha de New Providence.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-262",
       "avaliacao": "AV2",
@@ -14311,7 +14366,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5263,
@@ -14334,9 +14390,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Montanhas Azuis aparecem no leste da Jamaica.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-263",
       "avaliacao": "AV2",
@@ -14344,7 +14400,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5264,
@@ -14367,9 +14424,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Canal da Providência Nordeste aparece entre as ilhas do norte das Bahamas.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-264",
       "avaliacao": "AV2",
@@ -14377,7 +14434,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5265,
@@ -14400,9 +14458,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: As Ilhas Turcas e Caicos aparecem no extremo sudeste do mapa.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-265",
       "avaliacao": "AV2",
@@ -14410,7 +14468,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5266,
@@ -14433,9 +14492,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: Matthew Town aparece nas Ilhas Inagua.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-266",
       "avaliacao": "AV2",
@@ -14443,7 +14502,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5267,
@@ -14465,9 +14525,9 @@
     "cronica_do_guardiao": "Curiosidade do Guardião Aion: O Haiti e a República Dominicana aparecem a leste de Cuba, formando a mesma ilha.",
     "has_image": true,
     "image_mode": "uploaded_asset",
-    "image_url": "/static/img/quiz/geografia5/IMG-05.png",
+    "image_url": "/geografia/IMG-05.jpeg",
     "image_prompt": "Estilo cartográfico de atlas escolar impresso, idêntico ao do livro 'Lendas & Legendas Oeste': mar em azul-acinzentado claro (#A8C4D4), terra do país em foco em verde-oliva claro (#9DB88A) com sombreamento de relevo suave em marrom-claro nas cordilheiras, países vizinhos em bege-areia (#E8D9B0), rios em linha azul fina, fronteiras em linha tracejada cinza-escura. Tipografia serifada preta. Nomes de PAÍSES em versalete grande e espaçado; cidades em fonte menor; feições físicas (golfos, serras, oceanos) em itálico azul-acinzentado. Capital federal marcada com ESTRELA preta, demais cidades com PONTO preto. Grade de coordenadas em linhas cinza finas com valores nas bordas. Rosa dos ventos simples com 'N' e seta no canto superior direito. Moldura retangular fina em volta de todo o mapa. Fundo da página em branco-marfim. Sem sombras dramáticas, sem efeito 3D, sem marca d'água. Recorte: da Flórida (norte) ao Mar do Caribe (sul); de 80° O a 70° O. Jamaica e as ilhas das Bahamas em verde-oliva; E.U.A, Cuba, Haiti e República Dominicana em bege-areia. ROTULAR OBRIGATORIAMENTE nas Bahamas: Grand Bahama, Freeport (ponto), Cooperstown (ponto), Ilhas Abaco, CANAL DA PROVIDÊNCIA NORDESTE, Ilha de Eleuthera, Nassau (ESTRELA), New Providence, Cidade de Andros (ponto), Ilhas Andro, Cidade de Bannerman (ponto), Ilha Gato, Devil's Point (ponto), San Salvador, Rum Cay, Grande Exuma, Long Island, Ilhas Acklins, Ilha Mayaguana, Ilhas Turcas e Caicos, PASSAGEM DE CAICOS, Matthew Town (ponto), Ilhas Inagua, BAHAMAS (versalete grande). Na Jamaica: Kinston (estrela), Mandeville (ponto), Clark's Town (ponto), Port Antonio (ponto), MONTANHAS MOCHO, MONTANHAS AZUIS, SANDY BAY, LONG BAY, JAMAICA (versalete grande). No mar: ESTREITO DA FLÓRIDA, OCEANO ATLÂNTICO, MAR DO CARIBE, Grandes Antilhas (em itálico curvo, aparecendo DUAS vezes: uma sobre Cuba, outra sobre Haiti/República Dominicana), Ilhas Cayman. Países vizinhos rotulados: E.U.A, CUBA, HAITI, REPÚBLICA DOMINICANA. Grade com 25° e 20° nas laterais e 80°, 75°, 70° na base. Barra de escala dupla no canto inferior esquerdo: '0 | 90 | 180 MILES' e '0 | 90 | 180 KM'. Bandeiras da Jamaica e das Bahamas em miniatura (150 x 95 px cada), lado a lado, à direita do título. Caixa 'LEGENDA:' abaixo do mapa, à esquerda. Título 'JAMAICA, AS BAHAMAS' à esquerda, em versalete espaçado.",
-    "image_alt": "Mapa de Jamaica e Bahamas (réplica da p. 106)",
+    "image_alt": "Ilustração/Mapa IMG-05 da prova de Geografia",
     "metadata_json": {
       "id_original": "GEO-AV2-267",
       "avaliacao": "AV2",
@@ -14475,7 +14535,8 @@
       "disciplina": "Geografia",
       "eixo": "Leitura do mapa: Jamaica e Bahamas",
       "imagem_id": "IMG-05"
-    }
+    },
+    "image": "/geografia/IMG-05.jpeg"
   },
   {
     "id": 5268,
