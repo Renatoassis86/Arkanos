@@ -49,7 +49,8 @@ export type DesafioQuestion = {
 export async function listDesafioQuestions(
   limit = 500, 
   assessmentId?: number,
-  gradeName?: string
+  gradeName?: string,
+  subjectId?: number
 ): Promise<DesafioQuestion[]> {
   try {
     const rows = await db
@@ -93,6 +94,8 @@ export async function listDesafioQuestions(
     if (rows.length > 0) {
       const targetGrade = gradeName ? gradeName.toLowerCase() : "";
       const filtered = rows.filter((r) => {
+        if (subjectId && subjectId === 2 && !r.subject.toLowerCase().includes("geo")) return false;
+        if (subjectId && subjectId === 1 && !r.subject.toLowerCase().includes("his")) return false;
         if (!targetGrade) return true;
         const g = (r.grade || "").toLowerCase();
         if (targetGrade.includes("3") && !g.includes("3")) return false;
@@ -121,12 +124,16 @@ export async function listDesafioQuestions(
     console.warn("DB query listDesafioQuestions failed, using static JSON fallback:", err);
   }
 
-  // Fallback estático usando staticQuizData (160 questões exclusivas de Benjamim e Theo)
+  // Fallback estático usando staticQuizData (527 questões de Benjamim e Theo)
   const targetGrade = gradeName ? gradeName.toLowerCase() : "5º ano";
 
   const filtered = staticQuizData.filter((q: any) => {
     const qGrade = (q.grade || "5º ano").toLowerCase();
+    const qSubject = (q.subject || "História").toLowerCase();
     
+    if (subjectId === 2 && !qSubject.includes("geo")) return false;
+    if (subjectId === 1 && !qSubject.includes("his")) return false;
+
     // Strict grade filter
     if (targetGrade.includes("3") && !qGrade.includes("3")) return false;
     if (targetGrade.includes("5") && !qGrade.includes("5")) return false;
@@ -306,12 +313,22 @@ export async function getGradeIdByName(name: string): Promise<number | null> {
 
 /** Disciplinas com questões para uma série específica. */
 export async function listBankSubjectsForGrade(gradeId: number) {
-  return db
-    .selectDistinct({ id: quizSubjects.id, name: quizSubjects.name })
-    .from(quizQuestions)
-    .innerJoin(quizTopics, eq(quizQuestions.topicId, quizTopics.id))
-    .innerJoin(quizAssessments, eq(quizTopics.assessmentId, quizAssessments.id))
-    .innerJoin(quizSubjects, eq(quizAssessments.subjectId, quizSubjects.id))
-    .where(eq(quizAssessments.gradeId, gradeId))
-    .orderBy(quizSubjects.name);
+  try {
+    const rows = await db
+      .selectDistinct({ id: quizSubjects.id, name: quizSubjects.name })
+      .from(quizQuestions)
+      .innerJoin(quizTopics, eq(quizQuestions.topicId, quizTopics.id))
+      .innerJoin(quizAssessments, eq(quizTopics.assessmentId, quizAssessments.id))
+      .innerJoin(quizSubjects, eq(quizAssessments.subjectId, quizSubjects.id))
+      .where(eq(quizAssessments.gradeId, gradeId))
+      .orderBy(quizSubjects.name);
+    if (rows.length > 0) return rows;
+  } catch {
+    /* fallback */
+  }
+
+  return [
+    { id: 1, name: "História" },
+    { id: 2, name: "Geografia" }
+  ];
 }

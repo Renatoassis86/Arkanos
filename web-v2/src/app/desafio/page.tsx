@@ -45,7 +45,7 @@ export default async function DesafioPage({
 
   let body;
   if (assessmentId) {
-    const questions = await listDesafioQuestions(500, assessmentId, serie);
+    const questions = await listDesafioQuestions(500, assessmentId, serie, subjectId);
     const backHref =
       subjectId && trimestre
         ? `/desafio?subject=${subjectId}&trimestre=${trimestre}`
@@ -60,7 +60,7 @@ export default async function DesafioPage({
             ← Trocar prova
           </Link>
         </div>
-        <DesafioQuiz questions={roundOf(questions, questions.length)} authed />
+        <DesafioQuiz questions={roundOf(questions, 50)} authed />
       </>
     );
   } else if (!gradeId) {
