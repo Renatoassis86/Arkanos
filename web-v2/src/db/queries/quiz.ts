@@ -313,6 +313,12 @@ export async function getGradeIdByName(name: string): Promise<number | null> {
 
 /** Disciplinas com questões para uma série específica. */
 export async function listBankSubjectsForGrade(gradeId: number) {
+  const subjectsMap = new Map<number, string>();
+  
+  // Base canonica: 1 = História, 2 = Geografia
+  subjectsMap.set(1, "História");
+  subjectsMap.set(2, "Geografia");
+
   try {
     const rows = await db
       .selectDistinct({ id: quizSubjects.id, name: quizSubjects.name })
@@ -322,13 +328,15 @@ export async function listBankSubjectsForGrade(gradeId: number) {
       .innerJoin(quizSubjects, eq(quizAssessments.subjectId, quizSubjects.id))
       .where(eq(quizAssessments.gradeId, gradeId))
       .orderBy(quizSubjects.name);
-    if (rows.length > 0) return rows;
+
+    for (const r of rows) {
+      if (r.id && r.name) {
+        subjectsMap.set(typeof r.id === "string" ? parseInt(r.id, 10) : r.id, r.name);
+      }
+    }
   } catch {
     /* fallback */
   }
 
-  return [
-    { id: 1, name: "História" },
-    { id: 2, name: "Geografia" }
-  ];
+  return Array.from(subjectsMap.entries()).map(([id, name]) => ({ id, name }));
 }
