@@ -73,7 +73,7 @@ export async function listDesafioQuestions(
   };
 
   try {
-    const rows = await db
+    let rows = await db
       .select({
         id: quizQuestions.id,
         question: quizQuestions.question,
@@ -111,8 +111,54 @@ export async function listDesafioQuestions(
       )
       .limit(limit);
 
-    if (rows.length > 0) {
-      const filtered = rows.filter((r) => {
+    let filtered = rows.filter((r) => {
+      if (subjectId && subjectId === 2 && !r.subject.toLowerCase().includes("geo")) return false;
+      if (subjectId && subjectId === 1 && !r.subject.toLowerCase().includes("his")) return false;
+      if (!targetGrade) return true;
+      const g = (r.grade || "").toLowerCase();
+      if (targetGrade.includes("3") && !g.includes("3")) return false;
+      if (targetGrade.includes("5") && !g.includes("5")) return false;
+      return true;
+    });
+
+    // Se o filtro com assessmentId não encontrou questões para a matéria/série, busca todas as questões da matéria/série no DB
+    if (filtered.length === 0 && assessmentId) {
+      const allRows = await db
+        .select({
+          id: quizQuestions.id,
+          question: quizQuestions.question,
+          options: quizQuestions.options,
+          answer: quizQuestions.answer,
+          type: quizQuestions.type,
+          difficulty: quizQuestions.difficulty,
+          explanation: quizQuestions.explanation,
+          cronica: quizQuestions.cronicaDoGuardiao,
+          subject: quizSubjects.name,
+          topic: quizTopics.name,
+          imageUrl: quizQuestions.imageUrl,
+          imageLegacy: quizQuestions.image,
+          imageAlt: quizQuestions.imageAlt,
+          grade: quizGrades.name,
+        })
+        .from(quizQuestions)
+        .innerJoin(quizTopics, eq(quizQuestions.topicId, quizTopics.id))
+        .innerJoin(quizSubjects, eq(quizTopics.subjectId, quizSubjects.id))
+        .innerJoin(quizAssessments, eq(quizTopics.assessmentId, quizAssessments.id))
+        .innerJoin(quizGrades, eq(quizAssessments.gradeId, quizGrades.id))
+        .where(
+          inArray(quizQuestions.type, [
+            "multiple_choice",
+            "image_multiple_choice",
+            "true_false",
+            "map_analysis",
+            "diagram_analysis",
+            "visual_interpretation",
+            "ordering",
+          ])
+        )
+        .limit(limit);
+
+      filtered = allRows.filter((r) => {
         if (subjectId && subjectId === 2 && !r.subject.toLowerCase().includes("geo")) return false;
         if (subjectId && subjectId === 1 && !r.subject.toLowerCase().includes("his")) return false;
         if (!targetGrade) return true;
@@ -121,25 +167,25 @@ export async function listDesafioQuestions(
         if (targetGrade.includes("5") && !g.includes("5")) return false;
         return true;
       });
+    }
 
-      const finalDbRows = filterGeo5Images(filtered);
+    const finalDbRows = filterGeo5Images(filtered);
 
-      if (finalDbRows.length > 0) {
-        return finalDbRows.map((r) => ({
-          id: typeof r.id === "string" ? parseInt(r.id, 10) || 1 : r.id,
-          question: r.question,
-          options: r.options as string[] | null,
-          answer: r.answer,
-          type: r.type,
-          difficulty: r.difficulty,
-          explanation: r.explanation,
-          cronica: r.cronica,
-          subject: r.subject,
-          topic: r.topic,
-          imageUrl: r.imageUrl ?? r.imageLegacy ?? null,
-          imageAlt: r.imageAlt,
-        }));
-      }
+    if (finalDbRows.length > 0) {
+      return finalDbRows.map((r) => ({
+        id: typeof r.id === "string" ? parseInt(r.id, 10) || 1 : r.id,
+        question: r.question,
+        options: r.options as string[] | null,
+        answer: r.answer,
+        type: r.type,
+        difficulty: r.difficulty,
+        explanation: r.explanation,
+        cronica: r.cronica,
+        subject: r.subject,
+        topic: r.topic,
+        imageUrl: r.imageUrl ?? r.imageLegacy ?? null,
+        imageAlt: r.imageAlt,
+      }));
     }
   } catch (err) {
     console.warn("DB query listDesafioQuestions failed, using static JSON fallback:", err);
