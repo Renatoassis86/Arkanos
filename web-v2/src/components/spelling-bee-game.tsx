@@ -176,6 +176,7 @@ export function SpellingBeeGame({
   const [results, setResults] = useState<SpellingItemResult[]>([]);
   const [highestTier, setHighestTier] = useState<string>("Fácil");
   const [spelled, setSpelled] = useState("");
+  const [interimHint, setInterimHint] = useState("");
   const [listening, setListening] = useState(false);
   const [micError, setMicError] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
@@ -251,6 +252,7 @@ export function SpellingBeeGame({
   }, [spelled]);
 
   function restartMicBuffer() {
+    setInterimHint("");
     if (recRef.current) {
       try {
         recRef.current.abort();
@@ -277,32 +279,49 @@ export function SpellingBeeGame({
       const targetWord = q ? q.palavra : "";
       const targetLen = q ? norm(q.palavra).length : 15;
 
-      for (let i = e.resultIndex; i < e.results.length; i++) {
-        if (!e.results[i].isFinal && i > e.resultIndex) continue;
-        const text = e.results[i][0].transcript.trim();
-        const extracted = lettersFromTranscript(text, targetWord);
+      // Só confirma letras em resultados FINAIS (isFinal). Provisórios (interim)
+      // mudam várias vezes por fala enquanto o motor refina o palpite -- commitá-los
+      // direto é o que causava letras duplicadas/oscilando. O último provisório só
+      // alimenta uma prévia visual (não commitada).
+      let sawInterim = false;
 
-        if (extracted) {
-          if (norm(extracted) === norm(targetWord)) {
-            const full = norm(targetWord);
-            setSpelled(full);
-            setTimeout(() => check(full), 400);
-            break;
-          } else {
-            const current = spelledRef.current;
-            if (!current.endsWith(extracted)) {
-              const next = (current + extracted).slice(0, targetLen);
-              setSpelled(next);
-              if (next.length >= targetLen) {
-                setTimeout(() => check(next), 400);
-              }
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const result = e.results[i];
+        const text = result[0].transcript.trim();
+
+        if (!result.isFinal) {
+          sawInterim = true;
+          const preview = lettersFromTranscript(text, targetWord);
+          setInterimHint(preview.slice(-1));
+          continue;
+        }
+
+        setInterimHint("");
+        const extracted = lettersFromTranscript(text, targetWord);
+        if (!extracted) continue;
+
+        if (norm(extracted) === norm(targetWord)) {
+          const full = norm(targetWord);
+          setSpelled(full);
+          setTimeout(() => check(full), 400);
+          break;
+        } else {
+          const current = spelledRef.current;
+          if (!current.endsWith(extracted)) {
+            const next = (current + extracted).slice(0, targetLen);
+            setSpelled(next);
+            if (next.length >= targetLen) {
+              setTimeout(() => check(next), 400);
             }
           }
         }
       }
+
+      if (!sawInterim) setInterimHint("");
     };
 
     rec.onerror = (e: SpeechRecognitionErrorEvent) => {
+      setInterimHint("");
       if (e.error !== "no-speech") {
         setMicError(
           e.error === "not-allowed"
@@ -315,6 +334,7 @@ export function SpellingBeeGame({
 
     rec.onend = () => {
       setListening(false);
+      setInterimHint("");
       if (recRef.current === rec) {
         try {
           rec.start();
@@ -842,9 +862,9 @@ export function SpellingBeeGame({
                     i === 0
                       ? "border-pink-300 bg-pink-50/40 animate-pulse"
                       : "border-dashed border-slate-200 bg-slate-50/50"
-                  } text-sm font-bold text-slate-300`}
+                  } ${i === 0 && interimHint ? "text-lg font-black italic text-pink-400" : "text-sm font-bold text-slate-300"}`}
                 >
-                  {i === 0 ? "·" : ""}
+                  {i === 0 ? interimHint || "·" : ""}
                 </span>
               ))}
             </div>

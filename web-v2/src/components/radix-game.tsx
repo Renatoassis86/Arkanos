@@ -101,6 +101,7 @@ export function RadixGame({
   const [phase, setPhase] = useState<Phase>("intro");
 
   const [spelled, setSpelled] = useState("");
+  const [interimHint, setInterimHint] = useState("");
   const [typed, setTyped] = useState("");
   const [results, setResults] = useState<SpellingItemResult[]>([]);
   const [correctCount, setCorrectCount] = useState(0);
@@ -144,6 +145,7 @@ export function RadixGame({
   }
 
   function restartMicBuffer() {
+    setInterimHint("");
     if (recRef.current) {
       try {
         recRef.current.abort();
@@ -262,33 +264,51 @@ export function RadixGame({
       const targetWord = q ? q.palavra : "";
       const targetLen = q ? norm(q.palavra).length : 15;
 
-      for (let i = e.resultIndex; i < e.results.length; i++) {
-        if (!e.results[i].isFinal && i > e.resultIndex) continue;
-        const text = e.results[i][0].transcript.trim();
-        const extracted = lettersFromTranscript(text, targetWord);
+      // IMPORTANTE: só confirmamos letras em resultados FINAIS (isFinal).
+      // Resultados provisórios (interim) mudam várias vezes por fala enquanto
+      // o motor refina o palpite — comprometê-los direto no soletrado é o que
+      // causava letras duplicadas/oscilando ("s" virando "ss" e voltando).
+      // O último provisório só alimenta uma prévia visual (não commitada).
+      let sawInterim = false;
 
-        if (extracted) {
-          if (norm(extracted) === norm(targetWord)) {
-            const full = norm(targetWord);
-            setSpelled(full);
-            setTimeout(() => check(full), 400);
-            break;
-          } else {
-            const current = spelledRef.current;
-            // Se as letras extraídas já estão contidas ou duplicadas, evita append desnecessário
-            if (!current.endsWith(extracted)) {
-              const next = (current + extracted).slice(0, targetLen);
-              setSpelled(next);
-              if (next.length >= targetLen) {
-                setTimeout(() => check(next), 400);
-              }
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const result = e.results[i];
+        const text = result[0].transcript.trim();
+
+        if (!result.isFinal) {
+          sawInterim = true;
+          const preview = lettersFromTranscript(text, targetWord);
+          setInterimHint(preview.slice(-1));
+          continue;
+        }
+
+        setInterimHint("");
+        const extracted = lettersFromTranscript(text, targetWord);
+        if (!extracted) continue;
+
+        if (norm(extracted) === norm(targetWord)) {
+          const full = norm(targetWord);
+          setSpelled(full);
+          setTimeout(() => check(full), 400);
+          break;
+        } else {
+          const current = spelledRef.current;
+          // Se as letras extraídas já estão contidas ou duplicadas, evita append desnecessário
+          if (!current.endsWith(extracted)) {
+            const next = (current + extracted).slice(0, targetLen);
+            setSpelled(next);
+            if (next.length >= targetLen) {
+              setTimeout(() => check(next), 400);
             }
           }
         }
       }
+
+      if (!sawInterim) setInterimHint("");
     };
 
     rec.onerror = (e: SpeechRecognitionErrorEvent) => {
+      setInterimHint("");
       if (e.error !== "no-speech") {
         setMicError(
           e.error === "not-allowed"
@@ -301,6 +321,7 @@ export function RadixGame({
 
     rec.onend = () => {
       setListening(false);
+      setInterimHint("");
       // Auto-reconecta suavemente se o jogador ainda estiver na fase de soletração
       if (recRef.current === rec) {
         try {
@@ -794,9 +815,9 @@ export function RadixGame({
                   key={`e${i}`}
                   className={`flex h-12 w-10 sm:h-14 sm:w-11 items-center justify-center rounded-xl border-2 ${
                     i === 0 ? "border-emerald-400 bg-emerald-50/50 animate-pulse" : "border-dashed border-slate-200 bg-slate-50/50"
-                  } text-xs font-bold text-slate-300`}
+                  } ${i === 0 && interimHint ? "text-lg font-black italic text-emerald-400" : "text-xs font-bold text-slate-300"}`}
                 >
-                  {i === 0 ? "·" : ""}
+                  {i === 0 ? interimHint || "·" : ""}
                 </span>
               ))}
             </div>
